@@ -13,7 +13,7 @@ bookdown::gitbook:
     highlight: pygments
     number_sections: yes
     toc:
-      collapse: chapter
+      collapse: subsection
       scroll_highlight: yes
       before: |
         <li><a href="./index.html">📈 MA22004</a></li>
