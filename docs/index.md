@@ -1,7 +1,7 @@
 ---
 title: "MA22004 - Statistics and Probability II"
 author: "Dr Eric Hall"
-date: "Last updated: `r Sys.Date()`"
+date: "Last updated: 2020-08-06"
 site: bookdown::bookdown_site
 documentclass: book
 link-citations: yes
@@ -10,27 +10,7 @@ url: 'https\://ejhall.github.io/MA22004/'
 description: "Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee."
 ---
 
-```{r setup, include=FALSE}
-#  bookdown::render_book("index.Rmd", "bookdown::gitbook", output_dir = "docs/")
 
-# packages
-library(bookdown)
-library(RColorBrewer)
-library(readr)
-library(plotly)
-library(tidyverse)
-library(reshape2)
-library(latex2exp)
-library(svglite)
-library(knitr)
-library(kableExtra)
-library(formattable)
-library(DT)
-library(dplyr)
-
-knitr::opts_chunk$set(echo = TRUE, comment = "", dev = "svglite", fig.width=8) #, dev = "svglite", fig.width=8
-#plotly::config(plot_ly(), displaylogo = FALSE, mathjax = "cdn")
-```
 
 # (PART 1) Course Documents {-#docs}
 
@@ -59,9 +39,68 @@ You should make an appointment to see Dr Hall if you have a problem regarding th
 
 The delivery of this module consists of a blend of synchronous and asynchronous content delivered both in-person and online. On an average week there will be seven planned teaching and learning activities.
 
-```{r table-activities, echo=FALSE, warning = FALSE, message = FALSE, fig.cap = "Learning activities."}
-kable(tibble(read_csv("data/activities.csv")))
-```
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Activity </th>
+   <th style="text-align:left;"> Timetabled </th>
+   <th style="text-align:left;"> Group </th>
+   <th style="text-align:right;"> Hours </th>
+   <th style="text-align:left;"> Delivery </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Reading </td>
+   <td style="text-align:left;"> asynchronous </td>
+   <td style="text-align:left;"> individually &amp; in groups </td>
+   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:left;"> online </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Investigation </td>
+   <td style="text-align:left;"> asynchronous </td>
+   <td style="text-align:left;"> individually </td>
+   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:left;"> online </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Seminar </td>
+   <td style="text-align:left;"> synchronous </td>
+   <td style="text-align:left;"> whole class </td>
+   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:left;"> online </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Computer Lab </td>
+   <td style="text-align:left;"> asynchronous </td>
+   <td style="text-align:left;"> individually </td>
+   <td style="text-align:right;"> 5.5 </td>
+   <td style="text-align:left;"> online </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Workshop Preparation </td>
+   <td style="text-align:left;"> asynchronous </td>
+   <td style="text-align:left;"> individually or in groups </td>
+   <td style="text-align:right;"> 2.0 </td>
+   <td style="text-align:left;"> online </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Workshop </td>
+   <td style="text-align:left;"> synchronous </td>
+   <td style="text-align:left;"> in groups </td>
+   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:left;"> face-to-face </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Office Hours </td>
+   <td style="text-align:left;"> synchronous </td>
+   <td style="text-align:left;"> in groups </td>
+   <td style="text-align:right;"> 2.0 </td>
+   <td style="text-align:left;"> online </td>
+  </tr>
+</tbody>
+</table>
 
 The anticipated student effort is 200 hours (or 17.5 hours per week less the examination time). You are expected to be "present" for all synchronous timetabled activities with the exception of the online office hours. You can engage with the asynchronous material at your own pace, keeping in mind that you meet any deadlines for engagement and/or attainment. 
 
@@ -101,11 +140,32 @@ In addition to these lecture notes, here are some text books you may wish to con
 
 The module will be *continuously* assessed using coursework and examinations. Deadlines as well as test dates will be posted on Ultra and announcements made in the class hours. The module assessment weighting is as follows. 
 
-```{r table, echo=FALSE}
-df <- tibble(Assessment=c("Assignments", "Midterm Exam 1", "Midterm Exam 2", "Final Exam"),
-             Weight=c("20%", "20%", "20%", "40%"))
-kable(df)
-```
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Assessment </th>
+   <th style="text-align:left;"> Weight </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Assignments </td>
+   <td style="text-align:left;"> 20% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Midterm Exam 1 </td>
+   <td style="text-align:left;"> 20% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Midterm Exam 2 </td>
+   <td style="text-align:left;"> 20% </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Final Exam </td>
+   <td style="text-align:left;"> 40% </td>
+  </tr>
+</tbody>
+</table>
 
 ### Coursework {-#cg-assessment-coursework}
 
