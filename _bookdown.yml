@@ -1,0 +1,7 @@
+book_filename: "ma22004"
+repo: https://github.com/ejhall/MA22004
+output_dir: docs
+rmd_files: ["index.Rmd"]
+clean: [packages.bib, bookdown.bbl]
+new_session: no
+delete_merged_file: true
