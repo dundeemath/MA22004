@@ -157,7 +157,7 @@ The module will be *continuously* assessed using coursework and examinations. De
 
 ### Coursework {-#cg-assessment-coursework}
 
-Assessed cour
+Assessed coursework includes:
 
 - six hand-in laboratory reports and 
 - weekly engagement with the reading material using [Perusall](https://perusall.com/). 
@@ -173,7 +173,7 @@ The **Midterm Exams** will be computer-assessed and will be one (1) hour in scop
 
 The **Final Exam** will be a two (2) hour hand-written exam that will be submitted using [Gradescope](https://www.gradescope.com/). This process will be thoroughly discussed and trialled with a dummy exam in advance of the real submission. The Final Exam will be in week 11 (i.e., during the last week of the term).
 
-To pass this module, one must:
+To pass this module, you must:
 
 - obtain an overall grade of at least `D3` in the overall assessment **and** 
 - obtain a grade of at least `M1` for the exam **and** 
