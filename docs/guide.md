@@ -17,6 +17,8 @@ Fulton Building
 01382 TBA
 --------------------
 
+This course uses [Blackboard Ultra](my.dundee.ac.uk) (look for course `MA22004_SEM0000_2021`) for communicating all announcements/deadlines and also for running online meetings.
+
 You should make an appointment to see Dr Hall if you have a problem regarding the course. You may also bring matters of concern about the course  to the attention of the Mathematics Division Staff/Student Committee, which meets once each semester. A volunteer from Level 2 Mathematics will act as class representative to sit on the Staff/Student Committee; their name will be posted on Ultra.
 
 ## Timetable {-#cg-timetable}
@@ -40,55 +42,55 @@ The delivery of this module consists of a blend of synchronous and asynchronous 
    <td style="text-align:left;"> Reading </td>
    <td style="text-align:left;"> asynchronous </td>
    <td style="text-align:left;"> individually &amp; in groups </td>
-   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:right;"> 6 </td>
    <td style="text-align:left;"> online </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Investigation </td>
    <td style="text-align:left;"> asynchronous </td>
    <td style="text-align:left;"> individually </td>
-   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:right;"> 1 </td>
    <td style="text-align:left;"> online </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Seminar </td>
    <td style="text-align:left;"> synchronous </td>
    <td style="text-align:left;"> whole class </td>
-   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:right;"> 1 </td>
    <td style="text-align:left;"> online </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Computer Lab </td>
    <td style="text-align:left;"> asynchronous </td>
    <td style="text-align:left;"> individually </td>
-   <td style="text-align:right;"> 5.5 </td>
+   <td style="text-align:right;"> 6 </td>
    <td style="text-align:left;"> online </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Workshop Preparation </td>
    <td style="text-align:left;"> asynchronous </td>
    <td style="text-align:left;"> individually or in groups </td>
-   <td style="text-align:right;"> 2.0 </td>
+   <td style="text-align:right;"> 2 </td>
    <td style="text-align:left;"> online </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Workshop </td>
    <td style="text-align:left;"> synchronous </td>
    <td style="text-align:left;"> in groups </td>
-   <td style="text-align:right;"> 1.0 </td>
+   <td style="text-align:right;"> 1 </td>
    <td style="text-align:left;"> face-to-face </td>
   </tr>
   <tr>
    <td style="text-align:left;"> Office Hours </td>
    <td style="text-align:left;"> synchronous </td>
    <td style="text-align:left;"> in groups </td>
-   <td style="text-align:right;"> 2.0 </td>
+   <td style="text-align:right;"> 1 </td>
    <td style="text-align:left;"> online </td>
   </tr>
 </tbody>
 </table>
 
-The anticipated student effort is 200 hours (or 17.5 hours per week less the examination time). You are expected to be "present" for all synchronous timetabled activities with the exception of the online office hours. You can engage with the asynchronous material at your own pace, keeping in mind that you meet any deadlines for engagement and/or attainment. 
+The anticipated student effort is 200 hours over the length of the module. You are expected to be "present" for all synchronous timetabled activities with the exception of the online office hours which are optional. You may engage with the asynchronous material at your own pace, keeping in mind to meet any deadlines for engagement and/or attainment that will be posted to Ultra and discussed. 
 
 ## Pre-requisites {-#cg-prerecs}
 
@@ -113,7 +115,7 @@ R software package
 
 ## Recommended Books {-#cg-books}
 
-In addition to these lecture notes, here are some text books you may wish to consult.
+In addition to the course notes, here are some text books you may wish to consult.
 
 > ⚠️ You do not need to purchase these books.
 
@@ -177,12 +179,11 @@ To pass this module it is necessary to obtain an overall grade of at least `D3` 
 
 ## Your Commitment {-#cg-commitment}
 
-You should attend all synchronous timetabled sessions except on medical grounds or with the special permission of the lecturer concerned. If you are unable to attend the degree examination or complete elements of the coursework on time then you should inform the Module Leader and submit a medical certificate. Medical certificates should be submitted to your School Office as soon as possible after the abscence.
+You should attend all synchronous timetabled sessions except on medical grounds or with the special permission of Dr Hall. If you are unable to attend the degree examination or complete elements of the coursework on time then you should inform Dr Hall and submit a medical certificate. Medical certificates should be submitted to your School Office as soon as possible after the abscence.
 
 > ⚠️ You must also  submit a Mitigating Circumstances form to explain which aspects of assessment have been affected by your abscence.
 
-A Medical Certificate will not be taken into account unless 
-a Mitigating Circumstances form that refers to the medical certificate has also been completed.
+A Medical Certificate will not be taken into account unless a Mitigating Circumstances form that refers to the medical certificate has also been completed.
 
 ## Approved Calculators {-#cg-calcs}
 
@@ -190,15 +191,15 @@ The only types of calculators that have been approved for use in assessments in 
 
 ## Study Support {-#cg-support}
 
-If you are  having difficulty with the course you are encouraged to seek help at an early stage by making an appointment to see your lecturer. You may also obtain additional help from the Maths Base (see Ultra for details).
+If you are  having difficulty with the course you are encouraged to seek help at an early stage by making an appointment to meet with Dr Hall. You may also obtain additional help from the Maths Base (see Ultra for details).
 
 ## Disability {-#cg-disability}
 
-The University of Dundee is committed to making reasonable, effective and appropriate accommodations to meet the needs of students with disabilities and help create an inclusive and barrier-free campus. If you are in need of accommodation for a documented disability, then you are advised to register with [Disability Services](https://www.dundee.ac.uk/disabilityservices/). Please communicate any needs you may have directly with me and ahead of time to ensure that we might manage any accommodations in a timely manner. 
+The University of Dundee is committed to making reasonable, effective and appropriate accommodations to meet the needs of students with disabilities and help create an inclusive and barrier-free campus. If you are in need of accommodation for a documented disability, then you are advised to register with [Disability Services](https://www.dundee.ac.uk/disabilityservices/). Please communicate any needs you may have directly with Dr Hall and ahead of time to ensure that any accommodations might be managed in a timely manner. 
 
 ## Academic Honesty {-#cg-honesty}
 
-Since the integrity of the academic enterprise of any institution of higher education requires honesty in scholarship and research, academic honesty is required of all students at the University of Dundee. Academic dishonesty includes but is not limited to: cheating, fabrication, plagiarism, and facilitating dishonesty. Academic dishonesty or misconduct is prohibited in all programs of the University. Appropriate sanctions may be imposed on any student who has committed an act of academic dishonesty and ignorance of such standards is not normally sufficient evidence of lack of intent. For more information about what constitutes academic dishonesty, please see the [*Code of Practice on Academic Misconduct by Students*](https://www.dundee.ac.uk/qf/documents/details/academic-misconduct.php).
+Since the integrity of the academic enterprise of any higher education institution requires honesty in scholarship and research, academic honesty is required of all students at the University of Dundee. Academic dishonesty includes but is not limited to: cheating, fabrication, plagiarism, and facilitating dishonesty. Appropriate sanctions may be imposed on any student who has committed an act of academic dishonesty and ignorance of such standards is not normally sufficient evidence of lack of intent. For more information about what constitutes academic dishonesty, please see the [*Code of Practice on Academic Misconduct by Students*](https://www.dundee.ac.uk/qf/documents/details/academic-misconduct.php).
 
 ## End of Module Questionaire {-#cg-questionaire}
 

@@ -1,7 +1,7 @@
 ---
 title: "MA22004 - Statistics and Probability II"
 author: "Dr Eric Hall"
-date: "Last updated: 2020-08-06"
+date: "Last updated: 2020-08-18"
 site: bookdown::bookdown_site
 documentclass: book
 link-citations: yes
