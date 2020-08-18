@@ -119,7 +119,9 @@ To pass this module, you must:
 - obtain a grade of at least `M1` for the exam **and** 
 - obtain a grade of at least `M1` for the coursework.
 
-> ⚠️ For those who fail the module, there may be an opportunity to take a two-hour resit examination paper at the next available exam diet. However, unless you have mitigating circumstances, if you fail to achieve a module grade of `CF` or above at first attempt, then you may not be permitted to resit the exam. Also, unless you have mitigating circumstances, any pass after a resit will be capped at a grade of `D3` regardless of the weighted average mark obtained. Resit marks are based on the resit exam only. 
+For those who fail the module, there may be an opportunity to take a two-hour resit examination paper at the next available exam diet. Resit marks are based on the resit exam only.
+
+> ⚠️ Unless you have mitigating circumstances, if you fail to achieve a module grade of `CF` or above at first attempt, then you may not be permitted to resit the exam. Also, unless you have mitigating circumstances, any pass after a resit will be capped at a grade of `D3` regardless of the weighted average mark obtained.  
 
 ## Your Commitment {-#cg-commitment}
 
