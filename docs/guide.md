@@ -17,7 +17,7 @@ Fulton Building
 01382 TBA
 --------------------
 
-This course uses [Blackboard Ultra](my.dundee.ac.uk) (look for course `MA22004_SEM0000_2021`) for communicating all announcements/deadlines and also for running online meetings.
+This course uses [Blackboard Ultra](my.dundee.ac.uk) (look for course `MA22004_SEM0000_2021`) for communicating all announcements/deadlines and also for running online meetings. This course also uses [Gradescope](https://www.gradescope.com/) for submission of some of the continuous assessment items and [Perusall](https://perusall.com/) for collaborative engagement with reading materials.
 
 If you have a problem regarding the course, then you should make an appointment to see Dr Hall. You may also bring matters of concern about the course to the attention of the Mathematics Division Staff/Student Committee, which meets once each semester. A volunteer from Level 2 Mathematics will act as class representative to sit on the Staff/Student Committee (see Ultra for contact details).
 
@@ -179,9 +179,11 @@ To pass this module, you must:
 - obtain a grade of at least `M1` for the exam **and** 
 - obtain a grade of at least `M1` for the coursework.
 
-For those who fail the module, there may be an opportunity to take a two-hour resit examination paper at the next available exam diet. Resit marks are based on the resit exam only.
+For those who fail the module, there may be an opportunity to take a two-hour resit examination paper at the next available exam diet. 
 
-> ⚠️ Unless you have mitigating circumstances, if you fail to achieve a module grade of `CF` or above at first attempt, then you may not be permitted to resit the exam. Also, unless you have mitigating circumstances, any pass after a resit will be capped at a grade of `D3` regardless of the weighted average mark obtained.  
+> ⚠️ Resit marks are based on the resit exam only.
+
+Unless you have mitigating circumstances, if you fail to achieve a module grade of `CF` or above at first attempt, then you may not be permitted to resit the exam. Also, unless you have mitigating circumstances, any pass after a resit will be capped at a grade of `D3` regardless of the weighted average mark obtained.  
 
 ## Your Commitment {-#cg-commitment}
 
