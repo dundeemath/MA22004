@@ -1,7 +1,7 @@
 book_filename: "ma22004"
 repo: https://github.com/ejhall/MA22004
 output_dir: docs
-rmd_files: ["index.Rmd", "guide.Rmd", "01-lec.Rmd"]
+rmd_files: ["index.Rmd", "guide.Rmd", "00-prelim.Rmd", "01-basics-stat-infer.Rmd"]
 delete_merged_file: true
 clean: [packages.bib, bookdown.bbl]
 new_session: yes

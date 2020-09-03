@@ -207,7 +207,7 @@ The University of Dundee is committed to making reasonable, effective and approp
 
 ## Academic Honesty {-#cg-honesty}
 
-Honesty in scholarship and research is integral to the integrity of the academic enterprise of any higher education institution. Therefore, all students at the University of Dundee must practice academic honesty. Academic dishonesty includes cheating, fabrication, plagiarism, and facilitating dishonesty. Cases of academic dishonesty may meet with appropriate sanctions and ignorance of such standards is not sufficient evidence of lack of intent. Please see the [*Code of Practice on Academic Misconduct by Students*](https://www.dundee.ac.uk/qf/documents/details/academic-misconduct.php) for more information about what constitutes academic dishonesty.
+Honesty in scholarship and research is integral to the integrity of the academic enterprise of any higher education institution. Therefore, all students at the University of Dundee must practice academic honesty. Academic dishonesty includes cheating, fabrication, plagiarism, and facilitating dishonesty. Cases of academic dishonesty will be subject to appropriate sanctions and ignorance of such standards is not sufficient evidence of lack of intent. Please see the [*Code of Practice on Academic Misconduct by Students*](https://www.dundee.ac.uk/qf/documents/details/academic-misconduct.php) for more information about what constitutes academic dishonesty.
 
 ## End of Module Questionaire {-#cg-questionaire}
 

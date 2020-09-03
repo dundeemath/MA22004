@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>MA22004 - Statistics and Probability II</title>
+  <title>1 Basics of statistical inference | MA22004 - Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="MA22004 - Statistics and Probability II" />
+  <meta property="og:title" content="1 Basics of statistical inference | MA22004 - Statistics and Probability II" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://ejhall.github.io/MA22004/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ejhall/MA22004/" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="MA22004 - Statistics and Probability II" />
+  <meta name="twitter:title" content="1 Basics of statistical inference | MA22004 - Statistics and Probability II" />
   
   <meta name="twitter:description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="preliminaries.html"/>
 
-<link rel="next" href="cg.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -198,23 +198,82 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">MA22004 - Statistics and Probability II</h1>
-<p class="author"><em>Dr Eric Hall</em></p>
-<p class="date"><em>Last updated: 2020-09-03</em></p>
+<div id="statistical-inference" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Basics of statistical inference</h1>
+<div id="point-estimation" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Point estimation</h2>
+<p>A <strong>statistic</strong> is a quantity that can be calculated from sample data. Prior to obtaining data, a statistic is an unknown quantity and is therefore a rv. We refer to the probability distribution for a statistic as a <strong>sampling distribution</strong> to emphasize how the distribution will vary across all possible sample data.</p>
+<p>Statistical inference seeks to draw conclusions about the characteristics of a population from data. For example, suppose we are botanists interested in taxonomic classification of iris flowers. Let <span class="math inline">\(\mu\)</span> denote the true average petal length (in cm) of the <a href="https://www.wikiwand.com/en/Iris_setosa"><em>Iris setosa</em></a> (AKA the bristle-pointed iris). The parameter <span class="math inline">\(\mu\)</span> is a characteristic of the whole population for the <em>setosa</em> species. Before we collect data, the petal lengths of <span class="math inline">\(n\)</span> independent <em>setosa</em> flowers are denoted by rvs <span class="math inline">\(X_1, X_2, \dots, X_n\)</span>. Any function of the <span class="math inline">\(X_i\)</span>’s, such as the sample mean,
+<span class="math display" id="eq:sample-mean">\[\begin{equation}
+  \overline{X} = \frac{1}{n} \sum_{i=1}^n X_i\,, \tag{1.1}
+\end{equation}\]</span>
+or the sample variance,
+<span class="math display">\[\begin{equation*}
+  S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X})^2 \,,
+\end{equation*}\]</span>
+is also a rv.</p>
+<p>Suppose we actually find and measure the petal length of <span class="math inline">\(50\)</span> independent <em>setosa</em> flowers resulting in observations <span class="math inline">\(x_1, x_2, \dots, x_{50}\)</span>; the distribution (counts) of <span class="math inline">\(50\)</span> such petal length measurements are displayed in Figure <a href="statistical-inference.html#fig:setosa-petal-lengths">1.1</a>. The sample mean <span class="math inline">\(\overline{x}\)</span> for petal length could then be used to draw a conclusion about the value of the population mean <span class="math inline">\(\mu\)</span>. Similarly, if <span class="math inline">\(\sigma^2\)</span> is the variance of the <em>setosa</em> petal length then <span class="math inline">\(s^2\)</span> can be used to infer something about the value of <span class="math inline">\(\sigma^2\)</span>. Based on the data in Figure <a href="statistical-inference.html#fig:setosa-petal-lengths">1.1</a> and using <a href="statistical-inference.html#eq:sample-mean">(1.1)</a>, the value of the sample mean is <span class="math inline">\(\overline{x} = 1.462\)</span>. The value <span class="math inline">\(\overline{x}\)</span> provides a “best guess” or point estimate for the true value of <span class="math inline">\(\mu\)</span> based on the <span class="math inline">\(n=50\)</span> samples.</p>
+<div class="figure"><span id="fig:setosa-petal-lengths"></span>
+<img src="01-basics-stat-infer_files/figure-html/setosa-petal-lengths-1.svg" alt="The distribution (counts) of $50$ *setosa* petal length measurments." width="768" />
+<p class="caption">
+Figure 1.1: The distribution (counts) of <span class="math inline">\(50\)</span> <em>setosa</em> petal length measurments.
+</p>
 </div>
-<div id="welcome" class="section level1 unnumbered" number="">
-<h1>Welcome</h1>
-<p>Welcome to MA22004.</p>
+<blockquote>
+<p>The botonist Edgar Anderson’s <strong>Iris Data</strong> contains three plant species (<em>setosa</em>, <em>virginica</em>, <em>versicolor</em>) and four features (sepal length &amp; width, petal length &amp; width) measured in cm for each sample. This data set can be accessed in <code>r</code> by loading <code>library(datasets)</code> and then calling <code>data(iris)</code>.</p>
+</blockquote>
 
+<div class="definition">
+<span id="def:point-estimate" class="definition"><strong>Definition 1.1  </strong></span>A <strong>point estimate</strong> of a parameter <span class="math inline">\(\theta\)</span> (recall: a fixed, unknown quantity) is a single number that we regard as a sensible value for <span class="math inline">\(\theta\)</span>. Let <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> be iid samples from a distribution <span class="math inline">\(F(\theta)\)</span>. A <strong>point estimator</strong> <span class="math inline">\(\widehat{\theta}_n\)</span> of a parameter <span class="math inline">\(\theta\)</span> is obtained by selecting a suitable statistic <span class="math inline">\(g\)</span>,
+<span class="math display">\[\begin{equation*}
+  \widehat{\theta}_n = g(X_1, \dots, X_n) \,.
+\end{equation*}\]</span>
+A point estimate <span class="math inline">\(\widehat{\theta}_n\)</span> can then be computed from the estimator using sample data.
+</div>
+<blockquote>
+<p>⚠️ The symbol <span class="math inline">\(\widehat{\theta}_n\)</span> (or simply <span class="math inline">\(\widehat{\theta}\)</span> when the sample size <span class="math inline">\(n\)</span> is clear from context) is typically used to denote both the estimator and the point estimate resulting from a given sample. Note that writing, e.g., <span class="math inline">\(\widehat{\theta} = 42\)</span> does not indicate how the point estimate was obtained. Therefore, it is essential to report both the estimator and the resulting point estimate.</p>
+</blockquote>
+<p>Note that Definition <a href="statistical-inference.html#def:point-estimate">1.1</a> above does not say how to select the appropriate statistic. For the <em>setosa</em> example, the sample mean <span class="math inline">\(\overline{X}\)</span> is suggested as a good estimator of the population mean <span class="math inline">\(\mu\)</span>. That is, <span class="math inline">\(\widehat{\mu} = \overline{X}\)</span> or “the point estimator of <span class="math inline">\(\mu\)</span> is the sample mean <span class="math inline">\(\overline{X}\)</span>”. Here, while <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> are fixed quantities representing characteristics of the population, <span class="math inline">\(\overline{X}\)</span> and <span class="math inline">\(S^2\)</span> are rvs with sampling distributions. If the population is <em>normally distributed</em> or if the <em>sample is large</em> then the sampling distribution for <span class="math inline">\(\overline{X}\)</span> has a known form: <span class="math inline">\(\overline{X}\)</span> is normal with mean <span class="math inline">\(\mu_{\overline{X}} = \mu\)</span> and variance <span class="math inline">\(\sigma_{\overline{X}} = \sigma^{2} / n\)</span>, i.e.,
+<span class="math display">\[\begin{equation*}
+  \overline{X} \sim \mathcal{N}(\mu, \sigma^{2} / n) \,,
+\end{equation*}\]</span>
+where <span class="math inline">\(n\)</span> is the sample size and <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> are the (typically unknown) population parameters.</p>
+
+<div class="example">
+<p><span id="exm:eg-estimators" class="example"><strong>Example 1.1  </strong></span>Let us consider the heights (measured in inches) of <span class="math inline">\(31\)</span> black cherry trees (sorted, for your enjoyment):</p>
+</div>
+<pre><code> [1] 63 64 65 66 69 70 71 72 72 74 74 75 75 75 76 76 77 78 79 80 80 80 80 80 81
+[26] 81 82 83 85 86 87</code></pre>
+<p>The quantile-quantile normal probability plot of this data is quite straight, so we assume that the distribution of black cherry tree heights is normal with a mean value <span class="math inline">\(\mu\)</span>. The observations <span class="math inline">\(X_1, \dots, X_{31}\)</span> are then assumed to be a random sample from this normal distribution. Consider the following estimators and resulting point estimates for <span class="math inline">\(\mu\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Estimator (sample mean) <span class="math inline">\(\overline{X}\)</span> as in <a href="statistical-inference.html#eq:sample-mean">(1.1)</a> and estimate <span class="math inline">\(\overline{x} = \sum x_i / n = 2356 / 31 = 76\)</span>.</p></li>
+<li><p>Estimator (average of extreme heights) <span class="math inline">\(\widetilde{X} = [\min(X_i) + \max(X_i)]/2\)</span> and estimate <span class="math inline">\(\widetilde{x} = (63 + 87)/2 = 75\)</span>.</p></li>
+<li><p>Estimator (<span class="math inline">\(10\%\)</span> trimmed mean – i.e., in this instance exclude the smallest and largest three values) <span class="math inline">\(\overline{X}_{\text{tr}(10)}\)</span> and estimate <span class="math inline">\(\overline{x}_{\text{tr}(10)} = (2356 - 63 - 64 - 65 - 87 - 86 - 85) / 25 = 76.24\)</span>.</p></li>
+</ol>
+<p>Each estimator above uses a different notion of center for the sample data. An interesting question to think about is: which estimator will tend to produce estimates closest to the true parameter value? Will the estimators work universally well for all distributions?
+````</p>
+<p><strong>TODO</strong>: insert exercise 19 p 61 from All of Stats. Don’t confuse distribution of data from distribution of statistic. Don’t confuse sampling distribution with population distribution.</p>
+<p>In addition to reporting a point estimate (together with its estimator), some indication of its precision should be given. One measure of the precision in an estimate is to report its standard error.</p>
+
+<div class="definition">
+<span id="def:standard-error" class="definition"><strong>Definition 1.2  </strong></span>The <strong>standard error</strong> of an estimator <span class="math inline">\(\widehat{\theta}\)</span> is the standard deviation <span class="math inline">\(\sigma_{\widehat{\theta}} = \sqrt{\operatorname{Var}(\widehat{\theta})}\)</span> (sometimes denoted <span class="math inline">\(\mathsf{se}= \mathsf{se}(\widehat{\theta})\)</span>). Often, the standard error depends on unknown parameters and must also be estimated. The estimated standard error is denoted by <span class="math inline">\(\widehat{\sigma}_{\widehat{\theta}}\)</span> or <span class="math inline">\(s_{\widehat{\theta}}\)</span> or <span class="math inline">\(\widehat{\mathsf{se}}\)</span>.
+</div>
+</div>
+<div id="confidence-intervals" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Confidence intervals</h2>
+</div>
+<div id="hypothesis-testing" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Hypothesis testing</h2>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="preliminaries.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="cg.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -245,7 +304,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/dundeemath/MA22004/edit/master/index.Rmd",
+"link": "https://github.com/dundeemath/MA22004/edit/master/01-basics-stat-infer.Rmd",
 "text": "Suggest an edit"
 },
 "history": {
