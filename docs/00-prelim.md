@@ -1,8 +1,8 @@
 
 
-\newcommand{\V}{\operatorname{Var}}
+\newcommand{\Var}{\operatorname{Var}}
 \newcommand{\E}{\operatorname{E}}
-\newcommand{\P}{P}
+\newcommand{\se}{\mathsf{se}}
 
 # (PART\*) Course Notes {-}
 
@@ -16,8 +16,44 @@ Uppercase roman letters, e.g., $X$, will typically denote random variables (rvs)
 
 ## Abbreviations {-}
 
-<!--html_preserve--><div id="htmlwidget-ab1d379597626d31e815" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ab1d379597626d31e815">{"x":{"filter":"none","caption":"<caption>Collection of abbreviations that are used in these notes.<\/caption>","autoHideNavigation":true,"data":[["pdf","cdf","rv","iid"],["probability density function","cumulative distribution function","random variable","independent and identically distributed"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Abbreviation<\/th>\n      <th>Expanded<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Abbreviation </th>
+   <th style="text-align:left;"> Expanded </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> pdf </td>
+   <td style="text-align:left;"> probability density function </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> cdf </td>
+   <td style="text-align:left;"> cumulative distribution function </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> rv </td>
+   <td style="text-align:left;"> random variable </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> iid </td>
+   <td style="text-align:left;"> independent and identically distributed </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> obs </td>
+   <td style="text-align:left;"> observations </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CI </td>
+   <td style="text-align:left;"> confidence interval </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> df </td>
+   <td style="text-align:left;"> degrees of freedom </td>
+  </tr>
+</tbody>
+</table>
 
 ## Normal distribution {-}
 
@@ -27,15 +63,15 @@ Normal distributions play an important role in probability and statistics as the
 \[ f(x; \mu, \sigma) = \frac{1}{\sqrt{2 \pi} \sigma}e^{-(x-\mu)^2/(2\sigma^2)}\,, 
 \quad -\infty < x < \infty \,.\]</div>\EndKnitrBlock{definition}
 
-The statement that $X$ is normally distributed with parameters $\mu$ and $\sigma^2$ is abbreviated $X \sim \mathcal{N}(\mu, \sigma^2)$. For $X\sim \mathcal{N}(\mu,\sigma^2)$, it can be shown that $\E(X) = \mu$ and $\V(X) = \sigma^2$, that is, $\mu$ is the *mean* and $\sigma^2$ is the *variance* of $X$. The pdf takes the form of a bell-shaped curve that is symmetric about $\mu$. The value $\sigma$ (*standard deviation*) is the distance from $\mu$ to the inflection points of the curve. Thus, the position (location) and spread of the distribution depends on $\mu$ and $\sigma$.
+The statement that $X$ is normally distributed with parameters $\mu$ and $\sigma^2$ is abbreviated $X \sim \mathcal{N}(\mu, \sigma^2)$. For $X\sim \mathcal{N}(\mu,\sigma^2)$, it can be shown that $\E(X) = \mu$ and $\Var(X) = \sigma^2$, that is, $\mu$ is the *mean* and $\sigma^2$ is the *variance* of $X$. The pdf takes the form of a bell-shaped curve that is symmetric about $\mu$. The value $\sigma$ (*standard deviation*) is the distance from $\mu$ to the inflection points of the curve. Thus, the position (location) and spread of the distribution depends on $\mu$ and $\sigma$.
 
 <div class="figure">
-<img src="00-prelim_files/figure-html/normals-diff-mean-1.svg" alt="The pdfs of two normal rvs with different means and the same standard deviations." width="768" />
+<img src="00-prelim_files/figure-html/normals-diff-mean-1.png" alt="The pdfs of two normal rvs with different means and the same standard deviations." width="672" />
 <p class="caption">(\#fig:normals-diff-mean)The pdfs of two normal rvs with different means and the same standard deviations.</p>
 </div>
 
 <div class="figure">
-<img src="00-prelim_files/figure-html/normals-diff-sd-1.svg" alt="The pdfs of two normal rvs with the same means and different standard deviations." width="768" />
+<img src="00-prelim_files/figure-html/normals-diff-sd-1.png" alt="The pdfs of two normal rvs with the same means and different standard deviations." width="672" />
 <p class="caption">(\#fig:normals-diff-sd)The pdfs of two normal rvs with the same means and different standard deviations.</p>
 </div>
 
@@ -53,23 +89,23 @@ Here are some useful facts about how to manipulate Normal rvs.
 In particular, we note that for differences of independent rvs $X_1 \sim \mathcal{N}(\mu_1, \sigma_1^2)$ and $X_2 \sim \mathcal{N}(\mu_2, \sigma_2^2)$ then the variances also add:
 \[ X_1 - X_2 \sim \mathcal{N}(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2) \,.\]
 
-Probabilities $\P(a \leq X \leq b)$ are found by converting the problem in $X \sim \mathcal{N}(\mu, \sigma^2)$ to the *standard normal* distribution $Z \sim \mathcal{N}(0, 1)$ whose probability values $\Phi(z) = \P(Z\leq z)$ can then be looked up in a table. From (1.) above, 
+Probabilities $P(a \leq X \leq b)$ are found by converting the problem in $X \sim \mathcal{N}(\mu, \sigma^2)$ to the *standard normal* distribution $Z \sim \mathcal{N}(0, 1)$ whose probability values $\Phi(z) = P(Z\leq z)$ can then be looked up in a table. From (1.) above, 
 \[\begin{aligned}
-   \P(a < X < b) &= \P \left( \frac{a-\mu}{\sigma} < Z < \frac{b-\mu}{\sigma} \right) \\ 
+   P(a < X < b) &= P\left( \frac{a-\mu}{\sigma} < Z < \frac{b-\mu}{\sigma} \right) \\ 
     &= \Phi \left( \frac{b-\mu}{\sigma}\right) - \Phi\left(\frac{a-\mu}{\sigma}\right) \,.
    \end{aligned}\]
 
-\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-norm-rt"><strong>(\#exm:eg-norm-rt) </strong></span>Let $X \sim \mathcal{N}(5, 9)$ and find $\P(X \geq 5.5)$. 
+\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-norm-rt"><strong>(\#exm:eg-norm-rt) </strong></span>Let $X \sim \mathcal{N}(5, 9)$ and find $P(X \geq 5.5)$. 
 
 \[\begin{aligned}
-   \P(X \geq 5.5) &= \P\left(Z \geq \frac{5.5 - 5}{3}\right) \\
-    &= \P(Z \geq 0.1667) \\
-    &= 1 - \P(Z \leq 0.1667) \\
+   P(X \geq 5.5) &= P\left(Z \geq \frac{5.5 - 5}{3}\right) \\
+    &= P(Z \geq 0.1667) \\
+    &= 1 - P(Z \leq 0.1667) \\
     &= 1 - \Phi(0.1667) \\
     &= 1 - 0.5662 \\
     &= 0.4338\,,
     \end{aligned}\]
-where we look up the value of $\Phi(z) = \P(Z\leq z)$ in a table of standard normal curve areas.</div>\EndKnitrBlock{example}
+where we look up the value of $\Phi(z) = P(Z\leq z)$ in a table of standard normal curve areas.</div>\EndKnitrBlock{example}
 
 Alternatively, we can use the `r` code:
 
@@ -85,16 +121,16 @@ pnorm(5.5, mean = 5, sd = 3, lower.tail = FALSE)
 
 
 
-\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-norm-dt"><strong>(\#exm:eg-norm-dt) </strong></span>Let $X \sim \mathcal{N}(5, 9)$ and find $\P(4 \leq X \leq 5.25)$. 
+\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-norm-dt"><strong>(\#exm:eg-norm-dt) </strong></span>Let $X \sim \mathcal{N}(5, 9)$ and find $P(4 \leq X \leq 5.25)$. 
 
 \[\begin{aligned}
-   \P(4 \leq X \leq 5.25) &= \P \left(\frac{4-5}{3} \leq Z \leq \frac{5.25-5}{3}\right) \\
-   &= \P(-0.3333 \leq Z \leq 0.0833) \\
+   P(4 \leq X \leq 5.25) &= P\left(\frac{4-5}{3} \leq Z \leq \frac{5.25-5}{3}\right) \\
+   &= P(-0.3333 \leq Z \leq 0.0833) \\
    &= \Phi(0.0833) - \Phi(-0.3333) \\
    &= 0.5332 - 0.3694 \\
    &= 0.1638\,.
   \end{aligned}\]
-where we look up the value of $\Phi(z) = \P(Z\leq z)$ in a table of standard normal curve areas. </div>\EndKnitrBlock{example}
+where we look up the value of $\Phi(z) = P(Z\leq z)$ in a table of standard normal curve areas. </div>\EndKnitrBlock{example}
 
 **TODO**: plot area under normal curve (interior)
 
@@ -107,3 +143,13 @@ pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3)
 ```
 [1] 0.1637654
 ```
+
+## Student's $t$-distribution {-}
+
+
+
+### Properties of $t$-distributions {-}
+
+1. The density for $t_\nu$ is a bell-shaped curve centered at $0$.
+2. The density for $t_\nu$ is more spread out than the standard normal density (i.e., it has "fatter tails" than the normal).
+3. As $\nu \to \infty$, the spread of the corresponding $t_\nu$ density converges to the standard normal density (i.e., the spread of the $t_\nu$ density decreases relative to the standard normal).

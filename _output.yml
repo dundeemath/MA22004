@@ -13,11 +13,11 @@ bookdown::gitbook:
         <li><a href="http://uod.ac.uk/sig-home" rel="nofollow"><img width="73" height="73" src="https://www.dundee.ac.uk/media/dundeewebsite/themes/brandnewhope/img/university-of-dundee-email-favicon.png" alt="University of Dundee shield logo"> </a></li>
     toolbar:
       position: fixed
-    download: ["pdf", "epub"]
+    download: ["pdf"]
     sharing: 
       github: yes
       facebook: no
-      twitter: yes
+      twitter: no
       all: no
     fontsettings:
       theme: white

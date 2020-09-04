@@ -3,3 +3,6 @@ pdf, probability density function
 cdf, cumulative distribution function
 rv, random variable
 iid, independent and identically distributed
+obs, observations
+CI, confidence interval
+df, degrees of freedom

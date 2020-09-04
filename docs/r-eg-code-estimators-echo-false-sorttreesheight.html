@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>MA22004 - Statistics and Probability II</title>
+  <title>2 {r eg-code-estimators, echo = FALSE} # sort(trees$Height) # | MA22004 - Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="MA22004 - Statistics and Probability II" />
+  <meta property="og:title" content="2 {r eg-code-estimators, echo = FALSE} # sort(trees$Height) # | MA22004 - Statistics and Probability II" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://ejhall.github.io/MA22004/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ejhall/MA22004/" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="MA22004 - Statistics and Probability II" />
+  <meta name="twitter:title" content="2 {r eg-code-estimators, echo = FALSE} # sort(trees$Height) # | MA22004 - Statistics and Probability II" />
   
   <meta name="twitter:description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="statistical-inference.html"/>
 
-<link rel="next" href="cg.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,6 +51,14 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.15/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -163,21 +171,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#some-useful-facts-about-normals"><i class="fa fa-check"></i>Some useful facts about Normals</a></li>
 </ul></li>
-<li><a href="preliminaries.html#students-t-distribution">Student’s <span class="math inline">\(t\)</span>-distribution</a>
-<ul>
-<li><a href="preliminaries.html#properties-of-t-distributions">Properties of <span class="math inline">\(t\)</span>-distributions</a></li>
-</ul></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>1</b> Inferences based on a single sample</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="statistical-inference.html"><a href="statistical-inference.html#point-estimation"><i class="fa fa-check"></i><b>1.1</b> Point estimation</a></li>
-<li class="chapter" data-level="1.2" data-path="statistical-inference.html"><a href="statistical-inference.html#confidence-intervals"><i class="fa fa-check"></i><b>1.2</b> Confidence intervals</a>
-<ul>
-<li class="chapter" data-level="1.2.1" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-normal-var-known"><i class="fa fa-check"></i><b>1.2.1</b> CI for mean of a Normal population with known variance</a></li>
-<li class="chapter" data-level="1.2.2" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-large-sample"><i class="fa fa-check"></i><b>1.2.2</b> Large-sample CI for mean of a population with unknown variance</a></li>
-<li class="chapter" data-level="1.2.3" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-normal-var-unknown"><i class="fa fa-check"></i><b>1.2.3</b> CI for mean of a normal population with unknown variance</a></li>
-</ul></li>
-<li class="chapter" data-level="1.3" data-path="statistical-inference.html"><a href="statistical-inference.html#hypothesis-testing"><i class="fa fa-check"></i><b>1.3</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="2.1" data-path="r-eg-code-estimators-echo-false-sorttreesheight.html"><a href="r-eg-code-estimators-echo-false-sorttreesheight.html"><i class="fa fa-check"></i><b>2.1</b> Confidence intervals</a></li>
+<li class="chapter" data-level="2.2" data-path="r-eg-code-estimators-echo-false-sorttreesheight.html"><a href="r-eg-code-estimators-echo-false-sorttreesheight.html#hypothesis-testing"><i class="fa fa-check"></i><b>2.2</b> Hypothesis testing</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="http://uod.ac.uk/sig-home" rel="nofollow"><img width="73" height="73" src="https://www.dundee.ac.uk/media/dundeewebsite/themes/brandnewhope/img/university-of-dundee-email-favicon.png" alt="University of Dundee shield logo"> </a></li>
@@ -199,23 +198,58 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">MA22004 - Statistics and Probability II</h1>
-<p class="author"><em>Dr Eric Hall</em></p>
-<p class="date"><em>Last updated: 2020-09-04</em></p>
+<div id="r-eg-code-estimators-echo-false-sorttreesheight" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> <code>{r eg-code-estimators, echo = FALSE} # sort(trees$Height) #</code></h1>
+<p>63 64 65 66 69 70 71 72 72 74 74 75 75 75 76 76 77 78 79 80 80 80 80 80 81 81 82 83 85 86 87</p>
+<p>The quantile-quantile normal probability plot of this data is fairly straight, so we assume that the distribution of black cherry tree heights is normal with a mean value <span class="math inline">\(\mu\)</span>. The observations <span class="math inline">\(X_1, \dots, X_{31}\)</span> are then assumed to be a random sample from this normal distribution. Consider the following estimators and resulting point estimates for <span class="math inline">\(\mu\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Estimator (sample mean) <span class="math inline">\(\overline{X}\)</span> as in <a href="statistical-inference.html#eq:sample-mean">(1.1)</a> and estimate <span class="math inline">\(\overline{x} = \sum x_i / n = 2356 / 31 = 76\)</span>.</p></li>
+<li><p>Estimator (average of extreme heights) <span class="math inline">\(\widetilde{X} = [\min(X_i) + \max(X_i)]/2\)</span> and estimate <span class="math inline">\(\widetilde{x} = (63 + 87)/2 = 75\)</span>.</p></li>
+<li><p>Estimator (<span class="math inline">\(10\%\)</span> trimmed mean – i.e., in this instance exclude the smallest and largest three values) <span class="math inline">\(\overline{X}_{\text{tr}(10)}\)</span> and estimate <span class="math inline">\(\overline{x}_{\text{tr}(10)} = (2356 - 63 - 64 - 65 - 87 - 86 - 85) / 25 = 76.24\)</span>.</p></li>
+</ol>
+Each estimator above uses a different notion of center for the sample data. An interesting question to think about is: which estimator will tend to produce estimates closest to the true parameter value? Will the estimators work universally well for all distributions?
 </div>
-<div id="welcome" class="section level1 unnumbered" number="">
-<h1>Welcome</h1>
-<p>Welcome to MA22004.</p>
+</div>
+<p>In addition to reporting a point estimate (together with its estimator), some indication of its precision should be given. One measure of the precision in an estimate is to report its standard error.</p>
 
+<div class="definition">
+<span id="def:standard-error" class="definition"><strong>Definition 2.1  </strong></span>The <strong>standard error</strong> of an estimator <span class="math inline">\(\widehat{\theta}\)</span> is the standard deviation <span class="math inline">\(\sigma_{\widehat{\theta}} = \sqrt{\operatorname{Var}(\widehat{\theta})}\)</span> (sometimes denoted <span class="math inline">\(\mathsf{se}= \mathsf{se}(\widehat{\theta})\)</span>). Often, the standard error depends on unknown parameters and must also be estimated. The estimated standard error is denoted by <span class="math inline">\(\widehat{\sigma}_{\widehat{\theta}}\)</span> or <span class="math inline">\(s_{\widehat{\theta}}\)</span> or <span class="math inline">\(\widehat{\mathsf{se}}\)</span>.
+</div>
+</div>
+<div id="confidence-intervals" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Confidence intervals</h2>
+<p>An alternative to reporting a point estimate for a parameter is to report an interval estimate that suggests an entire range of plausible values for the parameter of interest. A confidence interval is an interval estimate that makes a probability statement about the degree of reliability, or the confidence level, of the interval. The first step in computing a confidence interval is always to select the confidence level. A popular choice is a <span class="math inline">\(95\%\)</span> confidence interval which corresponds to level <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+
+<div class="definition">
+<span id="def:confidence-interval-gen" class="definition"><strong>Definition 2.2  </strong></span>A <span class="math inline">\((1-\alpha)\)</span> <strong>confidence interval</strong> for a parameter <span class="math inline">\(\theta\)</span> is a <em>random</em> interval <span class="math inline">\(C_n = (a, b)\)</span> where <span class="math inline">\(a = a(X_1, \dots, X_n)\)</span> and <span class="math inline">\(b = b(X_1, \dots, X_n)\)</span> are functions of the data such that
+<span class="math display">\[\begin{equation}
+P(\theta \in C_n ) = 1 - \alpha\,, 
+\end{equation}\]</span>
+for all <span class="math inline">\(\theta \in \Theta\)</span>.
+</div>
+<p>In Definition <a href="r-eg-code-estimators-echo-false-sorttreesheight.html#def:confidence-interval-gen">2.2</a>, note that the interval <span class="math inline">\(C_n\)</span> is random and the parameter <span class="math inline">\(\theta\)</span> is fixed; a confidence interval is not a probability statement about <span class="math inline">\(\theta\)</span> (<span class="math inline">\(\theta\)</span> is not a rv).</p>
+<p>My favorite interpretation of a confidence interval is due to Wasserman in [?]:</p>
+<blockquote>
+<p>On day 1, you collect data and construct a 95 percent confidence interval for a parameter <span class="math inline">\(\theta_1\)</span>. On day 2, you collect new data and construct a 95 percent confidence interval for an unrelated parameter <span class="math inline">\(\theta_2\)</span>. On day 3, you collect new data and construct a 95 percent confidence interval for an unrelated parameter <span class="math inline">\(\theta_3\)</span>. You continue this way constructing confidence intervals for a sequence of unrelated parameters <span class="math inline">\(\theta_1\)</span>, <span class="math inline">\(\theta_2\)</span>, <span class="math inline">\(\dots\)</span> Then 95 percent of your intervals will trap the true parameter value. There is no need to introduce the idea of repeating the same experiment over and over.</p>
+</blockquote>
+<p>The confidence level is not</p>
+<p><strong>TODO</strong>: CI for mean normal population with known variance [Devore p272]</p>
+<p><strong>TODO</strong>: sample size necessary for CI to have predetermined width [Devore p273]</p>
+<p><strong>TODO</strong>: large-sample CI for mean of any population with unknown variance [Devore p277]</p>
+<p><strong>TODO</strong>: small-sample CI for mean of normal population with unknown variance [Devore p288]</p>
+</div>
+<div id="hypothesis-testing" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Hypothesis testing</h2>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="statistical-inference.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="cg.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -233,7 +267,7 @@ gitbook.start({
 "sharing": {
 "github": true,
 "facebook": false,
-"twitter": false,
+"twitter": true,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
@@ -246,7 +280,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/dundeemath/MA22004/edit/master/index.Rmd",
+"link": "https://github.com/dundeemath/MA22004/edit/master/01-basics-stat-infer.Rmd",
 "text": "Suggest an edit"
 },
 "history": {
@@ -257,7 +291,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["ma22004.pdf"],
+"download": ["ma22004.pdf", "ma22004.epub"],
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
