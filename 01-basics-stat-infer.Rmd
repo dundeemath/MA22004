@@ -108,7 +108,7 @@ My favorite interpretation of a confidence interval is due to [@Wasserman:2013as
 
 > On day 1, you collect data and construct a 95 percent confidence interval for a parameter $\theta_1$. On day 2, you collect new data and construct a 95 percent confidence interval for an unrelated parameter $\theta_2$. On day 3, you collect new data and construct a 95 percent confidence interval for an unrelated parameter $\theta_3$. You continue this way constructing confidence intervals for a sequence of unrelated parameters $\theta_1$, $\theta_2$, $\dots$ Then 95 percent of your intervals will trap the true parameter value. There is no need to introduce the idea of repeating the same experiment over and over.  
 
-This interpretation makes clear that a confidence interval is not a probability statement about $\theta$ (as $\theta$ is not a rv). In Definition \@ref(def:confidence-interval-gen), note that the interval $C_n$ is random and the parameter $\theta$ is fixed.
+This interpretation makes clear that a confidence interval is not a probability statement about the parameter $\theta$ (as $\theta$ is not a rv). In Definition \@ref(def:confidence-interval-gen), note that $\theta$ is fixed and the interval $C_n$ is random.
 
 **TODO**: add plot EG devore fig 7.3 that illustrates ca. 100 95\% CIs (with astreisks identifying intervals that do not inlcude $\mu$).
 
@@ -187,7 +187,7 @@ Typically, a large-sample CI for a general parameter $\theta$ similar to \@ref(e
 
 ### CI for mean of a normal population with unknown variance {#ci-normal-var-unknown}
 
-In Section \@ref(#ci-normal-var-known), we considered samples $X_1, \dots, X_n$ from a normal population with a known $\mu$ and $\sigma^2$. In contrast, here we consider samples from a normal population and assume the population parameters $\mu$ and $\sigma^2$ are unknown. If the number of samples is large, the discussion in Section \@ref(#ci-large-sample) indicates that the rv $Z = (\overline{X} - \mu) \sqrt{n} / S$ has approximately a standard normal distribution. However, if $n$ is not sufficiently large then the transformed variable will be more spread out than a standard normal distribution. 
+In Section \@ref(ci-normal-var-known), we considered samples $X_1, \dots, X_n$ from a normal population with a known $\mu$ and $\sigma^2$. In contrast, here we consider samples from a normal population and assume the population parameters $\mu$ and $\sigma^2$ are unknown. If the number of samples is large, the discussion in Section \@ref(ci-large-sample) indicates that the rv $Z = (\overline{X} - \mu) \sqrt{n} / S$ has approximately a standard normal distribution. However, if $n$ is not sufficiently large then the transformed variable will be more spread out than a standard normal distribution. 
 
 ```{theorem, sample-mean-t-dist}
 For the sample mean $\overline{X}$ based on $n$ samples from a normal distribution with mean $\mu$, the rv
