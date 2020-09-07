@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="cg.html"/>
-<link rel="next" href="statistical-inference.html"/>
+<link rel="next" href="special-distributions.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,7 +50,14 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.15/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -159,27 +166,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#notation"><i class="fa fa-check"></i>Notation</a></li>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#abbreviations"><i class="fa fa-check"></i>Abbreviations</a></li>
-<li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#normal-distribution"><i class="fa fa-check"></i>Normal distribution</a>
+</ul></li>
+<li class="chapter" data-level="1" data-path="special-distributions.html"><a href="special-distributions.html"><i class="fa fa-check"></i><b>1</b> Special distributions</a>
 <ul>
-<li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#some-useful-facts-about-normals"><i class="fa fa-check"></i>Some useful facts about Normals</a></li>
-</ul></li>
-<li><a href="preliminaries.html#t-distribution"><span class="math inline">\(t\)</span> distribution</a>
+<li class="chapter" data-level="1.1" data-path="special-distributions.html"><a href="special-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.1</b> Normal distribution</a>
 <ul>
-<li><a href="preliminaries.html#properties-of-t-distributions">Properties of <span class="math inline">\(t\)</span> distributions</a></li>
+<li class="chapter" data-level="1.1.1" data-path="special-distributions.html"><a href="special-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about Normals</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="1" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>1</b> Inferences based on a single sample</a>
+<li class="chapter" data-level="1.2" data-path="special-distributions.html"><a href="special-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(t\)</span> distribution</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="statistical-inference.html"><a href="statistical-inference.html#point-estimation"><i class="fa fa-check"></i><b>1.1</b> Point estimation</a></li>
-<li class="chapter" data-level="1.2" data-path="statistical-inference.html"><a href="statistical-inference.html#confidence-intervals"><i class="fa fa-check"></i><b>1.2</b> Confidence intervals</a>
+<li class="chapter" data-level="1.2.1" data-path="special-distributions.html"><a href="special-distributions.html#facts-t"><i class="fa fa-check"></i><b>1.2.1</b> Properties of <span class="math inline">\(t\)</span> distributions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>2</b> Inferences based on a single sample</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-normal-var-known"><i class="fa fa-check"></i><b>1.2.1</b> CI for mean of a Normal population with known variance</a></li>
-<li class="chapter" data-level="1.2.2" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-large-sample"><i class="fa fa-check"></i><b>1.2.2</b> Large-sample CI for mean of a population with unknown variance</a></li>
-<li class="chapter" data-level="1.2.3" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-normal-var-unknown"><i class="fa fa-check"></i><b>1.2.3</b> CI for mean of a normal population with unknown variance</a></li>
+<li class="chapter" data-level="2.1" data-path="statistical-inference.html"><a href="statistical-inference.html#point-estimation"><i class="fa fa-check"></i><b>2.1</b> Point estimation</a></li>
+<li class="chapter" data-level="2.2" data-path="statistical-inference.html"><a href="statistical-inference.html#confidence-intervals"><i class="fa fa-check"></i><b>2.2</b> Confidence intervals</a></li>
+<li class="chapter" data-level="2.3" data-path="statistical-inference.html"><a href="statistical-inference.html#hypothesis-testing"><i class="fa fa-check"></i><b>2.3</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="2.4" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-means"><i class="fa fa-check"></i><b>2.4</b> Estimating means</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-normal-var-known"><i class="fa fa-check"></i><b>2.4.1</b> CI for mean of a Normal population with known variance</a></li>
+<li class="chapter" data-level="2.4.2" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-large-sample"><i class="fa fa-check"></i><b>2.4.2</b> Large-sample CI for mean of a population with unknown variance</a></li>
+<li class="chapter" data-level="2.4.3" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-normal-var-unknown"><i class="fa fa-check"></i><b>2.4.3</b> CI for mean of a normal population with unknown variance</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="statistical-inference.html"><a href="statistical-inference.html#hypothesis-testing"><i class="fa fa-check"></i><b>1.3</b> Hypothesis testing</a></li>
-<li class="chapter" data-level="1.4" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-proportions"><i class="fa fa-check"></i><b>1.4</b> Inference in action: Estimating proportions</a></li>
+<li class="chapter" data-level="2.5" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-proportions"><i class="fa fa-check"></i><b>2.5</b> Estimating proportions</a></li>
+<li class="chapter" data-level="2.6" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-variances"><i class="fa fa-check"></i><b>2.6</b> Estimating variances</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="inference-two-samples.html"><a href="inference-two-samples.html"><i class="fa fa-check"></i><b>3</b> Inferences based on two samples</a></li>
+<li class="chapter" data-level="4" data-path="categorical-data.html"><a href="categorical-data.html"><i class="fa fa-check"></i><b>4</b> Categorical data and Goodness-of-Fit tests</a></li>
 <li class="divider"></li>
 <li><a href="http://uod.ac.uk/sig-home" rel="nofollow"><img width="73" height="73" src="https://www.dundee.ac.uk/media/dundeewebsite/themes/brandnewhope/img/university-of-dundee-email-favicon.png" alt="University of Dundee shield logo"> </a></li>
 
@@ -200,176 +214,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="preliminaries" class="section level1 unnumbered" number="">
+<div id="preliminaries" class="section level1 unnumbered">
 <h1>Preliminaries</h1>
-<div id="notation" class="section level2 unnumbered" number="">
+<div id="notation" class="section level2 unnumbered">
 <h2>Notation</h2>
 <p>Uppercase roman letters, e.g., <span class="math inline">\(X\)</span>, will typically denote random variables (rvs); lower case letters, e.g., <span class="math inline">\(x\)</span>, will denote a particular value (observation) of a rv. Rvs have probability distributions. Distributions are typically characterized by <em>parameters</em> which are fixed real numbers. Parameters describe population characteristics that are often unknown and must be estimated from data. Statistical inference is a tool that will help us to do this.</p>
 <blockquote>
 <p>⚠️ Statistical models comprise both rvs and parameters. Be careful not to confuse them!</p>
 </blockquote>
 </div>
-<div id="abbreviations" class="section level2 unnumbered" number="">
+<div id="abbreviations" class="section level2 unnumbered">
 <h2>Abbreviations</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-Abbreviation
-</th>
-<th style="text-align:left;">
-Expanded
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-pdf
-</td>
-<td style="text-align:left;">
-probability density function
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-cdf
-</td>
-<td style="text-align:left;">
-cumulative distribution function
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-rv
-</td>
-<td style="text-align:left;">
-random variable
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-iid
-</td>
-<td style="text-align:left;">
-independent and identically distributed
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-obs
-</td>
-<td style="text-align:left;">
-observations
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-CI
-</td>
-<td style="text-align:left;">
-confidence interval
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-df
-</td>
-<td style="text-align:left;">
-degrees of freedom
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="normal-distribution" class="section level2 unnumbered" number="">
-<h2>Normal distribution</h2>
-<p>Normal distributions play an important role in probability and statistics as they describes many natural phenomenon. For instance, the Central Limit Theorem tells us that sums of rvs are approximately Normal in distribution.</p>
+<div id="htmlwidget-458fa90bf7e535882b20" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-458fa90bf7e535882b20">{"x":{"filter":"none","caption":"<caption>Collection of abbreviations that are used in these notes.<\/caption>","autoHideNavigation":true,"data":[["pdf","cdf","rv","iid","obs","CI","df"],["probability density function","cumulative distribution function","random variable","independent and identically distributed","observations","confidence interval","degrees of freedom"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Abbreviation<\/th>\n      <th>Expanded<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
-<div class="definition">
-<span id="def:normal-dist" class="definition"><strong>Definition 0.1  </strong></span>A continuous rv <span class="math inline">\(X\)</span> has a <strong>normal distribution</strong> with parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>, where <span class="math inline">\(-\infty &lt; \mu &lt; \infty\)</span> and <span class="math inline">\(\sigma &gt; 0\)</span>, if <span class="math inline">\(X\)</span> has pdf
-<span class="math display">\[ f(x; \mu, \sigma) = \frac{1}{\sqrt{2 \pi} \sigma}e^{-(x-\mu)^2/(2\sigma^2)}\,, 
-\quad -\infty &lt; x &lt; \infty \,.\]</span>
-</div>
-<p>The statement that <span class="math inline">\(X\)</span> is normally distributed with parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> is abbreviated <span class="math inline">\(X \sim \mathcal{N}(\mu, \sigma^2)\)</span>. For <span class="math inline">\(X\sim \mathcal{N}(\mu,\sigma^2)\)</span>, it can be shown that <span class="math inline">\(\operatorname{E}(X) = \mu\)</span> and <span class="math inline">\(\operatorname{Var}(X) = \sigma^2\)</span>, that is, <span class="math inline">\(\mu\)</span> is the <em>mean</em> and <span class="math inline">\(\sigma^2\)</span> is the <em>variance</em> of <span class="math inline">\(X\)</span>. The pdf takes the form of a bell-shaped curve that is symmetric about <span class="math inline">\(\mu\)</span>. The value <span class="math inline">\(\sigma\)</span> (<em>standard deviation</em>) is the distance from <span class="math inline">\(\mu\)</span> to the inflection points of the curve. Thus, the position (location) and spread of the distribution depends on <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>.</p>
-<div class="figure"><span id="fig:normals-diff-mean"></span>
-<img src="00-prelim_files/figure-html/normals-diff-mean-1.png" alt="The pdfs of two normal rvs with different means and the same standard deviations." width="672" />
-<p class="caption">
-Figure 0.1: The pdfs of two normal rvs with different means and the same standard deviations.
-</p>
-</div>
-<div class="figure"><span id="fig:normals-diff-sd"></span>
-<img src="00-prelim_files/figure-html/normals-diff-sd-1.png" alt="The pdfs of two normal rvs with the same means and different standard deviations." width="672" />
-<p class="caption">
-Figure 0.2: The pdfs of two normal rvs with the same means and different standard deviations.
-</p>
-</div>
-
-<div class="definition">
-<span id="def:unnamed-chunk-1" class="definition"><strong>Definition 0.2  </strong></span>We say that <span class="math inline">\(X\)</span> has a <strong>standard Normal distribution</strong> if <span class="math inline">\(\mu=0\)</span> and <span class="math inline">\(\sigma = 1\)</span> and we will usually denote standard Normal rvs by <span class="math inline">\(Z\)</span> (why? <a href="https://www.youtube.com/watch?v=gRdfX7ut8gw">tradition!</a>).
-</div>
-<div id="some-useful-facts-about-normals" class="section level3 unnumbered" number="">
-<h3>Some useful facts about Normals</h3>
-<p>Here are some useful facts about how to manipulate Normal rvs.</p>
-<ol style="list-style-type: decimal">
-<li>If <span class="math inline">\(X \sim \mathcal{N}(\mu, \sigma^2),\)</span> then <span class="math inline">\(Z = (X - \mu) / \sigma \quad \sim \mathcal{N}(0,1).\)</span></li>
-<li>If <span class="math inline">\(Z \sim \mathcal{N}(0, 1),\)</span> then <span class="math inline">\(X = \mu + \sigma Z \quad \sim \mathcal{N}(\mu, \sigma^2).\)</span></li>
-<li>If <span class="math inline">\(X_i \sim \mathcal{N}(\mu_i, \sigma_i^2)\)</span> for <span class="math inline">\(i = 1, \dots, n\)</span> are independent rvs, then
-<span class="math display">\[\sum_{i=1}^{n} X_i \sim \mathcal{N} \left( \sum_{i=1}^{n} \mu_i, \sum_{i=1}^{n} \sigma_i^2 \right) \,.\]</span></li>
-</ol>
-<p>In particular, we note that for differences of independent rvs <span class="math inline">\(X_1 \sim \mathcal{N}(\mu_1, \sigma_1^2)\)</span> and <span class="math inline">\(X_2 \sim \mathcal{N}(\mu_2, \sigma_2^2)\)</span> then the variances also add:
-<span class="math display">\[ X_1 - X_2 \sim \mathcal{N}(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2) \,.\]</span></p>
-<p>Probabilities <span class="math inline">\(P(a \leq X \leq b)\)</span> are found by converting the problem in <span class="math inline">\(X \sim \mathcal{N}(\mu, \sigma^2)\)</span> to the <em>standard normal</em> distribution <span class="math inline">\(Z \sim \mathcal{N}(0, 1)\)</span> whose probability values <span class="math inline">\(\Phi(z) = P(Z\leq z)\)</span> can then be looked up in a table. From (1.) above,
-<span class="math display">\[\begin{aligned}
-   P(a &lt; X &lt; b) &amp;= P\left( \frac{a-\mu}{\sigma} &lt; Z &lt; \frac{b-\mu}{\sigma} \right) \\ 
-    &amp;= \Phi \left( \frac{b-\mu}{\sigma}\right) - \Phi\left(\frac{a-\mu}{\sigma}\right) \,.
-   \end{aligned}\]</span></p>
-
-<div class="example">
-<p><span id="exm:eg-norm-rt" class="example"><strong>Example 0.1  </strong></span>Let <span class="math inline">\(X \sim \mathcal{N}(5, 9)\)</span> and find <span class="math inline">\(P(X \geq 5.5)\)</span>.</p>
-<span class="math display">\[\begin{aligned}
-   P(X \geq 5.5) &amp;= P\left(Z \geq \frac{5.5 - 5}{3}\right) \\
-    &amp;= P(Z \geq 0.1667) \\
-    &amp;= 1 - P(Z \leq 0.1667) \\
-    &amp;= 1 - \Phi(0.1667) \\
-    &amp;= 1 - 0.5662 \\
-    &amp;= 0.4338\,,
-    \end{aligned}\]</span>
-where we look up the value of <span class="math inline">\(\Phi(z) = P(Z\leq z)\)</span> in a table of standard normal curve areas.
-</div>
-<p>Alternatively, we can use the <code>r</code> code:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="preliminaries.html#cb1-1"></a><span class="kw">pnorm</span>(<span class="fl">5.5</span>, <span class="dt">mean =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">3</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>) </span></code></pre></div>
-<pre><code>[1] 0.4338162</code></pre>
-<p><strong>TODO</strong>: plot of area under normal curve (right tail)</p>
-
-<div class="example">
-<p><span id="exm:eg-norm-dt" class="example"><strong>Example 0.2  </strong></span>Let <span class="math inline">\(X \sim \mathcal{N}(5, 9)\)</span> and find <span class="math inline">\(P(4 \leq X \leq 5.25)\)</span>.</p>
-<span class="math display">\[\begin{aligned}
-   P(4 \leq X \leq 5.25) &amp;= P\left(\frac{4-5}{3} \leq Z \leq \frac{5.25-5}{3}\right) \\
-   &amp;= P(-0.3333 \leq Z \leq 0.0833) \\
-   &amp;= \Phi(0.0833) - \Phi(-0.3333) \\
-   &amp;= 0.5332 - 0.3694 \\
-   &amp;= 0.1638\,.
-  \end{aligned}\]</span>
-where we look up the value of <span class="math inline">\(\Phi(z) = P(Z\leq z)\)</span> in a table of standard normal curve areas.
-</div>
-<p><strong>TODO</strong>: plot area under normal curve (interior)</p>
-<p>Alternatively, we can use the <code>r</code> code:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="preliminaries.html#cb3-1"></a><span class="kw">pnorm</span>(<span class="fl">5.25</span>, <span class="dt">mean =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">3</span>) <span class="op">-</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="dv">4</span>, <span class="dt">mean =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>[1] 0.1637654</code></pre>
-</div>
-</div>
-<div id="t-distribution" class="section level2 unnumbered" number="">
-<h2><span class="math inline">\(t\)</span> distribution</h2>
-<div id="properties-of-t-distributions" class="section level3 unnumbered" number="">
-<h3>Properties of <span class="math inline">\(t\)</span> distributions</h3>
-<ol style="list-style-type: decimal">
-<li>The density for <span class="math inline">\(t_\nu\)</span> is a bell-shaped curve centered at <span class="math inline">\(0\)</span>.</li>
-<li>The density for <span class="math inline">\(t_\nu\)</span> is more spread out than the standard normal density (i.e., it has “fatter tails” than the normal).</li>
-<li>As <span class="math inline">\(\nu \to \infty\)</span>, the spread of the corresponding <span class="math inline">\(t_\nu\)</span> density converges to the standard normal density (i.e., the spread of the <span class="math inline">\(t_\nu\)</span> density decreases relative to the standard normal).</li>
-</ol>
-
-</div>
 </div>
 </div>
             </section>
@@ -378,7 +236,7 @@ where we look up the value of <span class="math inline">\(\Phi(z) = P(Z\leq z)\)
         </div>
       </div>
 <a href="cg.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="statistical-inference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="special-distributions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

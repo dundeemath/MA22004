@@ -50,7 +50,14 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.15/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -159,27 +166,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#notation"><i class="fa fa-check"></i>Notation</a></li>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#abbreviations"><i class="fa fa-check"></i>Abbreviations</a></li>
-<li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#normal-distribution"><i class="fa fa-check"></i>Normal distribution</a>
+</ul></li>
+<li class="chapter" data-level="1" data-path="special-distributions.html"><a href="special-distributions.html"><i class="fa fa-check"></i><b>1</b> Special distributions</a>
 <ul>
-<li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#some-useful-facts-about-normals"><i class="fa fa-check"></i>Some useful facts about Normals</a></li>
-</ul></li>
-<li><a href="preliminaries.html#t-distribution"><span class="math inline">\(t\)</span> distribution</a>
+<li class="chapter" data-level="1.1" data-path="special-distributions.html"><a href="special-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.1</b> Normal distribution</a>
 <ul>
-<li><a href="preliminaries.html#properties-of-t-distributions">Properties of <span class="math inline">\(t\)</span> distributions</a></li>
+<li class="chapter" data-level="1.1.1" data-path="special-distributions.html"><a href="special-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about Normals</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="1" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>1</b> Inferences based on a single sample</a>
+<li class="chapter" data-level="1.2" data-path="special-distributions.html"><a href="special-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(t\)</span> distribution</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="statistical-inference.html"><a href="statistical-inference.html#point-estimation"><i class="fa fa-check"></i><b>1.1</b> Point estimation</a></li>
-<li class="chapter" data-level="1.2" data-path="statistical-inference.html"><a href="statistical-inference.html#confidence-intervals"><i class="fa fa-check"></i><b>1.2</b> Confidence intervals</a>
+<li class="chapter" data-level="1.2.1" data-path="special-distributions.html"><a href="special-distributions.html#facts-t"><i class="fa fa-check"></i><b>1.2.1</b> Properties of <span class="math inline">\(t\)</span> distributions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>2</b> Inferences based on a single sample</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-normal-var-known"><i class="fa fa-check"></i><b>1.2.1</b> CI for mean of a Normal population with known variance</a></li>
-<li class="chapter" data-level="1.2.2" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-large-sample"><i class="fa fa-check"></i><b>1.2.2</b> Large-sample CI for mean of a population with unknown variance</a></li>
-<li class="chapter" data-level="1.2.3" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-normal-var-unknown"><i class="fa fa-check"></i><b>1.2.3</b> CI for mean of a normal population with unknown variance</a></li>
+<li class="chapter" data-level="2.1" data-path="statistical-inference.html"><a href="statistical-inference.html#point-estimation"><i class="fa fa-check"></i><b>2.1</b> Point estimation</a></li>
+<li class="chapter" data-level="2.2" data-path="statistical-inference.html"><a href="statistical-inference.html#confidence-intervals"><i class="fa fa-check"></i><b>2.2</b> Confidence intervals</a></li>
+<li class="chapter" data-level="2.3" data-path="statistical-inference.html"><a href="statistical-inference.html#hypothesis-testing"><i class="fa fa-check"></i><b>2.3</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="2.4" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-means"><i class="fa fa-check"></i><b>2.4</b> Estimating means</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-normal-var-known"><i class="fa fa-check"></i><b>2.4.1</b> CI for mean of a Normal population with known variance</a></li>
+<li class="chapter" data-level="2.4.2" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-large-sample"><i class="fa fa-check"></i><b>2.4.2</b> Large-sample CI for mean of a population with unknown variance</a></li>
+<li class="chapter" data-level="2.4.3" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-normal-var-unknown"><i class="fa fa-check"></i><b>2.4.3</b> CI for mean of a normal population with unknown variance</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="statistical-inference.html"><a href="statistical-inference.html#hypothesis-testing"><i class="fa fa-check"></i><b>1.3</b> Hypothesis testing</a></li>
-<li class="chapter" data-level="1.4" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-proportions"><i class="fa fa-check"></i><b>1.4</b> Inference in action: Estimating proportions</a></li>
+<li class="chapter" data-level="2.5" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-proportions"><i class="fa fa-check"></i><b>2.5</b> Estimating proportions</a></li>
+<li class="chapter" data-level="2.6" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-variances"><i class="fa fa-check"></i><b>2.6</b> Estimating variances</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="inference-two-samples.html"><a href="inference-two-samples.html"><i class="fa fa-check"></i><b>3</b> Inferences based on two samples</a></li>
+<li class="chapter" data-level="4" data-path="categorical-data.html"><a href="categorical-data.html"><i class="fa fa-check"></i><b>4</b> Categorical data and Goodness-of-Fit tests</a></li>
 <li class="divider"></li>
 <li><a href="http://uod.ac.uk/sig-home" rel="nofollow"><img width="73" height="73" src="https://www.dundee.ac.uk/media/dundeewebsite/themes/brandnewhope/img/university-of-dundee-email-favicon.png" alt="University of Dundee shield logo"> </a></li>
 
@@ -203,9 +217,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">MA22004 - Statistics and Probability II</h1>
 <p class="author"><em>Dr Eric Hall</em></p>
-<p class="date"><em>Last updated: 2020-09-05</em></p>
+<p class="date"><em>Last updated: 2020-09-07</em></p>
 </div>
-<div id="welcome" class="section level1 unnumbered" number="">
+<div id="welcome" class="section level1 unnumbered">
 <h1>Welcome</h1>
 <p>Welcome to MA22004.</p>
 

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Course Guide | MA22004 - Statistics and Probability II</title>
+  <title>1 Special distributions | MA22004 - Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Course Guide | MA22004 - Statistics and Probability II" />
+  <meta property="og:title" content="1 Special distributions | MA22004 - Statistics and Probability II" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://ejhall.github.io/MA22004/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ejhall/MA22004/" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Course Guide | MA22004 - Statistics and Probability II" />
+  <meta name="twitter:title" content="1 Special distributions | MA22004 - Statistics and Probability II" />
   
   <meta name="twitter:description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="preliminaries.html"/>
+<link rel="prev" href="preliminaries.html"/>
+<link rel="next" href="statistical-inference.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -214,339 +214,105 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="cg" class="section level1 unnumbered">
-<h1>Course Guide</h1>
-<div id="cg-organization" class="section level2 unnumbered">
-<h2>Organisation</h2>
-<p>This module runs for 11 teaching weeks and is worth 20 SCQF credits (equivalently, 10 ECTS points). All organisation and teaching will be carried out by:</p>
-<table style="width:29%;">
-<colgroup>
-<col width="29%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td align="left">Dr Eric Hall
-<a href="mailto:ehall001@dundee.ac.uk">ehall001@dundee.ac.uk</a></td>
-</tr>
-<tr class="even">
-<td align="left">Mathematics Division
-Room TBA,
-Fulton Building</td>
-</tr>
-<tr class="odd">
-<td align="left">01382 TBA</td>
-</tr>
-</tbody>
-</table>
-<p>This course uses <a href="my.dundee.ac.uk">Blackboard Ultra</a> (look for course <code>MA22004_SEM0000_2021</code>) for communicating all announcements/deadlines and also for running online meetings. This course also uses <a href="https://www.gradescope.com/">Gradescope</a> for submission of some of the continuous assessment items and <a href="https://perusall.com/">Perusall</a> for collaborative engagement with reading materials.</p>
-<p>If you have a problem regarding the course, then you should make an appointment to see Dr Hall. You may also bring matters of concern about the course to the attention of the Mathematics Division Staff/Student Committee, which meets once each semester. A volunteer from Level 2 Mathematics will act as class representative to sit on the Staff/Student Committee (see Ultra for contact details).</p>
+<div id="special-distributions" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Special distributions</h1>
+<div id="normal-distribution" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Normal distribution</h2>
+<p>Normal distributions play an important role in probability and statistics as they describes many natural phenomenon. For instance, the Central Limit Theorem tells us that sums of rvs are approximately Normal in distribution.</p>
+
+<div class="definition">
+<span id="def:normal-dist" class="definition"><strong>Definition 1.1  </strong></span>A continuous rv <span class="math inline">\(X\)</span> has a <strong>normal distribution</strong> with parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>, where <span class="math inline">\(-\infty &lt; \mu &lt; \infty\)</span> and <span class="math inline">\(\sigma &gt; 0\)</span>, if <span class="math inline">\(X\)</span> has pdf
+<span class="math display">\[ f(x; \mu, \sigma) = \frac{1}{\sqrt{2 \pi} \sigma}e^{-(x-\mu)^2/(2\sigma^2)}\,, 
+\quad -\infty &lt; x &lt; \infty \,.\]</span>
 </div>
-<div id="cg-timetable" class="section level2 unnumbered">
-<h2>Timetable</h2>
-<blockquote>
-<p>⚠️ Due to COVID19, these plans may be subject to change.</p>
-</blockquote>
-<p>The delivery of this module consists of a blend of synchronous and asynchronous content delivered both in-person and online. On an average week, there will be seven planned teaching and learning activities.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-Activity
-</th>
-<th style="text-align:left;">
-Timetabled
-</th>
-<th style="text-align:left;">
-Group
-</th>
-<th style="text-align:right;">
-Hours
-</th>
-<th style="text-align:left;">
-Delivery
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Reading
-</td>
-<td style="text-align:left;">
-asynchronous
-</td>
-<td style="text-align:left;">
-individually &amp; in groups
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:left;">
-online
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Investigation
-</td>
-<td style="text-align:left;">
-asynchronous
-</td>
-<td style="text-align:left;">
-individually
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-online
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Seminar
-</td>
-<td style="text-align:left;">
-synchronous
-</td>
-<td style="text-align:left;">
-whole class
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-online
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Computer Lab
-</td>
-<td style="text-align:left;">
-asynchronous
-</td>
-<td style="text-align:left;">
-individually
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:left;">
-online
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Workshop Preparation
-</td>
-<td style="text-align:left;">
-asynchronous
-</td>
-<td style="text-align:left;">
-individually or in groups
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;">
-online
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Workshop
-</td>
-<td style="text-align:left;">
-synchronous
-</td>
-<td style="text-align:left;">
-in groups
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-face-to-face
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Office Hours
-</td>
-<td style="text-align:left;">
-synchronous
-</td>
-<td style="text-align:left;">
-in groups
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-online
-</td>
-</tr>
-</tbody>
-</table>
-<p>The anticipated student effort is 200 hours over the length of the module. You are expected to be “present” for all synchronous timetabled activities except for the online office hours, which are optional. You may engage with the asynchronous material at your own pace, keeping in mind to meet any deadlines for engagement and/or attainment that will be posted to Ultra and discussed.</p>
+<p>The statement that <span class="math inline">\(X\)</span> is normally distributed with parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> is abbreviated <span class="math inline">\(X \sim \mathcal{N}(\mu, \sigma^2)\)</span>. For <span class="math inline">\(X\sim \mathcal{N}(\mu,\sigma^2)\)</span>, it can be shown that <span class="math inline">\(\operatorname{E}(X) = \mu\)</span> and <span class="math inline">\(\operatorname{Var}(X) = \sigma^2\)</span>, that is, <span class="math inline">\(\mu\)</span> is the <em>mean</em> and <span class="math inline">\(\sigma^2\)</span> is the <em>variance</em> of <span class="math inline">\(X\)</span>. The pdf takes the form of a bell-shaped curve that is symmetric about <span class="math inline">\(\mu\)</span>. The value <span class="math inline">\(\sigma\)</span> (<em>standard deviation</em>) is the distance from <span class="math inline">\(\mu\)</span> to the inflection points of the curve. Thus, the position (location) and spread of the distribution depends on <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>.</p>
+<div class="figure"><span id="fig:normals-diff-mean"></span>
+<img src="01-sampling-distributions_files/figure-html/normals-diff-mean-1.png" alt="The pdfs of two normal rvs with different means and the same standard deviations." width="672" />
+<p class="caption">
+Figure 1.1: The pdfs of two normal rvs with different means and the same standard deviations.
+</p>
 </div>
-<div id="cg-prerecs" class="section level2 unnumbered">
-<h2>Pre-requisites</h2>
-<p>To take this course, you must have passed module MA12003 or equivalent.</p>
+<div class="figure"><span id="fig:normals-diff-sd"></span>
+<img src="01-sampling-distributions_files/figure-html/normals-diff-sd-1.png" alt="The pdfs of two normal rvs with the same means and different standard deviations." width="672" />
+<p class="caption">
+Figure 1.2: The pdfs of two normal rvs with the same means and different standard deviations.
+</p>
 </div>
-<div id="cg-syllabus" class="section level2 unnumbered">
-<h2>Syllabus</h2>
-<dl>
-<dt>Sampling Distributions</dt>
-<dd>Mean and standard deviation of samples, sampling from a single population, sampling from two populations, shape of sampling distributions. Normal distribution, <span class="math inline">\(\chi^2\)</span>-square distribution, F-distribution.
-</dd>
-<dt>Hypothesis tests</dt>
-<dd>Null and Alternate hypotheses, inferences, confidence intervals, estimating means, proportions and standard deviations.
-</dd>
-<dt>Linear Regression</dt>
-<dd>Least squares, assessing usefulness of a model, using a model. 
-</dd>
-<dt>Industrial Quality Control</dt>
-<dd>Control Charts, acceptance sampling.
-</dd>
-<dt>R software package</dt>
-<dd>Appropriate use of computational software to carry out statistical and probabilistic calculations.
-</dd>
-</dl>
+
+<div class="definition">
+<span id="def:unnamed-chunk-1" class="definition"><strong>Definition 1.2  </strong></span>We say that <span class="math inline">\(X\)</span> has a <strong>standard Normal distribution</strong> if <span class="math inline">\(\mu=0\)</span> and <span class="math inline">\(\sigma = 1\)</span> and we will usually denote standard Normal rvs by <span class="math inline">\(Z\)</span> (why? <a href="https://www.youtube.com/watch?v=gRdfX7ut8gw">tradition!</a>).
 </div>
-<div id="cg-books" class="section level2 unnumbered">
-<h2>Recommended Books</h2>
-<p>In addition to the course notes, here are some textbooks you may wish to consult.</p>
-<blockquote>
-<p>⚠️ You do not need to purchase these books.</p>
-</blockquote>
-<ul>
-<li>Devore, <em>Probability and Statistics for Engineering and the Sciences,</em> Cengage learning, 2011. [§6-10, 12]</li>
-<li>DeGroot and Schervish, <em>Probability and Statistics,</em> Addison-Wesley, 2001. [§7-10]</li>
-<li>Rice, <em>Mathematical statistics and data analysis,</em> Cengage Learning, 2006. [§6-12]</li>
-<li>Wasserman, <em>All of Statistics,</em> Springer-Verlag, 2004. [Concise general reference]</li>
-</ul>
+<div id="facts-normals" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Some useful facts about Normals</h3>
+<p>Here are some useful facts about how to manipulate Normal rvs.</p>
+<ol style="list-style-type: decimal">
+<li>If <span class="math inline">\(X \sim \mathcal{N}(\mu, \sigma^2),\)</span> then <span class="math inline">\(Z = (X - \mu) / \sigma \quad \sim \mathcal{N}(0,1).\)</span></li>
+<li>If <span class="math inline">\(Z \sim \mathcal{N}(0, 1),\)</span> then <span class="math inline">\(X = \mu + \sigma Z \quad \sim \mathcal{N}(\mu, \sigma^2).\)</span></li>
+<li>If <span class="math inline">\(X_i \sim \mathcal{N}(\mu_i, \sigma_i^2)\)</span> for <span class="math inline">\(i = 1, \dots, n\)</span> are independent rvs, then
+<span class="math display">\[\sum_{i=1}^{n} X_i \sim \mathcal{N} \left( \sum_{i=1}^{n} \mu_i, \sum_{i=1}^{n} \sigma_i^2 \right) \,.\]</span></li>
+</ol>
+<p>In particular, we note that for differences of independent rvs <span class="math inline">\(X_1 \sim \mathcal{N}(\mu_1, \sigma_1^2)\)</span> and <span class="math inline">\(X_2 \sim \mathcal{N}(\mu_2, \sigma_2^2)\)</span> then the variances also add:
+<span class="math display">\[ X_1 - X_2 \sim \mathcal{N}(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2) \,.\]</span></p>
+<p>Probabilities <span class="math inline">\(P(a \leq X \leq b)\)</span> are found by converting the problem in <span class="math inline">\(X \sim \mathcal{N}(\mu, \sigma^2)\)</span> to the <em>standard normal</em> distribution <span class="math inline">\(Z \sim \mathcal{N}(0, 1)\)</span> whose probability values <span class="math inline">\(\Phi(z) = P(Z\leq z)\)</span> can then be looked up in a table. From (1.) above,
+<span class="math display">\[\begin{aligned}
+   P(a &lt; X &lt; b) &amp;= P\left( \frac{a-\mu}{\sigma} &lt; Z &lt; \frac{b-\mu}{\sigma} \right) \\ 
+    &amp;= \Phi \left( \frac{b-\mu}{\sigma}\right) - \Phi\left(\frac{a-\mu}{\sigma}\right) \,.
+   \end{aligned}\]</span></p>
+
+<div class="example">
+<p><span id="exm:eg-norm-rt" class="example"><strong>Example 1.1  </strong></span>Let <span class="math inline">\(X \sim \mathcal{N}(5, 9)\)</span> and find <span class="math inline">\(P(X \geq 5.5)\)</span>.</p>
+<span class="math display">\[\begin{aligned}
+   P(X \geq 5.5) &amp;= P\left(Z \geq \frac{5.5 - 5}{3}\right) \\
+    &amp;= P(Z \geq 0.1667) \\
+    &amp;= 1 - P(Z \leq 0.1667) \\
+    &amp;= 1 - \Phi(0.1667) \\
+    &amp;= 1 - 0.5662 \\
+    &amp;= 0.4338\,,
+    \end{aligned}\]</span>
+where we look up the value of <span class="math inline">\(\Phi(z) = P(Z\leq z)\)</span> in a table of standard normal curve areas.
 </div>
-<div id="cg-assessment" class="section level2 unnumbered">
-<h2>Assessment</h2>
-<p>The module will be <em>continuously</em> assessed using coursework and examinations. Deadlines, as well as test dates, will be posted on Ultra and announcements made in the class hours. The module assessment weighting is as follows.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-Assessment
-</th>
-<th style="text-align:left;">
-Weight
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Assignments
-</td>
-<td style="text-align:left;">
-20%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Midterm Exam 1
-</td>
-<td style="text-align:left;">
-20%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Midterm Exam 2
-</td>
-<td style="text-align:left;">
-20%
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Final Exam
-</td>
-<td style="text-align:left;">
-40%
-</td>
-</tr>
-</tbody>
-</table>
-<div id="cg-assessment-coursework" class="section level3 unnumbered">
-<h3>Coursework</h3>
-<p>Assessed coursework includes:</p>
-<ul>
-<li>six hand-in laboratory reports and</li>
-<li>weekly engagement with the reading material using <a href="https://perusall.com/">Perusall</a>.</li>
-</ul>
-<p>There will also be alternative means of demonstrating your mastery of course material through:</p>
-<ul>
-<li>one (group) lab presentation and</li>
-<li>short seminar quizzes (announced in advance).</li>
-</ul>
+<p>Alternatively, we can use the <code>r</code> code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="special-distributions.html#cb1-1" aria-hidden="true"></a><span class="kw">pnorm</span>(<span class="fl">5.5</span>, <span class="dt">mean =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">3</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>) </span></code></pre></div>
+<pre><code>[1] 0.4338162</code></pre>
+<p><strong>TODO</strong>: plot of area under normal curve (right tail)</p>
+
+<div class="example">
+<p><span id="exm:eg-norm-dt" class="example"><strong>Example 1.2  </strong></span>Let <span class="math inline">\(X \sim \mathcal{N}(5, 9)\)</span> and find <span class="math inline">\(P(4 \leq X \leq 5.25)\)</span>.</p>
+<span class="math display">\[\begin{aligned}
+   P(4 \leq X \leq 5.25) &amp;= P\left(\frac{4-5}{3} \leq Z \leq \frac{5.25-5}{3}\right) \\
+   &amp;= P(-0.3333 \leq Z \leq 0.0833) \\
+   &amp;= \Phi(0.0833) - \Phi(-0.3333) \\
+   &amp;= 0.5332 - 0.3694 \\
+   &amp;= 0.1638\,.
+  \end{aligned}\]</span>
+where we look up the value of <span class="math inline">\(\Phi(z) = P(Z\leq z)\)</span> in a table of standard normal curve areas.
 </div>
-<div id="cg-assessment-exams" class="section level3 unnumbered">
-<h3>Examinations</h3>
-<p>The <strong>Midterm Exams</strong> will be computer-assessed and will be one (1) hour in scope. These will likely be in weeks 4 and 8.</p>
-<p>The <strong>Final Exam</strong> will be a two (2) hour hand-written exam that will be submitted using <a href="https://www.gradescope.com/">Gradescope</a>. This process will be thoroughly discussed and trialled with a dummy exam in advance of the real submission. The Final Exam will be in week 11 (i.e., during the last week of the term).</p>
-<p>To pass this module, you must:</p>
-<ul>
-<li>obtain an overall grade of at least <code>D3</code> in the overall assessment <strong>and</strong></li>
-<li>obtain a grade of at least <code>M1</code> for the exam <strong>and</strong></li>
-<li>obtain a grade of at least <code>M1</code> for the coursework.</li>
-</ul>
-<p>For those who fail the module, there may be an opportunity to take a two-hour resit examination paper at the next available exam diet.</p>
-<blockquote>
-<p>⚠️ Resit marks are based on the resit exam only.</p>
-</blockquote>
-<p>Unless you have mitigating circumstances, if you fail to achieve a module grade of <code>CF</code> or above at first attempt, then you may not be permitted to resit the exam. Also, unless you have mitigating circumstances, any pass after a resit will be capped at a grade of <code>D3</code> regardless of the weighted average mark obtained.</p>
+<p><strong>TODO</strong>: plot area under normal curve (interior)</p>
+<p>Alternatively, we can use the <code>r</code> code:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="special-distributions.html#cb3-1" aria-hidden="true"></a><span class="kw">pnorm</span>(<span class="fl">5.25</span>, <span class="dt">mean =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">3</span>) <span class="op">-</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="dv">4</span>, <span class="dt">mean =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>[1] 0.1637654</code></pre>
 </div>
 </div>
-<div id="cg-commitment" class="section level2 unnumbered">
-<h2>Your Commitment</h2>
-<p>You should attend all synchronous timetabled sessions except on medical grounds or with the special permission of Dr Hall. If you are unable to attend the degree examination or complete elements of the coursework on time, then you should inform Dr Hall and submit a medical certificate. Medical certificates should be submitted to your School Office as soon as possible after the absence.</p>
-<blockquote>
-<p>⚠️ You must also submit a Mitigating Circumstances form to explain which aspects of assessment have been affected by your absence.</p>
-</blockquote>
-<p>A Medical Certificate will only be taken into account if accompanied by a completed Mitigating Circumstances form that refers to the medical certificate.</p>
-</div>
-<div id="cg-calcs" class="section level2 unnumbered">
-<h2>Approved Calculators</h2>
-<p>The Casio FX83 and the Casio FX85 are the only calculators approved for use in assessments in the School of Engineering, Physics and Mathematics.</p>
-</div>
-<div id="cg-support" class="section level2 unnumbered">
-<h2>Study Support</h2>
-<p>If you are having difficulty with the course, you are encouraged to seek help at an early stage by making an appointment with Dr Hall. You may also obtain additional help from the Maths Base (see Ultra for details).</p>
-</div>
-<div id="cg-disability" class="section level2 unnumbered">
-<h2>Disability</h2>
-<p>The University of Dundee is committed to making reasonable, effective and appropriate accommodations to meet the needs of students with disabilities and to create an inclusive and barrier-free campus. If you require accommodation for a documented disability, then you are advised to register with <a href="https://www.dundee.ac.uk/disabilityservices/">Disability Services</a>. Please communicate any needs you may have directly with Dr Hall and as soon as possible to ensure timely management of any accommodations.</p>
-</div>
-<div id="cg-honesty" class="section level2 unnumbered">
-<h2>Academic Honesty</h2>
-<p>Honesty in scholarship and research is integral to the integrity of the academic enterprise of any higher education institution. Therefore, all students at the University of Dundee must practice academic honesty. Academic dishonesty includes cheating, fabrication, plagiarism, and facilitating dishonesty. Cases of academic dishonesty will be subject to appropriate sanctions and ignorance of such standards is not sufficient evidence of lack of intent. Please see the <a href="https://www.dundee.ac.uk/qf/documents/details/academic-misconduct.php"><em>Code of Practice on Academic Misconduct by Students</em></a> for more information about what constitutes academic dishonesty.</p>
-</div>
-<div id="cg-questionaire" class="section level2 unnumbered">
-<h2>End of Module Questionaire</h2>
-<p>You will have the opportunity to complete a confidential questionnaire regarding the content and presentation of the module periodically. These questionaires form an important element in the University’s Academic Standards procedures. Thank you in advance for your cooperation.</p>
+<div id="t-distribution" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> <span class="math inline">\(t\)</span> distribution</h2>
+<div id="facts-t" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Properties of <span class="math inline">\(t\)</span> distributions</h3>
+<ol style="list-style-type: decimal">
+<li>The density for <span class="math inline">\(t_\nu\)</span> is a bell-shaped curve centered at <span class="math inline">\(0\)</span>.</li>
+<li>The density for <span class="math inline">\(t_\nu\)</span> is more spread out than the standard normal density (i.e., it has “fatter tails” than the normal).</li>
+<li>As <span class="math inline">\(\nu \to \infty\)</span>, the spread of the corresponding <span class="math inline">\(t_\nu\)</span> density converges to the standard normal density (i.e., the spread of the <span class="math inline">\(t_\nu\)</span> density decreases relative to the standard normal).</li>
+</ol>
 
 </div>
 </div>
-
-
-
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="preliminaries.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="preliminaries.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="statistical-inference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -577,7 +343,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/dundeemath/MA22004/edit/master/guide.Rmd",
+"link": "https://github.com/dundeemath/MA22004/edit/master/01-sampling-distributions.Rmd",
 "text": "Suggest an edit"
 },
 "history": {

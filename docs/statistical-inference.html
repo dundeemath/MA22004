@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Inferences based on a single sample | MA22004 - Statistics and Probability II</title>
+  <title>2 Inferences based on a single sample | MA22004 - Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 Inferences based on a single sample | MA22004 - Statistics and Probability II" />
+  <meta property="og:title" content="2 Inferences based on a single sample | MA22004 - Statistics and Probability II" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://ejhall.github.io/MA22004/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ejhall/MA22004/" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Inferences based on a single sample | MA22004 - Statistics and Probability II" />
+  <meta name="twitter:title" content="2 Inferences based on a single sample | MA22004 - Statistics and Probability II" />
   
   <meta name="twitter:description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="preliminaries.html"/>
-
+<link rel="prev" href="special-distributions.html"/>
+<link rel="next" href="inference-two-samples.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,7 +50,14 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.15/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -159,27 +166,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#notation"><i class="fa fa-check"></i>Notation</a></li>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#abbreviations"><i class="fa fa-check"></i>Abbreviations</a></li>
-<li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#normal-distribution"><i class="fa fa-check"></i>Normal distribution</a>
+</ul></li>
+<li class="chapter" data-level="1" data-path="special-distributions.html"><a href="special-distributions.html"><i class="fa fa-check"></i><b>1</b> Special distributions</a>
 <ul>
-<li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#some-useful-facts-about-normals"><i class="fa fa-check"></i>Some useful facts about Normals</a></li>
-</ul></li>
-<li><a href="preliminaries.html#t-distribution"><span class="math inline">\(t\)</span> distribution</a>
+<li class="chapter" data-level="1.1" data-path="special-distributions.html"><a href="special-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.1</b> Normal distribution</a>
 <ul>
-<li><a href="preliminaries.html#properties-of-t-distributions">Properties of <span class="math inline">\(t\)</span> distributions</a></li>
+<li class="chapter" data-level="1.1.1" data-path="special-distributions.html"><a href="special-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about Normals</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="1" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>1</b> Inferences based on a single sample</a>
+<li class="chapter" data-level="1.2" data-path="special-distributions.html"><a href="special-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(t\)</span> distribution</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="statistical-inference.html"><a href="statistical-inference.html#point-estimation"><i class="fa fa-check"></i><b>1.1</b> Point estimation</a></li>
-<li class="chapter" data-level="1.2" data-path="statistical-inference.html"><a href="statistical-inference.html#confidence-intervals"><i class="fa fa-check"></i><b>1.2</b> Confidence intervals</a>
+<li class="chapter" data-level="1.2.1" data-path="special-distributions.html"><a href="special-distributions.html#facts-t"><i class="fa fa-check"></i><b>1.2.1</b> Properties of <span class="math inline">\(t\)</span> distributions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>2</b> Inferences based on a single sample</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-normal-var-known"><i class="fa fa-check"></i><b>1.2.1</b> CI for mean of a Normal population with known variance</a></li>
-<li class="chapter" data-level="1.2.2" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-large-sample"><i class="fa fa-check"></i><b>1.2.2</b> Large-sample CI for mean of a population with unknown variance</a></li>
-<li class="chapter" data-level="1.2.3" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-normal-var-unknown"><i class="fa fa-check"></i><b>1.2.3</b> CI for mean of a normal population with unknown variance</a></li>
+<li class="chapter" data-level="2.1" data-path="statistical-inference.html"><a href="statistical-inference.html#point-estimation"><i class="fa fa-check"></i><b>2.1</b> Point estimation</a></li>
+<li class="chapter" data-level="2.2" data-path="statistical-inference.html"><a href="statistical-inference.html#confidence-intervals"><i class="fa fa-check"></i><b>2.2</b> Confidence intervals</a></li>
+<li class="chapter" data-level="2.3" data-path="statistical-inference.html"><a href="statistical-inference.html#hypothesis-testing"><i class="fa fa-check"></i><b>2.3</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="2.4" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-means"><i class="fa fa-check"></i><b>2.4</b> Estimating means</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-normal-var-known"><i class="fa fa-check"></i><b>2.4.1</b> CI for mean of a Normal population with known variance</a></li>
+<li class="chapter" data-level="2.4.2" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-large-sample"><i class="fa fa-check"></i><b>2.4.2</b> Large-sample CI for mean of a population with unknown variance</a></li>
+<li class="chapter" data-level="2.4.3" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-normal-var-unknown"><i class="fa fa-check"></i><b>2.4.3</b> CI for mean of a normal population with unknown variance</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="statistical-inference.html"><a href="statistical-inference.html#hypothesis-testing"><i class="fa fa-check"></i><b>1.3</b> Hypothesis testing</a></li>
-<li class="chapter" data-level="1.4" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-proportions"><i class="fa fa-check"></i><b>1.4</b> Inference in action: Estimating proportions</a></li>
+<li class="chapter" data-level="2.5" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-proportions"><i class="fa fa-check"></i><b>2.5</b> Estimating proportions</a></li>
+<li class="chapter" data-level="2.6" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-variances"><i class="fa fa-check"></i><b>2.6</b> Estimating variances</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="inference-two-samples.html"><a href="inference-two-samples.html"><i class="fa fa-check"></i><b>3</b> Inferences based on two samples</a></li>
+<li class="chapter" data-level="4" data-path="categorical-data.html"><a href="categorical-data.html"><i class="fa fa-check"></i><b>4</b> Categorical data and Goodness-of-Fit tests</a></li>
 <li class="divider"></li>
 <li><a href="http://uod.ac.uk/sig-home" rel="nofollow"><img width="73" height="73" src="https://www.dundee.ac.uk/media/dundeewebsite/themes/brandnewhope/img/university-of-dundee-email-favicon.png" alt="University of Dundee shield logo"> </a></li>
 
@@ -200,25 +214,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="statistical-inference" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Inferences based on a single sample</h1>
-<div id="point-estimation" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Point estimation</h2>
+<div id="statistical-inference" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Inferences based on a single sample</h1>
+<p>We discuss the basics of point estimation, confidence intervals, and hypothesis testing for making inferences about a population based on a single sample in Sections <a href="statistical-inference.html#point-estimation">2.1</a>, <a href="statistical-inference.html#confidence-intervals">2.2</a>, and <a href="statistical-inference.html#hypothesis-testing">2.3</a>, respectively. In particular, we provide details about estimating population means (<span class="math inline">\(\mu\)</span>) in Section <a href="statistical-inference.html#estimating-means">2.4</a>, population proportions (<span class="math inline">\(p\)</span>) in Section <a href="statistical-inference.html#estimating-proportions">2.5</a>, and population variances (<span class="math inline">\(\sigma^2\)</span>) in Section <a href="statistical-inference.html#estimating-variances">2.6</a>.</p>
+<div id="point-estimation" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Point estimation</h2>
 <p>A <strong>statistic</strong> is a quantity that can be calculated from sample data. Prior to obtaining data, a statistic is an unknown quantity and is therefore a rv. We refer to the probability distribution for a statistic as a <strong>sampling distribution</strong> to emphasize how the distribution will vary across all possible sample data.</p>
-<p>Statistical inference seeks to draw conclusions about the characteristics of a population from data. For example, suppose we are botanists interested in taxonomic classification of iris flowers. Let <span class="math inline">\(\mu\)</span> denote the true average petal length (in cm) of the <a href="https://www.wikiwand.com/en/Iris_setosa"><em>Iris setosa</em></a> (AKA the bristle-pointed iris). The parameter <span class="math inline">\(\mu\)</span> is a characteristic of the whole population for the <em>setosa</em> species. Before we collect data, the petal lengths of <span class="math inline">\(n\)</span> independent <em>setosa</em> flowers are denoted by rvs <span class="math inline">\(X_1, X_2, \dots, X_n\)</span>. Any function of the <span class="math inline">\(X_i\)</span>’s, such as the sample mean,
+<p>Statistical inference seeks to draw conclusions about the characteristics of a population from data. For example, suppose we are botanists interested in taxonomic classification of iris flowers. Let <span class="math inline">\(\mu\)</span> denote the true average petal length (in cm) of the <a href="https://www.wikiwand.com/en/Iris_setosa"><em>Iris setosa</em></a> (AKA the bristle-pointed iris). The parameter <span class="math inline">\(\mu\)</span> is a characteristic of the whole population of the <em>setosa</em> species. Before we collect data, the petal lengths of <span class="math inline">\(n\)</span> independent <em>setosa</em> flowers are denoted by rvs <span class="math inline">\(X_1, X_2, \dots, X_n\)</span>. Any function of the <span class="math inline">\(X_i\)</span>’s, such as the sample mean,
 <span class="math display" id="eq:sample-mean">\[\begin{equation}
-  \overline{X} = \frac{1}{n} \sum_{i=1}^n X_i\,, \tag{1.1}
+  \overline{X} = \frac{1}{n} \sum_{i=1}^n X_i\,, \tag{2.1}
 \end{equation}\]</span>
 or the sample variance,
 <span class="math display" id="eq:sample-var">\[\begin{equation*}
-  S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X})^2 \,, \tag{1.2}
+  S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X})^2 \,, \tag{2.2}
 \end{equation*}\]</span>
 is also a rv.</p>
-<p>Suppose we actually find and measure the petal length of <span class="math inline">\(50\)</span> independent <em>setosa</em> flowers resulting in observations <span class="math inline">\(x_1, x_2, \dots, x_{50}\)</span>; the distribution (counts) of <span class="math inline">\(50\)</span> such petal length measurements are displayed in Figure <a href="statistical-inference.html#fig:setosa-petal-lengths">1.1</a>. The sample mean <span class="math inline">\(\overline{x}\)</span> for petal length could then be used to draw a conclusion about the value of the population mean <span class="math inline">\(\mu\)</span>. Similarly, if <span class="math inline">\(\sigma^2\)</span> is the variance of the <em>setosa</em> petal length then <span class="math inline">\(s^2\)</span> can be used to infer something about the value of <span class="math inline">\(\sigma^2\)</span>. Based on the data in Figure <a href="statistical-inference.html#fig:setosa-petal-lengths">1.1</a> and using <a href="statistical-inference.html#eq:sample-mean">(1.1)</a>, the value of the sample mean is <span class="math inline">\(\overline{x} = 1.462\)</span>. The value <span class="math inline">\(\overline{x}\)</span> provides a “best guess” or point estimate for the true value of <span class="math inline">\(\mu\)</span> based on the <span class="math inline">\(n=50\)</span> samples.</p>
+<p>Suppose we actually find and measure the petal length of <span class="math inline">\(50\)</span> independent <em>setosa</em> flowers resulting in observations <span class="math inline">\(x_1, x_2, \dots, x_{50}\)</span>; the distribution (counts) of <span class="math inline">\(50\)</span> such petal length measurements are displayed in Figure <a href="statistical-inference.html#fig:setosa-petal-lengths">2.1</a>. The sample mean <span class="math inline">\(\overline{x}\)</span> for petal length can then be used to draw a conclusion about the (true) value of the population mean <span class="math inline">\(\mu\)</span>. Based on the data in Figure <a href="statistical-inference.html#fig:setosa-petal-lengths">2.1</a> and using <a href="statistical-inference.html#eq:sample-mean">(2.1)</a>, the value of the sample mean is <span class="math inline">\(\overline{x} = 1.462\)</span>. The value <span class="math inline">\(\overline{x}\)</span> provides a “best guess” or point estimate for the true value of <span class="math inline">\(\mu\)</span> based on the <span class="math inline">\(n=50\)</span> samples.</p>
 <div class="figure"><span id="fig:setosa-petal-lengths"></span>
-<img src="01-basics-stat-infer_files/figure-html/setosa-petal-lengths-1.png" alt="The distribution (counts) of $50$ *setosa* petal length measurments." width="672" />
+<img src="02-basics-stat-infer_files/figure-html/setosa-petal-lengths-1.png" alt="The distribution (counts) of $50$ *setosa* petal length measurments." width="672" />
 <p class="caption">
-Figure 1.1: The distribution (counts) of <span class="math inline">\(50\)</span> <em>setosa</em> petal length measurments.
+Figure 2.1: The distribution (counts) of <span class="math inline">\(50\)</span> <em>setosa</em> petal length measurments.
 </p>
 </div>
 <blockquote>
@@ -226,7 +241,7 @@ Figure 1.1: The distribution (counts) of <span class="math inline">\(50\)</span>
 </blockquote>
 
 <div class="definition">
-<span id="def:point-estimate" class="definition"><strong>Definition 1.1  </strong></span>A <strong>point estimate</strong> of a parameter <span class="math inline">\(\theta\)</span> (recall: a fixed, unknown quantity) is a single number that we regard as a sensible value for <span class="math inline">\(\theta\)</span>. Let <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> be iid samples from a distribution <span class="math inline">\(F(\theta)\)</span>. A <strong>point estimator</strong> <span class="math inline">\(\widehat{\theta}_n\)</span> of a parameter <span class="math inline">\(\theta\)</span> is obtained by selecting a suitable statistic <span class="math inline">\(g\)</span>,
+<span id="def:point-estimate" class="definition"><strong>Definition 2.1  </strong></span>A <strong>point estimate</strong> of a parameter <span class="math inline">\(\theta\)</span> (recall: a fixed, unknown quantity) is a single number that we regard as a sensible value for <span class="math inline">\(\theta\)</span>. Let <span class="math inline">\(X_1, X_2, \dots, X_n\)</span> be iid samples from a distribution <span class="math inline">\(F(\theta)\)</span>. A <strong>point estimator</strong> <span class="math inline">\(\widehat{\theta}_n\)</span> of a parameter <span class="math inline">\(\theta\)</span> is obtained by selecting a suitable statistic <span class="math inline">\(g\)</span>,
 <span class="math display">\[\begin{equation*}
   \widehat{\theta}_n = g(X_1, \dots, X_n) \,.
 \end{equation*}\]</span>
@@ -235,17 +250,17 @@ A point estimate <span class="math inline">\(\widehat{\theta}_n\)</span> can the
 <blockquote>
 <p>⚠️ The symbol <span class="math inline">\(\widehat{\theta}_n\)</span> (or simply <span class="math inline">\(\widehat{\theta}\)</span> when the sample size <span class="math inline">\(n\)</span> is clear from context) is typically used to denote both the estimator and the point estimate resulting from a given sample. Note that writing, e.g., <span class="math inline">\(\widehat{\theta} = 42\)</span> does not indicate how the point estimate was obtained. Therefore, it is essential to report both the estimator and the resulting point estimate.</p>
 </blockquote>
-<p>Note that Definition <a href="statistical-inference.html#def:point-estimate">1.1</a> above does not say how to select the appropriate statistic. For the <em>setosa</em> example, the sample mean <span class="math inline">\(\overline{X}\)</span> is suggested as a good estimator of the population mean <span class="math inline">\(\mu\)</span>. That is, <span class="math inline">\(\widehat{\mu} = \overline{X}\)</span> or “the point estimator of <span class="math inline">\(\mu\)</span> is the sample mean <span class="math inline">\(\overline{X}\)</span>”. Here, while <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> are fixed quantities representing characteristics of the population, <span class="math inline">\(\overline{X}\)</span> and <span class="math inline">\(S^2\)</span> are rvs with sampling distributions. If the population is <em>normally distributed</em> or if the <em>sample is large</em> then the sampling distribution for <span class="math inline">\(\overline{X}\)</span> has a known form: <span class="math inline">\(\overline{X}\)</span> is normal with mean <span class="math inline">\(\mu_{\overline{X}} = \mu\)</span> and variance <span class="math inline">\(\sigma_{\overline{X}}^2 = \sigma^{2} / n\)</span>, i.e.,
+<p>Note that Definition <a href="statistical-inference.html#def:point-estimate">2.1</a> does not say how to select the appropriate statistic. For the <em>setosa</em> example, the sample mean <span class="math inline">\(\overline{X}\)</span> is suggested as a good estimator of the population mean <span class="math inline">\(\mu\)</span>. That is, <span class="math inline">\(\widehat{\mu} = \overline{X}\)</span> or “the point estimator of <span class="math inline">\(\mu\)</span> is the sample mean <span class="math inline">\(\overline{X}\)</span>”. Here, while <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> are fixed quantities representing characteristics of the population, <span class="math inline">\(\overline{X}\)</span> and <span class="math inline">\(S^2\)</span> are rvs with sampling distributions. If the population is <em>normally distributed</em> or if the <em>sample is large</em> then the sampling distribution for <span class="math inline">\(\overline{X}\)</span> has a known form: <span class="math inline">\(\overline{X}\)</span> is normal with mean <span class="math inline">\(\mu_{\overline{X}} = \mu\)</span> and variance <span class="math inline">\(\sigma_{\overline{X}}^2 = \sigma^{2} / n\)</span>, i.e.,
 <span class="math display">\[\begin{equation*}
   \overline{X} \sim \mathcal{N}(\mu, \sigma^{2} / n) \,,
 \end{equation*}\]</span>
 where <span class="math inline">\(n\)</span> is the sample size and <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> are the (typically unknown) population parameters.</p>
 
 <div class="example">
-<p><span id="exm:eg-estimators" class="example"><strong>Example 1.1  </strong></span>Let us consider the heights (measured in inches) of <span class="math inline">\(31\)</span> black cherry trees (sorted, for your enjoyment): <code>63 64 65 66 69 70 71 72 72 74 74 75 75 75 76 76 77 78 79 80 80 80 80 80 81 81 82 83 85 86 87</code>.</p>
-<p>The quantile-quantile normal probability plot of this data is fairly straight, so we assume that the distribution of black cherry tree heights is normal with a mean value <span class="math inline">\(\mu\)</span>. The observations <span class="math inline">\(X_1, \dots, X_{31}\)</span> are then assumed to be a random sample from this normal distribution. Consider the following estimators and resulting point estimates for <span class="math inline">\(\mu\)</span>.</p>
+<p><span id="exm:eg-estimators" class="example"><strong>Example 2.1  </strong></span>Let us consider the heights (measured in inches) of <span class="math inline">\(31\)</span> black cherry trees (sorted, for your enjoyment): <code>63 64 65 66 69 70 71 72 72 74 74 75 75 75 76 76 77 78 79 80 80 80 80 80 81 81 82 83 85 86 87</code>.</p>
+<p>The quantile-quantile plot comparing this data to a normal distribution is fairly straight, so we assume that the distribution of black cherry tree heights is normal with a mean value <span class="math inline">\(\mu\)</span>; i.e., that the population of heights is distributed <span class="math inline">\(\mathcal{N}(\mu, \sigma^2)\)</span> where <span class="math inline">\(\mu\)</span> is a parameter to be estimated. The observations <span class="math inline">\(X_1, \dots, X_{31}\)</span> are then assumed to be a random sample from this normal distribution (iid). Consider the following three different stimators and the resulting point estimates for <span class="math inline">\(\mu\)</span> based on the <span class="math inline">\(31\)</span> samples.</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Estimator (sample mean) <span class="math inline">\(\overline{X}\)</span> as in <a href="statistical-inference.html#eq:sample-mean">(1.1)</a> and estimate <span class="math inline">\(\overline{x} = \sum x_i / n = 2356 / 31 = 76\)</span>.</p></li>
+<li><p>Estimator (sample mean) <span class="math inline">\(\overline{X}\)</span> as in <a href="statistical-inference.html#eq:sample-mean">(2.1)</a> and estimate <span class="math inline">\(\overline{x} = \sum x_i / n = 2356 / 31 = 76\)</span>.</p></li>
 <li><p>Estimator (average of extreme heights) <span class="math inline">\(\widetilde{X} = [\min(X_i) + \max(X_i)]/2\)</span> and estimate <span class="math inline">\(\widetilde{x} = (63 + 87)/2 = 75\)</span>.</p></li>
 <li><p>Estimator (<span class="math inline">\(10\%\)</span> trimmed mean – i.e., in this instance exclude the smallest and largest three values) <span class="math inline">\(\overline{X}_{\text{tr}(10)}\)</span> and estimate <span class="math inline">\(\overline{x}_{\text{tr}(10)} = (2356 - 63 - 64 - 65 - 87 - 86 - 85) / 25 = 76.24\)</span>.</p></li>
 </ol>
@@ -254,20 +269,20 @@ Each estimator above uses a different notion of center for the sample data. An i
 <blockquote>
 <p>The <strong>Cherry Tree Data</strong> contains 31 obs. of three features (diameter [in], height [in], and volume [cu ft]) and can be accessed in <code>r</code> by loading <code>library(datasets)</code> and then calling <code>data(trees)</code>.</p>
 </blockquote>
-<p>In addition to reporting a point estimate (together with its estimator), some indication of its precision should be given. One measure of the precision in an estimate is to report its standard error.</p>
+<p>In addition to reporting a point estimate (together with its estimator), some indication of its precision should be given. One measure of the precision of an estimate is its standard error.</p>
 
 <div class="definition">
-<span id="def:standard-error" class="definition"><strong>Definition 1.2  </strong></span>The <strong>standard error</strong> of an estimator <span class="math inline">\(\widehat{\theta}\)</span> is the standard deviation <span class="math inline">\(\sigma_{\widehat{\theta}} = \sqrt{\operatorname{Var}(\widehat{\theta})}\)</span> (sometimes denoted <span class="math inline">\(\mathsf{se}= \mathsf{se}(\widehat{\theta})\)</span>). Often, the standard error depends on unknown parameters and must also be estimated. The estimated standard error is denoted by <span class="math inline">\(\widehat{\sigma}_{\widehat{\theta}}\)</span> or <span class="math inline">\(s_{\widehat{\theta}}\)</span> or <span class="math inline">\(\widehat{\mathsf{se}}\)</span>.
+<span id="def:standard-error" class="definition"><strong>Definition 2.2  </strong></span>The <strong>standard error</strong> of an estimator <span class="math inline">\(\widehat{\theta}\)</span> is the standard deviation <span class="math inline">\(\sigma_{\widehat{\theta}} = \sqrt{\operatorname{Var}(\widehat{\theta})}\)</span> (sometimes denoted <span class="math inline">\(\mathsf{se}= \mathsf{se}(\widehat{\theta})\)</span>). Often, the standard error depends on unknown parameters and must also be estimated. The <strong>estimated standard error</strong> is denoted by <span class="math inline">\(\widehat{\sigma}_{\widehat{\theta}}\)</span> or <span class="math inline">\(s_{\widehat{\theta}}\)</span> or <span class="math inline">\(\widehat{\mathsf{se}}\)</span>.
 </div>
 </div>
-<div id="confidence-intervals" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Confidence intervals</h2>
-<p>An alternative to reporting a point estimate for a parameter is to report an interval estimate that suggests an entire range of plausible values for the parameter of interest. A confidence interval is an interval estimate that makes a probability statement about the degree of reliability, or the confidence level, of the interval. The first step in computing a confidence interval is always to select the confidence level. A popular choice is a <span class="math inline">\(95\%\)</span> confidence interval which corresponds to level <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<div id="confidence-intervals" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Confidence intervals</h2>
+<p>An alternative to reporting a point estimate for a parameter is to report an interval estimate suggesting an entire range of plausible values for the parameter of interest. A confidence interval is an interval estimate that makes a probability statement about the degree of reliability, or the confidence level, of the interval. The first step in computing a confidence interval is to select the confidence level. A popular choice is a <span class="math inline">\(95\%\)</span> confidence interval which corresponds to level <span class="math inline">\(\alpha = 0.05\)</span>.</p>
 
 <div class="definition">
-<span id="def:confidence-interval-gen" class="definition"><strong>Definition 1.3  </strong></span>A <span class="math inline">\((1-\alpha)\)</span> <strong>confidence interval</strong> for a parameter <span class="math inline">\(\theta\)</span> is a <em>random</em> interval <span class="math inline">\(C_n = (a, b)\)</span> where <span class="math inline">\(a = a(X_1, \dots, X_n)\)</span> and <span class="math inline">\(b = b(X_1, \dots, X_n)\)</span> are functions of the data such that
+<span id="def:confidence-interval-gen" class="definition"><strong>Definition 2.3  </strong></span>A <span class="math inline">\(100(1-\alpha)\%\)</span> <strong>confidence interval</strong> for a parameter <span class="math inline">\(\theta\)</span> is a <em>random</em> interval <span class="math inline">\(C_n = (L_n , U_n)\)</span> where <span class="math inline">\(L_n = \ell(X_1, \dots, X_n)\)</span> and <span class="math inline">\(U_n = u(X_1, \dots, X_n)\)</span> are functions of the data such that
 <span class="math display">\[\begin{equation}
-P_{\theta}(\theta \in C_n ) = 1 - \alpha\,, 
+P_{\theta}(L_n &lt; \theta &lt; U_n ) = 1 - \alpha\,, 
 \end{equation}\]</span>
 for all <span class="math inline">\(\theta \in \Theta\)</span>.
 </div>
@@ -275,9 +290,75 @@ for all <span class="math inline">\(\theta \in \Theta\)</span>.
 <blockquote>
 <p>On day 1, you collect data and construct a 95 percent confidence interval for a parameter <span class="math inline">\(\theta_1\)</span>. On day 2, you collect new data and construct a 95 percent confidence interval for an unrelated parameter <span class="math inline">\(\theta_2\)</span>. On day 3, you collect new data and construct a 95 percent confidence interval for an unrelated parameter <span class="math inline">\(\theta_3\)</span>. You continue this way constructing confidence intervals for a sequence of unrelated parameters <span class="math inline">\(\theta_1\)</span>, <span class="math inline">\(\theta_2\)</span>, <span class="math inline">\(\dots\)</span> Then 95 percent of your intervals will trap the true parameter value. There is no need to introduce the idea of repeating the same experiment over and over.</p>
 </blockquote>
-<p>This interpretation makes clear that a confidence interval is not a probability statement about the parameter <span class="math inline">\(\theta\)</span> (as <span class="math inline">\(\theta\)</span> is not a rv). In Definition <a href="statistical-inference.html#def:confidence-interval-gen">1.3</a>, note that <span class="math inline">\(\theta\)</span> is fixed and the interval <span class="math inline">\(C_n\)</span> is random.</p>
-<p><strong>TODO</strong>: add plot EG devore fig 7.3 that illustrates ca. 100 95% CIs (with astreisks identifying intervals that do not inlcude <span class="math inline">\(\mu\)</span>).</p>
-<p>If the parameter of interest is the population mean <span class="math inline">\(\theta = \mu\)</span>, then one can derive the form of the confidence interval using the fact that the sample mean <span class="math inline">\(\widehat{\theta} = \overline{X}\)</span> has (at least approximately) a normal distribution. We will consider three cases:</p>
+<p>This interpretation makes clear that a confidence interval is not a probability statement about the parameter <span class="math inline">\(\theta\)</span>. In Definition <a href="statistical-inference.html#def:confidence-interval-gen">2.3</a>, note that <span class="math inline">\(\theta\)</span> is fixed (<span class="math inline">\(\theta\)</span> is not a rv) and the interval <span class="math inline">\(C_n\)</span> is random. After data has been collected and a point estimator has been calculated, the resulting CIs either contain the true parameter value or they do not (see).</p>
+<div class="figure"><span id="fig:exp-many-cis"></span>
+<img src="02-basics-stat-infer_files/figure-html/exp-many-cis-1.png" alt="Fifty $95\%$ CIs for a population mean $\mu$. After a sample is taken, the computed interval estimate either contains $\mu$ or it does not (asteriks identify intervals that do not include $\mu$). When drawing such a large number of $95\%$ CIs, we would anticipate that approximately $5\%$ (ca. 2.5) would fail to cover the true parameter $\mu$." width="672" />
+<p class="caption">
+Figure 2.2: Fifty <span class="math inline">\(95\%\)</span> CIs for a population mean <span class="math inline">\(\mu\)</span>. After a sample is taken, the computed interval estimate either contains <span class="math inline">\(\mu\)</span> or it does not (asteriks identify intervals that do not include <span class="math inline">\(\mu\)</span>). When drawing such a large number of <span class="math inline">\(95\%\)</span> CIs, we would anticipate that approximately <span class="math inline">\(5\%\)</span> (ca. 2.5) would fail to cover the true parameter <span class="math inline">\(\mu\)</span>.
+</p>
+</div>
+<p><strong>TODO</strong>: fix above plot EG devore fig 7.3 that illustrates ca. 50 <span class="math inline">\(95\%\)</span> CIs (with asterisks identifying intervals that do not include <span class="math inline">\(\mu\)</span>).</p>
+</div>
+<div id="hypothesis-testing" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Hypothesis testing</h2>
+<p>In Sections <a href="statistical-inference.html#point-estimation">2.1</a> and <a href="statistical-inference.html#confidence-intervals">2.2</a> we reviewed how to estimate a parameter by a single number (point estimate) or range of plausible values (confidence-interval), respectively. Next we discuss methods for determining which of two contradictory claims, or <strong>hypotheses</strong>, about a parameter is correct.</p>
+
+<div class="definition">
+<span id="def:null-alt-hypothesis" class="definition"><strong>Definition 2.4  </strong></span>The <strong>null hypothesis</strong>, denoted by <span class="math inline">\(H_0\)</span>, is a claim that we intially assume to be true by dafault. The <strong>alternative hypothesis</strong>, denoted by <span class="math inline">\(H_a\)</span>, is an assertion that is contradictory to <span class="math inline">\(H_0\)</span>.
+</div>
+<p>For a statistical hypothesis regarding the <em>equality</em> of a parameter <span class="math inline">\(\theta\)</span> with a fixed quantity <span class="math inline">\(\theta_0\)</span>, the alternative and (implicit) null hypotheses will take one of the following forms.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Alternative hypothesis</th>
+<th align="left">Null hypothesis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(H_a : \theta &gt; \theta_0\)</span></td>
+<td align="left"><span class="math inline">\(H_0 : \theta \leq \theta_0\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(H_a : \theta &lt; \theta_0\)</span></td>
+<td align="left"><span class="math inline">\(H_0 : \theta \geq \theta_0\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(H_a : \theta \neq \theta_0\)</span></td>
+<td align="left"><span class="math inline">\(H_0 : \theta = \theta_0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The value <span class="math inline">\(\theta_0\)</span>, called the <strong>null value</strong>, separates the alternative from the null.</p>
+
+<div class="definition">
+<span id="def:hypothesis-test" class="definition"><strong>Definition 2.5  </strong></span>A <strong>hypothesis test</strong> asks if the available data provides sufficient evidence to reject <span class="math inline">\(H_0\)</span>. If the observations disagree with <span class="math inline">\(H_0\)</span>, then we reject the null hypothesis. If the sample evidence does not strongly contradict <span class="math inline">\(H_0\)</span>, then we continue to believe <span class="math inline">\(H_0\)</span>. The two possible conclustions of a hypothesis test are: <em>reject <span class="math inline">\(H_0\)</span></em> or <em>fail to reject <span class="math inline">\(H_0\)</span></em>.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
+</div>
+<p>A procedure for carrying out a hypothesis test is based on specifying two additional items: a test statistic and a corresponding rejection region. A <strong>test statistic</strong> is a function of the sample data (like an estimator). The statistical decision to reject or fail to reject the null hypothesis will involve computing the test statistic. The <strong>rejection region</strong> are the values of the test statistic for which the null hypothesis is to be rejected in favor of the alternative. That is, we compute the test statistic based on a given sample; the test statistic either falls in the rejection region—in which case we reject the null <span class="math inline">\(H_0\)</span>—or it does not fall in the rejection region—in which case we fail to reject the null <span class="math inline">\(H_0\)</span>.</p>
+
+<div class="example">
+<span id="exm:eg-hyp-test-def" class="example"><strong>Example 2.2  </strong></span><strong>TODO</strong>: example hypothesis test
+</div>
+<p>When carrying out a hypothesis test, two types of errors can be made. The basis for choosing a rejection region typically involves considering these errors.</p>
+
+<div class="definition">
+<span id="def:error-types" class="definition"><strong>Definition 2.6  </strong></span>A <strong>type I</strong> error occurs if <span class="math inline">\(H_0\)</span> is rejected when <span class="math inline">\(H_0\)</span> is actually true. A <strong>type II</strong> error is made if we fail to reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(H_0\)</span> is actually false.
+</div>
+
+<div class="example">
+<span id="exm:eg-hyp-test-errors" class="example"><strong>Example 2.3  </strong></span><strong>TODO</strong>: example hypothesis error types
+</div>
+<p>To summarize, the elements of a statistical test are:</p>
+<ol style="list-style-type: decimal">
+<li>Null hypothesis, <span class="math inline">\(H_0\)</span></li>
+<li>Alternative hypothesis, <span class="math inline">\(H_a\)</span></li>
+<li>Test statistic</li>
+<li>Rejection region</li>
+</ol>
+</div>
+<div id="estimating-means" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Estimating means</h2>
+<p>If the parameter of interest is the population mean <span class="math inline">\(\theta = \mu\)</span>, then the sample mean estimator <span class="math inline">\(\widehat{\theta} = \overline{X}\)</span> in <a href="statistical-inference.html#eq:sample-mean">(2.1)</a> has (at least approximately) a normal distribution for sufficiently large <span class="math inline">\(n\)</span>. We will consider three cases where the form of the confidence interval can be derived using the approximate normality of the sample mean:</p>
 <ol style="list-style-type: decimal">
 <li><a href="statistical-inference.html#ci-normal-var-known">CI for <span class="math inline">\(\mu\)</span> of a normal population with known <span class="math inline">\(\sigma^2\)</span></a>,</li>
 <li><a href="statistical-inference.html#ci-large-sample">CI for <span class="math inline">\(\mu\)</span> of any population with unknown <span class="math inline">\(\sigma^2\)</span>, when the sample size <span class="math inline">\(n\)</span> is large</a>,</li>
@@ -285,21 +366,21 @@ for all <span class="math inline">\(\theta \in \Theta\)</span>.
 </ol>
 <p>In general, the confidence intervals for the mean based on normality theory will have the form:
 <span class="math display" id="eq:ci-gen-form">\[\begin{equation}
-\text{point estimate}\; \mu \pm (\text{critical value of reference dist.}) \cdot (\text{precision of point estimate})\,, \tag{1.3}
+\text{point estimate}\; \mu \pm (\text{critical value of reference dist.}) \cdot (\text{precision of point estimate})\,, \tag{2.3}
 \end{equation}\]</span>
 where the reference distribution will be the standard normal (for 1. and 2.) and the Student’s <span class="math inline">\(t\)</span> distribution (for 3.). The critical value corresponds to the two-sided (symmetric) tail areas under the reference distribution.</p>
-<div id="ci-normal-var-known" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> CI for mean of a Normal population with known variance</h3>
+<div id="ci-normal-var-known" class="section level3" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> CI for mean of a Normal population with known variance</h3>
 
 <div class="definition">
-<span id="def:ci-norm-known-var" class="definition"><strong>Definition 1.4  </strong></span>A <strong><span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval</strong> for the mean <span class="math inline">\(\mu\)</span> of a normal population when the value of <span class="math inline">\(\sigma^2\)</span> is known is given by
+<span id="def:ci-norm-known-var" class="definition"><strong>Definition 2.7  </strong></span>A <strong><span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval</strong> for the mean <span class="math inline">\(\mu\)</span> of a normal population when the value of <span class="math inline">\(\sigma^2\)</span> is known is given by
 <span class="math display" id="eq:ci-norm-known-var">\[\begin{equation} 
  \left(\overline{x} - z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}\,, 
-        \overline{x} + z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}} \right)\,,  \tag{1.4}
+        \overline{x} + z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}} \right)\,,  \tag{2.4}
 \end{equation}\]</span>
 or <span class="math inline">\(\overline{x} \pm z_{\alpha/2} \cdot \sigma / \sqrt{n}\)</span>.
 </div>
-<p>The CI for the mean <a href="statistical-inference.html#eq:ci-norm-known-var">(1.4)</a> can be expressed as
+<p>The CI for the mean <a href="statistical-inference.html#eq:ci-norm-known-var">(2.4)</a> can be expressed as
 <span class="math display">\[\begin{equation*}
  \text{point estimate}\; \mu \pm 
  (z \;\text{critical value}) \cdot (\text{standard error of mean})\,.
@@ -378,47 +459,47 @@ central area <span class="math inline">\(= 1 – 2\alpha\)</span>
 </tbody>
 </table>
 <p><strong>TODO</strong>: add example</p>
-As noted in <a href="statistical-inference.html#eq:ci-gen-form">(1.3)</a> and <a href="statistical-inference.html#eq:ci-norm-known-var">(1.4)</a>, the width of a CI is related to the estimator’s precision. The confidence level (or reliability) is inversely related to this precision. When the population is normal and the variance is known, then an appealing strategy is to determine the sample size necessary to achieve a desired confidence level and precision. A general formula for the sample size <span class="math inline">\(n\)</span> necessary to achieve an interval width <span class="math inline">\(w\)</span> is obtained at confidence level <span class="math inline">\(\alpha\)</span> is obtained by equating <span class="math inline">\(w\)</span> to <span class="math inline">\(2z_{\alpha/2} \cdot \sigma /\sqrt{n}\)</span> and then solving for <span class="math inline">\(n\)</span>.
+As noted in <a href="statistical-inference.html#eq:ci-gen-form">(2.3)</a> and <a href="statistical-inference.html#eq:ci-norm-known-var">(2.4)</a>, the width of a CI is related to the estimator’s precision. The confidence level (or reliability) is inversely related to this precision. When the population is normal and the variance is known, then an appealing strategy is to determine the sample size necessary to achieve a desired confidence level and precision. A general formula for the sample size <span class="math inline">\(n\)</span> necessary to achieve an interval width <span class="math inline">\(w\)</span> is obtained at confidence level <span class="math inline">\(\alpha\)</span> is obtained by equating <span class="math inline">\(w\)</span> to <span class="math inline">\(2z_{\alpha/2} \cdot \sigma /\sqrt{n}\)</span> and then solving for <span class="math inline">\(n\)</span>.
 
 <div class="proposition">
-<span id="prp:ci-select-n-fixed-w-alpha" class="proposition"><strong>Proposition 1.1  </strong></span>The sample size <span class="math inline">\(n\)</span> required to achieve a CI for <span class="math inline">\(\mu\)</span> with width <span class="math inline">\(w\)</span> at level <span class="math inline">\(\alpha\)</span> is given by,
+<span id="prp:ci-select-n-fixed-w-alpha" class="proposition"><strong>Proposition 2.1  </strong></span>The sample size <span class="math inline">\(n\)</span> required to achieve a CI for <span class="math inline">\(\mu\)</span> with width <span class="math inline">\(w\)</span> at level <span class="math inline">\(\alpha\)</span> is given by,
 <span class="math display">\[\begin{equation}
 n = \left( 2 z_{\alpha/2} \cdot \frac{\sigma}{w} \right)^2 \,.
 \end{equation}\]</span>
 </div>
-<p>From Proposition <a href="statistical-inference.html#prp:ci-select-n-fixed-w-alpha">1.1</a>, we see that the smaller the desired <span class="math inline">\(w\)</span> then the larger <span class="math inline">\(n\)</span> must be (and subsequently, the more effort that must be allocated to data collection).</p>
+<p>From Proposition <a href="statistical-inference.html#prp:ci-select-n-fixed-w-alpha">2.1</a>, we see that the smaller the desired <span class="math inline">\(w\)</span> then the larger <span class="math inline">\(n\)</span> must be (and subsequently, the more effort that must be allocated to data collection).</p>
 <p><strong>TODO</strong>: add example of sample size calculation</p>
 </div>
-<div id="ci-large-sample" class="section level3" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Large-sample CI for mean of a population with unknown variance</h3>
-<p>Consider samples <span class="math inline">\(X_1, \dots, X_n\)</span> from a population with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. Provided that <span class="math inline">\(n\)</span> is large enough, the Central Limit Theorem implies that the estimator for the sample mean <span class="math inline">\(\overline{X}\)</span> in <a href="statistical-inference.html#eq:sample-mean">(1.1)</a> has <em>approximately</em> a normal distribution. Then
+<div id="ci-large-sample" class="section level3" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Large-sample CI for mean of a population with unknown variance</h3>
+<p>Consider samples <span class="math inline">\(X_1, \dots, X_n\)</span> from a population with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. Provided that <span class="math inline">\(n\)</span> is large enough, the Central Limit Theorem implies that the estimator for the sample mean <span class="math inline">\(\overline{X}\)</span> in <a href="statistical-inference.html#eq:sample-mean">(2.1)</a> has <em>approximately</em> a normal distribution. Then
 <span class="math display">\[\begin{equation}
 P \left( - z_{\alpha/2} &lt; \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} &lt; z_{\alpha/2} \right) \approx 1 - \alpha\,,
 \end{equation}\]</span>
-since the transformed variable has approximately a standard normal distribution. Thus, computing a point estimate based on a large <span class="math inline">\(n\)</span> of samples yields a CI for the population parameter <span class="math inline">\(\mu\)</span> at an <em>approximate</em> confidence level <span class="math inline">\(\alpha\)</span>. However, it is often the case that the variance is unknown. When <span class="math inline">\(n\)</span> is large, replacing the population variance <span class="math inline">\(\sigma^2\)</span> by the sample variance <span class="math inline">\(S^2\)</span> in <a href="statistical-inference.html#eq:sample-var">(1.2)</a> will not typically introduce too much additional variability.</p>
+since the transformed variable has approximately a standard normal distribution. Thus, computing a point estimate based on a large <span class="math inline">\(n\)</span> of samples yields a CI for the population parameter <span class="math inline">\(\mu\)</span> at an <em>approximate</em> confidence level <span class="math inline">\(\alpha\)</span>. However, it is often the case that the variance is unknown. When <span class="math inline">\(n\)</span> is large, replacing the population variance <span class="math inline">\(\sigma^2\)</span> by the sample variance <span class="math inline">\(S^2\)</span> in <a href="statistical-inference.html#eq:sample-var">(2.2)</a> will not typically introduce too much additional variability.</p>
 
 <div class="proposition">
-<span id="prp:ci-large-sample" class="proposition"><strong>Proposition 1.2  </strong></span>A <strong>large-sample confidence interval</strong> at level approximately <span class="math inline">\(100(1-\alpha)\%\)</span> for the mean <span class="math inline">\(\mu\)</span> of any population when the variance is uknown is given by
+<span id="prp:ci-large-sample" class="proposition"><strong>Proposition 2.2  </strong></span>A <strong>large-sample confidence interval</strong> at level approximately <span class="math inline">\(100(1-\alpha)\%\)</span> for the mean <span class="math inline">\(\mu\)</span> of any population when the variance is uknown is given by
 <span class="math display" id="eq:ci-large-sample">\[\begin{equation} 
  \left(\overline{x} - z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} \,, 
-        \overline{x} + z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} \right)\,,  \tag{1.5}
+        \overline{x} + z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} \right)\,,  \tag{2.5}
 \end{equation}\]</span>
 or <span class="math inline">\(\overline{x} \pm z_{\alpha/2} \cdot s / \sqrt{n}\)</span>.
 </div>
-<p>The CI for the mean <a href="statistical-inference.html#eq:ci-large-sample">(1.5)</a> applies regardless of the shape of the population distribution so long as the number of samples is large. A rule of thumb is that <span class="math inline">\(n &gt; 40\)</span> is sufficient. In words, the CI @refeq:ci-large-sample) can be expressed as
+<p>The CI for the mean <a href="statistical-inference.html#eq:ci-large-sample">(2.5)</a> applies regardless of the shape of the population distribution so long as the number of samples is large. A rule of thumb is that <span class="math inline">\(n &gt; 40\)</span> is sufficient. In words, the CI @refeq:ci-large-sample) can be expressed as
 <span class="math display">\[\begin{equation*}
  \text{point estimate}\; \mu \pm 
  (z \;\text{critical value}) \cdot (\text{estimated standard error of mean})\,.
 \end{equation*}\]</span>
-Typically, a large-sample CI for a general parameter <span class="math inline">\(\theta\)</span> similar to <a href="statistical-inference.html#eq:ci-large-sample">(1.5)</a> holds for any estimator <span class="math inline">\(\widehat{\theta}\)</span> that satisfies: (1) approximately normal in distribution, (2) approximately unbiased, and (3) an expression for the standard error is available.</p>
+Typically, a large-sample CI for a general parameter <span class="math inline">\(\theta\)</span> similar to <a href="statistical-inference.html#eq:ci-large-sample">(2.5)</a> holds for any estimator <span class="math inline">\(\widehat{\theta}\)</span> that satisfies: (1) approximately normal in distribution, (2) approximately unbiased, and (3) an expression for the standard error is available.</p>
 <p><strong>TODO</strong>: add example</p>
 </div>
-<div id="ci-normal-var-unknown" class="section level3" number="1.2.3">
-<h3><span class="header-section-number">1.2.3</span> CI for mean of a normal population with unknown variance</h3>
-<p>In Section <a href="statistical-inference.html#ci-normal-var-known">1.2.1</a>, we considered samples <span class="math inline">\(X_1, \dots, X_n\)</span> from a normal population with a known <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>. In contrast, here we consider samples from a normal population and assume the population parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> are unknown. If the number of samples is large, the discussion in Section <a href="statistical-inference.html#ci-large-sample">1.2.2</a> indicates that the rv <span class="math inline">\(Z = (\overline{X} - \mu) \sqrt{n} / S\)</span> has approximately a standard normal distribution. However, if <span class="math inline">\(n\)</span> is not sufficiently large then the transformed variable will be more spread out than a standard normal distribution.</p>
+<div id="ci-normal-var-unknown" class="section level3" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> CI for mean of a normal population with unknown variance</h3>
+<p>In Section <a href="statistical-inference.html#ci-normal-var-known">2.4.1</a>, we considered samples <span class="math inline">\(X_1, \dots, X_n\)</span> from a normal population with a known <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>. In contrast, here we consider samples from a normal population and assume the population parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> are unknown. If the number of samples is large, the discussion in Section <a href="statistical-inference.html#ci-large-sample">2.4.2</a> indicates that the rv <span class="math inline">\(Z = (\overline{X} - \mu) \sqrt{n} / S\)</span> has approximately a standard normal distribution. However, if <span class="math inline">\(n\)</span> is not sufficiently large then the transformed variable will be more spread out than a standard normal distribution.</p>
 
 <div class="theorem">
-<span id="thm:sample-mean-t-dist" class="theorem"><strong>Theorem 1.1  </strong></span>For the sample mean <span class="math inline">\(\overline{X}\)</span> based on <span class="math inline">\(n\)</span> samples from a normal distribution with mean <span class="math inline">\(\mu\)</span>, the rv
+<span id="thm:sample-mean-t-dist" class="theorem"><strong>Theorem 2.1  </strong></span>For the sample mean <span class="math inline">\(\overline{X}\)</span> based on <span class="math inline">\(n\)</span> samples from a normal distribution with mean <span class="math inline">\(\mu\)</span>, the rv
 <span class="math display">\[\begin{equation}
  T = \frac{\overline{X} - \mu}{S} \sqrt{n} \quad \sim t_{n-1}\,,
 \end{equation}\]</span>
@@ -427,140 +508,73 @@ that is, <span class="math inline">\(T\)</span> has Student’s <span class="mat
 <p>This leads us to consider a CI for the population parameter <span class="math inline">\(\mu\)</span> that is based on critical values of the <span class="math inline">\(t\)</span> distribution.</p>
 
 <div class="proposition">
-<span id="prp:ci-norm-unknown-var" class="proposition"><strong>Proposition 1.3  </strong></span>A <strong><span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval</strong> for the mean <span class="math inline">\(\mu\)</span> of a normal population when the value of <span class="math inline">\(\sigma^2\)</span> is unknown is given by
+<span id="prp:ci-norm-unknown-var" class="proposition"><strong>Proposition 2.3  </strong></span>A <strong><span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval</strong> for the mean <span class="math inline">\(\mu\)</span> of a normal population when the value of <span class="math inline">\(\sigma^2\)</span> is unknown is given by
 <span class="math display" id="eq:ci-norm-known-var">\[\begin{equation} 
  \left(\overline{x} - t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}}\,, 
-        \overline{x} + t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}} \right)\,,  \tag{1.4}
+        \overline{x} + t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}} \right)\,,  \tag{2.4}
 \end{equation}\]</span>
 or <span class="math inline">\(\overline{x} \pm t_{\alpha/2, n-1} \cdot s/ \sqrt{n}\)</span>. Here <span class="math inline">\(\overline{x}\)</span> and <span class="math inline">\(s\)</span> are the sample mean and sample standard deviation, respectively.
 </div>
-<p>In contrast to Proposition <a href="statistical-inference.html#prp:ci-select-n-fixed-w-alpha">1.1</a>, it is difficult to select the sample size <span class="math inline">\(n\)</span> to control the width of the <span class="math inline">\(t\)</span>-based CI as the width involves the unknown (before the sample is acquired) <span class="math inline">\(s\)</span> and because <span class="math inline">\(n\)</span> also enters through <span class="math inline">\(t_{\alpha/2, n-1}\)</span>.</p>
+<p>In contrast to Proposition <a href="statistical-inference.html#prp:ci-select-n-fixed-w-alpha">2.1</a>, it is difficult to select the sample size <span class="math inline">\(n\)</span> to control the width of the <span class="math inline">\(t\)</span>-based CI as the width involves the unknown (before the sample is acquired) <span class="math inline">\(s\)</span> and because <span class="math inline">\(n\)</span> also enters through <span class="math inline">\(t_{\alpha/2, n-1}\)</span>.</p>
 <p><strong>TODO</strong>: add example</p>
 
 <div class="proposition">
-<span id="prp:norm-ci-rule-thumb" class="proposition"><strong>Proposition 1.4  </strong></span><strong>TODO</strong>: rule of thumb normal CI
+<span id="prp:norm-ci-rule-thumb" class="proposition"><strong>Proposition 2.4  </strong></span><strong>TODO</strong>: rule of thumb normal CI
 </div>
 <p><strong>TODO</strong>: add example using rule of thumb</p>
 </div>
 </div>
-<div id="hypothesis-testing" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Hypothesis testing</h2>
-<p>In Sections <a href="statistical-inference.html#point-estimation">1.1</a> and <a href="statistical-inference.html#confidence-intervals">1.2</a> we reviewed how to estimate a parameter by a single number (point estimate) or range of plausible values (confidence-interval), respectively. Next we discuss methods for determining which of two contradictory claims, or <strong>hypotheses</strong>, about a parameter is correct. We develop procedures for testing a number of hypotheses based on samples from a single population.</p>
-
-<div class="definition">
-<span id="def:null-alt-hypothesis" class="definition"><strong>Definition 1.5  </strong></span>The <strong>null hypothesis</strong>, denoted by <span class="math inline">\(H_0\)</span>, is a claim that we intially assume to be true by dafault. The <strong>alternative hypothesis</strong>, denoted by <span class="math inline">\(H_a\)</span>, is an assertion that is contradictory to <span class="math inline">\(H_0\)</span>.
-</div>
-<p>For a statistical hypothesis regarding the <em>equality</em> of a parameter <span class="math inline">\(\theta\)</span> with a fixed quantity <span class="math inline">\(\theta_0\)</span>, the alternative and (implicit) null hypotheses will take one of the following forms.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Alternative hypothesis</th>
-<th align="left">Null hypothesis</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><span class="math inline">\(H_a : \theta &gt; \theta_0\)</span></td>
-<td align="left"><span class="math inline">\(H_0 : \theta \leq \theta_0\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"><span class="math inline">\(H_a : \theta &lt; \theta_0\)</span></td>
-<td align="left"><span class="math inline">\(H_0 : \theta \geq \theta_0\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"><span class="math inline">\(H_a : \theta \neq \theta_0\)</span></td>
-<td align="left"><span class="math inline">\(H_0 : \theta = \theta_0\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>The value <span class="math inline">\(\theta_0\)</span>, called the <strong>null value</strong>, separates the alternative from the null.</p>
-
-<div class="definition">
-<span id="def:hypothesis-test" class="definition"><strong>Definition 1.6  </strong></span>A <strong>hypothesis test</strong> asks if the available data provides sufficient evidence to reject <span class="math inline">\(H_0\)</span>. If the observations disagree with <span class="math inline">\(H_0\)</span>, then we reject the null hypothesis. If the sample evidence does not strongly contradict <span class="math inline">\(H_0\)</span>, then we continue to believe <span class="math inline">\(H_0\)</span>. The two possible conclustions of a hypothesis test are: <em>reject <span class="math inline">\(H_0\)</span></em> or <em>fail to reject <span class="math inline">\(H_0\)</span></em>.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
-</div>
-<p>A procedure for carrying out a hypothesis test is based on specifying two additional items: a test statistic and a corresponding rejection region. A <strong>test statistic</strong> is a function of the sample data (like an estimator). The statistical decision to reject or fail to reject the null hypothesis will involve computing the test statistic. The <strong>rejection region</strong> are the values of the test statistic for which the null hypothesis is to be rejected in favor of the alternative. That is, we compute the test statistic based on a given sample; the test statistic either falls in the rejection region—in which case we reject the null <span class="math inline">\(H_0\)</span>—or it does not fall in the rejection region—in which case we fail to reject the null <span class="math inline">\(H_0\)</span>.</p>
-
-<div class="example">
-<span id="exm:eg-hyp-test-def" class="example"><strong>Example 1.2  </strong></span><strong>TODO</strong>: example hypothesis test
-</div>
-<p>When carrying out a hypothesis test, two types of errors can be made. The basis for choosing a rejection region typically involves considering these errors.</p>
-
-<div class="definition">
-<span id="def:error-types" class="definition"><strong>Definition 1.7  </strong></span>A <strong>type I</strong> error occurs if <span class="math inline">\(H_0\)</span> is rejected when <span class="math inline">\(H_0\)</span> is actually true. A <strong>type II</strong> error is made if we fail to reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(H_0\)</span> is actually false.
-</div>
-
-<div class="example">
-<span id="exm:eg-hyp-test-errors" class="example"><strong>Example 1.3  </strong></span><strong>TODO</strong>: example hypothesis error types
-</div>
-<p>To summarize, the elements of a statistical test are:</p>
-<ol style="list-style-type: decimal">
-<li>Null hypothesis, <span class="math inline">\(H_0\)</span></li>
-<li>Alternative hypothesis, <span class="math inline">\(H_a\)</span></li>
-<li>Test statistic</li>
-<li>Rejection region</li>
-</ol>
-</div>
-<div id="estimating-proportions" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Inference in action: Estimating proportions</h2>
+<div id="estimating-proportions" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Estimating proportions</h2>
 <p>Consider a population of size <span class="math inline">\(N\)</span> in which a proportion <span class="math inline">\(p\)</span> of the population satisfies a given property. The <span class="math inline">\(p \in (0,1)\)</span> is a parameter characterizing the population, with distribution <span class="math inline">\(F(p)\)</span>,<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> that we might be interested in estimating. A sample, <span class="math inline">\(X_1, \dots, X_n \sim F(p)\)</span>, of size <span class="math inline">\(n\)</span> from the population contains a proportion,
 <span class="math display" id="eq:proportion-estimator">\[\begin{equation}
  \widehat{p} = \frac{1}{n} \sum_{i=1}^n X_i\,,
- \tag{1.6}
+ \tag{2.6}
 \end{equation}\]</span>
 satisfying the given property. The estimator <span class="math inline">\(\widehat{p}\)</span> varies with the sample and for large <span class="math inline">\(n\)</span> it’s sampling distribution has the following properties:
 <span class="math display" id="eq:proportion-mean">\[\begin{equation*}
 \mu_{\widehat{p}} = \operatorname{E}[X_i] = p 
- \tag{1.7}
+ \tag{2.7}
 \end{equation*}\]</span>
 and
 <span class="math display" id="eq:proportion-var">\[\begin{equation}
  \sigma_{\widehat{p}}^2 = \frac{\operatorname{Var}[X_i]}{n} = \frac{p(1-p)}{n}\,,
- \tag{1.8}
+ \tag{2.8}
 \end{equation}\]</span>
-provided that <span class="math inline">\(n\)</span> is small relative to <span class="math inline">\(N\)</span> (a rule of thumb is <span class="math inline">\(n \leq 0.05 N\)</span>).<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> Moreover, by invoking the Central Limit Theorem we have the distribution of <span class="math inline">\(\widehat{p}\)</span> is approximately normal for sufficiently large <span class="math inline">\(n\)</span> as <a href="statistical-inference.html#eq:proportion-estimator">(1.6)</a> is a sample mean. Indeed, this normal approximation works well for moderately large <span class="math inline">\(n\)</span> as long as <span class="math inline">\(p\)</span> is not too close to zero or one; a rule of thumb is that <span class="math inline">\(np &gt; 5\)</span> and <span class="math inline">\(n(1-p) &gt; 5\)</span>.</p>
-<p>For large samples <span class="math inline">\(n\)</span>, a <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the parameter <span class="math inline">\(p\)</span> is given by
+provided that <span class="math inline">\(n\)</span> is small relative to <span class="math inline">\(N\)</span> (a rule of thumb is <span class="math inline">\(n \leq 0.05 N\)</span>).<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> Moreover, by invoking the Central Limit Theorem we have the distribution of <span class="math inline">\(\widehat{p}\)</span> is approximately normal for sufficiently large <span class="math inline">\(n\)</span> as <a href="statistical-inference.html#eq:proportion-estimator">(2.6)</a> is a sample mean. Indeed, this normal approximation works well for moderately large <span class="math inline">\(n\)</span> as long as <span class="math inline">\(p\)</span> is not too close to zero or one; a rule of thumb is that <span class="math inline">\(np &gt; 5\)</span> and <span class="math inline">\(n(1-p) &gt; 5\)</span>.</p>
+
+<div class="proposition">
+<span id="prp:ci-proportion" class="proposition"><strong>Proposition 2.5  </strong></span>For large samples <span class="math inline">\(n\)</span>, a <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the parameter <span class="math inline">\(p\)</span> is given by
 <span class="math display" id="eq:proportion-mean-ci">\[\begin{equation}
  \widehat{p} \pm z_{\alpha/2} \sqrt{\frac{\widehat{p} (1-\widehat{p})}{n}}\,.
- \tag{1.9}
+ \tag{2.9}
 \end{equation}\]</span>
-This follows from Proposition <a href="statistical-inference.html#prp:ci-large-sample">1.2</a> by observing that <a href="statistical-inference.html#eq:proportion-estimator">(1.6)</a> is a sample mean and replacing the standard error <span class="math inline">\(\sigma_{\widehat{p}}\)</span> <a href="statistical-inference.html#eq:proportion-var">(1.8)</a> by the estimated standard error,
+</div>
+<p>This follows from Proposition <a href="statistical-inference.html#prp:ci-large-sample">2.2</a> by observing that <a href="statistical-inference.html#eq:proportion-estimator">(2.6)</a> is a sample mean and replacing the standard error <span class="math inline">\(\sigma_{\widehat{p}}\)</span> from <a href="statistical-inference.html#eq:proportion-var">(2.8)</a> by the estimated standard error,
 <span class="math display">\[\begin{equation*}
- \widehat{\mathsf{se}}(\widehat{p}) = \sqrt{\frac{\widehat{p} (1-\widehat{p})}{n}}\,,
+ \widehat{\mathsf{se}}(\widehat{p}) = \sqrt{\frac{\widehat{p} (1-\widehat{p})}{n}}\,;
 \end{equation*}\]</span>
-(recall the <span class="math inline">\(s\)</span> in <a href="statistical-inference.html#eq:ci-large-sample">(1.5)</a> is the sample variance for the <em>population</em> and <span class="math inline">\(s / \sqrt{n} = \mathsf{se}\)</span> is the standard error of the point estimator).</p>
+recall the <span class="math inline">\(s\)</span> in <a href="statistical-inference.html#eq:ci-large-sample">(2.5)</a> is the sample variance for the <em>population</em> and <span class="math inline">\(s / \sqrt{n} = \mathsf{se}\)</span> is the standard error of the point estimator.</p>
 
 <div class="example">
-<span id="exm:eg-est-prop-norm-approx-binom" class="example"><strong>Example 1.4  </strong></span><strong>TODO</strong>: Examples of sampling distribution for p
-</div>
-
-<div class="example">
-<span id="exm:eg-est-prop-ci" class="example"><strong>Example 1.5  </strong></span><strong>TODO</strong>: Example confidence interval for p
+<span id="exm:eg-est-prop-norm-approx-binom" class="example"><strong>Example 2.4  </strong></span><strong>TODO</strong>: Examples of sampling distribution for p
 </div>
 
 <div class="example">
-<span id="exm:eg-est-prop-hypothesis-test" class="example"><strong>Example 1.6  </strong></span><strong>TODO</strong>: Example hypothesis test
+<span id="exm:eg-est-prop-ci" class="example"><strong>Example 2.5  </strong></span><strong>TODO</strong>: Example confidence interval for p
 </div>
 
-<div id="refs" class="references hanging-indent">
-<div>
-<p>Wasserman, Larry. 2004. <em>All of Statistics</em>. Springer-Verlag, New York. <a href="https://doi.org/10.1007/978-0-387-21736-9">https://doi.org/10.1007/978-0-387-21736-9</a>.</p>
+<div class="example">
+<span id="exm:eg-est-prop-hypothesis-test" class="example"><strong>Example 2.6  </strong></span><strong>TODO</strong>: Example hypothesis test
 </div>
 </div>
+<div id="estimating-variances" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Estimating variances</h2>
+<p>Chi-square</p>
+
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-<h3>References</h3>
+<h3> Categorical data and Goodness-of-Fit tests</h3>
 <div id="refs" class="references">
 <div id="ref-Wasserman:2013as">
 <p>Wasserman, Larry. 2004. <em>All of Statistics</em>. Springer-Verlag, New York. <a href="https://doi.org/10.1007/978-0-387-21736-9">https://doi.org/10.1007/978-0-387-21736-9</a>.</p>
@@ -571,7 +585,7 @@ This follows from Proposition <a href="statistical-inference.html#prp:ci-large-s
 <ol start="1">
 <li id="fn1"><p>We comment that <em>fail to reject <span class="math inline">\(H_0\)</span></em> is sometimes phrased <em>retain <span class="math inline">\(H_0\)</span></em> or (perhaps less accurately) <em>accept <span class="math inline">\(H_0\)</span></em>.<a href="statistical-inference.html#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>Here we write <span class="math inline">\(F\)</span> for a general distribution, but what special distribution might this be?<a href="statistical-inference.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>Note that if <span class="math inline">\(n\)</span> is large relative to <span class="math inline">\(N\)</span> (<span class="math inline">\(n &gt; 0.05 N\)</span>) then the variance <a href="statistical-inference.html#eq:proportion-var">(1.8)</a> must be adjusted by a factor (related to the hypergeometric distribution):
+<li id="fn3"><p>Note that if <span class="math inline">\(n\)</span> is large relative to <span class="math inline">\(N\)</span> (<span class="math inline">\(n &gt; 0.05 N\)</span>) then the variance <a href="statistical-inference.html#eq:proportion-var">(2.8)</a> must be adjusted by a factor (related to the hypergeometric distribution):
 <span class="math display">\[\begin{equation*}
  \sigma_{\widehat{p}}^2 = \frac{p(1-p)}{n} \frac{N-n}{N-1}\,,
 \end{equation*}\]</span>
@@ -583,8 +597,8 @@ where for fixed <span class="math inline">\(n\)</span> the factor converges to <
           </div>
         </div>
       </div>
-<a href="preliminaries.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="special-distributions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="inference-two-samples.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -615,7 +629,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/dundeemath/MA22004/edit/master/01-basics-stat-infer.Rmd",
+"link": "https://github.com/dundeemath/MA22004/edit/master/02-basics-stat-infer.Rmd",
 "text": "Suggest an edit"
 },
 "history": {
