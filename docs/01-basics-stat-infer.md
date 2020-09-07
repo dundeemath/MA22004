@@ -192,17 +192,94 @@ that is, $T$ has Student's $t$ distribution with $\nu = n-1$ degrees of freedom 
 
 This leads us to consider a CI for the population parameter $\mu$ that is based on critical values of the $t$ distribution. 
 
-\BeginKnitrBlock{definition}<div class="definition"><span class="definition" id="def:ci-norm-unknown-var"><strong>(\#def:ci-norm-unknown-var) </strong></span>A **$100(1-\alpha)\%$ confidence interval** for the mean $\mu$ of a normal population when the value of $\sigma^2$ is unknown is given by 
+\BeginKnitrBlock{proposition}<div class="proposition"><span class="proposition" id="prp:ci-norm-unknown-var"><strong>(\#prp:ci-norm-unknown-var) </strong></span>A **$100(1-\alpha)\%$ confidence interval** for the mean $\mu$ of a normal population when the value of $\sigma^2$ is unknown is given by 
 \begin{equation} 
  \left(\overline{x} - t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}}\,, 
         \overline{x} + t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}} \right)\,,  (\#eq:ci-norm-known-var)
 \end{equation}
-or $\overline{x} \pm t_{\alpha/2, n-1} \cdot s/ \sqrt{n}$. Here $\overline{x}$ and $s$ are the sample mean and sample standard deviation, respectively.</div>\EndKnitrBlock{definition}
+or $\overline{x} \pm t_{\alpha/2, n-1} \cdot s/ \sqrt{n}$. Here $\overline{x}$ and $s$ are the sample mean and sample standard deviation, respectively.</div>\EndKnitrBlock{proposition}
 
 In contrast to Proposition \@ref(prp:ci-select-n-fixed-w-alpha), it is difficult to select the sample size $n$ to control the width of the $t$-based CI as the width involves the unknown (before the sample is acquired) $s$ and because $n$ also enters through $t_{\alpha/2, n-1}$.  
 
 **TODO**: add example 
  
+\BeginKnitrBlock{proposition}<div class="proposition"><span class="proposition" id="prp:norm-ci-rule-thumb"><strong>(\#prp:norm-ci-rule-thumb) </strong></span>**TODO**: rule of thumb normal CI</div>\EndKnitrBlock{proposition}
+
+**TODO**: add example using rule of thumb
+ 
 ## Hypothesis testing {#hypothesis-testing}
 
+In Sections \@ref(point-estimation) and \@ref(confidence-intervals) we reviewed how to estimate a parameter by a single number (point estimate) or range of plausible values (confidence-interval), respectively. Next we discuss methods for determining which of two contradictory claims, or **hypotheses**, about a parameter is correct. We develop procedures for testing a number of hypotheses based on samples from a single population. 
+
+\BeginKnitrBlock{definition}<div class="definition"><span class="definition" id="def:null-alt-hypothesis"><strong>(\#def:null-alt-hypothesis) </strong></span>The **null hypothesis**, denoted by $H_0$, is a claim that we intially assume to be true by dafault. The **alternative hypothesis**, denoted by $H_a$, is an assertion that is contradictory to $H_0$. </div>\EndKnitrBlock{definition}
+
+For a statistical hypothesis regarding the *equality* of a parameter $\theta$ with a fixed quantity $\theta_0$, the alternative and (implicit) null hypotheses will take one of the following forms.
+
+| Alternative hypothesis| Null hypothesis | 
+|:-----------------|:----------------------|
+| $H_a : \theta > \theta_0$ | $H_0 : \theta \leq \theta_0$ | 
+| $H_a : \theta < \theta_0$ | $H_0 : \theta \geq \theta_0$ |
+| $H_a : \theta \neq \theta_0$ | $H_0 : \theta = \theta_0$ |
+
+The value $\theta_0$, called the **null value**, separates the alternative from the null. 
+
+\BeginKnitrBlock{definition}<div class="definition"><span class="definition" id="def:hypothesis-test"><strong>(\#def:hypothesis-test) </strong></span>A **hypothesis test** asks if the available data provides sufficient evidence to reject $H_0$. If the observations disagree with $H_0$, then we reject the null hypothesis. If the sample evidence does not strongly contradict $H_0$, then we continue to believe $H_0$. The two possible conclustions of a hypothesis test are: *reject $H_0$* or *fail to reject $H_0$*.^[We comment that *fail to reject $H_0$* is sometimes phrased *retain $H_0$* or (perhaps less accurately) *accept $H_0$*.]  </div>\EndKnitrBlock{definition}
+
+
+A procedure for carrying out a hypothesis test is based on specifying two additional items: a test statistic and a corresponding rejection region. A **test statistic** is a function of the sample data (like an estimator). The statistical decision to reject or fail to reject the null hypothesis will involve computing the test statistic. The **rejection region** are the values of the test statistic for which the null hypothesis is to be rejected in favor of the alternative. That is, we compute the test statistic based on a given sample; the test statistic either falls in the rejection region---in which case we reject the null $H_0$---or it does not fall in the rejection region---in which case we fail to reject the null $H_0$. 
+
+\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-hyp-test-def"><strong>(\#exm:eg-hyp-test-def) </strong></span>**TODO**: example hypothesis test</div>\EndKnitrBlock{example}
+
+When carrying out a hypothesis test, two types of errors can be made. The basis for choosing a rejection region typically involves considering these errors. 
+
+\BeginKnitrBlock{definition}<div class="definition"><span class="definition" id="def:error-types"><strong>(\#def:error-types) </strong></span>A **type I** error occurs if $H_0$ is rejected when $H_0$ is actually true. A **type II** error is made if we fail to reject $H_0$ when $H_0$ is actually false. </div>\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-hyp-test-errors"><strong>(\#exm:eg-hyp-test-errors) </strong></span>**TODO**: example hypothesis error types</div>\EndKnitrBlock{example}
+
+To summarize, the elements of a statistical test are:
+
+1. Null hypothesis, $H_0$
+2. Alternative hypothesis, $H_a$
+3. Test statistic
+4. Rejection region
+
+## Inference in action: Estimating proportions {#estimating-proportions}
+
+Consider a population of size $N$ in which a proportion $p$ of the population satisfies a given property. The $p \in (0,1)$ is a parameter characterizing the population, with distribution $F(p)$,^[Here we write $F$ for a general distribution, but what special distribution might this be?] that we might be interested in estimating. A sample, $X_1, \dots, X_n \sim F(p)$, of size $n$ from the population contains a proportion,
+\begin{equation}
+ \widehat{p} = \frac{1}{n} \sum_{i=1}^n X_i\,,
+ (\#eq:proportion-estimator)
+\end{equation}
+satisfying the given property. The estimator $\widehat{p}$ varies with the sample and for large $n$ it's sampling distribution has the following properties:
+\begin{equation*}
+\mu_{\widehat{p}} = \E[X_i] = p 
+ (\#eq:proportion-mean)
+\end{equation*}
+and 
+\begin{equation}
+ \sigma_{\widehat{p}}^2 = \frac{\Var[X_i]}{n} = \frac{p(1-p)}{n}\,,
+ (\#eq:proportion-var)
+\end{equation}
+provided that $n$ is small relative to $N$ (a rule of thumb is $n \leq 0.05 N$).^[Note that if $n$ is large relative to $N$ ($n > 0.05 N$) then the variance \@ref(eq:proportion-var) must be adjusted by a factor (related to the hypergeometric distribution):
+\begin{equation*}
+ \sigma_{\widehat{p}}^2 = \frac{p(1-p)}{n} \frac{N-n}{N-1}\,,
+\end{equation*}
+where for fixed $n$ the factor converges to $1$ as $N\to \infty$.] Moreover, by invoking the Central Limit Theorem we have the distribution of $\widehat{p}$ is approximately normal for sufficiently large $n$ as \@ref(eq:proportion-estimator) is a sample mean. Indeed, this normal approximation works well for moderately large $n$ as long as $p$ is not too close to zero or one; a rule of thumb is that $np > 5$ and $n(1-p) > 5$.
+
+For large samples $n$, a $100(1-\alpha)\%$ confidence interval for the parameter $p$ is given by
+\begin{equation}
+ \widehat{p} \pm z_{\alpha/2} \sqrt{\frac{\widehat{p} (1-\widehat{p})}{n}}\,.
+ (\#eq:proportion-mean-ci)
+\end{equation}
+This follows from Proposition \@ref(prp:ci-large-sample) by observing that \@ref(eq:proportion-estimator) is a sample mean and replacing the standard error $\sigma_{\widehat{p}}$ \@ref(eq:proportion-var) by the estimated standard error,
+\begin{equation*}
+ \widehat{\se}(\widehat{p}) = \sqrt{\frac{\widehat{p} (1-\widehat{p})}{n}}\,,
+\end{equation*}
+(recall the $s$ in \@ref(eq:ci-large-sample) is the sample variance for the *population* and $s / \sqrt{n} = \se$ is the standard error of the point estimator).
+
+\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-est-prop-norm-approx-binom"><strong>(\#exm:eg-est-prop-norm-approx-binom) </strong></span>**TODO**: Examples of sampling distribution for p</div>\EndKnitrBlock{example}
+
+\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-est-prop-ci"><strong>(\#exm:eg-est-prop-ci) </strong></span>**TODO**: Example confidence interval for p</div>\EndKnitrBlock{example}
+
+\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-est-prop-hypothesis-test"><strong>(\#exm:eg-est-prop-hypothesis-test) </strong></span>**TODO**: Example hypothesis test </div>\EndKnitrBlock{example}
 

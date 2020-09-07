@@ -163,9 +163,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#some-useful-facts-about-normals"><i class="fa fa-check"></i>Some useful facts about Normals</a></li>
 </ul></li>
-<li><a href="preliminaries.html#students-t-distribution">Student’s <span class="math inline">\(t\)</span>-distribution</a>
+<li><a href="preliminaries.html#t-distribution"><span class="math inline">\(t\)</span> distribution</a>
 <ul>
-<li><a href="preliminaries.html#properties-of-t-distributions">Properties of <span class="math inline">\(t\)</span>-distributions</a></li>
+<li><a href="preliminaries.html#properties-of-t-distributions">Properties of <span class="math inline">\(t\)</span> distributions</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>1</b> Inferences based on a single sample</a>
@@ -178,6 +178,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2.3" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-normal-var-unknown"><i class="fa fa-check"></i><b>1.2.3</b> CI for mean of a normal population with unknown variance</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="statistical-inference.html"><a href="statistical-inference.html#hypothesis-testing"><i class="fa fa-check"></i><b>1.3</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="1.4" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-proportions"><i class="fa fa-check"></i><b>1.4</b> Inference in action: Estimating proportions</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="http://uod.ac.uk/sig-home" rel="nofollow"><img width="73" height="73" src="https://www.dundee.ac.uk/media/dundeewebsite/themes/brandnewhope/img/university-of-dundee-email-favicon.png" alt="University of Dundee shield logo"> </a></li>
@@ -425,8 +426,8 @@ that is, <span class="math inline">\(T\)</span> has Student’s <span class="mat
 </div>
 <p>This leads us to consider a CI for the population parameter <span class="math inline">\(\mu\)</span> that is based on critical values of the <span class="math inline">\(t\)</span> distribution.</p>
 
-<div class="definition">
-<span id="def:ci-norm-unknown-var" class="definition"><strong>Definition 1.5  </strong></span>A <strong><span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval</strong> for the mean <span class="math inline">\(\mu\)</span> of a normal population when the value of <span class="math inline">\(\sigma^2\)</span> is unknown is given by
+<div class="proposition">
+<span id="prp:ci-norm-unknown-var" class="proposition"><strong>Proposition 1.3  </strong></span>A <strong><span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval</strong> for the mean <span class="math inline">\(\mu\)</span> of a normal population when the value of <span class="math inline">\(\sigma^2\)</span> is unknown is given by
 <span class="math display" id="eq:ci-norm-known-var">\[\begin{equation} 
  \left(\overline{x} - t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}}\,, 
         \overline{x} + t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}} \right)\,,  \tag{1.4}
@@ -435,10 +436,110 @@ or <span class="math inline">\(\overline{x} \pm t_{\alpha/2, n-1} \cdot s/ \sqrt
 </div>
 <p>In contrast to Proposition <a href="statistical-inference.html#prp:ci-select-n-fixed-w-alpha">1.1</a>, it is difficult to select the sample size <span class="math inline">\(n\)</span> to control the width of the <span class="math inline">\(t\)</span>-based CI as the width involves the unknown (before the sample is acquired) <span class="math inline">\(s\)</span> and because <span class="math inline">\(n\)</span> also enters through <span class="math inline">\(t_{\alpha/2, n-1}\)</span>.</p>
 <p><strong>TODO</strong>: add example</p>
+
+<div class="proposition">
+<span id="prp:norm-ci-rule-thumb" class="proposition"><strong>Proposition 1.4  </strong></span><strong>TODO</strong>: rule of thumb normal CI
+</div>
+<p><strong>TODO</strong>: add example using rule of thumb</p>
 </div>
 </div>
 <div id="hypothesis-testing" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Hypothesis testing</h2>
+<p>In Sections <a href="statistical-inference.html#point-estimation">1.1</a> and <a href="statistical-inference.html#confidence-intervals">1.2</a> we reviewed how to estimate a parameter by a single number (point estimate) or range of plausible values (confidence-interval), respectively. Next we discuss methods for determining which of two contradictory claims, or <strong>hypotheses</strong>, about a parameter is correct. We develop procedures for testing a number of hypotheses based on samples from a single population.</p>
+
+<div class="definition">
+<span id="def:null-alt-hypothesis" class="definition"><strong>Definition 1.5  </strong></span>The <strong>null hypothesis</strong>, denoted by <span class="math inline">\(H_0\)</span>, is a claim that we intially assume to be true by dafault. The <strong>alternative hypothesis</strong>, denoted by <span class="math inline">\(H_a\)</span>, is an assertion that is contradictory to <span class="math inline">\(H_0\)</span>.
+</div>
+<p>For a statistical hypothesis regarding the <em>equality</em> of a parameter <span class="math inline">\(\theta\)</span> with a fixed quantity <span class="math inline">\(\theta_0\)</span>, the alternative and (implicit) null hypotheses will take one of the following forms.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Alternative hypothesis</th>
+<th align="left">Null hypothesis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(H_a : \theta &gt; \theta_0\)</span></td>
+<td align="left"><span class="math inline">\(H_0 : \theta \leq \theta_0\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(H_a : \theta &lt; \theta_0\)</span></td>
+<td align="left"><span class="math inline">\(H_0 : \theta \geq \theta_0\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(H_a : \theta \neq \theta_0\)</span></td>
+<td align="left"><span class="math inline">\(H_0 : \theta = \theta_0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The value <span class="math inline">\(\theta_0\)</span>, called the <strong>null value</strong>, separates the alternative from the null.</p>
+
+<div class="definition">
+<span id="def:hypothesis-test" class="definition"><strong>Definition 1.6  </strong></span>A <strong>hypothesis test</strong> asks if the available data provides sufficient evidence to reject <span class="math inline">\(H_0\)</span>. If the observations disagree with <span class="math inline">\(H_0\)</span>, then we reject the null hypothesis. If the sample evidence does not strongly contradict <span class="math inline">\(H_0\)</span>, then we continue to believe <span class="math inline">\(H_0\)</span>. The two possible conclustions of a hypothesis test are: <em>reject <span class="math inline">\(H_0\)</span></em> or <em>fail to reject <span class="math inline">\(H_0\)</span></em>.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
+</div>
+<p>A procedure for carrying out a hypothesis test is based on specifying two additional items: a test statistic and a corresponding rejection region. A <strong>test statistic</strong> is a function of the sample data (like an estimator). The statistical decision to reject or fail to reject the null hypothesis will involve computing the test statistic. The <strong>rejection region</strong> are the values of the test statistic for which the null hypothesis is to be rejected in favor of the alternative. That is, we compute the test statistic based on a given sample; the test statistic either falls in the rejection region—in which case we reject the null <span class="math inline">\(H_0\)</span>—or it does not fall in the rejection region—in which case we fail to reject the null <span class="math inline">\(H_0\)</span>.</p>
+
+<div class="example">
+<span id="exm:eg-hyp-test-def" class="example"><strong>Example 1.2  </strong></span><strong>TODO</strong>: example hypothesis test
+</div>
+<p>When carrying out a hypothesis test, two types of errors can be made. The basis for choosing a rejection region typically involves considering these errors.</p>
+
+<div class="definition">
+<span id="def:error-types" class="definition"><strong>Definition 1.7  </strong></span>A <strong>type I</strong> error occurs if <span class="math inline">\(H_0\)</span> is rejected when <span class="math inline">\(H_0\)</span> is actually true. A <strong>type II</strong> error is made if we fail to reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(H_0\)</span> is actually false.
+</div>
+
+<div class="example">
+<span id="exm:eg-hyp-test-errors" class="example"><strong>Example 1.3  </strong></span><strong>TODO</strong>: example hypothesis error types
+</div>
+<p>To summarize, the elements of a statistical test are:</p>
+<ol style="list-style-type: decimal">
+<li>Null hypothesis, <span class="math inline">\(H_0\)</span></li>
+<li>Alternative hypothesis, <span class="math inline">\(H_a\)</span></li>
+<li>Test statistic</li>
+<li>Rejection region</li>
+</ol>
+</div>
+<div id="estimating-proportions" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Inference in action: Estimating proportions</h2>
+<p>Consider a population of size <span class="math inline">\(N\)</span> in which a proportion <span class="math inline">\(p\)</span> of the population satisfies a given property. The <span class="math inline">\(p \in (0,1)\)</span> is a parameter characterizing the population, with distribution <span class="math inline">\(F(p)\)</span>,<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> that we might be interested in estimating. A sample, <span class="math inline">\(X_1, \dots, X_n \sim F(p)\)</span>, of size <span class="math inline">\(n\)</span> from the population contains a proportion,
+<span class="math display" id="eq:proportion-estimator">\[\begin{equation}
+ \widehat{p} = \frac{1}{n} \sum_{i=1}^n X_i\,,
+ \tag{1.6}
+\end{equation}\]</span>
+satisfying the given property. The estimator <span class="math inline">\(\widehat{p}\)</span> varies with the sample and for large <span class="math inline">\(n\)</span> it’s sampling distribution has the following properties:
+<span class="math display" id="eq:proportion-mean">\[\begin{equation*}
+\mu_{\widehat{p}} = \operatorname{E}[X_i] = p 
+ \tag{1.7}
+\end{equation*}\]</span>
+and
+<span class="math display" id="eq:proportion-var">\[\begin{equation}
+ \sigma_{\widehat{p}}^2 = \frac{\operatorname{Var}[X_i]}{n} = \frac{p(1-p)}{n}\,,
+ \tag{1.8}
+\end{equation}\]</span>
+provided that <span class="math inline">\(n\)</span> is small relative to <span class="math inline">\(N\)</span> (a rule of thumb is <span class="math inline">\(n \leq 0.05 N\)</span>).<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> Moreover, by invoking the Central Limit Theorem we have the distribution of <span class="math inline">\(\widehat{p}\)</span> is approximately normal for sufficiently large <span class="math inline">\(n\)</span> as <a href="statistical-inference.html#eq:proportion-estimator">(1.6)</a> is a sample mean. Indeed, this normal approximation works well for moderately large <span class="math inline">\(n\)</span> as long as <span class="math inline">\(p\)</span> is not too close to zero or one; a rule of thumb is that <span class="math inline">\(np &gt; 5\)</span> and <span class="math inline">\(n(1-p) &gt; 5\)</span>.</p>
+<p>For large samples <span class="math inline">\(n\)</span>, a <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the parameter <span class="math inline">\(p\)</span> is given by
+<span class="math display" id="eq:proportion-mean-ci">\[\begin{equation}
+ \widehat{p} \pm z_{\alpha/2} \sqrt{\frac{\widehat{p} (1-\widehat{p})}{n}}\,.
+ \tag{1.9}
+\end{equation}\]</span>
+This follows from Proposition <a href="statistical-inference.html#prp:ci-large-sample">1.2</a> by observing that <a href="statistical-inference.html#eq:proportion-estimator">(1.6)</a> is a sample mean and replacing the standard error <span class="math inline">\(\sigma_{\widehat{p}}\)</span> <a href="statistical-inference.html#eq:proportion-var">(1.8)</a> by the estimated standard error,
+<span class="math display">\[\begin{equation*}
+ \widehat{\mathsf{se}}(\widehat{p}) = \sqrt{\frac{\widehat{p} (1-\widehat{p})}{n}}\,,
+\end{equation*}\]</span>
+(recall the <span class="math inline">\(s\)</span> in <a href="statistical-inference.html#eq:ci-large-sample">(1.5)</a> is the sample variance for the <em>population</em> and <span class="math inline">\(s / \sqrt{n} = \mathsf{se}\)</span> is the standard error of the point estimator).</p>
+
+<div class="example">
+<span id="exm:eg-est-prop-norm-approx-binom" class="example"><strong>Example 1.4  </strong></span><strong>TODO</strong>: Examples of sampling distribution for p
+</div>
+
+<div class="example">
+<span id="exm:eg-est-prop-ci" class="example"><strong>Example 1.5  </strong></span><strong>TODO</strong>: Example confidence interval for p
+</div>
+
+<div class="example">
+<span id="exm:eg-est-prop-hypothesis-test" class="example"><strong>Example 1.6  </strong></span><strong>TODO</strong>: Example hypothesis test
+</div>
 
 <div id="refs" class="references hanging-indent">
 <div>
@@ -447,11 +548,35 @@ or <span class="math inline">\(\overline{x} \pm t_{\alpha/2, n-1} \cdot s/ \sqrt
 </div>
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-Wasserman:2013as">
 <p>Wasserman, Larry. 2004. <em>All of Statistics</em>. Springer-Verlag, New York. <a href="https://doi.org/10.1007/978-0-387-21736-9">https://doi.org/10.1007/978-0-387-21736-9</a>.</p>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>We comment that <em>fail to reject <span class="math inline">\(H_0\)</span></em> is sometimes phrased <em>retain <span class="math inline">\(H_0\)</span></em> or (perhaps less accurately) <em>accept <span class="math inline">\(H_0\)</span></em>.<a href="statistical-inference.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Here we write <span class="math inline">\(F\)</span> for a general distribution, but what special distribution might this be?<a href="statistical-inference.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Note that if <span class="math inline">\(n\)</span> is large relative to <span class="math inline">\(N\)</span> (<span class="math inline">\(n &gt; 0.05 N\)</span>) then the variance <a href="statistical-inference.html#eq:proportion-var">(1.8)</a> must be adjusted by a factor (related to the hypergeometric distribution):
+<span class="math display">\[\begin{equation*}
+ \sigma_{\widehat{p}}^2 = \frac{p(1-p)}{n} \frac{N-n}{N-1}\,,
+\end{equation*}\]</span>
+where for fixed <span class="math inline">\(n\)</span> the factor converges to <span class="math inline">\(1\)</span> as <span class="math inline">\(N\to \infty\)</span>.<a href="statistical-inference.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

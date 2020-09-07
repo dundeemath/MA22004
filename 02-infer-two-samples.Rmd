@@ -1,0 +1,32 @@
+```{r setup, include=FALSE}
+#  bookdown::render_book("index.Rmd", "bookdown::gitbook", output_dir = "docs/")
+
+# packages
+library(bookdown)
+library(RColorBrewer)
+library(readr)
+library(plotly)
+library(tidyverse)
+library(reshape2)
+library(latex2exp)
+library(svglite)
+library(knitr)
+library(kableExtra)
+library(formattable)
+library(DT)
+library(dplyr)
+library(datasets)
+# data sets
+data(iris)
+data(trees)
+
+knitr::opts_chunk$set(echo = TRUE, comment = "") #, dev = "svglite", fig.width=8
+#plotly::config(plot_ly(), displaylogo = FALSE, mathjax = "cdn")
+```
+
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\E}{\operatorname{E}}
+\newcommand{\se}{\mathsf{se}}
+
+# Inferences based on two samples {#inference-two-samples}
+

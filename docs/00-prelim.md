@@ -55,7 +55,7 @@ Uppercase roman letters, e.g., $X$, will typically denote random variables (rvs)
 </tbody>
 </table>
 
-## Normal distribution {-}
+## Normal distribution {-#normal-distribution}
 
 Normal distributions play an important role in probability and statistics as they describes many natural phenomenon. For instance, the Central Limit Theorem tells us that sums of rvs are approximately Normal in distribution. 
 
@@ -144,11 +144,10 @@ pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3)
 [1] 0.1637654
 ```
 
-## Student's $t$-distribution {-}
+## $t$ distribution {-#t-distribution}
 
 
-
-### Properties of $t$-distributions {-}
+### Properties of $t$ distributions {-}
 
 1. The density for $t_\nu$ is a bell-shaped curve centered at $0$.
 2. The density for $t_\nu$ is more spread out than the standard normal density (i.e., it has "fatter tails" than the normal).
