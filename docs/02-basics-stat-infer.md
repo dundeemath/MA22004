@@ -95,13 +95,13 @@ In Sections \@ref(point-estimation) and \@ref(confidence-intervals) we reviewed 
 
 \BeginKnitrBlock{definition}<div class="definition"><span class="definition" id="def:null-alt-hypothesis"><strong>(\#def:null-alt-hypothesis) </strong></span>The **null hypothesis**, denoted by $H_0$, is a claim that we intially assume to be true by dafault. The **alternative hypothesis**, denoted by $H_a$, is an assertion that is contradictory to $H_0$. </div>\EndKnitrBlock{definition}
 
-For a statistical hypothesis regarding the *equality* of a parameter $\theta$ with a fixed quantity $\theta_0$, the alternative and (implicit) null hypotheses will take one of the following forms.
+For a statistical hypothesis regarding the *equality* of a parameter $\theta$ with a fixed quantity $\theta_0$, the null and alternative hypotheses will take one of the following forms.
 
-| Alternative hypothesis| Null hypothesis | 
+| Null hypothesis  | Alternative hypothesis |
 |:-----------------|:----------------------|
-| $H_a : \theta > \theta_0$ | $H_0 : \theta \leq \theta_0$ | 
-| $H_a : \theta < \theta_0$ | $H_0 : \theta \geq \theta_0$ |
-| $H_a : \theta \neq \theta_0$ | $H_0 : \theta = \theta_0$ |
+| $H_0 : \theta \leq \theta_0$ | $H_a : \theta > \theta_0$ |
+| $H_0 : \theta \geq \theta_0$ | $H_a : \theta < \theta_0$ |
+| $H_0 : \theta = \theta_0$ | $H_a : \theta \neq \theta_0$ |
 
 The value $\theta_0$, called the **null value**, separates the alternative from the null. 
 
@@ -117,26 +117,26 @@ When carrying out a hypothesis test, two types of errors can be made. The basis 
 
 \BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-hyp-test-errors"><strong>(\#exm:eg-hyp-test-errors) </strong></span>**TODO**: example hypothesis error types</div>\EndKnitrBlock{example}
 
-To summarize, the elements of a statistical test are:
+To summarize, the elements of a statistical test are:  
 
 1. Null hypothesis, $H_0$
 2. Alternative hypothesis, $H_a$
 3. Test statistic
-4. Rejection region
+4. Rejection region  
 
 ## Estimating means {#estimating-means}
 
-If the parameter of interest is the population mean $\theta = \mu$, then the sample mean estimator $\widehat{\theta} = \overline{X}$ in \@ref(eq:sample-mean) has (at least approximately) a normal distribution for sufficiently large $n$. We will consider three cases where the form of the confidence interval can be derived using the approximate normality of the sample mean:
+If the parameter of interest is the population mean $\theta = \mu$, then the sample mean estimator $\widehat{\theta} = \overline{X}$ in \@ref(eq:sample-mean) has (at least approximately) a normal distribution for sufficiently large $n$. We will consider three cases where the form of the confidence interval can be derived using the approximate normality of the sample mean:  
 
 1. [CI for $\mu$ of a normal population with known $\sigma^2$](#ci-normal-var-known),
 2. [CI for $\mu$ of any population with unknown $\sigma^2$, when the sample size $n$ is large](#ci-large-sample),
-3. [CI for $\mu$ of a normal population with unknown $\sigma^2$, when the sample size $n$ is small](#ci-normal-var-unknown).
+3. [CI for $\mu$ of a normal population with unknown $\sigma^2$, when the sample size $n$ is small](#ci-normal-var-unknown).  
 
 In general, the confidence intervals for the mean based on normality theory will have the form:
 \begin{equation}
 \text{point estimate}\; \mu \pm (\text{critical value of reference dist.}) \cdot (\text{precision of point estimate})\,, (\#eq:ci-gen-form)
 \end{equation}
-where the reference distribution will be the standard normal (for 1. and 2.) and the Student's $t$ distribution (for 3.). The critical value corresponds to the two-sided (symmetric) tail areas under the reference distribution.
+where the reference distribution will be the standard normal (for 1. and 2.) and the Student's $t$ distribution (for 3.). The critical value corresponds to the two-sided (symmetric) tail areas under the reference distribution.  
 
 ### CI for mean of a Normal population with known variance {#ci-normal-var-known}
 
@@ -152,14 +152,14 @@ The CI for the mean \@ref(eq:ci-norm-known-var) can be expressed as
  \text{point estimate}\; \mu \pm 
  (z \;\text{critical value}) \cdot (\text{standard error of mean})\,.
 \end{equation*}
-The $z$ critical value is related to the tail areas under the standard normal curve; we need to find the $z$-score having a cumulative probability equal to $1-\alpha/2$. Below we provide a table containing commonly used normal critical values. 
+The $z$ critical value is related to the tail areas under the standard normal curve; we need to find the $z$-score having a cumulative probability equal to $1-\alpha$ according to Definition \@ref(def:confidence-interval-gen). Below we provide a table containing commonly used normal critical values (note: indexed by $\alpha/2$).  
 
 <table>
  <thead>
   <tr>
-   <th style="text-align:left;"> $\alpha =$ tail area </th>
-   <th style="text-align:left;"> central area $= 1 – 2\alpha$ </th>
-   <th style="text-align:left;"> $z_\alpha$ </th>
+   <th style="text-align:left;"> $\alpha/2 =$ single tail area </th>
+   <th style="text-align:left;"> central area $= 1 – \alpha$ </th>
+   <th style="text-align:left;"> $z_{\alpha/2}$ </th>
   </tr>
  </thead>
 <tbody>
@@ -194,6 +194,7 @@ The $z$ critical value is related to the tail areas under the standard normal cu
 **TODO**: add example 
 
 As noted in \@ref(eq:ci-gen-form) and \@ref(eq:ci-norm-known-var), the width of a CI is related to the estimator's precision. The confidence level (or reliability) is inversely related to this precision. When the population is normal and the variance is known, then an appealing strategy is to determine the sample size necessary to achieve a desired confidence level and precision. A general formula for the sample size $n$ necessary to achieve an interval width $w$ is obtained at confidence level  $\alpha$ is obtained by equating $w$ to $2z_{\alpha/2} \cdot \sigma /\sqrt{n}$ and then solving for $n$. 
+
 \BeginKnitrBlock{proposition}<div class="proposition"><span class="proposition" id="prp:ci-select-n-fixed-w-alpha"><strong>(\#prp:ci-select-n-fixed-w-alpha) </strong></span>The sample size $n$ required to achieve a CI for $\mu$ with width $w$ at level $\alpha$ is given by,
 \begin{equation}
 n = \left( 2 z_{\alpha/2} \cdot \frac{\sigma}{w} \right)^2 \,.
@@ -210,7 +211,7 @@ P \left( - z_{\alpha/2} < \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} < z_{\alpha
 \end{equation}
 since the transformed variable has approximately a standard normal distribution. Thus, computing a point estimate based on a large $n$ of samples yields a CI for the population parameter $\mu$ at an *approximate* confidence level $\alpha$. However, it is often the case that the variance is unknown. When $n$ is large, replacing the population variance $\sigma^2$ by the sample variance $S^2$ in \@ref(eq:sample-var) will not typically introduce too much additional variability.
 
-\BeginKnitrBlock{proposition}<div class="proposition"><span class="proposition" id="prp:ci-large-sample"><strong>(\#prp:ci-large-sample) </strong></span>A **large-sample confidence interval** at level approximately $100(1-\alpha)\%$ for the mean $\mu$ of any population when the variance is uknown is given by 
+\BeginKnitrBlock{proposition}<div class="proposition"><span class="proposition" id="prp:ci-large-sample"><strong>(\#prp:ci-large-sample) </strong></span>For large samples $n$, an approximate $100(1-\alpha)\%$ confidence interval for the mean $\mu$ of any population when the variance is uknown is given by 
 \begin{equation} 
  \left(\overline{x} - z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} \,, 
         \overline{x} + z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} \right)\,,  (\#eq:ci-large-sample)
@@ -297,4 +298,31 @@ recall the $s$ in \@ref(eq:ci-large-sample) is the sample variance for the *popu
 
 ## Estimating variances {#estimating-variances}
 
-Chi-square
+Next we consider estimates of the population variance (and standard deviation) when the population is assumed to have a normal distribution. In this case, the sample variance $S^2$ in \@ref(eq:sample-var) provides the basis for inferences. Consider iid samples $X_1, \dots, X_n \sim \mathcal{N}(\mu, \sigma^2)$. We provide the following theorem without proof.
+
+\BeginKnitrBlock{theorem}<div class="theorem"><span class="theorem" id="thm:samp-var-chisq"><strong>(\#thm:samp-var-chisq) </strong></span>For the sample variance $S^2$ based on $n$ samples from a normal distribution with variance $\sigma$, the rv
+\begin{equation*}
+V = \frac{(n-1)S^2}{\sigma^2} = \frac{\sum_i(X_i - \overline{X})^2}{\sigma^2} \qquad \sim \chi^2_{n-1}\,,
+\end{equation*}
+that is, $V$ has a $\chi^2$ distribution with $\nu = n-1$ df. </div>\EndKnitrBlock{theorem}
+
+Based on Theorem \@ref(thm:samp-var-chisq), 
+\begin{equation*}
+P\left(\chi^2_{1-\alpha/2, n-1} < \frac{(n-1)S^2}{\sigma^2} < \chi^2_{\alpha/2, n-1} \right) = 1 - \alpha \,,
+\end{equation*}
+i.e., the area captured between the right and left tail critical $\chi^2$ values is $1-\alpha$. The expression above can be further manipulated to obtain an interval for the unknown parameter $\sigma^2$:
+\begin{equation*}
+P\left(\frac{(n-1) s^2}{\chi^2_{\alpha/2, n-1}} < \sigma^2 < \frac{(n-1) s^2}{\chi^2_{1-\alpha/2, n-1}} \right) = 1 - \alpha \,,
+\end{equation*}
+where we substitute the computed value of the point estimate $s^2$ for the estimator into the limits to give a CI for $\sigma^2$. If we take square roots of the inequality above, we obtain a CI for the population standard deviation $\sigma$. 
+
+\BeginKnitrBlock{proposition}<div class="proposition"><span class="proposition" id="prp:ci-variance"><strong>(\#prp:ci-variance) </strong></span>A $100(1-\alpha)\%$ confidence interval for the variance of a normal population is
+\begin{equation*}
+ \left( (n-1)s^2 / \chi^2_{\alpha/2, n-1} \,,  (n-1)s^2 / \chi^2_{1-\alpha/2, n-1} \right) \,.
+ (\#eq:ci-variance)
+\end{equation*}
+A $100(1-\alpha)\%$ confidence interval for the standard deviation $\sigma$ of a normal population is given by taking the square roots of the lower and upper limits in \@ref(eq:ci-variance).</div>\EndKnitrBlock{proposition}
+
+\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-ci-variance"><strong>(\#exm:eg-ci-variance) </strong></span>**TODO**: Example CI for variance (using the tree data?)</div>\EndKnitrBlock{example}
+
+***  

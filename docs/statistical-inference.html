@@ -177,6 +177,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.2.1" data-path="special-distributions.html"><a href="special-distributions.html#facts-t"><i class="fa fa-check"></i><b>1.2.1</b> Properties of <span class="math inline">\(t\)</span> distributions</a></li>
 </ul></li>
+<li class="chapter" data-level="1.3" data-path="special-distributions.html"><a href="special-distributions.html#chisq-distribution"><i class="fa fa-check"></i><b>1.3</b> <span class="math inline">\(\chi^2\)</span> distributions</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>2</b> Inferences based on a single sample</a>
 <ul>
@@ -192,8 +193,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-proportions"><i class="fa fa-check"></i><b>2.5</b> Estimating proportions</a></li>
 <li class="chapter" data-level="2.6" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-variances"><i class="fa fa-check"></i><b>2.6</b> Estimating variances</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="inference-two-samples.html"><a href="inference-two-samples.html"><i class="fa fa-check"></i><b>3</b> Inferences based on two samples</a></li>
+<li class="chapter" data-level="3" data-path="inference-two-samples.html"><a href="inference-two-samples.html"><i class="fa fa-check"></i><b>3</b> Inferences based on two samples</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="inference-two-samples.html"><a href="inference-two-samples.html#comparing-population-means"><i class="fa fa-check"></i><b>3.1</b> Comparing population means</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="inference-two-samples.html"><a href="inference-two-samples.html#comparing-means-with-the-population-variance-is-known"><i class="fa fa-check"></i><b>3.1.1</b> Comparing means with the population variance is known</a></li>
+<li class="chapter" data-level="3.1.2" data-path="inference-two-samples.html"><a href="inference-two-samples.html#comparing-means-when-the-sample-size-is-large"><i class="fa fa-check"></i><b>3.1.2</b> Comparing means when the sample size is large</a></li>
+<li class="chapter" data-level="3.1.3" data-path="inference-two-samples.html"><a href="inference-two-samples.html#comparing-means-when-the-sample-size-is-small"><i class="fa fa-check"></i><b>3.1.3</b> Comparing means when the sample size is small</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="inference-two-samples.html"><a href="inference-two-samples.html#comparing-proportions"><i class="fa fa-check"></i><b>3.2</b> Comparing proportions</a></li>
+<li class="chapter" data-level="3.3" data-path="inference-two-samples.html"><a href="inference-two-samples.html#comparing-variances"><i class="fa fa-check"></i><b>3.3</b> Comparing variances</a></li>
+<li class="chapter" data-level="3.4" data-path="inference-two-samples.html"><a href="inference-two-samples.html#paired-samples"><i class="fa fa-check"></i><b>3.4</b> Paired samples</a></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="categorical-data.html"><a href="categorical-data.html"><i class="fa fa-check"></i><b>4</b> Categorical data and Goodness-of-Fit tests</a></li>
+<li class="chapter" data-level="5" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>5</b> Linear models</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="linear-models.html"><a href="linear-models.html#regression"><i class="fa fa-check"></i><b>5.1</b> Regression</a></li>
+<li class="chapter" data-level="5.2" data-path="linear-models.html"><a href="linear-models.html#anova"><i class="fa fa-check"></i><b>5.2</b> ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="http://uod.ac.uk/sig-home" rel="nofollow"><img width="73" height="73" src="https://www.dundee.ac.uk/media/dundeewebsite/themes/brandnewhope/img/university-of-dundee-email-favicon.png" alt="University of Dundee shield logo"> </a></li>
 
@@ -306,26 +324,26 @@ Figure 2.2: Fifty <span class="math inline">\(95\%\)</span> CIs for a population
 <div class="definition">
 <span id="def:null-alt-hypothesis" class="definition"><strong>Definition 2.4  </strong></span>The <strong>null hypothesis</strong>, denoted by <span class="math inline">\(H_0\)</span>, is a claim that we intially assume to be true by dafault. The <strong>alternative hypothesis</strong>, denoted by <span class="math inline">\(H_a\)</span>, is an assertion that is contradictory to <span class="math inline">\(H_0\)</span>.
 </div>
-<p>For a statistical hypothesis regarding the <em>equality</em> of a parameter <span class="math inline">\(\theta\)</span> with a fixed quantity <span class="math inline">\(\theta_0\)</span>, the alternative and (implicit) null hypotheses will take one of the following forms.</p>
+<p>For a statistical hypothesis regarding the <em>equality</em> of a parameter <span class="math inline">\(\theta\)</span> with a fixed quantity <span class="math inline">\(\theta_0\)</span>, the null and alternative hypotheses will take one of the following forms.</p>
 <table>
 <thead>
 <tr class="header">
-<th align="left">Alternative hypothesis</th>
 <th align="left">Null hypothesis</th>
+<th align="left">Alternative hypothesis</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><span class="math inline">\(H_a : \theta &gt; \theta_0\)</span></td>
 <td align="left"><span class="math inline">\(H_0 : \theta \leq \theta_0\)</span></td>
+<td align="left"><span class="math inline">\(H_a : \theta &gt; \theta_0\)</span></td>
 </tr>
 <tr class="even">
-<td align="left"><span class="math inline">\(H_a : \theta &lt; \theta_0\)</span></td>
 <td align="left"><span class="math inline">\(H_0 : \theta \geq \theta_0\)</span></td>
+<td align="left"><span class="math inline">\(H_a : \theta &lt; \theta_0\)</span></td>
 </tr>
 <tr class="odd">
-<td align="left"><span class="math inline">\(H_a : \theta \neq \theta_0\)</span></td>
 <td align="left"><span class="math inline">\(H_0 : \theta = \theta_0\)</span></td>
+<td align="left"><span class="math inline">\(H_a : \theta \neq \theta_0\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -385,18 +403,18 @@ or <span class="math inline">\(\overline{x} \pm z_{\alpha/2} \cdot \sigma / \sqr
  \text{point estimate}\; \mu \pm 
  (z \;\text{critical value}) \cdot (\text{standard error of mean})\,.
 \end{equation*}\]</span>
-The <span class="math inline">\(z\)</span> critical value is related to the tail areas under the standard normal curve; we need to find the <span class="math inline">\(z\)</span>-score having a cumulative probability equal to <span class="math inline">\(1-\alpha/2\)</span>. Below we provide a table containing commonly used normal critical values.</p>
+The <span class="math inline">\(z\)</span> critical value is related to the tail areas under the standard normal curve; we need to find the <span class="math inline">\(z\)</span>-score having a cumulative probability equal to <span class="math inline">\(1-\alpha\)</span> according to Definition <a href="statistical-inference.html#def:confidence-interval-gen">2.3</a>. Below we provide a table containing commonly used normal critical values (note: indexed by <span class="math inline">\(\alpha/2\)</span>).</p>
 <table>
 <thead>
 <tr>
 <th style="text-align:left;">
-<span class="math inline">\(\alpha =\)</span> tail area
+<span class="math inline">\(\alpha/2 =\)</span> single tail area
 </th>
 <th style="text-align:left;">
-central area <span class="math inline">\(= 1 – 2\alpha\)</span>
+central area <span class="math inline">\(= 1 – \alpha\)</span>
 </th>
 <th style="text-align:left;">
-<span class="math inline">\(z_\alpha\)</span>
+<span class="math inline">\(z_{\alpha/2}\)</span>
 </th>
 </tr>
 </thead>
@@ -459,7 +477,7 @@ central area <span class="math inline">\(= 1 – 2\alpha\)</span>
 </tbody>
 </table>
 <p><strong>TODO</strong>: add example</p>
-As noted in <a href="statistical-inference.html#eq:ci-gen-form">(2.3)</a> and <a href="statistical-inference.html#eq:ci-norm-known-var">(2.4)</a>, the width of a CI is related to the estimator’s precision. The confidence level (or reliability) is inversely related to this precision. When the population is normal and the variance is known, then an appealing strategy is to determine the sample size necessary to achieve a desired confidence level and precision. A general formula for the sample size <span class="math inline">\(n\)</span> necessary to achieve an interval width <span class="math inline">\(w\)</span> is obtained at confidence level <span class="math inline">\(\alpha\)</span> is obtained by equating <span class="math inline">\(w\)</span> to <span class="math inline">\(2z_{\alpha/2} \cdot \sigma /\sqrt{n}\)</span> and then solving for <span class="math inline">\(n\)</span>.
+<p>As noted in <a href="statistical-inference.html#eq:ci-gen-form">(2.3)</a> and <a href="statistical-inference.html#eq:ci-norm-known-var">(2.4)</a>, the width of a CI is related to the estimator’s precision. The confidence level (or reliability) is inversely related to this precision. When the population is normal and the variance is known, then an appealing strategy is to determine the sample size necessary to achieve a desired confidence level and precision. A general formula for the sample size <span class="math inline">\(n\)</span> necessary to achieve an interval width <span class="math inline">\(w\)</span> is obtained at confidence level <span class="math inline">\(\alpha\)</span> is obtained by equating <span class="math inline">\(w\)</span> to <span class="math inline">\(2z_{\alpha/2} \cdot \sigma /\sqrt{n}\)</span> and then solving for <span class="math inline">\(n\)</span>.</p>
 
 <div class="proposition">
 <span id="prp:ci-select-n-fixed-w-alpha" class="proposition"><strong>Proposition 2.1  </strong></span>The sample size <span class="math inline">\(n\)</span> required to achieve a CI for <span class="math inline">\(\mu\)</span> with width <span class="math inline">\(w\)</span> at level <span class="math inline">\(\alpha\)</span> is given by,
@@ -479,7 +497,7 @@ P \left( - z_{\alpha/2} &lt; \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} &lt; z_{
 since the transformed variable has approximately a standard normal distribution. Thus, computing a point estimate based on a large <span class="math inline">\(n\)</span> of samples yields a CI for the population parameter <span class="math inline">\(\mu\)</span> at an <em>approximate</em> confidence level <span class="math inline">\(\alpha\)</span>. However, it is often the case that the variance is unknown. When <span class="math inline">\(n\)</span> is large, replacing the population variance <span class="math inline">\(\sigma^2\)</span> by the sample variance <span class="math inline">\(S^2\)</span> in <a href="statistical-inference.html#eq:sample-var">(2.2)</a> will not typically introduce too much additional variability.</p>
 
 <div class="proposition">
-<span id="prp:ci-large-sample" class="proposition"><strong>Proposition 2.2  </strong></span>A <strong>large-sample confidence interval</strong> at level approximately <span class="math inline">\(100(1-\alpha)\%\)</span> for the mean <span class="math inline">\(\mu\)</span> of any population when the variance is uknown is given by
+<span id="prp:ci-large-sample" class="proposition"><strong>Proposition 2.2  </strong></span>For large samples <span class="math inline">\(n\)</span>, an approximate <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the mean <span class="math inline">\(\mu\)</span> of any population when the variance is uknown is given by
 <span class="math display" id="eq:ci-large-sample">\[\begin{equation} 
  \left(\overline{x} - z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} \,, 
         \overline{x} + z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} \right)\,,  \tag{2.5}
@@ -570,11 +588,42 @@ recall the <span class="math inline">\(s\)</span> in <a href="statistical-infere
 </div>
 <div id="estimating-variances" class="section level2" number="2.6">
 <h2><span class="header-section-number">2.6</span> Estimating variances</h2>
-<p>Chi-square</p>
+<p>Next we consider estimates of the population variance (and standard deviation) when the population is assumed to have a normal distribution. In this case, the sample variance <span class="math inline">\(S^2\)</span> in <a href="statistical-inference.html#eq:sample-var">(2.2)</a> provides the basis for inferences. Consider iid samples <span class="math inline">\(X_1, \dots, X_n \sim \mathcal{N}(\mu, \sigma^2)\)</span>. We provide the following theorem without proof.</p>
+
+<div class="theorem">
+<span id="thm:samp-var-chisq" class="theorem"><strong>Theorem 2.2  </strong></span>For the sample variance <span class="math inline">\(S^2\)</span> based on <span class="math inline">\(n\)</span> samples from a normal distribution with variance <span class="math inline">\(\sigma\)</span>, the rv
+<span class="math display">\[\begin{equation*}
+V = \frac{(n-1)S^2}{\sigma^2} = \frac{\sum_i(X_i - \overline{X})^2}{\sigma^2} \qquad \sim \chi^2_{n-1}\,,
+\end{equation*}\]</span>
+that is, <span class="math inline">\(V\)</span> has a <span class="math inline">\(\chi^2\)</span> distribution with <span class="math inline">\(\nu = n-1\)</span> df.
+</div>
+<p>Based on Theorem <a href="statistical-inference.html#thm:samp-var-chisq">2.2</a>,
+<span class="math display">\[\begin{equation*}
+P\left(\chi^2_{1-\alpha/2, n-1} &lt; \frac{(n-1)S^2}{\sigma^2} &lt; \chi^2_{\alpha/2, n-1} \right) = 1 - \alpha \,,
+\end{equation*}\]</span>
+i.e., the area captured between the right and left tail critical <span class="math inline">\(\chi^2\)</span> values is <span class="math inline">\(1-\alpha\)</span>. The expression above can be further manipulated to obtain an interval for the unknown parameter <span class="math inline">\(\sigma^2\)</span>:
+<span class="math display">\[\begin{equation*}
+P\left(\frac{(n-1) s^2}{\chi^2_{\alpha/2, n-1}} &lt; \sigma^2 &lt; \frac{(n-1) s^2}{\chi^2_{1-\alpha/2, n-1}} \right) = 1 - \alpha \,,
+\end{equation*}\]</span>
+where we substitute the computed value of the point estimate <span class="math inline">\(s^2\)</span> for the estimator into the limits to give a CI for <span class="math inline">\(\sigma^2\)</span>. If we take square roots of the inequality above, we obtain a CI for the population standard deviation <span class="math inline">\(\sigma\)</span>.</p>
+
+<div class="proposition">
+<span id="prp:ci-variance" class="proposition"><strong>Proposition 2.6  </strong></span>A <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the variance of a normal population is
+<span class="math display" id="eq:ci-variance">\[\begin{equation*}
+ \left( (n-1)s^2 / \chi^2_{\alpha/2, n-1} \,,  (n-1)s^2 / \chi^2_{1-\alpha/2, n-1} \right) \,.
+ \tag{2.10}
+\end{equation*}\]</span>
+A <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the standard deviation <span class="math inline">\(\sigma\)</span> of a normal population is given by taking the square roots of the lower and upper limits in <a href="statistical-inference.html#eq:ci-variance">(2.10)</a>.
+</div>
+
+<div class="example">
+<span id="exm:eg-ci-variance" class="example"><strong>Example 2.7  </strong></span><strong>TODO</strong>: Example CI for variance (using the tree data?)
+</div>
+<hr />
 
 </div>
 </div>
-<h3> Categorical data and Goodness-of-Fit tests</h3>
+<h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-Wasserman:2013as">
 <p>Wasserman, Larry. 2004. <em>All of Statistics</em>. Springer-Verlag, New York. <a href="https://doi.org/10.1007/978-0-387-21736-9">https://doi.org/10.1007/978-0-387-21736-9</a>.</p>

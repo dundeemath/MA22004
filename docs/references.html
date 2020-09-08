@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Inferences based on two samples | MA22004 - Statistics and Probability II</title>
+  <title>References | MA22004 - Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Inferences based on two samples | MA22004 - Statistics and Probability II" />
+  <meta property="og:title" content="References | MA22004 - Statistics and Probability II" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://ejhall.github.io/MA22004/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ejhall/MA22004/" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Inferences based on two samples | MA22004 - Statistics and Probability II" />
+  <meta name="twitter:title" content="References | MA22004 - Statistics and Probability II" />
   
   <meta name="twitter:description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="statistical-inference.html"/>
-<link rel="next" href="categorical-data.html"/>
+<link rel="prev" href="linear-models.html"/>
+
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -232,89 +232,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="inference-two-samples" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Inferences based on two samples</h1>
-<div id="comparing-population-means" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Comparing population means</h2>
-<p>Let us assume that we have two normal populations with iid samples <span class="math inline">\(X_1, \dots, X_m \sim \mathcal{N}(\mu_1, \sigma_1^2)\)</span> and <span class="math inline">\(Y_1, \dots, Y_n \sim \mathcal{N}(\mu_2, \sigma_2^2)\)</span> and, moreover, that the <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> samples are independent of one another. If we wish to compare the means of the two populations the the quantity of interest is the difference: <span class="math inline">\(\theta = \mu_1 - \mu_2\)</span>.</p>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
 
-<div class="proposition">
-<span id="prp:qoi-diff-pop-means" class="proposition"><strong>Proposition 3.1  </strong></span>If we consider the sample means <span class="math inline">\(\overline{X}\)</span> and <span class="math inline">\(\overline{Y}\)</span> then
-<span class="math display">\[\begin{equation*}
- \mu_{\overline{X} - \overline{Y}} 
-= \operatorname{E}\left[ \overline{X} - \overline{Y} \right] = \mu_1 - \mu_2
-\end{equation*}\]</span>
-and
-<span class="math display">\[\begin{equation*}
- \sigma_{\overline{X}- \overline{Y}} 
-= \sqrt{\operatorname{Var}\left[ \overline{X} - \overline{Y} \right]}
-= \sqrt{\frac{\sigma_1^2}{m} + \frac{\sigma_2^2}{n}} \,.
-\end{equation*}\]</span>
+<div id="refs" class="references hanging-indent">
+<div>
+<p>DeGroot, M, and M Schervish. 2001. <em>Probability and Statistics</em>. 3rd ed. Addison-Wesley.</p>
 </div>
-<p>Proposition <a href="inference-two-samples.html#prp:qoi-diff-pop-means">3.1</a> follows directly from the definition of the sample mean in <a href="statistical-inference.html#eq:sample-mean">(2.1)</a> and the properties of expectations and variances. If our parameter of interest is <span class="math inline">\(\theta = \mu_1 - \mu_2\)</span> then its estimator is <span class="math inline">\(\widehat{\theta} = \overline{X} - \overline{Y}\)</span>. We now consider confidence intervals and tests for <span class="math inline">\(\theta\)</span> that largely reflect the cases considered in Section <a href="statistical-inference.html#estimating-means">2.4</a>.</p>
-<div id="comparing-means-with-the-population-variance-is-known" class="section level3" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> Comparing means with the population variance is known</h3>
-<p>When <span class="math inline">\(\sigma_1^2\)</span> and <span class="math inline">\(\sigma_2^2\)</span> are known, then standardizing <span class="math inline">\(\overline{X} - \overline{Y}\)</span> yields the standard normal variable:
-<span class="math display">\[\begin{equation*}
- Z = \frac{\overline{X} - \overline{Y} - (\mu_1 - \mu_2)}{\sqrt{\frac{\sigma_1^2}{m} + \frac{\sigma_2^2}{n}}}\,.
-\end{equation*}\]</span></p>
-
-<div class="proposition">
-<span id="prp:ci-compare-mean-normpops-known-var" class="proposition"><strong>Proposition 3.2  </strong></span>A <span class="math inline">\(100(1-\alpha)\%\)</span> CI for the <span class="math inline">\(\mu_1 - \mu_2\)</span> for two samples from normal populations with known variances is given by
-<span class="math display">\[\begin{equation*}
- (\overline{x} + \overline{y}) \pm z_{\alpha/2} 
- \cdot \sqrt{\frac{\sigma_1^2}{m} + \frac{\sigma_2^2}{n}}
-\end{equation*}\]</span>
+<div>
+<p>Devore, Jay L. 2016. <em>Probability and Statistics for Engineering and the Sciences</em>. 9th ed. Cengage Learning.</p>
+</div>
+<div>
+<p>Rice, John A. 2006. <em>Mathematical Statistics and Data Analysis</em>. Cengage Learning.</p>
+</div>
+<div>
+<p>Wasserman, Larry. 2004. <em>All of Statistics</em>. Springer-Verlag, New York. <a href="https://doi.org/10.1007/978-0-387-21736-9">https://doi.org/10.1007/978-0-387-21736-9</a>.</p>
+</div>
+</div>
 </div>
 
-<div class="proposition">
-<span id="prp:htest-compare-mean-normpops-known-var" class="proposition"><strong>Proposition 3.3  </strong></span>For null hypothesis <span class="math inline">\(H_0 : \mu_1 - \mu_2 = \Delta_0\)</span>, the test statistic to consider is:
-<span class="math display">\[\begin{equation*}
- z = \frac{\overline{x} - \overline{y} - \Delta_0}{\sqrt{\frac{\sigma_1^2}{m} + \frac{\sigma_2^2}{n}}}
-\end{equation*}\]</span>
-</div>
-</div>
-<div id="comparing-means-when-the-sample-size-is-large" class="section level3" number="3.1.2">
-<h3><span class="header-section-number">3.1.2</span> Comparing means when the sample size is large</h3>
-<p>When the samples are large, then the assumptions about normality of the populations and knowledge of the variances <span class="math inline">\(\sigma_1^2\)</span> and <span class="math inline">\(\sigma_2^2\)</span> can be relaxed. For sufficiently large <span class="math inline">\(n\)</span>, the difference of the sample means, <span class="math inline">\(\overline{X} - \overline{Y}\)</span>, has approximately a normal distribution for any underlying population distributions by the Central Limit Theorem. Moreover, if <span class="math inline">\(n\)</span> is large enough than replacing the population variances with the sample variances <span class="math inline">\(S_1^2\)</span> and <span class="math inline">\(S_2^2\)</span> will not increase the variability of the estimator or the test statistic too much.</p>
 
-<div class="proposition">
-<span id="prp:ci-compare-mean-large-sample" class="proposition"><strong>Proposition 3.4  </strong></span>For <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> sufficiently large, an approximate <span class="math inline">\(100(1-\alpha)\%\)</span> CI for <span class="math inline">\(\mu_1 - \mu_2\)</span> for two samples from populations with any underlying distribution is given by
-<span class="math display">\[\begin{equation*}
- (\overline{x} + \overline{y}) \pm z_{\alpha/2} 
- \cdot \sqrt{\frac{s_1^2}{m} + \frac{s_2^2}{n}}
-\end{equation*}\]</span>
-</div>
 
-<div class="proposition">
-<span id="prp:htest-compare-mean-large-sample" class="proposition"><strong>Proposition 3.5  </strong></span>For null hypothesis <span class="math inline">\(H_0 : \mu_1 - \mu_2 = \Delta_0\)</span>, the test statistic to consider is:
-<span class="math display">\[\begin{equation*}
- z = \frac{\overline{x} - \overline{y} - \Delta_0}{\sqrt{\frac{s_1^2}{m} + \frac{s_2^2}{n}}}
-\end{equation*}\]</span>
-</div>
-</div>
-<div id="comparing-means-when-the-sample-size-is-small" class="section level3" number="3.1.3">
-<h3><span class="header-section-number">3.1.3</span> Comparing means when the sample size is small</h3>
-</div>
-</div>
-<div id="comparing-proportions" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Comparing proportions</h2>
-</div>
-<div id="comparing-variances" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Comparing variances</h2>
-</div>
-<div id="paired-samples" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Paired samples</h2>
 
-</div>
-</div>
+
+
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="statistical-inference.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="categorical-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="linear-models.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -345,7 +299,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/dundeemath/MA22004/edit/master/03-infer-two-samples.Rmd",
+"link": "https://github.com/dundeemath/MA22004/edit/master/06-references.Rmd",
 "text": "Suggest an edit"
 },
 "history": {

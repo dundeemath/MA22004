@@ -1,4 +1,4 @@
-$\alpha =$ tail area, central area $= 1 – 2\alpha$, $z_\alpha$
+$\alpha/2 =$ single tail area, central area $= 1 – \alpha$, $z_{\alpha/2}$
 $0.10$, $0.80$, $z_{.10} = 1.28$
 $0.05$, $0.90$, $z_{.05} = 1.645$
 $0.025$, $0.95$, $z_{.025} = 1.96$

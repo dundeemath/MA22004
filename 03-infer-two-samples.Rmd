@@ -30,3 +30,71 @@ knitr::opts_chunk$set(echo = TRUE, comment = "") #, dev = "svglite", fig.width=8
 
 # Inferences based on two samples {#inference-two-samples}
 
+## Comparing population means
+
+Let us assume that we have two normal populations with iid samples $X_1, \dots, X_m \sim \mathcal{N}(\mu_1, \sigma_1^2)$ and $Y_1, \dots, Y_n \sim \mathcal{N}(\mu_2, \sigma_2^2)$ and, moreover, that the $X$ and $Y$ samples are independent of one another. If we wish to compare the means of the two populations the the quantity of interest is the difference: $\theta = \mu_1 - \mu_2$. 
+
+```{proposition, qoi-diff-pop-means}
+If we consider the sample means $\overline{X}$ and $\overline{Y}$ then 
+\begin{equation*}
+ \mu_{\overline{X} - \overline{Y}} 
+= \E \left[ \overline{X} - \overline{Y} \right] = \mu_1 - \mu_2
+\end{equation*}
+and 
+\begin{equation*}
+ \sigma_{\overline{X}- \overline{Y}} 
+= \sqrt{\Var \left[ \overline{X} - \overline{Y} \right]}
+= \sqrt{\frac{\sigma_1^2}{m} + \frac{\sigma_2^2}{n}} \,.
+\end{equation*}
+```
+
+Proposition \@ref(prp:qoi-diff-pop-means) follows directly from the definition of the sample mean in \@ref(eq:sample-mean) and the properties of expectations and variances. If our parameter of interest is $\theta = \mu_1 - \mu_2$ then its estimator is $\widehat{\theta} = \overline{X} - \overline{Y}$. We now consider confidence intervals and tests for $\theta$ that largely reflect the cases considered in Section \@ref(estimating-means). 
+
+### Comparing means with the population variance is known
+
+When $\sigma_1^2$ and $\sigma_2^2$ are known, then standardizing $\overline{X} - \overline{Y}$ yields the standard normal variable:
+\begin{equation*}
+ Z = \frac{\overline{X} - \overline{Y} - (\mu_1 - \mu_2)}{\sqrt{\frac{\sigma_1^2}{m} + \frac{\sigma_2^2}{n}}}\,.
+\end{equation*}
+
+```{proposition, ci-compare-mean-normpops-known-var}
+A $100(1-\alpha)\%$ CI for the $\mu_1 - \mu_2$ for two samples from normal populations with known variances is given by
+\begin{equation*}
+ (\overline{x} + \overline{y}) \pm z_{\alpha/2} 
+ \cdot \sqrt{\frac{\sigma_1^2}{m} + \frac{\sigma_2^2}{n}}
+\end{equation*}
+```
+
+```{proposition, htest-compare-mean-normpops-known-var}
+For null hypothesis $H_0 : \mu_1 - \mu_2 = \Delta_0$, the test statistic to consider is:
+\begin{equation*}
+ z = \frac{\overline{x} - \overline{y} - \Delta_0}{\sqrt{\frac{\sigma_1^2}{m} + \frac{\sigma_2^2}{n}}}
+\end{equation*}
+```
+
+### Comparing means when the sample size is large
+
+When the samples are large, then the assumptions about normality of the populations and knowledge of the variances $\sigma_1^2$ and $\sigma_2^2$ can be relaxed. For sufficiently large $n$, the difference of the sample means, $\overline{X} - \overline{Y}$, has approximately a normal distribution for any underlying population distributions by the Central Limit Theorem. Moreover, if $n$ is large enough than replacing the population variances with the sample variances $S_1^2$ and $S_2^2$ will not increase the variability of the estimator or the test statistic too much. 
+
+```{proposition, ci-compare-mean-large-sample}
+For $m$ and $n$ sufficiently large, an approximate $100(1-\alpha)\%$ CI for $\mu_1 - \mu_2$ for two samples from populations with any underlying distribution is given by
+\begin{equation*}
+ (\overline{x} + \overline{y}) \pm z_{\alpha/2} 
+ \cdot \sqrt{\frac{s_1^2}{m} + \frac{s_2^2}{n}}
+\end{equation*}
+```
+
+```{proposition, htest-compare-mean-large-sample}
+For null hypothesis $H_0 : \mu_1 - \mu_2 = \Delta_0$, the test statistic to consider is:
+\begin{equation*}
+ z = \frac{\overline{x} - \overline{y} - \Delta_0}{\sqrt{\frac{s_1^2}{m} + \frac{s_2^2}{n}}}
+\end{equation*}
+```
+
+### Comparing means when the sample size is small
+
+## Comparing proportions
+
+## Comparing variances
+
+## Paired samples
