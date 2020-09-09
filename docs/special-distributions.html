@@ -177,7 +177,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.2.1" data-path="special-distributions.html"><a href="special-distributions.html#facts-t"><i class="fa fa-check"></i><b>1.2.1</b> Properties of <span class="math inline">\(t\)</span> distributions</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="special-distributions.html"><a href="special-distributions.html#chisq-distribution"><i class="fa fa-check"></i><b>1.3</b> <span class="math inline">\(\chi^2\)</span> distributions</a></li>
+<li class="chapter" data-level="1.3" data-path="special-distributions.html"><a href="special-distributions.html#chisq-distribution"><i class="fa fa-check"></i><b>1.3</b> <span class="math inline">\(\chi^2\)</span> distribution</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>2</b> Inferences based on a single sample</a>
 <ul>
@@ -195,15 +195,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="inference-two-samples.html"><a href="inference-two-samples.html"><i class="fa fa-check"></i><b>3</b> Inferences based on two samples</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="inference-two-samples.html"><a href="inference-two-samples.html#comparing-population-means"><i class="fa fa-check"></i><b>3.1</b> Comparing population means</a>
+<li class="chapter" data-level="3.1" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-means"><i class="fa fa-check"></i><b>3.1</b> Comparing means</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="inference-two-samples.html"><a href="inference-two-samples.html#comparing-means-with-the-population-variance-is-known"><i class="fa fa-check"></i><b>3.1.1</b> Comparing means with the population variance is known</a></li>
-<li class="chapter" data-level="3.1.2" data-path="inference-two-samples.html"><a href="inference-two-samples.html#comparing-means-when-the-sample-size-is-large"><i class="fa fa-check"></i><b>3.1.2</b> Comparing means when the sample size is large</a></li>
-<li class="chapter" data-level="3.1.3" data-path="inference-two-samples.html"><a href="inference-two-samples.html#comparing-means-when-the-sample-size-is-small"><i class="fa fa-check"></i><b>3.1.3</b> Comparing means when the sample size is small</a></li>
+<li class="chapter" data-level="3.1.1" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-means-normpops-vars-known"><i class="fa fa-check"></i><b>3.1.1</b> Comparing means of normal populations when variances are known</a></li>
+<li class="chapter" data-level="3.1.2" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-means-large-samples"><i class="fa fa-check"></i><b>3.1.2</b> Comparing means when the sample sizes are large</a></li>
+<li class="chapter" data-level="3.1.3" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-means-normpops-vars-unknown"><i class="fa fa-check"></i><b>3.1.3</b> Comparing means of normal populations when variances are unknown and the sample size is small</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="inference-two-samples.html"><a href="inference-two-samples.html#comparing-proportions"><i class="fa fa-check"></i><b>3.2</b> Comparing proportions</a></li>
-<li class="chapter" data-level="3.3" data-path="inference-two-samples.html"><a href="inference-two-samples.html#comparing-variances"><i class="fa fa-check"></i><b>3.3</b> Comparing variances</a></li>
-<li class="chapter" data-level="3.4" data-path="inference-two-samples.html"><a href="inference-two-samples.html#paired-samples"><i class="fa fa-check"></i><b>3.4</b> Paired samples</a></li>
+<li class="chapter" data-level="3.2" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-proportions"><i class="fa fa-check"></i><b>3.2</b> Comparing proportions</a></li>
+<li class="chapter" data-level="3.3" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-variances"><i class="fa fa-check"></i><b>3.3</b> Comparing variances</a></li>
+<li class="chapter" data-level="3.4" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-paired-samples"><i class="fa fa-check"></i><b>3.4</b> Comparing paired samples</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="categorical-data.html"><a href="categorical-data.html"><i class="fa fa-check"></i><b>4</b> Categorical data and Goodness-of-Fit tests</a></li>
 <li class="chapter" data-level="5" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>5</b> Linear models</a>
@@ -236,14 +236,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">1</span> Special distributions</h1>
 <div id="normal-distribution" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Normal distribution</h2>
-<p>Normal distributions play an important role in probability and statistics as they describes many natural phenomenon. For instance, the Central Limit Theorem tells us that sums of rvs are approximately Normal in distribution.</p>
+<p>Normal distributions play an important role in probability and statistics as they describes many natural phenomenon. For instance, the Central Limit Theorem tells us that sums of rvs are approximately normal in distribution.</p>
 
 <div class="definition">
 <span id="def:normal-dist" class="definition"><strong>Definition 1.1  </strong></span>A continuous rv <span class="math inline">\(X\)</span> has a <strong>normal distribution</strong> with parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>, where <span class="math inline">\(-\infty &lt; \mu &lt; \infty\)</span> and <span class="math inline">\(\sigma &gt; 0\)</span>, if <span class="math inline">\(X\)</span> has pdf
-<span class="math display">\[ f(x; \mu, \sigma) = \frac{1}{\sqrt{2 \pi} \sigma}e^{-(x-\mu)^2/(2\sigma^2)}\,, 
-\quad -\infty &lt; x &lt; \infty \,.\]</span>
+<span class="math display">\[\begin{equation*}
+ f(x; \mu, \sigma) = \frac{1}{\sqrt{2 \pi} \sigma}e^{-(x-\mu)^2/(2\sigma^2)}\,, 
+ \quad -\infty &lt; x &lt; \infty \,.
+\end{equation*}\]</span>
+We write <span class="math inline">\(X \sim \mathcal{N}(\mu, \sigma^2)\)</span>.
 </div>
-<p>The statement that <span class="math inline">\(X\)</span> is normally distributed with parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> is abbreviated <span class="math inline">\(X \sim \mathcal{N}(\mu, \sigma^2)\)</span>. For <span class="math inline">\(X\sim \mathcal{N}(\mu,\sigma^2)\)</span>, it can be shown that <span class="math inline">\(\operatorname{E}(X) = \mu\)</span> and <span class="math inline">\(\operatorname{Var}(X) = \sigma^2\)</span>, that is, <span class="math inline">\(\mu\)</span> is the <em>mean</em> and <span class="math inline">\(\sigma^2\)</span> is the <em>variance</em> of <span class="math inline">\(X\)</span>. The pdf takes the form of a bell-shaped curve that is symmetric about <span class="math inline">\(\mu\)</span>. The value <span class="math inline">\(\sigma\)</span> (<em>standard deviation</em>) is the distance from <span class="math inline">\(\mu\)</span> to the inflection points of the curve. Thus, the position (location) and spread of the distribution depends on <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>.</p>
+<p>For <span class="math inline">\(X\sim \mathcal{N}(\mu,\sigma^2)\)</span>, it can be shown that <span class="math inline">\(\operatorname{E}(X) = \mu\)</span> and <span class="math inline">\(\operatorname{Var}(X) = \sigma^2\)</span>, that is, <span class="math inline">\(\mu\)</span> is the <em>mean</em> and <span class="math inline">\(\sigma^2\)</span> is the <em>variance</em> of <span class="math inline">\(X\)</span>. The pdf takes the form of a bell-shaped curve that is symmetric about <span class="math inline">\(\mu\)</span>. The value <span class="math inline">\(\sigma\)</span> (<em>standard deviation</em>) is the distance from <span class="math inline">\(\mu\)</span> to the inflection points of the curve. Thus, the position (location) and spread of the distribution depends on <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>.</p>
 <div class="figure"><span id="fig:normals-diff-mean"></span>
 <img src="01-sampling-distributions_files/figure-html/normals-diff-mean-1.png" alt="The pdfs of two normal rvs with different means and the same standard deviations." width="672" />
 <p class="caption">
@@ -258,7 +261,7 @@ Figure 1.2: The pdfs of two normal rvs with the same means and different standar
 </div>
 
 <div class="definition">
-<span id="def:unnamed-chunk-1" class="definition"><strong>Definition 1.2  </strong></span>We say that <span class="math inline">\(X\)</span> has a <strong>standard Normal distribution</strong> if <span class="math inline">\(\mu=0\)</span> and <span class="math inline">\(\sigma = 1\)</span> and we will usually denote standard Normal rvs by <span class="math inline">\(Z\)</span> (why? <a href="https://www.youtube.com/watch?v=gRdfX7ut8gw">tradition!</a>).
+<span id="def:standard-normal" class="definition"><strong>Definition 1.2  </strong></span>We say that <span class="math inline">\(X\)</span> has a <strong>standard normal distribution</strong> if <span class="math inline">\(\mu=0\)</span> and <span class="math inline">\(\sigma = 1\)</span> and we will usually denote standard Normal rvs by <span class="math inline">\(Z\)</span> (why? <a href="https://www.youtube.com/watch?v=gRdfX7ut8gw">tradition!</a>).
 </div>
 <div id="facts-normals" class="section level3" number="1.1.1">
 <h3><span class="header-section-number">1.1.1</span> Some useful facts about Normals</h3>
@@ -275,7 +278,8 @@ Figure 1.2: The pdfs of two normal rvs with the same means and different standar
 <span class="math display">\[\begin{aligned}
    P(a &lt; X &lt; b) &amp;= P\left( \frac{a-\mu}{\sigma} &lt; Z &lt; \frac{b-\mu}{\sigma} \right) \\ 
     &amp;= \Phi \left( \frac{b-\mu}{\sigma}\right) - \Phi\left(\frac{a-\mu}{\sigma}\right) \,.
-   \end{aligned}\]</span></p>
+   \end{aligned}\]</span>
+This process is often referred to as <em>standardizing</em> (the normal rv).</p>
 
 <div class="example">
 <p><span id="exm:eg-norm-rt" class="example"><strong>Example 1.1  </strong></span>Let <span class="math inline">\(X \sim \mathcal{N}(5, 9)\)</span> and find <span class="math inline">\(P(X \geq 5.5)\)</span>.</p>
@@ -313,21 +317,41 @@ where we look up the value of <span class="math inline">\(\Phi(z) = P(Z\leq z)\)
 </div>
 <div id="t-distribution" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> <span class="math inline">\(t\)</span> distribution</h2>
+<p>Student’s <span class="math inline">\(t\)</span> distribution gets its peculiar name as it was first published under the pseudonym <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/">“Student”</a>. This bit of obfuscation was to protect the identity of <a href="https://www.wikiwand.com/en/Guinness_Brewery">his employer</a>, and thereby vital trade secrets, in a highly competitive and lucrative industry.</p>
+
+<div class="definition">
+<span id="def:t-dist" class="definition"><strong>Definition 1.3  </strong></span>A continuous rv <span class="math inline">\(X\)</span> has a <strong><span class="math inline">\(t\)</span> distribution</strong> with parameter <span class="math inline">\(\nu &gt; 0\)</span>, if <span class="math inline">\(X\)</span> has pdf
+<span class="math display">\[\begin{equation*}
+f(x; \nu) = \frac{\Gamma\left(\tfrac{\nu+1}{2}\right)}{\sqrt{\nu \pi} \Gamma \left(\tfrac{\nu}{2}\right)} \left( 1 + \tfrac{x^2}{\nu} \right)^{- \frac{\nu+1}{2}} \,, \quad -\infty &lt; x &lt; \infty\,.
+\end{equation*}\]</span>
+We write <span class="math inline">\(X \sim t(\nu)\)</span>.
+</div>
 <div id="facts-t" class="section level3" number="1.2.1">
 <h3><span class="header-section-number">1.2.1</span> Properties of <span class="math inline">\(t\)</span> distributions</h3>
 <ol style="list-style-type: decimal">
-<li>The density for <span class="math inline">\(t_\nu\)</span> is a bell-shaped curve centered at <span class="math inline">\(0\)</span>.</li>
-<li>The density for <span class="math inline">\(t_\nu\)</span> is more spread out than the standard normal density (i.e., it has “fatter tails” than the normal).</li>
-<li>As <span class="math inline">\(\nu \to \infty\)</span>, the spread of the corresponding <span class="math inline">\(t_\nu\)</span> density converges to the standard normal density (i.e., the spread of the <span class="math inline">\(t_\nu\)</span> density decreases relative to the standard normal).</li>
+<li>The density for <span class="math inline">\(t(\nu)\)</span> is a bell-shaped curve centered at <span class="math inline">\(0\)</span>.</li>
+<li>The density for <span class="math inline">\(t(\nu)\)</span> is more spread out than the standard normal density (i.e., it has “fatter tails” than the normal).</li>
+<li>As <span class="math inline">\(\nu \to \infty\)</span>, the spread of the corresponding <span class="math inline">\(t(\nu)\)</span> density converges to the standard normal density (i.e., the spread of the <span class="math inline">\(t(\nu)\)</span> density decreases relative to the standard normal).</li>
 </ol>
+<p>If <span class="math inline">\(X \sim t(\nu)\)</span>, then <span class="math inline">\(\operatorname{E}[X] = 0\)</span> for <span class="math inline">\(\nu &gt; 1\)</span> (otherwise the mean is undefined).</p>
 </div>
 </div>
 <div id="chisq-distribution" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> <span class="math inline">\(\chi^2\)</span> distributions</h2>
-<p>The pdf <span class="math inline">\(f(x; \nu)\)</span> of the <span class="math inline">\(\chi^2\)</span> distribution depends on one parameter <span class="math inline">\(\nu\)</span> (df). The density <span class="math inline">\(f(x;\nu)\)</span> supported over <span class="math inline">\(x &gt; 0\)</span> and is positively skewed (i.e., the right tail is longer and hence the mass is concentrated to the left of the figure). The distribution becomes more symmetric as <span class="math inline">\(\nu\)</span> increases. We denote critical values of the <span class="math inline">\(\chi^2\)</span> distribution by <span class="math inline">\(\chi^2_{\alpha, \nu}\)</span>.</p>
+<h2><span class="header-section-number">1.3</span> <span class="math inline">\(\chi^2\)</span> distribution</h2>
+<p>The <span class="math inline">\(\chi^2\)</span> distribution arises as the distribution of a sum of the squares of <span class="math inline">\(\nu\)</span> independent standard normal rvs.</p>
+
+<div class="definition">
+<span id="def:chisq-dist" class="definition"><strong>Definition 1.4  </strong></span>A continuous rv <span class="math inline">\(X\)</span> has a <strong><span class="math inline">\(\chi^2\)</span> distribution</strong> with parameter <span class="math inline">\(\nu \in \mathbbb{N}_{&gt;}\)</span>, if <span class="math inline">\(X\)</span> has pdf
+<span class="math display">\[\begin{equation*}
+f(x; \nu) = \frac{1}{2^{\nu/2} \Gamma(\nu/2)} x^{(\nu/2)-1} e^{-x/2} \,, 
+\end{equation*}\]</span>
+with support <span class="math inline">\(x \in (0, \infty)\)</span> if <span class="math inline">\(\nu=1\)</span>, otherwise <span class="math inline">\(x \in [0, \infty)\)</span>. We write <span class="math inline">\(X \sim \chi^2(\nu)\)</span>.
+</div>
+<p>The pdf <span class="math inline">\(f(x; \nu)\)</span> of the <span class="math inline">\(\chi^2(\nu)\)</span> distribution depends on a positive integer <span class="math inline">\(\nu\)</span> referred to as the df. The density <span class="math inline">\(f(x;\nu)\)</span> is positively skewed, i.e., the right tail is longer and hence the mass is concentrated to the left of the figure. The distribution becomes more symmetric as <span class="math inline">\(\nu\)</span> increases. We denote critical values of the <span class="math inline">\(\chi^2(\nu)\)</span> distribution by <span class="math inline">\(\chi^2_{\alpha, \nu}\)</span>.</p>
 <blockquote>
 <p>⚠️ Unlike the normal and <span class="math inline">\(t\)</span> distributions, the <span class="math inline">\(\chi^2\)</span> distribution is not symmetric. This means that the critical values e.g. <span class="math inline">\(\chi^2_{.99, \nu}\)</span> and <span class="math inline">\(\chi^2{0.01,\nu}\)</span> are <strong>not</strong> equal. Hence, it will be necessary to look up both values for CIs based on <span class="math inline">\(\chi^2\)</span> critical values.</p>
 </blockquote>
+<p>If <span class="math inline">\(X \sim \chi^2(\nu)\)</span>, then <span class="math inline">\(\operatorname{E}[X] = \nu\)</span> and <span class="math inline">\(\operatorname{Var}[X] = 2\nu\)</span>.</p>
 
 </div>
 </div>

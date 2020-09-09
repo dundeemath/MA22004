@@ -45,6 +45,8 @@ Note that Definition \@ref(def:point-estimate) does not say how to select the ap
 \end{equation*}
 where $n$ is the sample size and $\mu$ and $\sigma$ are the (typically unknown) population parameters.
 
+> The **Cherry Tree Data** contains 31 obs. of three features (diameter [in], height [in], and volume [cu ft]) and can be accessed in `r` by loading `library(datasets)` and then calling `data(trees)`.  
+
 \BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-estimators"><strong>(\#exm:eg-estimators) </strong></span>Let us consider the heights (measured in inches) of $31$ black cherry trees (sorted, for your enjoyment): `63 64 65 66 69 70 71 72 72 74 74 75 75 75 76 76 77 78 79 80 80 80 80 80 81 81 82 83 85 86 87`.
 
 The quantile-quantile plot comparing this data to a normal distribution is fairly straight, so we assume that the distribution of black cherry tree heights is normal with a mean value $\mu$; i.e., that the population of heights is distributed $\mathcal{N}(\mu, \sigma^2)$ where $\mu$ is a parameter to be estimated. The observations $X_1, \dots, X_{31}$ are then assumed to be a random sample from this normal distribution (iid). Consider the following three different stimators and the resulting point estimates for $\mu$ based on the $31$ samples.
@@ -57,17 +59,16 @@ c. Estimator ($10\%$ trimmed mean -- i.e., in this instance exclude the smallest
 
 Each estimator above uses a different notion of center for the sample data. An interesting question to think about is: which estimator will tend to produce estimates closest to the true parameter value? Will the estimators work universally well for all distributions?</div>\EndKnitrBlock{example}
 
+> How do we tell whether a population is normal? Constructing a normal quantile-quantile plot is one way of assessing whether a normality assumption is reasonable; such a plot compares the the quantiles of the sample data $x_i$ against the (theoretical) standard normal quantiles. If the sample data is consistent with a sample from a normal distribution, then the points will lie on a straight line (more or less).  
 
-> The **Cherry Tree Data** contains 31 obs. of three features (diameter [in], height [in], and volume [cu ft]) and can be accessed in `r` by loading `library(datasets)` and then calling `data(trees)`. 
-
-In addition to reporting a point estimate (together with its estimator), some indication of its precision should be given. One measure of the precision of an estimate is its standard error. 
+In addition to reporting a point estimate (together with its estimator), some indication of its precision should be given. One measure of the precision of an estimate is its standard error.  
 
 \BeginKnitrBlock{definition}<div class="definition"><span class="definition" id="def:standard-error"><strong>(\#def:standard-error) </strong></span>The **standard error** of an estimator $\widehat{\theta}$ is the standard deviation $\sigma_{\widehat{\theta}} = \sqrt{\Var(\widehat{\theta})}$ (sometimes denoted $\se = \se(\widehat{\theta})$). Often, the standard error depends on unknown parameters and must also be estimated. The **estimated standard error** is denoted by $\widehat{\sigma}_{\widehat{\theta}}$ or $s_{\widehat{\theta}}$ or $\widehat{\se}$. </div>\EndKnitrBlock{definition}
 
 
 ## Confidence intervals {#confidence-intervals}
 
-An alternative to reporting a point estimate for a parameter is to report an interval estimate suggesting an entire range of plausible values for the parameter of interest. A confidence interval is an interval estimate that makes a probability statement about the degree of reliability, or the confidence level, of the interval. The first step in computing a confidence interval is to select the confidence level. A popular choice is a $95\%$ confidence interval which corresponds to level $\alpha = 0.05$. 
+An alternative to reporting a point estimate for a parameter is to report an interval estimate suggesting an entire range of plausible values for the parameter of interest. A confidence interval is an interval estimate that makes a probability statement about the degree of reliability, or the confidence level, of the interval. The first step in computing a confidence interval is to select the confidence level. A popular choice is a $95\%$ confidence interval which corresponds to level $\alpha = 0.05$.  
 
 \BeginKnitrBlock{definition}<div class="definition"><span class="definition" id="def:confidence-interval-gen"><strong>(\#def:confidence-interval-gen) </strong></span>A $100(1-\alpha)\%$ **confidence interval** for a parameter $\theta$ is a *random* interval $C_n = (L_n , U_n)$ where $L_n = \ell(X_1, \dots, X_n)$ and $U_n = u(X_1, \dots, X_n)$ are functions of the data such that 
 \begin{equation}
@@ -214,11 +215,12 @@ since the transformed variable has approximately a standard normal distribution.
 \BeginKnitrBlock{proposition}<div class="proposition"><span class="proposition" id="prp:ci-large-sample"><strong>(\#prp:ci-large-sample) </strong></span>For large samples $n$, an approximate $100(1-\alpha)\%$ confidence interval for the mean $\mu$ of any population when the variance is uknown is given by 
 \begin{equation} 
  \left(\overline{x} - z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} \,, 
-        \overline{x} + z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} \right)\,,  (\#eq:ci-large-sample)
+        \overline{x} + z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} \right)\,,  
+ (\#eq:ci-large-sample)
 \end{equation}
 or $\overline{x} \pm z_{\alpha/2} \cdot s / \sqrt{n}$. </div>\EndKnitrBlock{proposition}
 
-The CI for the mean \@ref(eq:ci-large-sample) applies regardless of the shape of the population distribution so long as the number of samples is large. A rule of thumb is that $n > 40$ is sufficient. In words, the CI \@refeq:ci-large-sample) can be expressed as 
+The CI for the mean \@ref(eq:ci-large-sample) applies regardless of the shape of the population distribution so long as the number of samples is large. A rule of thumb is that $n > 40$ is sufficient. In words, the CI \@ref(eq:ci-large-sample) can be expressed as 
 \begin{equation*}
  \text{point estimate}\; \mu \pm 
  (z \;\text{critical value}) \cdot (\text{estimated standard error of mean})\,.
