@@ -80,7 +80,7 @@ In addition to the course notes, here are some textbooks you may wish to consult
 
 > ⚠️ You do not need to purchase these books.
 
-+ Devore, *Probability and Statistics for Engineering and the Sciences,* Cengage learning, 2011. [@Devore:2016st, §6-10 + 12]
++ Devore, *Probability and Statistics for Engineering and the Sciences,* Cengage learning, 2011. [@Devore:2016st, §6-10, 12, 14]
 + DeGroot and Schervish, *Probability and Statistics,* Addison-Wesley, 2001. [@DeGrootSchervish:2001ps, §7-10]
 + Rice, *Mathematical statistics and data analysis,* Cengage Learning, 2006. [@Rice:2006da, §6-12]
 + Wasserman, *All of Statistics,* Springer-Verlag, 2004. [@Wasserman:2013as, Concise general reference]

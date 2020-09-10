@@ -31,7 +31,7 @@ Suppose we actually find and measure the petal length of $50$ independent *setos
 
 > The botonist Edgar Anderson's **Iris Data** contains 50 obs. of four features (sepal length [cm], sepal width [cm], petal length [cm], and petal width [cm]) for each of three plant species (*setosa*, *virginica*, *versicolor*) for 150 obs. total. This data set can be accessed in `r` by loading `library(datasets)` and then calling `data(iris)`. 
 
-\BeginKnitrBlock{definition}<div class="definition"><span class="definition" id="def:point-estimate"><strong>(\#def:point-estimate) </strong></span>A **point estimate** of a parameter $\theta$ (recall: a fixed, unknown quantity) is a single number that we regard as a sensible value for $\theta$. Let $X_1, X_2, \dots, X_n$ be iid samples from a distribution $F(\theta)$. A **point estimator** $\widehat{\theta}_n$ of a parameter $\theta$ is obtained by selecting a suitable statistic $g$,
+\BeginKnitrBlock{definition}<div class="definition"><span class="definition" id="def:point-estimate"><strong>(\#def:point-estimate) </strong></span>A **point estimate** of a parameter $\theta$ (recall: a fixed, unknown quantity) is a single number that we regard as a sensible value for $\theta$. Let $X_1, X_2, \dots, X_n$ be iid samples from a (general) distribution $F(\theta)$. A **point estimator** $\widehat{\theta}_n$ of a parameter $\theta$ is obtained by selecting a suitable statistic $g$,
 \begin{equation*}
   \widehat{\theta}_n = g(X_1, \dots, X_n) \,.
 \end{equation*}
@@ -41,7 +41,7 @@ A point estimate $\widehat{\theta}_n$ can then be computed from the estimator us
 
 Note that Definition \@ref(def:point-estimate) does not say how to select the appropriate statistic. For the *setosa* example, the sample mean $\overline{X}$ is suggested as a good estimator of the population mean $\mu$. That is, $\widehat{\mu} = \overline{X}$ or "the point estimator of $\mu$ is the sample mean $\overline{X}$". Here, while $\mu$ and $\sigma^2$ are fixed quantities representing characteristics of the population, $\overline{X}$ and $S^2$ are rvs with sampling distributions. If the population is *normally distributed* or if the *sample is large* then the sampling distribution for $\overline{X}$ has a known form: $\overline{X}$ is normal with mean $\mu_{\overline{X}} = \mu$ and variance $\sigma_{\overline{X}}^2 = \sigma^{2} / n$, i.e.,
 \begin{equation*}
-  \overline{X} \sim \mathcal{N}(\mu, \sigma^{2} / n) \,,
+  \overline{X} \sim \mathsf{N}(\mu, \sigma^{2} / n) \,,
 \end{equation*}
 where $n$ is the sample size and $\mu$ and $\sigma$ are the (typically unknown) population parameters.
 
@@ -49,7 +49,7 @@ where $n$ is the sample size and $\mu$ and $\sigma$ are the (typically unknown) 
 
 \BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-estimators"><strong>(\#exm:eg-estimators) </strong></span>Let us consider the heights (measured in inches) of $31$ black cherry trees (sorted, for your enjoyment): `63 64 65 66 69 70 71 72 72 74 74 75 75 75 76 76 77 78 79 80 80 80 80 80 81 81 82 83 85 86 87`.
 
-The quantile-quantile plot comparing this data to a normal distribution is fairly straight, so we assume that the distribution of black cherry tree heights is normal with a mean value $\mu$; i.e., that the population of heights is distributed $\mathcal{N}(\mu, \sigma^2)$ where $\mu$ is a parameter to be estimated. The observations $X_1, \dots, X_{31}$ are then assumed to be a random sample from this normal distribution (iid). Consider the following three different stimators and the resulting point estimates for $\mu$ based on the $31$ samples.
+The quantile-quantile plot comparing this data to a normal distribution is fairly straight, so we assume that the distribution of black cherry tree heights is normal with a mean value $\mu$; i.e., that the population of heights is distributed $\mathsf{N}(\mu, \sigma^2)$ where $\mu$ is a parameter to be estimated. The observations $X_1, \dots, X_{31}$ are then assumed to be a random sample from this normal distribution (iid). Consider the following three different stimators and the resulting point estimates for $\mu$ based on the $31$ samples.
 
 a. Estimator (sample mean) $\overline{X}$ as in \@ref(eq:sample-mean) and estimate $\overline{x} = \sum x_i / n = 2356 / 31 = 76$.
 
@@ -235,11 +235,11 @@ In Section \@ref(ci-normal-var-known), we considered samples $X_1, \dots, X_n$ f
 
 \BeginKnitrBlock{theorem}<div class="theorem"><span class="theorem" id="thm:sample-mean-t-dist"><strong>(\#thm:sample-mean-t-dist) </strong></span>For the sample mean $\overline{X}$ based on $n$ samples from a normal distribution with mean $\mu$, the rv
 \begin{equation}
- T = \frac{\overline{X} - \mu}{S} \sqrt{n} \quad \sim t_{n-1}\,,
+ T = \frac{\overline{X} - \mu}{S} \sqrt{n} \quad \sim \mathsf{t}(n-1)\,,
 \end{equation}
-that is, $T$ has Student's $t$ distribution with $\nu = n-1$ degrees of freedom (df). </div>\EndKnitrBlock{theorem}
+that is, $T$ has Student's $\mathsf{t}$ distribution with $\nu = n-1$ degrees of freedom (df). </div>\EndKnitrBlock{theorem}
 
-This leads us to consider a CI for the population parameter $\mu$ that is based on critical values of the $t$ distribution. 
+This leads us to consider a CI for the population parameter $\mu$ that is based on critical values of the $\mathsf{t}$ distribution. 
 
 \BeginKnitrBlock{proposition}<div class="proposition"><span class="proposition" id="prp:ci-norm-unknown-var"><strong>(\#prp:ci-norm-unknown-var) </strong></span>A **$100(1-\alpha)\%$ confidence interval** for the mean $\mu$ of a normal population when the value of $\sigma^2$ is unknown is given by 
 \begin{equation} 
@@ -248,7 +248,7 @@ This leads us to consider a CI for the population parameter $\mu$ that is based 
 \end{equation}
 or $\overline{x} \pm t_{\alpha/2, n-1} \cdot s/ \sqrt{n}$. Here $\overline{x}$ and $s$ are the sample mean and sample standard deviation, respectively.</div>\EndKnitrBlock{proposition}
 
-In contrast to Proposition \@ref(prp:ci-select-n-fixed-w-alpha), it is difficult to select the sample size $n$ to control the width of the $t$-based CI as the width involves the unknown (before the sample is acquired) $s$ and because $n$ also enters through $t_{\alpha/2, n-1}$.  
+In contrast to Proposition \@ref(prp:ci-select-n-fixed-w-alpha), it is difficult to select the sample size $n$ to control the width of the $\mathsf{t}$-based CI as the width involves the unknown (before the sample is acquired) $s$ and because $n$ also enters through $t_{\alpha/2, n-1}$.  
 
 **TODO**: add example 
  
@@ -300,7 +300,7 @@ recall the $s$ in \@ref(eq:ci-large-sample) is the sample variance for the *popu
 
 ## Estimating variances {#estimating-variances}
 
-Next we consider estimates of the population variance (and standard deviation) when the population is assumed to have a normal distribution. In this case, the sample variance $S^2$ in \@ref(eq:sample-var) provides the basis for inferences. Consider iid samples $X_1, \dots, X_n \sim \mathcal{N}(\mu, \sigma^2)$. We provide the following theorem without proof.
+Next we consider estimates of the population variance (and standard deviation) when the population is assumed to have a normal distribution. In this case, the sample variance $S^2$ in \@ref(eq:sample-var) provides the basis for inferences. Consider iid samples $X_1, \dots, X_n \sim \mathsf{N}(\mu, \sigma^2)$. We provide the following theorem without proof.
 
 \BeginKnitrBlock{theorem}<div class="theorem"><span class="theorem" id="thm:samp-var-chisq"><strong>(\#thm:samp-var-chisq) </strong></span>For the sample variance $S^2$ based on $n$ samples from a normal distribution with variance $\sigma$, the rv
 \begin{equation*}

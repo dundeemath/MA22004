@@ -24,13 +24,15 @@ knitr::opts_chunk$set(echo = TRUE, comment = "") #, dev = "svglite", fig.width=8
 #plotly::config(plot_ly(), displaylogo = FALSE, mathjax = "cdn")
 ```
 
-\newcommand{\Var}{\operatorname{Var}}
-\newcommand{\E}{\operatorname{E}}
-\newcommand{\se}{\mathsf{se}}
+<!-- \newcommand{\Var}{\operatorname{Var}} -->
+<!-- \newcommand{\E}{\operatorname{E}} -->
+<!-- \newcommand{\se}{\mathsf{se}} -->
 
 # Linear models {#linear-models}
 
-## Regression
+## Linear regression
+
+## Correlation
 
 ## ANOVA
 

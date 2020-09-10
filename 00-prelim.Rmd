@@ -20,9 +20,9 @@ knitr::opts_chunk$set(echo = TRUE, comment = "") #, dev = "svglite", fig.width=8
 #plotly::config(plot_ly(), displaylogo = FALSE, mathjax = "cdn")
 ```
 
-\newcommand{\Var}{\operatorname{Var}}
-\newcommand{\E}{\operatorname{E}}
-\newcommand{\se}{\mathsf{se}}
+<!-- \newcommand{\Var}{\operatorname{Var}} -->
+<!-- \newcommand{\E}{\operatorname{E}} -->
+<!-- \newcommand{\se}{\mathsf{se}} -->
 
 # (PART\*) Course Notes {-}
 
@@ -37,8 +37,8 @@ Uppercase roman letters, e.g., $X$, will typically denote random variables (rvs)
 ## Abbreviations {-}
 
 ```{r notation-abbrev, echo=FALSE, warning = FALSE, message = FALSE}
-datatable(tibble(read_csv("data/notation-abbrev.csv")), rownames = FALSE, #filter = 'bottom',
-          options = list(pageLength = 5, scrollX = T), autoHideNavigation = TRUE,
-          caption = "Collection of abbreviations that are used in these notes.")
-# kable(tibble(read_csv("data/notation-abbrev.csv")))
+# datatable(tibble(read_csv("data/notation-abbrev.csv")), rownames = FALSE, #filter = 'bottom',
+#           options = list(pageLength = 5, scrollX = T), autoHideNavigation = TRUE,
+#           caption = "Collection of abbreviations that are used in these notes.")
+kable(tibble(read_csv("data/notation-abbrev.csv")))
 ```

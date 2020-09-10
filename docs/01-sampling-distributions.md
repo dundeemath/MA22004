@@ -15,9 +15,9 @@ Normal distributions play an important role in probability and statistics as the
  f(x; \mu, \sigma) = \frac{1}{\sqrt{2 \pi} \sigma}e^{-(x-\mu)^2/(2\sigma^2)}\,, 
  \quad -\infty < x < \infty \,.
 \end{equation*}
-We write $X \sim \mathcal{N}(\mu, \sigma^2)$. </div>\EndKnitrBlock{definition}
+We write $X \sim \mathsf{N}(\mu, \sigma^2)$. </div>\EndKnitrBlock{definition}
 
-For $X\sim \mathcal{N}(\mu,\sigma^2)$, it can be shown that $\E(X) = \mu$ and $\Var(X) = \sigma^2$, that is, $\mu$ is the *mean* and $\sigma^2$ is the *variance* of $X$. The pdf takes the form of a bell-shaped curve that is symmetric about $\mu$. The value $\sigma$ (*standard deviation*) is the distance from $\mu$ to the inflection points of the curve. Thus, the position (location) and spread of the distribution depends on $\mu$ and $\sigma$.  
+For $X\sim \mathsf{N}(\mu,\sigma^2)$, it can be shown that $\E(X) = \mu$ and $\Var(X) = \sigma^2$, that is, $\mu$ is the *mean* and $\sigma^2$ is the *variance* of $X$. The pdf takes the form of a bell-shaped curve that is symmetric about $\mu$. The value $\sigma$ (*standard deviation*) is the distance from $\mu$ to the inflection points of the curve. Thus, the position (location) and spread of the distribution depends on $\mu$ and $\sigma$.  
 
 <div class="figure">
 <img src="01-sampling-distributions_files/figure-html/normals-diff-mean-1.png" alt="The pdfs of two normal rvs with different means and the same standard deviations." width="672" />
@@ -35,22 +35,22 @@ For $X\sim \mathcal{N}(\mu,\sigma^2)$, it can be shown that $\E(X) = \mu$ and $\
 
 Here are some useful facts about how to manipulate Normal rvs.  
 
-1. If $X \sim \mathcal{N}(\mu, \sigma^2),$ then $Z = (X - \mu) / \sigma \quad \sim \mathcal{N}(0,1).$ 
-2. If $Z \sim \mathcal{N}(0, 1),$ then $X = \mu + \sigma Z \quad \sim \mathcal{N}(\mu, \sigma^2).$ 
-3. If $X_i \sim \mathcal{N}(\mu_i, \sigma_i^2)$ for $i = 1, \dots, n$ are independent rvs, then 
-\[\sum_{i=1}^{n} X_i \sim \mathcal{N} \left( \sum_{i=1}^{n} \mu_i, \sum_{i=1}^{n} \sigma_i^2 \right) \,.\]  
+1. If $X \sim \mathsf{N}(\mu, \sigma^2),$ then $Z = (X - \mu) / \sigma \quad \sim \mathsf{N}(0,1).$ 
+2. If $Z \sim \mathsf{N}(0, 1),$ then $X = \mu + \sigma Z \quad \sim \mathsf{N}(\mu, \sigma^2).$ 
+3. If $X_i \sim \mathsf{N}(\mu_i, \sigma_i^2)$ for $i = 1, \dots, n$ are independent rvs, then 
+\[\sum_{i=1}^{n} X_i \sim \mathsf{N} \left( \sum_{i=1}^{n} \mu_i, \sum_{i=1}^{n} \sigma_i^2 \right) \,.\]  
 
-In particular, we note that for differences of independent rvs $X_1 \sim \mathcal{N}(\mu_1, \sigma_1^2)$ and $X_2 \sim \mathcal{N}(\mu_2, \sigma_2^2)$ then the variances also add:
-\[ X_1 - X_2 \sim \mathcal{N}(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2) \,.\]  
+In particular, we note that for differences of independent rvs $X_1 \sim \mathsf{N}(\mu_1, \sigma_1^2)$ and $X_2 \sim \mathsf{N}(\mu_2, \sigma_2^2)$ then the variances also add:
+\[ X_1 - X_2 \sim \mathsf{N}(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2) \,.\]  
 
-Probabilities $P(a \leq X \leq b)$ are found by converting the problem in $X \sim \mathcal{N}(\mu, \sigma^2)$ to the *standard normal* distribution $Z \sim \mathcal{N}(0, 1)$ whose probability values $\Phi(z) = P(Z\leq z)$ can then be looked up in a table. From (1.) above, 
+Probabilities $P(a \leq X \leq b)$ are found by converting the problem in $X \sim \mathsf{N}(\mu, \sigma^2)$ to the *standard normal* distribution $Z \sim \mathsf{N}(0, 1)$ whose probability values $\Phi(z) = P(Z\leq z)$ can then be looked up in a table. From (1.) above, 
 \[\begin{aligned}
    P(a < X < b) &= P\left( \frac{a-\mu}{\sigma} < Z < \frac{b-\mu}{\sigma} \right) \\ 
     &= \Phi \left( \frac{b-\mu}{\sigma}\right) - \Phi\left(\frac{a-\mu}{\sigma}\right) \,.
    \end{aligned}\]
 This process is often referred to as *standardizing* (the normal rv).  
 
-\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-norm-rt"><strong>(\#exm:eg-norm-rt) </strong></span>Let $X \sim \mathcal{N}(5, 9)$ and find $P(X \geq 5.5)$. 
+\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-norm-rt"><strong>(\#exm:eg-norm-rt) </strong></span>Let $X \sim \mathsf{N}(5, 9)$ and find $P(X \geq 5.5)$. 
 
 \[\begin{aligned}
    P(X \geq 5.5) &= P\left(Z \geq \frac{5.5 - 5}{3}\right) \\
@@ -74,7 +74,7 @@ pnorm(5.5, mean = 5, sd = 3, lower.tail = FALSE)
 **TODO**: plot of area under normal curve (right tail)  
 
 
-\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-norm-dt"><strong>(\#exm:eg-norm-dt) </strong></span>Let $X \sim \mathcal{N}(5, 9)$ and find $P(4 \leq X \leq 5.25)$. 
+\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-norm-dt"><strong>(\#exm:eg-norm-dt) </strong></span>Let $X \sim \mathsf{N}(5, 9)$ and find $P(4 \leq X \leq 5.25)$. 
 
 \[\begin{aligned}
    P(4 \leq X \leq 5.25) &= P\left(\frac{4-5}{3} \leq Z \leq \frac{5.25-5}{3}\right) \\
@@ -97,30 +97,30 @@ pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3)
 [1] 0.1637654
 ```
 
-## $t$ distribution {#t-distribution}
+## $\mathsf{t}$ distribution {#t-distribution}
 
-Student's $t$ distribution gets its peculiar name as it was first published under the pseudonym  ["Student"](https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/). This bit of obfuscation was to protect the identity of [his employer](https://www.wikiwand.com/en/Guinness_Brewery), and thereby vital trade secrets, in a highly competitive and lucrative industry.  
+Student's $\mathsf{t}$ distribution gets its peculiar name as it was first published under the pseudonym  ["Student"](https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/). This bit of obfuscation was to protect the identity of [his employer](https://www.wikiwand.com/en/Guinness_Brewery), and thereby vital trade secrets, in a highly competitive and lucrative industry.  
 
-\BeginKnitrBlock{definition}<div class="definition"><span class="definition" id="def:t-dist"><strong>(\#def:t-dist) </strong></span>A continuous rv $X$ has a **$t$ distribution** with parameter $\nu > 0$, if $X$ has pdf
+\BeginKnitrBlock{definition}<div class="definition"><span class="definition" id="def:t-dist"><strong>(\#def:t-dist) </strong></span>A continuous rv $X$ has a **$\mathsf{t}$ distribution** with parameter $\nu > 0$, if $X$ has pdf
 \begin{equation*}
 f(x; \nu) = \frac{\Gamma\left(\tfrac{\nu+1}{2}\right)}{\sqrt{\nu \pi} \Gamma \left(\tfrac{\nu}{2}\right)} \left( 1 + \tfrac{x^2}{\nu} \right)^{- \frac{\nu+1}{2}} \,, \quad -\infty < x < \infty\,.
 \end{equation*}
-We write $X \sim t(\nu)$. </div>\EndKnitrBlock{definition}
+We write $X \sim \mathsf{t}(\nu)$. </div>\EndKnitrBlock{definition}
 
-### Properties of $t$ distributions {#facts-t}
+### Properties of $\mathsf{t}$ distributions {#facts-t}
 
-1. The density for $t(\nu)$ is a bell-shaped curve centered at $0$.
-2. The density for $t(\nu)$ is more spread out than the standard normal density (i.e., it has "fatter tails" than the normal).
-3. As $\nu \to \infty$, the spread of the corresponding $t(\nu)$ density converges to the standard normal density (i.e., the spread of the $t(\nu)$ density decreases relative to the standard normal).  
+1. The density for $\mathsf{t}(\nu)$ is a bell-shaped curve centered at $0$.
+2. The density for $\mathsf{t}(\nu)$ is more spread out than the standard normal density (i.e., it has "fatter tails" than the normal).
+3. As $\nu \to \infty$, the spread of the corresponding $\mathsf{t}(\nu)$ density converges to the standard normal density (i.e., the spread of the $\mathsf{t}(\nu)$ density decreases relative to the standard normal).  
 
-If $X \sim t(\nu)$, then $\E[X] = 0$ for $\nu > 1$ (otherwise the mean is undefined).  
+If $X \sim \mathsf{t}(\nu)$, then $\E[X] = 0$ for $\nu > 1$ (otherwise the mean is undefined).  
 
 
 ## $\chi^2$ distribution {#chisq-distribution}
 
 The $\chi^2$ distribution arises as the distribution of a sum of the squares of $\nu$ independent standard normal rvs.  
 
-\BeginKnitrBlock{definition}<div class="definition"><span class="definition" id="def:chisq-dist"><strong>(\#def:chisq-dist) </strong></span>A continuous rv $X$ has a **$\chi^2$ distribution** with parameter $\nu \in \mathbbb{N}_{>}$, if $X$ has pdf
+\BeginKnitrBlock{definition}<div class="definition"><span class="definition" id="def:chisq-dist"><strong>(\#def:chisq-dist) </strong></span>A continuous rv $X$ has a **$\chi^2$ distribution** with parameter $\nu \in \mathbf{N}_{>}$, if $X$ has pdf
 \begin{equation*}
 f(x; \nu) = \frac{1}{2^{\nu/2} \Gamma(\nu/2)} x^{(\nu/2)-1} e^{-x/2} \,, 
 \end{equation*}
@@ -128,7 +128,24 @@ with support $x \in (0, \infty)$ if $\nu=1$, otherwise $x \in [0, \infty)$. We w
 
 The pdf $f(x; \nu)$ of the $\chi^2(\nu)$ distribution depends on a positive integer $\nu$ referred to as the df. The density $f(x;\nu)$ is positively skewed, i.e., the right tail is longer and hence the mass is concentrated to the left of the figure. The distribution becomes more symmetric as $\nu$ increases. We denote critical values of the $\chi^2(\nu)$ distribution by $\chi^2_{\alpha, \nu}$.  
 
->  ⚠️  Unlike the normal and $t$ distributions, the $\chi^2$ distribution is not symmetric. This means that the critical values e.g. $\chi^2_{.99, \nu}$ and $\chi^2{0.01,\nu}$ are **not** equal. Hence, it will be necessary to look up both values for CIs based on $\chi^2$ critical values.  
+>  ⚠️  Unlike the normal and $t$ distributions, the $\mathsf{\chi}^2$ distribution is not symmetric. This means that the critical values e.g. $\chi^2_{.99, \nu}$ and $\chi^2_{0.01,\nu}$ are **not** equal. Hence, it will be necessary to look up both values for CIs based on $\chi^2$ critical values.  
 
 If $X \sim \chi^2(\nu)$, then $\E[X] = \nu$ and $\Var[X] = 2\nu$.  
 
+## $\mathsf{F}$ distribution {#F-distribution}
+
+The $\mathsf{F}$ distribution arises as a test statistic when comparing population variances and in ANOVA. 
+
+\BeginKnitrBlock{definition}<div class="definition"><span class="definition" id="def:F-dist"><strong>(\#def:F-dist) </strong></span>A continuous rv $X$ has an **$\mathsf{F}$ distribution** with df parameters $\nu_1$ and $\nu_2$, if $X$ has pdf
+\begin{equation*}
+ f(x; \nu_1, \nu_2) = 
+    \frac{\Gamma\left(\frac{n+m}{2}\right) n^{n/2} m^{m/2}}
+ {\Gamma\left(\frac{n}{2}\right) \Gamma\left(\frac{m}{2}\right)} 
+ \frac{x^{n/2 - 1}}{(m+nx)^{(n+m)/2}} \,.
+\end{equation*}</div>\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{theorem}<div class="theorem"><span class="theorem" id="thm:F-dist-chisq"><strong>(\#thm:F-dist-chisq) </strong></span>If $X_1 \sim \chi^2(\nu_1)$ and $X_2 \sim \chi^2(\nu_2)$ are independent rvs, then the rv 
+\begin{equation*}
+ F = \frac{X_1 / \nu_1}{X_2 / \nu_2} \quad \sim \mathsf{F}(\nu_1,\nu_2)\,,
+\end{equation*}
+that comprises the ratio of two $\chi^2$ rvs divided by their respective df has an $\mathsf{F}(\nu_1, \nu_2)$ distribution. </div>\EndKnitrBlock{theorem}

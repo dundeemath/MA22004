@@ -1,8 +1,8 @@
 
 
-\newcommand{\Var}{\operatorname{Var}}
-\newcommand{\E}{\operatorname{E}}
-\newcommand{\se}{\mathsf{se}}
+<!-- \newcommand{\Var}{\operatorname{Var}} -->
+<!-- \newcommand{\E}{\operatorname{E}} -->
+<!-- \newcommand{\se}{\mathsf{se}} -->
 
 # (PART\*) Course Notes {-}
 
@@ -16,5 +16,41 @@ Uppercase roman letters, e.g., $X$, will typically denote random variables (rvs)
 
 ## Abbreviations {-}
 
-<!--html_preserve--><div id="htmlwidget-a2aeb0597dae703c0b91" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a2aeb0597dae703c0b91">{"x":{"filter":"none","caption":"<caption>Collection of abbreviations that are used in these notes.<\/caption>","autoHideNavigation":true,"data":[["pdf","cdf","rv","iid","obs","CI","df"],["probability density function","cumulative distribution function","random variable","independent and identically distributed","observations","confidence interval","degrees of freedom"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Abbreviation<\/th>\n      <th>Expanded<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"scrollX":true,"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Abbreviation </th>
+   <th style="text-align:left;"> Expanded </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> pdf </td>
+   <td style="text-align:left;"> probability density function </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> cdf </td>
+   <td style="text-align:left;"> cumulative distribution function </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> rv </td>
+   <td style="text-align:left;"> random variable </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> iid </td>
+   <td style="text-align:left;"> independent and identically distributed </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> obs </td>
+   <td style="text-align:left;"> observations </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CI </td>
+   <td style="text-align:left;"> confidence interval </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> df </td>
+   <td style="text-align:left;"> degrees of freedom </td>
+  </tr>
+</tbody>
+</table>

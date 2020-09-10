@@ -12,11 +12,11 @@ We consider inferences---estimators, confidence intervals, and hypothesis testin
 
 Let us assume that we have two normal populations with iid samples 
 \begin{equation*}
- X_1, \dots, X_m \sim \mathcal{N}(\mu_X, \sigma_X^2)
+ X_1, \dots, X_m \sim \mathsf{N}(\mu_X, \sigma_X^2)
 \end{equation*}
 and 
 \begin{equation*}
- Y_1, \dots, Y_n \sim \mathcal{N}(\mu_Y, \sigma_Y^2)
+ Y_1, \dots, Y_n \sim \mathsf{N}(\mu_Y, \sigma_Y^2)
 \end{equation*}
 and, moreover, that the $X$ and $Y$ samples are independent of one another. When comparing the means of  two populations, the quantity of interest is the difference: $\mu_X - \mu_Y$. 
 
@@ -50,12 +50,12 @@ is normally distributed with mean and variance given by Proposition \@ref(prp:qo
 
 When $\sigma_X^2$ and $\sigma_Y^2$ are known, standardizing $\overline{X} - \overline{Y}$ yields the standard normal variable:
 \begin{equation}
- Z = \frac{\overline{X} - \overline{Y} - (\mu_X - \mu_Y)}{\sqrt{\frac{\sigma_X^2}{m} + \frac{\sigma_Y^2}{n}}}\quad \sim \mathcal{N}(0,1)\,.
+ Z = \frac{\overline{X} - \overline{Y} - (\mu_X - \mu_Y)}{\sqrt{\frac{\sigma_X^2}{m} + \frac{\sigma_Y^2}{n}}}\quad \sim \mathsf{N}(0,1)\,.
  (\#eq:compare-means-standard-trans)
 \end{equation}  
 Inferences proceed by treating the parameter of interest $\theta$ as a single sample using \@ref(eq:compare-means-standard-trans).  
 
-\BeginKnitrBlock{proposition}<div class="proposition"><span class="proposition" id="prp:ci-compare-means-normpops-vars-known"><strong>(\#prp:ci-compare-means-normpops-vars-known) </strong></span>A $100(1-\alpha)\%$ CI for the parameter $\theta = \mu_X - \mu_Y$ based on samples of size $m$ from a normal population $\mathcal{N}(\mu_X, \sigma_X^2)$ and of size $n$ from $\mathcal{N}(\mu_Y, \sigma_Y^2)$  with known variances, is given by
+\BeginKnitrBlock{proposition}<div class="proposition"><span class="proposition" id="prp:ci-compare-means-normpops-vars-known"><strong>(\#prp:ci-compare-means-normpops-vars-known) </strong></span>A $100(1-\alpha)\%$ CI for the parameter $\theta = \mu_X - \mu_Y$ based on samples of size $m$ from a normal population $\mathsf{N}(\mu_X, \sigma_X^2)$ and of size $n$ from $\mathsf{N}(\mu_Y, \sigma_Y^2)$  with known variances, is given by
 \begin{equation*}
  (\overline{x} + \overline{y}) \pm z_{\alpha/2} 
  \cdot \sqrt{\frac{\sigma_X^2}{m} + \frac{\sigma_Y^2}{n}} \,.
@@ -84,12 +84,12 @@ When the samples are large, then the assumptions about normality of the populati
 
 ### Comparing means of normal populations when variances are unknown and the sample size is small {#compare-means-normpops-vars-unknown}
 
-If $\sigma_X$ and $\sigma_Y$ are unknown and either sample is small (e.g., $m < 30$ or $n <30$), but both populations are normally distributed, then we can use Student's $t$ distribution to make inferences. We provide the following theorem without proof.  
+If $\sigma_X$ and $\sigma_Y$ are unknown and either sample is small (e.g., $m < 30$ or $n <30$), but both populations are normally distributed, then we can use Student's $\mathsf{t}$ distribution to make inferences. We provide the following theorem without proof.  
 
 \BeginKnitrBlock{theorem}<div class="theorem"><span class="theorem" id="thm:dist-t-compare-means-normpops"><strong>(\#thm:dist-t-compare-means-normpops) </strong></span>When both population distributions are normal, the standardized variable 
 \begin{equation*}
 T = \frac{\overline{X}-\overline{Y} - (\mu_X - \mu_Y)}{\sqrt{\frac{S_X^2}{m} + \frac{S_Y^2}{n}}} 
-\quad \sim t(\nu)
+\quad \sim \mathsf{t}(\nu)
 \end{equation*}
 where the df $\nu$ is estimated from the data. Namely, $\nu$ is given by (round $\nu$ down to the nearest integer):
 \begin{equation}
@@ -110,7 +110,7 @@ The formula \@ref(eq:dist-t-compare-means-normpops-nu) for the data-driven choic
 \begin{equation*}
  (\overline{x} - \overline{y}) \pm t_{\alpha/2, \nu} \sqrt{ \frac{s_X^2}{m} + \frac{s_Y^2}{n}}\,,
 \end{equation*}
-where we recall that $t_{\alpha/2, \nu}$ is the $\alpha/2$ critical value of the $t$ distribution with $\nu$ given by \@ref(eq:dist-t-compare-means-normpops-nu).</div>\EndKnitrBlock{proposition}
+where we recall that $t_{\alpha/2, \nu}$ is the $\alpha/2$ critical value of $\mathsf{t}(\nu)$ with $\nu$ given by \@ref(eq:dist-t-compare-means-normpops-nu).</div>\EndKnitrBlock{proposition}
 
 
 \BeginKnitrBlock{proposition}<div class="proposition"><span class="proposition" id="prp:htest-compare-means-normpops-vars-unknown"><strong>(\#prp:htest-compare-means-normpops-vars-unknown) </strong></span>For the null hypothesis $H_0 = \mu_X - \mu_Y = \theta_0$, the test statistic to consider is:
@@ -130,16 +130,104 @@ The pooled estimator is a weighted average that adjusts for differences between 
 \begin{equation*}
  (\overline{x} - \overline{y}) \pm t_{\alpha/2, m  + n - 2} \cdot \sqrt{ s_{\mathsf{p}}^2 \left( \frac{1}{m} + \frac{1}{n} \right)} \,,
 \end{equation*}
-where we recall that $t_{\alpha/2, m+n-2}$ is the $\alpha/2$ critical value of the $t$ distribution with $\nu = m + n - 2$ df. </div>\EndKnitrBlock{proposition}
+where we recall that $t_{\alpha/2, m+n-2}$ is the $\alpha/2$ critical value of the $\mathsf{t}(\nu)$ with $\nu = m + n - 2$ df. </div>\EndKnitrBlock{proposition}
 
-Similarly, one can consider a pooled $t$ test, i.e., a hypothesis test based on the pooled estimator for the variance as opposed to the two-sample $t$ test in Proposition \@ref(prp:htest-compare-means-normpops-vars-unknown). If you have reasons to believe that $\sigma_X^2 = \sigma_Y^2$, these pooled $t$ procedures are appealing because $\nu$ is very easy to compute. 
+Similarly, one can consider a pooled $\mathsf{t}$ test, i.e., a hypothesis test based on the pooled estimator for the variance as opposed to the two-sample $\mathsf{t}$ test in Proposition \@ref(prp:htest-compare-means-normpops-vars-unknown). If you have reasons to believe that $\sigma_X^2 = \sigma_Y^2$, these pooled $\mathsf{t}$ procedures are appealing because $\nu$ is very easy to compute. 
 
->  ⚠️  Pooled $t$ procedures are not robust if the assumption of equalized variance is violated. Theoretically, you could first carry out a statistical test $H_0 : \sigma_X^2 = \sigma_Y^2$ on the equality of variances and then use a pooled $t$ procedure if the null hypothesis is not rejected. However, there is no free lunch: the typical $F$ test for equal variances (see Section \@ref(compare-variances)) is sensitive to normality assumptions. The two sample $t$ procedures, with the data-driven choice of $\nu$ in \@ref(eq:dist-t-compare-means-normpops-nu), are therefore recommended unless, of course, you have a very compelling reason to believe $\sigma_X^2 = \sigma_Y^2$.  
+>  ⚠️  Pooled $t$ procedures are not robust if the assumption of equalized variance is violated. Theoretically, you could first carry out a statistical test $H_0 : \sigma_X^2 = \sigma_Y^2$ on the equality of variances and then use a pooled $\mathsf{t}$ procedure if the null hypothesis is not rejected. However, there is no free lunch: the typical $\mathsf{F}$ test for equal variances (see Section \@ref(compare-variances)) is sensitive to normality assumptions. The two sample $\mathsf{t}$ procedures, with the data-driven choice of $\nu$ in \@ref(eq:dist-t-compare-means-normpops-nu), are therefore recommended unless, of course, you have a very compelling reason to believe $\sigma_X^2 = \sigma_Y^2$.  
+
+## Comparing paired samples {#compare-paired-samples}
+
+The preceding analysis for comparing population means was based on the assumption that a random sample $X_1, \dots, X_m$ is drawn from a distribution with mean $\mu_X$ and that a completely independent random sample $Y_1, \dots, Y_n$ is drawn from a distribution with mean $\mu_Y$. Some situations, e.g., comparing observations before and after a treatment or exposure, necessitate the consideration of paired values. 
+
+Consider a random sample of iid pairs
+\begin{equation*}
+(X_1, Y_1), \dots, (X_n, Y_n)
+\end{equation*}
+with $\E[X_i] = \mu_X$ and $\E[Y_i] = \mu_Y$. If we are interested in making inferences about the difference $\mu_X - \mu_Y$ then the paired differences
+\begin{equation*}
+D_i = X_i - Y_i \,,\quad  i=1, \dots, n\,,
+\end{equation*}
+constitute a sample with mean $\mu_D = \mu_X - \mu_Y$ that can be treated using single-sample CIs and tests, e.g., see Section \@ref(ci-normal-var-unknown).  
 
 
 ## Comparing proportions {#compare-proportions}
 
+Consider a population containing a proportion $p_X$ of individuals satisfying a given property. For a sample of size $m$ from this population, we denote the sample proportion by $\widehat{p}_X$. Likewise, we consider a population containing a proportion $p_Y$ of individuals satisfying the same given property. For a sample of size $n$ from this population, we denote the sample proportion by $\widehat{p}_Y$. We assume the samples from the $X$ and $Y$ populations are independent. The natural estimator for the difference in population proportions $p_X - p_Y$ is the difference in the sample proportions $\widehat{p}_X - \widehat{p}_Y$. 
+
+Provided the samples are much smaller than the population sizes (i.e., the populations are about $20$ times larger than the samples), 
+\begin{equation*}
+ \mu_{(\widehat{p}_X - \widehat{p}_Y)} = \E[\widehat{p}_X - \widehat{p}_Y] = p_X - p_Y\,,
+\end{equation*}
+and 
+\begin{equation*}
+ \sigma_{(\widehat{p}_X - \widehat{p}_Y)}^2 = \Var[\widehat{p}_X - \widehat{p}_Y] 
+ = \frac{p_X(1-p_X)}{m} + \frac{p_Y(1-p_Y)}{n}\,,
+\end{equation*}
+by considering the fact that the count of individuals satisfying the given property in each population will be independent draws from $\mathsf{Binom}(m, p_X)$ and $\mathsf{Binom}(n, p_Y)$, respectively. Further, if $m$ and $n$ are large (e.g., $m \geq 30$ and $n \geq 30$), then $\widehat{p}_X$ and $\widehat{p}_Y$ are (approximately) normally distributed. Standardizing $\widehat{p}_X - \widehat{p}_Y$,
+\begin{equation*}
+ Z = \frac{\widehat{p}_X - \widehat{p}_Y - (p_X - p_Y)}{\sqrt{\frac{p_X(1-p_X)}{m} + \frac{p_Y(1-p_Y)}{n}}}
+ \quad \sim \mathsf{N}(0,1)\,.
+\end{equation*}
+A CI for $\widehat{p}_X - \widehat{p}_Y$ then follows from the large-sample CI considered in Section  \@ref(ci-large-sample).  
+
+\BeginKnitrBlock{proposition}<div class="proposition"><span class="proposition" id="prp:ci-compare-proportions"><strong>(\#prp:ci-compare-proportions) </strong></span>An approximate $100(1-\alpha)\%$ CI for $p_X - p_Y$ is given by
+\begin{equation*}
+ \widehat{p}_X - \widehat{p}_Y \pm z_{\alpha/2}\sqrt{\frac{\widehat{p}_X (1 - \widehat{p}_X)}{m} + \frac{\widehat{p}_Y (1 - \widehat{p}_Y)}{n}}\,,
+ (\#eq:ci-compare-proportions)
+\end{equation*}
+and, as a rule of thumb, can be reliably used if $m \widehat{p}_X$, $m (1 - \widehat{p}_X)$, $n \widehat{p}_Y$, and $n (1-\widehat{p}_Y)$ are greater than or equal to $10$. </div>\EndKnitrBlock{proposition}
+
+Proposition \@ref(prp:ci-compare-proportions) does not pool the estimators for the population proportions. However, if we are considering a hypothesis test concerning the equality of the population proportions with the null hypothesis 
+\begin{equation*}
+H_0 : p_X - p_Y = 0 \,,
+\end{equation*}
+then we are assuming that $p_X = p_Y$ (unless the data suggests otherwise). Therefore as a matter of consistency we should replace the standard error in \@ref(eq:ci-compare-proportions) with a pooled estimator for the standard error of the population proportion,
+\begin{equation*}
+ \widehat{p} = \frac{m}{m + n} \widehat{p}_X + \frac{n}{m + n} \widehat{p}_Y \,.
+\end{equation*}
+
+
+\BeginKnitrBlock{proposition}<div class="proposition"><span class="proposition" id="prp:htest-compare-proportions"><strong>(\#prp:htest-compare-proportions) </strong></span>For the null hypothesis $H_0 : p_X - p_Y = 0$, the test statistic to consider is:
+\begin{equation*}
+z = \frac{\widehat{p}_X - \widehat{p}_Y}{\sqrt{\widehat{p} (1 - \widehat{p}) \left( \frac{1}{m} + \frac{1}{n} \right)}} 
+\end{equation*}</div>\EndKnitrBlock{proposition}
 
 ## Comparing variances {#compare-variances}
 
-## Comparing paired samples {#compare-paired-samples}
+For a random sample 
+\begin{equation*}
+X_1, \dots, X_m \sim \mathsf{N}(\mu_X, \sigma_X^2)
+\end{equation*}
+and an independent random sample 
+\begin{equation*}
+Y_1, \dots, Y_n \sim \mathsf{N}(\mu_Y, \sigma_Y^2)\,,
+\end{equation*}
+the rv
+\begin{equation}
+ F = \frac{S_X^2 / \sigma_X^2}{S_Y^2 / \sigma_Y^2} \quad \sim \mathsf{F}(m-1, n-1)\,,
+ (\#eq:F-test-statistic)
+\end{equation}
+that is, $F$ has an $\mathsf{F}$ distribution with df $\nu_1 = m-1$ and $\nu_2 = n-1$. The statistic $F$ in \@ref(eq:F-test-statistic) comprises the *ratio* of variances $\sigma_X^2 / \sigma_Y^2$ and not the difference; therefore, the plausibility of $\sigma_X^2 = \sigma_Y^2$ will be based on how much the ratio differs from $1$. 
+
+\BeginKnitrBlock{proposition}<div class="proposition"><span class="proposition" id="prp:htest-compare-variances"><strong>(\#prp:htest-compare-variances) </strong></span>For the null hypothesis $H_0 : \sigma_X^2 = \sigma_Y^2$, the test statistic to consider is:
+\begin{equation*}
+f = \frac{s_X^2}{s_Y^2}
+\end{equation*}
+and the $P$-values are determined by the $\mathsf{F}(m-1, n-1)$ curve where $m$ and $n$ are the respective sample sizes.</div>\EndKnitrBlock{proposition}
+
+A $100(1-\alpha)\%$ CI for the ratio $\sigma_X^2 / \sigma_Y^2$ is based on forming the probability,
+\begin{equation*}
+ P(F_{1-\alpha/2, \nu_1, \nu_2} < F < F_{\alpha/2, \nu_1, \nu_2}) = 1 - \alpha\,,
+\end{equation*}
+where $F_{\alpha/2, \nu_1, \nu_2}$ is the $\alpha/2$ critical value from the $\mathsf{F}(\nu_1 = m-1, \nu_2 = n-1)$ distribution. Substituting \@ref(eq:F-test-statistic) with point estimates for $F$ and manipulating the inequalities it is possible to isolate the ratio $\sigma_X^2 / \sigma_Y^2$, 
+\begin{equation*}
+ P \left( \frac{1}{F_{\alpha/2, \nu_1, \nu_2}} \frac{s_X^2}{s_Y^2} < \frac{\sigma_X^2}{\sigma_Y^2} < \frac{1}{F_{1-\alpha/2, \nu_1, \nu_2}} \frac{s_X^2}{s_Y^2} \right) 
+ = 1 - \alpha \,.
+\end{equation*}
+
+\BeginKnitrBlock{proposition}<div class="proposition"><span class="proposition" id="prp:ci-compre-variances"><strong>(\#prp:ci-compre-variances) </strong></span>A $100(1-\alpha)\%$ CI for the ratio of population variances $\sigma_X^2 / \sigma_Y^2$ is given by
+\begin{equation*}
+ \left(F_{\alpha/2, m-1, n-1}^{-1} s_X^2 / s_Y^2 \,,  F_{1-\alpha/2, m-1, n-1}^{-1} s_X^2 / s_Y^2 \right)\,.
+\end{equation*}</div>\EndKnitrBlock{proposition}
+

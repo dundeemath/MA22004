@@ -29,8 +29,8 @@ bookdown::gitbook:
     #split_by: chapter
 bookdown::pdf_book:
   keep_tex: yes
-  #includes:
-  #  in_header: preamble.tex
+  includes:
+    in_header: preamble.sty
   latex_engine: xelatex
   citation_package: natbib
 #  bookdown::epub_book:
