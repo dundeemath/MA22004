@@ -190,4 +190,4 @@ Then for the function $\overline{x}_2 - \overline{x_1}$,
 \end{equation*}
 Thus a $90\%$ confidence interval for $\mu_{Eng} - \mu_{Sco}$ is $(`r 1.5 - qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5)`\,, `r 1.5 + qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5)`)$. $\lozenge$   
 
-> How does the result in \@ref(exm:anova-ci) compare to the $\mathsf{t}$ method in Section \@ref(compare-means-normpops-vars-unknown)?
+> How does the result in Example \@ref(exm:anova-ci) compare to the $\mathsf{t}$ method in Section \@ref(compare-means-normpops-vars-unknown)?
