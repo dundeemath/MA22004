@@ -1,7 +1,7 @@
 book_filename: "ma22004"
 repo: https://github.com/ejhall/MA22004
 output_dir: docs
-rmd_files: ["index.Rmd", "guide.Rmd", "00-prelim.Rmd", "01-sampling-distributions.Rmd", "02-basics-stat-infer.Rmd", "03-infer-two-samples.Rmd", "04-categorical-data.Rmd", "05-linear-models.Rmd", "06-references.Rmd"]
+rmd_files: ["index.Rmd", "guide.Rmd", "00-prelim.Rmd", "01-sampling-distributions.Rmd", "02-basics-stat-infer.Rmd", "03-infer-two-samples.Rmd", "04-categorical-data.Rmd", "05-anova.Rmd", "06-linear-models.Rmd", "07-quality-control.Rmd", "08-references.Rmd"]
 delete_merged_file: true
 clean: [packages.bib, bookdown.bbl]
 new_session: yes

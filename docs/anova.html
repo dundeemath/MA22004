@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Categorical data | MA22004 - Statistics and Probability II</title>
+  <title>5 Analysis of variance (ANOVA) | MA22004 - Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Categorical data | MA22004 - Statistics and Probability II" />
+  <meta property="og:title" content="5 Analysis of variance (ANOVA) | MA22004 - Statistics and Probability II" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://ejhall.github.io/MA22004/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ejhall/MA22004/" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Categorical data | MA22004 - Statistics and Probability II" />
+  <meta name="twitter:title" content="5 Analysis of variance (ANOVA) | MA22004 - Statistics and Probability II" />
   
   <meta name="twitter:description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="inference-two-samples.html"/>
-<link rel="next" href="anova.html"/>
+<link rel="prev" href="categorical-data.html"/>
+<link rel="next" href="linear-models.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -240,187 +240,250 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="categorical-data" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Categorical data</h1>
-<div id="multinomial-experiments" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Multinomial experiments</h2>
-<p>Suppose we have a population that is divided into <span class="math inline">\(k &gt; 2\)</span> distinct categories. We consider an experiment where we select <span class="math inline">\(m\)</span> individuals (or objects) from the population and categorize each one. We denote the proportion of the population in the <span class="math inline">\(i\)</span>th category by <span class="math inline">\(p_i\)</span>.
-If the sample size <span class="math inline">\(m\)</span> is much smaller than the population size <span class="math inline">\(M\)</span> (so that the <span class="math inline">\(m\)</span> trials are independent), this experiment will be approximately <em>multinomial</em> with success probability <span class="math inline">\(p_i\)</span> for each category, <span class="math inline">\(i=1, \dots, k\)</span>.</p>
-<p>Before the experiment is performed, we denote the number (or count) of the trails resulting in category <span class="math inline">\(i\)</span> by the rv <span class="math inline">\(N_i\)</span>. The expected number of trails that result in category <span class="math inline">\(i\)</span> is given by
-<span class="math display" id="eq:mean-count-multinomial">\[\begin{equation}
-\operatorname{E}[N_i] = m p_i\,, \quad i=1, \dots, k\,.
-\tag{4.1}
-\end{equation}\]</span>
-After the experiment is performed, we denote the corresponding observed value by <span class="math inline">\(n_i\)</span>. Since the trials result in distinct categories,
+<div id="anova" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Analysis of variance (ANOVA)</h1>
+<p>Analysis of variance, shortened as ANOVA, is a collection of statistical models and estimation procedures for analyzing the variation among different groups. In particular, a single-factor ANOVA provides a hypothesis test regarding the equality of two or more population means, thereby generalizing the one-sample and two-sample <span class="math inline">\(\mathsf{t}\)</span> tests considered in Sections <a href="statistical-inference.html#mean-normal-var-unknown">2.4.3</a> and <a href="inference-two-samples.html#compare-means-normpops-vars-unknown">3.1.3</a>.</p>
+<div id="anova-single-factor-test" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Single factor ANOVA test</h2>
+<p>Suppose that we have <span class="math inline">\(k\)</span> normally distributed populations<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> with different means <span class="math inline">\(\mu_1, \dots, \mu_k\)</span> and equal variances <span class="math inline">\(\sigma^2\)</span>. We denote the rv for the <span class="math inline">\(j\)</span>th measurement taken from the <span class="math inline">\(i\)</span>th population by <span class="math inline">\(X_{ij}\)</span> and the corresponding sample observation by <span class="math inline">\(x_{ij}\)</span>. For samples of size <span class="math inline">\(m_1, \dots, m_k\)</span>, we denote the sample means
 <span class="math display">\[\begin{equation*}
-\sum_{i=1}^k N_i = \sum_{i=1}^{k} n_i = m \,,
+ \overline{X}_i = \frac{1}{m_i} \sum_{j=1}^{m_i} X_{ij}\,, 
 \end{equation*}\]</span>
-which indicates that, for a given <span class="math inline">\(m\)</span>, we only need to observe <span class="math inline">\(k-1\)</span> of the variables to be able to work out what the <span class="math inline">\(k\)</span>th variable should be.</p>
+and sample variances
+<span class="math display">\[\begin{equation*}
+ S_i^2 = \frac{1}{m_i - 1} \sum_{j=1}^{m_i} (X_{ij} - \overline{X}_{i})^2\,,
+\end{equation*}\]</span>
+for each <span class="math inline">\(i = 1, \dots, k\)</span>; likewise, we denote the associated point estimates for the sample means <span class="math inline">\(\overline{x}_1, \dots, \overline{x}_k\)</span> and the sample variances <span class="math inline">\(s_1^2, \dots, s_k^2\)</span>. The average over all observations <span class="math inline">\(m = \sum m_i\)</span>, called the <strong>grand mean</strong>, is denoted by
+<span class="math display">\[\begin{equation*}
+ \overline{X} = \frac{1}{m} \sum_{i=1}^k \sum_{j=1}^{m_i} X_{ij}\,.
+\end{equation*}\]</span>
+The sample variances <span class="math inline">\(s_i^2\)</span>, and hence the sample standard deviations, will generally vary even when the <span class="math inline">\(k\)</span> populations share the same variance; a rule of thumb is that the equality of variances is reasonable if the largest <span class="math inline">\(s_i\)</span> is not much more than two times the smallest.</p>
+<p>We wish to test the equality of the population means, given by the null hypothesis,
+<span class="math display">\[\begin{equation*}
+ H_0 : \mu_1 = \mu_2 = \cdots = \mu_k\,,
+\end{equation*}\]</span>
+versus the alternative hypothesis,
+<span class="math display">\[\begin{equation*}
+ H_a : \text{at least two}\; \mu_i \; \text{differ}\,.
+\end{equation*}\]</span>
+Note that if <span class="math inline">\(k=3\)</span> then <span class="math inline">\(H_0\)</span> is true only if all three means are the same, i.e., <span class="math inline">\(\mu_1 = \mu_1 = \mu_3\)</span>, but there are a number of ways which the alternative might hold: <span class="math inline">\(\mu_1 \neq \mu_2 = \mu_3\)</span> or <span class="math inline">\(\mu_1 = \mu_2 \neq \mu_3\)</span> or <span class="math inline">\(\mu_1 = \mu_3 \neq \mu_2\)</span> or <span class="math inline">\(\mu_1 \neq \mu_2 \neq \mu_3\)</span>.</p>
+<p>The test procedure is based on comparing a measure of difference in variation among the sample means, i.e., the variation between <span class="math inline">\(x_i\)</span>’s, to a measure of variation within each sample.</p>
+
+<div class="definition">
+<span id="def:mstr-mse" class="definition"><strong>Definition 5.1  </strong></span>The <strong>mean square for treatments</strong> is
+<span class="math display">\[\begin{equation*}
+ \mathsf{MSTr} = \frac{1}{k-1} \sum_{i=1}^k m_i (\overline{X}_i - \overline{X})^2\,,
+\end{equation*}\]</span>
+and the <strong>mean square error</strong> is
+<span class="math display">\[\begin{equation*}
+ \mathsf{MSE} = \frac{1}{m-k} \sum_{i=1}^k (m_i - 1) S_i^2 \,.
+\end{equation*}\]</span>
+The <span class="math inline">\(\mathsf{MSTr}\)</span> and <span class="math inline">\(\mathsf{MSE}\)</span> are statistics that measure, respectively, the variation among sample means and the variation within samples. We will also use <span class="math inline">\(\mathsf{MSTr}\)</span> and <span class="math inline">\(\mathsf{MSE}\)</span> to denote calculated values of these statistics.
 </div>
-<div id="goodness-of-fit-tests" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Goodness-of-fit for a single factor</h2>
-<p>We are interested in making inferences about the proportion parameters <span class="math inline">\(p_i\)</span>. Specifically, we will consider the null hypothesis,
-<span class="math display" id="eq:null-multinomial">\[\begin{equation}
-H_0 : p_1 = p_{10}\,, p_2 = p_{20}\,, \cdots\,, p_k = p_{k0}\,,
- \tag{4.2}
-\end{equation}\]</span>
-that completely specifies a value <span class="math inline">\(p_{i0}\)</span> for each <span class="math inline">\(p_i\)</span>.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> The alternative hypothesis <span class="math inline">\(H_a\)</span> will state that <span class="math inline">\(H_0\)</span> is not true, i.e., that at least one <span class="math inline">\(p_i\)</span> is different from the value <span class="math inline">\(p_{i0}\)</span> claimed under the null <span class="math inline">\(H_0\)</span>.</p>
-<p>Provided the null hypothesis in <a href="categorical-data.html#eq:null-multinomial">(4.2)</a> is true, the expected values <a href="categorical-data.html#eq:mean-count-multinomial">(4.1)</a> can be written in terms of the expected frequencies,
+
+<div class="proposition">
+<span id="prp:htest-anova" class="proposition"><strong>Proposition 5.1  </strong></span>The test statistic
 <span class="math display">\[\begin{equation*}
- \operatorname{E}[N_i] = m p_{i0}\,, \quad i=1,\dots,k\,.
+F = \frac{\mathsf{MSTr}}{\mathsf{MSE}} 
 \end{equation*}\]</span>
-Often the <span class="math inline">\(n_i\)</span>, referred to as the <strong>observed cell counts</strong>, and the corresponding <span class="math inline">\(m p_{i0}\)</span>, referred to as the <strong>expected cell counts</strong>, are tabulated, for example, as in Table <a href="categorical-data.html#tab:cell-counts">4.1</a>.</p>
+is the appropriate test statistic for the single-factor ANOVA problem involving <span class="math inline">\(k\)</span> populations (or treatments) with a random sample of size <span class="math inline">\(m_1, \dots, m_k\)</span> from each. When <span class="math inline">\(H_0\)</span> is true,
+<span class="math display">\[\begin{equation*}
+F \sim \mathsf{F}(\nu_1 = k-1, \nu_2 = m - k)\,.
+\end{equation*}\]</span>
+In the present context a large test statistic value is more constradictory to <span class="math inline">\(H_0\)</span> than a smaller value, therefore the test is upper-tailed, i.e., consider the area <span class="math inline">\(F_\alpha\)</span> to the right of the critical value <span class="math inline">\(F_{\alpha, \nu_1, \nu_2}\)</span>. We reject <span class="math inline">\(H_0\)</span> if the value of the test statistic <span class="math inline">\(F &gt; F_\alpha\)</span>.
+</div>
+
+<div class="example">
+<span id="exm:anova" class="example"><strong>Example 5.1  </strong></span>Consider the average salary data from lcocal councils in Table <a href="anova.html#tab:anova-samples-stats">5.1</a>. Is the expected average salary in each nation the same at the <span class="math inline">\(5\%\)</span> level?
+</div>
 <table>
 <caption>
-<span id="tab:cell-counts">Table 4.1: </span>Observed and expected cell counts.
+<span id="tab:anova-samples-stats">Table 5.1: </span>Data and summary sample statistics for Figure <a href="anova.html#fig:anova-samples-boxplots">5.1</a>.
 </caption>
 <thead>
 <tr>
-<th style="text-align:center;">
-Category
+<th style="text-align:left;">
+Nation
+</th>
+<th style="text-align:left;">
+Average salaries (’000 £)
 </th>
 <th style="text-align:center;">
-<span class="math inline">\(i=1\)</span>
+Size <span class="math inline">\((m_i)\)</span>
 </th>
 <th style="text-align:center;">
-<span class="math inline">\(i=2\)</span>
+Sample Mean <span class="math inline">\((\overline{x}_i)\)</span>
 </th>
 <th style="text-align:center;">
-<span class="math inline">\(\cdots\)</span>
-</th>
-<th style="text-align:center;">
-<span class="math inline">\(i=k\)</span>
-</th>
-<th style="text-align:center;">
-Row total
+Sample SD <span class="math inline">\((s_i)\)</span>
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">
-Observed
+<td style="text-align:left;">
+England
+</td>
+<td style="text-align:left;">
+17, 12, 18, 13, 15, 12
 </td>
 <td style="text-align:center;">
-<span class="math inline">\(n_1\)</span>
+6
 </td>
 <td style="text-align:center;">
-<span class="math inline">\(n_2\)</span>
+14.5
 </td>
 <td style="text-align:center;">
-<span class="math inline">\(\cdots\)</span>
-</td>
-<td style="text-align:center;">
-<span class="math inline">\(n_k\)</span>
-</td>
-<td style="text-align:center;">
-<span class="math inline">\(m\)</span>
+2.588
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-Expected
+<td style="text-align:left;">
+N Ireland
+</td>
+<td style="text-align:left;">
+11, 7, 9, 13
 </td>
 <td style="text-align:center;">
-<span class="math inline">\(mp_{10}\)</span>
+4
 </td>
 <td style="text-align:center;">
-<span class="math inline">\(mp_{20}\)</span>
+10.0
 </td>
 <td style="text-align:center;">
-<span class="math inline">\(\cdots\)</span>
+2.582
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Scotland
+</td>
+<td style="text-align:left;">
+15, 10, 13, 14, 13
 </td>
 <td style="text-align:center;">
-<span class="math inline">\(mp_{k0}\)</span>
+5
 </td>
 <td style="text-align:center;">
-<span class="math inline">\(m\)</span>
+13.0
+</td>
+<td style="text-align:center;">
+1.871
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Wales
+</td>
+<td style="text-align:left;">
+10, 12, 8, 7, 9
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+9.2
+</td>
+<td style="text-align:center;">
+1.924
 </td>
 </tr>
 </tbody>
 </table>
-<p>The test procedure assesses the discrepancy between the value of the observed and expected cell counts. This discrepancy, or <strong>goodness of fit</strong>, is measured by the squared deviations divided by the expected count.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></p>
-
-<div class="theorem">
-<span id="thm:multinomial-experiment" class="theorem"><strong>Theorem 4.1  </strong></span>For <span class="math inline">\(m p_i \geq 5\)</span> for <span class="math inline">\(i = 1, \dots, k\)</span>, the rv
-<span class="math display">\[\begin{equation*}
- V = \sum_{i=1}^k \frac{(N_i - m p_i)^2}{m p_i} \quad \sim \chi^2(k-1)\,,
-\end{equation*}\]</span>
-that is, <span class="math inline">\(V\)</span> has approximately a <span class="math inline">\(\chi^2\)</span> distribution with <span class="math inline">\(\nu = k-1\)</span> df.
-</div>
-
-<div class="proposition">
-<span id="prp:htest-multinomial" class="proposition"><strong>Proposition 4.1  </strong></span>For the null hypothesis
-<span class="math display">\[\begin{equation*}
-H_0 : p_1 = p_{10}, p_2 = p_{20}, \cdots, p_k = p_{k0}\,,
-\end{equation*}\]</span>
-and alternative
-<span class="math display">\[\begin{equation*}
-H_a : p_i \neq p_{i0}\; \text{for at least one}\; i\,,
-\end{equation*}\]</span>
-the test statistic to consider is:
-<span class="math display">\[\begin{equation*}
- V = \sum_{i=1}^k \frac{(n_i - m p_{i0})^2}{m p_{i0}}\,,
-\end{equation*}\]</span>
-provided, as a rule of thumb, <span class="math inline">\(m p_{i0} \geq 5\)</span> for all <span class="math inline">\(i = 1, \dots, k\)</span>.
-</div>
 <blockquote>
-<p>⚠️ Things are much more complicated if the category probabilities are not completely specified.</p>
+<p>Table <a href="anova.html#tab:anova-samples-stats">5.1</a> presents the average salaries (in thousands of pounds) reported from 20 local councils classified by nation (England, N Ireland, Scotland, and Wales). The sample means together with the sample standard deviations are summarized in the table as well as presented using using box plots in Figure <a href="anova.html#fig:anova-samples-boxplots">5.1</a>.</p>
 </blockquote>
+<div class="figure"><span id="fig:anova-samples-boxplots"></span>
+<img src="05-anova_files/figure-html/anova-samples-boxplots-1.png" alt="Box plots of the average mean salary data in Table \@ref(tab:anova-samples-stats) indicate five summary statistics: the median, two hinges (first and third quartiles) and two whiskers (extending from the hinge to the most extreme data point within 1.5 * IQR)." width="672" />
+<p class="caption">
+Figure 5.1: Box plots of the average mean salary data in Table <a href="anova.html#tab:anova-samples-stats">5.1</a> indicate five summary statistics: the median, two hinges (first and third quartiles) and two whiskers (extending from the hinge to the most extreme data point within 1.5 * IQR).
+</p>
 </div>
-<div id="test-for-independence-of-factors" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Test for independence of factors</h2>
-<p>In Section <a href="categorical-data.html#goodness-of-fit-tests">4.2</a> we considered the categorization of a population into a single factor. We now consider a single population where each individual is categorized into two factors with <span class="math inline">\(I\)</span> distinct categories for the first factor and <span class="math inline">\(J\)</span> distinct categories for the second factor. That is, each individual from the population belongs to exactly one of the <span class="math inline">\(I\)</span> categories of the first factor and exactly one of the <span class="math inline">\(J\)</span> categories of the second factor. We want to determine whether or not there is any dependency between the two factors.</p>
-<p>For a sample of <span class="math inline">\(m\)</span> individuals, we denote by <span class="math inline">\(n_{ij}\)</span> the count of the <span class="math inline">\(m\)</span> samples that fall both in category <span class="math inline">\(i\)</span> of the first factor and category <span class="math inline">\(j\)</span> of the second factor, for <span class="math inline">\(i = 1, \dots, I\)</span> and <span class="math inline">\(j = 1, \dots, J\)</span>. A <strong>contingency (data) tables</strong> with <span class="math inline">\(I\)</span> rows and <span class="math inline">\(J\)</span> columns (i.e., <span class="math inline">\(IJ\)</span> cells) will be used to record the <span class="math inline">\(n_{ij}\)</span> counts (in the obvious way).<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> Let <span class="math inline">\(p_{ij}\)</span> be the proportion of individuals in the population who belong in category <span class="math inline">\(i\)</span> of factor 1 and category <span class="math inline">\(j\)</span> of factor <span class="math inline">\(2\)</span>. Then, the probability that a randomly selected individual falls in category <span class="math inline">\(i\)</span> of factor 1 is found by summing over all <span class="math inline">\(j\)</span>:
+<p>For <span class="math inline">\(\alpha = 0.05\)</span>, we compute the upper-tail area <span class="math inline">\(F_{0.05}\)</span> i.e. to the right of the critical value <span class="math inline">\(F_{0.05, 3, 16}\)</span> by consulting a statistical table or by using <code>r</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="anova.html#cb5-1" aria-hidden="true"></a><span class="kw">qf</span>(<span class="dv">1</span><span class="fl">-.05</span>, <span class="dt">df1 =</span> <span class="dv">4-1</span>, <span class="dt">df2 =</span> <span class="dv">20-4</span>) <span class="co"># alt: qf(.05, df1 = 4-1, df2 = 20-4, lower.tail = FALSE)</span></span></code></pre></div>
+<pre><code>[1] 3.238872</code></pre>
+<p>to find <span class="math inline">\(F_{0.05} = 3.2388715\)</span>.</p>
+<p>The grand mean is
 <span class="math display">\[\begin{equation*}
-p_{i} = \sum_{j=1}^J p_{ij}\,,
+ \overline{x} = \frac{17 + 12 + 18 + \cdots + 8 + 7 + 9}{20} = 11.9\,,
 \end{equation*}\]</span>
-and likewise, the probability that a randomly selected individual falls in category <span class="math inline">\(j\)</span> of factor 2 is found by summing over all <span class="math inline">\(i\)</span>:
+and hence the variation among sample means is given by,
 <span class="math display">\[\begin{equation*}
-p_{j} = \sum_{i=1}^I p_{ij}\,.
+\begin{aligned}
+ \mathsf{MSTr} &amp;= \frac{1}{4-1} \left(m_1(\overline{x}_1 - \overline{x})^2 + \cdots + m_4 (\overline{x}_4 - \overline{x})^2\right) \\
+ &amp;= \left(6 (14.5-11.9)^2 + 4(10.0 - 11.9)^2 + 5(13.0-11.9)^2 + 5 ( 9.2 - 11.9)^2\right) / 3 \\
+ &amp;= 32.5 \,.
+\end{aligned}
 \end{equation*}\]</span>
-The null hypothesis that we will be interested in adopting is
-<span class="math display" id="eq:null-two-factor">\[\begin{equation*}
-H_0 : p_{ij} = p_{i} \cdot p_{j} \; \forall (i,j)\,,
- \tag{4.3}
-\end{equation*}\]</span>
-that is, that an individual’s category in factor 1 is independent of the category in factor 2.</p>
-<p>Following the same program as for the single category goodness-of-fit test, we note that, assuming the null hypothesis <a href="categorical-data.html#eq:null-two-factor">(4.3)</a> is true, then the expected count in cell <span class="math inline">\(i,j\)</span> is
+The mean square error is
 <span class="math display">\[\begin{equation*}
- \operatorname{E}[N_{ij}] = n p_{ij} = m p_{i} p_{j}\,;
+ \begin{aligned}
+ \mathsf{MSE} &amp; = \frac{1}{20-4} \left((m_1 - 1)s_1^2 + \cdots (m_4-1)s_4^2\right)\\ 
+  &amp;= \frac{5(2.588)^2 + 3(2.582)^2 + 4(1.871)^2 + 4(1.924)^2}{16} \\
+  &amp;= 5.14366
+ \end{aligned}
 \end{equation*}\]</span>
-and we estimate <span class="math inline">\(p_i\)</span> and <span class="math inline">\(p_j\)</span> by the appropriate sample proportion:
+yielding the test statistic value
 <span class="math display">\[\begin{equation*}
-\widehat{p}_i = \frac{n_i}{m}\,, \quad n_i = \sum_{j} n_{ij} \qquad \text{(row total)}\,,
+ F = \frac{\mathsf{MSTr}}{\mathsf{MSE}} = \frac{32.5}{5.14366} 
+ = 6.3184581 \,.
 \end{equation*}\]</span>
-and
+Since <span class="math inline">\(F &gt; F_\alpha\)</span> we reject <span class="math inline">\(H_0\)</span>. The data does not support they hypothesis that the mean salaries in each nation are identical at the <span class="math inline">\(5\%\)</span> level.</p>
+</div>
+<div id="anova-ci" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Confidence intervals</h2>
+<p>In Section <a href="inference-two-samples.html#compare-means">3.1</a> we gave a CI for comparing population means that involved the difference <span class="math inline">\(\mu_X - \mu_Y\)</span>. In some settings, we would like to give CIs for more complicated functions of population means <span class="math inline">\(\mu_i\)</span>. Let
 <span class="math display">\[\begin{equation*}
-\widehat{p}_j = \frac{n_j}{m}\,, \quad n_j = \sum_{i} n_{ij}\qquad \text{(col total)}\,.
+ \theta = \sum_{i=1}^k c_i \mu_i\,,
 \end{equation*}\]</span>
-Thus, the expected cell count is given by
+for constants <span class="math inline">\(c_i\)</span>. As we assume the <span class="math inline">\(X_ij\)</span> are normally distributed with <span class="math inline">\(\operatorname{E}[X_{ij}] = \mu_i\)</span> and <span class="math inline">\(\operatorname{Var}[X_{ij}] = \sigma^2\)</span>, the estimator
 <span class="math display">\[\begin{equation*}
-\widehat{e}_{ij} = m \widehat{p}_i \widehat{p}_j = \frac{n_i n_j}{m}\,,
+ \widehat{\theta} = \sum_{i=1}^k c_i \overline{X}_{i}\,,
 \end{equation*}\]</span>
-and we assess the goodness of fit between the observed cell count <span class="math inline">\(n_ij\)</span> and the expected cell count <span class="math inline">\(\widehat{e}_ij\)</span>.</p>
+is normally distributed with
+<span class="math display">\[\begin{equation*}
+ \operatorname{Var}[\widehat{\theta}] - \sum_{i=1}^k c_i^2 \operatorname{Var}[\overline{X}_i] = \sigma^2 \sum_{i=1}^{k} \frac{c_i}{m_i}\,.
+\end{equation*}\]</span>
+Estimating <span class="math inline">\(\sigma^2\)</span> by the  and forming <span class="math inline">\(\widehat{\sigma}_{\widehat{\theta}}\)</span> results in a <span class="math inline">\(\mathsf{t}\)</span> variable
+<span class="math display">\[\begin{equation*}
+ \frac{\widehat{\theta} - \theta}{\widehat{\sigma}_{\widehat{\theta}}}\,.
+\end{equation*}\]</span></p>
 
 <div class="proposition">
-<span id="prp:independence-test" class="proposition"><strong>Proposition 4.2  </strong></span>Null hypothesis <span class="math inline">\(H_0 : p_{ij} = p_i p_j\)</span> for all <span class="math inline">\(i=1, \dots, I\)</span>, <span class="math inline">\(j=1, \dots, J\)</span>.
-Alternative hypothesis <span class="math inline">\(H_a : H_0 \;\text{is not true}\)</span>.
-Test statistic:
+<span id="prp:ci-anova" class="proposition"><strong>Proposition 5.2  </strong></span>A <span class="math inline">\(100(1-\alpha)\%\)</span> CI for <span class="math inline">\(\sum c_i \mu_i\)</span> is given by
 <span class="math display">\[\begin{equation*}
-V = \sum_{i=1}^I \sum_{j=1}^J \frac{(n_{ij} - \widehat{e}_{ij})^2}{\widehat{e}_{ij}}
+ \sum_{i=1}^k c_i \overline{x}_i \pm t_{\alpha/2, m-k} \sqrt{\mathsf{MSE} \sum_{i=1}^k \frac{c_i}{m_i}}\,.
 \end{equation*}\]</span>
-Rule of thumb, <span class="math inline">\(\widehat{e}_{ij} \geq 5\)</span> for all <span class="math inline">\(i,j\)</span>, and when <span class="math inline">\(H_0\)</span> is true then the test statistic has approximately <span class="math inline">\(\chi^2((I-1)(J-1))\)</span> distribution. Upper tail.
 </div>
 
+<div class="example">
+<span id="exm:anova-ci" class="example"><strong>Example 5.2  </strong></span>Determine a <span class="math inline">\(90\%\)</span> CI for the difference in mean average salary for councils in Scotland and England, based on the data available in Table <a href="anova.html#tab:anova-samples-stats">5.1</a>
+</div>
+<p>For <span class="math inline">\(\alpha = 0.10\)</span>, the critical value <span class="math inline">\(t_{0.05, 16} = 1.7458837\)</span> is found by looking in a table of <span class="math inline">\(\mathsf{t}\)</span> critical values or by using <code>r</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="anova.html#cb7-1" aria-hidden="true"></a><span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.1</span><span class="op">/</span><span class="dv">2</span>, <span class="dt">df =</span> <span class="dv">20</span> <span class="op">-</span><span class="st"> </span><span class="dv">4</span>) <span class="co"># alt: qt(0.1/2, 16, lower.tail = FALSE)</span></span></code></pre></div>
+<pre><code>[1] 1.745884</code></pre>
+<p>Then for the function <span class="math inline">\(\overline{x}_2 - \overline{x_1}\)</span>,
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+(\overline{x}_{Eng} - \overline{x}_{Sco}) \pm&amp; t_{0.05, 16} \sqrt{\mathsf{MSE}} \sqrt{\frac{1}{m_{Eng}} + \frac{1}{m_{Sco}}} \\
+&amp; = (14.5 - 13.0) \pm 1.7458837 \sqrt{5.14366} \sqrt{\frac{1}{6} + \frac{1}{5}} \\
+&amp; = 1.5 \pm 2.3976575\,.
+\end{aligned}
+\end{equation*}\]</span>
+Thus a <span class="math inline">\(90\%\)</span> confidence interval for <span class="math inline">\(\mu_{Eng} - \mu_{Sco}\)</span> is <span class="math inline">\((-0.8976575\,, 3.8976575)\)</span>.</p>
+<blockquote>
+<p>How does this result compare to the method in Section <a href="inference-two-samples.html#compare-means-normpops-vars-unknown">3.1.3</a>?</p>
+</blockquote>
+
+<!-- \newcommand{\Var}{\operatorname{Var}} -->
+<!-- \newcommand{\E}{\operatorname{E}} -->
+<!-- \newcommand{\se}{\mathsf{se}} -->
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="6">
-<li id="fn6"><p>Here for <span class="math inline">\(i=1, \dots, k\)</span> we use the notation <span class="math inline">\(p_{i0}\)</span> to denote the value of <span class="math inline">\(p_i\)</span> claimed under the null hypothesis.<a href="categorical-data.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>The division by the expected cell counts is to account for possible differences in the relative magnitude of the observed/expected counts.<a href="categorical-data.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>Contingency is another word for dependency in this context.<a href="categorical-data.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<ol start="9">
+<li id="fn9"><p>In the context of ANOVA, these <span class="math inline">\(k\)</span> populations are often referred to as <strong>treatment distributions</strong>.<a href="anova.html#fnref9" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -428,8 +491,8 @@ Rule of thumb, <span class="math inline">\(\widehat{e}_{ij} \geq 5\)</span> for 
           </div>
         </div>
       </div>
-<a href="inference-two-samples.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="anova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="categorical-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linear-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -460,7 +523,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/dundeemath/MA22004/edit/master/04-categorical-data.Rmd",
+"link": "https://github.com/dundeemath/MA22004/edit/master/05-anova.Rmd",
 "text": "Suggest an edit"
 },
 "history": {

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Linear models | MA22004 - Statistics and Probability II</title>
+  <title>6 Linear regression | MA22004 - Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Linear models | MA22004 - Statistics and Probability II" />
+  <meta property="og:title" content="6 Linear regression | MA22004 - Statistics and Probability II" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://ejhall.github.io/MA22004/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ejhall/MA22004/" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Linear models | MA22004 - Statistics and Probability II" />
+  <meta name="twitter:title" content="6 Linear regression | MA22004 - Statistics and Probability II" />
   
   <meta name="twitter:description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="categorical-data.html"/>
-<link rel="next" href="references.html"/>
+<link rel="prev" href="anova.html"/>
+<link rel="next" href="quality-control.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -164,6 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="special-distributions.html"><a href="special-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.1</b> Normal distribution</a>
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="special-distributions.html"><a href="special-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about Normals</a></li>
+<li class="chapter" data-level="1.1.2" data-path="special-distributions.html"><a href="special-distributions.html#critical-z-values"><i class="fa fa-check"></i><b>1.1.2</b> Critical <span class="math inline">\(z\)</span> values</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="special-distributions.html"><a href="special-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\mathsf{t}\)</span> distribution</a>
 <ul>
@@ -179,9 +180,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3" data-path="statistical-inference.html"><a href="statistical-inference.html#hypothesis-testing"><i class="fa fa-check"></i><b>2.3</b> Hypothesis testing</a></li>
 <li class="chapter" data-level="2.4" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-means"><i class="fa fa-check"></i><b>2.4</b> Estimating means</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-normal-var-known"><i class="fa fa-check"></i><b>2.4.1</b> CI for mean of a Normal population with known variance</a></li>
-<li class="chapter" data-level="2.4.2" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-large-sample"><i class="fa fa-check"></i><b>2.4.2</b> Large-sample CI for mean of a population with unknown variance</a></li>
-<li class="chapter" data-level="2.4.3" data-path="statistical-inference.html"><a href="statistical-inference.html#ci-normal-var-unknown"><i class="fa fa-check"></i><b>2.4.3</b> CI for mean of a normal population with unknown variance</a></li>
+<li class="chapter" data-level="2.4.1" data-path="statistical-inference.html"><a href="statistical-inference.html#mean-normal-var-known"><i class="fa fa-check"></i><b>2.4.1</b> Mean of a normal population with known variance</a></li>
+<li class="chapter" data-level="2.4.2" data-path="statistical-inference.html"><a href="statistical-inference.html#mean-large-sample"><i class="fa fa-check"></i><b>2.4.2</b> Mean of a population with unknown variance (large-sample)</a></li>
+<li class="chapter" data-level="2.4.3" data-path="statistical-inference.html"><a href="statistical-inference.html#mean-normal-var-unknown"><i class="fa fa-check"></i><b>2.4.3</b> Mean of a normal population with unknown variance</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-proportions"><i class="fa fa-check"></i><b>2.5</b> Estimating proportions</a></li>
 <li class="chapter" data-level="2.6" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-variances"><i class="fa fa-check"></i><b>2.6</b> Estimating variances</a></li>
@@ -198,17 +199,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-proportions"><i class="fa fa-check"></i><b>3.3</b> Comparing proportions</a></li>
 <li class="chapter" data-level="3.4" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-variances"><i class="fa fa-check"></i><b>3.4</b> Comparing variances</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="categorical-data.html"><a href="categorical-data.html"><i class="fa fa-check"></i><b>4</b> Categorical data and Goodness-of-Fit tests</a>
+<li class="chapter" data-level="4" data-path="categorical-data.html"><a href="categorical-data.html"><i class="fa fa-check"></i><b>4</b> Categorical data</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="categorical-data.html"><a href="categorical-data.html#multinomial-experiments"><i class="fa fa-check"></i><b>4.1</b> Multinomial experiments</a></li>
 <li class="chapter" data-level="4.2" data-path="categorical-data.html"><a href="categorical-data.html#goodness-of-fit-tests"><i class="fa fa-check"></i><b>4.2</b> Goodness-of-fit for a single factor</a></li>
-<li class="chapter" data-level="4.3" data-path="categorical-data.html"><a href="categorical-data.html#test-for-independence-of-two-factors"><i class="fa fa-check"></i><b>4.3</b> Test for independence of two factors</a></li>
+<li class="chapter" data-level="4.3" data-path="categorical-data.html"><a href="categorical-data.html#test-for-independence-of-factors"><i class="fa fa-check"></i><b>4.3</b> Test for independence of factors</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>5</b> Linear models</a>
+<li class="chapter" data-level="5" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>5</b> Analysis of variance (ANOVA)</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="linear-models.html"><a href="linear-models.html#linear-regression"><i class="fa fa-check"></i><b>5.1</b> Linear regression</a></li>
-<li class="chapter" data-level="5.2" data-path="linear-models.html"><a href="linear-models.html#correlation"><i class="fa fa-check"></i><b>5.2</b> Correlation</a></li>
-<li class="chapter" data-level="5.3" data-path="linear-models.html"><a href="linear-models.html#anova"><i class="fa fa-check"></i><b>5.3</b> ANOVA</a></li>
+<li class="chapter" data-level="5.1" data-path="anova.html"><a href="anova.html#anova-single-factor-test"><i class="fa fa-check"></i><b>5.1</b> Single factor ANOVA test</a></li>
+<li class="chapter" data-level="5.2" data-path="anova.html"><a href="anova.html#anova-ci"><i class="fa fa-check"></i><b>5.2</b> Confidence intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>6</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="linear-models.html"><a href="linear-models.html#simple-linear-regression-models"><i class="fa fa-check"></i><b>6.1</b> Simple linear regression models</a></li>
+<li class="chapter" data-level="6.2" data-path="linear-models.html"><a href="linear-models.html#correlation"><i class="fa fa-check"></i><b>6.2</b> Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="quality-control.html"><a href="quality-control.html"><i class="fa fa-check"></i><b>7</b> Quality Control</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="quality-control.html"><a href="quality-control.html#control-charts"><i class="fa fa-check"></i><b>7.1</b> Control Charts</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -231,17 +240,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="linear-models" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Linear models</h1>
-<div id="linear-regression" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Linear regression</h2>
+<div id="linear-models" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Linear regression</h1>
+<div id="simple-linear-regression-models" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Simple linear regression models</h2>
 </div>
-<div id="correlation" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Correlation</h2>
-</div>
-<div id="anova" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> ANOVA</h2>
+<div id="correlation" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Correlation</h2>
 
+<!-- \newcommand{\Var}{\operatorname{Var}} -->
+<!-- \newcommand{\E}{\operatorname{E}} -->
+<!-- \newcommand{\se}{\mathsf{se}} -->
 </div>
 </div>
             </section>
@@ -249,8 +258,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="categorical-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="anova.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="quality-control.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -281,7 +290,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/dundeemath/MA22004/edit/master/05-linear-models.Rmd",
+"link": "https://github.com/dundeemath/MA22004/edit/master/06-linear-models.Rmd",
 "text": "Suggest an edit"
 },
 "history": {

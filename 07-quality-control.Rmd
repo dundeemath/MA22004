@@ -28,11 +28,9 @@ knitr::opts_chunk$set(echo = TRUE, comment = "") #, dev = "svglite", fig.width=8
 <!-- \newcommand{\E}{\operatorname{E}} -->
 <!-- \newcommand{\se}{\mathsf{se}} -->
 
-# Linear models {#linear-models}
+# Quality Control {#quality-control}
 
-## Linear regression
+## Control Charts
 
-## Correlation
 
-## ANOVA
 

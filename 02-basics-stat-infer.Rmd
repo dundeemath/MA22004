@@ -71,12 +71,27 @@ Note that Definition \@ref(def:point-estimate) does not say how to select the ap
 \end{equation*}
 where $n$ is the sample size and $\mu$ and $\sigma$ are the (typically unknown) population parameters.
 
-> The **Cherry Tree Data** contains 31 obs. of three features (diameter [in], height [in], and volume [cu ft]) and can be accessed in `r` by loading `library(datasets)` and then calling `data(trees)`.  
 
 ```{example, eg-estimators}
-Let us consider the heights (measured in inches) of $31$ black cherry trees (sorted, for your enjoyment): `63 64 65 66 69 70 71 72 72 74 74 75 75 75 76 76 77 78 79 80 80 80 80 80 81 81 82 83 85 86 87`.
+Let us consider the heights (measured in inches) of $31$ black cherry trees (sorted, for your enjoyment) in Table \@ref(tab:cherry-data).
+```    
 
-The quantile-quantile plot comparing this data to a normal distribution is fairly straight, so we assume that the distribution of black cherry tree heights is normal with a mean value $\mu$; i.e., that the population of heights is distributed $\mathsf{N}(\mu, \sigma^2)$ where $\mu$ is a parameter to be estimated. The observations $X_1, \dots, X_{31}$ are then assumed to be a random sample from this normal distribution (iid). Consider the following three different stimators and the resulting point estimates for $\mu$ based on the $31$ samples.
+```{r cherry-data, echo = FALSE, warning = FALSE, message = FALSE}
+dattab <- trees %>%
+  arrange(Height) %>%
+  summarise(heights = list(Height))
+kable(dattab, col.names = c("Height [in]"), caption = "Observations of 31 felled black cherry trees.")
+```    
+
+> The **Cherry Tree Data** contains 31 obs. of three features (diameter, height, and volume) and can be accessed in `r` by loading `library(datasets)` and then calling `data(trees)`.  
+
+The quantile-quantile plot^[
+How do we tell whether a population is normal? Constructing a normal quantile-quantile plot is one way of assessing whether a normality assumption is reasonable; such a plot compares the the quantiles of the sample data $x_i$ against the (theoretical) standard normal quantiles. If the sample data is consistent with a sample from a normal distribution, then the points will lie on a straight line (more or less). Below we display the QQ plot comparing quantiles of cherry tree heights from \@ref(tab:cherry-data) to normal quantiles.
+```{r qq-plot-cherry, echo = FALSE, warning = FALSE, message = FALSE}
+ggplot(trees, aes(sample = Height)) + stat_qq() + stat_qq_line()
+```   
+]
+comparing the quantiles of this data to the quantiles of a normal distribution, is fairly straight. Therefore, we assume that the distribution of black cherry tree heights is (at least approximately) normal with a mean value $\mu$; i.e., that the population of heights is distributed $\mathsf{N}(\mu, \sigma^2)$ where $\mu$ is a parameter to be estimated and $\sigma^2$ is unknown. The observations $X_1, \dots, X_{31}$ are then assumed to be a random sample from this normal distribution (iid). Consider the following three different stimators and the resulting point estimates for $\mu$ based on the $31$ samples.
 
 a. Estimator (sample mean) $\overline{X}$ as in \@ref(eq:sample-mean) and estimate $\overline{x} = \sum x_i / n = 2356 / 31 = 76$.
 
@@ -84,10 +99,8 @@ b. Estimator (average of extreme heights) $\widetilde{X} = [\min(X_i) + \max(X_i
 
 c. Estimator ($10\%$ trimmed mean -- i.e., in this instance exclude the smallest and largest three values) $\overline{X}_{\text{tr}(10)}$ and estimate $\overline{x}_{\text{tr}(10)} = (2356 - 63 - 64 - 65 - 87 - 86 - 85) / 25 = 76.24$. 
 
-Each estimator above uses a different notion of center for the sample data. An interesting question to think about is: which estimator will tend to produce estimates closest to the true parameter value? Will the estimators work universally well for all distributions?
-```  
-
-> How do we tell whether a population is normal? Constructing a normal quantile-quantile plot is one way of assessing whether a normality assumption is reasonable; such a plot compares the the quantiles of the sample data $x_i$ against the (theoretical) standard normal quantiles. If the sample data is consistent with a sample from a normal distribution, then the points will lie on a straight line (more or less).  
+Each estimator above uses a different notion of center for the sample data. An interesting question to think about is: which estimator will tend to produce estimates closest to the true parameter value? Will the estimators work universally well for all distributions? $\lozenge$
+ 
 
 In addition to reporting a point estimate (together with its estimator), some indication of its precision should be given. One measure of the precision of an estimate is its standard error.  
 
@@ -147,7 +160,7 @@ A **hypothesis test** asks if the available data provides sufficient evidence to
 A procedure for carrying out a hypothesis test is based on specifying two additional items: a test statistic and a corresponding rejection region. A **test statistic** is a function of the sample data (like an estimator). The statistical decision to reject or fail to reject the null hypothesis will involve computing the test statistic. The **rejection region** are the values of the test statistic for which the null hypothesis is to be rejected in favor of the alternative. That is, we compute the test statistic based on a given sample; the test statistic either falls in the rejection region---in which case we reject the null $H_0$---or it does not fall in the rejection region---in which case we fail to reject the null $H_0$. 
 
 ```{example, eg-hyp-test-def}
-**TODO**: example hypothesis test
+**TODO**: example hypothesis test $\lozenge$
 ```
 
 When carrying out a hypothesis test, two types of errors can be made. The basis for choosing a rejection region typically involves considering these errors. 
@@ -157,7 +170,7 @@ A **type I** error occurs if $H_0$ is rejected when $H_0$ is actually true. A **
 ```
 
 ```{example, eg-hyp-test-errors}
-**TODO**: example hypothesis error types
+**TODO**: example hypothesis error types $\lozenge$
 ```  
 
 To summarize, the elements of a statistical test are:  
@@ -169,11 +182,13 @@ To summarize, the elements of a statistical test are:
 
 ## Estimating means {#estimating-means}
 
-If the parameter of interest is the population mean $\theta = \mu$, then the sample mean estimator $\widehat{\theta} = \overline{X}$ in \@ref(eq:sample-mean) has (at least approximately) a normal distribution for sufficiently large $n$. We will consider three cases where the form of the confidence interval can be derived using the approximate normality of the sample mean:  
+If the parameter of interest is the population mean $\theta = \mu$, then the sample mean estimator $\widehat{\theta} = \overline{X}$ in \@ref(eq:sample-mean) has (at least approximately) a normal distribution for sufficiently large $n$. We will consider three cases,
 
-1. [CI for $\mu$ of a normal population with known $\sigma^2$](#ci-normal-var-known),
-2. [CI for $\mu$ of any population with unknown $\sigma^2$, when the sample size $n$ is large](#ci-large-sample),
-3. [CI for $\mu$ of a normal population with unknown $\sigma^2$, when the sample size $n$ is small](#ci-normal-var-unknown).  
+1. [normal population with known $\sigma^2$](#mean-normal-var-known),
+2. [any population with unknown $\sigma^2$, when the sample size $n$ is large](#mean-large-sample),
+3. [normal population with unknown $\sigma^2$, when the sample size $n$ is small](#mean-normal-var-unknown),  
+
+where the form of the confidence interval for $mu$ can be derived using the approximate normality of the sample mean.
 
 In general, the confidence intervals for the mean based on normality theory will have the form:
 \begin{equation}
@@ -181,7 +196,7 @@ In general, the confidence intervals for the mean based on normality theory will
 \end{equation}
 where the reference distribution will be the standard normal (for 1. and 2.) and the Student's $t$ distribution (for 3.). The critical value corresponds to the two-sided (symmetric) tail areas under the reference distribution.  
 
-### CI for mean of a Normal population with known variance {#ci-normal-var-known}
+### Mean of a normal population with known variance {#mean-normal-var-known}
 
 ```{definition, ci-norm-known-var}
 A **$100(1-\alpha)\%$ confidence interval** for the mean $\mu$ of a normal population when the value of $\sigma^2$ is known is given by 
@@ -197,11 +212,7 @@ The CI for the mean \@ref(eq:ci-norm-known-var) can be expressed as
  \text{point estimate}\; \mu \pm 
  (z \;\text{critical value}) \cdot (\text{standard error of mean})\,.
 \end{equation*}
-The $z$ critical value is related to the tail areas under the standard normal curve; we need to find the $z$-score having a cumulative probability equal to $1-\alpha$ according to Definition \@ref(def:confidence-interval-gen). Below we provide a table containing commonly used normal critical values (note: indexed by $\alpha/2$).  
-
-```{r table-activities, echo=FALSE, warning = FALSE, message = FALSE, fig.cap = "$z$ critical values."}
-kable(tibble(read_csv("data/z-crit-val.csv")))
-```  
+The $z$ critical value is related to the tail areas under the standard normal curve; we need to find the $z$-score having a cumulative probability equal to $1-\alpha$ according to Definition \@ref(def:confidence-interval-gen). 
 
 **TODO**: add example 
 
@@ -217,7 +228,7 @@ From Proposition \@ref(prp:ci-select-n-fixed-w-alpha), we see that the smaller t
 
 **TODO**: add example of sample size calculation
 
-### Large-sample CI for mean of a population with unknown variance {#ci-large-sample}
+### Mean of a population with unknown variance (large-sample) {#mean-large-sample}
 
 Consider samples $X_1, \dots, X_n$ from a population with mean $\mu$ and variance $\sigma^2$. Provided that $n$ is large enough, the Central Limit Theorem implies that the estimator for the sample mean $\overline{X}$ in \@ref(eq:sample-mean) has *approximately* a normal distribution. Then 
 \begin{equation}
@@ -244,9 +255,9 @@ Typically, a large-sample CI for a general parameter $\theta$ similar to \@ref(e
 
 **TODO**: add example 
 
-### CI for mean of a normal population with unknown variance {#ci-normal-var-unknown}
+### Mean of a normal population with unknown variance {#mean-normal-var-unknown}
 
-In Section \@ref(ci-normal-var-known), we considered samples $X_1, \dots, X_n$ from a normal population with a known $\mu$ and $\sigma^2$. In contrast, here we consider samples from a normal population and assume the population parameters $\mu$ and $\sigma^2$ are unknown. If the number of samples is large, the discussion in Section \@ref(ci-large-sample) indicates that the rv $Z = (\overline{X} - \mu) \sqrt{n} / S$ has approximately a standard normal distribution. However, if $n$ is not sufficiently large then the transformed variable will be more spread out than a standard normal distribution. 
+In Section \@ref(mean-normal-var-known), we considered samples $X_1, \dots, X_n$ from a normal population with a known $\mu$ and $\sigma^2$. In contrast, here we consider samples from a normal population and assume the population parameters $\mu$ and $\sigma^2$ are unknown. If the number of samples is large, the discussion in Section \@ref(mean-large-sample) indicates that the rv $Z = (\overline{X} - \mu) \sqrt{n} / S$ has approximately a standard normal distribution. However, if $n$ is not sufficiently large then the transformed variable will be more spread out than a standard normal distribution. 
 
 ```{theorem, sample-mean-t-dist}
 For the sample mean $\overline{X}$ based on $n$ samples from a normal distribution with mean $\mu$, the rv
@@ -316,7 +327,7 @@ This follows from Proposition \@ref(prp:ci-large-sample) by observing that \@ref
 recall the $s$ in \@ref(eq:ci-large-sample) is the sample variance for the *population* and $s / \sqrt{n} = \se$ is the standard error of the point estimator.
 
 ```{example, eg-est-prop-norm-approx-binom}
-**TODO**: Examples of sampling distribution for p
+**TODO**: Examples of sampling distribution for p $\lozenge$
 ```
 
 ```{example, eg-est-prop-ci}
@@ -324,7 +335,7 @@ recall the $s$ in \@ref(eq:ci-large-sample) is the sample variance for the *popu
 ```
 
 ```{example, eg-est-prop-hypothesis-test}
-**TODO**: Example hypothesis test 
+**TODO**: Example hypothesis test $\lozenge$
 ```
 
 ## Estimating variances {#estimating-variances}
@@ -359,7 +370,7 @@ A $100(1-\alpha)\%$ confidence interval for the standard deviation $\sigma$ of a
 ```
 
 ```{example, eg-ci-variance}
-**TODO**: Example CI for variance (using the tree data?)
+**TODO**: Example CI for variance (using the tree data?) $\lozenge$
 ```
 
 ***  

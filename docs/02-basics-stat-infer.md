@@ -45,11 +45,30 @@ Note that Definition \@ref(def:point-estimate) does not say how to select the ap
 \end{equation*}
 where $n$ is the sample size and $\mu$ and $\sigma$ are the (typically unknown) population parameters.
 
-> The **Cherry Tree Data** contains 31 obs. of three features (diameter [in], height [in], and volume [cu ft]) and can be accessed in `r` by loading `library(datasets)` and then calling `data(trees)`.  
 
-\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-estimators"><strong>(\#exm:eg-estimators) </strong></span>Let us consider the heights (measured in inches) of $31$ black cherry trees (sorted, for your enjoyment): `63 64 65 66 69 70 71 72 72 74 74 75 75 75 76 76 77 78 79 80 80 80 80 80 81 81 82 83 85 86 87`.
+\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-estimators"><strong>(\#exm:eg-estimators) </strong></span>Let us consider the heights (measured in inches) of $31$ black cherry trees (sorted, for your enjoyment) in Table \@ref(tab:cherry-data).</div>\EndKnitrBlock{example}
 
-The quantile-quantile plot comparing this data to a normal distribution is fairly straight, so we assume that the distribution of black cherry tree heights is normal with a mean value $\mu$; i.e., that the population of heights is distributed $\mathsf{N}(\mu, \sigma^2)$ where $\mu$ is a parameter to be estimated. The observations $X_1, \dots, X_{31}$ are then assumed to be a random sample from this normal distribution (iid). Consider the following three different stimators and the resulting point estimates for $\mu$ based on the $31$ samples.
+<table>
+<caption>(\#tab:cherry-data)Observations of 31 felled black cherry trees.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Height [in] </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 63, 64, 65, 66, 69, 70, 71, 72, 72, 74, 74, 75, 75, 75, 76, 76, 77, 78, 79, 80, 80, 80, 80, 80, 81, 81, 82, 83, 85, 86, 87 </td>
+  </tr>
+</tbody>
+</table>
+
+> The **Cherry Tree Data** contains 31 obs. of three features (diameter, height, and volume) and can be accessed in `r` by loading `library(datasets)` and then calling `data(trees)`.  
+
+The quantile-quantile plot^[
+How do we tell whether a population is normal? Constructing a normal quantile-quantile plot is one way of assessing whether a normality assumption is reasonable; such a plot compares the the quantiles of the sample data $x_i$ against the (theoretical) standard normal quantiles. If the sample data is consistent with a sample from a normal distribution, then the points will lie on a straight line (more or less). Below we display the QQ plot comparing quantiles of cherry tree heights from \@ref(tab:cherry-data) to normal quantiles.
+<img src="02-basics-stat-infer_files/figure-html/qq-plot-cherry-1.png" width="672" />
+]
+comparing the quantiles of this data to the quantiles of a normal distribution, is fairly straight. Therefore, we assume that the distribution of black cherry tree heights is (at least approximately) normal with a mean value $\mu$; i.e., that the population of heights is distributed $\mathsf{N}(\mu, \sigma^2)$ where $\mu$ is a parameter to be estimated and $\sigma^2$ is unknown. The observations $X_1, \dots, X_{31}$ are then assumed to be a random sample from this normal distribution (iid). Consider the following three different stimators and the resulting point estimates for $\mu$ based on the $31$ samples.
 
 a. Estimator (sample mean) $\overline{X}$ as in \@ref(eq:sample-mean) and estimate $\overline{x} = \sum x_i / n = 2356 / 31 = 76$.
 
@@ -57,9 +76,8 @@ b. Estimator (average of extreme heights) $\widetilde{X} = [\min(X_i) + \max(X_i
 
 c. Estimator ($10\%$ trimmed mean -- i.e., in this instance exclude the smallest and largest three values) $\overline{X}_{\text{tr}(10)}$ and estimate $\overline{x}_{\text{tr}(10)} = (2356 - 63 - 64 - 65 - 87 - 86 - 85) / 25 = 76.24$. 
 
-Each estimator above uses a different notion of center for the sample data. An interesting question to think about is: which estimator will tend to produce estimates closest to the true parameter value? Will the estimators work universally well for all distributions?</div>\EndKnitrBlock{example}
-
-> How do we tell whether a population is normal? Constructing a normal quantile-quantile plot is one way of assessing whether a normality assumption is reasonable; such a plot compares the the quantiles of the sample data $x_i$ against the (theoretical) standard normal quantiles. If the sample data is consistent with a sample from a normal distribution, then the points will lie on a straight line (more or less).  
+Each estimator above uses a different notion of center for the sample data. An interesting question to think about is: which estimator will tend to produce estimates closest to the true parameter value? Will the estimators work universally well for all distributions? $\lozenge$
+ 
 
 In addition to reporting a point estimate (together with its estimator), some indication of its precision should be given. One measure of the precision of an estimate is its standard error.  
 
@@ -110,13 +128,13 @@ The value $\theta_0$, called the **null value**, separates the alternative from 
 
 A procedure for carrying out a hypothesis test is based on specifying two additional items: a test statistic and a corresponding rejection region. A **test statistic** is a function of the sample data (like an estimator). The statistical decision to reject or fail to reject the null hypothesis will involve computing the test statistic. The **rejection region** are the values of the test statistic for which the null hypothesis is to be rejected in favor of the alternative. That is, we compute the test statistic based on a given sample; the test statistic either falls in the rejection region---in which case we reject the null $H_0$---or it does not fall in the rejection region---in which case we fail to reject the null $H_0$. 
 
-\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-hyp-test-def"><strong>(\#exm:eg-hyp-test-def) </strong></span>**TODO**: example hypothesis test</div>\EndKnitrBlock{example}
+\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-hyp-test-def"><strong>(\#exm:eg-hyp-test-def) </strong></span>**TODO**: example hypothesis test $\lozenge$</div>\EndKnitrBlock{example}
 
 When carrying out a hypothesis test, two types of errors can be made. The basis for choosing a rejection region typically involves considering these errors. 
 
 \BeginKnitrBlock{definition}<div class="definition"><span class="definition" id="def:error-types"><strong>(\#def:error-types) </strong></span>A **type I** error occurs if $H_0$ is rejected when $H_0$ is actually true. A **type II** error is made if we fail to reject $H_0$ when $H_0$ is actually false. </div>\EndKnitrBlock{definition}
 
-\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-hyp-test-errors"><strong>(\#exm:eg-hyp-test-errors) </strong></span>**TODO**: example hypothesis error types</div>\EndKnitrBlock{example}
+\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-hyp-test-errors"><strong>(\#exm:eg-hyp-test-errors) </strong></span>**TODO**: example hypothesis error types $\lozenge$</div>\EndKnitrBlock{example}
 
 To summarize, the elements of a statistical test are:  
 
@@ -127,11 +145,13 @@ To summarize, the elements of a statistical test are:
 
 ## Estimating means {#estimating-means}
 
-If the parameter of interest is the population mean $\theta = \mu$, then the sample mean estimator $\widehat{\theta} = \overline{X}$ in \@ref(eq:sample-mean) has (at least approximately) a normal distribution for sufficiently large $n$. We will consider three cases where the form of the confidence interval can be derived using the approximate normality of the sample mean:  
+If the parameter of interest is the population mean $\theta = \mu$, then the sample mean estimator $\widehat{\theta} = \overline{X}$ in \@ref(eq:sample-mean) has (at least approximately) a normal distribution for sufficiently large $n$. We will consider three cases,
 
-1. [CI for $\mu$ of a normal population with known $\sigma^2$](#ci-normal-var-known),
-2. [CI for $\mu$ of any population with unknown $\sigma^2$, when the sample size $n$ is large](#ci-large-sample),
-3. [CI for $\mu$ of a normal population with unknown $\sigma^2$, when the sample size $n$ is small](#ci-normal-var-unknown).  
+1. [normal population with known $\sigma^2$](#mean-normal-var-known),
+2. [any population with unknown $\sigma^2$, when the sample size $n$ is large](#mean-large-sample),
+3. [normal population with unknown $\sigma^2$, when the sample size $n$ is small](#mean-normal-var-unknown),  
+
+where the form of the confidence interval for $mu$ can be derived using the approximate normality of the sample mean.
 
 In general, the confidence intervals for the mean based on normality theory will have the form:
 \begin{equation}
@@ -139,7 +159,7 @@ In general, the confidence intervals for the mean based on normality theory will
 \end{equation}
 where the reference distribution will be the standard normal (for 1. and 2.) and the Student's $t$ distribution (for 3.). The critical value corresponds to the two-sided (symmetric) tail areas under the reference distribution.  
 
-### CI for mean of a Normal population with known variance {#ci-normal-var-known}
+### Mean of a normal population with known variance {#mean-normal-var-known}
 
 \BeginKnitrBlock{definition}<div class="definition"><span class="definition" id="def:ci-norm-known-var"><strong>(\#def:ci-norm-known-var) </strong></span>A **$100(1-\alpha)\%$ confidence interval** for the mean $\mu$ of a normal population when the value of $\sigma^2$ is known is given by 
 \begin{equation} 
@@ -153,44 +173,7 @@ The CI for the mean \@ref(eq:ci-norm-known-var) can be expressed as
  \text{point estimate}\; \mu \pm 
  (z \;\text{critical value}) \cdot (\text{standard error of mean})\,.
 \end{equation*}
-The $z$ critical value is related to the tail areas under the standard normal curve; we need to find the $z$-score having a cumulative probability equal to $1-\alpha$ according to Definition \@ref(def:confidence-interval-gen). Below we provide a table containing commonly used normal critical values (note: indexed by $\alpha/2$).  
-
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> $\alpha/2 =$ single tail area </th>
-   <th style="text-align:left;"> central area $= 1 – \alpha$ </th>
-   <th style="text-align:left;"> $z_{\alpha/2}$ </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> $0.10$ </td>
-   <td style="text-align:left;"> $0.80$ </td>
-   <td style="text-align:left;"> $z_{.10} = 1.28$ </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> $0.05$ </td>
-   <td style="text-align:left;"> $0.90$ </td>
-   <td style="text-align:left;"> $z_{.05} = 1.645$ </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> $0.025$ </td>
-   <td style="text-align:left;"> $0.95$ </td>
-   <td style="text-align:left;"> $z_{.025} = 1.96$ </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> $0.01$ </td>
-   <td style="text-align:left;"> $0.98$ </td>
-   <td style="text-align:left;"> $z_{.01} = 2.33$ </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> $0.005$ </td>
-   <td style="text-align:left;"> $0.99$ </td>
-   <td style="text-align:left;"> $z_{.005} = 2.58$ </td>
-  </tr>
-</tbody>
-</table>
+The $z$ critical value is related to the tail areas under the standard normal curve; we need to find the $z$-score having a cumulative probability equal to $1-\alpha$ according to Definition \@ref(def:confidence-interval-gen). 
 
 **TODO**: add example 
 
@@ -204,7 +187,7 @@ From Proposition \@ref(prp:ci-select-n-fixed-w-alpha), we see that the smaller t
 
 **TODO**: add example of sample size calculation
 
-### Large-sample CI for mean of a population with unknown variance {#ci-large-sample}
+### Mean of a population with unknown variance (large-sample) {#mean-large-sample}
 
 Consider samples $X_1, \dots, X_n$ from a population with mean $\mu$ and variance $\sigma^2$. Provided that $n$ is large enough, the Central Limit Theorem implies that the estimator for the sample mean $\overline{X}$ in \@ref(eq:sample-mean) has *approximately* a normal distribution. Then 
 \begin{equation}
@@ -229,9 +212,9 @@ Typically, a large-sample CI for a general parameter $\theta$ similar to \@ref(e
 
 **TODO**: add example 
 
-### CI for mean of a normal population with unknown variance {#ci-normal-var-unknown}
+### Mean of a normal population with unknown variance {#mean-normal-var-unknown}
 
-In Section \@ref(ci-normal-var-known), we considered samples $X_1, \dots, X_n$ from a normal population with a known $\mu$ and $\sigma^2$. In contrast, here we consider samples from a normal population and assume the population parameters $\mu$ and $\sigma^2$ are unknown. If the number of samples is large, the discussion in Section \@ref(ci-large-sample) indicates that the rv $Z = (\overline{X} - \mu) \sqrt{n} / S$ has approximately a standard normal distribution. However, if $n$ is not sufficiently large then the transformed variable will be more spread out than a standard normal distribution. 
+In Section \@ref(mean-normal-var-known), we considered samples $X_1, \dots, X_n$ from a normal population with a known $\mu$ and $\sigma^2$. In contrast, here we consider samples from a normal population and assume the population parameters $\mu$ and $\sigma^2$ are unknown. If the number of samples is large, the discussion in Section \@ref(mean-large-sample) indicates that the rv $Z = (\overline{X} - \mu) \sqrt{n} / S$ has approximately a standard normal distribution. However, if $n$ is not sufficiently large then the transformed variable will be more spread out than a standard normal distribution. 
 
 \BeginKnitrBlock{theorem}<div class="theorem"><span class="theorem" id="thm:sample-mean-t-dist"><strong>(\#thm:sample-mean-t-dist) </strong></span>For the sample mean $\overline{X}$ based on $n$ samples from a normal distribution with mean $\mu$, the rv
 \begin{equation}
@@ -292,11 +275,11 @@ This follows from Proposition \@ref(prp:ci-large-sample) by observing that \@ref
 \end{equation*}
 recall the $s$ in \@ref(eq:ci-large-sample) is the sample variance for the *population* and $s / \sqrt{n} = \se$ is the standard error of the point estimator.
 
-\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-est-prop-norm-approx-binom"><strong>(\#exm:eg-est-prop-norm-approx-binom) </strong></span>**TODO**: Examples of sampling distribution for p</div>\EndKnitrBlock{example}
+\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-est-prop-norm-approx-binom"><strong>(\#exm:eg-est-prop-norm-approx-binom) </strong></span>**TODO**: Examples of sampling distribution for p $\lozenge$</div>\EndKnitrBlock{example}
 
 \BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-est-prop-ci"><strong>(\#exm:eg-est-prop-ci) </strong></span>**TODO**: Example confidence interval for p</div>\EndKnitrBlock{example}
 
-\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-est-prop-hypothesis-test"><strong>(\#exm:eg-est-prop-hypothesis-test) </strong></span>**TODO**: Example hypothesis test </div>\EndKnitrBlock{example}
+\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-est-prop-hypothesis-test"><strong>(\#exm:eg-est-prop-hypothesis-test) </strong></span>**TODO**: Example hypothesis test $\lozenge$</div>\EndKnitrBlock{example}
 
 ## Estimating variances {#estimating-variances}
 
@@ -325,6 +308,6 @@ where we substitute the computed value of the point estimate $s^2$ for the estim
 \end{equation*}
 A $100(1-\alpha)\%$ confidence interval for the standard deviation $\sigma$ of a normal population is given by taking the square roots of the lower and upper limits in \@ref(eq:ci-variance).</div>\EndKnitrBlock{proposition}
 
-\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-ci-variance"><strong>(\#exm:eg-ci-variance) </strong></span>**TODO**: Example CI for variance (using the tree data?)</div>\EndKnitrBlock{example}
+\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-ci-variance"><strong>(\#exm:eg-ci-variance) </strong></span>**TODO**: Example CI for variance (using the tree data?) $\lozenge$</div>\EndKnitrBlock{example}
 
 ***  

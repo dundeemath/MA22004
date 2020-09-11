@@ -106,7 +106,7 @@ Alternatively, we can use the `r` code:
 ```{r eg-code-norm-rt, echo=TRUE}
 pnorm(5.5, mean = 5, sd = 3, lower.tail = FALSE) 
 ```  
-**TODO**: plot of area under normal curve (right tail)  
+**TODO**: plot of area under normal curve (right tail)  $\lozenge$
 
 
 ```{example, eg-norm-dt}
@@ -122,12 +122,20 @@ Let $X \sim \mathsf{N}(5, 9)$ and find $P(4 \leq X \leq 5.25)$.
 where we look up the value of $\Phi(z) = P(Z\leq z)$ in a table of standard normal curve areas. 
 ```  
 
-**TODO**: plot area under normal curve (interior)  
-
 Alternatively, we can use the `r` code:
 ```{r eg-code-norm-dt, echo=TRUE}
-pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3)
+pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3) 
 ```  
+
+**TODO**: plot area under normal curve (interior)  $\lozenge$
+
+### Critical $z$ values
+
+Below we provide a table containing commonly used normal critical values (note: indexed by $\alpha/2$).  
+
+```{r table-activities, echo=FALSE, warning = FALSE, message = FALSE, fig.cap = "$z$ critical values."}
+kable(tibble(read_csv("data/z-crit-val.csv")))
+```   
 
 ## $\mathsf{t}$ distribution {#t-distribution}
 

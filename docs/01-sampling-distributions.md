@@ -71,7 +71,7 @@ pnorm(5.5, mean = 5, sd = 3, lower.tail = FALSE)
 ```
 [1] 0.4338162
 ```
-**TODO**: plot of area under normal curve (right tail)  
+**TODO**: plot of area under normal curve (right tail)  $\lozenge$
 
 
 \BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-norm-dt"><strong>(\#exm:eg-norm-dt) </strong></span>Let $X \sim \mathsf{N}(5, 9)$ and find $P(4 \leq X \leq 5.25)$. 
@@ -85,17 +85,58 @@ pnorm(5.5, mean = 5, sd = 3, lower.tail = FALSE)
   \end{aligned}\]
 where we look up the value of $\Phi(z) = P(Z\leq z)$ in a table of standard normal curve areas. </div>\EndKnitrBlock{example}
 
-**TODO**: plot area under normal curve (interior)  
-
 Alternatively, we can use the `r` code:
 
 ```r
-pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3)
+pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3) 
 ```
 
 ```
 [1] 0.1637654
 ```
+
+**TODO**: plot area under normal curve (interior)  $\lozenge$
+
+### Critical $z$ values
+
+Below we provide a table containing commonly used normal critical values (note: indexed by $\alpha/2$).  
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> $\alpha/2 =$ single tail area </th>
+   <th style="text-align:left;"> central area $= 1 – \alpha$ </th>
+   <th style="text-align:left;"> $z_{\alpha/2}$ </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> $0.10$ </td>
+   <td style="text-align:left;"> $0.80$ </td>
+   <td style="text-align:left;"> $z_{.10} = 1.28$ </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> $0.05$ </td>
+   <td style="text-align:left;"> $0.90$ </td>
+   <td style="text-align:left;"> $z_{.05} = 1.645$ </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> $0.025$ </td>
+   <td style="text-align:left;"> $0.95$ </td>
+   <td style="text-align:left;"> $z_{.025} = 1.96$ </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> $0.01$ </td>
+   <td style="text-align:left;"> $0.98$ </td>
+   <td style="text-align:left;"> $z_{.01} = 2.33$ </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> $0.005$ </td>
+   <td style="text-align:left;"> $0.99$ </td>
+   <td style="text-align:left;"> $z_{.005} = 2.58$ </td>
+  </tr>
+</tbody>
+</table>
 
 ## $\mathsf{t}$ distribution {#t-distribution}
 

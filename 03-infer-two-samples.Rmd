@@ -65,11 +65,13 @@ then its estimator,
 \begin{equation*}
  \widehat{\theta} = \overline{X} - \overline{Y}\,,
 \end{equation*}
-is normally distributed with mean and variance given by Proposition \@ref(prp:qoi-diff-pop-means). If the samples sizes $m$ and $n$ are large, then the estimator is approximately normally distributed by the Central Limit Theorem regardless of the population. We now discuss CIs and hypothesis tests for comparing population means $\theta = \mu_X - \mu_Y$. The development largely reflects that of Section \@ref(estimating-means):  
+is normally distributed with mean and variance given by Proposition \@ref(prp:qoi-diff-pop-means). If the samples sizes $m$ and $n$ are large, then the estimator is approximately normally distributed by the Central Limit Theorem regardless of the population. We now discuss CIs and hypothesis tests for comparing population means $\theta = \mu_X - \mu_Y$. We consider three cases when comparing means:
 
-1. [Comparing means of normal populations when the variances $\sigma_X^2$ and $\sigma_Y^2$ are known](#compare-means-normpops-vars-known),
-2. [Comparing means of any populations with unknown variances $\sigma_X^2$ and $\sigma_Y^2$, when the sample sizes $m$ and $n$ are large](#compare-means-large-samples),
-3. [Comparing means of normal populations when the variances $\sigma_X^2$ and $\sigma_Y^2$ are unknown, when the sample sizes $m$ and $n$ are small](#compare-means-normpops-vars-unknown).
+1. [normal populations when the variances $\sigma_X^2$ and $\sigma_Y^2$ are known](#compare-means-normpops-vars-known),
+2. [any populations with unknown variances $\sigma_X^2$ and $\sigma_Y^2$, when the sample sizes $m$ and $n$ are large](#compare-means-large-samples),
+3. [normal populations when the variances $\sigma_X^2$ and $\sigma_Y^2$ are unknown, when the sample sizes $m$ and $n$ are small](#compare-means-normpops-vars-unknown),
+
+noting that the development largely reflects that of Section \@ref(estimating-means).
 
 
 ### Comparing means of normal populations when variances are known {#compare-means-normpops-vars-known}
@@ -190,7 +192,7 @@ with $\E[X_i] = \mu_X$ and $\E[Y_i] = \mu_Y$. If we are interested in making inf
 \begin{equation*}
 D_i = X_i - Y_i \,,\quad  i=1, \dots, n\,,
 \end{equation*}
-constitute a sample with mean $\mu_D = \mu_X - \mu_Y$ that can be treated using single-sample CIs and tests, e.g., see Section \@ref(ci-normal-var-unknown).  
+constitute a sample with mean $\mu_D = \mu_X - \mu_Y$ that can be treated using single-sample CIs and tests, e.g., see Section \@ref(mean-normal-var-unknown).  
 
 
 ## Comparing proportions {#compare-proportions}
@@ -211,7 +213,7 @@ by considering the fact that the count of individuals satisfying the given prope
  Z = \frac{\widehat{p}_X - \widehat{p}_Y - (p_X - p_Y)}{\sqrt{\frac{p_X(1-p_X)}{m} + \frac{p_Y(1-p_Y)}{n}}}
  \quad \sim \mathsf{N}(0,1)\,.
 \end{equation*}
-A CI for $\widehat{p}_X - \widehat{p}_Y$ then follows from the large-sample CI considered in Section  \@ref(ci-large-sample).  
+A CI for $\widehat{p}_X - \widehat{p}_Y$ then follows from the large-sample CI considered in Section \@ref(mean-large-sample).  
 
 ```{proposition, ci-compare-proportions}
 An approximate $100(1-\alpha)\%$ CI for $p_X - p_Y$ is given by

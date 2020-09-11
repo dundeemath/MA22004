@@ -102,10 +102,10 @@ Sampling Distributions
 : Mean and standard deviation of samples, sampling from a single population, sampling from two populations, shape of sampling distributions. Normal distribution, $\chi^2$-square distribution, F-distribution.
 
 Hypothesis tests 
-: Null and Alternate hypotheses, inferences, confidence intervals, estimating means, proportions and standard deviations.
+: Null and Alternate hypotheses, inferences, confidence intervals, estimating means, proportions and standard deviations.
 
 Linear Regression
-: Least squares, assessing usefulness of a model, using a model. 
+: Least squares, assessing usefulness of a model, using a model.
 
 Industrial Quality Control
 : Control Charts, acceptance sampling.
@@ -119,7 +119,7 @@ In addition to the course notes, here are some textbooks you may wish to consult
 
 > ⚠️ You do not need to purchase these books.
 
-+ Devore, *Probability and Statistics for Engineering and the Sciences,* Cengage learning, 2011. [@Devore:2016st, §6-10, 12, 14]
++ Devore, *Probability and Statistics for Engineering and the Sciences,* Cengage learning, 2011. [@Devore:2016st, §6-10, 12, 14, 16]
 + DeGroot and Schervish, *Probability and Statistics,* Addison-Wesley, 2001. [@DeGrootSchervish:2001ps, §7-10]
 + Rice, *Mathematical statistics and data analysis,* Cengage Learning, 2006. [@Rice:2006da, §6-12]
 + Wasserman, *All of Statistics,* Springer-Verlag, 2004. [@Wasserman:2013as, Concise general reference]

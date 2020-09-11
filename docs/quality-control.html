@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Categorical data | MA22004 - Statistics and Probability II</title>
+  <title>7 Quality Control | MA22004 - Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Categorical data | MA22004 - Statistics and Probability II" />
+  <meta property="og:title" content="7 Quality Control | MA22004 - Statistics and Probability II" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://ejhall.github.io/MA22004/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ejhall/MA22004/" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Categorical data | MA22004 - Statistics and Probability II" />
+  <meta name="twitter:title" content="7 Quality Control | MA22004 - Statistics and Probability II" />
   
   <meta name="twitter:description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="inference-two-samples.html"/>
-<link rel="next" href="anova.html"/>
+<link rel="prev" href="linear-models.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -240,196 +240,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="categorical-data" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Categorical data</h1>
-<div id="multinomial-experiments" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Multinomial experiments</h2>
-<p>Suppose we have a population that is divided into <span class="math inline">\(k &gt; 2\)</span> distinct categories. We consider an experiment where we select <span class="math inline">\(m\)</span> individuals (or objects) from the population and categorize each one. We denote the proportion of the population in the <span class="math inline">\(i\)</span>th category by <span class="math inline">\(p_i\)</span>.
-If the sample size <span class="math inline">\(m\)</span> is much smaller than the population size <span class="math inline">\(M\)</span> (so that the <span class="math inline">\(m\)</span> trials are independent), this experiment will be approximately <em>multinomial</em> with success probability <span class="math inline">\(p_i\)</span> for each category, <span class="math inline">\(i=1, \dots, k\)</span>.</p>
-<p>Before the experiment is performed, we denote the number (or count) of the trails resulting in category <span class="math inline">\(i\)</span> by the rv <span class="math inline">\(N_i\)</span>. The expected number of trails that result in category <span class="math inline">\(i\)</span> is given by
-<span class="math display" id="eq:mean-count-multinomial">\[\begin{equation}
-\operatorname{E}[N_i] = m p_i\,, \quad i=1, \dots, k\,.
-\tag{4.1}
-\end{equation}\]</span>
-After the experiment is performed, we denote the corresponding observed value by <span class="math inline">\(n_i\)</span>. Since the trials result in distinct categories,
-<span class="math display">\[\begin{equation*}
-\sum_{i=1}^k N_i = \sum_{i=1}^{k} n_i = m \,,
-\end{equation*}\]</span>
-which indicates that, for a given <span class="math inline">\(m\)</span>, we only need to observe <span class="math inline">\(k-1\)</span> of the variables to be able to work out what the <span class="math inline">\(k\)</span>th variable should be.</p>
-</div>
-<div id="goodness-of-fit-tests" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Goodness-of-fit for a single factor</h2>
-<p>We are interested in making inferences about the proportion parameters <span class="math inline">\(p_i\)</span>. Specifically, we will consider the null hypothesis,
-<span class="math display" id="eq:null-multinomial">\[\begin{equation}
-H_0 : p_1 = p_{10}\,, p_2 = p_{20}\,, \cdots\,, p_k = p_{k0}\,,
- \tag{4.2}
-\end{equation}\]</span>
-that completely specifies a value <span class="math inline">\(p_{i0}\)</span> for each <span class="math inline">\(p_i\)</span>.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> The alternative hypothesis <span class="math inline">\(H_a\)</span> will state that <span class="math inline">\(H_0\)</span> is not true, i.e., that at least one <span class="math inline">\(p_i\)</span> is different from the value <span class="math inline">\(p_{i0}\)</span> claimed under the null <span class="math inline">\(H_0\)</span>.</p>
-<p>Provided the null hypothesis in <a href="categorical-data.html#eq:null-multinomial">(4.2)</a> is true, the expected values <a href="categorical-data.html#eq:mean-count-multinomial">(4.1)</a> can be written in terms of the expected frequencies,
-<span class="math display">\[\begin{equation*}
- \operatorname{E}[N_i] = m p_{i0}\,, \quad i=1,\dots,k\,.
-\end{equation*}\]</span>
-Often the <span class="math inline">\(n_i\)</span>, referred to as the <strong>observed cell counts</strong>, and the corresponding <span class="math inline">\(m p_{i0}\)</span>, referred to as the <strong>expected cell counts</strong>, are tabulated, for example, as in Table <a href="categorical-data.html#tab:cell-counts">4.1</a>.</p>
-<table>
-<caption>
-<span id="tab:cell-counts">Table 4.1: </span>Observed and expected cell counts.
-</caption>
-<thead>
-<tr>
-<th style="text-align:center;">
-Category
-</th>
-<th style="text-align:center;">
-<span class="math inline">\(i=1\)</span>
-</th>
-<th style="text-align:center;">
-<span class="math inline">\(i=2\)</span>
-</th>
-<th style="text-align:center;">
-<span class="math inline">\(\cdots\)</span>
-</th>
-<th style="text-align:center;">
-<span class="math inline">\(i=k\)</span>
-</th>
-<th style="text-align:center;">
-Row total
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-Observed
-</td>
-<td style="text-align:center;">
-<span class="math inline">\(n_1\)</span>
-</td>
-<td style="text-align:center;">
-<span class="math inline">\(n_2\)</span>
-</td>
-<td style="text-align:center;">
-<span class="math inline">\(\cdots\)</span>
-</td>
-<td style="text-align:center;">
-<span class="math inline">\(n_k\)</span>
-</td>
-<td style="text-align:center;">
-<span class="math inline">\(m\)</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-Expected
-</td>
-<td style="text-align:center;">
-<span class="math inline">\(mp_{10}\)</span>
-</td>
-<td style="text-align:center;">
-<span class="math inline">\(mp_{20}\)</span>
-</td>
-<td style="text-align:center;">
-<span class="math inline">\(\cdots\)</span>
-</td>
-<td style="text-align:center;">
-<span class="math inline">\(mp_{k0}\)</span>
-</td>
-<td style="text-align:center;">
-<span class="math inline">\(m\)</span>
-</td>
-</tr>
-</tbody>
-</table>
-<p>The test procedure assesses the discrepancy between the value of the observed and expected cell counts. This discrepancy, or <strong>goodness of fit</strong>, is measured by the squared deviations divided by the expected count.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></p>
-
-<div class="theorem">
-<span id="thm:multinomial-experiment" class="theorem"><strong>Theorem 4.1  </strong></span>For <span class="math inline">\(m p_i \geq 5\)</span> for <span class="math inline">\(i = 1, \dots, k\)</span>, the rv
-<span class="math display">\[\begin{equation*}
- V = \sum_{i=1}^k \frac{(N_i - m p_i)^2}{m p_i} \quad \sim \chi^2(k-1)\,,
-\end{equation*}\]</span>
-that is, <span class="math inline">\(V\)</span> has approximately a <span class="math inline">\(\chi^2\)</span> distribution with <span class="math inline">\(\nu = k-1\)</span> df.
-</div>
-
-<div class="proposition">
-<span id="prp:htest-multinomial" class="proposition"><strong>Proposition 4.1  </strong></span>For the null hypothesis
-<span class="math display">\[\begin{equation*}
-H_0 : p_1 = p_{10}, p_2 = p_{20}, \cdots, p_k = p_{k0}\,,
-\end{equation*}\]</span>
-and alternative
-<span class="math display">\[\begin{equation*}
-H_a : p_i \neq p_{i0}\; \text{for at least one}\; i\,,
-\end{equation*}\]</span>
-the test statistic to consider is:
-<span class="math display">\[\begin{equation*}
- V = \sum_{i=1}^k \frac{(n_i - m p_{i0})^2}{m p_{i0}}\,,
-\end{equation*}\]</span>
-provided, as a rule of thumb, <span class="math inline">\(m p_{i0} \geq 5\)</span> for all <span class="math inline">\(i = 1, \dots, k\)</span>.
-</div>
-<blockquote>
-<p>⚠️ Things are much more complicated if the category probabilities are not completely specified.</p>
-</blockquote>
-</div>
-<div id="test-for-independence-of-factors" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Test for independence of factors</h2>
-<p>In Section <a href="categorical-data.html#goodness-of-fit-tests">4.2</a> we considered the categorization of a population into a single factor. We now consider a single population where each individual is categorized into two factors with <span class="math inline">\(I\)</span> distinct categories for the first factor and <span class="math inline">\(J\)</span> distinct categories for the second factor. That is, each individual from the population belongs to exactly one of the <span class="math inline">\(I\)</span> categories of the first factor and exactly one of the <span class="math inline">\(J\)</span> categories of the second factor. We want to determine whether or not there is any dependency between the two factors.</p>
-<p>For a sample of <span class="math inline">\(m\)</span> individuals, we denote by <span class="math inline">\(n_{ij}\)</span> the count of the <span class="math inline">\(m\)</span> samples that fall both in category <span class="math inline">\(i\)</span> of the first factor and category <span class="math inline">\(j\)</span> of the second factor, for <span class="math inline">\(i = 1, \dots, I\)</span> and <span class="math inline">\(j = 1, \dots, J\)</span>. A <strong>contingency (data) tables</strong> with <span class="math inline">\(I\)</span> rows and <span class="math inline">\(J\)</span> columns (i.e., <span class="math inline">\(IJ\)</span> cells) will be used to record the <span class="math inline">\(n_{ij}\)</span> counts (in the obvious way).<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> Let <span class="math inline">\(p_{ij}\)</span> be the proportion of individuals in the population who belong in category <span class="math inline">\(i\)</span> of factor 1 and category <span class="math inline">\(j\)</span> of factor <span class="math inline">\(2\)</span>. Then, the probability that a randomly selected individual falls in category <span class="math inline">\(i\)</span> of factor 1 is found by summing over all <span class="math inline">\(j\)</span>:
-<span class="math display">\[\begin{equation*}
-p_{i} = \sum_{j=1}^J p_{ij}\,,
-\end{equation*}\]</span>
-and likewise, the probability that a randomly selected individual falls in category <span class="math inline">\(j\)</span> of factor 2 is found by summing over all <span class="math inline">\(i\)</span>:
-<span class="math display">\[\begin{equation*}
-p_{j} = \sum_{i=1}^I p_{ij}\,.
-\end{equation*}\]</span>
-The null hypothesis that we will be interested in adopting is
-<span class="math display" id="eq:null-two-factor">\[\begin{equation*}
-H_0 : p_{ij} = p_{i} \cdot p_{j} \; \forall (i,j)\,,
- \tag{4.3}
-\end{equation*}\]</span>
-that is, that an individual’s category in factor 1 is independent of the category in factor 2.</p>
-<p>Following the same program as for the single category goodness-of-fit test, we note that, assuming the null hypothesis <a href="categorical-data.html#eq:null-two-factor">(4.3)</a> is true, then the expected count in cell <span class="math inline">\(i,j\)</span> is
-<span class="math display">\[\begin{equation*}
- \operatorname{E}[N_{ij}] = n p_{ij} = m p_{i} p_{j}\,;
-\end{equation*}\]</span>
-and we estimate <span class="math inline">\(p_i\)</span> and <span class="math inline">\(p_j\)</span> by the appropriate sample proportion:
-<span class="math display">\[\begin{equation*}
-\widehat{p}_i = \frac{n_i}{m}\,, \quad n_i = \sum_{j} n_{ij} \qquad \text{(row total)}\,,
-\end{equation*}\]</span>
-and
-<span class="math display">\[\begin{equation*}
-\widehat{p}_j = \frac{n_j}{m}\,, \quad n_j = \sum_{i} n_{ij}\qquad \text{(col total)}\,.
-\end{equation*}\]</span>
-Thus, the expected cell count is given by
-<span class="math display">\[\begin{equation*}
-\widehat{e}_{ij} = m \widehat{p}_i \widehat{p}_j = \frac{n_i n_j}{m}\,,
-\end{equation*}\]</span>
-and we assess the goodness of fit between the observed cell count <span class="math inline">\(n_ij\)</span> and the expected cell count <span class="math inline">\(\widehat{e}_ij\)</span>.</p>
-
-<div class="proposition">
-<span id="prp:independence-test" class="proposition"><strong>Proposition 4.2  </strong></span>Null hypothesis <span class="math inline">\(H_0 : p_{ij} = p_i p_j\)</span> for all <span class="math inline">\(i=1, \dots, I\)</span>, <span class="math inline">\(j=1, \dots, J\)</span>.
-Alternative hypothesis <span class="math inline">\(H_a : H_0 \;\text{is not true}\)</span>.
-Test statistic:
-<span class="math display">\[\begin{equation*}
-V = \sum_{i=1}^I \sum_{j=1}^J \frac{(n_{ij} - \widehat{e}_{ij})^2}{\widehat{e}_{ij}}
-\end{equation*}\]</span>
-Rule of thumb, <span class="math inline">\(\widehat{e}_{ij} \geq 5\)</span> for all <span class="math inline">\(i,j\)</span>, and when <span class="math inline">\(H_0\)</span> is true then the test statistic has approximately <span class="math inline">\(\chi^2((I-1)(J-1))\)</span> distribution. Upper tail.
-</div>
+<div id="quality-control" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Quality Control</h1>
+<div id="control-charts" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Control Charts</h2>
 
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="6">
-<li id="fn6"><p>Here for <span class="math inline">\(i=1, \dots, k\)</span> we use the notation <span class="math inline">\(p_{i0}\)</span> to denote the value of <span class="math inline">\(p_i\)</span> claimed under the null hypothesis.<a href="categorical-data.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>The division by the expected cell counts is to account for possible differences in the relative magnitude of the observed/expected counts.<a href="categorical-data.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>Contingency is another word for dependency in this context.<a href="categorical-data.html#fnref8" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="inference-two-samples.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="anova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="linear-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -460,7 +284,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/dundeemath/MA22004/edit/master/04-categorical-data.Rmd",
+"link": "https://github.com/dundeemath/MA22004/edit/master/07-quality-control.Rmd",
 "text": "Suggest an edit"
 },
 "history": {
