@@ -142,7 +142,7 @@ yielding the test statistic value
  F = \frac{\mathsf{MSTr}}{\mathsf{MSE}} = \frac{`r mstr`}{`r mse`} 
  = `r mstr / mse` \,.
 \end{equation*}
-Since $F > F_\alpha$ we reject $H_0$. The data does not support they hypothesis that the mean salaries in each nation are identical at the $5\%$ level. 
+Since $F > F_\alpha$ we reject $H_0$. The data does not support they hypothesis that the mean salaries in each nation are identical at the $5\%$ level. $\lozenge$    
 
 ## Confidence intervals {#anova-ci}
 
@@ -188,6 +188,6 @@ Then for the function $\overline{x}_2 - \overline{x_1}$,
 & = 1.5 \pm `r qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5)`\,.
 \end{aligned}
 \end{equation*}
-Thus a $90\%$ confidence interval for $\mu_{Eng} - \mu_{Sco}$ is $(`r 1.5 - qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5)`\,, `r 1.5 + qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5)`)$. 
+Thus a $90\%$ confidence interval for $\mu_{Eng} - \mu_{Sco}$ is $(`r 1.5 - qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5)`\,, `r 1.5 + qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5)`)$. $\lozenge$   
 
 > How does this result compare to the method in Section \@ref(compare-means-normpops-vars-unknown)?

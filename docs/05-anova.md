@@ -148,7 +148,7 @@ yielding the test statistic value
  F = \frac{\mathsf{MSTr}}{\mathsf{MSE}} = \frac{32.5}{5.14366} 
  = 6.3184581 \,.
 \end{equation*}
-Since $F > F_\alpha$ we reject $H_0$. The data does not support they hypothesis that the mean salaries in each nation are identical at the $5\%$ level. 
+Since $F > F_\alpha$ we reject $H_0$. The data does not support they hypothesis that the mean salaries in each nation are identical at the $5\%$ level. $\lozenge$    
 
 ## Confidence intervals {#anova-ci}
 
@@ -195,6 +195,6 @@ Then for the function $\overline{x}_2 - \overline{x_1}$,
 & = 1.5 \pm 2.3976575\,.
 \end{aligned}
 \end{equation*}
-Thus a $90\%$ confidence interval for $\mu_{Eng} - \mu_{Sco}$ is $(-0.8976575\,, 3.8976575)$. 
+Thus a $90\%$ confidence interval for $\mu_{Eng} - \mu_{Sco}$ is $(-0.8976575\,, 3.8976575)$. $\lozenge$   
 
 > How does this result compare to the method in Section \@ref(compare-means-normpops-vars-unknown)?
