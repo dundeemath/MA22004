@@ -197,4 +197,4 @@ Then for the function $\overline{x}_2 - \overline{x_1}$,
 \end{equation*}
 Thus a $90\%$ confidence interval for $\mu_{Eng} - \mu_{Sco}$ is $(-0.8976575\,, 3.8976575)$. $\lozenge$   
 
-> How does this result compare to the method in Section \@ref(compare-means-normpops-vars-unknown)?
+> How does the result in \@ref(exm:anova-ci) compare to the $\mathsf{t}$ method in Section \@ref(compare-means-normpops-vars-unknown)?
