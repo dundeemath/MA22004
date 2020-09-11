@@ -157,7 +157,7 @@ In general, the confidence intervals for the mean based on normality theory will
 \begin{equation}
 \text{point estimate}\; \mu \pm (\text{critical value of reference dist.}) \cdot (\text{precision of point estimate})\,, (\#eq:ci-gen-form)
 \end{equation}
-where the reference distribution will be the standard normal (for 1. and 2.) and the Student's $t$ distribution (for 3.). The critical value corresponds to the two-sided (symmetric) tail areas under the reference distribution.  
+where the reference distribution will be the standard normal (for 1. and 2.) and the Student's $\mathsf{t}$ distribution (for 3.). The critical value corresponds to the two-sided (symmetric) tail areas under the reference distribution.  
 
 ### Mean of a normal population with known variance {#mean-normal-var-known}
 
@@ -277,7 +277,7 @@ recall the $s$ in \@ref(eq:ci-large-sample) is the sample variance for the *popu
 
 \BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-est-prop-norm-approx-binom"><strong>(\#exm:eg-est-prop-norm-approx-binom) </strong></span>**TODO**: Examples of sampling distribution for p $\lozenge$</div>\EndKnitrBlock{example}
 
-\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-est-prop-ci"><strong>(\#exm:eg-est-prop-ci) </strong></span>**TODO**: Example confidence interval for p</div>\EndKnitrBlock{example}
+\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-est-prop-ci"><strong>(\#exm:eg-est-prop-ci) </strong></span>**TODO**: Example confidence interval for p $\lozenge$</div>\EndKnitrBlock{example}
 
 \BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:eg-est-prop-hypothesis-test"><strong>(\#exm:eg-est-prop-hypothesis-test) </strong></span>**TODO**: Example hypothesis test $\lozenge$</div>\EndKnitrBlock{example}
 
