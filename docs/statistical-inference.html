@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Inferences based on a single sample | MA22004 - Statistics and Probability II</title>
+  <title>2 Basics of statistical inferences | MA22004 - Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Inferences based on a single sample | MA22004 - Statistics and Probability II" />
+  <meta property="og:title" content="2 Basics of statistical inferences | MA22004 - Statistics and Probability II" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://ejhall.github.io/MA22004/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ejhall/MA22004/" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Inferences based on a single sample | MA22004 - Statistics and Probability II" />
+  <meta name="twitter:title" content="2 Basics of statistical inferences | MA22004 - Statistics and Probability II" />
   
   <meta name="twitter:description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="special-distributions.html"/>
-<link rel="next" href="inference-two-samples.html"/>
+<link rel="prev" href="sampling-distributions.html"/>
+<link rel="next" href="inference-single-sample.html"/>
 <script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,6 +50,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
@@ -159,51 +160,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#notation"><i class="fa fa-check"></i>Notation</a></li>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#abbreviations"><i class="fa fa-check"></i>Abbreviations</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="special-distributions.html"><a href="special-distributions.html"><i class="fa fa-check"></i><b>1</b> Special distributions</a>
+<li class="chapter" data-level="1" data-path="sampling-distributions.html"><a href="sampling-distributions.html"><i class="fa fa-check"></i><b>1</b> Sampling distributions</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="special-distributions.html"><a href="special-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.1</b> Normal distribution</a>
+<li class="chapter" data-level="1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.1</b> Normal distribution</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="special-distributions.html"><a href="special-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about Normals</a></li>
-<li class="chapter" data-level="1.1.2" data-path="special-distributions.html"><a href="special-distributions.html#critical-z-values"><i class="fa fa-check"></i><b>1.1.2</b> Critical <span class="math inline">\(z\)</span> values</a></li>
+<li class="chapter" data-level="1.1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about Normals</a></li>
+<li class="chapter" data-level="1.1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#critical-z-values"><i class="fa fa-check"></i><b>1.1.2</b> Critical <span class="math inline">\(z\)</span> values</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="special-distributions.html"><a href="special-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\mathsf{t}\)</span> distribution</a>
+<li class="chapter" data-level="1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\mathsf{t}\)</span> distribution</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="special-distributions.html"><a href="special-distributions.html#facts-t"><i class="fa fa-check"></i><b>1.2.1</b> Properties of <span class="math inline">\(\mathsf{t}\)</span> distributions</a></li>
+<li class="chapter" data-level="1.2.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-t"><i class="fa fa-check"></i><b>1.2.1</b> Properties of <span class="math inline">\(\mathsf{t}\)</span> distributions</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="special-distributions.html"><a href="special-distributions.html#chisq-distribution"><i class="fa fa-check"></i><b>1.3</b> <span class="math inline">\(\chi^2\)</span> distribution</a></li>
-<li class="chapter" data-level="1.4" data-path="special-distributions.html"><a href="special-distributions.html#F-distribution"><i class="fa fa-check"></i><b>1.4</b> <span class="math inline">\(\mathsf{F}\)</span> distribution</a></li>
+<li class="chapter" data-level="1.3" data-path="sampling-distributions.html"><a href="sampling-distributions.html#chisq-distribution"><i class="fa fa-check"></i><b>1.3</b> <span class="math inline">\(\chi^2\)</span> distribution</a></li>
+<li class="chapter" data-level="1.4" data-path="sampling-distributions.html"><a href="sampling-distributions.html#F-distribution"><i class="fa fa-check"></i><b>1.4</b> <span class="math inline">\(\mathsf{F}\)</span> distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>2</b> Inferences based on a single sample</a>
+<li class="chapter" data-level="2" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>2</b> Basics of statistical inferences</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="statistical-inference.html"><a href="statistical-inference.html#point-estimation"><i class="fa fa-check"></i><b>2.1</b> Point estimation</a></li>
 <li class="chapter" data-level="2.2" data-path="statistical-inference.html"><a href="statistical-inference.html#confidence-intervals"><i class="fa fa-check"></i><b>2.2</b> Confidence intervals</a></li>
 <li class="chapter" data-level="2.3" data-path="statistical-inference.html"><a href="statistical-inference.html#hypothesis-testing"><i class="fa fa-check"></i><b>2.3</b> Hypothesis testing</a></li>
-<li class="chapter" data-level="2.4" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-means"><i class="fa fa-check"></i><b>2.4</b> Estimating means</a>
-<ul>
-<li class="chapter" data-level="2.4.1" data-path="statistical-inference.html"><a href="statistical-inference.html#mean-normal-var-known"><i class="fa fa-check"></i><b>2.4.1</b> Mean of a normal population with known variance</a></li>
-<li class="chapter" data-level="2.4.2" data-path="statistical-inference.html"><a href="statistical-inference.html#mean-large-sample"><i class="fa fa-check"></i><b>2.4.2</b> Mean of a population with unknown variance (large-sample)</a></li>
-<li class="chapter" data-level="2.4.3" data-path="statistical-inference.html"><a href="statistical-inference.html#mean-normal-var-unknown"><i class="fa fa-check"></i><b>2.4.3</b> Mean of a normal population with unknown variance</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-proportions"><i class="fa fa-check"></i><b>2.5</b> Estimating proportions</a></li>
-<li class="chapter" data-level="2.6" data-path="statistical-inference.html"><a href="statistical-inference.html#estimating-variances"><i class="fa fa-check"></i><b>2.6</b> Estimating variances</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="inference-two-samples.html"><a href="inference-two-samples.html"><i class="fa fa-check"></i><b>3</b> Inferences based on two samples</a>
+<li class="chapter" data-level="3" data-path="inference-single-sample.html"><a href="inference-single-sample.html"><i class="fa fa-check"></i><b>3</b> Inferences based on a single sample</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-means"><i class="fa fa-check"></i><b>3.1</b> Comparing means</a>
+<li class="chapter" data-level="3.1" data-path="inference-single-sample.html"><a href="inference-single-sample.html#estimating-means"><i class="fa fa-check"></i><b>3.1</b> Estimating means</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-means-normpops-vars-known"><i class="fa fa-check"></i><b>3.1.1</b> Comparing means of normal populations when variances are known</a></li>
-<li class="chapter" data-level="3.1.2" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-means-large-samples"><i class="fa fa-check"></i><b>3.1.2</b> Comparing means when the sample sizes are large</a></li>
-<li class="chapter" data-level="3.1.3" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-means-normpops-vars-unknown"><i class="fa fa-check"></i><b>3.1.3</b> Comparing means of normal populations when variances are unknown and the sample size is small</a></li>
+<li class="chapter" data-level="3.1.1" data-path="inference-single-sample.html"><a href="inference-single-sample.html#mean-normal-var-known"><i class="fa fa-check"></i><b>3.1.1</b> Mean of a normal population with known variance</a></li>
+<li class="chapter" data-level="3.1.2" data-path="inference-single-sample.html"><a href="inference-single-sample.html#mean-large-sample"><i class="fa fa-check"></i><b>3.1.2</b> Mean of a population with unknown variance (large-sample)</a></li>
+<li class="chapter" data-level="3.1.3" data-path="inference-single-sample.html"><a href="inference-single-sample.html#mean-normal-var-unknown"><i class="fa fa-check"></i><b>3.1.3</b> Mean of a normal population with unknown variance</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-paired-samples"><i class="fa fa-check"></i><b>3.2</b> Comparing paired samples</a></li>
-<li class="chapter" data-level="3.3" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-proportions"><i class="fa fa-check"></i><b>3.3</b> Comparing proportions</a></li>
-<li class="chapter" data-level="3.4" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-variances"><i class="fa fa-check"></i><b>3.4</b> Comparing variances</a></li>
+<li class="chapter" data-level="3.2" data-path="inference-single-sample.html"><a href="inference-single-sample.html#estimating-proportions"><i class="fa fa-check"></i><b>3.2</b> Estimating proportions</a></li>
+<li class="chapter" data-level="3.3" data-path="inference-single-sample.html"><a href="inference-single-sample.html#estimating-variances"><i class="fa fa-check"></i><b>3.3</b> Estimating variances</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="categorical-data.html"><a href="categorical-data.html"><i class="fa fa-check"></i><b>4</b> Categorical data</a>
+<li class="chapter" data-level="4" data-path="inference-two-samples.html"><a href="inference-two-samples.html"><i class="fa fa-check"></i><b>4</b> Inferences based on two samples</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="categorical-data.html"><a href="categorical-data.html#multinomial-experiments"><i class="fa fa-check"></i><b>4.1</b> Multinomial experiments</a></li>
-<li class="chapter" data-level="4.2" data-path="categorical-data.html"><a href="categorical-data.html#goodness-of-fit-tests"><i class="fa fa-check"></i><b>4.2</b> Goodness-of-fit for a single factor</a></li>
-<li class="chapter" data-level="4.3" data-path="categorical-data.html"><a href="categorical-data.html#test-for-independence-of-factors"><i class="fa fa-check"></i><b>4.3</b> Test for independence of factors</a></li>
+<li class="chapter" data-level="4.1" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-means"><i class="fa fa-check"></i><b>4.1</b> Comparing means</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-means-normpops-vars-known"><i class="fa fa-check"></i><b>4.1.1</b> Comparing means of normal populations when variances are known</a></li>
+<li class="chapter" data-level="4.1.2" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-means-large-samples"><i class="fa fa-check"></i><b>4.1.2</b> Comparing means when the sample sizes are large</a></li>
+<li class="chapter" data-level="4.1.3" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-means-normpops-vars-unknown"><i class="fa fa-check"></i><b>4.1.3</b> Comparing means of normal populations when variances are unknown and the sample size is small</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-paired-samples"><i class="fa fa-check"></i><b>4.2</b> Comparing paired samples</a></li>
+<li class="chapter" data-level="4.3" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-proportions"><i class="fa fa-check"></i><b>4.3</b> Comparing proportions</a></li>
+<li class="chapter" data-level="4.4" data-path="inference-two-samples.html"><a href="inference-two-samples.html#compare-variances"><i class="fa fa-check"></i><b>4.4</b> Comparing variances</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="anova.html"><a href="anova.html"><i class="fa fa-check"></i><b>5</b> Analysis of variance (ANOVA)</a>
 <ul>
@@ -215,9 +213,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="linear-models.html"><a href="linear-models.html#simple-linear-regression-models"><i class="fa fa-check"></i><b>6.1</b> Simple linear regression models</a></li>
 <li class="chapter" data-level="6.2" data-path="linear-models.html"><a href="linear-models.html#correlation"><i class="fa fa-check"></i><b>6.2</b> Correlation</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="quality-control.html"><a href="quality-control.html"><i class="fa fa-check"></i><b>7</b> Quality Control</a>
+<li class="chapter" data-level="7" data-path="categorical-data.html"><a href="categorical-data.html"><i class="fa fa-check"></i><b>7</b> Categorical data</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="quality-control.html"><a href="quality-control.html#control-charts"><i class="fa fa-check"></i><b>7.1</b> Control Charts</a></li>
+<li class="chapter" data-level="7.1" data-path="categorical-data.html"><a href="categorical-data.html#multinomial-experiments"><i class="fa fa-check"></i><b>7.1</b> Multinomial experiments</a></li>
+<li class="chapter" data-level="7.2" data-path="categorical-data.html"><a href="categorical-data.html#goodness-of-fit-tests"><i class="fa fa-check"></i><b>7.2</b> Goodness-of-fit for a single factor</a></li>
+<li class="chapter" data-level="7.3" data-path="categorical-data.html"><a href="categorical-data.html#test-for-independence-of-factors"><i class="fa fa-check"></i><b>7.3</b> Test for independence of factors</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="quality-control.html"><a href="quality-control.html"><i class="fa fa-check"></i><b>8</b> Quality Control</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="quality-control.html"><a href="quality-control.html#control-charts"><i class="fa fa-check"></i><b>8.1</b> Control Charts</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -241,8 +245,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="statistical-inference" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Inferences based on a single sample</h1>
-<p>We discuss the basics of point estimation, confidence intervals, and hypothesis testing for making inferences about a population based on a single sample in Sections <a href="statistical-inference.html#point-estimation">2.1</a>, <a href="statistical-inference.html#confidence-intervals">2.2</a>, and <a href="statistical-inference.html#hypothesis-testing">2.3</a>, respectively. In particular, we provide details about estimating population means (<span class="math inline">\(\mu\)</span>) in Section <a href="statistical-inference.html#estimating-means">2.4</a>, population proportions (<span class="math inline">\(p\)</span>) in Section <a href="statistical-inference.html#estimating-proportions">2.5</a>, and population variances (<span class="math inline">\(\sigma^2\)</span>) in Section <a href="statistical-inference.html#estimating-variances">2.6</a>.</p>
+<h1><span class="header-section-number">2</span> Basics of statistical inferences</h1>
+<p>We discuss the basics of point estimation, confidence intervals, and hypothesis testing for making inferences about a population based on a single sample in Sections <a href="statistical-inference.html#point-estimation">2.1</a>, <a href="statistical-inference.html#confidence-intervals">2.2</a>, and <a href="statistical-inference.html#hypothesis-testing">2.3</a>, respectively.</p>
 <div id="point-estimation" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Point estimation</h2>
 <p>A <strong>statistic</strong> is a quantity that can be calculated from sample data. Prior to obtaining data, a statistic is an unknown quantity and is therefore a rv. We refer to the probability distribution for a statistic as a <strong>sampling distribution</strong> to emphasize how the distribution will vary across all possible sample data.</p>
@@ -401,182 +405,6 @@ Figure 2.2: Fifty <span class="math inline">\(95\%\)</span> CIs for a population
 <li>Test statistic</li>
 <li>Rejection region</li>
 </ol>
-</div>
-<div id="estimating-means" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Estimating means</h2>
-<p>If the parameter of interest is the population mean <span class="math inline">\(\theta = \mu\)</span>, then the sample mean estimator <span class="math inline">\(\widehat{\theta} = \overline{X}\)</span> in <a href="statistical-inference.html#eq:sample-mean">(2.1)</a> has (at least approximately) a normal distribution for sufficiently large <span class="math inline">\(n\)</span>. We will consider three cases,</p>
-<ol style="list-style-type: decimal">
-<li><a href="statistical-inference.html#mean-normal-var-known">normal population with known <span class="math inline">\(\sigma^2\)</span></a>,</li>
-<li><a href="statistical-inference.html#mean-large-sample">any population with unknown <span class="math inline">\(\sigma^2\)</span>, when the sample size <span class="math inline">\(n\)</span> is large</a>,</li>
-<li><a href="statistical-inference.html#mean-normal-var-unknown">normal population with unknown <span class="math inline">\(\sigma^2\)</span>, when the sample size <span class="math inline">\(n\)</span> is small</a>,</li>
-</ol>
-<p>where the form of the confidence interval for <span class="math inline">\(mu\)</span> can be derived using the approximate normality of the sample mean.</p>
-<p>In general, the confidence intervals for the mean based on normality theory will have the form:
-<span class="math display" id="eq:ci-gen-form">\[\begin{equation}
-\text{point estimate}\; \mu \pm (\text{critical value of reference dist.}) \cdot (\text{precision of point estimate})\,, \tag{2.3}
-\end{equation}\]</span>
-where the reference distribution will be the standard normal (for 1. and 2.) and the Student’s <span class="math inline">\(\mathsf{t}\)</span> distribution (for 3.). The critical value corresponds to the two-sided (symmetric) tail areas under the reference distribution.</p>
-<div id="mean-normal-var-known" class="section level3" number="2.4.1">
-<h3><span class="header-section-number">2.4.1</span> Mean of a normal population with known variance</h3>
-
-<div class="definition">
-<span id="def:ci-norm-known-var" class="definition"><strong>Definition 2.7  </strong></span>A <strong><span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval</strong> for the mean <span class="math inline">\(\mu\)</span> of a normal population when the value of <span class="math inline">\(\sigma^2\)</span> is known is given by
-<span class="math display" id="eq:ci-norm-known-var">\[\begin{equation} 
- \left(\overline{x} - z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}\,, 
-        \overline{x} + z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}} \right)\,,  \tag{2.4}
-\end{equation}\]</span>
-or <span class="math inline">\(\overline{x} \pm z_{\alpha/2} \cdot \sigma / \sqrt{n}\)</span>.
-</div>
-<p>The CI for the mean <a href="statistical-inference.html#eq:ci-norm-known-var">(2.4)</a> can be expressed as
-<span class="math display">\[\begin{equation*}
- \text{point estimate}\; \mu \pm 
- (z \;\text{critical value}) \cdot (\text{standard error of mean})\,.
-\end{equation*}\]</span>
-The <span class="math inline">\(z\)</span> critical value is related to the tail areas under the standard normal curve; we need to find the <span class="math inline">\(z\)</span>-score having a cumulative probability equal to <span class="math inline">\(1-\alpha\)</span> according to Definition <a href="statistical-inference.html#def:confidence-interval-gen">2.3</a>.</p>
-<p><strong>TODO</strong>: add example</p>
-<p>As noted in <a href="statistical-inference.html#eq:ci-gen-form">(2.3)</a> and <a href="statistical-inference.html#eq:ci-norm-known-var">(2.4)</a>, the width of a CI is related to the estimator’s precision. The confidence level (or reliability) is inversely related to this precision. When the population is normal and the variance is known, then an appealing strategy is to determine the sample size necessary to achieve a desired confidence level and precision. A general formula for the sample size <span class="math inline">\(n\)</span> necessary to achieve an interval width <span class="math inline">\(w\)</span> is obtained at confidence level <span class="math inline">\(\alpha\)</span> is obtained by equating <span class="math inline">\(w\)</span> to <span class="math inline">\(2z_{\alpha/2} \cdot \sigma /\sqrt{n}\)</span> and then solving for <span class="math inline">\(n\)</span>.</p>
-
-<div class="proposition">
-<span id="prp:ci-select-n-fixed-w-alpha" class="proposition"><strong>Proposition 2.1  </strong></span>The sample size <span class="math inline">\(n\)</span> required to achieve a CI for <span class="math inline">\(\mu\)</span> with width <span class="math inline">\(w\)</span> at level <span class="math inline">\(\alpha\)</span> is given by,
-<span class="math display">\[\begin{equation}
-n = \left( 2 z_{\alpha/2} \cdot \frac{\sigma}{w} \right)^2 \,.
-\end{equation}\]</span>
-</div>
-<p>From Proposition <a href="statistical-inference.html#prp:ci-select-n-fixed-w-alpha">2.1</a>, we see that the smaller the desired <span class="math inline">\(w\)</span> then the larger <span class="math inline">\(n\)</span> must be (and subsequently, the more effort that must be allocated to data collection).</p>
-<p><strong>TODO</strong>: add example of sample size calculation</p>
-</div>
-<div id="mean-large-sample" class="section level3" number="2.4.2">
-<h3><span class="header-section-number">2.4.2</span> Mean of a population with unknown variance (large-sample)</h3>
-<p>Consider samples <span class="math inline">\(X_1, \dots, X_n\)</span> from a population with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. Provided that <span class="math inline">\(n\)</span> is large enough, the Central Limit Theorem implies that the estimator for the sample mean <span class="math inline">\(\overline{X}\)</span> in <a href="statistical-inference.html#eq:sample-mean">(2.1)</a> has <em>approximately</em> a normal distribution. Then
-<span class="math display">\[\begin{equation}
-P \left( - z_{\alpha/2} &lt; \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} &lt; z_{\alpha/2} \right) \approx 1 - \alpha\,,
-\end{equation}\]</span>
-since the transformed variable has approximately a standard normal distribution. Thus, computing a point estimate based on a large <span class="math inline">\(n\)</span> of samples yields a CI for the population parameter <span class="math inline">\(\mu\)</span> at an <em>approximate</em> confidence level <span class="math inline">\(\alpha\)</span>. However, it is often the case that the variance is unknown. When <span class="math inline">\(n\)</span> is large, replacing the population variance <span class="math inline">\(\sigma^2\)</span> by the sample variance <span class="math inline">\(S^2\)</span> in <a href="statistical-inference.html#eq:sample-var">(2.2)</a> will not typically introduce too much additional variability.</p>
-
-<div class="proposition">
-<span id="prp:ci-large-sample" class="proposition"><strong>Proposition 2.2  </strong></span>For large samples <span class="math inline">\(n\)</span>, an approximate <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the mean <span class="math inline">\(\mu\)</span> of any population when the variance is uknown is given by
-<span class="math display" id="eq:ci-large-sample">\[\begin{equation} 
- \left(\overline{x} - z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} \,, 
-        \overline{x} + z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} \right)\,,  
- \tag{2.5}
-\end{equation}\]</span>
-or <span class="math inline">\(\overline{x} \pm z_{\alpha/2} \cdot s / \sqrt{n}\)</span>.
-</div>
-<p>The CI for the mean <a href="statistical-inference.html#eq:ci-large-sample">(2.5)</a> applies regardless of the shape of the population distribution so long as the number of samples is large. A rule of thumb is that <span class="math inline">\(n &gt; 40\)</span> is sufficient. In words, the CI <a href="statistical-inference.html#eq:ci-large-sample">(2.5)</a> can be expressed as
-<span class="math display">\[\begin{equation*}
- \text{point estimate}\; \mu \pm 
- (z \;\text{critical value}) \cdot (\text{estimated standard error of mean})\,.
-\end{equation*}\]</span>
-Typically, a large-sample CI for a general parameter <span class="math inline">\(\theta\)</span> similar to <a href="statistical-inference.html#eq:ci-large-sample">(2.5)</a> holds for any estimator <span class="math inline">\(\widehat{\theta}\)</span> that satisfies: (1) approximately normal in distribution, (2) approximately unbiased, and (3) an expression for the standard error is available.</p>
-<p><strong>TODO</strong>: add example</p>
-</div>
-<div id="mean-normal-var-unknown" class="section level3" number="2.4.3">
-<h3><span class="header-section-number">2.4.3</span> Mean of a normal population with unknown variance</h3>
-<p>In Section <a href="statistical-inference.html#mean-normal-var-known">2.4.1</a>, we considered samples <span class="math inline">\(X_1, \dots, X_n\)</span> from a normal population with a known <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>. In contrast, here we consider samples from a normal population and assume the population parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> are unknown. If the number of samples is large, the discussion in Section <a href="statistical-inference.html#mean-large-sample">2.4.2</a> indicates that the rv <span class="math inline">\(Z = (\overline{X} - \mu) \sqrt{n} / S\)</span> has approximately a standard normal distribution. However, if <span class="math inline">\(n\)</span> is not sufficiently large then the transformed variable will be more spread out than a standard normal distribution.</p>
-
-<div class="theorem">
-<span id="thm:sample-mean-t-dist" class="theorem"><strong>Theorem 2.1  </strong></span>For the sample mean <span class="math inline">\(\overline{X}\)</span> based on <span class="math inline">\(n\)</span> samples from a normal distribution with mean <span class="math inline">\(\mu\)</span>, the rv
-<span class="math display">\[\begin{equation}
- T = \frac{\overline{X} - \mu}{S} \sqrt{n} \quad \sim \mathsf{t}(n-1)\,,
-\end{equation}\]</span>
-that is, <span class="math inline">\(T\)</span> has Student’s <span class="math inline">\(\mathsf{t}\)</span> distribution with <span class="math inline">\(\nu = n-1\)</span> degrees of freedom (df).
-</div>
-<p>This leads us to consider a CI for the population parameter <span class="math inline">\(\mu\)</span> that is based on critical values of the <span class="math inline">\(\mathsf{t}\)</span> distribution.</p>
-
-<div class="proposition">
-<span id="prp:ci-norm-unknown-var" class="proposition"><strong>Proposition 2.3  </strong></span>A <strong><span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval</strong> for the mean <span class="math inline">\(\mu\)</span> of a normal population when the value of <span class="math inline">\(\sigma^2\)</span> is unknown is given by
-<span class="math display" id="eq:ci-norm-known-var">\[\begin{equation} 
- \left(\overline{x} - t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}}\,, 
-        \overline{x} + t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}} \right)\,,  \tag{2.4}
-\end{equation}\]</span>
-or <span class="math inline">\(\overline{x} \pm t_{\alpha/2, n-1} \cdot s/ \sqrt{n}\)</span>. Here <span class="math inline">\(\overline{x}\)</span> and <span class="math inline">\(s\)</span> are the sample mean and sample standard deviation, respectively.
-</div>
-<p>In contrast to Proposition <a href="statistical-inference.html#prp:ci-select-n-fixed-w-alpha">2.1</a>, it is difficult to select the sample size <span class="math inline">\(n\)</span> to control the width of the <span class="math inline">\(\mathsf{t}\)</span>-based CI as the width involves the unknown (before the sample is acquired) <span class="math inline">\(s\)</span> and because <span class="math inline">\(n\)</span> also enters through <span class="math inline">\(t_{\alpha/2, n-1}\)</span>.</p>
-<p><strong>TODO</strong>: add example</p>
-
-<div class="proposition">
-<span id="prp:norm-ci-rule-thumb" class="proposition"><strong>Proposition 2.4  </strong></span><strong>TODO</strong>: rule of thumb normal CI
-</div>
-<p><strong>TODO</strong>: add example using rule of thumb</p>
-</div>
-</div>
-<div id="estimating-proportions" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Estimating proportions</h2>
-<p>Consider a population of size <span class="math inline">\(N\)</span> in which a proportion <span class="math inline">\(p\)</span> of the population satisfies a given property. The <span class="math inline">\(p \in (0,1)\)</span> is a parameter characterizing the population, with distribution <span class="math inline">\(F(p)\)</span>,<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> that we might be interested in estimating. A sample, <span class="math inline">\(X_1, \dots, X_n \sim F(p)\)</span>, of size <span class="math inline">\(n\)</span> from the population contains a proportion,
-<span class="math display" id="eq:proportion-estimator">\[\begin{equation}
- \widehat{p} = \frac{1}{n} \sum_{i=1}^n X_i\,,
- \tag{2.6}
-\end{equation}\]</span>
-satisfying the given property. The estimator <span class="math inline">\(\widehat{p}\)</span> varies with the sample and for large <span class="math inline">\(n\)</span> it’s sampling distribution has the following properties:
-<span class="math display" id="eq:proportion-mean">\[\begin{equation*}
-\mu_{\widehat{p}} = \operatorname{E}[X_i] = p 
- \tag{2.7}
-\end{equation*}\]</span>
-and
-<span class="math display" id="eq:proportion-var">\[\begin{equation}
- \sigma_{\widehat{p}}^2 = \frac{\operatorname{Var}[X_i]}{n} = \frac{p(1-p)}{n}\,,
- \tag{2.8}
-\end{equation}\]</span>
-provided that <span class="math inline">\(n\)</span> is small relative to <span class="math inline">\(N\)</span> (a rule of thumb is <span class="math inline">\(n \leq 0.05 N\)</span>).<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> Moreover, by invoking the Central Limit Theorem we have the distribution of <span class="math inline">\(\widehat{p}\)</span> is approximately normal for sufficiently large <span class="math inline">\(n\)</span> as <a href="statistical-inference.html#eq:proportion-estimator">(2.6)</a> is a sample mean. Indeed, this normal approximation works well for moderately large <span class="math inline">\(n\)</span> as long as <span class="math inline">\(p\)</span> is not too close to zero or one; a rule of thumb is that <span class="math inline">\(np &gt; 5\)</span> and <span class="math inline">\(n(1-p) &gt; 5\)</span>.</p>
-
-<div class="proposition">
-<span id="prp:ci-proportion" class="proposition"><strong>Proposition 2.5  </strong></span>For large samples <span class="math inline">\(n\)</span>, a <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the parameter <span class="math inline">\(p\)</span> is given by
-<span class="math display" id="eq:proportion-mean-ci">\[\begin{equation}
- \widehat{p} \pm z_{\alpha/2} \sqrt{\frac{\widehat{p} (1-\widehat{p})}{n}}\,.
- \tag{2.9}
-\end{equation}\]</span>
-</div>
-<p>This follows from Proposition <a href="statistical-inference.html#prp:ci-large-sample">2.2</a> by observing that <a href="statistical-inference.html#eq:proportion-estimator">(2.6)</a> is a sample mean and replacing the standard error <span class="math inline">\(\sigma_{\widehat{p}}\)</span> from <a href="statistical-inference.html#eq:proportion-var">(2.8)</a> by the estimated standard error,
-<span class="math display">\[\begin{equation*}
- \widehat{\mathsf{se}}(\widehat{p}) = \sqrt{\frac{\widehat{p} (1-\widehat{p})}{n}}\,;
-\end{equation*}\]</span>
-recall the <span class="math inline">\(s\)</span> in <a href="statistical-inference.html#eq:ci-large-sample">(2.5)</a> is the sample variance for the <em>population</em> and <span class="math inline">\(s / \sqrt{n} = \mathsf{se}\)</span> is the standard error of the point estimator.</p>
-
-<div class="example">
-<span id="exm:eg-est-prop-norm-approx-binom" class="example"><strong>Example 2.4  </strong></span><strong>TODO</strong>: Examples of sampling distribution for p <span class="math inline">\(\lozenge\)</span>
-</div>
-
-<div class="example">
-<span id="exm:eg-est-prop-ci" class="example"><strong>Example 2.5  </strong></span><strong>TODO</strong>: Example confidence interval for p <span class="math inline">\(\lozenge\)</span>
-</div>
-
-<div class="example">
-<span id="exm:eg-est-prop-hypothesis-test" class="example"><strong>Example 2.6  </strong></span><strong>TODO</strong>: Example hypothesis test <span class="math inline">\(\lozenge\)</span>
-</div>
-</div>
-<div id="estimating-variances" class="section level2" number="2.6">
-<h2><span class="header-section-number">2.6</span> Estimating variances</h2>
-<p>Next we consider estimates of the population variance (and standard deviation) when the population is assumed to have a normal distribution. In this case, the sample variance <span class="math inline">\(S^2\)</span> in <a href="statistical-inference.html#eq:sample-var">(2.2)</a> provides the basis for inferences. Consider iid samples <span class="math inline">\(X_1, \dots, X_n \sim \mathsf{N}(\mu, \sigma^2)\)</span>. We provide the following theorem without proof.</p>
-
-<div class="theorem">
-<span id="thm:samp-var-chisq" class="theorem"><strong>Theorem 2.2  </strong></span>For the sample variance <span class="math inline">\(S^2\)</span> based on <span class="math inline">\(n\)</span> samples from a normal distribution with variance <span class="math inline">\(\sigma\)</span>, the rv
-<span class="math display">\[\begin{equation*}
-V = \frac{(n-1)S^2}{\sigma^2} = \frac{\sum_i(X_i - \overline{X})^2}{\sigma^2} \qquad \sim \chi^2_{n-1}\,,
-\end{equation*}\]</span>
-that is, <span class="math inline">\(V\)</span> has a <span class="math inline">\(\chi^2\)</span> distribution with <span class="math inline">\(\nu = n-1\)</span> df.
-</div>
-<p>Based on Theorem <a href="statistical-inference.html#thm:samp-var-chisq">2.2</a>,
-<span class="math display">\[\begin{equation*}
-P\left(\chi^2_{1-\alpha/2, n-1} &lt; \frac{(n-1)S^2}{\sigma^2} &lt; \chi^2_{\alpha/2, n-1} \right) = 1 - \alpha \,,
-\end{equation*}\]</span>
-i.e., the area captured between the right and left tail critical <span class="math inline">\(\chi^2\)</span> values is <span class="math inline">\(1-\alpha\)</span>. The expression above can be further manipulated to obtain an interval for the unknown parameter <span class="math inline">\(\sigma^2\)</span>:
-<span class="math display">\[\begin{equation*}
-P\left(\frac{(n-1) s^2}{\chi^2_{\alpha/2, n-1}} &lt; \sigma^2 &lt; \frac{(n-1) s^2}{\chi^2_{1-\alpha/2, n-1}} \right) = 1 - \alpha \,,
-\end{equation*}\]</span>
-where we substitute the computed value of the point estimate <span class="math inline">\(s^2\)</span> for the estimator into the limits to give a CI for <span class="math inline">\(\sigma^2\)</span>. If we take square roots of the inequality above, we obtain a CI for the population standard deviation <span class="math inline">\(\sigma\)</span>.</p>
-
-<div class="proposition">
-<span id="prp:ci-variance" class="proposition"><strong>Proposition 2.6  </strong></span>A <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the variance of a normal population is
-<span class="math display" id="eq:ci-variance">\[\begin{equation*}
- \left( (n-1)s^2 / \chi^2_{\alpha/2, n-1} \,,  (n-1)s^2 / \chi^2_{1-\alpha/2, n-1} \right) \,.
- \tag{2.10}
-\end{equation*}\]</span>
-A <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the standard deviation <span class="math inline">\(\sigma\)</span> of a normal population is given by taking the square roots of the lower and upper limits in <a href="statistical-inference.html#eq:ci-variance">(2.10)</a>.
-</div>
-
-<div class="example">
-<span id="exm:eg-ci-variance" class="example"><strong>Example 2.7  </strong></span><strong>TODO</strong>: Example CI for variance (using the tree data?) <span class="math inline">\(\lozenge\)</span>
-</div>
 <hr />
 
 </div>
@@ -594,12 +422,6 @@ A <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for t
 How do we tell whether a population is normal? Constructing a normal quantile-quantile plot is one way of assessing whether a normality assumption is reasonable; such a plot compares the the quantiles of the sample data <span class="math inline">\(x_i\)</span> against the (theoretical) standard normal quantiles. If the sample data is consistent with a sample from a normal distribution, then the points will lie on a straight line (more or less). Below we display the QQ plot comparing quantiles of cherry tree heights from <a href="statistical-inference.html#tab:cherry-data">2.1</a> to normal quantiles.
 <img src="02-basics-stat-infer_files/figure-html/qq-plot-cherry-1.png" width="672" /><a href="statistical-inference.html#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>We comment that <em>fail to reject <span class="math inline">\(H_0\)</span></em> is sometimes phrased <em>retain <span class="math inline">\(H_0\)</span></em> or (perhaps less accurately) <em>accept <span class="math inline">\(H_0\)</span></em>.<a href="statistical-inference.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>Here we write <span class="math inline">\(F\)</span> for a general distribution, but what special distribution might this be?<a href="statistical-inference.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>Note that if <span class="math inline">\(n\)</span> is large relative to <span class="math inline">\(N\)</span> (<span class="math inline">\(n &gt; 0.05 N\)</span>) then the variance <a href="statistical-inference.html#eq:proportion-var">(2.8)</a> must be adjusted by a factor (related to the hypergeometric distribution):
-<span class="math display">\[\begin{equation*}
- \sigma_{\widehat{p}}^2 = \frac{p(1-p)}{n} \frac{N-n}{N-1}\,,
-\end{equation*}\]</span>
-where for fixed <span class="math inline">\(n\)</span> the factor converges to <span class="math inline">\(1\)</span> as <span class="math inline">\(N\to \infty\)</span>.<a href="statistical-inference.html#fnref4" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -607,8 +429,8 @@ where for fixed <span class="math inline">\(n\)</span> the factor converges to <
           </div>
         </div>
       </div>
-<a href="special-distributions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="inference-two-samples.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sampling-distributions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="inference-single-sample.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

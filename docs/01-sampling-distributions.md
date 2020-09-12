@@ -4,7 +4,7 @@
 \newcommand{\E}{\operatorname{E}}
 \newcommand{\se}{\mathsf{se}}
 
-# Special distributions {#special-distributions}
+# Sampling distributions {#sampling-distributions}
 
 ## Normal distribution {#normal-distribution}
 
