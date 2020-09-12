@@ -211,7 +211,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>6</b> Linear regression</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="linear-models.html"><a href="linear-models.html#simple-linear-regression-models"><i class="fa fa-check"></i><b>6.1</b> Simple linear regression models</a></li>
-<li class="chapter" data-level="6.2" data-path="linear-models.html"><a href="linear-models.html#correlation"><i class="fa fa-check"></i><b>6.2</b> Correlation</a></li>
+<li class="chapter" data-level="6.2" data-path="linear-models.html"><a href="linear-models.html#estimating-sigma2-for-linear-regressions"><i class="fa fa-check"></i><b>6.2</b> Estimating <span class="math inline">\(\sigma^2\)</span> for linear regressions</a></li>
+<li class="chapter" data-level="6.3" data-path="linear-models.html"><a href="linear-models.html#inferences-for-least-squares-estimators"><i class="fa fa-check"></i><b>6.3</b> Inferences for least-squares estimators</a></li>
+<li class="chapter" data-level="6.4" data-path="linear-models.html"><a href="linear-models.html#correlation"><i class="fa fa-check"></i><b>6.4</b> Correlation</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="categorical-data.html"><a href="categorical-data.html"><i class="fa fa-check"></i><b>7</b> Categorical data</a>
 <ul>
@@ -340,11 +342,11 @@ for all <span class="math inline">\(\theta \in \Theta\)</span>.
 <blockquote>
 <p>On day 1, you collect data and construct a 95 percent confidence interval for a parameter <span class="math inline">\(\theta_1\)</span>. On day 2, you collect new data and construct a 95 percent confidence interval for an unrelated parameter <span class="math inline">\(\theta_2\)</span>. On day 3, you collect new data and construct a 95 percent confidence interval for an unrelated parameter <span class="math inline">\(\theta_3\)</span>. You continue this way constructing confidence intervals for a sequence of unrelated parameters <span class="math inline">\(\theta_1\)</span>, <span class="math inline">\(\theta_2\)</span>, <span class="math inline">\(\dots\)</span> Then 95 percent of your intervals will trap the true parameter value. There is no need to introduce the idea of repeating the same experiment over and over.</p>
 </blockquote>
-<p>This interpretation makes clear that a confidence interval is not a probability statement about the parameter <span class="math inline">\(\theta\)</span>. In Definition <a href="statistical-inference.html#def:confidence-interval-gen">2.3</a>, note that <span class="math inline">\(\theta\)</span> is fixed (<span class="math inline">\(\theta\)</span> is not a rv) and the interval <span class="math inline">\(C_n\)</span> is random. After data has been collected and a point estimator has been calculated, the resulting CIs either contain the true parameter value or they do not (see).</p>
-<div class="figure"><span id="fig:exp-many-cis"></span>
-<img src="02-basics-stat-infer_files/figure-html/exp-many-cis-1.png" alt="Fifty $95\%$ CIs for a population mean $\mu$. After a sample is taken, the computed interval estimate either contains $\mu$ or it does not (asteriks identify intervals that do not include $\mu$). When drawing such a large number of $95\%$ CIs, we would anticipate that approximately $5\%$ (ca. 2.5) would fail to cover the true parameter $\mu$." width="672" />
+<p>This interpretation makes clear that a confidence interval is not a probability statement about the parameter <span class="math inline">\(\theta\)</span>. In Definition <a href="statistical-inference.html#def:confidence-interval-gen">2.3</a>, note that <span class="math inline">\(\theta\)</span> is fixed (<span class="math inline">\(\theta\)</span> is not a rv) and the interval <span class="math inline">\(C_n\)</span> is random. After data has been collected and a point estimator has been calculated, the resulting CIs either contain the true parameter value or they do not (see Figure <a href="statistical-inference.html#fig:fifty-cis">2.2</a>).</p>
+<div class="figure"><span id="fig:fifty-cis"></span>
+<img src="02-basics-stat-infer_files/figure-html/fifty-cis-1.png" alt="Fifty $95\%$ CIs for a population mean $\mu$. After a sample is taken, the computed interval estimate either contains $\mu$ or it does not (asteriks identify intervals that do not include $\mu$). When drawing such a large number of $95\%$ CIs, we would anticipate that approximately $5\%$ (ca. 2 or 3) would fail to cover the true parameter $\mu$." width="672" />
 <p class="caption">
-Figure 2.2: Fifty <span class="math inline">\(95\%\)</span> CIs for a population mean <span class="math inline">\(\mu\)</span>. After a sample is taken, the computed interval estimate either contains <span class="math inline">\(\mu\)</span> or it does not (asteriks identify intervals that do not include <span class="math inline">\(\mu\)</span>). When drawing such a large number of <span class="math inline">\(95\%\)</span> CIs, we would anticipate that approximately <span class="math inline">\(5\%\)</span> (ca. 2.5) would fail to cover the true parameter <span class="math inline">\(\mu\)</span>.
+Figure 2.2: Fifty <span class="math inline">\(95\%\)</span> CIs for a population mean <span class="math inline">\(\mu\)</span>. After a sample is taken, the computed interval estimate either contains <span class="math inline">\(\mu\)</span> or it does not (asteriks identify intervals that do not include <span class="math inline">\(\mu\)</span>). When drawing such a large number of <span class="math inline">\(95\%\)</span> CIs, we would anticipate that approximately <span class="math inline">\(5\%\)</span> (ca. 2 or 3) would fail to cover the true parameter <span class="math inline">\(\mu\)</span>.
 </p>
 </div>
 <p><strong>TODO</strong>: fix above plot EG devore fig 7.3 that illustrates ca. 50 <span class="math inline">\(95\%\)</span> CIs (with asterisks identifying intervals that do not include <span class="math inline">\(\mu\)</span>).</p>
@@ -358,24 +360,43 @@ Figure 2.2: Fifty <span class="math inline">\(95\%\)</span> CIs for a population
 </div>
 <p>For a statistical hypothesis regarding the <em>equality</em> of a parameter <span class="math inline">\(\theta\)</span> with a fixed quantity <span class="math inline">\(\theta_0\)</span>, the null and alternative hypotheses will take one of the following forms.</p>
 <table>
+<caption>
+<span id="tab:htest-null-alt-forms">Table 2.2: </span>Null hypothesis and corresponding alternative hypothesis.
+</caption>
 <thead>
-<tr class="header">
-<th align="left">Null hypothesis</th>
-<th align="left">Alternative hypothesis</th>
+<tr>
+<th style="text-align:left;">
+Null hypothesis
+</th>
+<th style="text-align:left;">
+Alternative hypothesis
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left"><span class="math inline">\(H_0 : \theta \leq \theta_0\)</span></td>
-<td align="left"><span class="math inline">\(H_a : \theta &gt; \theta_0\)</span></td>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(H_0 : \theta = \theta_0\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(H_a : \theta \neq \theta_0\)</span>
+</td>
 </tr>
-<tr class="even">
-<td align="left"><span class="math inline">\(H_0 : \theta \geq \theta_0\)</span></td>
-<td align="left"><span class="math inline">\(H_a : \theta &lt; \theta_0\)</span></td>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(H_0 : \theta \leq \theta_0\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(H_a : \theta \gt \theta_0\)</span>
+</td>
 </tr>
-<tr class="odd">
-<td align="left"><span class="math inline">\(H_0 : \theta = \theta_0\)</span></td>
-<td align="left"><span class="math inline">\(H_a : \theta \neq \theta_0\)</span></td>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(H_0 : \theta \geq \theta_0\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(H_a : \theta \lt \theta_0\)</span>
+</td>
 </tr>
 </tbody>
 </table>
@@ -419,7 +440,7 @@ Figure 2.2: Fifty <span class="math inline">\(95\%\)</span> CIs for a population
 <hr />
 <ol start="1">
 <li id="fn1"><p>
-How do we tell whether a population is normal? Constructing a normal quantile-quantile plot is one way of assessing whether a normality assumption is reasonable; such a plot compares the the quantiles of the sample data <span class="math inline">\(x_i\)</span> against the (theoretical) standard normal quantiles. If the sample data is consistent with a sample from a normal distribution, then the points will lie on a straight line (more or less). Below we display the QQ plot comparing quantiles of cherry tree heights from <a href="statistical-inference.html#tab:cherry-data">2.1</a> to normal quantiles.
+How do we tell whether a population is normal? Constructing a normal quantile-quantile plot is one way of assessing whether a normality assumption is reasonable; such a plot compares the quantiles of the sample data <span class="math inline">\(x_i\)</span> against the (theoretical) standard normal quantiles. If the sample data is consistent with a sample from a normal distribution, then the points will lie on a straight line (more or less). Below we display the QQ plot comparing quantiles of cherry tree heights from <a href="statistical-inference.html#tab:cherry-data">2.1</a> to normal quantiles.
 <img src="02-basics-stat-infer_files/figure-html/qq-plot-cherry-1.png" width="672" /><a href="statistical-inference.html#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>We comment that <em>fail to reject <span class="math inline">\(H_0\)</span></em> is sometimes phrased <em>retain <span class="math inline">\(H_0\)</span></em> or (perhaps less accurately) <em>accept <span class="math inline">\(H_0\)</span></em>.<a href="statistical-inference.html#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>

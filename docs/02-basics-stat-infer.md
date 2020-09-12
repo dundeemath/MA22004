@@ -65,7 +65,7 @@ where $n$ is the sample size and $\mu$ and $\sigma$ are the (typically unknown) 
 > The **Cherry Tree Data** contains 31 obs. of three features (diameter, height, and volume) and can be accessed in `r` by loading `library(datasets)` and then calling `data(trees)`.  
 
 The quantile-quantile plot^[
-How do we tell whether a population is normal? Constructing a normal quantile-quantile plot is one way of assessing whether a normality assumption is reasonable; such a plot compares the the quantiles of the sample data $x_i$ against the (theoretical) standard normal quantiles. If the sample data is consistent with a sample from a normal distribution, then the points will lie on a straight line (more or less). Below we display the QQ plot comparing quantiles of cherry tree heights from \@ref(tab:cherry-data) to normal quantiles.
+How do we tell whether a population is normal? Constructing a normal quantile-quantile plot is one way of assessing whether a normality assumption is reasonable; such a plot compares the quantiles of the sample data $x_i$ against the (theoretical) standard normal quantiles. If the sample data is consistent with a sample from a normal distribution, then the points will lie on a straight line (more or less). Below we display the QQ plot comparing quantiles of cherry tree heights from \@ref(tab:cherry-data) to normal quantiles.
 <img src="02-basics-stat-infer_files/figure-html/qq-plot-cherry-1.png" width="672" />
 ]
 comparing the quantiles of this data to the quantiles of a normal distribution, is fairly straight. Therefore, we assume that the distribution of black cherry tree heights is (at least approximately) normal with a mean value $\mu$; i.e., that the population of heights is distributed $\mathsf{N}(\mu, \sigma^2)$ where $\mu$ is a parameter to be estimated and $\sigma^2$ is unknown. The observations $X_1, \dots, X_{31}$ are then assumed to be a random sample from this normal distribution (iid). Consider the following three different stimators and the resulting point estimates for $\mu$ based on the $31$ samples.
@@ -98,11 +98,11 @@ My favorite interpretation of a confidence interval is due to [@Wasserman:2013as
 
 > On day 1, you collect data and construct a 95 percent confidence interval for a parameter $\theta_1$. On day 2, you collect new data and construct a 95 percent confidence interval for an unrelated parameter $\theta_2$. On day 3, you collect new data and construct a 95 percent confidence interval for an unrelated parameter $\theta_3$. You continue this way constructing confidence intervals for a sequence of unrelated parameters $\theta_1$, $\theta_2$, $\dots$ Then 95 percent of your intervals will trap the true parameter value. There is no need to introduce the idea of repeating the same experiment over and over.  
 
-This interpretation makes clear that a confidence interval is not a probability statement about the parameter $\theta$. In Definition \@ref(def:confidence-interval-gen), note that $\theta$ is fixed ($\theta$ is not a rv) and the interval $C_n$ is random. After data has been collected and a point estimator has been calculated, the resulting CIs either contain the true parameter value or they do not (see). 
+This interpretation makes clear that a confidence interval is not a probability statement about the parameter $\theta$. In Definition \@ref(def:confidence-interval-gen), note that $\theta$ is fixed ($\theta$ is not a rv) and the interval $C_n$ is random. After data has been collected and a point estimator has been calculated, the resulting CIs either contain the true parameter value or they do not (see Figure \@ref(fig:fifty-cis)). 
 
 <div class="figure">
-<img src="02-basics-stat-infer_files/figure-html/exp-many-cis-1.png" alt="Fifty $95\%$ CIs for a population mean $\mu$. After a sample is taken, the computed interval estimate either contains $\mu$ or it does not (asteriks identify intervals that do not include $\mu$). When drawing such a large number of $95\%$ CIs, we would anticipate that approximately $5\%$ (ca. 2.5) would fail to cover the true parameter $\mu$." width="672" />
-<p class="caption">(\#fig:exp-many-cis)Fifty $95\%$ CIs for a population mean $\mu$. After a sample is taken, the computed interval estimate either contains $\mu$ or it does not (asteriks identify intervals that do not include $\mu$). When drawing such a large number of $95\%$ CIs, we would anticipate that approximately $5\%$ (ca. 2.5) would fail to cover the true parameter $\mu$.</p>
+<img src="02-basics-stat-infer_files/figure-html/fifty-cis-1.png" alt="Fifty $95\%$ CIs for a population mean $\mu$. After a sample is taken, the computed interval estimate either contains $\mu$ or it does not (asteriks identify intervals that do not include $\mu$). When drawing such a large number of $95\%$ CIs, we would anticipate that approximately $5\%$ (ca. 2 or 3) would fail to cover the true parameter $\mu$." width="672" />
+<p class="caption">(\#fig:fifty-cis)Fifty $95\%$ CIs for a population mean $\mu$. After a sample is taken, the computed interval estimate either contains $\mu$ or it does not (asteriks identify intervals that do not include $\mu$). When drawing such a large number of $95\%$ CIs, we would anticipate that approximately $5\%$ (ca. 2 or 3) would fail to cover the true parameter $\mu$.</p>
 </div>
 
 **TODO**: fix above plot EG devore fig 7.3 that illustrates ca. 50 $95\%$ CIs (with asterisks identifying intervals that do not include $\mu$).
@@ -116,11 +116,29 @@ In Sections \@ref(point-estimation) and \@ref(confidence-intervals) we reviewed 
 
 For a statistical hypothesis regarding the *equality* of a parameter $\theta$ with a fixed quantity $\theta_0$, the null and alternative hypotheses will take one of the following forms.
 
-| Null hypothesis  | Alternative hypothesis |
-|:-----------------|:----------------------|
-| $H_0 : \theta \leq \theta_0$ | $H_a : \theta > \theta_0$ |
-| $H_0 : \theta \geq \theta_0$ | $H_a : \theta < \theta_0$ |
-| $H_0 : \theta = \theta_0$ | $H_a : \theta \neq \theta_0$ |
+<table>
+<caption>(\#tab:htest-null-alt-forms)Null hypothesis and corresponding alternative hypothesis.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Null hypothesis </th>
+   <th style="text-align:left;"> Alternative hypothesis </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> $H_0 : \theta = \theta_0$ </td>
+   <td style="text-align:left;"> $H_a : \theta \neq \theta_0$ </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> $H_0 : \theta \leq \theta_0$ </td>
+   <td style="text-align:left;"> $H_a : \theta \gt \theta_0$ </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> $H_0 : \theta \geq \theta_0$ </td>
+   <td style="text-align:left;"> $H_a : \theta \lt \theta_0$ </td>
+  </tr>
+</tbody>
+</table>
 
 The value $\theta_0$, called the **null value**, separates the alternative from the null. 
 
