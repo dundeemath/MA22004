@@ -6,6 +6,8 @@
 
 # Sampling distributions {#sampling-distributions}
 
+A **statistic** is a quantity that can be calculated from sample data. Prior to obtaining data, a statistic is an unknown quantity and is therefore a rv. We refer to the probability distribution for a statistic as a **sampling distribution** to emphasize how the distribution will vary across all possible sample data. 
+
 ## Normal distribution {#normal-distribution}
 
 Normal distributions play an important role in probability and statistics as they describes many natural phenomenon. For instance, the Central Limit Theorem tells us that sums of rvs are approximately normal in distribution.  

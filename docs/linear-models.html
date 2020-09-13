@@ -221,10 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="categorical-data.html"><a href="categorical-data.html#goodness-of-fit-tests"><i class="fa fa-check"></i><b>7.2</b> Goodness-of-fit for a single factor</a></li>
 <li class="chapter" data-level="7.3" data-path="categorical-data.html"><a href="categorical-data.html#test-for-independence-of-factors"><i class="fa fa-check"></i><b>7.3</b> Test for independence of factors</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="quality-control.html"><a href="quality-control.html"><i class="fa fa-check"></i><b>8</b> Quality Control</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="quality-control.html"><a href="quality-control.html#control-charts"><i class="fa fa-check"></i><b>8.1</b> Control Charts</a></li>
-</ul></li>
+<li class="chapter" data-level="8" data-path="quality-control.html"><a href="quality-control.html"><i class="fa fa-check"></i><b>8</b> Quality Control</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="http://uod.ac.uk/sig-home" rel="nofollow"><img width="73" height="73" src="https://www.dundee.ac.uk/media/dundeewebsite/themes/brandnewhope/img/university-of-dundee-email-favicon.png" alt="University of Dundee shield logo"> </a></li>
@@ -248,7 +245,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="linear-models" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Linear regression</h1>
-<p><strong>Regression analysis</strong> allows us to study the relationship among two or more rvs. Typically, we are interested in the relationship between a <strong>response</strong> or <strong>dependent</strong> rv <span class="math inline">\(Y\)</span> and a <strong>covariate</strong> <span class="math inline">\(X\)</span>.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> The relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> will be explained through a <strong>regression function</strong>,
+<p><strong>Regression analysis</strong> allows us to study the relationship among two or more rvs. Typically, we are interested in the relationship between a <strong>response</strong> or <strong>dependent</strong> rv <span class="math inline">\(Y\)</span> and a <strong>covariate</strong> <span class="math inline">\(X\)</span>.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> The relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> will be explained through a <strong>regression function</strong>,
 <span class="math display">\[\begin{equation*}
  r(x) = \operatorname{E}[Y \mid X = x] = \int y f(y\mid x) dy \,.
 \end{equation*}\]</span>
@@ -291,7 +288,7 @@ and the <strong>predicted</strong> or <strong>fitted value</strong> <span class=
  \widehat{\epsilon}_i = Y_i - \widehat{Y}_i = Y_i - \left( \widehat{\beta}_0 + \widehat{\beta}_1 X_i \right) \,.
  \tag{6.3}
 \end{equation}\]</span>
-The <strong>residual sums of squares</strong>,<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>
+The <strong>residual sums of squares</strong>,<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>
 <span class="math display" id="eq:rss">\[\begin{equation}
  \mathsf{RSS} = \sum_{i=1}^m \widehat{\epsilon}_i^2\,,
  \tag{6.4}
@@ -452,9 +449,9 @@ and thus, for the simple hypothesis tests we have considered (Table <a href="sta
 </div>
 <div class="footnotes">
 <hr />
-<ol start="7">
-<li id="fn7"><p>The covariates <span class="math inline">\(X\)</span> are also called <strong>predictor variables</strong>, <strong>explanatory variables</strong>, <strong>independent variables</strong>, and/or <strong>features</strong> depending on who you are talking to.<a href="linear-models.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>The <span class="math inline">\(\mathsf{RSS}\)</span> is sometimes referred to as the <strong>error sum of squares</strong> and abbreviated <span class="math inline">\(\mathsf{SSE}\)</span> (no, that isn’t a typo).<a href="linear-models.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<ol start="9">
+<li id="fn9"><p>The covariates <span class="math inline">\(X\)</span> are also called <strong>predictor variables</strong>, <strong>explanatory variables</strong>, <strong>independent variables</strong>, and/or <strong>features</strong> depending on who you are talking to.<a href="linear-models.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>The <span class="math inline">\(\mathsf{RSS}\)</span> is sometimes referred to as the <strong>error sum of squares</strong> and abbreviated <span class="math inline">\(\mathsf{SSE}\)</span> (no, that isn’t a typo).<a href="linear-models.html#fnref10" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

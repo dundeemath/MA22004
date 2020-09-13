@@ -16,6 +16,10 @@ library(formattable)
 library(DT)
 library(dplyr)
 library(datasets)
+# ggplot theme
+theme_set(
+    theme_gray(base_size = 14)
+)
 # data sets
 data(iris)
 data(trees)
@@ -29,6 +33,8 @@ knitr::opts_chunk$set(echo = TRUE, comment = "") #, dev = "svglite", fig.width=8
 \newcommand{\se}{\mathsf{se}}
 
 # Sampling distributions {#sampling-distributions}
+
+A **statistic** is a quantity that can be calculated from sample data. Prior to obtaining data, a statistic is an unknown quantity and is therefore a rv. We refer to the probability distribution for a statistic as a **sampling distribution** to emphasize how the distribution will vary across all possible sample data. 
 
 ## Normal distribution {#normal-distribution}
 

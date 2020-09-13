@@ -15,6 +15,10 @@ library(kableExtra)
 library(formattable)
 library(DT)
 library(dplyr)
+# ggplot theme
+theme_set(
+    theme_gray(base_size = 14)
+)
 
 knitr::opts_chunk$set(echo = TRUE, comment = "") #, dev = "svglite", fig.width=8
 #plotly::config(plot_ly(), displaylogo = FALSE, mathjax = "cdn")

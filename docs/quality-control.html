@@ -221,10 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="categorical-data.html"><a href="categorical-data.html#goodness-of-fit-tests"><i class="fa fa-check"></i><b>7.2</b> Goodness-of-fit for a single factor</a></li>
 <li class="chapter" data-level="7.3" data-path="categorical-data.html"><a href="categorical-data.html#test-for-independence-of-factors"><i class="fa fa-check"></i><b>7.3</b> Test for independence of factors</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="quality-control.html"><a href="quality-control.html"><i class="fa fa-check"></i><b>8</b> Quality Control</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="quality-control.html"><a href="quality-control.html#control-charts"><i class="fa fa-check"></i><b>8.1</b> Control Charts</a></li>
-</ul></li>
+<li class="chapter" data-level="8" data-path="quality-control.html"><a href="quality-control.html"><i class="fa fa-check"></i><b>8</b> Quality Control</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="http://uod.ac.uk/sig-home" rel="nofollow"><img width="73" height="73" src="https://www.dundee.ac.uk/media/dundeewebsite/themes/brandnewhope/img/university-of-dundee-email-favicon.png" alt="University of Dundee shield logo"> </a></li>
@@ -248,10 +245,385 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="quality-control" class="section level1" number="8">
 <h1><span class="header-section-number">8</span> Quality Control</h1>
-<div id="control-charts" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> Control Charts</h2>
+<p>Quality control is an area of applies statistics that seeks to make interventions to maintain or improve the outcome of industrial processes. Random variations in output processes might negatively impact the quality of a product. We would like to identify the sources of random variations in output processes that might have <em>assignable causes</em>. <strong>Control charts</strong> are a tool that help us to recognize when industrial processes are no longer controlled so that one might then seek to identify assignable causes.</p>
+<p>The basic elements of control charting involve specifying a control region and then analyzing time-series data. We will specify a base-line value along with an upper and lower limit of control and assume that a process is under control unless a test statistic suggests otherwise.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> To construct a control chart, one collects data about a process at fixed points of time and calculates the running value of quality statistic. If the quality statistic exceeds the upper or lower control limits, the process is deemed to out of control and the quality of the product is assumed to be negatively impacted.</p>
+<p>The process of creating a control chart is best illustrated through an extended example, like Example <a href="quality-control.html#exm:qc-three-sigma">8.1</a> provided below.</p>
+
+<div class="example">
+<span id="exm:qc-three-sigma" class="example"><strong>Example 8.1  </strong></span>Here we consider the typical <span class="math inline">\(3 \sigma\)</span> control charting for a process mean <span class="math inline">\(\overline{X}\)</span> based on estimated parameters. That is, we assume the generating process <span class="math inline">\(X\)</span> is normally distributed with unknown parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>. We seek to estimate the mean <span class="math inline">\(\overline{X}\)</span>. Our control region is specified to be three standard deviations; that is, the process is in-control if it remains within three standard devaitions of a baseline value.
+</div>
+<p>The <strong>Beer Data</strong> contains measurements of the features OG, ABV, pH, and IBU for <span class="math inline">\(50\)</span> batches of each of three types of product (Premium Lager, IPA, and Light Lager). We are interested the IPA’s pH value, which influences saccharification. We assume that 3 batches of IPA are produced per day are we prepare the data as follows.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="quality-control.html#cb13-1"></a>ipa &lt;-<span class="st"> </span>beer <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb13-2"><a href="quality-control.html#cb13-2"></a><span class="st"> </span><span class="kw">select</span>(Batch_Id, pH, Beer) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb13-3"><a href="quality-control.html#cb13-3"></a><span class="st"> </span><span class="kw">filter</span>(Beer <span class="op">==</span><span class="st"> &quot;IPA&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb13-4"><a href="quality-control.html#cb13-4"></a><span class="st"> </span><span class="kw">rename</span>(<span class="dt">Day =</span> Batch_Id)</span>
+<span id="cb13-5"><a href="quality-control.html#cb13-5"></a>ipa<span class="op">$</span>Day[<span class="dv">1</span><span class="op">:</span><span class="dv">48</span>] &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">16</span>, <span class="dt">each =</span> <span class="dv">3</span>)</span>
+<span id="cb13-6"><a href="quality-control.html#cb13-6"></a>ipa &lt;-<span class="st"> </span>ipa[<span class="dv">1</span><span class="op">:</span><span class="dv">48</span>,]</span>
+<span id="cb13-7"><a href="quality-control.html#cb13-7"></a>m &lt;-<span class="st"> </span><span class="dv">3</span>    <span class="co"># three batches per day</span></span>
+<span id="cb13-8"><a href="quality-control.html#cb13-8"></a>k &lt;-<span class="st"> </span><span class="dv">16</span>   <span class="co"># number of days</span></span></code></pre></div>
+<p>We first observe that the pH measurements are (at least approximately) normal, as can be seen from the quantile-quantile plot in Figure <a href="quality-control.html#fig:qc-beer-pH-norm">8.1</a>.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="quality-control.html#cb14-1"></a><span class="kw">ggplot</span>(ipa, <span class="kw">aes</span>(<span class="dt">sample =</span> pH)) <span class="op">+</span><span class="st"> </span><span class="kw">stat_qq</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_qq_line</span>()</span></code></pre></div>
+<div class="figure"><span id="fig:qc-beer-pH-norm"></span>
+<img src="08-quality-control_files/figure-html/qc-beer-pH-norm-1.png" alt="Normal quantile-quantile plot of observed pH measurements of the IPA batches in Table \@ref(tab:qc-beer-data)." width="672" />
+<p class="caption">
+Figure 8.1: Normal quantile-quantile plot of observed pH measurements of the IPA batches in Table <a href="quality-control.html#tab:qc-beer-data">8.1</a>.
+</p>
+</div>
+<p>We consider the data for pH readings from three batches of IPA taken over sixteen days (<span class="math inline">\(k = 16\)</span>) presented in Table <a href="quality-control.html#tab:qc-beer-data">8.1</a>. The Table includes the sample mean per day <span class="math inline">\(\overline{x}\)</span>, the sample standard deviation <span class="math inline">\(s\)</span>, and the range of values <span class="math inline">\(\max{x_i} - \min{x_i}\)</span> per day (each based on <span class="math inline">\(m=3\)</span> batches).</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="quality-control.html#cb15-1"></a>ipa_stat &lt;-<span class="st"> </span>ipa <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb15-2"><a href="quality-control.html#cb15-2"></a><span class="st"> </span><span class="kw">group_by</span>(Day) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb15-3"><a href="quality-control.html#cb15-3"></a><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">observations =</span> <span class="kw">list</span>(pH), <span class="dt">mean =</span> <span class="kw">signif</span>(<span class="kw">mean</span>(pH), <span class="dt">digits =</span> <span class="dv">4</span>), </span>
+<span id="cb15-4"><a href="quality-control.html#cb15-4"></a>           <span class="dt">sd =</span> <span class="kw">signif</span>(<span class="kw">sd</span>(pH), <span class="dt">digits =</span> <span class="dv">4</span>), <span class="dt">range =</span> <span class="kw">max</span>(pH) <span class="op">-</span><span class="st"> </span><span class="kw">min</span>(pH))</span>
+<span id="cb15-5"><a href="quality-control.html#cb15-5"></a><span class="kw">kable</span>(ipa_stat, <span class="dt">align =</span> <span class="st">&quot;llccc&quot;</span>, </span>
+<span id="cb15-6"><a href="quality-control.html#cb15-6"></a>      <span class="dt">caption =</span> <span class="st">&quot;Observations and summary statistics for the **Beer Data**.&quot;</span>,</span>
+<span id="cb15-7"><a href="quality-control.html#cb15-7"></a>      <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&#39;Day&#39;</span>, <span class="st">&quot;pH Observations&quot;</span>, <span class="st">&#39;$</span><span class="ch">\\</span><span class="st">overline{x}$&#39;</span>, <span class="st">&#39;$s$&#39;</span>, <span class="st">&#39;Range&#39;</span>))</span></code></pre></div>
+<table>
+<caption>
+<span id="tab:qc-beer-data">Table 8.1: </span>Observations and summary statistics for the <strong>Beer Data</strong>.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Day
+</th>
+<th style="text-align:left;">
+pH Observations
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\overline{x}\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(s\)</span>
+</th>
+<th style="text-align:center;">
+Range
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+4.7, 4.5, 4.9
+</td>
+<td style="text-align:center;">
+4.700
+</td>
+<td style="text-align:center;">
+0.20000
+</td>
+<td style="text-align:center;">
+0.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+4.0, 4.6, 4.5
+</td>
+<td style="text-align:center;">
+4.367
+</td>
+<td style="text-align:center;">
+0.32150
+</td>
+<td style="text-align:center;">
+0.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+4.7, 3.3, 4.6
+</td>
+<td style="text-align:center;">
+4.200
+</td>
+<td style="text-align:center;">
+0.78100
+</td>
+<td style="text-align:center;">
+1.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+3.9, 3.5, 4.2
+</td>
+<td style="text-align:center;">
+3.867
+</td>
+<td style="text-align:center;">
+0.35120
+</td>
+<td style="text-align:center;">
+0.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+4.0, 4.7, 3.6
+</td>
+<td style="text-align:center;">
+4.100
+</td>
+<td style="text-align:center;">
+0.55680
+</td>
+<td style="text-align:center;">
+1.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:left;">
+4.4, 4.5, 4.1
+</td>
+<td style="text-align:center;">
+4.333
+</td>
+<td style="text-align:center;">
+0.20820
+</td>
+<td style="text-align:center;">
+0.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+4.5, 3.9, 4.8
+</td>
+<td style="text-align:center;">
+4.400
+</td>
+<td style="text-align:center;">
+0.45830
+</td>
+<td style="text-align:center;">
+0.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+4.0, 4.9, 4.7
+</td>
+<td style="text-align:center;">
+4.533
+</td>
+<td style="text-align:center;">
+0.47260
+</td>
+<td style="text-align:center;">
+0.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:left;">
+4.3, 4.4, 4.8
+</td>
+<td style="text-align:center;">
+4.500
+</td>
+<td style="text-align:center;">
+0.26460
+</td>
+<td style="text-align:center;">
+0.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:left;">
+5.0, 4.5, 3.5
+</td>
+<td style="text-align:center;">
+4.333
+</td>
+<td style="text-align:center;">
+0.76380
+</td>
+<td style="text-align:center;">
+1.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:left;">
+3.8, 3.7, 3.9
+</td>
+<td style="text-align:center;">
+3.800
+</td>
+<td style="text-align:center;">
+0.10000
+</td>
+<td style="text-align:center;">
+0.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:left;">
+5.1, 4.5, 4.5
+</td>
+<td style="text-align:center;">
+4.700
+</td>
+<td style="text-align:center;">
+0.34640
+</td>
+<td style="text-align:center;">
+0.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+13
+</td>
+<td style="text-align:left;">
+4.7, 4.4, 4.1
+</td>
+<td style="text-align:center;">
+4.400
+</td>
+<td style="text-align:center;">
+0.30000
+</td>
+<td style="text-align:center;">
+0.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+14
+</td>
+<td style="text-align:left;">
+4.0, 4.4, 4.6
+</td>
+<td style="text-align:center;">
+4.333
+</td>
+<td style="text-align:center;">
+0.30550
+</td>
+<td style="text-align:center;">
+0.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15
+</td>
+<td style="text-align:left;">
+4.0, 3.3, 4.2
+</td>
+<td style="text-align:center;">
+3.833
+</td>
+<td style="text-align:center;">
+0.47260
+</td>
+<td style="text-align:center;">
+0.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+16
+</td>
+<td style="text-align:left;">
+4.2, 4.2, 4.3
+</td>
+<td style="text-align:center;">
+4.233
+</td>
+<td style="text-align:center;">
+0.05774
+</td>
+<td style="text-align:center;">
+0.1
+</td>
+</tr>
+</tbody>
+</table>
+<p>We estimate of the mean<br />
+<span class="math display">\[\begin{equation*}
+ \widehat{\mu} = \frac{1}{k} \sum_{i=1}^k \overline{x}_i \,,
+\end{equation*}\]</span>
+by averaging the means found for the <span class="math inline">\(k\)</span> days and, similarly, estimate the mean of the sample standard deviation,
+<span class="math display">\[\begin{equation*}
+ \overline{s} = \frac{1}{k} \sum_{i=1}^k s_i\,,
+\end{equation*}\]</span>
+by averaging the sample standard deviations for the <span class="math inline">\(k\)</span> days. It can be shown that
+<span class="math display">\[\begin{equation*}
+ \widehat{\sigma} = \frac{\overline{S}}{a_m} 
+\end{equation*}\]</span>
+is an unbiased estimator of <span class="math inline">\(\sigma\)</span> where
+<span class="math display">\[\begin{equation*}
+a_m = \frac{\sqrt{2} \Gamma(m/2)}{\sqrt{m-1}\Gamma\left((n-1)/2\right)}\,.
+\end{equation*}\]</span>
+Thus, we compute the <span class="math inline">\(3\sigma\)</span> upper and lower control limits, respectively,
+<span class="math display">\[\begin{equation*}
+ \mathsf{UCL} = \widehat{\mu} + 3 \frac{\overline{s}}{a_m \sqrt{m}}
+\end{equation*}\]</span>
+and
+<span class="math display">\[\begin{equation*}
+ \mathsf{LCL} = \widehat{\mu} - 3 \frac{\overline{s}}{a_m \sqrt{m}} \,.
+\end{equation*}\]</span>
+The computations in <code>r</code> follow, along with the resulting <strong>control chart</strong> in Figure <a href="quality-control.html#fig:qc-beer-control-chart">8.2</a>.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="quality-control.html#cb16-1"></a>a &lt;-<span class="st"> </span><span class="cf">function</span>(m){ <span class="kw">sqrt</span>(<span class="dv">2</span>) <span class="op">*</span><span class="st"> </span><span class="kw">gamma</span>(m<span class="op">/</span><span class="dv">2</span>) <span class="op">/</span><span class="st"> </span>(<span class="kw">sqrt</span>(m<span class="dv">-1</span>) <span class="op">*</span><span class="st"> </span><span class="kw">gamma</span>((m<span class="dv">-1</span>)<span class="op">/</span><span class="dv">2</span>)) }</span>
+<span id="cb16-2"><a href="quality-control.html#cb16-2"></a>muhat =<span class="st"> </span><span class="kw">sum</span>(ipa_stat<span class="op">$</span>mean) <span class="op">/</span><span class="st"> </span>k</span>
+<span id="cb16-3"><a href="quality-control.html#cb16-3"></a>sbar =<span class="st"> </span><span class="kw">sum</span>(ipa_stat<span class="op">$</span>sd) <span class="op">/</span><span class="st"> </span>k</span>
+<span id="cb16-4"><a href="quality-control.html#cb16-4"></a>lcl =<span class="st"> </span>muhat <span class="op">-</span><span class="st"> </span><span class="dv">3</span><span class="op">*</span>sbar <span class="op">/</span><span class="st"> </span>(<span class="kw">a</span>(m) <span class="op">*</span><span class="st"> </span><span class="kw">sqrt</span>(m))</span>
+<span id="cb16-5"><a href="quality-control.html#cb16-5"></a>ucl =<span class="st"> </span>muhat <span class="op">+</span><span class="st"> </span><span class="dv">3</span><span class="op">*</span>sbar <span class="op">/</span><span class="st"> </span>(<span class="kw">a</span>(m) <span class="op">*</span><span class="st"> </span><span class="kw">sqrt</span>(m))</span>
+<span id="cb16-6"><a href="quality-control.html#cb16-6"></a></span>
+<span id="cb16-7"><a href="quality-control.html#cb16-7"></a><span class="kw">ggplot</span>(ipa_stat, <span class="kw">aes</span>(<span class="dt">x =</span> Day)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y =</span> mean)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb16-8"><a href="quality-control.html#cb16-8"></a><span class="st"> </span><span class="kw">geom_hline</span>(<span class="kw">aes</span>(<span class="dt">yintercept =</span> muhat, <span class="dt">color =</span> <span class="st">&quot;Mean&quot;</span>), <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb16-9"><a href="quality-control.html#cb16-9"></a><span class="st"> </span><span class="kw">geom_hline</span>(<span class="kw">aes</span>(<span class="dt">yintercept =</span> lcl, <span class="dt">color =</span> <span class="st">&quot;LCL&quot;</span>), <span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb16-10"><a href="quality-control.html#cb16-10"></a><span class="st"> </span><span class="kw">geom_hline</span>(<span class="kw">aes</span>(<span class="dt">yintercept =</span> ucl, <span class="dt">color =</span> <span class="st">&quot;UCL&quot;</span>), <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;pH&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:qc-beer-control-chart"></span>
+<img src="08-quality-control_files/figure-html/qc-beer-control-chart-1.png" alt="The $3\sigma$ **control chart** illustrates that with respect to pH the brewing process is in-control over the selected timeframe as the observations fall within the $(\mathsf{LCL}, \mathsf{UCL})$ control interval." width="672" />
+<p class="caption">
+Figure 8.2: The <span class="math inline">\(3\sigma\)</span> <strong>control chart</strong> illustrates that with respect to pH the brewing process is in-control over the selected timeframe as the observations fall within the <span class="math inline">\((\mathsf{LCL}, \mathsf{UCL})\)</span> control interval.
+</p>
+</div>
+<p>From Figure <a href="quality-control.html#fig:qc-beer-control-chart">8.2</a>, we observe for each day the process is in-control as the observed mean pH values fall within the control limits <span class="math inline">\((\mathsf{LCL}, \mathsf{UCL})\)</span>. If this were not the case, then our initial assumption, that process is in-control, would be violated. The violation of the assumption would require that we seek to identify an assignable cause for the variation. If a cause could be identified, then the we would need to recompute our control limits with the observations that were out of control removed. <span class="math inline">\(\lozenge\)</span></p>
 
 </div>
+<div class="footnotes">
+<hr />
+<ol start="14">
+<li id="fn14"><p>The default position here will be reminiscent of hypothesis testing.<a href="quality-control.html#fnref14" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

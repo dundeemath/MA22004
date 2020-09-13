@@ -16,6 +16,10 @@ library(formattable)
 library(DT)
 library(dplyr)
 library(datasets)
+# ggplot theme
+theme_set(
+    theme_gray(base_size = 14)
+)
 # data sets
 data(iris)
 data(trees)
