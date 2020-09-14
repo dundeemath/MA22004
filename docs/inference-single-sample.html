@@ -351,7 +351,7 @@ or <span class="math inline">\(\overline{x} \pm t_{\alpha/2, n-1} \cdot s/ \sqrt
 </div>
 <div id="estimating-proportions" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Estimating proportions</h2>
-<p>Consider a population of size <span class="math inline">\(N\)</span> in which a proportion <span class="math inline">\(p\)</span> of the population satisfies a given property. The <span class="math inline">\(p \in (0,1)\)</span> is a parameter characterizing the population, with distribution <span class="math inline">\(F(p)\)</span>,<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> that we might be interested in estimating. A sample, <span class="math inline">\(X_1, \dots, X_n \sim F(p)\)</span>, of size <span class="math inline">\(n\)</span> from the population contains a proportion,
+<p>Consider a population of size <span class="math inline">\(N\)</span> in which a proportion <span class="math inline">\(p\)</span> of the population satisfies a given property. The <span class="math inline">\(p \in (0,1)\)</span> is a parameter characterizing the population, with distribution <span class="math inline">\(F(p)\)</span>,<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> that we might be interested in estimating. A sample, <span class="math inline">\(X_1, \dots, X_n \sim F(p)\)</span>, of size <span class="math inline">\(n\)</span> from the population contains a proportion,
 <span class="math display" id="eq:proportion-estimator">\[\begin{equation}
  \widehat{p} = \frac{1}{n} \sum_{i=1}^n X_i\,,
  \tag{3.4}
@@ -366,7 +366,7 @@ and
  \sigma_{\widehat{p}}^2 = \frac{\Var[X_i]}{n} = \frac{p(1-p)}{n}\,,
  \tag{3.6}
 \end{equation}\]</span>
-provided that <span class="math inline">\(n\)</span> is small relative to <span class="math inline">\(N\)</span> (a rule of thumb is <span class="math inline">\(n \leq 0.05 N\)</span>).<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> Moreover, by invoking the Central Limit Theorem we have the distribution of <span class="math inline">\(\widehat{p}\)</span> is approximately normal for sufficiently large <span class="math inline">\(n\)</span> as <a href="inference-single-sample.html#eq:proportion-estimator">(3.4)</a> is a sample mean. Indeed, this normal approximation works well for moderately large <span class="math inline">\(n\)</span> as long as <span class="math inline">\(p\)</span> is not too close to zero or one; a rule of thumb is that <span class="math inline">\(np &gt; 5\)</span> and <span class="math inline">\(n(1-p) &gt; 5\)</span>.</p>
+provided that <span class="math inline">\(n\)</span> is small relative to <span class="math inline">\(N\)</span> (a rule of thumb is <span class="math inline">\(n \leq 0.05 N\)</span>).<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> Moreover, by invoking the Central Limit Theorem we have the distribution of <span class="math inline">\(\widehat{p}\)</span> is approximately normal for sufficiently large <span class="math inline">\(n\)</span> as <a href="inference-single-sample.html#eq:proportion-estimator">(3.4)</a> is a sample mean. Indeed, this normal approximation works well for moderately large <span class="math inline">\(n\)</span> as long as <span class="math inline">\(p\)</span> is not too close to zero or one; a rule of thumb is that <span class="math inline">\(np &gt; 5\)</span> and <span class="math inline">\(n(1-p) &gt; 5\)</span>.</p>
 
 <div class="proposition">
 <span id="prp:ci-proportion" class="proposition"><strong>Proposition 3.5  </strong></span>For large samples <span class="math inline">\(n\)</span>, a <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the parameter <span class="math inline">\(p\)</span> is given by
@@ -431,13 +431,13 @@ A <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for t
 </div>
 <div class="footnotes">
 <hr />
-<ol start="5">
-<li id="fn5"><p>Here we write <span class="math inline">\(F\)</span> for a general distribution, but what special distribution might this be?<a href="inference-single-sample.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>Note that if <span class="math inline">\(n\)</span> is large relative to <span class="math inline">\(N\)</span> (<span class="math inline">\(n &gt; 0.05 N\)</span>) then the variance <a href="inference-single-sample.html#eq:proportion-var">(3.6)</a> must be adjusted by a factor (related to the hypergeometric distribution):
+<ol start="6">
+<li id="fn6"><p>Here we write <span class="math inline">\(F\)</span> for a general distribution, but what special distribution might this be?<a href="inference-single-sample.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>Note that if <span class="math inline">\(n\)</span> is large relative to <span class="math inline">\(N\)</span> (<span class="math inline">\(n &gt; 0.05 N\)</span>) then the variance <a href="inference-single-sample.html#eq:proportion-var">(3.6)</a> must be adjusted by a factor (related to the hypergeometric distribution):
 <span class="math display">\[\begin{equation*}
  \sigma_{\widehat{p}}^2 = \frac{p(1-p)}{n} \frac{N-n}{N-1}\,,
 \end{equation*}\]</span>
-where for fixed <span class="math inline">\(n\)</span> the factor converges to <span class="math inline">\(1\)</span> as <span class="math inline">\(N\to \infty\)</span>.<a href="inference-single-sample.html#fnref6" class="footnote-back">↩︎</a></p></li>
+where for fixed <span class="math inline">\(n\)</span> the factor converges to <span class="math inline">\(1\)</span> as <span class="math inline">\(N\to \infty\)</span>.<a href="inference-single-sample.html#fnref7" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

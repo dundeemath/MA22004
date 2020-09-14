@@ -318,7 +318,7 @@ Height [in]
 <span class="math display">\[\begin{equation*}
 \quad X_1, \dots, X_{31} \sim \mathsf{N}(\mu, \sigma^2) \,.
 \end{equation*}\]</span>
-Consider the following three different stimators and the resulting point estimates for <span class="math inline">\(\mu\)</span> based on the <span class="math inline">\(31\)</span> samples.</p>
+Consider the following three different estimators and the resulting point estimates for <span class="math inline">\(\mu\)</span> based on the <span class="math inline">\(31\)</span> samples in Table <a href="statistical-inference.html#tab:cherry-data">2.1</a>.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Estimator (sample mean) <span class="math inline">\(\overline{X}\)</span> as in <a href="statistical-inference.html#eq:sample-mean">(2.1)</a> and estimate <span class="math inline">\(\overline{x} = \sum x_i / n = 2356 / 31 = 76\)</span>.</p></li>
 <li><p>Estimator (average of extreme heights) <span class="math inline">\(\widetilde{X} = [\min(X_i) + \max(X_i)]/2\)</span> and estimate <span class="math inline">\(\widetilde{x} = (63 + 87)/2 = 75\)</span>.</p></li>
@@ -358,7 +358,7 @@ for all <span class="math inline">\(\theta \in \Theta\)</span>.
 </blockquote>
 <p>This interpretation makes clear that a confidence interval is not a probability statement about the parameter <span class="math inline">\(\theta\)</span>. In Definition <a href="statistical-inference.html#def:confidence-interval-gen">2.3</a>, note that <span class="math inline">\(\theta\)</span> is fixed (<span class="math inline">\(\theta\)</span> is not a rv) and the interval <span class="math inline">\(C_m\)</span> is random. After data has been collected and a point estimator has been calculated, the resulting CIs either contain the true parameter value or they do not, as illustrated in Figure <a href="statistical-inference.html#fig:fifty-cis">2.3</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:fifty-cis"></span>
-<img src="ma22004_files/figure-html/fifty-cis-1.svg" alt="Fifty $95\%$ CIs for a population mean $\mu$. After a sample is taken, the computed interval estimate either contains $\mu$ or it does not (asterisk identify intervals that do not include $\mu$). When drawing such a large number of $95\%$ CIs, we would anticipate that approximately $5\%$ (ca. 2 or 3) would fail to cover the true parameter $\mu$." width="288" />
+<img src="ma22004_files/figure-html/fifty-cis-1.svg" alt="Fifty $95\%$ CIs for a population mean $\mu$. After a sample is taken, the computed interval estimate either contains $\mu$ or it does not (asterisk identify intervals that do not include $\mu$). When drawing such a large number of $95\%$ CIs, we would anticipate that approximately $5\%$ (ca. 2 or 3) would fail to cover the true parameter $\mu$." width="384" />
 <p class="caption">
 Figure 2.3: Fifty <span class="math inline">\(95\%\)</span> CIs for a population mean <span class="math inline">\(\mu\)</span>. After a sample is taken, the computed interval estimate either contains <span class="math inline">\(\mu\)</span> or it does not (asterisk identify intervals that do not include <span class="math inline">\(\mu\)</span>). When drawing such a large number of <span class="math inline">\(95\%\)</span> CIs, we would anticipate that approximately <span class="math inline">\(5\%\)</span> (ca. 2 or 3) would fail to cover the true parameter <span class="math inline">\(\mu\)</span>.
 </p>
@@ -366,12 +366,12 @@ Figure 2.3: Fifty <span class="math inline">\(95\%\)</span> CIs for a population
 </div>
 <div id="hypothesis-testing" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Hypothesis testing</h2>
-<p>In Sections <a href="statistical-inference.html#point-estimation">2.1</a> and <a href="statistical-inference.html#confidence-intervals">2.2</a> we reviewed how to estimate a parameter by a single number (point estimate) or range of plausible values (confidence interval), respectively. Next we discuss methods for determining which of two contradictory claims, or <strong>hypotheses</strong>, about a parameter is correct.</p>
+<p>Sections <a href="statistical-inference.html#point-estimation">2.1</a> and <a href="statistical-inference.html#confidence-intervals">2.2</a> reviewed how to estimate a parameter by a single number (point estimate) or range of plausible values (confidence interval), respectively. Next we discuss methods for determining which of two contradictory claims, or <strong>hypotheses</strong>, about a parameter is correct.</p>
 
 <div class="definition">
 <span id="def:null-alt-hypothesis" class="definition"><strong>Definition 2.4  </strong></span>The <strong>null hypothesis</strong>, denoted by <span class="math inline">\(H_0\)</span>, is a claim that we intially assume to be true by dafault. The <strong>alternative hypothesis</strong>, denoted by <span class="math inline">\(H_a\)</span>, is an assertion that is contradictory to <span class="math inline">\(H_0\)</span>.
 </div>
-<p>The statistical hypothesis are contradictory in that the parameter space is divided into two disjoint sets. For example, for a statistical hypothesis regarding the <em>equality</em> of a parameter <span class="math inline">\(\theta\)</span> with a fixed quantity <span class="math inline">\(\theta_0\)</span>, the null and alternative hypotheses will take one of the following forms in Table <a href="statistical-inference.html#tab:htest-null-alt-forms">2.2</a>.</p>
+<p>Typically, we shall consider hypothesis concerning a parameter <span class="math inline">\(\theta \in \Theta\)</span> taking values in a parameter space. The statistical hypothesis are contradictory in that <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_a\)</span> divide <span class="math inline">\(\Theta\)</span> into two disjoint sets. For example, for a statistical hypothesis regarding the <em>equality</em> of a parameter <span class="math inline">\(\theta\)</span> with a fixed quantity <span class="math inline">\(\theta_0\)</span>, the null and alternative hypotheses will usually take one of the following forms in Table <a href="statistical-inference.html#tab:htest-null-alt-forms">2.2</a>.</p>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:htest-null-alt-forms">Table 2.2: </span>Typical null hypothesis and corresponding alternative hypothesis.
@@ -425,7 +425,7 @@ one-sided test
 </tr>
 </tbody>
 </table>
-<p>The value <span class="math inline">\(\theta_0\)</span>, called the <strong>null value</strong>, separates the alternative from the null.</p>
+<p>These pairs of hypothesis are associated with either a one-sided or two-sided test; what this means will become clear in the sequel. The value <span class="math inline">\(\theta_0\)</span>, called the <strong>null value</strong>, separates the alternative from the null.</p>
 
 <div class="definition">
 <span id="def:hypothesis-test" class="definition"><strong>Definition 2.5  </strong></span>A <strong>hypothesis test</strong> asks if the available data provides sufficient evidence to reject <span class="math inline">\(H_0\)</span>. If the observations disagree with <span class="math inline">\(H_0\)</span>, then we reject the null hypothesis. If the sample evidence does not strongly contradict <span class="math inline">\(H_0\)</span>, then we continue to believe <span class="math inline">\(H_0\)</span>. The two possible conclustions of a hypothesis test are: <em>reject <span class="math inline">\(H_0\)</span></em> or <em>fail to reject <span class="math inline">\(H_0\)</span></em>.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>
@@ -447,7 +447,13 @@ where <span class="math inline">\(c\)</span> is referred to as a <strong>critica
 </div>
 <p>Smaller <span class="math inline">\(P\)</span>-values indicate stronger evidence against <span class="math inline">\(H_0\)</span> in favor of <span class="math inline">\(H_a\)</span>. If <span class="math inline">\(P \leq \alpha\)</span> then we reject <span class="math inline">\(H_0\)</span> at significance level <span class="math inline">\(\alpha\)</span>. If <span class="math inline">\(P \geq \alpha\)</span> we fail to reject <span class="math inline">\(H_0\)</span> at significance level <span class="math inline">\(\alpha\)</span>.</p>
 <div class="warningblock">
-<p>The <span class="math inline">\(P\)</span>-value is a probability calculated assuming that <span class="math inline">\(H_0\)</span> is true. However, the <span class="math inline">\(P\)</span>-value is <em>not</em>: (1) the probability that <span class="math inline">\(H_0\)</span> is TRUE, (2) the probability that <span class="math inline">\(H_0\)</span> is FALSE, or (3) the probability that a wrong conclusion is reached.</p>
+<p>The <span class="math inline">\(P\)</span>-value is a probability calculated assuming that <span class="math inline">\(H_0\)</span> is true. However, the <span class="math inline">\(P\)</span>-value is <strong>not</strong> the probability that:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(H_0\)</span> is TRUE,</li>
+<li><span class="math inline">\(H_0\)</span> is FALSE, or</li>
+<li>a wrong conclusion is reached.<br />
+</li>
+</ol>
 </div>
 
 <div class="proposition">
@@ -462,13 +468,13 @@ has <span class="math inline">\(P(\text{type I error}) = \alpha\)</span>.
 </div>
 
 <div class="example">
-<span id="exm:htest-setup" class="example"><strong>Example 2.2  </strong></span>Churchill claims that he gain a plurality of the votes for the House of Commons seat for the constituency of Dundee.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> If we do not believe Churchill’s claim, then we would seek to test an alternative hypothesis. How should we write down our research hypotheses?
+<span id="exm:htest-setup" class="example"><strong>Example 2.2  </strong></span>Churchill claims that he will receive half the votes for the House of Commons seat for the constituency of Dundee.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> If we do not believe Churchill’s claim and we are doubtful of his popularity, then we would seek to test an alternative hypothesis. How should we write down our research hypotheses?
 </div>
-<p>If we let <span class="math inline">\(p\)</span> be the fraction of the population voting for Churchill, then we have the null hypothesis (note, the minimum needed for plurality is <span class="math inline">\(50\%\)</span>)
+<p>If we let <span class="math inline">\(p\)</span> be the fraction of the population voting for Churchill, then we have the null hypothesis,
 <span class="math display">\[\begin{equation*}
- H_0 : p = 0.5 
+ H_0 : p = 0.5 \,,
 \end{equation*}\]</span>
-and the alternative hypothesis
+and the alternative hypothesis (we believe Churchill is less popular than he claims),
 <span class="math display">\[\begin{equation*}
  H_a : p &lt; 0.5 \,.
 \end{equation*}\]</span>
@@ -477,7 +483,8 @@ Support for the alternative hypothesis is obtain by showing lack of support for 
 <div class="example">
 <span id="exm:htest-alpha" class="example"><strong>Example 2.3  </strong></span>Suppose that <span class="math inline">\(m = 15\)</span> voters are selected from Dundee and <span class="math inline">\(X\)</span>, the number favoring Churchill, is recorded. Based on observing <span class="math inline">\(X\)</span>, we construct a rejection region <span class="math inline">\(R = \{x : x \leq k \}\)</span>. If <span class="math inline">\(k\)</span> is small compared to <span class="math inline">\(m\)</span>, then the rejection region would provide pretty strong evidence to reject <span class="math inline">\(H_0\)</span>. How should one choose the rejection region?
 </div>
-<p>Assume now that <span class="math inline">\(m = 15\)</span> voters are polled and that we select <span class="math inline">\(k = 2\)</span> to have a rejection region <span class="math inline">\(R = \{ x \leq 2 \}\)</span>. We can calculate the probability of a type I error. From the definition of type I error,
+<p>Assume now that <span class="math inline">\(m = 15\)</span> voters are polled and that we select <span class="math inline">\(k = 2\)</span> to have a rejection region <span class="math inline">\(R = \{ x \leq 2 \}\)</span>. For this choice of <span class="math inline">\(k\)</span>, the rejection region <span class="math inline">\(R\)</span> provides strong support to reject <span class="math inline">\(H_0\)</span>. If we assume the null hypothesis is true, then we would expect that approximately half of the <span class="math inline">\(15\)</span> voters (ca. 7) would plump for Churchill. Observing <span class="math inline">\(x = 0\)</span>, <span class="math inline">\(x = 1\)</span> or <span class="math inline">\(x = 2\)</span> (the values that would place us in the rejection region) would provide strong evidence <em>against</em> <span class="math inline">\(H_0\)</span>.</p>
+<p>We can calculate the probability of a type I error. From the definition of type I error,
 <span class="math display">\[\begin{equation*}
  \begin{aligned}
  \alpha &amp;= P(\text{type I error})\\
@@ -486,7 +493,7 @@ Support for the alternative hypothesis is obtain by showing lack of support for 
   &amp;= P(X \leq 2 \text{ when } p = 0.5) \,.
  \end{aligned}
 \end{equation*}\]</span>
-Since <span class="math inline">\(Y \sim \mathsf{Binom}(15, 0.50)\)</span>, we calculate that <span class="math inline">\(\alpha = 0.00369\)</span>. Thus, for this particular choice of rejection region <span class="math inline">\(R\)</span>, the risk of concluding that Churchill will lose if in fact he is the winner is very small.</p>
+Since <span class="math inline">\(X \sim \mathsf{Binom}(15, 0.50)\)</span>,<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> we calculate that <span class="math inline">\(\alpha = 0.00369\)</span>. Thus, for this particular choice of rejection region <span class="math inline">\(R\)</span>, the risk of concluding that Churchill will lose if in fact he is the winner is very small.</p>
 <p>For this rejection region, how good is the test at protecting us from type II errors, i.e., concluding that Churchill is the winner if in fact he will lose? Suppose that Churchill receive <span class="math inline">\(25%\)</span> of the votes (<span class="math inline">\(p=0.25\)</span>). The probability of a type II error <span class="math inline">\(\beta\)</span>,
 <span class="math display">\[\begin{equation*}
   \begin{aligned}
@@ -496,7 +503,7 @@ Since <span class="math inline">\(Y \sim \mathsf{Binom}(15, 0.50)\)</span>, we c
   &amp;= P(X &gt; 2 \text{ when } p = 0.3)\,.
  \end{aligned}
 \end{equation*}\]</span>
-For <span class="math inline">\(Y \sim \mathsf{Binom}(15, 0.25)\)</span>, we calculate <span class="math inline">\(\beta = 0.764\)</span>. If we use <span class="math inline">\(R = \{ x \leq 2\}\)</span> then our test will lead us to conclude that Churchill is the winner with probability <span class="math inline">\(0.764\)</span> even if <span class="math inline">\(p\)</span> is as low as <span class="math inline">\(0.25\)</span>!</p>
+For <span class="math inline">\(X \sim \mathsf{Binom}(15, 0.25)\)</span>, we calculate <span class="math inline">\(\beta = 0.764\)</span>. If we use <span class="math inline">\(R = \{ x \leq 2\}\)</span> then our test will lead us to conclude that Churchill is the winner with probability <span class="math inline">\(0.764\)</span> even if <span class="math inline">\(p\)</span> is as low as <span class="math inline">\(0.25\)</span>!</p>
 <p>If we repeat these caclculations for <span class="math inline">\(R^* = \{x \leq 5\}\)</span>, we find <span class="math inline">\(\alpha = 0.151\)</span> versus <span class="math inline">\(\beta = 0.148\)</span>, even if <span class="math inline">\(p\)</span> is as low as <span class="math inline">\(0.25\)</span>, which is a much better balance between type I and type II errors. <span class="math inline">\(\lozenge\)</span></p>
 <div class="noteblock">
 <p>To summarize, the elements of a statistical test are:</p>
@@ -523,8 +530,9 @@ For <span class="math inline">\(Y \sim \mathsf{Binom}(15, 0.25)\)</span>, we cal
 <ol start="1">
 <li id="fn1"><p>How do we tell whether a population is normal? Constructing a normal quantile-quantile plot is one way of assessing whether a normality assumption is reasonable; such a plot compares the quantiles of the sample data <span class="math inline">\(x_i\)</span> against the (theoretical) standard normal quantiles. If the sample data is consistent with a sample from a normal distribution, then the points will lie on a straight line (more or less). Below we display the QQ plot comparing quantiles of cherry tree heights from <a href="statistical-inference.html#tab:cherry-data">2.1</a> to normal quantiles.<a href="statistical-inference.html#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>The standard error is sometimes denoted <span class="math inline">\(\se = \se(\widehat{\theta})\)</span> and the estimated standard error by <span class="math inline">\(\widehat{\se}\)</span>.<a href="statistical-inference.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>We comment that <em>fail to reject <span class="math inline">\(H_0\)</span></em> is sometimes phrased <em>retain <span class="math inline">\(H_0\)</span></em> or (perhaps less accurately) <em>accept <span class="math inline">\(H_0\)</span></em>.<a href="statistical-inference.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>We comment that <em>fail to reject <span class="math inline">\(H_0\)</span></em> is sometimes phrased <em>retain <span class="math inline">\(H_0\)</span></em> or (perhaps less accurately) <em>accept <span class="math inline">\(H_0\)</span></em>. Why not just <em>accept</em> the null and move on with our lives? Well, if I search the Highlands for the Scottish wildcat (critically endangered) and fail to find any, does that prove they do not exist?<a href="statistical-inference.html#fnref3" class="footnote-back">↩︎</a></p></li>
 <li id="fn4"><p>Sir Winston Churchill was member of Parliament for Dundee from 1908–1922. <a href="https://www.wikiwand.com/en/Winston_Churchill">[W]</a><a href="statistical-inference.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p><span class="math inline">\(X\)</span> is a binomial random variable because it can be modeled as <span class="math inline">\(m\)</span> independent Bernoulli trails each with probability <span class="math inline">\(p\)</span> of success (i.e. votes Churchill) as long as the sample size <span class="math inline">\(m\)</span> is much smaller than the population of Dundee. If we had the means to canvas nearly the whole population, what goes wrong conceptually?<a href="statistical-inference.html#fnref5" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

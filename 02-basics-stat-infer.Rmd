@@ -18,7 +18,7 @@ Suppose we actually find and measure the petal length of $50$ independent *setos
 
 ```{r setosa-petal-lengths, echo = FALSE, fig.cap = "The distribution (counts) of $m = 50$ *setosa* petal length measurments."}
 df <-  select(iris, Petal.Length, Species) %>% filter(Species == "setosa")
-ggplot(data = df, aes(x = Petal.Length, fill = Species)) + geom_histogram(binwidth = 0.1) + xlab("Petal Length") + ylab("Count")
+ggplot(data = df, aes(x = Petal.Length, fill = Species)) + geom_histogram(binwidth = 0.1) + geom_vline(aes(xintercept = 1.462, linetype = "mean"))  + geom_vline(aes(xintercept = 1.809328, linetype = "mean + 2sd")) + scale_linetype_manual(values = c(1, 10), name = "Sample stats") + xlab("Petal Length") + ylab("Count")
 ```
 
 ::: {.tipblock}
@@ -64,7 +64,7 @@ The quantile-quantile plot in Figure \@ref(fig:qq-plot-cherry), that compares th
 \begin{equation*}
 \quad X_1, \dots, X_{31} \sim \mathsf{N}(\mu, \sigma^2) \,.
 \end{equation*}
-Consider the following three different stimators and the resulting point estimates for $\mu$ based on the $31$ samples.
+Consider the following three different estimators and the resulting point estimates for $\mu$ based on the $31$ samples in Table \@ref(tab:cherry-data).
 
 a. Estimator (sample mean) $\overline{X}$ as in \@ref(eq:sample-mean) and estimate $\overline{x} = \sum x_i / n = 2356 / 31 = 76$.
 
@@ -78,7 +78,6 @@ ggplot(trees, aes(sample = Height)) + stat_qq() + stat_qq_line()
 
 Each estimator above uses a different notion of center for the sample data, i.e., a different statistic. An interesting question to think about is: which estimator will tend to produce estimates closest to the true parameter value? Will the estimators work universally well for all distributions? $\lozenge$
  
-
 In addition to reporting a point estimate together with its estimator, some indication of its precision should be given. One measure of the precision of an estimate is its standard error.  
 
 ```{definition, standard-error}
@@ -108,7 +107,7 @@ My favorite interpretation of a confidence interval is due to [@Wasserman:2013as
 
 This interpretation makes clear that a confidence interval is not a probability statement about the parameter $\theta$. In Definition \@ref(def:confidence-interval-gen), note that $\theta$ is fixed ($\theta$ is not a rv) and the interval $C_m$ is random. After data has been collected and a point estimator has been calculated, the resulting CIs either contain the true parameter value or they do not, as illustrated in Figure \@ref(fig:fifty-cis). 
 
-```{r fifty-cis, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Fifty $95\\%$ CIs for a population mean $\\mu$. After a sample is taken, the computed interval estimate either contains $\\mu$ or it does not (asterisk identify intervals that do not include $\\mu$). When drawing such a large number of $95\\%$ CIs, we would anticipate that approximately $5\\%$ (ca. 2 or 3) would fail to cover the true parameter $\\mu$.", fig.width = 3, fig.asp = 1.6}
+```{r fifty-cis, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Fifty $95\\%$ CIs for a population mean $\\mu$. After a sample is taken, the computed interval estimate either contains $\\mu$ or it does not (asterisk identify intervals that do not include $\\mu$). When drawing such a large number of $95\\%$ CIs, we would anticipate that approximately $5\\%$ (ca. 2 or 3) would fail to cover the true parameter $\\mu$.", fig.width = 4, fig.asp = 1.8}
 df <- read_csv("data/fifty-cis.csv")
 df$star <- factor(df$star, level = c(0,1), labels = c("", "*"))
 ggplot(df, aes(x = idx, y = xbar, color = star, shape = star)) + geom_hline(yintercept = 0, size = 1, alpha = 1) + geom_pointrange(aes(ymin = l, ymax = u)) + scale_shape_manual(values = c(19,8)) + theme(axis.title.y = element_blank(), axis.title.x = element_blank(), legend.position = "none", axis.ticks.x=element_blank(), axis.text.x=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + coord_flip() + annotate("text", x = 0, y = 0, label=TeX("$\\mu$"), hjust = -.4, vjust = .8, size = 5)
@@ -117,23 +116,23 @@ ggplot(df, aes(x = idx, y = xbar, color = star, shape = star)) + geom_hline(yint
 
 ## Hypothesis testing {#hypothesis-testing}
 
-In Sections \@ref(point-estimation) and \@ref(confidence-intervals) we reviewed how to estimate a parameter by a single number (point estimate) or range of plausible values (confidence interval), respectively. Next we discuss methods for determining which of two contradictory claims, or **hypotheses**, about a parameter is correct. 
+Sections \@ref(point-estimation) and \@ref(confidence-intervals) reviewed how to estimate a parameter by a single number (point estimate) or range of plausible values (confidence interval), respectively. Next we discuss methods for determining which of two contradictory claims, or **hypotheses**, about a parameter is correct. 
 
 ```{definition, null-alt-hypothesis}
 The **null hypothesis**, denoted by $H_0$, is a claim that we intially assume to be true by dafault. The **alternative hypothesis**, denoted by $H_a$, is an assertion that is contradictory to $H_0$. 
 ```  
 
-The statistical hypothesis are contradictory in that the parameter space is divided into two disjoint sets. For example, for a statistical hypothesis regarding the *equality* of a parameter $\theta$ with a fixed quantity $\theta_0$, the null and alternative hypotheses will take one of the following forms in Table \@ref(tab:htest-null-alt-forms).
+Typically, we shall consider hypothesis concerning a parameter $\theta \in \Theta$ taking values in a parameter space. The statistical hypothesis are contradictory in that $H_0$ and $H_a$ divide $\Theta$ into two disjoint sets. For example, for a statistical hypothesis regarding the *equality* of a parameter $\theta$ with a fixed quantity $\theta_0$, the null and alternative hypotheses will usually take one of the following forms in Table \@ref(tab:htest-null-alt-forms).
 
 ```{r htest-null-alt-forms, echo=FALSE, warning = FALSE, message = FALSE}
 kbl(tibble(read_csv("data/htest-null-alt-forms.csv")), caption = "Typical null hypothesis and corresponding alternative hypothesis.", booktabs = T) %>%
  kable_styling(latex_options = c("striped", "hold_position"))
 ``` 
 
-The value $\theta_0$, called the **null value**, separates the alternative from the null. 
+These pairs of hypothesis are associated with either a one-sided or two-sided test; what this means will become clear in the sequel. The value $\theta_0$, called the **null value**, separates the alternative from the null. 
 
 ```{definition, hypothesis-test}
-A **hypothesis test** asks if the available data provides sufficient evidence to reject $H_0$. If the observations disagree with $H_0$, then we reject the null hypothesis. If the sample evidence does not strongly contradict $H_0$, then we continue to believe $H_0$. The two possible conclustions of a hypothesis test are: *reject $H_0$* or *fail to reject $H_0$*.^[We comment that *fail to reject $H_0$* is sometimes phrased *retain $H_0$* or (perhaps less accurately) *accept $H_0$*.]  
+A **hypothesis test** asks if the available data provides sufficient evidence to reject $H_0$. If the observations disagree with $H_0$, then we reject the null hypothesis. If the sample evidence does not strongly contradict $H_0$, then we continue to believe $H_0$. The two possible conclustions of a hypothesis test are: *reject $H_0$* or *fail to reject $H_0$*.^[We comment that *fail to reject $H_0$* is sometimes phrased *retain $H_0$* or (perhaps less accurately) *accept $H_0$*. Why not just *accept* the null and move on with our lives? Well, if I search the Highlands for the Scottish wildcat (critically endangered) and fail to find any, does that prove they do not exist?]  
 ```  
 
 A procedure for carrying out a hypothesis test is based on specifying two additional items: a test statistic and a corresponding rejection region. A **test statistic** $T$ is a function of the sample data (like an estimator). The decision to reject or fail to reject $H_0$ will involve computing the test statistic. The **rejection region** $R$ is the collection of values of the test statistic for which $H_0$ is to be rejected in favor of the alternative, e.g.,
@@ -157,7 +156,11 @@ A **$P$-value** is the probability, calculated assuming $H_0$ is true, of obtain
 Smaller $P$-values indicate stronger evidence against $H_0$ in favor of $H_a$. If $P \leq \alpha$ then we reject $H_0$ at significance level $\alpha$. If $P \geq \alpha$ we fail to reject $H_0$ at significance level $\alpha$.   
 
 :::{.warningblock}
-The $P$-value is a probability calculated assuming that $H_0$ is true. However, the $P$-value is *not*: (1) the probability that $H_0$ is TRUE, (2) the probability that $H_0$ is FALSE, or (3) the probability that a wrong conclusion is reached.   
+The $P$-value is a probability calculated assuming that $H_0$ is true. However, the $P$-value is **not** the probability that:
+
+1. $H_0$ is TRUE, 
+2. $H_0$ is FALSE, or 
+3. a wrong conclusion is reached.   
 :::   
 
 ```{proposition, signifiance-type1}
@@ -172,14 +175,14 @@ has $P(\text{type I error}) = \alpha$.
 ```   
 
 ```{example, htest-setup}
-Churchill claims that he gain a plurality of the votes for the House of Commons seat for the constituency of Dundee.^[Sir Winston Churchill was member of Parliament for Dundee from 1908--1922. [[W]](https://www.wikiwand.com/en/Winston_Churchill)] If we do not believe Churchill's claim, then we would seek to test an alternative hypothesis. How should we write down our research hypotheses?
+Churchill claims that he will receive half the votes for the House of Commons seat for the constituency of Dundee.^[Sir Winston Churchill was member of Parliament for Dundee from 1908--1922. [[W]](https://www.wikiwand.com/en/Winston_Churchill)] If we do not believe Churchill's claim and we are doubtful of his popularity, then we would seek to test an alternative hypothesis. How should we write down our research hypotheses?
 ```
 
-If we let $p$ be the fraction of the population voting for Churchill, then we have the null hypothesis (note, the minimum needed for plurality is $50\%$)
+If we let $p$ be the fraction of the population voting for Churchill, then we have the null hypothesis,
 \begin{equation*}
- H_0 : p = 0.5 
+ H_0 : p = 0.5 \,,
 \end{equation*}
-and the alternative hypothesis 
+and the alternative hypothesis (we believe Churchill is less popular than he claims),
 \begin{equation*}
  H_a : p < 0.5 \,.
 \end{equation*}
@@ -189,7 +192,9 @@ Support for the alternative hypothesis is obtain by showing lack of support for 
 Suppose that $m = 15$ voters are selected from Dundee and $X$, the number favoring Churchill, is recorded. Based on observing $X$, we construct a rejection region $R = \{x : x \leq k \}$. If $k$ is small compared to $m$, then the rejection region would provide pretty strong evidence to reject $H_0$. How should one choose the rejection region?
 ```
 
-Assume now that $m = 15$ voters are polled and that we select $k = 2$ to have a rejection region $R = \{ x \leq 2 \}$. We can calculate the probability of a type I error. From the definition of type I error,
+Assume now that $m = 15$ voters are polled and that we select $k = 2$ to have a rejection region $R = \{ x \leq 2 \}$. For this choice of $k$, the rejection region $R$ provides strong support to reject $H_0$. If we assume the null hypothesis is true, then we would expect that approximately half of the $15$ voters (ca. 7) would plump for Churchill. Observing $x = 0$, $x = 1$ or $x = 2$ (the values that would place us in the rejection region) would provide strong evidence *against* $H_0$. 
+
+We can calculate the probability of a type I error. From the definition of type I error,
 \begin{equation*}
  \begin{aligned}
  \alpha &= P(\text{type I error})\\
@@ -198,7 +203,7 @@ Assume now that $m = 15$ voters are polled and that we select $k = 2$ to have a 
   &= P(X \leq 2 \text{ when } p = 0.5) \,.
  \end{aligned}
 \end{equation*}
-Since $Y \sim \mathsf{Binom}(15, 0.50)$, we calculate that $\alpha = `r signif(pbinom(2, 15, 0.5), digits = 3)`$. Thus, for this particular choice of rejection region $R$, the risk of concluding that Churchill will lose if in fact he is the winner is very small.
+Since $X \sim \mathsf{Binom}(15, 0.50)$,^[$X$ is a binomial random variable because it can be modeled as $m$ independent Bernoulli trails each with probability $p$ of success (i.e. votes Churchill) as long as the sample size $m$ is much smaller than the population of Dundee. If we had the means to canvas nearly the whole population, what goes wrong conceptually?] we calculate that $\alpha = `r signif(pbinom(2, 15, 0.5), digits = 3)`$. Thus, for this particular choice of rejection region $R$, the risk of concluding that Churchill will lose if in fact he is the winner is very small.
 
 For this rejection region, how good is the test at protecting us from type II errors, i.e., concluding that Churchill is the winner if in fact he will lose? Suppose that Churchill receive $25%$ of the votes ($p=0.25$). The probability of a type II error $\beta$,
 \begin{equation*}
@@ -209,7 +214,7 @@ For this rejection region, how good is the test at protecting us from type II er
   &= P(X > 2 \text{ when } p = 0.3)\,.
  \end{aligned}
 \end{equation*}
-For $Y \sim \mathsf{Binom}(15, 0.25)$, we calculate $\beta = `r signif(pbinom(2, 15, 0.25, lower.tail = FALSE), digits = 3)`$. If we use $R = \{ x \leq 2\}$ then our test will lead us to conclude that Churchill is the winner with probability $0.764$ even if $p$ is as low as $0.25$!
+For $X \sim \mathsf{Binom}(15, 0.25)$, we calculate $\beta = `r signif(pbinom(2, 15, 0.25, lower.tail = FALSE), digits = 3)`$. If we use $R = \{ x \leq 2\}$ then our test will lead us to conclude that Churchill is the winner with probability $0.764$ even if $p$ is as low as $0.25$!
 
 If we repeat these caclculations for $R^* = \{x \leq 5\}$, we find $\alpha = `r signif(pbinom(5, 15, 0.5), digits = 3)`$ versus $\beta = `r signif(pbinom(5, 15, 0.25, lower.tail = FALSE), digits = 3)`$, even if $p$ is as low as $0.25$, which is a much better balance between type I and type II errors. $\lozenge$   
 

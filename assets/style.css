@@ -77,7 +77,8 @@ li.appendix span, li.part span { /* for TOC part names */
 
 .noteblock {
   padding: 1em 1em 1em 6em;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   border-left: 6px solid #042e6b;
   background: 1.5em center/2.5em no-repeat;
   background-image: url("images/info-circle.svg");
@@ -85,7 +86,8 @@ li.appendix span, li.part span { /* for TOC part names */
 
 .tipblock {
   padding: 1em 1em 1em 6em;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   border-left: 6px solid #d5d5ce;
   background: 1.5em center/2em no-repeat;
   background-image: url("images/lightbulb.svg");
@@ -93,7 +95,8 @@ li.appendix span, li.part span { /* for TOC part names */
 
 .warningblock {
   padding: 1em 1em 1em 6em;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   border-left: 6px solid #be4e00;
   background: 1.5em center/2.5em no-repeat;
   background-image: url("images/exclamation-triangle.svg");
@@ -101,7 +104,8 @@ li.appendix span, li.part span { /* for TOC part names */
 
 .importantblock {
   padding: 1em 1em 1em 6em;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   border-left: 6px solid #c30000;
   background: 1.5em center/2.5em no-repeat;
   background-image: url("images/exclamation-circle.svg");
