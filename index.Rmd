@@ -58,4 +58,15 @@ data(trees)
 
 # Welcome {-}
 
-Welcome to MA22004. 
+Welcome to MA22004 at the University of Dundee. 
+
+This course covers the basics of statistical inference. The first part of this document contains information of a practical nature regarding the mechanics of the course. The second part of this document contains the content. 
+
+These are some trying times. 
+
+Please try to stay healthy.
+
+***
+
+These notes are available at [dundeemath.github.io/MA22004/](https://dundeemath.github.io/MA22004/) and also as a PDF (visit the page and click on the PDF icon to download). 
+
