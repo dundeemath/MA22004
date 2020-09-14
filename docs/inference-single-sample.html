@@ -50,7 +50,8 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -165,7 +166,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.1</b> Normal distribution</a>
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about Normals</a></li>
-<li class="chapter" data-level="1.1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#critical-z-values"><i class="fa fa-check"></i><b>1.1.2</b> Critical <span class="math inline">\(z\)</span> values</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\mathsf{t}\)</span> distribution</a>
 <ul>
@@ -243,6 +243,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<span class="math inline">\(\DeclareMathOperator{\E}{\mathbf{E}}\)</span>
+<span class="math inline">\(\DeclareMathOperator{\Var}{Var}\)</span>
+<span class="math inline">\(\DeclareMathOperator{\Cov}{Cov}\)</span>
+<span class="math inline">\(\DeclareMathOperator{\corr}{corr}\)</span>
+<span class="math inline">\(\newcommand{\se}{\mathsf{se}}\)</span>
 <div id="inference-single-sample" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Inferences based on a single sample</h1>
 <p>We estimate population means (<span class="math inline">\(\mu\)</span>) in Section <a href="inference-single-sample.html#estimating-means">3.1</a>, population proportions (<span class="math inline">\(p\)</span>) in Section <a href="inference-single-sample.html#estimating-proportions">3.2</a>, and population variances (<span class="math inline">\(\sigma^2\)</span>) in Section <a href="inference-single-sample.html#estimating-variances">3.3</a>.</p>
@@ -353,12 +358,12 @@ or <span class="math inline">\(\overline{x} \pm t_{\alpha/2, n-1} \cdot s/ \sqrt
 \end{equation}\]</span>
 satisfying the given property. The estimator <span class="math inline">\(\widehat{p}\)</span> varies with the sample and for large <span class="math inline">\(n\)</span> it’s sampling distribution has the following properties:
 <span class="math display" id="eq:proportion-mean">\[\begin{equation*}
-\mu_{\widehat{p}} = \operatorname{E}[X_i] = p 
+\mu_{\widehat{p}} = \E[X_i] = p 
  \tag{3.5}
 \end{equation*}\]</span>
 and
 <span class="math display" id="eq:proportion-var">\[\begin{equation}
- \sigma_{\widehat{p}}^2 = \frac{\operatorname{Var}[X_i]}{n} = \frac{p(1-p)}{n}\,,
+ \sigma_{\widehat{p}}^2 = \frac{\Var[X_i]}{n} = \frac{p(1-p)}{n}\,,
  \tag{3.6}
 \end{equation}\]</span>
 provided that <span class="math inline">\(n\)</span> is small relative to <span class="math inline">\(N\)</span> (a rule of thumb is <span class="math inline">\(n \leq 0.05 N\)</span>).<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> Moreover, by invoking the Central Limit Theorem we have the distribution of <span class="math inline">\(\widehat{p}\)</span> is approximately normal for sufficiently large <span class="math inline">\(n\)</span> as <a href="inference-single-sample.html#eq:proportion-estimator">(3.4)</a> is a sample mean. Indeed, this normal approximation works well for moderately large <span class="math inline">\(n\)</span> as long as <span class="math inline">\(p\)</span> is not too close to zero or one; a rule of thumb is that <span class="math inline">\(np &gt; 5\)</span> and <span class="math inline">\(n(1-p) &gt; 5\)</span>.</p>
@@ -372,9 +377,9 @@ provided that <span class="math inline">\(n\)</span> is small relative to <span 
 </div>
 <p>This follows from Proposition <a href="inference-single-sample.html#prp:ci-large-sample">3.2</a> by observing that <a href="inference-single-sample.html#eq:proportion-estimator">(3.4)</a> is a sample mean and replacing the standard error <span class="math inline">\(\sigma_{\widehat{p}}\)</span> from <a href="inference-single-sample.html#eq:proportion-var">(3.6)</a> by the estimated standard error,
 <span class="math display">\[\begin{equation*}
- \widehat{\mathsf{se}}(\widehat{p}) = \sqrt{\frac{\widehat{p} (1-\widehat{p})}{n}}\,;
+ \widehat{\se}(\widehat{p}) = \sqrt{\frac{\widehat{p} (1-\widehat{p})}{n}}\,;
 \end{equation*}\]</span>
-recall the <span class="math inline">\(s\)</span> in <a href="inference-single-sample.html#eq:ci-large-sample">(3.3)</a> is the sample variance for the <em>population</em> and <span class="math inline">\(s / \sqrt{n} = \mathsf{se}\)</span> is the standard error of the point estimator.</p>
+recall the <span class="math inline">\(s\)</span> in <a href="inference-single-sample.html#eq:ci-large-sample">(3.3)</a> is the sample variance for the <em>population</em> and <span class="math inline">\(s / \sqrt{n} = \se\)</span> is the standard error of the point estimator.</p>
 
 <div class="example">
 <span id="exm:eg-est-prop-norm-approx-binom" class="example"><strong>Example 3.1  </strong></span><strong>TODO</strong>: Examples of sampling distribution for p <span class="math inline">\(\lozenge\)</span>

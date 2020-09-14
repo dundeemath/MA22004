@@ -9,6 +9,13 @@ github-repo: ejhall/MA22004/
 url: 'https\://ejhall.github.io/MA22004/'
 bibliography: ma22004.bib
 description: "Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee."
+always_allow_html: true
+include-before:
+  - '$\DeclareMathOperator{\E}{\mathbf{E}}$'
+  - '$\DeclareMathOperator{\Var}{Var}$'
+  - '$\DeclareMathOperator{\Cov}{Cov}$'
+  - '$\DeclareMathOperator{\corr}{corr}$'
+  - '$\newcommand{\se}{\mathsf{se}}$'
 ---
 
 ```{r setup, include=FALSE}
@@ -28,9 +35,23 @@ library(kableExtra)
 library(formattable)
 library(DT)
 library(dplyr)
+library(datasets)
+# ggplot theme
+if (knitr::is_html_output()){
+  theme_set(theme_gray(base_size = 12))
+  knitr::opts_chunk$set(echo = TRUE, comment = "", fig.width = 8, fig.asp = 0.6, dev = "svglite", fig.align = "center")
+} else {
+  theme_set(theme_bw(base_size = 10))
+  knitr::opts_chunk$set(echo = TRUE, comment = "", fig.width = 6, fig.asp = 0.6)
+}
 
-knitr::opts_chunk$set(echo = TRUE, comment = "") #, dev = "svglite", fig.width=8
+# data sets
+data(iris)
+data(trees)
+
+
 #plotly::config(plot_ly(), displaylogo = FALSE, mathjax = "cdn")
+#htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
 # (PART\*) Course Documents {-}

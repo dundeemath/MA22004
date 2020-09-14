@@ -50,7 +50,8 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -165,7 +166,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.1</b> Normal distribution</a>
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about Normals</a></li>
-<li class="chapter" data-level="1.1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#critical-z-values"><i class="fa fa-check"></i><b>1.1.2</b> Critical <span class="math inline">\(z\)</span> values</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\mathsf{t}\)</span> distribution</a>
 <ul>
@@ -243,6 +243,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<span class="math inline">\(\DeclareMathOperator{\E}{\mathbf{E}}\)</span>
+<span class="math inline">\(\DeclareMathOperator{\Var}{Var}\)</span>
+<span class="math inline">\(\DeclareMathOperator{\Cov}{Cov}\)</span>
+<span class="math inline">\(\DeclareMathOperator{\corr}{corr}\)</span>
+<span class="math inline">\(\newcommand{\se}{\mathsf{se}}\)</span>
 <div id="anova" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Analysis of variance (ANOVA)</h1>
 <p>Analysis of variance, shortened as ANOVA, is a collection of statistical models and estimation procedures for analyzing the variation among different groups. In particular, a single-factor ANOVA provides a hypothesis test regarding the equality of two or more population means, thereby generalizing the one-sample and two-sample <span class="math inline">\(\mathsf{t}\)</span> tests considered in Sections <a href="inference-single-sample.html#mean-normal-var-unknown">3.1.3</a> and <a href="inference-two-samples.html#compare-means-normpops-vars-unknown">4.1.3</a>.</p>
@@ -299,9 +304,9 @@ In the present context a large test statistic value is more constradictory to <s
 <div class="example">
 <span id="exm:anova" class="example"><strong>Example 5.1  </strong></span>Consider the average salary data from lcocal councils in Table <a href="anova.html#tab:anova-samples-stats">5.1</a>. Is the expected average salary in each nation the same at the <span class="math inline">\(5\%\)</span> level?
 </div>
-<table>
+<table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:anova-samples-stats">Table 5.1: </span>Data and summary sample statistics for Figure <a href="anova.html#fig:anova-samples-boxplots">5.1</a>.
+<span id="tab:anova-samples-stats">Table 5.1: </span><strong>Average Salary Data</strong> reported from <span class="math inline">\(20\)</span> local councils.
 </caption>
 <thead>
 <tr>
@@ -393,19 +398,18 @@ Wales
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Table <a href="anova.html#tab:anova-samples-stats">5.1</a> presents the average salaries (in thousands of pounds) reported from 20 local councils classified by nation (England, N Ireland, Scotland, and Wales). The sample means together with the sample standard deviations are summarized in the table as well as presented using using box plots in Figure <a href="anova.html#fig:anova-samples-boxplots">5.1</a>.</p>
-</blockquote>
-<div class="figure"><span id="fig:anova-samples-boxplots"></span>
-<img src="05-anova_files/figure-html/anova-samples-boxplots-1.png" alt="Box plots of the average mean salary data in Table \@ref(tab:anova-samples-stats) indicate five summary statistics: the median, two hinges (first and third quartiles) and two whiskers (extending from the hinge to the most extreme data point within 1.5 * IQR)." width="672" />
+<div class="tipblock">
+<p>Table <a href="anova.html#tab:anova-samples-stats">5.1</a> presents the <strong>Average Salary Data</strong> (in thousands of pounds) reported from 20 local councils classified by nation (England, N Ireland, Scotland, and Wales). The sample means together with the sample standard deviations are summarized in the table as well as presented using using box plots in Figure <a href="anova.html#fig:anova-samples-boxplots">5.1</a>.</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:anova-samples-boxplots"></span>
+<img src="ma22004_files/figure-html/anova-samples-boxplots-1.svg" alt="Box plots of the average mean salary data in Table \@ref(tab:anova-samples-stats) indicate five summary statistics: the median, two hinges (first and third quartiles) and two whiskers (extending from the hinge to the most extreme data point within $1.5 \cdot \mathsf{IQR}$)." width="768" />
 <p class="caption">
-Figure 5.1: Box plots of the average mean salary data in Table <a href="anova.html#tab:anova-samples-stats">5.1</a> indicate five summary statistics: the median, two hinges (first and third quartiles) and two whiskers (extending from the hinge to the most extreme data point within 1.5 * IQR).
+Figure 5.1: Box plots of the average mean salary data in Table <a href="anova.html#tab:anova-samples-stats">5.1</a> indicate five summary statistics: the median, two hinges (first and third quartiles) and two whiskers (extending from the hinge to the most extreme data point within <span class="math inline">\(1.5 \cdot \mathsf{IQR}\)</span>).
 </p>
 </div>
-<p>For <span class="math inline">\(\alpha = 0.05\)</span>, we compute the upper-tail area <span class="math inline">\(F_{0.05}\)</span> i.e. to the right of the critical value <span class="math inline">\(F_{0.05, 3, 16}\)</span> by consulting a statistical table or by using <code>r</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="anova.html#cb5-1"></a><span class="kw">qf</span>(<span class="dv">1</span><span class="fl">-.05</span>, <span class="dt">df1 =</span> <span class="dv">4-1</span>, <span class="dt">df2 =</span> <span class="dv">20-4</span>) <span class="co"># alt: qf(.05, df1 = 4-1, df2 = 20-4, lower.tail = FALSE)</span></span></code></pre></div>
+<p>For <span class="math inline">\(\alpha = 0.05\)</span>, we compute the upper-tail area <span class="math inline">\(F_{0.05}\)</span> i.e. to the right of the critical value <span class="math inline">\(F_{0.05, 3, 16}\)</span> by consulting a statistical table or by using <code>r</code> to find <span class="math inline">\(F_{0.05} = 3.2388715\)</span>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="anova.html#cb5-1" aria-hidden="true"></a><span class="kw">qf</span>(<span class="dv">1</span><span class="fl">-.05</span>, <span class="dt">df1 =</span> <span class="dv">4-1</span>, <span class="dt">df2 =</span> <span class="dv">20-4</span>) <span class="co"># alt: qf(.05, df1 = 4-1, df2 = 20-4, lower.tail = FALSE)</span></span></code></pre></div>
 <pre><code>[1] 3.238872</code></pre>
-<p>to find <span class="math inline">\(F_{0.05} = 3.2388715\)</span>.</p>
 <p>The grand mean is
 <span class="math display">\[\begin{equation*}
  \overline{x} = \frac{17 + 12 + 18 + \cdots + 8 + 7 + 9}{20} = 11.9\,,
@@ -439,15 +443,15 @@ Since <span class="math inline">\(F &gt; F_\alpha\)</span> we reject <span class
 <span class="math display">\[\begin{equation*}
  \theta = \sum_{i=1}^k c_i \mu_i\,,
 \end{equation*}\]</span>
-for constants <span class="math inline">\(c_i\)</span>. As we assume the <span class="math inline">\(X_ij\)</span> are normally distributed with <span class="math inline">\(\operatorname{E}[X_{ij}] = \mu_i\)</span> and <span class="math inline">\(\operatorname{Var}[X_{ij}] = \sigma^2\)</span>, the estimator
+for constants <span class="math inline">\(c_i\)</span>. As we assume the <span class="math inline">\(X_ij\)</span> are normally distributed with <span class="math inline">\(\E[X_{ij}] = \mu_i\)</span> and <span class="math inline">\(\Var[X_{ij}] = \sigma^2\)</span>, the estimator
 <span class="math display">\[\begin{equation*}
  \widehat{\theta} = \sum_{i=1}^k c_i \overline{X}_{i}\,,
 \end{equation*}\]</span>
 is normally distributed with
 <span class="math display">\[\begin{equation*}
- \operatorname{Var}[\widehat{\theta}] - \sum_{i=1}^k c_i^2 \operatorname{Var}[\overline{X}_i] = \sigma^2 \sum_{i=1}^{k} \frac{c_i}{m_i}\,.
+ \Var[\widehat{\theta}] - \sum_{i=1}^k c_i^2 \Var[\overline{X}_i] = \sigma^2 \sum_{i=1}^{k} \frac{c_i}{m_i}\,.
 \end{equation*}\]</span>
-Estimating <span class="math inline">\(\sigma^2\)</span> by the  and forming <span class="math inline">\(\widehat{\sigma}_{\widehat{\theta}}\)</span> results in a <span class="math inline">\(\mathsf{t}\)</span> variable
+Estimating <span class="math inline">\(\sigma^2\)</span> by the <span class="math inline">\(\mathsf{MSE}\)</span> and forming <span class="math inline">\(\widehat{\sigma}_{\widehat{\theta}}\)</span> results in a <span class="math inline">\(\mathsf{t}\)</span> variable
 <span class="math display">\[\begin{equation*}
  \frac{\widehat{\theta} - \theta}{\widehat{\sigma}_{\widehat{\theta}}}\,.
 \end{equation*}\]</span></p>
@@ -463,7 +467,7 @@ Estimating <span class="math inline">\(\sigma^2\)</span> by the  and forming <sp
 <span id="exm:anova-ci" class="example"><strong>Example 5.2  </strong></span>Determine a <span class="math inline">\(90\%\)</span> CI for the difference in mean average salary for councils in Scotland and England, based on the data available in Table <a href="anova.html#tab:anova-samples-stats">5.1</a>
 </div>
 <p>For <span class="math inline">\(\alpha = 0.10\)</span>, the critical value <span class="math inline">\(t_{0.05, 16} = 1.7458837\)</span> is found by looking in a table of <span class="math inline">\(\mathsf{t}\)</span> critical values or by using <code>r</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="anova.html#cb7-1"></a><span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.1</span><span class="op">/</span><span class="dv">2</span>, <span class="dt">df =</span> <span class="dv">20</span> <span class="op">-</span><span class="st"> </span><span class="dv">4</span>) <span class="co"># alt: qt(0.1/2, 16, lower.tail = FALSE)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="anova.html#cb7-1" aria-hidden="true"></a><span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.1</span><span class="op">/</span><span class="dv">2</span>, <span class="dt">df =</span> <span class="dv">20</span> <span class="op">-</span><span class="st"> </span><span class="dv">4</span>) <span class="co"># alt: qt(0.1/2, 16, lower.tail = FALSE)</span></span></code></pre></div>
 <pre><code>[1] 1.745884</code></pre>
 <p>Then for the function <span class="math inline">\(\overline{x}_2 - \overline{x_1}\)</span>,
 <span class="math display">\[\begin{equation*}
@@ -473,10 +477,10 @@ Estimating <span class="math inline">\(\sigma^2\)</span> by the  and forming <sp
 &amp; = 1.5 \pm 2.3976575\,.
 \end{aligned}
 \end{equation*}\]</span>
-Thus a <span class="math inline">\(90\%\)</span> confidence interval for <span class="math inline">\(\mu_{Eng} - \mu_{Sco}\)</span> is <span class="math inline">\((-0.8976575\,, 3.8976575)\)</span>. <span class="math inline">\(\lozenge\)</span></p>
-<blockquote>
+Thus a <span class="math inline">\(90\%\)</span> confidence interval for <span class="math inline">\(\mu_{Eng} - \mu_{Sco}\)</span> is <span class="math inline">\((-0.8977\,, 3.898)\)</span>. <span class="math inline">\(\lozenge\)</span></p>
+<div class="warningblock">
 <p>How does the result in Example <a href="anova.html#exm:anova-ci">5.2</a> compare to the <span class="math inline">\(\mathsf{t}\)</span> method in Section <a href="inference-two-samples.html#compare-means-normpops-vars-unknown">4.1.3</a>?</p>
-</blockquote>
+</div>
 
 </div>
 </div>

@@ -1,41 +1,21 @@
-```{r setup, include=FALSE}
-#  bookdown::render_book("index.Rmd", "bookdown::gitbook", output_dir = "docs/")
-
-# packages
-library(bookdown)
-library(RColorBrewer)
-library(readr)
-library(plotly)
-library(tidyverse)
-library(reshape2)
-library(latex2exp)
-library(svglite)
-library(knitr)
-library(kableExtra)
-library(formattable)
-library(DT)
-library(dplyr)
-
-knitr::opts_chunk$set(echo = TRUE, comment = "") #, dev = "svglite", fig.width=8
-#plotly::config(plot_ly(), displaylogo = FALSE, mathjax = "cdn")
-```
-
 # Course Guide {-#cg}
 
 ## Organisation {-#cg-organization}
 
 This module runs for 11 teaching weeks and is worth 20 SCQF credits (equivalently, 10 ECTS points). All organisation and teaching will be carried out by:
 
---------------------
-Dr Eric Hall
+:::{.noteblock}
+Dr Eric Hall   
+
 [ehall001@dundee.ac.uk](mailto:ehall001@dundee.ac.uk)
 
-Mathematics Division
+Mathematics Division   
+
 Room TBA,
-Fulton Building
+Fulton Building   
 
 01382 TBA
---------------------
+:::
 
 This course uses [Blackboard Ultra](my.dundee.ac.uk) (look for course `MA22004_SEM0000_2021`) for communicating all announcements/deadlines and also for running online meetings. This course also uses [Gradescope](https://www.gradescope.com/) for submission of some of the continuous assessment items and [Perusall](https://perusall.com/) for collaborative engagement with reading materials.
 
@@ -43,12 +23,15 @@ If you have a problem regarding the course, then you should make an appointment 
 
 ## Timetable {-#cg-timetable}
 
-> ⚠️ Due to COVID19, these plans may be subject to change. 
+::: {.importantblock} 
+Due to COVID19, these plans may be subject to change. 
+::: 
 
 The delivery of this module consists of a blend of synchronous and asynchronous content delivered both in-person and online. On an average week, there will be seven planned teaching and learning activities.
 
 ```{r table-activities, echo=FALSE, warning = FALSE, message = FALSE, fig.cap = "Learning activities."}
-kable(tibble(read_csv("data/activities.csv")))
+kbl(tibble(read_csv("data/activities.csv")), booktabs = T) %>%
+ kable_styling(latex_options = c("striped", "hold_position"))
 ```
 
 The anticipated student effort is 200 hours over the length of the module. You are expected to be "present" for all synchronous timetabled activities except for the online office hours, which are optional. You may engage with the asynchronous material at your own pace, keeping in mind to meet any deadlines for engagement and/or attainment that will be posted to Ultra and discussed. 
@@ -78,12 +61,14 @@ R software package
 
 In addition to the course notes, here are some textbooks you may wish to consult.
 
-> ⚠️ You do not need to purchase these books.
++ *Probability and Statistics for Engineering and the Sciences,* [@Devore:2016st, §6-10, 12, 14, 16]
++ *Probability and Statistics,* [@DeGrootSchervish:2001ps, §7-10]
++ *Mathematical statistics and data analysis,* [@Rice:2006da, §6-12]
++ *All of Statistics,* [@Wasserman:2013as, Concise general reference]
 
-+ Devore, *Probability and Statistics for Engineering and the Sciences,* Cengage learning, 2011. [@Devore:2016st, §6-10, 12, 14, 16]
-+ DeGroot and Schervish, *Probability and Statistics,* Addison-Wesley, 2001. [@DeGrootSchervish:2001ps, §7-10]
-+ Rice, *Mathematical statistics and data analysis,* Cengage Learning, 2006. [@Rice:2006da, §6-12]
-+ Wasserman, *All of Statistics,* Springer-Verlag, 2004. [@Wasserman:2013as, Concise general reference]
+::: {.warningblock}
+You do not need to purchase these books.
+:::   
 
 ## Assessment {-#cg-assessment}
 
@@ -92,7 +77,8 @@ The module will be *continuously* assessed using coursework and examinations. De
 ```{r table, echo=FALSE}
 df <- tibble(Assessment=c("Assignments", "Midterm Exam 1", "Midterm Exam 2", "Final Exam"),
              Weight=c("20%", "20%", "20%", "40%"))
-kable(df)
+kbl(df, booktabs = T) %>%
+ kable_styling(latex_options = c("striped", "hold_position"))
 ```
 
 ### Coursework {-#cg-assessment-coursework}
@@ -121,7 +107,9 @@ To pass this module, you must:
 
 For those who fail the module, there may be an opportunity to take a two-hour resit examination paper at the next available exam diet. 
 
-> ⚠️ Resit marks are based on the resit exam only.
+:::{.warningblock}
+Resit marks are based on the resit exam only.
+:::
 
 Unless you have mitigating circumstances, if you fail to achieve a module grade of `CF` or above at first attempt, then you may not be permitted to resit the exam. Also, unless you have mitigating circumstances, any pass after a resit will be capped at a grade of `D3` regardless of the weighted average mark obtained.  
 
@@ -129,7 +117,9 @@ Unless you have mitigating circumstances, if you fail to achieve a module grade 
 
 You should attend all synchronous timetabled sessions except on medical grounds or with the special permission of Dr Hall. If you are unable to attend the degree examination or complete elements of the coursework on time, then you should inform Dr Hall and submit a medical certificate. Medical certificates should be submitted to your School Office as soon as possible after the absence.
 
-> ⚠️ You must also submit a Mitigating Circumstances form to explain which aspects of assessment have been affected by your absence.
+:::{.warningblock}
+You must also submit a Mitigating Circumstances form to explain which aspects of assessment have been affected by your absence.
+:::
 
 A Medical Certificate will only be taken into account if accompanied by a completed Mitigating Circumstances form that refers to the medical certificate.
 

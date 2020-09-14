@@ -1,0 +1,41 @@
+\usepackage{unicode-math}%
+\setmathfont{XITS Math}%
+\usepackage{fontspec}%
+\setmainfont[Numbers={Lining,Proportional},Ligatures ={Common, TeX},
+RawFeature={+tnum,+cpsp,+frac},Scale=1]{XITS}%
+% \setsansfont[Ligatures ={Common,TeX}, RawFeature={+cpsp},
+% Scale=1]{Gill Sans}%
+\setsansfont[Ligatures ={Common,TeX}, RawFeature={+cpsp},
+Scale=1]{Helvetica Neue}%
+
+\usepackage[margin=2.5cm]{geometry}%
+%% For nice tables
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+%% For nice info boxes
+\usepackage{awesomebox}%
+\usepackage{siunitx}%
+\newcolumntype{d}{S[table-format=3.2]}%
+\usepackage{hyperref}%
+
+%%% BEGIN SHORTCUTS
+\DeclareMathOperator{\E}{\mathbf{E}}%
+\DeclareMathOperator{\Var}{Var}%
+\DeclareMathOperator{\Cov}{Cov}%
+\DeclareMathOperator{\corr}{corr}%
+\newcommand{\se}{\mathsf{se}}%
+\newcommand{\gt}{>}%
+\newcommand{\lt}{<}%
+%%% END SHORTCUTS
+

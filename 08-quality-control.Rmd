@@ -1,40 +1,8 @@
-```{r setup, include=FALSE}
-#  bookdown::render_book("index.Rmd", "bookdown::gitbook", output_dir = "docs/")
-
-# packages
-library(bookdown)
-library(RColorBrewer)
-library(readr)
-library(plotly)
-library(tidyverse)
-library(reshape2)
-library(latex2exp)
-library(svglite)
-library(knitr)
-library(kableExtra)
-library(formattable)
-library(DT)
-library(dplyr)
-library(datasets)
-# ggplot theme
-theme_set(
-    theme_gray(base_size = 14)
-)
-# data sets
-data(iris)
-data(trees)
+```{r setup-qc, include = FALSE}
 beer <- read_csv("data/beer.csv")
-
-knitr::opts_chunk$set(echo = TRUE, comment = "") #, dev = "svglite", fig.width=8
-#plotly::config(plot_ly(), displaylogo = FALSE, mathjax = "cdn")
 ```
 
-<!-- \newcommand{\Var}{\operatorname{Var}} -->
-<!-- \newcommand{\E}{\operatorname{E}} -->
-<!-- \newcommand{\se}{\mathsf{se}} -->
-
 # Quality Control {#quality-control}
-
 
 Quality control is an area of applies statistics that seeks to make interventions to maintain or improve the outcome of industrial processes. Random variations in output processes might negatively impact the quality of a product. We would like to identify the sources of random variations in output processes that might have *assignable causes*. **Control charts** are a tool that help us to recognize when industrial processes are no longer controlled so that one might then seek to identify assignable causes. 
 
@@ -72,9 +40,11 @@ ipa_stat <- ipa %>%
  group_by(Day) %>% 
  summarise(observations = list(pH), mean = signif(mean(pH), digits = 4), 
            sd = signif(sd(pH), digits = 4), range = max(pH) - min(pH))
-kable(ipa_stat, align = "llccc", 
+kbl(ipa_stat, align = "llccc", 
       caption = "Observations and summary statistics for the **Beer Data**.",
-      col.names = c('Day', "pH Observations", '$\\overline{x}$', '$s$', 'Range'))
+      col.names = c('Day', "pH Observations", '$\\overline{x}$', '$s$', 'Range'), 
+    booktabs = T) %>%
+   kable_styling(latex_options = c("striped", "hold_position"))
 ```   
 
 We estimate of the mean  

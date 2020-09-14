@@ -1,8 +1,8 @@
 
 
-\newcommand{\Var}{\operatorname{Var}}
-\newcommand{\E}{\operatorname{E}}
-\newcommand{\se}{\mathsf{se}}
+<!-- \newcommand{\Var}{\operatorname{Var}} -->
+<!-- \newcommand{\E}{\operatorname{E}} -->
+<!-- \newcommand{\se}{\mathsf{se}} -->
 
 # Basics of statistical inferences {#statistical-inference}
 
@@ -27,7 +27,9 @@ Suppose we actually find and measure the petal length of $50$ independent *setos
 <p class="caption">(\#fig:setosa-petal-lengths)The distribution (counts) of $m = 50$ *setosa* petal length measurments.</p>
 </div>
 
-> The botonist Edgar Anderson's **Iris Data** contains 50 obs. of four features (sepal length [cm], sepal width [cm], petal length [cm], and petal width [cm]) for each of three plant species (*setosa*, *virginica*, *versicolor*) for 150 obs. total. This data set can be accessed in `r` by loading `library(datasets)` and then calling `data(iris)`. 
+::: {.noteblock data-latex=""}
+The botonist Edgar Anderson's **Iris Data** contains 50 obs. of four features (sepal length [cm], sepal width [cm], petal length [cm], and petal width [cm]) for each of three plant species (*setosa*, *virginica*, *versicolor*) for 150 obs. total. This data set can be accessed in `r` by loading `library(datasets)` and then calling `data(iris)`. 
+:::   
 
 \BeginKnitrBlock{definition}<div class="definition"><span class="definition" id="def:point-estimate"><strong>(\#def:point-estimate) </strong></span>A **point estimate** of a parameter $\theta$ (recall: a fixed, unknown quantity) is a single number that we regard as a sensible value for $\theta$. Consider iid $X_1, X_2, \dots, X_m \sim F(\theta)$. A **point estimator** $\widehat{\theta}_m$ of $\theta$ is obtained by selecting a suitable statistic $g$,
 \begin{equation*}
@@ -178,7 +180,7 @@ Smaller $P$-values indicate stronger evidence against $H_0$ in favor of $H_a$. I
 \end{equation*}
 has $P(\text{type I error}) = \alpha$. </div>\EndKnitrBlock{proposition}
 
-\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:htest-setup"><strong>(\#exm:htest-setup) </strong></span>Churchill claims that he gain a plurality of the votes for the House of Commons seat for the constituency of Dundee.^[Sir Winston Churchill was member of Parliament for Dundee from 1908--1922.[[W]](https://www.wikiwand.com/en/Winston_Churchill)] If we do not believe Churchill's claim, then we would seek to test an alternative hypothesis. How should we write down our research hypotheses?</div>\EndKnitrBlock{example}
+\BeginKnitrBlock{example}<div class="example"><span class="example" id="exm:htest-setup"><strong>(\#exm:htest-setup) </strong></span>Churchill claims that he gain a plurality of the votes for the House of Commons seat for the constituency of Dundee.^[Sir Winston Churchill was member of Parliament for Dundee from 1908--1922. [[W]](https://www.wikiwand.com/en/Winston_Churchill)] If we do not believe Churchill's claim, then we would seek to test an alternative hypothesis. How should we write down our research hypotheses?</div>\EndKnitrBlock{example}
 
 If we let $p$ be the fraction of the population voting for Churchill, then we have the null hypothesis (note, the minimum needed for plurality is $50\%$)
 \begin{equation*}

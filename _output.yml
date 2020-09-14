@@ -1,3 +1,4 @@
+fontsize: 12pt
 bookdown::gitbook:
   css: assets/style.css
   config:
@@ -30,8 +31,6 @@ bookdown::gitbook:
 bookdown::pdf_book:
   keep_tex: yes
   includes:
-    in_header: preamble.sty
+    in_header: preamble.tex
   latex_engine: xelatex
   citation_package: natbib
-#  bookdown::epub_book:
-  #  stylesheet: style.css

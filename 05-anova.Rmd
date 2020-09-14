@@ -1,40 +1,8 @@
-```{r setup, include=FALSE}
-#  bookdown::render_book("index.Rmd", "bookdown::gitbook", output_dir = "docs/")
-
-# packages
-library(bookdown)
-library(RColorBrewer)
-library(readr)
-library(plotly)
-library(tidyverse)
-library(reshape2)
-library(latex2exp)
-library(svglite)
-library(knitr)
-library(kableExtra)
-library(formattable)
-library(DT)
-library(dplyr)
-library(datasets)
-# ggplot theme
-theme_set(
-    theme_gray(base_size = 14)
-)
-# data sets
-data(iris)
-data(trees)
-
-knitr::opts_chunk$set(echo = TRUE, comment = "") #, dev = "svglite", fig.width=8
-#plotly::config(plot_ly(), displaylogo = FALSE, mathjax = "cdn")
-
+```{r setup-anova, include = FALSE}
 df <- read_csv("data/anova-salaries.csv")
 mse <- (5*(2.588)^2 + 3*(2.582)^2 + 4*(1.871)^2 + 4*(1.924)^2)/16
 mstr <- (6*(14.5-11.9)^2 + 4*(10.0 - 11.9)^2 + 5*(13.0-11.9)^2 + 5*( 9.2 - 11.9)^2) / 3
 ```
-
-\newcommand{\Var}{\operatorname{Var}}
-\newcommand{\E}{\operatorname{E}}
-\newcommand{\se}{\mathsf{se}}
 
 # Analysis of variance (ANOVA) {#anova}
 
@@ -102,24 +70,24 @@ df$nation <- factor(df$nation)
 dattab <- df %>%
  group_by(nation) %>%
  summarise(observations = list(mean_salary), n = n(), means = signif(mean(mean_salary), digits = 4), ssds = signif(sd(mean_salary), digits = 4))
-kable(dattab, col.names = c('Nation', "Average salaries ('000 £)", 'Size $(m_i)$', 'Sample Mean $(\\overline{x}_i)$', 'Sample SD $(s_i)$'), align = "llccc", caption = "Data and summary sample statistics for Figure \\@ref(fig:anova-samples-boxplots).")
+kbl(dattab, col.names = c('Nation', "Average salaries ('000 £)", 'Size $(m_i)$', 'Sample Mean $(\\overline{x}_i)$', 'Sample SD $(s_i)$'), align = "llccc", caption = "**Average Salary Data** reported from $20$ local councils.", booktabs = T) %>%
+ kable_styling(latex_options = c("striped", "hold_position"))
 ```   
 
-> Table \@ref(tab:anova-samples-stats) presents the average salaries (in thousands of pounds) reported from 20 local councils classified by nation (England, N Ireland, Scotland, and Wales). The sample means together with the sample standard deviations are summarized in the table as well as presented using using box plots in Figure \@ref(fig:anova-samples-boxplots).  
+:::{.tipblock}
+Table \@ref(tab:anova-samples-stats) presents the **Average Salary Data** (in thousands of pounds) reported from 20 local councils classified by nation (England, N Ireland, Scotland, and Wales). The sample means together with the sample standard deviations are summarized in the table as well as presented using using box plots in Figure \@ref(fig:anova-samples-boxplots).  
+:::   
 
-
-```{r anova-samples-boxplots, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Box plots of the average mean salary data in Table \\@ref(tab:anova-samples-stats) indicate five summary statistics: the median, two hinges (first and third quartiles) and two whiskers (extending from the hinge to the most extreme data point within 1.5 * IQR)."}
+```{r anova-samples-boxplots, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Box plots of the average mean salary data in Table \\@ref(tab:anova-samples-stats) indicate five summary statistics: the median, two hinges (first and third quartiles) and two whiskers (extending from the hinge to the most extreme data point within $1.5 \\cdot \\mathsf{IQR}$)."}
 df$nation <- factor(df$nation)
-ggplot(df, aes(x = mean_salary, y = reorder(nation, desc(nation)))) + geom_boxplot() + theme(axis.title.y = element_blank())
+ggplot(df, aes(x = mean_salary, y = reorder(nation, desc(nation)))) + geom_boxplot() + xlab("Average salary") + theme(axis.title.y = element_blank())
 ```      
 
-For $\alpha = 0.05$, we compute the upper-tail area $F_{0.05}$ i.e. to the right of the critical value $F_{0.05, 3, 16}$ by consulting a statistical table or by using `r`:
+For $\alpha = 0.05$, we compute the upper-tail area $F_{0.05}$ i.e. to the right of the critical value $F_{0.05, 3, 16}$ by consulting a statistical table or by using `r` to find $F_{0.05} = `r qf(.05, df1 = 4-1, df2 = 20-4, lower.tail = FALSE)`$.
 
 ```{r eg-code-F-upper-tail-area, echo=TRUE}
 qf(1-.05, df1 = 4-1, df2 = 20-4) # alt: qf(.05, df1 = 4-1, df2 = 20-4, lower.tail = FALSE)
 ```  
-
-to find $F_{0.05} = `r qf(.05, df1 = 4-1, df2 = 20-4, lower.tail = FALSE)`$.  
  
 The grand mean is 
 \begin{equation*}
@@ -162,7 +130,7 @@ is normally distributed with
 \begin{equation*}
  \Var[\widehat{\theta}] - \sum_{i=1}^k c_i^2 \Var[\overline{X}_i] = \sigma^2 \sum_{i=1}^{k} \frac{c_i}{m_i}\,.
 \end{equation*}
-Estimating $\sigma^2$ by the \mathsf{MSE} and forming $\widehat{\sigma}_{\widehat{\theta}}$ results in a $\mathsf{t}$ variable
+Estimating $\sigma^2$ by the $\mathsf{MSE}$ and forming $\widehat{\sigma}_{\widehat{\theta}}$ results in a $\mathsf{t}$ variable
 \begin{equation*}
  \frac{\widehat{\theta} - \theta}{\widehat{\sigma}_{\widehat{\theta}}}\,.
 \end{equation*}
@@ -192,6 +160,8 @@ Then for the function $\overline{x}_2 - \overline{x_1}$,
 & = 1.5 \pm `r qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5)`\,.
 \end{aligned}
 \end{equation*}
-Thus a $90\%$ confidence interval for $\mu_{Eng} - \mu_{Sco}$ is $(`r 1.5 - qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5)`\,, `r 1.5 + qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5)`)$. $\lozenge$   
+Thus a $90\%$ confidence interval for $\mu_{Eng} - \mu_{Sco}$ is $(`r signif(1.5 - qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5), digits = 4)`\,, `r signif(1.5 + qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5), digits = 4)`)$. $\lozenge$   
 
-> How does the result in Example \@ref(exm:anova-ci) compare to the $\mathsf{t}$ method in Section \@ref(compare-means-normpops-vars-unknown)?
+:::{.warningblock}
+How does the result in Example \@ref(exm:anova-ci) compare to the $\mathsf{t}$ method in Section \@ref(compare-means-normpops-vars-unknown)?
+:::

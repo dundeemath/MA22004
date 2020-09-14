@@ -1,44 +1,11 @@
-```{r setup, include=FALSE}
-#  bookdown::render_book("index.Rmd", "bookdown::gitbook", output_dir = "docs/")
-
-# packages
-library(bookdown)
-library(RColorBrewer)
-library(readr)
-library(plotly)
-library(tidyverse)
-library(reshape2)
-library(latex2exp)
-library(svglite)
-library(knitr)
-library(kableExtra)
-library(formattable)
-library(DT)
-library(dplyr)
-library(datasets)
-# ggplot theme
-theme_set(
-    theme_gray(base_size = 14)
-)
-# data sets
-data(iris)
-data(trees)
-
+```{r setup-linear-models, include = FALSE}
 y <- trees$Volume
 x <- trees$Girth
 fit <- lm(y ~ x)
 e <- resid(fit)
 yhat <- predict(fit)
 df <- tibble(x = x, y = y, e = e, yhat = yhat)
-
-knitr::opts_chunk$set(echo = TRUE, comment = "") #, dev = "svglite", fig.width=8
-#plotly::config(plot_ly(), displaylogo = FALSE, mathjax = "cdn")
 ```
-
-\newcommand{\Cov}{\operatorname{Cov}}
-\newcommand{\Var}{\operatorname{Var}}
-\newcommand{\E}{\operatorname{E}}
-\newcommand{\se}{\mathsf{se}}
 
 # Linear regression {#linear-models}
 
@@ -70,7 +37,8 @@ where the intercept $\beta_0$ and slope $\beta_1$ are unknown parameters and the
  
 1. $\E[\epsilon_i \mid X_i = x_i] = 0$,
 2. $\Var[\epsilon_i \mid X_i = x_i] = \sigma^2$ does not depend on $x_i$,
-3. $\epsilon_i$ and $\epsilon_j$ are independent for $i, j = 1, \dots, m$. 
+3. $\epsilon_i$ and $\epsilon_j$ are independent for $i, j = 1, \dots, m$.   
+
 ```  
 
 From the assumptions on $\epsilon_i$, the linear model \@ref(eq:linear-model) implies
@@ -106,7 +74,7 @@ and
 \end{equation}
 ```
 
-Note that \@ref(eq:rss) is a function of $\widehat{\beta}_0$ and $\widehat{\beta}_1$ from the definition of the residuals \@ref(eq:ls-residuals). Then \@ref(eq:ls-slope) and \@ref(eq:ls-intercept) follow by equating the partial derivatives of \@ref(eq:rss) to zero. The $\widehat{\beta}_0$ and $\widehat{\beta}_1$ are the unique solution to this linear system.
+Equation \@ref(eq:rss) is a function of $\widehat{\beta}_0$ and $\widehat{\beta}_1$ from the definition of the residuals \@ref(eq:ls-residuals). Then \@ref(eq:ls-slope) and \@ref(eq:ls-intercept) follow by equating the partial derivatives of \@ref(eq:rss) to zero. The $\widehat{\beta}_0$ and $\widehat{\beta}_1$ are the unique solution to this linear system.
 
 ```{example, linear-model-fit-residuals}
 In Figure \@ref(fig:linear-model-fit), we consider the **Cherry Tree Data** (see Table \@ref(tab:cherry-data) and discussion). We fit a least squares regression of the volume of timber (response variable) to the diameter of the tree (independent variable). As you would expect, the volume of timber yielded from a tree increases with its diameter.
@@ -162,7 +130,9 @@ df2$Measurement <- factor(df2$Measurement, levels = c("Girth", "Height"), labels
 ggplot(df2 , aes(x = Value, y = Volume)) + geom_smooth(method = "lm") + geom_point(alpha = 0.8) + facet_grid(. ~ Measurement, scales = 'free') + ylab("Volume [cu ft]") + theme(axis.title.x = element_blank())
 ```   
 
-> In Theorem \@ref(thm:least-squares-var-estimate), the number in the denominator is the df associated with the $\mathsf{RSS}$ and $s^2$. To calculate $\mathsf{RSS}$ you must estimate two parameters $\beta_0$ and $\beta_1$ which results in the loss of two df. Hence the $m-2$.   
+:::{.noteblock}
+In Theorem \@ref(thm:least-squares-var-estimate), the number in the denominator is the df associated with the $\mathsf{RSS}$ and $s^2$. To calculate $\mathsf{RSS}$ you must estimate two parameters $\beta_0$ and $\beta_1$ which results in the loss of two df. Hence the $m-2$.   
+:::   
 
 We note for the purposes of making inferences, the statistic 
 \begin{equation*}
@@ -238,7 +208,8 @@ A $100(1-\alpha)\%$ **prediction interval** for an actual value of $Y$ when $x =
 \end{equation*}
 ```
 
-> ⚠️ The prediction interval is not the same as the confidence interval for expected $Y$. Note that the length of the *confidence interval* for $\E[Y]$ when $x=x^*$ is given by 
+:::{.warningblock}
+The prediction interval is not the same as the confidence interval for expected $Y$. Note that the length of the *confidence interval* for $\E[Y]$ when $x=x^*$ is given by 
 \begin{equation*}
  2 \cdot t_{\alpha/2} S  \sqrt{\frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}}
 \end{equation*}
@@ -247,6 +218,7 @@ whereas the length for the *prediction interval* of $Y$ is
  2 \cdot t_{\alpha/2} S  \sqrt{1 + \frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}} \,.
 \end{equation*}
 Thus the prediction intervals for an actual value of $Y$ are longer than the confidence intervals for $\E[Y]$ if both are determined for the same value $x^*$.   
+:::   
 
 The linear model 
 \begin{equation*}

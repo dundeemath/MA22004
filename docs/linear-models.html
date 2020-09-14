@@ -50,7 +50,8 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -165,7 +166,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.1</b> Normal distribution</a>
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about Normals</a></li>
-<li class="chapter" data-level="1.1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#critical-z-values"><i class="fa fa-check"></i><b>1.1.2</b> Critical <span class="math inline">\(z\)</span> values</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\mathsf{t}\)</span> distribution</a>
 <ul>
@@ -243,11 +243,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<span class="math inline">\(\DeclareMathOperator{\E}{\mathbf{E}}\)</span>
+<span class="math inline">\(\DeclareMathOperator{\Var}{Var}\)</span>
+<span class="math inline">\(\DeclareMathOperator{\Cov}{Cov}\)</span>
+<span class="math inline">\(\DeclareMathOperator{\corr}{corr}\)</span>
+<span class="math inline">\(\newcommand{\se}{\mathsf{se}}\)</span>
 <div id="linear-models" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Linear regression</h1>
 <p><strong>Regression analysis</strong> allows us to study the relationship among two or more rvs. Typically, we are interested in the relationship between a <strong>response</strong> or <strong>dependent</strong> rv <span class="math inline">\(Y\)</span> and a <strong>covariate</strong> <span class="math inline">\(X\)</span>.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> The relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> will be explained through a <strong>regression function</strong>,
 <span class="math display">\[\begin{equation*}
- r(x) = \operatorname{E}[Y \mid X = x] = \int y f(y\mid x) dy \,.
+ r(x) = \E[Y \mid X = x] = \int y f(y\mid x) dy \,.
 \end{equation*}\]</span>
 In particular, we shall assume that <span class="math inline">\(r\)</span> is linear,
 <span class="math display" id="eq:linear-regression-function">\[\begin{equation}
@@ -270,20 +275,21 @@ and estimate the intercept <span class="math inline">\(\beta_0\)</span> and slop
 \end{equation}\]</span>
 where the intercept <span class="math inline">\(\beta_0\)</span> and slope <span class="math inline">\(\beta_1\)</span> are unknown parameters and the <strong>random deviation</strong> or <strong>random error</strong> <span class="math inline">\(\epsilon_i\)</span> is a rv assumed to satisfy:</p>
 <ol style="list-style-type: decimal">
-<li><span class="math inline">\(\operatorname{E}[\epsilon_i \mid X_i = x_i] = 0\)</span>,</li>
-<li><span class="math inline">\(\operatorname{Var}[\epsilon_i \mid X_i = x_i] = \sigma^2\)</span> does not depend on <span class="math inline">\(x_i\)</span>,</li>
-<li><span class="math inline">\(\epsilon_i\)</span> and <span class="math inline">\(\epsilon_j\)</span> are independent for <span class="math inline">\(i, j = 1, \dots, m\)</span>.
-</div></li>
+<li><span class="math inline">\(\E[\epsilon_i \mid X_i = x_i] = 0\)</span>,</li>
+<li><span class="math inline">\(\Var[\epsilon_i \mid X_i = x_i] = \sigma^2\)</span> does not depend on <span class="math inline">\(x_i\)</span>,</li>
+<li><span class="math inline">\(\epsilon_i\)</span> and <span class="math inline">\(\epsilon_j\)</span> are independent for <span class="math inline">\(i, j = 1, \dots, m\)</span>.<br />
+</li>
 </ol>
+</div>
 <p>From the assumptions on <span class="math inline">\(\epsilon_i\)</span>, the linear model <a href="linear-models.html#eq:linear-model">(6.2)</a> implies
 <span class="math display">\[\begin{equation*}
- \operatorname{E}[Y_i \mid X_i = x_i] = \beta_0 + \beta_1 x_i \,.
+ \E[Y_i \mid X_i = x_i] = \beta_0 + \beta_1 x_i \,.
 \end{equation*}\]</span>
 Thus, if <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> are estimators of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>, then the <strong>fitted line</strong> is
 <span class="math display">\[\begin{equation*}
  \widehat{r}(x) = \widehat{\beta}_0 + \widehat{\beta}_1 x
 \end{equation*}\]</span>
-and the <strong>predicted</strong> or <strong>fitted value</strong> <span class="math inline">\(\widehat{Y}_i = \widehat{r}(X_i)\)</span> is an estimator for <span class="math inline">\(\operatorname{E}[Y_i \mid X_i = x_i]\)</span>. The <strong>residuals</strong> are defined to be
+and the <strong>predicted</strong> or <strong>fitted value</strong> <span class="math inline">\(\widehat{Y}_i = \widehat{r}(X_i)\)</span> is an estimator for <span class="math inline">\(\E[Y_i \mid X_i = x_i]\)</span>. The <strong>residuals</strong> are defined to be
 <span class="math display" id="eq:ls-residuals">\[\begin{equation}
  \widehat{\epsilon}_i = Y_i - \widehat{Y}_i = Y_i - \left( \widehat{\beta}_0 + \widehat{\beta}_1 X_i \right) \,.
  \tag{6.3}
@@ -307,31 +313,31 @@ and
  \tag{6.6}
 \end{equation}\]</span>
 </div>
-<p>Note that <a href="linear-models.html#eq:rss">(6.4)</a> is a function of <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> from the definition of the residuals <a href="linear-models.html#eq:ls-residuals">(6.3)</a>. Then <a href="linear-models.html#eq:ls-slope">(6.5)</a> and <a href="linear-models.html#eq:ls-intercept">(6.6)</a> follow by equating the partial derivatives of <a href="linear-models.html#eq:rss">(6.4)</a> to zero. The <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> are the unique solution to this linear system.</p>
+<p>Equation <a href="linear-models.html#eq:rss">(6.4)</a> is a function of <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> from the definition of the residuals <a href="linear-models.html#eq:ls-residuals">(6.3)</a>. Then <a href="linear-models.html#eq:ls-slope">(6.5)</a> and <a href="linear-models.html#eq:ls-intercept">(6.6)</a> follow by equating the partial derivatives of <a href="linear-models.html#eq:rss">(6.4)</a> to zero. The <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> are the unique solution to this linear system.</p>
 
 <div class="example">
 <span id="exm:linear-model-fit-residuals" class="example"><strong>Example 6.1  </strong></span>In Figure <a href="linear-models.html#fig:linear-model-fit">6.1</a>, we consider the <strong>Cherry Tree Data</strong> (see Table <a href="statistical-inference.html#tab:cherry-data">2.1</a> and discussion). We fit a least squares regression of the volume of timber (response variable) to the diameter of the tree (independent variable). As you would expect, the volume of timber yielded from a tree increases with its diameter.
 </div>
 <p>The <code>r</code> code below can be used to calculate the least squares regression and residuals.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="linear-models.html#cb9-1"></a><span class="kw">data</span>(trees)</span>
-<span id="cb9-2"><a href="linear-models.html#cb9-2"></a>y &lt;-<span class="st"> </span>trees<span class="op">$</span>Volume</span>
-<span id="cb9-3"><a href="linear-models.html#cb9-3"></a>x &lt;-<span class="st"> </span>trees<span class="op">$</span>Girth <span class="co"># NB: this is diameter; data mislabeled!</span></span>
-<span id="cb9-4"><a href="linear-models.html#cb9-4"></a>fit &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x)</span>
-<span id="cb9-5"><a href="linear-models.html#cb9-5"></a>e &lt;-<span class="st"> </span><span class="kw">resid</span>(fit)</span>
-<span id="cb9-6"><a href="linear-models.html#cb9-6"></a>yhat &lt;-<span class="st"> </span><span class="kw">predict</span>(fit)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="linear-models.html#cb9-1" aria-hidden="true"></a><span class="kw">data</span>(trees)</span>
+<span id="cb9-2"><a href="linear-models.html#cb9-2" aria-hidden="true"></a>y &lt;-<span class="st"> </span>trees<span class="op">$</span>Volume</span>
+<span id="cb9-3"><a href="linear-models.html#cb9-3" aria-hidden="true"></a>x &lt;-<span class="st"> </span>trees<span class="op">$</span>Girth <span class="co"># NB: this is diameter; data mislabeled!</span></span>
+<span id="cb9-4"><a href="linear-models.html#cb9-4" aria-hidden="true"></a>fit &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x)</span>
+<span id="cb9-5"><a href="linear-models.html#cb9-5" aria-hidden="true"></a>e &lt;-<span class="st"> </span><span class="kw">resid</span>(fit)</span>
+<span id="cb9-6"><a href="linear-models.html#cb9-6" aria-hidden="true"></a>yhat &lt;-<span class="st"> </span><span class="kw">predict</span>(fit)</span></code></pre></div>
 <p>The <code>fit</code> data frame contains the estimates for <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span>:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="linear-models.html#cb10-1"></a>fit<span class="op">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="linear-models.html#cb10-1" aria-hidden="true"></a>fit<span class="op">$</span>coefficients</span></code></pre></div>
 <pre><code>(Intercept)           x 
  -36.943459    5.065856 </code></pre>
 <p>In Figure <a href="linear-models.html#fig:linear-model-fit">6.1</a>, the regression line is <code>yhat</code> plotted against <code>x</code> and the error bars indicate the least squares residuals, i.e., the difference <code>y - yhat</code>. The residuals are presented a second way in Figure <a href="linear-models.html#fig:linear-model-residuals">6.2</a>. <span class="math inline">\(\lozenge\)</span></p>
-<div class="figure"><span id="fig:linear-model-fit"></span>
-<img src="06-linear-models_files/figure-html/linear-model-fit-1.png" alt="Linear regression (or least squares fit) of Volume to Diameter from the **Cherry Tree Data**. The vertical bars between the observed data point and the regression line indicate the error in the fit (the least squares residual)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:linear-model-fit"></span>
+<img src="ma22004_files/figure-html/linear-model-fit-1.svg" alt="Linear regression (or least squares fit) of Volume to Diameter from the **Cherry Tree Data**. The vertical bars between the observed data point and the regression line indicate the error in the fit (the least squares residual)." width="768" />
 <p class="caption">
 Figure 6.1: Linear regression (or least squares fit) of Volume to Diameter from the <strong>Cherry Tree Data</strong>. The vertical bars between the observed data point and the regression line indicate the error in the fit (the least squares residual).
 </p>
 </div>
-<div class="figure"><span id="fig:linear-model-residuals"></span>
-<img src="06-linear-models_files/figure-html/linear-model-residuals-1.png" alt="The residuals of the least squares fit of Volume to Diameter plotted in Figure \@ref(fig:linear-model-fit)." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:linear-model-residuals"></span>
+<img src="ma22004_files/figure-html/linear-model-residuals-1.svg" alt="The residuals of the least squares fit of Volume to Diameter plotted in Figure \@ref(fig:linear-model-fit)." width="768" />
 <p class="caption">
 Figure 6.2: The residuals of the least squares fit of Volume to Diameter plotted in Figure <a href="linear-models.html#fig:linear-model-fit">6.1</a>.
 </p>
@@ -349,15 +355,15 @@ Figure 6.2: The residuals of the least squares fit of Volume to Diameter plotted
 \end{equation}\]</span>
 </div>
 <p>In Figure <a href="linear-models.html#fig:linear-model-sigma-large-v-small">6.3</a>, we present a least squares regression of timber volume on both tree diameter and height (for the <strong>Cherry Tree Data</strong>). As expected, the regressions indicate the volume increases with both covariates. Estimates for the variance of the random deviation <a href="linear-models.html#eq:least-squares-var-estimate">(6.7)</a> in both regression models, <span class="math inline">\(\sigma_{D}^2\)</span> and <span class="math inline">\(\sigma_{H}^2\)</span>, respectively, are computed to be <span class="math inline">\(s^2_{D} = 18.08\)</span> and <span class="math inline">\(s^2_{H} = 179.48\)</span>. Thus, we see that small variances lead to observations of <span class="math inline">\((x_i, y_i)\)</span> that sit tightly around the regression line, in contrast to large variances that lead to a large cloud of points.</p>
-<div class="figure"><span id="fig:linear-model-sigma-large-v-small"></span>
-<img src="06-linear-models_files/figure-html/linear-model-sigma-large-v-small-1.png" alt="For the **Cherry Tree Data**, we estimate the variance to be $s^2_{D} = 18.08$ (for Diameter) and $s^2_{H} = 179.48$ (for Height); small variances lead to observations of $(x_i, y_i)$ that sit tightly around the regression line, in contrast to large variances that lead to a large cloud of points." width="672" />
+<div class="figure" style="text-align: center"><span id="fig:linear-model-sigma-large-v-small"></span>
+<img src="ma22004_files/figure-html/linear-model-sigma-large-v-small-1.svg" alt="For the **Cherry Tree Data**, we estimate the variance to be $s^2_{D} = 18.08$ (for Diameter) and $s^2_{H} = 179.48$ (for Height); small variances lead to observations of $(x_i, y_i)$ that sit tightly around the regression line, in contrast to large variances that lead to a large cloud of points." width="768" />
 <p class="caption">
 Figure 6.3: For the <strong>Cherry Tree Data</strong>, we estimate the variance to be <span class="math inline">\(s^2_{D} = 18.08\)</span> (for Diameter) and <span class="math inline">\(s^2_{H} = 179.48\)</span> (for Height); small variances lead to observations of <span class="math inline">\((x_i, y_i)\)</span> that sit tightly around the regression line, in contrast to large variances that lead to a large cloud of points.
 </p>
 </div>
-<blockquote>
+<div class="noteblock">
 <p>In Theorem <a href="linear-models.html#thm:least-squares-var-estimate">6.2</a>, the number in the denominator is the df associated with the <span class="math inline">\(\mathsf{RSS}\)</span> and <span class="math inline">\(s^2\)</span>. To calculate <span class="math inline">\(\mathsf{RSS}\)</span> you must estimate two parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> which results in the loss of two df. Hence the <span class="math inline">\(m-2\)</span>.</p>
-</blockquote>
+</div>
 <p>We note for the purposes of making inferences, the statistic
 <span class="math display">\[\begin{equation*}
  S^2 = \frac{\mathsf{RSS}}{m-2}
@@ -374,10 +380,10 @@ Moreover, the statistic <span class="math inline">\(S^2\)</span> is independent 
 <p>Provided iid <span class="math inline">\(\epsilon_i \mid X_i \sim \mathsf{N}(0, \sigma^2)\)</span>, the least-squares estimators possess the following properties.</p>
 <ol style="list-style-type: decimal">
 <li>Both <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> are normally distributed.</li>
-<li>Both <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> are unbiased, i.e., <span class="math inline">\(\operatorname{E}[\widehat{\beta}_i] = \beta_i\)</span> for <span class="math inline">\(i = 0,1\)</span>.</li>
-<li><span class="math inline">\(\operatorname{Var}[\widehat{\beta}_0] = c_{00} \sigma^2\)</span> where <span class="math inline">\(c_{00} = \sum_{i=1}^m x_i^2 / (m S_{xx})\)</span>.</li>
-<li><span class="math inline">\(\operatorname{Var}[\widehat{\beta}_1] = c_{11} \sigma^2\)</span> where <span class="math inline">\(c_{11} = 1/S_{xx}\)</span>.</li>
-<li><span class="math inline">\(\operatorname{Cov}[\widehat{\beta}_0, \widehat{\beta}_1] = c_{01} \sigma^2\)</span> where <span class="math inline">\(c_{01} = - \overline{x} / S_{xx}\)</span>.</li>
+<li>Both <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> are unbiased, i.e., <span class="math inline">\(\E[\widehat{\beta}_i] = \beta_i\)</span> for <span class="math inline">\(i = 0,1\)</span>.</li>
+<li><span class="math inline">\(\Var[\widehat{\beta}_0] = c_{00} \sigma^2\)</span> where <span class="math inline">\(c_{00} = \sum_{i=1}^m x_i^2 / (m S_{xx})\)</span>.</li>
+<li><span class="math inline">\(\Var[\widehat{\beta}_1] = c_{11} \sigma^2\)</span> where <span class="math inline">\(c_{11} = 1/S_{xx}\)</span>.</li>
+<li><span class="math inline">\(\Cov[\widehat{\beta}_0, \widehat{\beta}_1] = c_{01} \sigma^2\)</span> where <span class="math inline">\(c_{01} = - \overline{x} / S_{xx}\)</span>.</li>
 </ol>
 <p>These properties can be determined by working directly from <a href="linear-models.html#eq:ls-slope">(6.5)</a> and <a href="linear-models.html#eq:ls-intercept">(6.6)</a>.</p>
 
@@ -406,7 +412,7 @@ where <span class="math inline">\(t_\alpha\)</span> is based on <span class="mat
 </div>
 <div id="correlation" class="section level2" number="6.4">
 <h2><span class="header-section-number">6.4</span> Correlation</h2>
-<p>Let <span class="math inline">\((X_1, Y_1), \dots, (X_m, Y_m)\)</span> denote a random sample from a bivariate normal distribution with <span class="math inline">\(\operatorname{E}[X_i] = \mu_X\)</span>, <span class="math inline">\(\operatorname{E}[Y_i] = \mu_Y\)</span>, <span class="math inline">\(\operatorname{Var}[X_i] = \sigma_X^2\)</span>, <span class="math inline">\(\operatorname{Var}[Y_i] = \sigma_Y^2\)</span>, and correlation coefficient <span class="math inline">\(\rho\)</span>. The sample correlation coefficient is given by,
+<p>Let <span class="math inline">\((X_1, Y_1), \dots, (X_m, Y_m)\)</span> denote a random sample from a bivariate normal distribution with <span class="math inline">\(\E[X_i] = \mu_X\)</span>, <span class="math inline">\(\E[Y_i] = \mu_Y\)</span>, <span class="math inline">\(\Var[X_i] = \sigma_X^2\)</span>, <span class="math inline">\(\Var[Y_i] = \sigma_Y^2\)</span>, and correlation coefficient <span class="math inline">\(\rho\)</span>. The sample correlation coefficient is given by,
 <span class="math display">\[\begin{equation*}
  r = \frac{\sum_{i=1}^m (X_i - \overline{X})(Y_i - \overline{Y})}{\sqrt{\sum_{i=1}^m (X_i - \overline{X})^2 \sum_{i=1}^m (Y_i - \overline{Y})^2}}\,,
 \end{equation*}\]</span>
@@ -424,20 +430,20 @@ using <a href="linear-models.html#eq:ls-slope">(6.5)</a> and we see that <span c
  (\widehat{\beta}_0 + \widehat{\beta}_1 x^*) \pm t_{\alpha/2, m-2} S \sqrt{1 + \frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}} \,.
 \end{equation*}\]</span>
 </div>
-<blockquote>
-<p>⚠️ The prediction interval is not the same as the confidence interval for expected <span class="math inline">\(Y\)</span>. Note that the length of the <em>confidence interval</em> for <span class="math inline">\(\operatorname{E}[Y]\)</span> when <span class="math inline">\(x=x^*\)</span> is given by
+<div class="warningblock">
+<p>The prediction interval is not the same as the confidence interval for expected <span class="math inline">\(Y\)</span>. Note that the length of the <em>confidence interval</em> for <span class="math inline">\(\E[Y]\)</span> when <span class="math inline">\(x=x^*\)</span> is given by
 <span class="math display">\[\begin{equation*}
-2 \cdot t_{\alpha/2} S  \sqrt{\frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}}
+ 2 \cdot t_{\alpha/2} S  \sqrt{\frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}}
 \end{equation*}\]</span>
 whereas the length for the <em>prediction interval</em> of <span class="math inline">\(Y\)</span> is
 <span class="math display">\[\begin{equation*}
-2 \cdot t_{\alpha/2} S  \sqrt{1 + \frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}} \,.
+ 2 \cdot t_{\alpha/2} S  \sqrt{1 + \frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}} \,.
 \end{equation*}\]</span>
-Thus the prediction intervals for an actual value of <span class="math inline">\(Y\)</span> are longer than the confidence intervals for <span class="math inline">\(\operatorname{E}[Y]\)</span> if both are determined for the same value <span class="math inline">\(x^*\)</span>.</p>
-</blockquote>
+Thus the prediction intervals for an actual value of <span class="math inline">\(Y\)</span> are longer than the confidence intervals for <span class="math inline">\(\E[Y]\)</span> if both are determined for the same value <span class="math inline">\(x^*\)</span>.</p>
+</div>
 <p>The linear model
 <span class="math display">\[\begin{equation*}
- \operatorname{E}[ Y \mid X = x ] = \beta_0 + \beta_1 x \,, 
+ \E[ Y \mid X = x ] = \beta_0 + \beta_1 x \,, 
 \end{equation*}\]</span>
 assumes that the conditional expectation of <span class="math inline">\(Y\)</span> for a fixed value of <span class="math inline">\(X\)</span> is a linear function of the <span class="math inline">\(x\)</span> value. If we assume that <span class="math inline">\((X,Y)\)</span> has a bivariate normal distribution, then
 <span class="math display">\[\begin{equation*}

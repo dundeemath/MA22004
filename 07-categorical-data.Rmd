@@ -1,37 +1,6 @@
-```{r setup, include=FALSE}
-#  bookdown::render_book("index.Rmd", "bookdown::gitbook", output_dir = "docs/")
-
-# packages
-library(bookdown)
-library(RColorBrewer)
-library(readr)
-library(plotly)
-library(tidyverse)
-library(reshape2)
-library(latex2exp)
-library(svglite)
-library(knitr)
-library(kableExtra)
-library(formattable)
-library(DT)
-library(dplyr)
-library(datasets)
-# ggplot theme
-theme_set(
-    theme_gray(base_size = 14)
-)
-# data sets
-data(iris)
-data(trees)
-
-knitr::opts_chunk$set(echo = TRUE, comment = "") #, dev = "svglite", fig.width=8
-#plotly::config(plot_ly(), displaylogo = FALSE, mathjax = "cdn")
-df <- read_csv("data/cell-counts.csv")
+```{r setup-categorical-data, include = FALSE}
+df_cat <- read_csv("data/cell-counts.csv")
 ```
-
-\newcommand{\Var}{\operatorname{Var}}
-\newcommand{\E}{\operatorname{E}}
-\newcommand{\se}{\mathsf{se}}
 
 # Categorical data {#categorical-data}
 
@@ -67,7 +36,8 @@ Provided the null hypothesis in \@ref(eq:null-multinomial) is true, the expected
 Often the $n_i$, referred to as the **observed cell counts**, and the corresponding $m p_{i0}$, referred to as the **expected cell counts**, are tabulated, for example, as in Table \@ref(tab:cell-counts).   
 
 ```{r cell-counts, echo = FALSE, warning = FALSE, message = FALSE}
-kable(df, align = "cccccc", caption = "Observed and expected cell counts.")
+kbl(df_cat, align = "cccccc", caption = "Observed and expected cell counts.", booktabs = T) %>%
+ kable_styling(latex_options = c("striped", "hold_position"))
 ```   
 
 The test procedure assesses the discrepancy between the value of the observed and expected cell counts. This discrepancy, or **goodness of fit**, is measured by the squared deviations divided by the expected count.^[The division by the expected cell counts is to account for possible differences in the relative magnitude of the observed/expected counts.]
@@ -96,8 +66,9 @@ the test statistic to consider is:
 provided, as a rule of thumb, $m p_{i0} \geq 5$ for all $i = 1, \dots, k$. 
 ```
 
->  ⚠️  Things are much more complicated if the category probabilities are not completely specified.   
-
+:::{.warningblock}
+Things are much more complicated if the category probabilities are not completely specified.   
+:::   
 
 ## Test for independence of factors
 

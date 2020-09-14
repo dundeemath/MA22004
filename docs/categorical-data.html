@@ -50,7 +50,8 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -165,7 +166,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.1</b> Normal distribution</a>
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about Normals</a></li>
-<li class="chapter" data-level="1.1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#critical-z-values"><i class="fa fa-check"></i><b>1.1.2</b> Critical <span class="math inline">\(z\)</span> values</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\mathsf{t}\)</span> distribution</a>
 <ul>
@@ -243,6 +243,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<span class="math inline">\(\DeclareMathOperator{\E}{\mathbf{E}}\)</span>
+<span class="math inline">\(\DeclareMathOperator{\Var}{Var}\)</span>
+<span class="math inline">\(\DeclareMathOperator{\Cov}{Cov}\)</span>
+<span class="math inline">\(\DeclareMathOperator{\corr}{corr}\)</span>
+<span class="math inline">\(\newcommand{\se}{\mathsf{se}}\)</span>
 <div id="categorical-data" class="section level1" number="7">
 <h1><span class="header-section-number">7</span> Categorical data</h1>
 <div id="multinomial-experiments" class="section level2" number="7.1">
@@ -251,7 +256,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 If the sample size <span class="math inline">\(m\)</span> is much smaller than the population size <span class="math inline">\(M\)</span> (so that the <span class="math inline">\(m\)</span> trials are independent), this experiment will be approximately <em>multinomial</em> with success probability <span class="math inline">\(p_i\)</span> for each category, <span class="math inline">\(i=1, \dots, k\)</span>.</p>
 <p>Before the experiment is performed, we denote the number (or count) of the trails resulting in category <span class="math inline">\(i\)</span> by the rv <span class="math inline">\(N_i\)</span>. The expected number of trails that result in category <span class="math inline">\(i\)</span> is given by
 <span class="math display" id="eq:mean-count-multinomial">\[\begin{equation}
-\operatorname{E}[N_i] = m p_i\,, \quad i=1, \dots, k\,.
+\E[N_i] = m p_i\,, \quad i=1, \dots, k\,.
 \tag{7.1}
 \end{equation}\]</span>
 After the experiment is performed, we denote the corresponding observed value by <span class="math inline">\(n_i\)</span>. Since the trials result in distinct categories,
@@ -270,10 +275,10 @@ H_0 : p_1 = p_{10}\,, p_2 = p_{20}\,, \cdots\,, p_k = p_{k0}\,,
 that completely specifies a value <span class="math inline">\(p_{i0}\)</span> for each <span class="math inline">\(p_i\)</span>.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> The alternative hypothesis <span class="math inline">\(H_a\)</span> will state that <span class="math inline">\(H_0\)</span> is not true, i.e., that at least one <span class="math inline">\(p_i\)</span> is different from the value <span class="math inline">\(p_{i0}\)</span> claimed under the null <span class="math inline">\(H_0\)</span>.</p>
 <p>Provided the null hypothesis in <a href="categorical-data.html#eq:null-multinomial">(7.2)</a> is true, the expected values <a href="categorical-data.html#eq:mean-count-multinomial">(7.1)</a> can be written in terms of the expected frequencies,
 <span class="math display">\[\begin{equation*}
- \operatorname{E}[N_i] = m p_{i0}\,, \quad i=1,\dots,k\,.
+ \E[N_i] = m p_{i0}\,, \quad i=1,\dots,k\,.
 \end{equation*}\]</span>
 Often the <span class="math inline">\(n_i\)</span>, referred to as the <strong>observed cell counts</strong>, and the corresponding <span class="math inline">\(m p_{i0}\)</span>, referred to as the <strong>expected cell counts</strong>, are tabulated, for example, as in Table <a href="categorical-data.html#tab:cell-counts">7.1</a>.</p>
-<table>
+<table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:cell-counts">Table 7.1: </span>Observed and expected cell counts.
 </caption>
@@ -367,9 +372,9 @@ the test statistic to consider is:
 \end{equation*}\]</span>
 provided, as a rule of thumb, <span class="math inline">\(m p_{i0} \geq 5\)</span> for all <span class="math inline">\(i = 1, \dots, k\)</span>.
 </div>
-<blockquote>
-<p>⚠️ Things are much more complicated if the category probabilities are not completely specified.</p>
-</blockquote>
+<div class="warningblock">
+<p>Things are much more complicated if the category probabilities are not completely specified.</p>
+</div>
 </div>
 <div id="test-for-independence-of-factors" class="section level2" number="7.3">
 <h2><span class="header-section-number">7.3</span> Test for independence of factors</h2>
@@ -390,7 +395,7 @@ H_0 : p_{ij} = p_{i} \cdot p_{j} \; \forall (i,j)\,,
 that is, that an individual’s category in factor 1 is independent of the category in factor 2.</p>
 <p>Following the same program as for the single category goodness-of-fit test, we note that, assuming the null hypothesis <a href="categorical-data.html#eq:null-two-factor">(7.3)</a> is true, then the expected count in cell <span class="math inline">\(i,j\)</span> is
 <span class="math display">\[\begin{equation*}
- \operatorname{E}[N_{ij}] = n p_{ij} = m p_{i} p_{j}\,;
+ \E[N_{ij}] = n p_{ij} = m p_{i} p_{j}\,;
 \end{equation*}\]</span>
 and we estimate <span class="math inline">\(p_i\)</span> and <span class="math inline">\(p_j\)</span> by the appropriate sample proportion:
 <span class="math display">\[\begin{equation*}
@@ -416,9 +421,6 @@ V = \sum_{i=1}^I \sum_{j=1}^J \frac{(n_{ij} - \widehat{e}_{ij})^2}{\widehat{e}_{
 Rule of thumb, <span class="math inline">\(\widehat{e}_{ij} \geq 5\)</span> for all <span class="math inline">\(i,j\)</span>, and when <span class="math inline">\(H_0\)</span> is true then the test statistic has approximately <span class="math inline">\(\chi^2((I-1)(J-1))\)</span> distribution. Upper tail.
 </div>
 
-<!-- \newcommand{\Var}{\operatorname{Var}} -->
-<!-- \newcommand{\E}{\operatorname{E}} -->
-<!-- \newcommand{\se}{\mathsf{se}} -->
 </div>
 </div>
 <div class="footnotes">

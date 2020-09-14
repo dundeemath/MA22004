@@ -1,37 +1,3 @@
-```{r setup, include=FALSE}
-#  bookdown::render_book("index.Rmd", "bookdown::gitbook", output_dir = "docs/")
-
-# packages
-library(bookdown)
-library(RColorBrewer)
-library(readr)
-library(plotly)
-library(tidyverse)
-library(reshape2)
-library(latex2exp)
-library(svglite)
-library(knitr)
-library(kableExtra)
-library(formattable)
-library(DT)
-library(dplyr)
-library(datasets)
-# ggplot theme
-theme_set(
-    theme_gray(base_size = 14)
-)
-# data sets
-data(iris)
-data(trees)
-
-knitr::opts_chunk$set(echo = TRUE, comment = "") #, dev = "svglite", fig.width=8
-#plotly::config(plot_ly(), displaylogo = FALSE, mathjax = "cdn")
-```
-
-\newcommand{\Var}{\operatorname{Var}}
-\newcommand{\E}{\operatorname{E}}
-\newcommand{\se}{\mathsf{se}}
-
 # Inferences based on two samples {#inference-two-samples}
 
 We consider inferences---estimators, confidence intervals, and hypothesis testing---for comparing means, proportions, and variances based on two independent samples from different populations, respectively, in Sections \@ref(compare-means), \@ref(compare-proportions), \@ref(compare-variances). We also consider inferences when the samples are not independent, so-called paired samples, in Section \@ref(compare-paired-samples). 
@@ -182,7 +148,9 @@ where we recall that $t_{\alpha/2, m+n-2}$ is the $\alpha/2$ critical value of t
 
 Similarly, one can consider a pooled $\mathsf{t}$ test, i.e., a hypothesis test based on the pooled estimator for the variance as opposed to the two-sample $\mathsf{t}$ test in Proposition \@ref(prp:htest-compare-means-normpops-vars-unknown). If you have reasons to believe that $\sigma_X^2 = \sigma_Y^2$, these pooled $\mathsf{t}$ procedures are appealing because $\nu$ is very easy to compute. 
 
->  ⚠️  Pooled $t$ procedures are not robust if the assumption of equalized variance is violated. Theoretically, you could first carry out a statistical test $H_0 : \sigma_X^2 = \sigma_Y^2$ on the equality of variances and then use a pooled $\mathsf{t}$ procedure if the null hypothesis is not rejected. However, there is no free lunch: the typical $\mathsf{F}$ test for equal variances (see Section \@ref(compare-variances)) is sensitive to normality assumptions. The two sample $\mathsf{t}$ procedures, with the data-driven choice of $\nu$ in \@ref(eq:dist-t-compare-means-normpops-nu), are therefore recommended unless, of course, you have a very compelling reason to believe $\sigma_X^2 = \sigma_Y^2$.  
+:::{.warningblock}
+Pooled $t$ procedures are not robust if the assumption of equalized variance is violated. Theoretically, you could first carry out a statistical test $H_0 : \sigma_X^2 = \sigma_Y^2$ on the equality of variances and then use a pooled $\mathsf{t}$ procedure if the null hypothesis is not rejected. However, there is no free lunch: the typical $\mathsf{F}$ test for equal variances (see Section \@ref(compare-variances)) is sensitive to normality assumptions. The two sample $\mathsf{t}$ procedures, with the data-driven choice of $\nu$ in \@ref(eq:dist-t-compare-means-normpops-nu), are therefore recommended unless, of course, you have a very compelling reason to believe $\sigma_X^2 = \sigma_Y^2$. 
+:::   
 
 ## Comparing paired samples {#compare-paired-samples}
 

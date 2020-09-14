@@ -50,7 +50,8 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -165,7 +166,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.1</b> Normal distribution</a>
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about Normals</a></li>
-<li class="chapter" data-level="1.1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#critical-z-values"><i class="fa fa-check"></i><b>1.1.2</b> Critical <span class="math inline">\(z\)</span> values</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\mathsf{t}\)</span> distribution</a>
 <ul>
@@ -243,6 +243,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
+<span class="math inline">\(\DeclareMathOperator{\E}{\mathbf{E}}\)</span>
+<span class="math inline">\(\DeclareMathOperator{\Var}{Var}\)</span>
+<span class="math inline">\(\DeclareMathOperator{\Cov}{Cov}\)</span>
+<span class="math inline">\(\DeclareMathOperator{\corr}{corr}\)</span>
+<span class="math inline">\(\newcommand{\se}{\mathsf{se}}\)</span>
 <div id="inference-two-samples" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Inferences based on two samples</h1>
 <p>We consider inferences—estimators, confidence intervals, and hypothesis testing—for comparing means, proportions, and variances based on two independent samples from different populations, respectively, in Sections <a href="inference-two-samples.html#compare-means">4.1</a>, <a href="inference-two-samples.html#compare-proportions">4.3</a>, <a href="inference-two-samples.html#compare-variances">4.4</a>. We also consider inferences when the samples are not independent, so-called paired samples, in Section <a href="inference-two-samples.html#compare-paired-samples">4.2</a>.</p>
@@ -262,12 +267,12 @@ and, moreover, that the <span class="math inline">\(X\)</span> and <span class="
 <span id="prp:qoi-diff-pop-means" class="proposition"><strong>Proposition 4.1  </strong></span>If we consider the sample means <span class="math inline">\(\overline{X}\)</span> and <span class="math inline">\(\overline{Y}\)</span>, then the mean of the variable <span class="math inline">\(\overline{X} - \overline{Y}\)</span> is,
 <span class="math display">\[\begin{equation*}
  \mu_{\overline{X} - \overline{Y}} 
-= \operatorname{E}\left[ \overline{X} - \overline{Y} \right] = \mu_X - \mu_Y\,,
+= \E \left[ \overline{X} - \overline{Y} \right] = \mu_X - \mu_Y\,,
 \end{equation*}\]</span>
 and the variance is,
 <span class="math display">\[\begin{equation*}
  \sigma_{\overline{X} - \overline{Y}}^2
-= \operatorname{Var}\left[ \overline{X} - \overline{Y} \right]
+= \Var \left[ \overline{X} - \overline{Y} \right]
 = \frac{\sigma_X^2}{m} + \frac{\sigma_Y^2}{n} \,.
 \end{equation*}\]</span>
 </div>
@@ -382,9 +387,9 @@ The pooled estimator is a weighted average that adjusts for differences between 
 where we recall that <span class="math inline">\(t_{\alpha/2, m+n-2}\)</span> is the <span class="math inline">\(\alpha/2\)</span> critical value of the <span class="math inline">\(\mathsf{t}(\nu)\)</span> with <span class="math inline">\(\nu = m + n - 2\)</span> df.
 </div>
 <p>Similarly, one can consider a pooled <span class="math inline">\(\mathsf{t}\)</span> test, i.e., a hypothesis test based on the pooled estimator for the variance as opposed to the two-sample <span class="math inline">\(\mathsf{t}\)</span> test in Proposition <a href="inference-two-samples.html#prp:htest-compare-means-normpops-vars-unknown">4.7</a>. If you have reasons to believe that <span class="math inline">\(\sigma_X^2 = \sigma_Y^2\)</span>, these pooled <span class="math inline">\(\mathsf{t}\)</span> procedures are appealing because <span class="math inline">\(\nu\)</span> is very easy to compute.</p>
-<blockquote>
-<p>⚠️ Pooled <span class="math inline">\(t\)</span> procedures are not robust if the assumption of equalized variance is violated. Theoretically, you could first carry out a statistical test <span class="math inline">\(H_0 : \sigma_X^2 = \sigma_Y^2\)</span> on the equality of variances and then use a pooled <span class="math inline">\(\mathsf{t}\)</span> procedure if the null hypothesis is not rejected. However, there is no free lunch: the typical <span class="math inline">\(\mathsf{F}\)</span> test for equal variances (see Section <a href="inference-two-samples.html#compare-variances">4.4</a>) is sensitive to normality assumptions. The two sample <span class="math inline">\(\mathsf{t}\)</span> procedures, with the data-driven choice of <span class="math inline">\(\nu\)</span> in <a href="inference-two-samples.html#eq:dist-t-compare-means-normpops-nu">(4.2)</a>, are therefore recommended unless, of course, you have a very compelling reason to believe <span class="math inline">\(\sigma_X^2 = \sigma_Y^2\)</span>.</p>
-</blockquote>
+<div class="warningblock">
+<p>Pooled <span class="math inline">\(t\)</span> procedures are not robust if the assumption of equalized variance is violated. Theoretically, you could first carry out a statistical test <span class="math inline">\(H_0 : \sigma_X^2 = \sigma_Y^2\)</span> on the equality of variances and then use a pooled <span class="math inline">\(\mathsf{t}\)</span> procedure if the null hypothesis is not rejected. However, there is no free lunch: the typical <span class="math inline">\(\mathsf{F}\)</span> test for equal variances (see Section <a href="inference-two-samples.html#compare-variances">4.4</a>) is sensitive to normality assumptions. The two sample <span class="math inline">\(\mathsf{t}\)</span> procedures, with the data-driven choice of <span class="math inline">\(\nu\)</span> in <a href="inference-two-samples.html#eq:dist-t-compare-means-normpops-nu">(4.2)</a>, are therefore recommended unless, of course, you have a very compelling reason to believe <span class="math inline">\(\sigma_X^2 = \sigma_Y^2\)</span>.</p>
+</div>
 </div>
 </div>
 <div id="compare-paired-samples" class="section level2" number="4.2">
@@ -394,7 +399,7 @@ where we recall that <span class="math inline">\(t_{\alpha/2, m+n-2}\)</span> is
 <span class="math display">\[\begin{equation*}
 (X_1, Y_1), \dots, (X_n, Y_n)
 \end{equation*}\]</span>
-with <span class="math inline">\(\operatorname{E}[X_i] = \mu_X\)</span> and <span class="math inline">\(\operatorname{E}[Y_i] = \mu_Y\)</span>. If we are interested in making inferences about the difference <span class="math inline">\(\mu_X - \mu_Y\)</span> then the paired differences
+with <span class="math inline">\(\E[X_i] = \mu_X\)</span> and <span class="math inline">\(\E[Y_i] = \mu_Y\)</span>. If we are interested in making inferences about the difference <span class="math inline">\(\mu_X - \mu_Y\)</span> then the paired differences
 <span class="math display">\[\begin{equation*}
 D_i = X_i - Y_i \,,\quad  i=1, \dots, n\,,
 \end{equation*}\]</span>
@@ -405,11 +410,11 @@ constitute a sample with mean <span class="math inline">\(\mu_D = \mu_X - \mu_Y\
 <p>Consider a population containing a proportion <span class="math inline">\(p_X\)</span> of individuals satisfying a given property. For a sample of size <span class="math inline">\(m\)</span> from this population, we denote the sample proportion by <span class="math inline">\(\widehat{p}_X\)</span>. Likewise, we consider a population containing a proportion <span class="math inline">\(p_Y\)</span> of individuals satisfying the same given property. For a sample of size <span class="math inline">\(n\)</span> from this population, we denote the sample proportion by <span class="math inline">\(\widehat{p}_Y\)</span>. We assume the samples from the <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> populations are independent. The natural estimator for the difference in population proportions <span class="math inline">\(p_X - p_Y\)</span> is the difference in the sample proportions <span class="math inline">\(\widehat{p}_X - \widehat{p}_Y\)</span>.</p>
 <p>Provided the samples are much smaller than the population sizes (i.e., the populations are about <span class="math inline">\(20\)</span> times larger than the samples),
 <span class="math display">\[\begin{equation*}
- \mu_{(\widehat{p}_X - \widehat{p}_Y)} = \operatorname{E}[\widehat{p}_X - \widehat{p}_Y] = p_X - p_Y\,,
+ \mu_{(\widehat{p}_X - \widehat{p}_Y)} = \E[\widehat{p}_X - \widehat{p}_Y] = p_X - p_Y\,,
 \end{equation*}\]</span>
 and
 <span class="math display">\[\begin{equation*}
- \sigma_{(\widehat{p}_X - \widehat{p}_Y)}^2 = \operatorname{Var}[\widehat{p}_X - \widehat{p}_Y] 
+ \sigma_{(\widehat{p}_X - \widehat{p}_Y)}^2 = \Var[\widehat{p}_X - \widehat{p}_Y] 
  = \frac{p_X(1-p_X)}{m} + \frac{p_Y(1-p_Y)}{n}\,,
 \end{equation*}\]</span>
 by considering the fact that the count of individuals satisfying the given property in each population will be independent draws from <span class="math inline">\(\mathsf{Binom}(m, p_X)\)</span> and <span class="math inline">\(\mathsf{Binom}(n, p_Y)\)</span>, respectively. Further, if <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> are large (e.g., <span class="math inline">\(m \geq 30\)</span> and <span class="math inline">\(n \geq 30\)</span>), then <span class="math inline">\(\widehat{p}_X\)</span> and <span class="math inline">\(\widehat{p}_Y\)</span> are (approximately) normally distributed. Standardizing <span class="math inline">\(\widehat{p}_X - \widehat{p}_Y\)</span>,
