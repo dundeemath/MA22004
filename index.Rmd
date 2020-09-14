@@ -16,6 +16,7 @@ include-before:
   - '$\DeclareMathOperator{\Cov}{Cov}$'
   - '$\DeclareMathOperator{\corr}{corr}$'
   - '$\newcommand{\se}{\mathsf{se}}$'
+  - '$\DeclareMathOperator{\sd}{sd}$'
 ---
 
 ```{r setup, include=FALSE}
@@ -24,6 +25,8 @@ include-before:
 # packages
 library(bookdown)
 library(RColorBrewer)
+library(viridis)
+library(scales)
 library(readr)
 library(plotly)
 library(tidyverse)
@@ -44,7 +47,10 @@ if (knitr::is_html_output()){
   theme_set(theme_bw(base_size = 10))
   knitr::opts_chunk$set(echo = TRUE, comment = "", fig.width = 6, fig.asp = 0.6)
 }
-
+# opts <- options()  # save old options
+# options(ggplot2.continuous.colour="viridis")
+# options(ggplot2.continuous.fill = "viridis")
+# scale_colour_discrete <- scale_colour_viridis_d
 # data sets
 data(iris)
 data(trees)

@@ -107,7 +107,7 @@ My favorite interpretation of a confidence interval is due to [@Wasserman:2013as
 
 This interpretation makes clear that a confidence interval is not a probability statement about the parameter $\theta$. In Definition \@ref(def:confidence-interval-gen), note that $\theta$ is fixed ($\theta$ is not a rv) and the interval $C_m$ is random. After data has been collected and a point estimator has been calculated, the resulting CIs either contain the true parameter value or they do not, as illustrated in Figure \@ref(fig:fifty-cis). 
 
-```{r fifty-cis, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Fifty $95\\%$ CIs for a population mean $\\mu$. After a sample is taken, the computed interval estimate either contains $\\mu$ or it does not (asterisk identify intervals that do not include $\\mu$). When drawing such a large number of $95\\%$ CIs, we would anticipate that approximately $5\\%$ (ca. 2 or 3) would fail to cover the true parameter $\\mu$.", fig.width = 4, fig.asp = 1.8}
+```{r fifty-cis, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Fifty $95\\%$ CIs for a population mean $\\mu$. After a sample is taken, the computed interval estimate either contains $\\mu$ or it does not (asterisk identify intervals that do not include $\\mu$). When drawing such a large number of $95\\%$ CIs, we would anticipate that approximately $5\\%$ (ca. 2 or 3) would fail to cover the true parameter $\\mu$.", fig.width = 3, fig.asp = 2}
 df <- read_csv("data/fifty-cis.csv")
 df$star <- factor(df$star, level = c(0,1), labels = c("", "*"))
 ggplot(df, aes(x = idx, y = xbar, color = star, shape = star)) + geom_hline(yintercept = 0, size = 1, alpha = 1) + geom_pointrange(aes(ymin = l, ymax = u)) + scale_shape_manual(values = c(19,8)) + theme(axis.title.y = element_blank(), axis.title.x = element_blank(), legend.position = "none", axis.ticks.x=element_blank(), axis.text.x=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + coord_flip() + annotate("text", x = 0, y = 0, label=TeX("$\\mu$"), hjust = -.4, vjust = .8, size = 5)
@@ -160,7 +160,7 @@ The $P$-value is a probability calculated assuming that $H_0$ is true. However, 
 
 1. $H_0$ is TRUE, 
 2. $H_0$ is FALSE, or 
-3. a wrong conclusion is reached.   
+3. a wrong conclusion is reached.
 :::   
 
 ```{proposition, signifiance-type1}
@@ -175,7 +175,7 @@ has $P(\text{type I error}) = \alpha$.
 ```   
 
 ```{example, htest-setup}
-Churchill claims that he will receive half the votes for the House of Commons seat for the constituency of Dundee.^[Sir Winston Churchill was member of Parliament for Dundee from 1908--1922. [[W]](https://www.wikiwand.com/en/Winston_Churchill)] If we do not believe Churchill's claim and we are doubtful of his popularity, then we would seek to test an alternative hypothesis. How should we write down our research hypotheses?
+Churchill claims that he will receive half the votes for the House of Commons seat for the constituency of Dundee.^[Sir Winston Churchill was Member of Parliament for Dundee from 1908--1922. [[W]](https://www.wikiwand.com/en/Winston_Churchill)] If we do not believe Churchill's claim and we are doubtful of his popularity, then we would seek to test an alternative hypothesis. How should we write down our research hypotheses?
 ```
 
 If we let $p$ be the fraction of the population voting for Churchill, then we have the null hypothesis,

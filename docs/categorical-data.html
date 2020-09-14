@@ -248,6 +248,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="math inline">\(\DeclareMathOperator{\Cov}{Cov}\)</span>
 <span class="math inline">\(\DeclareMathOperator{\corr}{corr}\)</span>
 <span class="math inline">\(\newcommand{\se}{\mathsf{se}}\)</span>
+<span class="math inline">\(\DeclareMathOperator{\sd}{sd}\)</span>
 <div id="categorical-data" class="section level1" number="7">
 <h1><span class="header-section-number">7</span> Categorical data</h1>
 <div id="multinomial-experiments" class="section level2" number="7.1">
@@ -272,7 +273,7 @@ which indicates that, for a given <span class="math inline">\(m\)</span>, we onl
 H_0 : p_1 = p_{10}\,, p_2 = p_{20}\,, \cdots\,, p_k = p_{k0}\,,
  \tag{7.2}
 \end{equation}\]</span>
-that completely specifies a value <span class="math inline">\(p_{i0}\)</span> for each <span class="math inline">\(p_i\)</span>.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> The alternative hypothesis <span class="math inline">\(H_a\)</span> will state that <span class="math inline">\(H_0\)</span> is not true, i.e., that at least one <span class="math inline">\(p_i\)</span> is different from the value <span class="math inline">\(p_{i0}\)</span> claimed under the null <span class="math inline">\(H_0\)</span>.</p>
+that completely specifies a value <span class="math inline">\(p_{i0}\)</span> for each <span class="math inline">\(p_i\)</span>.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> The alternative hypothesis <span class="math inline">\(H_a\)</span> will state that <span class="math inline">\(H_0\)</span> is not true, i.e., that at least one <span class="math inline">\(p_i\)</span> is different from the value <span class="math inline">\(p_{i0}\)</span> claimed under the null <span class="math inline">\(H_0\)</span>.</p>
 <p>Provided the null hypothesis in <a href="categorical-data.html#eq:null-multinomial">(7.2)</a> is true, the expected values <a href="categorical-data.html#eq:mean-count-multinomial">(7.1)</a> can be written in terms of the expected frequencies,
 <span class="math display">\[\begin{equation*}
  \E[N_i] = m p_{i0}\,, \quad i=1,\dots,k\,.
@@ -347,7 +348,7 @@ Expected
 </tr>
 </tbody>
 </table>
-<p>The test procedure assesses the discrepancy between the value of the observed and expected cell counts. This discrepancy, or <strong>goodness of fit</strong>, is measured by the squared deviations divided by the expected count.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a></p>
+<p>The test procedure assesses the discrepancy between the value of the observed and expected cell counts. This discrepancy, or <strong>goodness of fit</strong>, is measured by the squared deviations divided by the expected count.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a></p>
 
 <div class="theorem">
 <span id="thm:multinomial-experiment" class="theorem"><strong>Theorem 7.1  </strong></span>For <span class="math inline">\(m p_i \geq 5\)</span> for <span class="math inline">\(i = 1, \dots, k\)</span>, the rv
@@ -379,7 +380,7 @@ provided, as a rule of thumb, <span class="math inline">\(m p_{i0} \geq 5\)</spa
 <div id="test-for-independence-of-factors" class="section level2" number="7.3">
 <h2><span class="header-section-number">7.3</span> Test for independence of factors</h2>
 <p>In Section <a href="categorical-data.html#goodness-of-fit-tests">7.2</a> we considered the categorization of a population into a single factor. We now consider a single population where each individual is categorized into two factors with <span class="math inline">\(I\)</span> distinct categories for the first factor and <span class="math inline">\(J\)</span> distinct categories for the second factor. That is, each individual from the population belongs to exactly one of the <span class="math inline">\(I\)</span> categories of the first factor and exactly one of the <span class="math inline">\(J\)</span> categories of the second factor. We want to determine whether or not there is any dependency between the two factors.</p>
-<p>For a sample of <span class="math inline">\(m\)</span> individuals, we denote by <span class="math inline">\(n_{ij}\)</span> the count of the <span class="math inline">\(m\)</span> samples that fall both in category <span class="math inline">\(i\)</span> of the first factor and category <span class="math inline">\(j\)</span> of the second factor, for <span class="math inline">\(i = 1, \dots, I\)</span> and <span class="math inline">\(j = 1, \dots, J\)</span>. A <strong>contingency (data) table</strong> with <span class="math inline">\(I\)</span> rows and <span class="math inline">\(J\)</span> columns (i.e., <span class="math inline">\(IJ\)</span> cells) will be used to record the <span class="math inline">\(n_{ij}\)</span> counts (in the obvious way).<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> Let <span class="math inline">\(p_{ij}\)</span> be the proportion of individuals in the population who belong in category <span class="math inline">\(i\)</span> of factor 1 and category <span class="math inline">\(j\)</span> of factor <span class="math inline">\(2\)</span>. Then, the probability that a randomly selected individual falls in category <span class="math inline">\(i\)</span> of factor 1 is found by summing over all <span class="math inline">\(j\)</span>:
+<p>For a sample of <span class="math inline">\(m\)</span> individuals, we denote by <span class="math inline">\(n_{ij}\)</span> the count of the <span class="math inline">\(m\)</span> samples that fall both in category <span class="math inline">\(i\)</span> of the first factor and category <span class="math inline">\(j\)</span> of the second factor, for <span class="math inline">\(i = 1, \dots, I\)</span> and <span class="math inline">\(j = 1, \dots, J\)</span>. A <strong>contingency (data) table</strong> with <span class="math inline">\(I\)</span> rows and <span class="math inline">\(J\)</span> columns (i.e., <span class="math inline">\(IJ\)</span> cells) will be used to record the <span class="math inline">\(n_{ij}\)</span> counts (in the obvious way).<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> Let <span class="math inline">\(p_{ij}\)</span> be the proportion of individuals in the population who belong in category <span class="math inline">\(i\)</span> of factor 1 and category <span class="math inline">\(j\)</span> of factor <span class="math inline">\(2\)</span>. Then, the probability that a randomly selected individual falls in category <span class="math inline">\(i\)</span> of factor 1 is found by summing over all <span class="math inline">\(j\)</span>:
 <span class="math display">\[\begin{equation*}
 p_{i} = \sum_{j=1}^J p_{ij}\,,
 \end{equation*}\]</span>
@@ -425,10 +426,10 @@ Rule of thumb, <span class="math inline">\(\widehat{e}_{ij} \geq 5\)</span> for 
 </div>
 <div class="footnotes">
 <hr />
-<ol start="12">
-<li id="fn12"><p>Here for <span class="math inline">\(i=1, \dots, k\)</span> we use the notation <span class="math inline">\(p_{i0}\)</span> to denote the value of <span class="math inline">\(p_i\)</span> claimed under the null hypothesis.<a href="categorical-data.html#fnref12" class="footnote-back">↩︎</a></p></li>
-<li id="fn13"><p>The division by the expected cell counts is to account for possible differences in the relative magnitude of the observed/expected counts.<a href="categorical-data.html#fnref13" class="footnote-back">↩︎</a></p></li>
-<li id="fn14"><p>Contingency is another word for dependency in this context.<a href="categorical-data.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<ol start="13">
+<li id="fn13"><p>Here for <span class="math inline">\(i=1, \dots, k\)</span> we use the notation <span class="math inline">\(p_{i0}\)</span> to denote the value of <span class="math inline">\(p_i\)</span> claimed under the null hypothesis.<a href="categorical-data.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>The division by the expected cell counts is to account for possible differences in the relative magnitude of the observed/expected counts.<a href="categorical-data.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>Contingency is another word for dependency in this context.<a href="categorical-data.html#fnref15" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

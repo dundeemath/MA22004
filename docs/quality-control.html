@@ -248,10 +248,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="math inline">\(\DeclareMathOperator{\Cov}{Cov}\)</span>
 <span class="math inline">\(\DeclareMathOperator{\corr}{corr}\)</span>
 <span class="math inline">\(\newcommand{\se}{\mathsf{se}}\)</span>
+<span class="math inline">\(\DeclareMathOperator{\sd}{sd}\)</span>
 <div id="quality-control" class="section level1" number="8">
 <h1><span class="header-section-number">8</span> Quality Control</h1>
 <p>Quality control is an area of applies statistics that seeks to make interventions to maintain or improve the outcome of industrial processes. Random variations in output processes might negatively impact the quality of a product. We would like to identify the sources of random variations in output processes that might have <em>assignable causes</em>. <strong>Control charts</strong> are a tool that help us to recognize when industrial processes are no longer controlled so that one might then seek to identify assignable causes.</p>
-<p>The basic elements of control charting involve specifying a control region and then analyzing time-series data. We will specify a base-line value along with an upper and lower limit of control and assume that a process is under control unless a test statistic suggests otherwise.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> To construct a control chart, one collects data about a process at fixed points of time and calculates the running value of quality statistic. If the quality statistic exceeds the upper or lower control limits, the process is deemed to out of control and the quality of the product is assumed to be negatively impacted.</p>
+<p>The basic elements of control charting involve specifying a control region and then analyzing time-series data. We will specify a base-line value along with an upper and lower limit of control and assume that a process is under control unless a test statistic suggests otherwise.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a> To construct a control chart, one collects data about a process at fixed points of time and calculates the running value of quality statistic. If the quality statistic exceeds the upper or lower control limits, the process is deemed to out of control and the quality of the product is assumed to be negatively impacted.</p>
 <p>The process of creating a control chart is best illustrated through an extended example, like Example <a href="quality-control.html#exm:qc-three-sigma">8.1</a> provided below.</p>
 
 <div class="example">
@@ -628,8 +629,8 @@ Figure 8.2: The <span class="math inline">\(3\sigma\)</span> <strong>control cha
 </div>
 <div class="footnotes">
 <hr />
-<ol start="15">
-<li id="fn15"><p>The default position here will be reminiscent of hypothesis testing.<a href="quality-control.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<ol start="16">
+<li id="fn16"><p>The default position here will be reminiscent of hypothesis testing.<a href="quality-control.html#fnref16" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

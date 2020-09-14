@@ -248,6 +248,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="math inline">\(\DeclareMathOperator{\Cov}{Cov}\)</span>
 <span class="math inline">\(\DeclareMathOperator{\corr}{corr}\)</span>
 <span class="math inline">\(\newcommand{\se}{\mathsf{se}}\)</span>
+<span class="math inline">\(\DeclareMathOperator{\sd}{sd}\)</span>
 <div id="inference-two-samples" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Inferences based on two samples</h1>
 <p>We consider inferences—estimators, confidence intervals, and hypothesis testing—for comparing means, proportions, and variances based on two independent samples from different populations, respectively, in Sections <a href="inference-two-samples.html#compare-means">4.1</a>, <a href="inference-two-samples.html#compare-proportions">4.3</a>, <a href="inference-two-samples.html#compare-variances">4.4</a>. We also consider inferences when the samples are not independent, so-called paired samples, in Section <a href="inference-two-samples.html#compare-paired-samples">4.2</a>.</p>
@@ -377,7 +378,7 @@ t = \frac{(\overline{x} - \overline{y}) - \theta_0}{\sqrt{ \frac{s_X^2}{m} + \fr
  S_{\mathsf{p}}^2 = \frac{m-1}{m+n-2} S_X^2 + \frac{n-1}{m+n-2} S_Y^2 \,.
  \tag{4.3}
 \end{equation}\]</span>
-The pooled estimator is a weighted average that adjusts for differences between the sample sizes <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span>.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></p>
+The pooled estimator is a weighted average that adjusts for differences between the sample sizes <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span>.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></p>
 
 <div class="proposition">
 <span id="prp:ci-compare-means-normpops-pooled" class="proposition"><strong>Proposition 4.8  </strong></span>A <span class="math inline">\(100(1-\alpha)\%\)</span> CI for <span class="math inline">\(\mu_X - \mu_Y\)</span> for two samples of size <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> from normal populations where the variance <span class="math inline">\(\sigma^2\)</span> is unknown is given by
@@ -493,8 +494,8 @@ where <span class="math inline">\(F_{\alpha/2, \nu_1, \nu_2}\)</span> is the <sp
 </div>
 <div class="footnotes">
 <hr />
-<ol start="8">
-<li id="fn8"><p>If <span class="math inline">\(m \neq n\)</span>, then the estimator with <em>more</em> samples will contain <em>more</em> information about the parameter <span class="math inline">\(\sigma^2\)</span>. Thus, the simple average <span class="math inline">\((S_X^2 + S_Y^2)/2\)</span> wouldn’t really be fair, would it?<a href="inference-two-samples.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<ol start="9">
+<li id="fn9"><p>If <span class="math inline">\(m \neq n\)</span>, then the estimator with <em>more</em> samples will contain <em>more</em> information about the parameter <span class="math inline">\(\sigma^2\)</span>. Thus, the simple average <span class="math inline">\((S_X^2 + S_Y^2)/2\)</span> wouldn’t really be fair, would it?<a href="inference-two-samples.html#fnref9" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

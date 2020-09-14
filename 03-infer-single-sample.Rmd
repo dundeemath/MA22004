@@ -1,81 +1,172 @@
 # Inferences based on a single sample {#inference-single-sample}
 
-We estimate population means ($\mu$) in Section \@ref(estimating-means), population proportions ($p$) in Section \@ref(estimating-proportions), and population variances ($\sigma^2$) in Section \@ref(estimating-variances).  
+In a few situations we can derive the sampling distribution for the statistic of interest and use this as the basis for constructing confidence intervals and hypothesis tests. Presently we estimate population means $\mu$ in Section \@ref(estimating-means), population proportions $p$ in Section \@ref(estimating-proportions), and population variances $\sigma^2$ in Section \@ref(estimating-variances) in some special cases.  
 
 ## Estimating means {#estimating-means}
 
-If the parameter of interest is the population mean $\theta = \mu$, then the sample mean estimator $\widehat{\theta} = \overline{X}$ in \@ref(eq:sample-mean) has (at least approximately) a normal distribution for sufficiently large $n$. We will consider three cases,
+If the parameter of interest is the population mean $\theta = \mu$, then what can be said about the distribution of the sample mean estimator $\widehat{\theta} = \overline{X}$ in \@ref(eq:sample-mean)? We will consider three cases,
 
 1. [normal population with known $\sigma^2$](#mean-normal-var-known),
-2. [any population with unknown $\sigma^2$, when the sample size $n$ is large](#mean-large-sample),
-3. [normal population with unknown $\sigma^2$, when the sample size $n$ is small](#mean-normal-var-unknown),  
+2. [any population with unknown $\sigma^2$, when the sample size $m$ is large](#mean-large-sample),
+3. [normal population with unknown $\sigma^2$, when the sample size $m$ is small](#mean-normal-var-unknown),  
 
-where the form of the confidence interval for $mu$ can be derived using the approximate normality of the sample mean.
+where the form of the confidence interval and hypothesis test statistic for $\mu$ can be derived using the approximate normality of the sample mean.
 
 In general, the confidence intervals for the mean based on normality theory will have the form:
 \begin{equation}
-\text{point estimate}\; \mu \pm (\text{critical value of reference dist.}) \cdot (\text{precision of point estimate})\,, (\#eq:ci-gen-form)
+ \text{point estimate}\; \mu \pm (\text{critical value of reference dist.}) \cdot (\text{precision of point estimate})\,, 
+ (\#eq:ci-gen-form)
 \end{equation}
-where the reference distribution will be the standard normal (for 1. and 2.) and the Student's $\mathsf{t}$ distribution (for 3.). The critical value corresponds to the two-sided (symmetric) tail areas under the reference distribution.  
+where the reference distribution will be the standard normal (for 1. and 2.) and the Student's $\mathsf{t}$ distribution (for 3.). The critical value corresponds to the value under the reference distribution that yields the two-sided (symmetric) tail areas summing to $1-\alpha$.  
 
 ### Mean of a normal population with known variance {#mean-normal-var-known}
+
+When sampling from a normal population with known mean and variance, the estimator for the sample mean is also normal with mean $\mu$ and variance $\sigma^2/m$ where $m$ is the sample size. Standardizing, 
+\begin{equation}
+ \frac{\overline{X} - \mu}{ \sigma / \sqrt{m}} \quad \sim \mathsf{N}(0, 1)
+ (\#eq:standardized-sample-mean)
+\end{equation}
+we see that 
+\begin{equation*}
+P\left(-z_{\alpha/2} <  \frac{\overline{X} - \mu}{ \sigma / \sqrt{m}} < z_{\alpha/2}\right) = 1 - \alpha\,.
+\end{equation*}
+Based on knowing the sampling distribution of the estimator, we state the following CI. 
 
 ```{definition, ci-norm-known-var}
 A **$100(1-\alpha)\%$ confidence interval** for the mean $\mu$ of a normal population when the value of $\sigma^2$ is known is given by 
 \begin{equation} 
- \left(\overline{x} - z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}\,, 
-        \overline{x} + z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}} \right)\,,  (\#eq:ci-norm-known-var)
+ \left(\overline{x} - z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{m}}\,, 
+        \overline{x} + z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{m}} \right)\,,  (\#eq:ci-norm-known-var)
 \end{equation}
-or $\overline{x} \pm z_{\alpha/2} \cdot \sigma / \sqrt{n}$. 
+or $\overline{x} \pm z_{\alpha/2} \cdot \sigma / \sqrt{m}$, where $m$ is the sample size.
 ```  
 
-The CI for the mean \@ref(eq:ci-norm-known-var) can be expressed as 
+The CI for the mean \@ref(eq:ci-norm-known-var) can be expressed (cf. \@ref(eq:ci-gen-form)) as 
 \begin{equation*}
  \text{point estimate}\; \mu \pm 
  (z \;\text{critical value}) \cdot (\text{standard error of mean})\,.
 \end{equation*}
 The $z$ critical value is related to the tail areas under the standard normal curve; we need to find the $z$-score having a cumulative probability equal to $1-\alpha$ according to Definition \@ref(def:confidence-interval-gen). 
 
-**TODO**: add example 
+```{example, exm-ci-norm-known-var}
+Consider $400$ samples from a normal population with a known standard deviation $\sigma = 17000$ with mean $\overline{x} = 20992$ (as depicted in \@ref(fig:ci-norm-known-var-code)). How do we construct a $95\%$ confidence interval for $\mu$?
+```
 
-As noted in \@ref(eq:ci-gen-form) and \@ref(eq:ci-norm-known-var), the width of a CI is related to the estimator's precision. The confidence level (or reliability) is inversely related to this precision. When the population is normal and the variance is known, then an appealing strategy is to determine the sample size necessary to achieve a desired confidence level and precision. A general formula for the sample size $n$ necessary to achieve an interval width $w$ is obtained at confidence level  $\alpha$ is obtained by equating $w$ to $2z_{\alpha/2} \cdot \sigma /\sqrt{n}$ and then solving for $n$. 
+```{r ci-norm-known-var-code, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "$400$ samples from a normal population with known variance $\\sigma = 17000$ together with the corresponding (normal) sampling distribution for the observed mean."}
+xdat <- read_csv("data/exm-ci-norm-known-var.csv")
+ggplot(xdat, aes(x = obs)) + geom_histogram(aes(y = ..density..)) + stat_function(aes(color = "Sample mean"), fun = dnorm, args = list(mean = mean(xdat$obs), sd = sd(xdat$obs)), size = 1) + ylab("Density") + xlab("Observations")
+```
+
+For $\alpha = 0.05$, the critical value $z_{0.025} = 1.96$; this value can be found by looking in a table of critical $z$ values or using the `r` code `qnorm(1-.05/2)`. From Definition \@ref(def:ci-norm-known-var),
+\begin{equation*}
+\begin{aligned}
+\left(\overline{x} - z_{\alpha/2} \frac{\sigma}{\sqrt{m}}\,, \overline{x} + z_{\alpha/2} \frac{\sigma}{\sqrt{m}} \right) 
+&= \left(20992 - 1.96 \frac{17000}{\sqrt{400}}\,, 20992 + 1.96 \frac{17000}{\sqrt{400}} \right) \\
+&= \left(19326 \,, 22658\right)\,.
+\end{aligned}
+\end{equation*}
+
+The data above was generated with a true population parameter $\mu = 21500$, and, incidentally, the CI actually contains the parameter value. $\lozenge$   
+
+As noted in \@ref(eq:ci-gen-form) and \@ref(eq:ci-norm-known-var), the width of a CI is related to the estimator's precision. The confidence level (or reliability) is inversely related to this precision. When the population is normal and the variance is known, then an appealing strategy is to determine the sample size necessary to achieve a desired confidence level and precision. A general formula for the sample size $m^*$ necessary to achieve an interval width $w$ is obtained at confidence level  $\alpha$ is obtained by equating $w$ to $2z_{\alpha/2} \cdot \sigma /\sqrt{m^*}$ and then solving for $m^*$. 
 
 ```{proposition, ci-select-n-fixed-w-alpha}
 The sample size $n$ required to achieve a CI for $\mu$ with width $w$ at level $\alpha$ is given by,
-\begin{equation}
-n = \left( 2 z_{\alpha/2} \cdot \frac{\sigma}{w} \right)^2 \,.
-\end{equation}
-```  
-From Proposition \@ref(prp:ci-select-n-fixed-w-alpha), we see that the smaller the desired $w$ then the larger $n$ must be (and subsequently, the more effort that must be allocated to data collection).
+\begin{equation*}
+m^* = \left( 2 z_{\alpha/2} \cdot \frac{\sigma}{w} \right)^2 \,.
+\end{equation*}
+```   
 
-**TODO**: add example of sample size calculation
+From Proposition \@ref(prp:ci-select-n-fixed-w-alpha), we see that the smaller the desired $w$ then the larger $m^*$ must be (and subsequently, the more effort that must be allocated to data collection).
+
+```{example, exm-ci-norm-known-var-find-n} 
+In Example \@ref(exm:exm-ci-norm-known-var) we identified a $95\%$ confidence interval for a normal population with known variance. The range (width) of that interval was $22658 - 19326 = 3332$. By how much would $m$ need to increase to halve the interval width?
+```
+
+Using Proposition \@ref(prp:ci-select-n-fixed-w-alpha), 
+\begin{equation*}
+m = \left( 2 \cdot 1.96 \cdot \frac{17000}{1666} \right)^2 = (40)^2 = 1600\,.
+\end{equation*}
+Thus, we find that for the same level $\alpha = 0.05$, we would need to quadruple our original sample size to halve the interval. It is expensive to remove uncertainty! $\lozenge$   
+
+Suppose now that we would like to consider a hypothesis test for the population mean, such as $H_0 : \mu = \mu_0$. Starting from \@ref(eq:standardized-sample-mean) and assuming that the null hypothesis is true, we find 
+\begin{equation*}
+Z = \frac{\overline{X} - \mu_0}{\sigma / \sqrt{m}}\,.
+\end{equation*}
+The statistic $Z$ measures the distance (measured in units of $\sd{\overline{X}}$) between $\overline{X}$ and its expected value under the null hypothesis. We will use the statistic $Z$ to determine if there is substantial evidence against $H_0$ i.e. if the distance is too far in a direction consistent with $H_a$. 
+
+```{proposition, htest-norm-known-var}
+Assume that we take a sample of size $m$ from a normal population with known variance $\sigma^2$. 
+
+For the null hypothesis $H_0 : \mu = \mu_0$, we consider the test statistic 
+\begin{equation}
+ Z = \frac{\overline{X} - \mu_0}{\sigma / \sqrt{m}}\,.
+ (\#eq:htest-norm-known-var-T)
+\end{equation}
+ 
+If the alternative is $H_a : \mu > \mu_0$, then  $P = 1 - \Phi(z)$.
+
+If the alternative is $H_a : \mu < \mu_0$, then $P = \Phi(z)$. 
+
+If the alternative is $H_a : \mu \neq \mu_0$, then $P = 2(1-\Phi(|z|))$. 
+```
+
+We recall that $\Phi(z)$ is the area in the lower tail of the standard normal density, i.e., to the *left* of the calculated value of $z$. Thus $1 - \Phi(z)$ is the area in the upper tail and $2(1 - \Phi(|z|))$ is the sum of the area in the tails (corresponding to $\pm z$). 
+
+```{example, htest-norm-known-var-two-tail}
+Let's return to the data in Example \@ref(exm:exm-ci-norm-known-var), where we sample from a normal population with a known standard deviation $\sigma = 17000$. Suppose that someone cliams the true mean is $\mu_0 = 20000$. Does our sample mean $\overline{x} = 20992$ based on $m = 400$ samples provide evidence to contradict this claim at the $\alpha = 0.05$ level?
+```
+
+The first thing to record is our parameter of interest $\mu$, the true population mean. The null hypothesis, which we assume to be true, is
+\begin{equation*}
+ H_0 : \mu = 20000\,,
+\end{equation*}
+and the alternative hypothesis is
+\begin{equation*}
+ H_a : \mu \neq 20000\,,
+\end{equation*}
+since we are concerned with a deviation in either direction from $\mu_0$. 
+
+Since the poputation is normal with known variance, we compute the test statistic:
+\begin{equation*}
+ z \frac{\overline{x} - \mu_0}{\sigma / \sqrt{m}} = \frac{20992 - 20000}{17000 / \sqrt{400}} = 1.167\,.
+\end{equation*}
+That is, the sample mean $\overline{x}$ we observed is about $1$ standard deviation above what we would expect under $H_0$. Consulting \@ref(prp:htest-norm-known-var), we see that a two-tailed test is indicated for this particular $H_a$, and that the $P$-value is the area,^[Note $\Phi(z)$ is found by calling `pnorm(z)` in `r`.]
+\begin{equation*}
+P = 2(1 - \Phi(1.167)) = 2 (0.1216052) = 0.2432.
+\end{equation*}
+Thus, since $P = 0.2432 > 0.05 = \alpha$, we fail to reject $H_0$ at the level $0.05$. The data does not support the claim that the true population mean differs from the value $20000$ at the $0.05$ level. $\lozenge$   
 
 ### Mean of a population with unknown variance (large-sample) {#mean-large-sample}
 
-Consider samples $X_1, \dots, X_n$ from a population with mean $\mu$ and variance $\sigma^2$. Provided that $n$ is large enough, the Central Limit Theorem implies that the estimator for the sample mean $\overline{X}$ in \@ref(eq:sample-mean) has *approximately* a normal distribution. Then 
+Consider samples $X_1, \dots, X_m$ from a population with mean $\mu$ and variance $\sigma^2$. Provided that $m$ is large enough, the Central Limit Theorem implies that the estimator for the sample mean $\overline{X}$ in \@ref(eq:sample-mean) has *approximately* a normal distribution. Then 
 \begin{equation}
-P \left( - z_{\alpha/2} < \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} < z_{\alpha/2} \right) \approx 1 - \alpha\,,
+P \left( - z_{\alpha/2} < \frac{\overline{X} - \mu}{\sigma/\sqrt{m}} < z_{\alpha/2} \right) \approx 1 - \alpha\,,
 \end{equation}
-since the transformed variable has approximately a standard normal distribution. Thus, computing a point estimate based on a large $n$ of samples yields a CI for the population parameter $\mu$ at an *approximate* confidence level $\alpha$. However, it is often the case that the variance is unknown. When $n$ is large, replacing the population variance $\sigma^2$ by the sample variance $S^2$ in \@ref(eq:sample-var) will not typically introduce too much additional variability.
+since the transformed variable has approximately a standard normal distribution. Thus, computing a point estimate based on a large $m$ of samples yields a CI for the population parameter $\mu$ at an *approximate* confidence level $\alpha$. However, it is often the case that the variance is unknown. When $m$ is large, replacing the population variance $\sigma^2$ by the sample variance $S^2$ in \@ref(eq:sample-var) will not typically introduce too much additional variability.
 
 ```{proposition, ci-large-sample}
-For large samples $n$, an approximate $100(1-\alpha)\%$ confidence interval for the mean $\mu$ of any population when the variance is uknown is given by 
+For large sample size $m$, an approximate $100(1-\alpha)\%$ confidence interval for the mean $\mu$ of any population when the variance is uknown is given by 
 \begin{equation} 
- \left(\overline{x} - z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} \,, 
-        \overline{x} + z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} \right)\,,  
+ \left(\overline{x} - z_{\alpha/2} \cdot \frac{s}{\sqrt{m}} \,, 
+        \overline{x} + z_{\alpha/2} \cdot \frac{s}{\sqrt{m}} \right)\,,  
  (\#eq:ci-large-sample)
 \end{equation}
-or $\overline{x} \pm z_{\alpha/2} \cdot s / \sqrt{n}$. 
+or $\overline{x} \pm z_{\alpha/2} \cdot s / \sqrt{m}$. 
 ```
 
-The CI for the mean \@ref(eq:ci-large-sample) applies regardless of the shape of the population distribution so long as the number of samples is large. A rule of thumb is that $n > 40$ is sufficient. In words, the CI \@ref(eq:ci-large-sample) can be expressed as 
+The CI for the mean \@ref(eq:ci-large-sample) applies regardless of the shape of the population distribution so long as the number of samples is large. A rule of thumb is that $m > 40$ is sufficient. In words, the CI \@ref(eq:ci-large-sample) can be expressed (cf. \@ref(eq:ci-gen-form))as 
 \begin{equation*}
  \text{point estimate}\; \mu \pm 
  (z \;\text{critical value}) \cdot (\text{estimated standard error of mean})\,.
 \end{equation*}
-Typically, a large-sample CI for a general parameter $\theta$ similar to \@ref(eq:ci-large-sample) holds for any estimator $\widehat{\theta}$ that satisfies: (1) approximately normal in distribution, (2) approximately unbiased, and (3) an expression for the standard error is available.
+Typically, a large-sample CI for a general parameter $\theta$ holds that is similar in nature to \@ref(eq:ci-large-sample) for any estimator $\widehat{\theta}$ that satisfies: (1) approximately normal in distribution, (2) approximately unbiased, and (3) an expression for the standard error is available.
 
-**TODO**: add example 
+To conduct a large-sample hypothesis test regarding the population mean $\mu$, we consider the test statistic
+\begin{equation}
+ Z = \frac{\overline{X} - \mu_0}{S / \sqrt{m}}
+\end{equation}
+under the null hypothesis. When the number of samples $m$ is large (say $m > 40$) then $Z$ will be approximately normal. Subtituting this test statistic $Z$ for \@ref(eq:htest-norm-known-var-T), we follow Proposition \@ref(prp:htest-norm-known-var) to determine how to calculate the $P$-value.  
 
 ### Mean of a normal population with unknown variance {#mean-normal-var-unknown}
 

@@ -248,76 +248,158 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="math inline">\(\DeclareMathOperator{\Cov}{Cov}\)</span>
 <span class="math inline">\(\DeclareMathOperator{\corr}{corr}\)</span>
 <span class="math inline">\(\newcommand{\se}{\mathsf{se}}\)</span>
+<span class="math inline">\(\DeclareMathOperator{\sd}{sd}\)</span>
 <div id="inference-single-sample" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Inferences based on a single sample</h1>
-<p>We estimate population means (<span class="math inline">\(\mu\)</span>) in Section <a href="inference-single-sample.html#estimating-means">3.1</a>, population proportions (<span class="math inline">\(p\)</span>) in Section <a href="inference-single-sample.html#estimating-proportions">3.2</a>, and population variances (<span class="math inline">\(\sigma^2\)</span>) in Section <a href="inference-single-sample.html#estimating-variances">3.3</a>.</p>
+<p>In a few situations we can derive the sampling distribution for the statistic of interest and use this as the basis for constructing confidence intervals and hypothesis tests. Presently we estimate population means <span class="math inline">\(\mu\)</span> in Section <a href="inference-single-sample.html#estimating-means">3.1</a>, population proportions <span class="math inline">\(p\)</span> in Section <a href="inference-single-sample.html#estimating-proportions">3.2</a>, and population variances <span class="math inline">\(\sigma^2\)</span> in Section <a href="inference-single-sample.html#estimating-variances">3.3</a> in some special cases.</p>
 <div id="estimating-means" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Estimating means</h2>
-<p>If the parameter of interest is the population mean <span class="math inline">\(\theta = \mu\)</span>, then the sample mean estimator <span class="math inline">\(\widehat{\theta} = \overline{X}\)</span> in <a href="statistical-inference.html#eq:sample-mean">(2.1)</a> has (at least approximately) a normal distribution for sufficiently large <span class="math inline">\(n\)</span>. We will consider three cases,</p>
+<p>If the parameter of interest is the population mean <span class="math inline">\(\theta = \mu\)</span>, then what can be said about the distribution of the sample mean estimator <span class="math inline">\(\widehat{\theta} = \overline{X}\)</span> in <a href="statistical-inference.html#eq:sample-mean">(2.1)</a>? We will consider three cases,</p>
 <ol style="list-style-type: decimal">
 <li><a href="inference-single-sample.html#mean-normal-var-known">normal population with known <span class="math inline">\(\sigma^2\)</span></a>,</li>
-<li><a href="inference-single-sample.html#mean-large-sample">any population with unknown <span class="math inline">\(\sigma^2\)</span>, when the sample size <span class="math inline">\(n\)</span> is large</a>,</li>
-<li><a href="inference-single-sample.html#mean-normal-var-unknown">normal population with unknown <span class="math inline">\(\sigma^2\)</span>, when the sample size <span class="math inline">\(n\)</span> is small</a>,</li>
+<li><a href="inference-single-sample.html#mean-large-sample">any population with unknown <span class="math inline">\(\sigma^2\)</span>, when the sample size <span class="math inline">\(m\)</span> is large</a>,</li>
+<li><a href="inference-single-sample.html#mean-normal-var-unknown">normal population with unknown <span class="math inline">\(\sigma^2\)</span>, when the sample size <span class="math inline">\(m\)</span> is small</a>,</li>
 </ol>
-<p>where the form of the confidence interval for <span class="math inline">\(mu\)</span> can be derived using the approximate normality of the sample mean.</p>
+<p>where the form of the confidence interval and hypothesis test statistic for <span class="math inline">\(\mu\)</span> can be derived using the approximate normality of the sample mean.</p>
 <p>In general, the confidence intervals for the mean based on normality theory will have the form:
 <span class="math display" id="eq:ci-gen-form">\[\begin{equation}
-\text{point estimate}\; \mu \pm (\text{critical value of reference dist.}) \cdot (\text{precision of point estimate})\,, \tag{3.1}
+ \text{point estimate}\; \mu \pm (\text{critical value of reference dist.}) \cdot (\text{precision of point estimate})\,, 
+ \tag{3.1}
 \end{equation}\]</span>
-where the reference distribution will be the standard normal (for 1. and 2.) and the Student’s <span class="math inline">\(\mathsf{t}\)</span> distribution (for 3.). The critical value corresponds to the two-sided (symmetric) tail areas under the reference distribution.</p>
+where the reference distribution will be the standard normal (for 1. and 2.) and the Student’s <span class="math inline">\(\mathsf{t}\)</span> distribution (for 3.). The critical value corresponds to the value under the reference distribution that yields the two-sided (symmetric) tail areas summing to <span class="math inline">\(1-\alpha\)</span>.</p>
 <div id="mean-normal-var-known" class="section level3" number="3.1.1">
 <h3><span class="header-section-number">3.1.1</span> Mean of a normal population with known variance</h3>
+<p>When sampling from a normal population with known mean and variance, the estimator for the sample mean is also normal with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2/m\)</span> where <span class="math inline">\(m\)</span> is the sample size. Standardizing,
+<span class="math display" id="eq:standardized-sample-mean">\[\begin{equation}
+ \frac{\overline{X} - \mu}{ \sigma / \sqrt{m}} \quad \sim \mathsf{N}(0, 1)
+ \tag{3.2}
+\end{equation}\]</span>
+we see that
+<span class="math display">\[\begin{equation*}
+P\left(-z_{\alpha/2} &lt;  \frac{\overline{X} - \mu}{ \sigma / \sqrt{m}} &lt; z_{\alpha/2}\right) = 1 - \alpha\,.
+\end{equation*}\]</span>
+Based on knowing the sampling distribution of the estimator, we state the following CI.</p>
 
 <div class="definition">
 <span id="def:ci-norm-known-var" class="definition"><strong>Definition 3.1  </strong></span>A <strong><span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval</strong> for the mean <span class="math inline">\(\mu\)</span> of a normal population when the value of <span class="math inline">\(\sigma^2\)</span> is known is given by
 <span class="math display" id="eq:ci-norm-known-var">\[\begin{equation} 
- \left(\overline{x} - z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}\,, 
-        \overline{x} + z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}} \right)\,,  \tag{3.2}
+ \left(\overline{x} - z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{m}}\,, 
+        \overline{x} + z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{m}} \right)\,,  \tag{3.3}
 \end{equation}\]</span>
-or <span class="math inline">\(\overline{x} \pm z_{\alpha/2} \cdot \sigma / \sqrt{n}\)</span>.
+or <span class="math inline">\(\overline{x} \pm z_{\alpha/2} \cdot \sigma / \sqrt{m}\)</span>, where <span class="math inline">\(m\)</span> is the sample size.
 </div>
-<p>The CI for the mean <a href="inference-single-sample.html#eq:ci-norm-known-var">(3.2)</a> can be expressed as
+<p>The CI for the mean <a href="inference-single-sample.html#eq:ci-norm-known-var">(3.3)</a> can be expressed (cf. <a href="inference-single-sample.html#eq:ci-gen-form">(3.1)</a>) as
 <span class="math display">\[\begin{equation*}
  \text{point estimate}\; \mu \pm 
  (z \;\text{critical value}) \cdot (\text{standard error of mean})\,.
 \end{equation*}\]</span>
 The <span class="math inline">\(z\)</span> critical value is related to the tail areas under the standard normal curve; we need to find the <span class="math inline">\(z\)</span>-score having a cumulative probability equal to <span class="math inline">\(1-\alpha\)</span> according to Definition <a href="statistical-inference.html#def:confidence-interval-gen">2.3</a>.</p>
-<p><strong>TODO</strong>: add example</p>
-<p>As noted in <a href="inference-single-sample.html#eq:ci-gen-form">(3.1)</a> and <a href="inference-single-sample.html#eq:ci-norm-known-var">(3.2)</a>, the width of a CI is related to the estimator’s precision. The confidence level (or reliability) is inversely related to this precision. When the population is normal and the variance is known, then an appealing strategy is to determine the sample size necessary to achieve a desired confidence level and precision. A general formula for the sample size <span class="math inline">\(n\)</span> necessary to achieve an interval width <span class="math inline">\(w\)</span> is obtained at confidence level <span class="math inline">\(\alpha\)</span> is obtained by equating <span class="math inline">\(w\)</span> to <span class="math inline">\(2z_{\alpha/2} \cdot \sigma /\sqrt{n}\)</span> and then solving for <span class="math inline">\(n\)</span>.</p>
+
+<div class="example">
+<span id="exm:exm-ci-norm-known-var" class="example"><strong>Example 3.1  </strong></span>Consider <span class="math inline">\(400\)</span> samples from a normal population with a known standard deviation <span class="math inline">\(\sigma = 17000\)</span> with mean <span class="math inline">\(\overline{x} = 20992\)</span> (as depicted in <a href="inference-single-sample.html#fig:ci-norm-known-var-code">3.1</a>). How do we construct a <span class="math inline">\(95\%\)</span> confidence interval for <span class="math inline">\(\mu\)</span>?
+</div>
+<div class="figure" style="text-align: center"><span id="fig:ci-norm-known-var-code"></span>
+<img src="ma22004_files/figure-html/ci-norm-known-var-code-1.svg" alt="$400$ samples from a normal population with known variance $\sigma = 17000$ together with the corresponding (normal) sampling distribution for the observed mean." width="768" />
+<p class="caption">
+Figure 3.1: <span class="math inline">\(400\)</span> samples from a normal population with known variance <span class="math inline">\(\sigma = 17000\)</span> together with the corresponding (normal) sampling distribution for the observed mean.
+</p>
+</div>
+<p>For <span class="math inline">\(\alpha = 0.05\)</span>, the critical value <span class="math inline">\(z_{0.025} = 1.96\)</span>; this value can be found by looking in a table of critical <span class="math inline">\(z\)</span> values or using the <code>r</code> code <code>qnorm(1-.05/2)</code>. From Definition <a href="inference-single-sample.html#def:ci-norm-known-var">3.1</a>,
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+\left(\overline{x} - z_{\alpha/2} \frac{\sigma}{\sqrt{m}}\,, \overline{x} + z_{\alpha/2} \frac{\sigma}{\sqrt{m}} \right) 
+&amp;= \left(20992 - 1.96 \frac{17000}{\sqrt{400}}\,, 20992 + 1.96 \frac{17000}{\sqrt{400}} \right) \\
+&amp;= \left(19326 \,, 22658\right)\,.
+\end{aligned}
+\end{equation*}\]</span></p>
+<p>The data above was generated with a true population parameter <span class="math inline">\(\mu = 21500\)</span>, and, incidentally, the CI actually contains the parameter value. <span class="math inline">\(\lozenge\)</span></p>
+<p>As noted in <a href="inference-single-sample.html#eq:ci-gen-form">(3.1)</a> and <a href="inference-single-sample.html#eq:ci-norm-known-var">(3.3)</a>, the width of a CI is related to the estimator’s precision. The confidence level (or reliability) is inversely related to this precision. When the population is normal and the variance is known, then an appealing strategy is to determine the sample size necessary to achieve a desired confidence level and precision. A general formula for the sample size <span class="math inline">\(m^*\)</span> necessary to achieve an interval width <span class="math inline">\(w\)</span> is obtained at confidence level <span class="math inline">\(\alpha\)</span> is obtained by equating <span class="math inline">\(w\)</span> to <span class="math inline">\(2z_{\alpha/2} \cdot \sigma /\sqrt{m^*}\)</span> and then solving for <span class="math inline">\(m^*\)</span>.</p>
 
 <div class="proposition">
 <span id="prp:ci-select-n-fixed-w-alpha" class="proposition"><strong>Proposition 3.1  </strong></span>The sample size <span class="math inline">\(n\)</span> required to achieve a CI for <span class="math inline">\(\mu\)</span> with width <span class="math inline">\(w\)</span> at level <span class="math inline">\(\alpha\)</span> is given by,
-<span class="math display">\[\begin{equation}
-n = \left( 2 z_{\alpha/2} \cdot \frac{\sigma}{w} \right)^2 \,.
-\end{equation}\]</span>
+<span class="math display">\[\begin{equation*}
+m^* = \left( 2 z_{\alpha/2} \cdot \frac{\sigma}{w} \right)^2 \,.
+\end{equation*}\]</span>
 </div>
-<p>From Proposition <a href="inference-single-sample.html#prp:ci-select-n-fixed-w-alpha">3.1</a>, we see that the smaller the desired <span class="math inline">\(w\)</span> then the larger <span class="math inline">\(n\)</span> must be (and subsequently, the more effort that must be allocated to data collection).</p>
-<p><strong>TODO</strong>: add example of sample size calculation</p>
+<p>From Proposition <a href="inference-single-sample.html#prp:ci-select-n-fixed-w-alpha">3.1</a>, we see that the smaller the desired <span class="math inline">\(w\)</span> then the larger <span class="math inline">\(m^*\)</span> must be (and subsequently, the more effort that must be allocated to data collection).</p>
+
+<div class="example">
+<span id="exm:exm-ci-norm-known-var-find-n" class="example"><strong>Example 3.2  </strong></span>In Example <a href="inference-single-sample.html#exm:exm-ci-norm-known-var">3.1</a> we identified a <span class="math inline">\(95\%\)</span> confidence interval for a normal population with known variance. The range (width) of that interval was <span class="math inline">\(22658 - 19326 = 3332\)</span>. By how much would <span class="math inline">\(m\)</span> need to increase to halve the interval width?
+</div>
+<p>Using Proposition <a href="inference-single-sample.html#prp:ci-select-n-fixed-w-alpha">3.1</a>,
+<span class="math display">\[\begin{equation*}
+m = \left( 2 \cdot 1.96 \cdot \frac{17000}{1666} \right)^2 = (40)^2 = 1600\,.
+\end{equation*}\]</span>
+Thus, we find that for the same level <span class="math inline">\(\alpha = 0.05\)</span>, we would need to quadruple our original sample size to halve the interval. It is expensive to remove uncertainty! <span class="math inline">\(\lozenge\)</span></p>
+<p>Suppose now that we would like to consider a hypothesis test for the population mean, such as <span class="math inline">\(H_0 : \mu = \mu_0\)</span>. Starting from <a href="inference-single-sample.html#eq:standardized-sample-mean">(3.2)</a> and assuming that the null hypothesis is true, we find
+<span class="math display">\[\begin{equation*}
+Z = \frac{\overline{X} - \mu_0}{\sigma / \sqrt{m}}\,.
+\end{equation*}\]</span>
+The statistic <span class="math inline">\(Z\)</span> measures the distance (measured in units of <span class="math inline">\(\sd{\overline{X}}\)</span>) between <span class="math inline">\(\overline{X}\)</span> and its expected value under the null hypothesis. We will use the statistic <span class="math inline">\(Z\)</span> to determine if there is substantial evidence against <span class="math inline">\(H_0\)</span> i.e. if the distance is too far in a direction consistent with <span class="math inline">\(H_a\)</span>.</p>
+
+<div class="proposition">
+<p><span id="prp:htest-norm-known-var" class="proposition"><strong>Proposition 3.2  </strong></span>Assume that we take a sample of size <span class="math inline">\(m\)</span> from a normal population with known variance <span class="math inline">\(\sigma^2\)</span>.</p>
+<p>For the null hypothesis <span class="math inline">\(H_0 : \mu = \mu_0\)</span>, we consider the test statistic
+<span class="math display" id="eq:htest-norm-known-var-T">\[\begin{equation}
+ Z = \frac{\overline{X} - \mu_0}{\sigma / \sqrt{m}}\,.
+ \tag{3.4}
+\end{equation}\]</span></p>
+<p>If the alternative is <span class="math inline">\(H_a : \mu &gt; \mu_0\)</span>, then <span class="math inline">\(P = 1 - \Phi(z)\)</span>.</p>
+<p>If the alternative is <span class="math inline">\(H_a : \mu &lt; \mu_0\)</span>, then <span class="math inline">\(P = \Phi(z)\)</span>.</p>
+If the alternative is <span class="math inline">\(H_a : \mu \neq \mu_0\)</span>, then <span class="math inline">\(P = 2(1-\Phi(|z|))\)</span>.
+</div>
+<p>We recall that <span class="math inline">\(\Phi(z)\)</span> is the area in the lower tail of the standard normal density, i.e., to the <em>left</em> of the calculated value of <span class="math inline">\(z\)</span>. Thus <span class="math inline">\(1 - \Phi(z)\)</span> is the area in the upper tail and <span class="math inline">\(2(1 - \Phi(|z|))\)</span> is the sum of the area in the tails (corresponding to <span class="math inline">\(\pm z\)</span>).</p>
+
+<div class="example">
+<span id="exm:htest-norm-known-var-two-tail" class="example"><strong>Example 3.3  </strong></span>Let’s return to the data in Example <a href="inference-single-sample.html#exm:exm-ci-norm-known-var">3.1</a>, where we sample from a normal population with a known standard deviation <span class="math inline">\(\sigma = 17000\)</span>. Suppose that someone cliams the true mean is <span class="math inline">\(\mu_0 = 20000\)</span>. Does our sample mean <span class="math inline">\(\overline{x} = 20992\)</span> based on <span class="math inline">\(m = 400\)</span> samples provide evidence to contradict this claim at the <span class="math inline">\(\alpha = 0.05\)</span> level?
+</div>
+<p>The first thing to record is our parameter of interest <span class="math inline">\(\mu\)</span>, the true population mean. The null hypothesis, which we assume to be true, is
+<span class="math display">\[\begin{equation*}
+ H_0 : \mu = 20000\,,
+\end{equation*}\]</span>
+and the alternative hypothesis is
+<span class="math display">\[\begin{equation*}
+ H_a : \mu \neq 20000\,,
+\end{equation*}\]</span>
+since we are concerned with a deviation in either direction from <span class="math inline">\(\mu_0\)</span>.</p>
+<p>Since the poputation is normal with known variance, we compute the test statistic:
+<span class="math display">\[\begin{equation*}
+ z \frac{\overline{x} - \mu_0}{\sigma / \sqrt{m}} = \frac{20992 - 20000}{17000 / \sqrt{400}} = 1.167\,.
+\end{equation*}\]</span>
+That is, the sample mean <span class="math inline">\(\overline{x}\)</span> we observed is about <span class="math inline">\(1\)</span> standard deviation above what we would expect under <span class="math inline">\(H_0\)</span>. Consulting <a href="inference-single-sample.html#prp:htest-norm-known-var">3.2</a>, we see that a two-tailed test is indicated for this particular <span class="math inline">\(H_a\)</span>, and that the <span class="math inline">\(P\)</span>-value is the area,<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>
+<span class="math display">\[\begin{equation*}
+P = 2(1 - \Phi(1.167)) = 2 (0.1216052) = 0.2432.
+\end{equation*}\]</span>
+Thus, since <span class="math inline">\(P = 0.2432 &gt; 0.05 = \alpha\)</span>, we fail to reject <span class="math inline">\(H_0\)</span> at the level <span class="math inline">\(0.05\)</span>. The data does not support the claim that the true population mean differs from the value <span class="math inline">\(20000\)</span> at the <span class="math inline">\(0.05\)</span> level. <span class="math inline">\(\lozenge\)</span></p>
 </div>
 <div id="mean-large-sample" class="section level3" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> Mean of a population with unknown variance (large-sample)</h3>
-<p>Consider samples <span class="math inline">\(X_1, \dots, X_n\)</span> from a population with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. Provided that <span class="math inline">\(n\)</span> is large enough, the Central Limit Theorem implies that the estimator for the sample mean <span class="math inline">\(\overline{X}\)</span> in <a href="statistical-inference.html#eq:sample-mean">(2.1)</a> has <em>approximately</em> a normal distribution. Then
+<p>Consider samples <span class="math inline">\(X_1, \dots, X_m\)</span> from a population with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. Provided that <span class="math inline">\(m\)</span> is large enough, the Central Limit Theorem implies that the estimator for the sample mean <span class="math inline">\(\overline{X}\)</span> in <a href="statistical-inference.html#eq:sample-mean">(2.1)</a> has <em>approximately</em> a normal distribution. Then
 <span class="math display">\[\begin{equation}
-P \left( - z_{\alpha/2} &lt; \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} &lt; z_{\alpha/2} \right) \approx 1 - \alpha\,,
+P \left( - z_{\alpha/2} &lt; \frac{\overline{X} - \mu}{\sigma/\sqrt{m}} &lt; z_{\alpha/2} \right) \approx 1 - \alpha\,,
 \end{equation}\]</span>
-since the transformed variable has approximately a standard normal distribution. Thus, computing a point estimate based on a large <span class="math inline">\(n\)</span> of samples yields a CI for the population parameter <span class="math inline">\(\mu\)</span> at an <em>approximate</em> confidence level <span class="math inline">\(\alpha\)</span>. However, it is often the case that the variance is unknown. When <span class="math inline">\(n\)</span> is large, replacing the population variance <span class="math inline">\(\sigma^2\)</span> by the sample variance <span class="math inline">\(S^2\)</span> in <a href="statistical-inference.html#eq:sample-var">(2.2)</a> will not typically introduce too much additional variability.</p>
+since the transformed variable has approximately a standard normal distribution. Thus, computing a point estimate based on a large <span class="math inline">\(m\)</span> of samples yields a CI for the population parameter <span class="math inline">\(\mu\)</span> at an <em>approximate</em> confidence level <span class="math inline">\(\alpha\)</span>. However, it is often the case that the variance is unknown. When <span class="math inline">\(m\)</span> is large, replacing the population variance <span class="math inline">\(\sigma^2\)</span> by the sample variance <span class="math inline">\(S^2\)</span> in <a href="statistical-inference.html#eq:sample-var">(2.2)</a> will not typically introduce too much additional variability.</p>
 
 <div class="proposition">
-<span id="prp:ci-large-sample" class="proposition"><strong>Proposition 3.2  </strong></span>For large samples <span class="math inline">\(n\)</span>, an approximate <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the mean <span class="math inline">\(\mu\)</span> of any population when the variance is uknown is given by
+<span id="prp:ci-large-sample" class="proposition"><strong>Proposition 3.3  </strong></span>For large sample size <span class="math inline">\(m\)</span>, an approximate <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the mean <span class="math inline">\(\mu\)</span> of any population when the variance is uknown is given by
 <span class="math display" id="eq:ci-large-sample">\[\begin{equation} 
- \left(\overline{x} - z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} \,, 
-        \overline{x} + z_{\alpha/2} \cdot \frac{s}{\sqrt{n}} \right)\,,  
- \tag{3.3}
+ \left(\overline{x} - z_{\alpha/2} \cdot \frac{s}{\sqrt{m}} \,, 
+        \overline{x} + z_{\alpha/2} \cdot \frac{s}{\sqrt{m}} \right)\,,  
+ \tag{3.5}
 \end{equation}\]</span>
-or <span class="math inline">\(\overline{x} \pm z_{\alpha/2} \cdot s / \sqrt{n}\)</span>.
+or <span class="math inline">\(\overline{x} \pm z_{\alpha/2} \cdot s / \sqrt{m}\)</span>.
 </div>
-<p>The CI for the mean <a href="inference-single-sample.html#eq:ci-large-sample">(3.3)</a> applies regardless of the shape of the population distribution so long as the number of samples is large. A rule of thumb is that <span class="math inline">\(n &gt; 40\)</span> is sufficient. In words, the CI <a href="inference-single-sample.html#eq:ci-large-sample">(3.3)</a> can be expressed as
+<p>The CI for the mean <a href="inference-single-sample.html#eq:ci-large-sample">(3.5)</a> applies regardless of the shape of the population distribution so long as the number of samples is large. A rule of thumb is that <span class="math inline">\(m &gt; 40\)</span> is sufficient. In words, the CI <a href="inference-single-sample.html#eq:ci-large-sample">(3.5)</a> can be expressed (cf. <a href="inference-single-sample.html#eq:ci-gen-form">(3.1)</a>)as
 <span class="math display">\[\begin{equation*}
  \text{point estimate}\; \mu \pm 
  (z \;\text{critical value}) \cdot (\text{estimated standard error of mean})\,.
 \end{equation*}\]</span>
-Typically, a large-sample CI for a general parameter <span class="math inline">\(\theta\)</span> similar to <a href="inference-single-sample.html#eq:ci-large-sample">(3.3)</a> holds for any estimator <span class="math inline">\(\widehat{\theta}\)</span> that satisfies: (1) approximately normal in distribution, (2) approximately unbiased, and (3) an expression for the standard error is available.</p>
-<p><strong>TODO</strong>: add example</p>
+Typically, a large-sample CI for a general parameter <span class="math inline">\(\theta\)</span> holds that is similar in nature to <a href="inference-single-sample.html#eq:ci-large-sample">(3.5)</a> for any estimator <span class="math inline">\(\widehat{\theta}\)</span> that satisfies: (1) approximately normal in distribution, (2) approximately unbiased, and (3) an expression for the standard error is available.</p>
+<p>To conduct a large-sample hypothesis test regarding the population mean <span class="math inline">\(\mu\)</span>, we consider the test statistic
+<span class="math display">\[\begin{equation}
+ Z = \frac{\overline{X} - \mu_0}{S / \sqrt{m}}
+\end{equation}\]</span>
+under the null hypothesis. When the number of samples <span class="math inline">\(m\)</span> is large (say <span class="math inline">\(m &gt; 40\)</span>) then <span class="math inline">\(Z\)</span> will be approximately normal. Subtituting this test statistic <span class="math inline">\(Z\)</span> for <a href="inference-single-sample.html#eq:htest-norm-known-var-T">(3.4)</a>, we follow Proposition <a href="inference-single-sample.html#prp:htest-norm-known-var">3.2</a> to determine how to calculate the <span class="math inline">\(P\)</span>-value.</p>
 </div>
 <div id="mean-normal-var-unknown" class="section level3" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> Mean of a normal population with unknown variance</h3>
@@ -333,10 +415,10 @@ that is, <span class="math inline">\(T\)</span> has Student’s <span class="mat
 <p>This leads us to consider a CI for the population parameter <span class="math inline">\(\mu\)</span> that is based on critical values of the <span class="math inline">\(\mathsf{t}\)</span> distribution.</p>
 
 <div class="proposition">
-<span id="prp:ci-norm-unknown-var" class="proposition"><strong>Proposition 3.3  </strong></span>A <strong><span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval</strong> for the mean <span class="math inline">\(\mu\)</span> of a normal population when the value of <span class="math inline">\(\sigma^2\)</span> is unknown is given by
+<span id="prp:ci-norm-unknown-var" class="proposition"><strong>Proposition 3.4  </strong></span>A <strong><span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval</strong> for the mean <span class="math inline">\(\mu\)</span> of a normal population when the value of <span class="math inline">\(\sigma^2\)</span> is unknown is given by
 <span class="math display" id="eq:ci-norm-known-var">\[\begin{equation} 
  \left(\overline{x} - t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}}\,, 
-        \overline{x} + t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}} \right)\,,  \tag{3.2}
+        \overline{x} + t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}} \right)\,,  \tag{3.3}
 \end{equation}\]</span>
 or <span class="math inline">\(\overline{x} \pm t_{\alpha/2, n-1} \cdot s/ \sqrt{n}\)</span>. Here <span class="math inline">\(\overline{x}\)</span> and <span class="math inline">\(s\)</span> are the sample mean and sample standard deviation, respectively.
 </div>
@@ -344,53 +426,53 @@ or <span class="math inline">\(\overline{x} \pm t_{\alpha/2, n-1} \cdot s/ \sqrt
 <p><strong>TODO</strong>: add example</p>
 
 <div class="proposition">
-<span id="prp:norm-ci-rule-thumb" class="proposition"><strong>Proposition 3.4  </strong></span><strong>TODO</strong>: rule of thumb normal CI
+<span id="prp:norm-ci-rule-thumb" class="proposition"><strong>Proposition 3.5  </strong></span><strong>TODO</strong>: rule of thumb normal CI
 </div>
 <p><strong>TODO</strong>: add example using rule of thumb</p>
 </div>
 </div>
 <div id="estimating-proportions" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Estimating proportions</h2>
-<p>Consider a population of size <span class="math inline">\(N\)</span> in which a proportion <span class="math inline">\(p\)</span> of the population satisfies a given property. The <span class="math inline">\(p \in (0,1)\)</span> is a parameter characterizing the population, with distribution <span class="math inline">\(F(p)\)</span>,<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> that we might be interested in estimating. A sample, <span class="math inline">\(X_1, \dots, X_n \sim F(p)\)</span>, of size <span class="math inline">\(n\)</span> from the population contains a proportion,
+<p>Consider a population of size <span class="math inline">\(N\)</span> in which a proportion <span class="math inline">\(p\)</span> of the population satisfies a given property. The <span class="math inline">\(p \in (0,1)\)</span> is a parameter characterizing the population, with distribution <span class="math inline">\(F(p)\)</span>,<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> that we might be interested in estimating. A sample, <span class="math inline">\(X_1, \dots, X_n \sim F(p)\)</span>, of size <span class="math inline">\(n\)</span> from the population contains a proportion,
 <span class="math display" id="eq:proportion-estimator">\[\begin{equation}
  \widehat{p} = \frac{1}{n} \sum_{i=1}^n X_i\,,
- \tag{3.4}
+ \tag{3.6}
 \end{equation}\]</span>
 satisfying the given property. The estimator <span class="math inline">\(\widehat{p}\)</span> varies with the sample and for large <span class="math inline">\(n\)</span> it’s sampling distribution has the following properties:
 <span class="math display" id="eq:proportion-mean">\[\begin{equation*}
 \mu_{\widehat{p}} = \E[X_i] = p 
- \tag{3.5}
+ \tag{3.7}
 \end{equation*}\]</span>
 and
 <span class="math display" id="eq:proportion-var">\[\begin{equation}
  \sigma_{\widehat{p}}^2 = \frac{\Var[X_i]}{n} = \frac{p(1-p)}{n}\,,
- \tag{3.6}
+ \tag{3.8}
 \end{equation}\]</span>
-provided that <span class="math inline">\(n\)</span> is small relative to <span class="math inline">\(N\)</span> (a rule of thumb is <span class="math inline">\(n \leq 0.05 N\)</span>).<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> Moreover, by invoking the Central Limit Theorem we have the distribution of <span class="math inline">\(\widehat{p}\)</span> is approximately normal for sufficiently large <span class="math inline">\(n\)</span> as <a href="inference-single-sample.html#eq:proportion-estimator">(3.4)</a> is a sample mean. Indeed, this normal approximation works well for moderately large <span class="math inline">\(n\)</span> as long as <span class="math inline">\(p\)</span> is not too close to zero or one; a rule of thumb is that <span class="math inline">\(np &gt; 5\)</span> and <span class="math inline">\(n(1-p) &gt; 5\)</span>.</p>
+provided that <span class="math inline">\(n\)</span> is small relative to <span class="math inline">\(N\)</span> (a rule of thumb is <span class="math inline">\(n \leq 0.05 N\)</span>).<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> Moreover, by invoking the Central Limit Theorem we have the distribution of <span class="math inline">\(\widehat{p}\)</span> is approximately normal for sufficiently large <span class="math inline">\(n\)</span> as <a href="inference-single-sample.html#eq:proportion-estimator">(3.6)</a> is a sample mean. Indeed, this normal approximation works well for moderately large <span class="math inline">\(n\)</span> as long as <span class="math inline">\(p\)</span> is not too close to zero or one; a rule of thumb is that <span class="math inline">\(np &gt; 5\)</span> and <span class="math inline">\(n(1-p) &gt; 5\)</span>.</p>
 
 <div class="proposition">
-<span id="prp:ci-proportion" class="proposition"><strong>Proposition 3.5  </strong></span>For large samples <span class="math inline">\(n\)</span>, a <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the parameter <span class="math inline">\(p\)</span> is given by
+<span id="prp:ci-proportion" class="proposition"><strong>Proposition 3.6  </strong></span>For large samples <span class="math inline">\(n\)</span>, a <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the parameter <span class="math inline">\(p\)</span> is given by
 <span class="math display" id="eq:proportion-mean-ci">\[\begin{equation}
  \widehat{p} \pm z_{\alpha/2} \sqrt{\frac{\widehat{p} (1-\widehat{p})}{n}}\,.
- \tag{3.7}
+ \tag{3.9}
 \end{equation}\]</span>
 </div>
-<p>This follows from Proposition <a href="inference-single-sample.html#prp:ci-large-sample">3.2</a> by observing that <a href="inference-single-sample.html#eq:proportion-estimator">(3.4)</a> is a sample mean and replacing the standard error <span class="math inline">\(\sigma_{\widehat{p}}\)</span> from <a href="inference-single-sample.html#eq:proportion-var">(3.6)</a> by the estimated standard error,
+<p>This follows from Proposition <a href="inference-single-sample.html#prp:ci-large-sample">3.3</a> by observing that <a href="inference-single-sample.html#eq:proportion-estimator">(3.6)</a> is a sample mean and replacing the standard error <span class="math inline">\(\sigma_{\widehat{p}}\)</span> from <a href="inference-single-sample.html#eq:proportion-var">(3.8)</a> by the estimated standard error,
 <span class="math display">\[\begin{equation*}
  \widehat{\se}(\widehat{p}) = \sqrt{\frac{\widehat{p} (1-\widehat{p})}{n}}\,;
 \end{equation*}\]</span>
-recall the <span class="math inline">\(s\)</span> in <a href="inference-single-sample.html#eq:ci-large-sample">(3.3)</a> is the sample variance for the <em>population</em> and <span class="math inline">\(s / \sqrt{n} = \se\)</span> is the standard error of the point estimator.</p>
+recall the <span class="math inline">\(s\)</span> in <a href="inference-single-sample.html#eq:ci-large-sample">(3.5)</a> is the sample variance for the <em>population</em> and <span class="math inline">\(s / \sqrt{n} = \se\)</span> is the standard error of the point estimator.</p>
 
 <div class="example">
-<span id="exm:eg-est-prop-norm-approx-binom" class="example"><strong>Example 3.1  </strong></span><strong>TODO</strong>: Examples of sampling distribution for p <span class="math inline">\(\lozenge\)</span>
+<span id="exm:eg-est-prop-norm-approx-binom" class="example"><strong>Example 3.4  </strong></span><strong>TODO</strong>: Examples of sampling distribution for p <span class="math inline">\(\lozenge\)</span>
 </div>
 
 <div class="example">
-<span id="exm:eg-est-prop-ci" class="example"><strong>Example 3.2  </strong></span><strong>TODO</strong>: Example confidence interval for p <span class="math inline">\(\lozenge\)</span>
+<span id="exm:eg-est-prop-ci" class="example"><strong>Example 3.5  </strong></span><strong>TODO</strong>: Example confidence interval for p <span class="math inline">\(\lozenge\)</span>
 </div>
 
 <div class="example">
-<span id="exm:eg-est-prop-hypothesis-test" class="example"><strong>Example 3.3  </strong></span><strong>TODO</strong>: Example hypothesis test <span class="math inline">\(\lozenge\)</span>
+<span id="exm:eg-est-prop-hypothesis-test" class="example"><strong>Example 3.6  </strong></span><strong>TODO</strong>: Example hypothesis test <span class="math inline">\(\lozenge\)</span>
 </div>
 </div>
 <div id="estimating-variances" class="section level2" number="3.3">
@@ -415,16 +497,16 @@ P\left(\frac{(n-1) s^2}{\chi^2_{\alpha/2, n-1}} &lt; \sigma^2 &lt; \frac{(n-1) s
 where we substitute the computed value of the point estimate <span class="math inline">\(s^2\)</span> for the estimator into the limits to give a CI for <span class="math inline">\(\sigma^2\)</span>. If we take square roots of the inequality above, we obtain a CI for the population standard deviation <span class="math inline">\(\sigma\)</span>.</p>
 
 <div class="proposition">
-<span id="prp:ci-variance" class="proposition"><strong>Proposition 3.6  </strong></span>A <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the variance of a normal population is
+<span id="prp:ci-variance" class="proposition"><strong>Proposition 3.7  </strong></span>A <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the variance of a normal population is
 <span class="math display" id="eq:ci-variance">\[\begin{equation*}
  \left( (n-1)s^2 / \chi^2_{\alpha/2, n-1} \,,  (n-1)s^2 / \chi^2_{1-\alpha/2, n-1} \right) \,.
- \tag{3.8}
+ \tag{3.10}
 \end{equation*}\]</span>
-A <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the standard deviation <span class="math inline">\(\sigma\)</span> of a normal population is given by taking the square roots of the lower and upper limits in <a href="inference-single-sample.html#eq:ci-variance">(3.8)</a>.
+A <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the standard deviation <span class="math inline">\(\sigma\)</span> of a normal population is given by taking the square roots of the lower and upper limits in <a href="inference-single-sample.html#eq:ci-variance">(3.10)</a>.
 </div>
 
 <div class="example">
-<span id="exm:eg-ci-variance" class="example"><strong>Example 3.4  </strong></span><strong>TODO</strong>: Example CI for variance (using the tree data?) <span class="math inline">\(\lozenge\)</span>
+<span id="exm:eg-ci-variance" class="example"><strong>Example 3.7  </strong></span><strong>TODO</strong>: Example CI for variance (using the tree data?) <span class="math inline">\(\lozenge\)</span>
 </div>
 
 </div>
@@ -432,12 +514,13 @@ A <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for t
 <div class="footnotes">
 <hr />
 <ol start="6">
-<li id="fn6"><p>Here we write <span class="math inline">\(F\)</span> for a general distribution, but what special distribution might this be?<a href="inference-single-sample.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>Note that if <span class="math inline">\(n\)</span> is large relative to <span class="math inline">\(N\)</span> (<span class="math inline">\(n &gt; 0.05 N\)</span>) then the variance <a href="inference-single-sample.html#eq:proportion-var">(3.6)</a> must be adjusted by a factor (related to the hypergeometric distribution):
+<li id="fn6"><p>Note <span class="math inline">\(\Phi(z)\)</span> is found by calling <code>pnorm(z)</code> in <code>r</code>.<a href="inference-single-sample.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>Here we write <span class="math inline">\(F\)</span> for a general distribution, but what special distribution might this be?<a href="inference-single-sample.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>Note that if <span class="math inline">\(n\)</span> is large relative to <span class="math inline">\(N\)</span> (<span class="math inline">\(n &gt; 0.05 N\)</span>) then the variance <a href="inference-single-sample.html#eq:proportion-var">(3.8)</a> must be adjusted by a factor (related to the hypergeometric distribution):
 <span class="math display">\[\begin{equation*}
  \sigma_{\widehat{p}}^2 = \frac{p(1-p)}{n} \frac{N-n}{N-1}\,,
 \end{equation*}\]</span>
-where for fixed <span class="math inline">\(n\)</span> the factor converges to <span class="math inline">\(1\)</span> as <span class="math inline">\(N\to \infty\)</span>.<a href="inference-single-sample.html#fnref7" class="footnote-back">↩︎</a></p></li>
+where for fixed <span class="math inline">\(n\)</span> the factor converges to <span class="math inline">\(1\)</span> as <span class="math inline">\(N\to \infty\)</span>.<a href="inference-single-sample.html#fnref8" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
