@@ -98,11 +98,11 @@ fit$coefficients
 In Figure \@ref(fig:linear-model-fit), the regression line is `yhat` plotted against `x` and the error bars indicate the least squares residuals, i.e., the difference `y - yhat`. The residuals are presented a second way in Figure \@ref(fig:linear-model-residuals).  $\lozenge$   
 
 ```{r linear-model-fit, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Linear regression (or least squares fit) of Volume to Diameter from the **Cherry Tree Data**. The vertical bars between the observed data point and the regression line indicate the error in the fit (the least squares residual)."}
-ggplot(df, aes(x = x, y = y)) + geom_line(aes(y=yhat, color = "regression"), size = 1) + geom_segment(aes(x=x, xend=x, y=y, yend=yhat, color="error")) + geom_point(alpha = 0.8) +  xlab("Diameter [in]") + ylab("Volume [cu ft]")
+ggplot(df, aes(x = x, y = y)) + geom_line(aes(y=yhat, color = "regression"), size = 1) + geom_segment(aes(x=x, xend=x, y=y, yend=yhat, color="error"), linetype = 11) + geom_point(alpha = 0.8) +  xlab("Diameter [in]") + ylab("Volume [cu ft]") + theme_lr + theme(legend.title = element_blank()) 
 ```   
 
 ```{r linear-model-residuals, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "The residuals of the least squares fit of Volume to Diameter plotted in Figure \\@ref(fig:linear-model-fit)."}
-ggplot(df, aes(x = x, y = e)) + geom_line(aes(y=0), size = 1) + geom_segment(aes(x=x, xend=x, y=e, yend=0, color="error")) + geom_point(alpha = 0.8) +  xlab("Diameter [in]") + ylab("Residuals")
+ggplot(df, aes(x = x, y = e)) + geom_line(aes(y=0), size = 1) + geom_segment(aes(x=x, xend=x, y=e, yend=0, color="error"), linetype = 11) + geom_point(alpha = 0.8) +  xlab("Diameter [in]") + ylab("Residuals") + theme_lr + theme(legend.title = element_blank())
 ```   
 
 

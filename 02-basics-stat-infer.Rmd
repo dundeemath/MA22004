@@ -9,16 +9,16 @@ Statistical inference seeks to draw conclusions about the characteristics of a p
   \overline{X} = \frac{1}{m} \sum_{i=1}^m X_i\,, (\#eq:sample-mean)
 \end{equation}
 or the sample variance,
-\begin{equation*}
+\begin{equation}
   S^2 = \frac{1}{m-1} \sum_{i=1}^m (X_i - \overline{X})^2 \,, (\#eq:sample-var)
-\end{equation*}
+\end{equation}
 is also a rv. 
 
 Suppose we actually find and measure the petal length of $50$ independent *setosa* flowers resulting in observations $x_1, x_2, \dots, x_{50}$; the distribution (counts) of $50$ such petal length measurements are displayed in Figure \@ref(fig:setosa-petal-lengths). The sample mean $\overline{x}$ for petal length can then be used to draw a conclusion about the (true) value of the population mean $\mu$. Based on the data in Figure \@ref(fig:setosa-petal-lengths) and using \@ref(eq:sample-mean), the value of the sample mean is $\overline{x} = 1.462$. The value $\overline{x}$ provides a "best guess" or point estimate for the true value of $\mu$ based on the $m=50$ samples. 
 
 ```{r setosa-petal-lengths, echo = FALSE, fig.cap = "The distribution (counts) of $m = 50$ *setosa* petal length measurments."}
 df <-  select(iris, Petal.Length, Species) %>% filter(Species == "setosa")
-ggplot(data = df, aes(x = Petal.Length, fill = Species)) + geom_histogram(binwidth = 0.1) + geom_vline(aes(xintercept = 1.462, linetype = "mean"))  + geom_vline(aes(xintercept = 1.809328, linetype = "mean + 2sd")) + scale_linetype_manual(values = c(1, 10), name = "Sample stats") + xlab("Petal Length") + ylab("Count")
+ggplot(data = df, aes(x = Petal.Length, fill = Species)) + geom_histogram(binwidth = 0.1) + geom_vline(aes(xintercept = 1.462, linetype = "mean"))  + geom_vline(aes(xintercept = 1.114672, linetype = "mean - 2sd")) + scale_linetype_manual(values = c(1, 10), name = "Sample stats") + xlab("Petal Length") + ylab("Count") + theme_ur
 ```
 
 ::: {.tipblock}
@@ -110,7 +110,7 @@ This interpretation makes clear that a confidence interval is not a probability 
 ```{r fifty-cis, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Fifty $95\\%$ CIs for a population mean $\\mu$. After a sample is taken, the computed interval estimate either contains $\\mu$ or it does not (asterisk identify intervals that do not include $\\mu$). When drawing such a large number of $95\\%$ CIs, we would anticipate that approximately $5\\%$ (ca. 2 or 3) would fail to cover the true parameter $\\mu$.", fig.width = 3, fig.asp = 2}
 df <- read_csv("data/fifty-cis.csv")
 df$star <- factor(df$star, level = c(0,1), labels = c("", "*"))
-ggplot(df, aes(x = idx, y = xbar, color = star, shape = star)) + geom_hline(yintercept = 0, size = 1, alpha = 1) + geom_pointrange(aes(ymin = l, ymax = u)) + scale_shape_manual(values = c(19,8)) + theme(axis.title.y = element_blank(), axis.title.x = element_blank(), legend.position = "none", axis.ticks.x=element_blank(), axis.text.x=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + coord_flip() + annotate("text", x = 0, y = 0, label=TeX("$\\mu$"), hjust = -.4, vjust = .8, size = 5)
+ggplot(df, aes(x = idx, y = xbar, color = star, shape = star)) + geom_hline(yintercept = 0, size = 1, alpha = 1) + geom_pointrange(aes(ymin = l, ymax = u)) + scale_shape_manual(values = c(19,8)) + theme(axis.title.y = element_blank(), axis.title.x = element_blank(), legend.position = "none", axis.ticks.x=element_blank(), axis.text.x=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + coord_flip() + annotate("text", x = 0, y = 0, label=TeX("$\\mu$"), hjust = -.6, vjust = 1.2, size = 5)
 ```   
 
 

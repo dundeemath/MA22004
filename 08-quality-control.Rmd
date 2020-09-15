@@ -83,7 +83,9 @@ ucl = muhat + 3*sbar / (a(m) * sqrt(m))
 ggplot(ipa_stat, aes(x = Day)) + geom_point(aes(y = mean)) + 
  geom_hline(aes(yintercept = muhat, color = "Mean"), size = 1) + 
  geom_hline(aes(yintercept = lcl, color = "LCL"), size = 1.5) + 
- geom_hline(aes(yintercept = ucl, color = "UCL"), size = 2) + ylab("pH")
+ geom_hline(aes(yintercept = ucl, color = "UCL"), size = 2) + ylab("pH") + 
+   theme(legend.justification = c(1,1), legend.position = c(1,1),
+         legend.title = element_blank(), legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))
 ```   
 
 From Figure \@ref(fig:qc-beer-control-chart), we observe for each day the process is in-control as the observed mean pH values fall within the control limits $(\mathsf{LCL}, \mathsf{UCL})$. If this were not the case, then our initial assumption, that process is in-control, would be violated. The violation of the assumption would require that we seek to identify an assignable cause for the variation. If a cause could be identified, then the we would need to recompute our control limits with the observations that were out of control removed. $\lozenge$

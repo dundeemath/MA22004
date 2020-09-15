@@ -47,6 +47,8 @@ if (knitr::is_html_output()){
   theme_set(theme_bw(base_size = 10))
   knitr::opts_chunk$set(echo = TRUE, comment = "", fig.width = 6, fig.asp = 0.6)
 }
+theme_ur <- theme(legend.justification = c(1,1), legend.position = c(1,1), legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))
+theme_lr <- theme(legend.justification = c(1,0), legend.position = c(1,0), legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))
 # opts <- options()  # save old options
 # options(ggplot2.continuous.colour="viridis")
 # options(ggplot2.continuous.fill = "viridis")
@@ -71,6 +73,8 @@ This course covers the basics of statistical inference. The first part of this d
 These are some trying times. 
 
 Please try to stay healthy.
+
+
 
 ***
 

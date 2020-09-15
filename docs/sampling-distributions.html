@@ -166,6 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.1</b> Normal distribution</a>
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about Normals</a></li>
+<li class="chapter" data-level="1.1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#empirical-rule-68-95-99.7-rule"><i class="fa fa-check"></i><b>1.1.2</b> Empirical rule (<span class="math inline">\(68-95-99.7\)</span> rule)</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\mathsf{t}\)</span> distribution</a>
 <ul>
@@ -331,12 +332,20 @@ where we look up the value of <span class="math inline">\(\Phi(z) = P(Z\leq z)\)
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="sampling-distributions.html#cb3-1" aria-hidden="true"></a><span class="kw">pnorm</span>(<span class="fl">5.25</span>, <span class="dt">mean =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">3</span>) <span class="op">-</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="dv">4</span>, <span class="dt">mean =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">3</span>) </span></code></pre></div>
 <pre><code>[1] 0.1637654</code></pre>
 <p><strong>TODO</strong>: plot area under normal curve (interior) <span class="math inline">\(\lozenge\)</span></p>
-<!-- ### Critical $z$ values -->
-<!-- Below we provide a table containing commonly used normal critical values (note: indexed by $\alpha/2$).   -->
-<!-- ```{r z-crit-val, echo=FALSE, warning = FALSE, message = FALSE} -->
-<!-- kbl(tibble(read_csv("data/z-crit-val.csv")), caption = "Table of $z$ critical values.", booktabs = T) %>% -->
-<!--  kable_styling(latex_options = c("striped")) -->
-<!-- ```    -->
+</div>
+<div id="empirical-rule-68-95-99.7-rule" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Empirical rule (<span class="math inline">\(68-95-99.7\)</span> rule)</h3>
+<p>For samples from a normal distribution, the percentage of values that lie within one, two, and three standard deviations of the mean are <span class="math inline">\(68.27\%\)</span>, <span class="math inline">\(95.45\%\)</span>, and <span class="math inline">\(99.73\%\)</span>, respectively. That is, for <span class="math inline">\(X \sim \mathsf{N}(\mu, \sigma^2)\)</span>,
+<span class="math display">\[\begin{equation*}
+P(\mu - 1 \sigma \leq X \leq \mu + 1 \sigma ) \approx 0.6827\,,
+\end{equation*}\]</span>
+<span class="math display">\[\begin{equation*}
+P(\mu - 2 \sigma \leq X \leq \mu + 2 \sigma ) \approx 0.9545\,,
+\end{equation*}\]</span>
+<span class="math display">\[\begin{equation*}
+P(\mu - 3 \sigma \leq X \leq \mu + 3 \sigma ) \approx 0.9973\,.
+\end{equation*}\]</span>
+For a normal population, this means that nearly all the the values lie within “three-sigmas” of the mean.</p>
 </div>
 </div>
 <div id="t-distribution" class="section level2" number="1.2">

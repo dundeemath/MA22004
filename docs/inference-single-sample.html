@@ -166,6 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.1</b> Normal distribution</a>
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about Normals</a></li>
+<li class="chapter" data-level="1.1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#empirical-rule-68-95-99.7-rule"><i class="fa fa-check"></i><b>1.1.2</b> Empirical rule (<span class="math inline">\(68-95-99.7\)</span> rule)</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\mathsf{t}\)</span> distribution</a>
 <ul>
@@ -335,25 +336,26 @@ Thus, we find that for the same level <span class="math inline">\(\alpha = 0.05\
 <span class="math display">\[\begin{equation*}
 Z = \frac{\overline{X} - \mu_0}{\sigma / \sqrt{m}}\,.
 \end{equation*}\]</span>
-The statistic <span class="math inline">\(Z\)</span> measures the distance (measured in units of <span class="math inline">\(\sd{\overline{X}}\)</span>) between <span class="math inline">\(\overline{X}\)</span> and its expected value under the null hypothesis. We will use the statistic <span class="math inline">\(Z\)</span> to determine if there is substantial evidence against <span class="math inline">\(H_0\)</span> i.e. if the distance is too far in a direction consistent with <span class="math inline">\(H_a\)</span>.</p>
+The statistic <span class="math inline">\(Z\)</span> measures the distance (measured in units of <span class="math inline">\(\sd[\overline{X}]\)</span>) between <span class="math inline">\(\overline{X}\)</span> and its expected value under the null hypothesis. We will use the statistic <span class="math inline">\(Z\)</span> to determine if there is substantial evidence against <span class="math inline">\(H_0\)</span> i.e. if the distance is too far in a direction consistent with <span class="math inline">\(H_a\)</span>.</p>
 
 <div class="proposition">
-<p><span id="prp:htest-norm-known-var" class="proposition"><strong>Proposition 3.2  </strong></span>Assume that we take a sample of size <span class="math inline">\(m\)</span> from a normal population with known variance <span class="math inline">\(\sigma^2\)</span>.</p>
-<p>For the null hypothesis <span class="math inline">\(H_0 : \mu = \mu_0\)</span>, we consider the test statistic
+<p><span id="prp:htest-norm-known-var" class="proposition"><strong>Proposition 3.2  </strong></span>Assume that we sample <span class="math inline">\(X_1, \dots, X_m\)</span> from a normal population with mean <span class="math inline">\(\mu\)</span> and known variance <span class="math inline">\(\sigma^2\)</span>.</p>
+<p>Consider <span class="math inline">\(H_0 : \mu = \mu_0\)</span>. The test statistic is
 <span class="math display" id="eq:htest-norm-known-var-T">\[\begin{equation}
  Z = \frac{\overline{X} - \mu_0}{\sigma / \sqrt{m}}\,.
  \tag{3.4}
 \end{equation}\]</span></p>
-<p>If the alternative is <span class="math inline">\(H_a : \mu &gt; \mu_0\)</span>, then <span class="math inline">\(P = 1 - \Phi(z)\)</span>.</p>
-<p>If the alternative is <span class="math inline">\(H_a : \mu &lt; \mu_0\)</span>, then <span class="math inline">\(P = \Phi(z)\)</span>.</p>
-If the alternative is <span class="math inline">\(H_a : \mu \neq \mu_0\)</span>, then <span class="math inline">\(P = 2(1-\Phi(|z|))\)</span>.
+<p>For a hypothesis test at level <span class="math inline">\(\alpha\)</span>, we use the following procedure:</p>
+<p>If <span class="math inline">\(H_a : \mu &gt; \mu_0\)</span>, then <span class="math inline">\(P = 1 - \Phi(z)\)</span>, i.e., upper-tail <span class="math inline">\(R = \{z &gt; z_{\alpha}\}\)</span>.</p>
+<p>If <span class="math inline">\(H_a : \mu &lt; \mu_0\)</span>, then <span class="math inline">\(P = \Phi(z)\)</span>, i.e., lower-tail <span class="math inline">\(R = \{z &lt; z_{\alpha}\}\)</span>.</p>
+If <span class="math inline">\(H_a : \mu \neq \mu_0\)</span>, then <span class="math inline">\(P = 2(1-\Phi(|z|))\)</span>, i.e., two-tailed <span class="math inline">\(R = \{|z| &gt; z_{\alpha/2}\}\)</span>.
 </div>
-<p>We recall that <span class="math inline">\(\Phi(z)\)</span> is the area in the lower tail of the standard normal density, i.e., to the <em>left</em> of the calculated value of <span class="math inline">\(z\)</span>. Thus <span class="math inline">\(1 - \Phi(z)\)</span> is the area in the upper tail and <span class="math inline">\(2(1 - \Phi(|z|))\)</span> is the sum of the area in the tails (corresponding to <span class="math inline">\(\pm z\)</span>).</p>
+<p>We recall that <span class="math inline">\(\Phi(z)\)</span> is the area in the lower-tail of the standard normal density, i.e., to the <em>left</em> of the calculated value of <span class="math inline">\(z\)</span>. Thus <span class="math inline">\(1 - \Phi(z)\)</span> is the area in the upper-tail and <span class="math inline">\(2(1 - \Phi(|z|))\)</span> is twice the area capture in the upper-tail by <span class="math inline">\(|z|\)</span> i.e. the sum of the area in the tails corresponding to <span class="math inline">\(\pm z\)</span>. If <span class="math inline">\(P &lt; \alpha\)</span> then we reject <span class="math inline">\(H_0\)</span> at level <span class="math inline">\(\alpha\)</span> as the data provides sufficient evidence at the <span class="math inline">\(\alpha\)</span> level against the null hypothesis.</p>
 
 <div class="example">
 <span id="exm:htest-norm-known-var-two-tail" class="example"><strong>Example 3.3  </strong></span>Let’s return to the data in Example <a href="inference-single-sample.html#exm:exm-ci-norm-known-var">3.1</a>, where we sample from a normal population with a known standard deviation <span class="math inline">\(\sigma = 17000\)</span>. Suppose that someone cliams the true mean is <span class="math inline">\(\mu_0 = 20000\)</span>. Does our sample mean <span class="math inline">\(\overline{x} = 20992\)</span> based on <span class="math inline">\(m = 400\)</span> samples provide evidence to contradict this claim at the <span class="math inline">\(\alpha = 0.05\)</span> level?
 </div>
-<p>The first thing to record is our parameter of interest <span class="math inline">\(\mu\)</span>, the true population mean. The null hypothesis, which we assume to be true, is
+<p>The first thing to record is our parameter of interest: <span class="math inline">\(\mu\)</span>, the true population mean. The null hypothesis, which we assume to be true, is a statement about the value of <span class="math inline">\(\mu\)</span>,
 <span class="math display">\[\begin{equation*}
  H_0 : \mu = 20000\,,
 \end{equation*}\]</span>
@@ -361,12 +363,12 @@ and the alternative hypothesis is
 <span class="math display">\[\begin{equation*}
  H_a : \mu \neq 20000\,,
 \end{equation*}\]</span>
-since we are concerned with a deviation in either direction from <span class="math inline">\(\mu_0\)</span>.</p>
-<p>Since the poputation is normal with known variance, we compute the test statistic:
+since we are concerned with a deviation in either direction from <span class="math inline">\(\mu_0 = 20000\)</span>.</p>
+<p>Since the population is normal with known variance, we compute the test statistic:
 <span class="math display">\[\begin{equation*}
- z \frac{\overline{x} - \mu_0}{\sigma / \sqrt{m}} = \frac{20992 - 20000}{17000 / \sqrt{400}} = 1.167\,.
+ z = \frac{\overline{x} - \mu_0}{\sigma / \sqrt{m}} = \frac{20992 - 20000}{17000 / \sqrt{400}} = 1.167\,.
 \end{equation*}\]</span>
-That is, the sample mean <span class="math inline">\(\overline{x}\)</span> we observed is about <span class="math inline">\(1\)</span> standard deviation above what we would expect under <span class="math inline">\(H_0\)</span>. Consulting <a href="inference-single-sample.html#prp:htest-norm-known-var">3.2</a>, we see that a two-tailed test is indicated for this particular <span class="math inline">\(H_a\)</span>, and that the <span class="math inline">\(P\)</span>-value is the area,<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>
+That is, the observed sample mean <span class="math inline">\(\overline{x}\)</span> is a little more than <span class="math inline">\(1\)</span> standard deviation above what we would expect under <span class="math inline">\(H_0\)</span>. Consulting <a href="inference-single-sample.html#prp:htest-norm-known-var">3.2</a>, we see that a two-tailed test is indicated for this particular <span class="math inline">\(H_a\)</span> (i.e., containing “<span class="math inline">\(\neq\)</span>”). The <span class="math inline">\(P\)</span>-value is the area,<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>
 <span class="math display">\[\begin{equation*}
 P = 2(1 - \Phi(1.167)) = 2 (0.1216052) = 0.2432.
 \end{equation*}\]</span>
@@ -389,138 +391,254 @@ since the transformed variable has approximately a standard normal distribution.
 \end{equation}\]</span>
 or <span class="math inline">\(\overline{x} \pm z_{\alpha/2} \cdot s / \sqrt{m}\)</span>.
 </div>
-<p>The CI for the mean <a href="inference-single-sample.html#eq:ci-large-sample">(3.5)</a> applies regardless of the shape of the population distribution so long as the number of samples is large. A rule of thumb is that <span class="math inline">\(m &gt; 40\)</span> is sufficient. In words, the CI <a href="inference-single-sample.html#eq:ci-large-sample">(3.5)</a> can be expressed (cf. <a href="inference-single-sample.html#eq:ci-gen-form">(3.1)</a>)as
+<p>The CI for the mean <a href="inference-single-sample.html#eq:ci-large-sample">(3.5)</a> applies regardless of the shape of the population distribution so long as the number of samples is large. A rule of thumb is that <span class="math inline">\(m &gt; 40\)</span> is sufficient.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> In words, the CI <a href="inference-single-sample.html#eq:ci-large-sample">(3.5)</a> can be expressed (cf. <a href="inference-single-sample.html#eq:ci-gen-form">(3.1)</a>) as
 <span class="math display">\[\begin{equation*}
  \text{point estimate}\; \mu \pm 
  (z \;\text{critical value}) \cdot (\text{estimated standard error of mean})\,.
 \end{equation*}\]</span>
 Typically, a large-sample CI for a general parameter <span class="math inline">\(\theta\)</span> holds that is similar in nature to <a href="inference-single-sample.html#eq:ci-large-sample">(3.5)</a> for any estimator <span class="math inline">\(\widehat{\theta}\)</span> that satisfies: (1) approximately normal in distribution, (2) approximately unbiased, and (3) an expression for the standard error is available.</p>
 <p>To conduct a large-sample hypothesis test regarding the population mean <span class="math inline">\(\mu\)</span>, we consider the test statistic
-<span class="math display">\[\begin{equation}
+<span class="math display">\[\begin{equation*}
  Z = \frac{\overline{X} - \mu_0}{S / \sqrt{m}}
-\end{equation}\]</span>
-under the null hypothesis. When the number of samples <span class="math inline">\(m\)</span> is large (say <span class="math inline">\(m &gt; 40\)</span>) then <span class="math inline">\(Z\)</span> will be approximately normal. Subtituting this test statistic <span class="math inline">\(Z\)</span> for <a href="inference-single-sample.html#eq:htest-norm-known-var-T">(3.4)</a>, we follow Proposition <a href="inference-single-sample.html#prp:htest-norm-known-var">3.2</a> to determine how to calculate the <span class="math inline">\(P\)</span>-value.</p>
+\end{equation*}\]</span>
+under the null hypothesis, i.e., we replace the population standard deviation <span class="math inline">\(\sigma\)</span> by the sample standard deviation <span class="math inline">\(S\)</span>. When the number of samples <span class="math inline">\(m\)</span> is large (say <span class="math inline">\(m &gt; 40\)</span>) then <span class="math inline">\(Z\)</span> will be approximately normal. Substituting this test statistic <span class="math inline">\(Z\)</span> for <a href="inference-single-sample.html#eq:htest-norm-known-var-T">(3.4)</a>, we follow Proposition <a href="inference-single-sample.html#prp:htest-norm-known-var">3.2</a> to determine how to calculate the <span class="math inline">\(P\)</span>-value.</p>
 </div>
 <div id="mean-normal-var-unknown" class="section level3" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> Mean of a normal population with unknown variance</h3>
-<p>In Section <a href="inference-single-sample.html#mean-normal-var-known">3.1.1</a>, we considered samples <span class="math inline">\(X_1, \dots, X_n\)</span> from a normal population with a known <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>. In contrast, here we consider samples from a normal population and assume the population parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> are unknown. If the number of samples is large, the discussion in Section <a href="inference-single-sample.html#mean-large-sample">3.1.2</a> indicates that the rv <span class="math inline">\(Z = (\overline{X} - \mu) \sqrt{n} / S\)</span> has approximately a standard normal distribution. However, if <span class="math inline">\(n\)</span> is not sufficiently large then the transformed variable will be more spread out than a standard normal distribution.</p>
+<p>In Section <a href="inference-single-sample.html#mean-normal-var-known">3.1.1</a>, we considered samples <span class="math inline">\(X_1, \dots, X_m\)</span> from a normal population with a known <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>. In contrast, here we consider samples from a normal population and assume the population parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> are unknown. If the number of samples is large, the discussion in Section <a href="inference-single-sample.html#mean-large-sample">3.1.2</a> indicates that the rv <span class="math inline">\(Z = (\overline{X} - \mu) \sqrt{m} / S\)</span> has approximately a standard normal distribution. However, if <span class="math inline">\(m\)</span> is not sufficiently large<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> then the transformed variable will be more spread out than a standard normal distribution.</p>
 
 <div class="theorem">
-<span id="thm:sample-mean-t-dist" class="theorem"><strong>Theorem 3.1  </strong></span>For the sample mean <span class="math inline">\(\overline{X}\)</span> based on <span class="math inline">\(n\)</span> samples from a normal distribution with mean <span class="math inline">\(\mu\)</span>, the rv
-<span class="math display">\[\begin{equation}
- T = \frac{\overline{X} - \mu}{S} \sqrt{n} \quad \sim \mathsf{t}(n-1)\,,
+<span id="thm:sample-mean-t-dist" class="theorem"><strong>Theorem 3.1  </strong></span>For the sample mean <span class="math inline">\(\overline{X}\)</span> based on <span class="math inline">\(m\)</span> samples from a normal distribution with mean <span class="math inline">\(\mu\)</span>, the rv
+<span class="math display" id="eq:t-statistic-mean">\[\begin{equation}
+ T = \frac{\overline{X} - \mu}{S/\sqrt{m}}  \quad \sim \mathsf{t}(m-1)\,, \tag{3.6}
 \end{equation}\]</span>
-that is, <span class="math inline">\(T\)</span> has Student’s <span class="math inline">\(\mathsf{t}\)</span> distribution with <span class="math inline">\(\nu = n-1\)</span> degrees of freedom (df).
+that is, <span class="math inline">\(T\)</span> has Student’s <span class="math inline">\(\mathsf{t}\)</span> distribution with <span class="math inline">\(\nu = m-1\)</span> df.
 </div>
 <p>This leads us to consider a CI for the population parameter <span class="math inline">\(\mu\)</span> that is based on critical values of the <span class="math inline">\(\mathsf{t}\)</span> distribution.</p>
 
 <div class="proposition">
-<span id="prp:ci-norm-unknown-var" class="proposition"><strong>Proposition 3.4  </strong></span>A <strong><span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval</strong> for the mean <span class="math inline">\(\mu\)</span> of a normal population when the value of <span class="math inline">\(\sigma^2\)</span> is unknown is given by
+<span id="prp:ci-norm-unknown-var" class="proposition"><strong>Proposition 3.4  </strong></span>A <strong><span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval</strong> for the mean <span class="math inline">\(\mu\)</span> of a normal population, when <span class="math inline">\(\sigma^2\)</span> is unknown, is given by
 <span class="math display" id="eq:ci-norm-known-var">\[\begin{equation} 
- \left(\overline{x} - t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}}\,, 
-        \overline{x} + t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}} \right)\,,  \tag{3.3}
+ \left(\overline{x} - t_{\alpha/2, m-1} \cdot \frac{s}{\sqrt{m}}\,, 
+        \overline{x} + t_{\alpha/2, m-1} \cdot \frac{s}{\sqrt{m}} \right)\,,  \tag{3.3}
 \end{equation}\]</span>
-or <span class="math inline">\(\overline{x} \pm t_{\alpha/2, n-1} \cdot s/ \sqrt{n}\)</span>. Here <span class="math inline">\(\overline{x}\)</span> and <span class="math inline">\(s\)</span> are the sample mean and sample standard deviation, respectively.
+or <span class="math inline">\(\overline{x} \pm t_{\alpha/2, m-1} \cdot s/ \sqrt{m}\)</span>. Here <span class="math inline">\(\overline{x}\)</span> and <span class="math inline">\(s\)</span> are the sample mean and sample standard deviation, respectively.
 </div>
-<p>In contrast to Proposition <a href="inference-single-sample.html#prp:ci-select-n-fixed-w-alpha">3.1</a>, it is difficult to select the sample size <span class="math inline">\(n\)</span> to control the width of the <span class="math inline">\(\mathsf{t}\)</span>-based CI as the width involves the unknown (before the sample is acquired) <span class="math inline">\(s\)</span> and because <span class="math inline">\(n\)</span> also enters through <span class="math inline">\(t_{\alpha/2, n-1}\)</span>.</p>
-<p><strong>TODO</strong>: add example</p>
+
+<div class="example">
+<span id="exm:exm-ci-norm-unknown-var" class="example"><strong>Example 3.4  </strong></span>Let us return to the the height of <span class="math inline">\(31\)</span> felled black cherry trees from the <strong>Cherry Tree Data</strong> in Table <a href="statistical-inference.html#tab:cherry-data">2.1</a>. Give a <span class="math inline">\(99\%\)</span> CI for the population mean <span class="math inline">\(\mu\)</span>.
+</div>
+<p>For <span class="math inline">\(m = 31\)</span>, the critical value of the reference distribution is <span class="math inline">\(t_{0.005, 30} \approx 2.7499\)</span>, which can looked up in a table of critical values for <span class="math inline">\(\mathsf{t}(\nu = m-1)\)</span> or found using the <code>r</code> command <code>qt(1-0.01/2, df = 31-1)</code>. The sample mean <span class="math inline">\(\overline{x} = 76\)</span> (computed in Example <a href="statistical-inference.html#exm:eg-estimators">2.1</a>) is combined with the sample standard deviation,
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+ s &amp;= \sqrt{\frac{1}{m-1} \sum_{i=1}^m (x_i - \overline{x})^2}\\ 
+   &amp;= \sqrt{\frac{1}{30} \left((63-76)^2 + \cdots + (87 - 76)^2\right)}\\
+   &amp;= 6.372\,,
+ \end{aligned}
+\end{equation*}\]</span>
+to form the interval estimate
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+&amp; \left(\overline{x} - t_{\alpha/2, m-1}  \cdot \frac{s}{\sqrt{m}}\,, 
+        \overline{x} + t_{\alpha/2, m-1} \cdot \frac{s}{\sqrt{m}} \right) \\
+        &amp;\qquad = \left(76 - 2.750 \cdot \frac{6.372}{\sqrt{31}} \,, 76 + 2.750 \cdot \frac{6.372}{\sqrt{31}} \right)\\
+        &amp;\qquad = \left(72.85\,, 79.15\right)\,.
+\end{aligned}
+\end{equation*}\]</span>
+For comparison, the critical value <span class="math inline">\(t_{.01/2, \nu}\)</span> for <span class="math inline">\(\nu = 13, \dots, 30\)</span></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="inference-single-sample.html#cb5-1" aria-hidden="true"></a><span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.01</span><span class="op">/</span><span class="dv">2</span>, <span class="dt">df =</span> <span class="kw">seq</span>(<span class="dv">12</span><span class="op">:</span><span class="dv">39</span>))</span></code></pre></div>
+<pre><code> [1] 63.656741  9.924843  5.840909  4.604095  4.032143  3.707428  3.499483  3.355387  3.249836  3.169273  3.105807  3.054540  3.012276  2.976843
+[15]  2.946713  2.920782  2.898231  2.878440  2.860935  2.845340  2.831360  2.818756  2.807336  2.796940  2.787436  2.778715  2.770683  2.763262</code></pre>
+<p>can deviate significantly from the corresponding <span class="math inline">\(z_{0.01/2} = 2.575829\)</span>. In particular, if we had erroneously used the large sample estimate <a href="inference-single-sample.html#eq:ci-large-sample">(3.5)</a> then we would have obtained <span class="math inline">\(99\%\)</span> CI <span class="math inline">\((73.05\,, 78.95)\)</span> which might give us a false sense of security as it is narrower. <span class="math inline">\(\lozenge\)</span></p>
+<p>In contrast to Proposition <a href="inference-single-sample.html#prp:ci-select-n-fixed-w-alpha">3.1</a>, it is difficult to select the sample size <span class="math inline">\(m\)</span> to control the width of the <span class="math inline">\(\mathsf{t}\)</span>-based CI as the width involves the unknown (before the sample is acquired) <span class="math inline">\(s\)</span> and because <span class="math inline">\(m\)</span> also enters through <span class="math inline">\(t_{\alpha/2, m-1}\)</span>. A one-sample <span class="math inline">\(\mathsf{t}\)</span> test based on <a href="inference-single-sample.html#eq:t-statistic-mean">(3.6)</a> can be used to test hypothesis about the population mean when the population is normal and <span class="math inline">\(\sigma^2\)</span> is unknown.</p>
 
 <div class="proposition">
-<span id="prp:norm-ci-rule-thumb" class="proposition"><strong>Proposition 3.5  </strong></span><strong>TODO</strong>: rule of thumb normal CI
+<p><span id="prp:htest-mean-normal-var-unknown" class="proposition"><strong>Proposition 3.5  </strong></span>Assume that we sample <span class="math inline">\(X_1, \dots, X_m\)</span> from a normal population with mean <span class="math inline">\(\mu\)</span> and unknown variance <span class="math inline">\(\sigma^2\)</span>.</p>
+<p>Consider <span class="math inline">\(H_0 : \mu = \mu_0\)</span>. The test statistic is
+<span class="math display">\[\begin{equation*}
+ T = \frac{\overline{X} - \mu_0}{S / \sqrt{m}} \,.
+\end{equation*}\]</span></p>
+<p>For a hypothesis test at level <span class="math inline">\(\alpha\)</span>, we use the following procedure:</p>
+<p>If <span class="math inline">\(H_a : \mu &gt; \mu_0\)</span>, then <span class="math inline">\(P\)</span>-value is the area under <span class="math inline">\(\mathsf{t}(m-1)\)</span> to the right of <span class="math inline">\(t\)</span>.</p>
+<p>If <span class="math inline">\(H_a : \mu &lt; \mu_0\)</span>, then <span class="math inline">\(P\)</span>-value is the area under <span class="math inline">\(\mathsf{t}(m-1)\)</span> to the left of <span class="math inline">\(t\)</span>.</p>
+If <span class="math inline">\(H_a : \mu \neq \mu_0\)</span>, then <span class="math inline">\(P\)</span>-value is twice the area under <span class="math inline">\(\mathsf{t}(m-1)\)</span> to the right of <span class="math inline">\(|t|\)</span>.
 </div>
-<p><strong>TODO</strong>: add example using rule of thumb</p>
+
+<div class="example">
+<span id="exm:exm-htest-ttest" class="example"><strong>Example 3.5  </strong></span>From the <strong>Cherry Tree Data</strong>, let’s look at the average volume of timber, given in Table <a href="inference-single-sample.html#tab:cherry-data-vol">3.1</a>. The distribution for this data is approximately normal.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> We might ask if the data provides compelling evidence, say at level 0.05, for concluding that the true average volume of timber exceeds 21.3 cubic feet.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>
+</div>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:cherry-data-vol">Table 3.1: </span>Observations of <span class="math inline">\(m = 31\)</span> felled black cherry trees.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Volume [cu ft]
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+10.2, 10.3, 10.3, 15.6, 16.4, 18.2, 18.8, 19.1, 19.7, 19.9, 21.0, 21.3, 21.4, 22.2, 22.6, 24.2, 24.9, 25.7, 27.4, 31.7, 33.8, 34.5, 36.3, 38.3, 42.6, 51.0, 51.5, 55.4, 55.7, 58.3, 77.0
+</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s carry out a significance test for the true average volume of timber <span class="math inline">\(\mu\)</span> at level <span class="math inline">\(\alpha = 0.05\)</span>. We assume the null hypothesis
+<span class="math display">\[\begin{equation*}
+ H_0 : \mu = 21.3\,.
+\end{equation*}\]</span>
+An appropriate null hypothesis is
+<span class="math display">\[\begin{equation*}
+ H_a : \mu &gt; 21.3\,,
+\end{equation*}\]</span>
+that is, we will adopt the stance that the true average exceeds <span class="math inline">\(\mu_0 = 21.3\)</span> only if the null is rejected.</p>
+From our <span class="math inline">\(m = 31\)</span> samples, we find that <span class="math inline">\(\overline{x} = 30.17\)</span> and that <span class="math inline">\(s = 16.44\)</span>. The computed value of the one-sample <span class="math inline">\(\mathsf{t}\)</span>-statistic is given by
+<span class="math display">\[\begin{equation}
+\begin{aligned}
+ t &amp;= \frac{\overline{x} - \mu_0}{s / \sqrt{m}}\\
+ &amp;= \frac{30.17 - 21.3}{16.44 / \sqrt{31}}\\
+ &amp; = 3\,.
+ \end{aligned}
+\end{equation}\]</span>
+The test is based on <span class="math inline">\(\nu = 31-1\)</span> df, and <span class="math inline">\(P = 0.04096\)</span>. This is the upper-tail area, i.e. the area to the right of <span class="math inline">\(t\)</span> (see Figure <a href="inference-single-sample.html#fig:exm-htest-ttest-plot">3.2</a>).
+<div class="figure" style="text-align: center"><span id="fig:exm-htest-ttest-plot"></span>
+<img src="ma22004_files/figure-html/exm-htest-ttest-plot-1.svg" alt="For this test, the $P$-value is the upper-tail area, i.e., to the right of the computed statistic t." width="768" />
+<p class="caption">
+Figure 3.2: For this test, the <span class="math inline">\(P\)</span>-value is the upper-tail area, i.e., to the right of the computed statistic t.
+</p>
+</div>
+<p>Since <span class="math inline">\(P \ll \alpha\)</span>, we reject the null hypothesis that the population mean is <span class="math inline">\(21.3\)</span>. The data provides sufficient evidence that the population mean is different from <span class="math inline">\(21.3\)</span>. <span class="math inline">\(\lozenge\)</span></p>
 </div>
 </div>
 <div id="estimating-proportions" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Estimating proportions</h2>
-<p>Consider a population of size <span class="math inline">\(N\)</span> in which a proportion <span class="math inline">\(p\)</span> of the population satisfies a given property. The <span class="math inline">\(p \in (0,1)\)</span> is a parameter characterizing the population, with distribution <span class="math inline">\(F(p)\)</span>,<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> that we might be interested in estimating. A sample, <span class="math inline">\(X_1, \dots, X_n \sim F(p)\)</span>, of size <span class="math inline">\(n\)</span> from the population contains a proportion,
+<p>Consider a population of size <span class="math inline">\(M\)</span> in which a proportion <span class="math inline">\(p\)</span> of the population satisfies a given property. The <span class="math inline">\(p \in (0,1)\)</span> is a parameter characterizing the population, with distribution <span class="math inline">\(F(p)\)</span>, that we might be interested in estimating.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> A sample, <span class="math inline">\(X_1, \dots, X_m \sim F(p)\)</span>, from the population contains a proportion,
 <span class="math display" id="eq:proportion-estimator">\[\begin{equation}
- \widehat{p} = \frac{1}{n} \sum_{i=1}^n X_i\,,
- \tag{3.6}
+ \widehat{p} = \frac{1}{m} \sum_{i=1}^m X_i\,,
+ \tag{3.7}
 \end{equation}\]</span>
-satisfying the given property. The estimator <span class="math inline">\(\widehat{p}\)</span> varies with the sample and for large <span class="math inline">\(n\)</span> it’s sampling distribution has the following properties:
+satisfying the given property. The estimator <span class="math inline">\(\widehat{p}\)</span> varies with the sample and for large <span class="math inline">\(m\)</span> it’s sampling distribution has the following properties:
 <span class="math display" id="eq:proportion-mean">\[\begin{equation*}
 \mu_{\widehat{p}} = \E[X_i] = p 
- \tag{3.7}
+ \tag{3.8}
 \end{equation*}\]</span>
 and
 <span class="math display" id="eq:proportion-var">\[\begin{equation}
- \sigma_{\widehat{p}}^2 = \frac{\Var[X_i]}{n} = \frac{p(1-p)}{n}\,,
- \tag{3.8}
+ \sigma_{\widehat{p}}^2 = \frac{\Var[X_i]}{m} = \frac{p(1-p)}{m}\,,
+ \tag{3.9}
 \end{equation}\]</span>
-provided that <span class="math inline">\(n\)</span> is small relative to <span class="math inline">\(N\)</span> (a rule of thumb is <span class="math inline">\(n \leq 0.05 N\)</span>).<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> Moreover, by invoking the Central Limit Theorem we have the distribution of <span class="math inline">\(\widehat{p}\)</span> is approximately normal for sufficiently large <span class="math inline">\(n\)</span> as <a href="inference-single-sample.html#eq:proportion-estimator">(3.6)</a> is a sample mean. Indeed, this normal approximation works well for moderately large <span class="math inline">\(n\)</span> as long as <span class="math inline">\(p\)</span> is not too close to zero or one; a rule of thumb is that <span class="math inline">\(np &gt; 5\)</span> and <span class="math inline">\(n(1-p) &gt; 5\)</span>.</p>
+provided that <span class="math inline">\(m\)</span> is small relative to <span class="math inline">\(M\)</span> (a rule of thumb is <span class="math inline">\(m \leq 0.05 M\)</span>).<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> Moreover, by invoking the Central Limit Theorem we have the distribution of <span class="math inline">\(\widehat{p}\)</span> is approximately normal for sufficiently large <span class="math inline">\(m\)</span> as <a href="inference-single-sample.html#eq:proportion-estimator">(3.7)</a> is a sample mean. Indeed, this normal approximation works well for moderately large <span class="math inline">\(m\)</span> as long as <span class="math inline">\(p\)</span> is not too close to zero or one; a rule of thumb is that <span class="math inline">\(mp &gt; 5\)</span> and <span class="math inline">\(m(1-p) &gt; 5\)</span>.</p>
 
 <div class="proposition">
 <span id="prp:ci-proportion" class="proposition"><strong>Proposition 3.6  </strong></span>For large samples <span class="math inline">\(n\)</span>, a <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the parameter <span class="math inline">\(p\)</span> is given by
 <span class="math display" id="eq:proportion-mean-ci">\[\begin{equation}
- \widehat{p} \pm z_{\alpha/2} \sqrt{\frac{\widehat{p} (1-\widehat{p})}{n}}\,.
- \tag{3.9}
+ \widehat{p} \pm z_{\alpha/2} \sqrt{\frac{\widehat{p} (1-\widehat{p})}{m}}\,.
+ \tag{3.10}
 \end{equation}\]</span>
 </div>
-<p>This follows from Proposition <a href="inference-single-sample.html#prp:ci-large-sample">3.3</a> by observing that <a href="inference-single-sample.html#eq:proportion-estimator">(3.6)</a> is a sample mean and replacing the standard error <span class="math inline">\(\sigma_{\widehat{p}}\)</span> from <a href="inference-single-sample.html#eq:proportion-var">(3.8)</a> by the estimated standard error,
+<p>This follows from Proposition <a href="inference-single-sample.html#prp:ci-large-sample">3.3</a> by observing that <a href="inference-single-sample.html#eq:proportion-estimator">(3.7)</a> is a sample mean and replacing the standard error <span class="math inline">\(\sigma_{\widehat{p}}\)</span> from <a href="inference-single-sample.html#eq:proportion-var">(3.9)</a> by the estimated standard error,
 <span class="math display">\[\begin{equation*}
- \widehat{\se}(\widehat{p}) = \sqrt{\frac{\widehat{p} (1-\widehat{p})}{n}}\,;
+ \widehat{\se}(\widehat{p}) = \sqrt{\frac{\widehat{p} (1-\widehat{p})}{m}}\,;
 \end{equation*}\]</span>
-recall the <span class="math inline">\(s\)</span> in <a href="inference-single-sample.html#eq:ci-large-sample">(3.5)</a> is the sample variance for the <em>population</em> and <span class="math inline">\(s / \sqrt{n} = \se\)</span> is the standard error of the point estimator.</p>
+recall the <span class="math inline">\(s\)</span> in <a href="inference-single-sample.html#eq:ci-large-sample">(3.5)</a> is the sample variance for the <em>population</em> and <span class="math inline">\(s / \sqrt{m} = \se\)</span> is the standard error of the point estimator.</p>
 
-<div class="example">
-<span id="exm:eg-est-prop-norm-approx-binom" class="example"><strong>Example 3.4  </strong></span><strong>TODO</strong>: Examples of sampling distribution for p <span class="math inline">\(\lozenge\)</span>
+<div class="proposition">
+<p><span id="prp:htest-proportion" class="proposition"><strong>Proposition 3.7  </strong></span>Let <span class="math inline">\(X\)</span> be the count of members with a given property based on a sample of size <span class="math inline">\(m\)</span> from a population where a proportion <span class="math inline">\(p\)</span> share the property.
+Then <span class="math inline">\(\widehat{p} = X / m\)</span> is an estimator of <span class="math inline">\(p\)</span>. Assume <span class="math inline">\(m p_0 \geq 10\)</span> and $ m (1-p_0) $.</p>
+<p>Consider <span class="math inline">\(H_0 : p = p_0\)</span>. The test statistic is
+<span class="math display">\[\begin{equation*}
+ Z = \frac{\widehat{p} - p_0}{\sqrt{p_0 (1-p_0) / m}} \,.
+\end{equation*}\]</span></p>
+<p>For a hypothesis test at level <span class="math inline">\(\alpha\)</span>, we use the following procedure:</p>
+<p>If <span class="math inline">\(H_a : p &gt; p_0\)</span>, then <span class="math inline">\(P\)</span>-value is the area under <span class="math inline">\(\mathsf{N}(0,1)\)</span> to the right of <span class="math inline">\(z\)</span>.</p>
+<p>If <span class="math inline">\(H_a : p &lt; p_0\)</span>, then <span class="math inline">\(P\)</span>-value is the area under <span class="math inline">\(\mathsf{N}(0,1)\)</span> to the left of <span class="math inline">\(z\)</span>.</p>
+If <span class="math inline">\(H_a : p \neq p_0\)</span>, then <span class="math inline">\(P\)</span>-value is twice the area under <span class="math inline">\(\mathsf{N}(0,1)\)</span> to the right of <span class="math inline">\(|t|\)</span>.
 </div>
 
 <div class="example">
-<span id="exm:eg-est-prop-ci" class="example"><strong>Example 3.5  </strong></span><strong>TODO</strong>: Example confidence interval for p <span class="math inline">\(\lozenge\)</span>
+<span id="exm:eg-est-prop-hypothesis-test" class="example"><strong>Example 3.6  </strong></span>Let us revisit Example <a href="statistical-inference.html#exm:htest-setup">2.2</a>, where we were considering Churchill’s claim that he will receive half the votes for the House of Commons seat for the constituency of Dundee. We are skeptical that he is as popular as he says. Suppose 116 out of 263 Dundonians polled claimed that they intended to vote for Churchill. Can it be concluded at significance level <span class="math inline">\(0.10\)</span> that more than half of all eligible Dundonains will vote for Churchill?
 </div>
-
-<div class="example">
-<span id="exm:eg-est-prop-hypothesis-test" class="example"><strong>Example 3.6  </strong></span><strong>TODO</strong>: Example hypothesis test <span class="math inline">\(\lozenge\)</span>
-</div>
+<p>The parameter of interest is <span class="math inline">\(p\)</span>, the proportion of votes for Churchill. The null hypothesis is <span class="math inline">\(H_0 : p = 0.5\)</span>. The alternative hypothesis is <span class="math inline">\(H_a : p &lt; 0.5\)</span>, since we . Since <span class="math inline">\(263(0.5) = 131.5 &gt; 10\)</span>, we satisfy the assumptions stated in Proposition <a href="inference-single-sample.html#prp:htest-proportion">3.7</a>.</p>
+<p>Based on the sample, <span class="math inline">\(\widehat{p} = 116 / 263 = 0.4411\)</span>. The test statistic value is
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+ z &amp;= \frac{\widehat{p} - p_0}{\sqrt{p_0 (1-p_0) / m}} \\
+ &amp;= \frac{0.4411 - 0.5}{\sqrt{0.5 (1-0.5) / 263}}\\
+ &amp;= -1.91  \,.
+\end{aligned}
+\end{equation*}\]</span>
+The <span class="math inline">\(P\)</span>-value for this lower-tailed <span class="math inline">\(z\)</span> test is <span class="math inline">\(P = \Phi(-1.91) = 0.028\)</span>. Since <span class="math inline">\(P &lt; 0.10 = \alpha\)</span>, we reject the null hypothesis at the <span class="math inline">\(0.05\)</span> level. The evidence for concluding that the true proportion is different from <span class="math inline">\(p_0 = 0.5\)</span> at the <span class="math inline">\(0.10\)</span> level is compelling.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> <span class="math inline">\(\lozenge\)</span></p>
 </div>
 <div id="estimating-variances" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Estimating variances</h2>
-<p>Next we consider estimates of the population variance (and standard deviation) when the population is assumed to have a normal distribution. In this case, the sample variance <span class="math inline">\(S^2\)</span> in <a href="statistical-inference.html#eq:sample-var">(2.2)</a> provides the basis for inferences. Consider iid samples <span class="math inline">\(X_1, \dots, X_n \sim \mathsf{N}(\mu, \sigma^2)\)</span>. We provide the following theorem without proof.</p>
+<p>Next we consider estimates of the population variance (and standard deviation) when the population is assumed to have a normal distribution. In this case, the sample variance <span class="math inline">\(S^2\)</span> in <a href="statistical-inference.html#eq:sample-var">(2.2)</a> provides the basis for inferences. Consider iid samples <span class="math inline">\(X_1, \dots, X_m \sim \mathsf{N}(\mu, \sigma^2)\)</span>. We provide the following theorem without proof.</p>
 
 <div class="theorem">
-<span id="thm:samp-var-chisq" class="theorem"><strong>Theorem 3.2  </strong></span>For the sample variance <span class="math inline">\(S^2\)</span> based on <span class="math inline">\(n\)</span> samples from a normal distribution with variance <span class="math inline">\(\sigma\)</span>, the rv
+<span id="thm:samp-var-chisq" class="theorem"><strong>Theorem 3.2  </strong></span>For the sample variance <span class="math inline">\(S^2\)</span> based on <span class="math inline">\(m\)</span> samples from a normal distribution with variance <span class="math inline">\(\sigma^2\)</span>, the rv
 <span class="math display">\[\begin{equation*}
-V = \frac{(n-1)S^2}{\sigma^2} = \frac{\sum_i(X_i - \overline{X})^2}{\sigma^2} \qquad \sim \chi^2_{n-1}\,,
+V = \frac{(m-1)S^2}{\sigma^2} = \frac{\sum_i(X_i - \overline{X})^2}{\sigma^2} \qquad \sim \chi^2_{m-1}\,,
 \end{equation*}\]</span>
-that is, <span class="math inline">\(V\)</span> has a <span class="math inline">\(\chi^2\)</span> distribution with <span class="math inline">\(\nu = n-1\)</span> df.
+that is, <span class="math inline">\(V\)</span> has a <span class="math inline">\(\chi^2\)</span> distribution with <span class="math inline">\(\nu = m-1\)</span> df.
 </div>
 <p>Based on Theorem <a href="inference-single-sample.html#thm:samp-var-chisq">3.2</a>,
 <span class="math display">\[\begin{equation*}
-P\left(\chi^2_{1-\alpha/2, n-1} &lt; \frac{(n-1)S^2}{\sigma^2} &lt; \chi^2_{\alpha/2, n-1} \right) = 1 - \alpha \,,
+P\left(\chi^2_{1-\alpha/2, m-1} &lt; \frac{(m-1)S^2}{\sigma^2} &lt; \chi^2_{\alpha/2, m-1} \right) = 1 - \alpha \,,
 \end{equation*}\]</span>
 i.e., the area captured between the right and left tail critical <span class="math inline">\(\chi^2\)</span> values is <span class="math inline">\(1-\alpha\)</span>. The expression above can be further manipulated to obtain an interval for the unknown parameter <span class="math inline">\(\sigma^2\)</span>:
 <span class="math display">\[\begin{equation*}
-P\left(\frac{(n-1) s^2}{\chi^2_{\alpha/2, n-1}} &lt; \sigma^2 &lt; \frac{(n-1) s^2}{\chi^2_{1-\alpha/2, n-1}} \right) = 1 - \alpha \,,
+P\left(\frac{(m-1) s^2}{\chi^2_{\alpha/2, m-1}} &lt; \sigma^2 &lt; \frac{(m-1) s^2}{\chi^2_{1-\alpha/2, m-1}} \right) = 1 - \alpha \,,
 \end{equation*}\]</span>
 where we substitute the computed value of the point estimate <span class="math inline">\(s^2\)</span> for the estimator into the limits to give a CI for <span class="math inline">\(\sigma^2\)</span>. If we take square roots of the inequality above, we obtain a CI for the population standard deviation <span class="math inline">\(\sigma\)</span>.</p>
 
 <div class="proposition">
-<span id="prp:ci-variance" class="proposition"><strong>Proposition 3.7  </strong></span>A <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the variance of a normal population is
+<span id="prp:ci-variance" class="proposition"><strong>Proposition 3.8  </strong></span>A <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the variance of a normal population is
 <span class="math display" id="eq:ci-variance">\[\begin{equation*}
- \left( (n-1)s^2 / \chi^2_{\alpha/2, n-1} \,,  (n-1)s^2 / \chi^2_{1-\alpha/2, n-1} \right) \,.
- \tag{3.10}
+ \left( (m-1)s^2 / \chi^2_{\alpha/2, m-1} \,,  (m-1)s^2 / \chi^2_{1-\alpha/2, m-1} \right) \,.
+ \tag{3.11}
 \end{equation*}\]</span>
-A <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the standard deviation <span class="math inline">\(\sigma\)</span> of a normal population is given by taking the square roots of the lower and upper limits in <a href="inference-single-sample.html#eq:ci-variance">(3.10)</a>.
+A <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the standard deviation <span class="math inline">\(\sigma\)</span> of a normal population is given by taking the square roots of the lower and upper limits in <a href="inference-single-sample.html#eq:ci-variance">(3.11)</a>.
 </div>
 
 <div class="example">
-<span id="exm:eg-ci-variance" class="example"><strong>Example 3.7  </strong></span><strong>TODO</strong>: Example CI for variance (using the tree data?) <span class="math inline">\(\lozenge\)</span>
+<span id="exm:eg-ci-variance" class="example"><strong>Example 3.7  </strong></span>For the <strong>Cherry Tree Data</strong> in Table <a href="inference-single-sample.html#tab:cherry-data-vol">3.1</a> concerning the timber volume of <span class="math inline">\(31\)</span> felled black cherry trees, give a <span class="math inline">\(95%\)</span> CI for the variance.
 </div>
+<p>We are interested in estimating the true variance <span class="math inline">\(\sigma^2\)</span> of the volume of timber based on <span class="math inline">\(m=31\)</span> samples. Recall that the mean of our data is <span class="math inline">\(\overline{x} = 30.17\)</span> cu ft and that the sample variance is <span class="math inline">\(s^2 = 270.2\)</span> using the estimator <a href="statistical-inference.html#eq:sample-var">(2.2)</a>. The critical values for the <span class="math inline">\(\chi^2_{.975, 30} = 16.7908\)</span> and <span class="math inline">\(\chi^2{.025, 30} = 46.9792\)</span> can be found by checking a table of critical values of the <span class="math inline">\(\chi^2(\nu=30)\)</span> distribution or by using the <code>r</code> code <code>qchisq(1-0.05/2, df=30, lower.tail = FALSE)</code> and <code>qchisq(0.05/2, df=df, lower.tail = FALSE)</code>, respectively (see <a href="inference-single-sample.html#fig:exm-htest-chisq-plot">3.3</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:exm-htest-chisq-plot"></span>
+<img src="ma22004_files/figure-html/exm-htest-chisq-plot-1.svg" alt="As the $\chi^2$ distribution is not symmetric, the upper and lower critical values will not be the same (the shaded areas are equal)." width="768" />
+<p class="caption">
+Figure 3.3: As the <span class="math inline">\(\chi^2\)</span> distribution is not symmetric, the upper and lower critical values will not be the same (the shaded areas are equal).
+</p>
+</div>
+<p>Pulling everything together, a <span class="math inline">\(95\%\)</span> CI for the population variance is given by
+<span class="math display">\[\begin{equation*}
+\begin{aligned}
+ &amp; \left( (m-1)s^2 / \chi^2_{\alpha/2, m-1} \,,  (m-1)s^2 / \chi^2_{1-\alpha/2, m-1} \right) \\
+ &amp;\qquad = \left( (30) 270.2 / 46.9792 \,, (30) 270.2 / 16.7908  \right) \\
+ &amp;\qquad = \left(172.5\,, 482.8\right)\,.
+ \end{aligned}
+\end{equation*}\]</span>
+Note that the position of the critical values—don’t swap them round. <span class="math inline">\(\lozenge\)</span></p>
 
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="6">
-<li id="fn6"><p>Note <span class="math inline">\(\Phi(z)\)</span> is found by calling <code>pnorm(z)</code> in <code>r</code>.<a href="inference-single-sample.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>Here we write <span class="math inline">\(F\)</span> for a general distribution, but what special distribution might this be?<a href="inference-single-sample.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>Note that if <span class="math inline">\(n\)</span> is large relative to <span class="math inline">\(N\)</span> (<span class="math inline">\(n &gt; 0.05 N\)</span>) then the variance <a href="inference-single-sample.html#eq:proportion-var">(3.8)</a> must be adjusted by a factor (related to the hypergeometric distribution):
+<li id="fn6"><p>Note <span class="math inline">\(\Phi(z) = P(Z \leq z)\)</span> is found by calling <code>pnorm(z)</code> in <code>r</code> or by looking up the value in a <span class="math inline">\(Z\)</span> table.<a href="inference-single-sample.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>For <span class="math inline">\(m &gt; 20\)</span>, the interval estimate <span class="math display">\[\text{point estimate } \pm 2\sd\]</span> has <span class="math inline">\(95\%\)</span> coverage and is surprisingly robust, i.e. applies to a wide variety of population distributions including the normal. However, this rule of thumb won’t apply if you want to consider some different level, say <span class="math inline">\(80\%\)</span> <span class="citation">(Belle <a href="#ref-vanBelle:2008rt" role="doc-biblioref">2008</a>, sec. 1)</span>.<a href="inference-single-sample.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>Recall that we would consider <span class="math inline">\(m &gt; 40\)</span> to be large.<a href="inference-single-sample.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>After looking at the normal quantile-quantile plot, I decided to test a hypothesis. For level <span class="math inline">\(0.01\)</span>, I ran a Kolmogorov–Smirnov test for the null hypothesis that the data is consistent with <span class="math inline">\(\mathsf{N}(\overline{x}, s^2)\)</span> vs the alternative that the data is not consistent with the specified reference distribution. The <span class="math inline">\(P\)</span>-value attained was <span class="math inline">\(P = 0.2532 &gt; 0.10\)</span>, and therefore I fail to reject the null hypothesis. The data is consistent with being drawn from a normal population.<a href="inference-single-sample.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>How much wood is that? About a sixth of a cord. A full cord of chopped fire wood in the US is <span class="math inline">\(124\)</span> cu ft; about enough to keep you warm through a New England winter (according to my inlaws).<a href="inference-single-sample.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>Here we write <span class="math inline">\(F\)</span> for a general distribution, but what special distribution might this be?<a href="inference-single-sample.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>Note that if <span class="math inline">\(m\)</span> is large relative to <span class="math inline">\(M\)</span> (<span class="math inline">\(m &gt; 0.05 M\)</span>) then the variance <a href="inference-single-sample.html#eq:proportion-var">(3.9)</a> must be adjusted by a factor (related to the hypergeometric distribution):
 <span class="math display">\[\begin{equation*}
- \sigma_{\widehat{p}}^2 = \frac{p(1-p)}{n} \frac{N-n}{N-1}\,,
+ \sigma_{\widehat{p}}^2 = \frac{p(1-p)}{m} \frac{M-m}{M-1}\,,
 \end{equation*}\]</span>
-where for fixed <span class="math inline">\(n\)</span> the factor converges to <span class="math inline">\(1\)</span> as <span class="math inline">\(N\to \infty\)</span>.<a href="inference-single-sample.html#fnref8" class="footnote-back">↩︎</a></p></li>
+where for fixed <span class="math inline">\(m\)</span> the factor converges to <span class="math inline">\(1\)</span> as <span class="math inline">\(M\to \infty\)</span>.<a href="inference-single-sample.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>Churchill took ca. <span class="math inline">\(44\%\)</span> of the vote in the 1908 by-election to become MP for Dundee. <a href="https://www.wikiwand.com/en/1908_Dundee_by-election">[W]</a><a href="inference-single-sample.html#fnref13" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

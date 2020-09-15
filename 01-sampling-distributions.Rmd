@@ -24,7 +24,7 @@ y1 <- dnorm(x, 2, 1)
 df <- tibble(x, y0, y1)
 df <- melt(df, id.var = "x", value.name = "y")
 
-ggplot(data = df, aes(x = x, color = variable)) + geom_line(aes(y=y)) 
+ggplot(data = df, aes(x = x, color = variable)) + geom_line(aes(y=y)) + theme_ur
 ```  
 
 ```{r normals-diff-sd, echo = FALSE, fig.cap = "The pdfs of two normal rvs with the same means and different standard deviations."}
@@ -34,7 +34,7 @@ y1 <- dnorm(x, 0, 1)
 df <- tibble(x, y0, y1)
 df <- melt(df, id.var = "x", value.name = "y")
 
-ggplot(data = df, aes(x = x, color = variable)) + geom_line(aes(y=y)) 
+ggplot(data = df, aes(x = x, color = variable)) + geom_line(aes(y=y)) + theme_ur
 ```  
 
 ```{definition, standard-normal}
@@ -101,14 +101,19 @@ pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3)
 
 **TODO**: plot area under normal curve (interior)  $\lozenge$
 
-<!-- ### Critical $z$ values -->
+### Empirical rule ($68-95-99.7$ rule)
 
-<!-- Below we provide a table containing commonly used normal critical values (note: indexed by $\alpha/2$).   -->
-
-<!-- ```{r z-crit-val, echo=FALSE, warning = FALSE, message = FALSE} -->
-<!-- kbl(tibble(read_csv("data/z-crit-val.csv")), caption = "Table of $z$ critical values.", booktabs = T) %>% -->
-<!--  kable_styling(latex_options = c("striped")) -->
-<!-- ```    -->
+For samples from a normal distribution, the percentage of values that lie within one, two, and three standard deviations of the mean are $68.27\%$, $95.45\%$, and $99.73\%$, respectively. That is, for $X \sim \mathsf{N}(\mu, \sigma^2)$, 
+\begin{equation*}
+P(\mu - 1 \sigma \leq X \leq \mu + 1 \sigma ) \approx 0.6827\,,
+\end{equation*}
+\begin{equation*}
+P(\mu - 2 \sigma \leq X \leq \mu + 2 \sigma ) \approx 0.9545\,,
+\end{equation*}
+\begin{equation*}
+P(\mu - 3 \sigma \leq X \leq \mu + 3 \sigma ) \approx 0.9973\,.
+\end{equation*}
+For a normal population, this means that nearly all the the values lie within "three-sigmas" of the mean.
 
 ## $\mathsf{t}$ distribution {#t-distribution}
 

@@ -54,7 +54,7 @@ Consider $400$ samples from a normal population with a known standard deviation 
 
 ```{r ci-norm-known-var-code, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "$400$ samples from a normal population with known variance $\\sigma = 17000$ together with the corresponding (normal) sampling distribution for the observed mean."}
 xdat <- read_csv("data/exm-ci-norm-known-var.csv")
-ggplot(xdat, aes(x = obs)) + geom_histogram(aes(y = ..density..)) + stat_function(aes(color = "Sample mean"), fun = dnorm, args = list(mean = mean(xdat$obs), sd = sd(xdat$obs)), size = 1) + ylab("Density") + xlab("Observations")
+ggplot(xdat, aes(x = obs)) + geom_histogram(aes(y = ..density..)) + stat_function(aes(color = "Sample mean"), fun = dnorm, args = list(mean = mean(xdat$obs), sd = sd(xdat$obs)), size = 1) + ylab("Density") + xlab("Observations") + theme_ur + theme(legend.title = element_blank())
 ```
 
 For $\alpha = 0.05$, the critical value $z_{0.025} = 1.96$; this value can be found by looking in a table of critical $z$ values or using the `r` code `qnorm(1-.05/2)`. From Definition \@ref(def:ci-norm-known-var),
@@ -93,31 +93,33 @@ Suppose now that we would like to consider a hypothesis test for the population 
 \begin{equation*}
 Z = \frac{\overline{X} - \mu_0}{\sigma / \sqrt{m}}\,.
 \end{equation*}
-The statistic $Z$ measures the distance (measured in units of $\sd{\overline{X}}$) between $\overline{X}$ and its expected value under the null hypothesis. We will use the statistic $Z$ to determine if there is substantial evidence against $H_0$ i.e. if the distance is too far in a direction consistent with $H_a$. 
+The statistic $Z$ measures the distance (measured in units of $\sd[\overline{X}]$) between $\overline{X}$ and its expected value under the null hypothesis. We will use the statistic $Z$ to determine if there is substantial evidence against $H_0$ i.e. if the distance is too far in a direction consistent with $H_a$. 
 
 ```{proposition, htest-norm-known-var}
-Assume that we take a sample of size $m$ from a normal population with known variance $\sigma^2$. 
+Assume that we sample $X_1, \dots, X_m$ from a normal population with mean $\mu$ and known variance $\sigma^2$. 
 
-For the null hypothesis $H_0 : \mu = \mu_0$, we consider the test statistic 
+Consider $H_0 : \mu = \mu_0$. The test statistic is
 \begin{equation}
  Z = \frac{\overline{X} - \mu_0}{\sigma / \sqrt{m}}\,.
  (\#eq:htest-norm-known-var-T)
 \end{equation}
- 
-If the alternative is $H_a : \mu > \mu_0$, then  $P = 1 - \Phi(z)$.
 
-If the alternative is $H_a : \mu < \mu_0$, then $P = \Phi(z)$. 
+For a hypothesis test at level $\alpha$, we use the following procedure:
 
-If the alternative is $H_a : \mu \neq \mu_0$, then $P = 2(1-\Phi(|z|))$. 
+If $H_a : \mu > \mu_0$, then $P = 1 - \Phi(z)$, i.e., upper-tail $R = \{z > z_{\alpha}\}$.
+
+If $H_a : \mu < \mu_0$, then $P = \Phi(z)$, i.e., lower-tail $R = \{z < z_{\alpha}\}$. 
+
+If $H_a : \mu \neq \mu_0$, then $P = 2(1-\Phi(|z|))$, i.e., two-tailed $R = \{|z| > z_{\alpha/2}\}$.
 ```
 
-We recall that $\Phi(z)$ is the area in the lower tail of the standard normal density, i.e., to the *left* of the calculated value of $z$. Thus $1 - \Phi(z)$ is the area in the upper tail and $2(1 - \Phi(|z|))$ is the sum of the area in the tails (corresponding to $\pm z$). 
+We recall that $\Phi(z)$ is the area in the lower-tail of the standard normal density, i.e., to the *left* of the calculated value of $z$. Thus $1 - \Phi(z)$ is the area in the upper-tail and $2(1 - \Phi(|z|))$ is twice the area capture in the upper-tail by $|z|$ i.e. the sum of the area in the tails corresponding to $\pm z$. If $P < \alpha$ then we reject $H_0$ at level $\alpha$ as the data provides sufficient evidence at the $\alpha$ level against the null hypothesis.
 
 ```{example, htest-norm-known-var-two-tail}
 Let's return to the data in Example \@ref(exm:exm-ci-norm-known-var), where we sample from a normal population with a known standard deviation $\sigma = 17000$. Suppose that someone cliams the true mean is $\mu_0 = 20000$. Does our sample mean $\overline{x} = 20992$ based on $m = 400$ samples provide evidence to contradict this claim at the $\alpha = 0.05$ level?
 ```
 
-The first thing to record is our parameter of interest $\mu$, the true population mean. The null hypothesis, which we assume to be true, is
+The first thing to record is our parameter of interest: $\mu$, the true population mean. The null hypothesis, which we assume to be true, is a statement about the value of $\mu$,
 \begin{equation*}
  H_0 : \mu = 20000\,,
 \end{equation*}
@@ -125,13 +127,13 @@ and the alternative hypothesis is
 \begin{equation*}
  H_a : \mu \neq 20000\,,
 \end{equation*}
-since we are concerned with a deviation in either direction from $\mu_0$. 
+since we are concerned with a deviation in either direction from $\mu_0 = 20000$. 
 
-Since the poputation is normal with known variance, we compute the test statistic:
+Since the population is normal with known variance, we compute the test statistic:
 \begin{equation*}
- z \frac{\overline{x} - \mu_0}{\sigma / \sqrt{m}} = \frac{20992 - 20000}{17000 / \sqrt{400}} = 1.167\,.
+ z = \frac{\overline{x} - \mu_0}{\sigma / \sqrt{m}} = \frac{20992 - 20000}{17000 / \sqrt{400}} = 1.167\,.
 \end{equation*}
-That is, the sample mean $\overline{x}$ we observed is about $1$ standard deviation above what we would expect under $H_0$. Consulting \@ref(prp:htest-norm-known-var), we see that a two-tailed test is indicated for this particular $H_a$, and that the $P$-value is the area,^[Note $\Phi(z)$ is found by calling `pnorm(z)` in `r`.]
+That is, the observed sample mean $\overline{x}$ is a little more than $1$ standard deviation above what we would expect under $H_0$. Consulting \@ref(prp:htest-norm-known-var), we see that a two-tailed test is indicated for this particular $H_a$ (i.e., containing "$\neq$"). The $P$-value is the area,^[Note $\Phi(z) = P(Z \leq z)$ is found by calling `pnorm(z)` in `r` or by looking up the value in a $Z$ table.]
 \begin{equation*}
 P = 2(1 - \Phi(1.167)) = 2 (0.1216052) = 0.2432.
 \end{equation*}
@@ -155,7 +157,7 @@ For large sample size $m$, an approximate $100(1-\alpha)\%$ confidence interval 
 or $\overline{x} \pm z_{\alpha/2} \cdot s / \sqrt{m}$. 
 ```
 
-The CI for the mean \@ref(eq:ci-large-sample) applies regardless of the shape of the population distribution so long as the number of samples is large. A rule of thumb is that $m > 40$ is sufficient. In words, the CI \@ref(eq:ci-large-sample) can be expressed (cf. \@ref(eq:ci-gen-form))as 
+The CI for the mean \@ref(eq:ci-large-sample) applies regardless of the shape of the population distribution so long as the number of samples is large. A rule of thumb is that $m > 40$ is sufficient.^[For $m > 20$, the interval estimate \[\text{point estimate } \pm 2\sd\] has $95\%$ coverage and is surprisingly robust, i.e. applies to a wide variety of population distributions including the normal. However, this rule of thumb won't apply if you want to consider some different level, say $80\%$ [@vanBelle:2008rt, §1].] In words, the CI \@ref(eq:ci-large-sample) can be expressed (cf. \@ref(eq:ci-gen-form)) as
 \begin{equation*}
  \text{point estimate}\; \mu \pm 
  (z \;\text{critical value}) \cdot (\text{estimated standard error of mean})\,.
@@ -163,125 +165,258 @@ The CI for the mean \@ref(eq:ci-large-sample) applies regardless of the shape of
 Typically, a large-sample CI for a general parameter $\theta$ holds that is similar in nature to \@ref(eq:ci-large-sample) for any estimator $\widehat{\theta}$ that satisfies: (1) approximately normal in distribution, (2) approximately unbiased, and (3) an expression for the standard error is available.
 
 To conduct a large-sample hypothesis test regarding the population mean $\mu$, we consider the test statistic
-\begin{equation}
+\begin{equation*}
  Z = \frac{\overline{X} - \mu_0}{S / \sqrt{m}}
-\end{equation}
-under the null hypothesis. When the number of samples $m$ is large (say $m > 40$) then $Z$ will be approximately normal. Subtituting this test statistic $Z$ for \@ref(eq:htest-norm-known-var-T), we follow Proposition \@ref(prp:htest-norm-known-var) to determine how to calculate the $P$-value.  
+\end{equation*}
+under the null hypothesis, i.e., we replace the population standard deviation $\sigma$ by the sample standard deviation $S$. When the number of samples $m$ is large (say $m > 40$) then $Z$ will be approximately normal. Substituting this test statistic $Z$ for \@ref(eq:htest-norm-known-var-T), we follow Proposition \@ref(prp:htest-norm-known-var) to determine how to calculate the $P$-value.  
 
 ### Mean of a normal population with unknown variance {#mean-normal-var-unknown}
 
-In Section \@ref(mean-normal-var-known), we considered samples $X_1, \dots, X_n$ from a normal population with a known $\mu$ and $\sigma^2$. In contrast, here we consider samples from a normal population and assume the population parameters $\mu$ and $\sigma^2$ are unknown. If the number of samples is large, the discussion in Section \@ref(mean-large-sample) indicates that the rv $Z = (\overline{X} - \mu) \sqrt{n} / S$ has approximately a standard normal distribution. However, if $n$ is not sufficiently large then the transformed variable will be more spread out than a standard normal distribution. 
+In Section \@ref(mean-normal-var-known), we considered samples $X_1, \dots, X_m$ from a normal population with a known $\mu$ and $\sigma^2$. In contrast, here we consider samples from a normal population and assume the population parameters $\mu$ and $\sigma^2$ are unknown. If the number of samples is large, the discussion in Section \@ref(mean-large-sample) indicates that the rv $Z = (\overline{X} - \mu) \sqrt{m} / S$ has approximately a standard normal distribution. However, if $m$ is not sufficiently large^[Recall that we would consider $m > 40$ to be large.] then the transformed variable will be more spread out than a standard normal distribution. 
 
 ```{theorem, sample-mean-t-dist}
-For the sample mean $\overline{X}$ based on $n$ samples from a normal distribution with mean $\mu$, the rv
+For the sample mean $\overline{X}$ based on $m$ samples from a normal distribution with mean $\mu$, the rv
 \begin{equation}
- T = \frac{\overline{X} - \mu}{S} \sqrt{n} \quad \sim \mathsf{t}(n-1)\,,
+ T = \frac{\overline{X} - \mu}{S/\sqrt{m}}  \quad \sim \mathsf{t}(m-1)\,, (\#eq:t-statistic-mean)
 \end{equation}
-that is, $T$ has Student's $\mathsf{t}$ distribution with $\nu = n-1$ degrees of freedom (df). 
-```
+that is, $T$ has Student's $\mathsf{t}$ distribution with $\nu = m-1$ df. 
+```   
 
 This leads us to consider a CI for the population parameter $\mu$ that is based on critical values of the $\mathsf{t}$ distribution. 
 
 ```{proposition, ci-norm-unknown-var}
-A **$100(1-\alpha)\%$ confidence interval** for the mean $\mu$ of a normal population when the value of $\sigma^2$ is unknown is given by 
+A **$100(1-\alpha)\%$ confidence interval** for the mean $\mu$ of a normal population, when $\sigma^2$ is unknown, is given by 
 \begin{equation} 
- \left(\overline{x} - t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}}\,, 
-        \overline{x} + t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}} \right)\,,  (\#eq:ci-norm-known-var)
+ \left(\overline{x} - t_{\alpha/2, m-1} \cdot \frac{s}{\sqrt{m}}\,, 
+        \overline{x} + t_{\alpha/2, m-1} \cdot \frac{s}{\sqrt{m}} \right)\,,  (\#eq:ci-norm-known-var)
 \end{equation}
-or $\overline{x} \pm t_{\alpha/2, n-1} \cdot s/ \sqrt{n}$. Here $\overline{x}$ and $s$ are the sample mean and sample standard deviation, respectively.
-```  
+or $\overline{x} \pm t_{\alpha/2, m-1} \cdot s/ \sqrt{m}$. Here $\overline{x}$ and $s$ are the sample mean and sample standard deviation, respectively.
+```    
 
-In contrast to Proposition \@ref(prp:ci-select-n-fixed-w-alpha), it is difficult to select the sample size $n$ to control the width of the $\mathsf{t}$-based CI as the width involves the unknown (before the sample is acquired) $s$ and because $n$ also enters through $t_{\alpha/2, n-1}$.  
 
-**TODO**: add example 
- 
-```{proposition, norm-ci-rule-thumb}
-**TODO**: rule of thumb normal CI
+```{example, exm-ci-norm-unknown-var}
+Let us return to the the height of $31$ felled black cherry trees from the **Cherry Tree Data** in Table \@ref(tab:cherry-data). Give a $99\%$ CI for the population mean $\mu$.
 ```
 
-**TODO**: add example using rule of thumb
+For $m = 31$, the critical value of the reference distribution is $t_{0.005, 30} \approx 2.7499$, which can looked up in a table of critical values for $\mathsf{t}(\nu = m-1)$ or found using the `r` command `qt(1-0.01/2, df = 31-1)`. The sample mean $\overline{x} = 76$ (computed in Example \@ref(exm:eg-estimators)) is combined with the sample standard deviation, 
+\begin{equation*}
+\begin{aligned}
+ s &= \sqrt{\frac{1}{m-1} \sum_{i=1}^m (x_i - \overline{x})^2}\\ 
+   &= \sqrt{\frac{1}{30} \left((63-76)^2 + \cdots + (87 - 76)^2\right)}\\
+   &= 6.372\,,
+ \end{aligned}
+\end{equation*}
+to form the interval estimate
+\begin{equation*}
+\begin{aligned}
+& \left(\overline{x} - t_{\alpha/2, m-1}  \cdot \frac{s}{\sqrt{m}}\,, 
+        \overline{x} + t_{\alpha/2, m-1} \cdot \frac{s}{\sqrt{m}} \right) \\
+        &\qquad = \left(76 - 2.750 \cdot \frac{6.372}{\sqrt{31}} \,, 76 + 2.750 \cdot \frac{6.372}{\sqrt{31}} \right)\\
+        &\qquad = \left(72.85\,, 79.15\right)\,.
+\end{aligned}
+\end{equation*}
+For comparison, the critical value $t_{.01/2, \nu}$ for $\nu = 13, \dots, 30$ 
+```{r critical-t-values-alpha0.01, error = FALSE, warning = FALSE, message = FALSE}
+qt(1-0.01/2, df = seq(12:39))
+```
+can deviate significantly from the corresponding $z_{0.01/2} = 2.575829$. In particular, if we had erroneously used the large sample estimate \@ref(eq:ci-large-sample) then we would have obtained $99\%$ CI $(73.05\,, 78.95)$ which might give us a false sense of security as it is narrower. $\lozenge$    
 
+In contrast to Proposition \@ref(prp:ci-select-n-fixed-w-alpha), it is difficult to select the sample size $m$ to control the width of the $\mathsf{t}$-based CI as the width involves the unknown (before the sample is acquired) $s$ and because $m$ also enters through $t_{\alpha/2, m-1}$.  A one-sample $\mathsf{t}$ test based on \@ref(eq:t-statistic-mean) can be used to test hypothesis about the population mean when the population is normal and $\sigma^2$ is unknown.   
+
+```{proposition, htest-mean-normal-var-unknown}
+Assume that we sample $X_1, \dots, X_m$ from a normal population with mean $\mu$ and unknown variance $\sigma^2$. 
+
+Consider $H_0 : \mu = \mu_0$. The test statistic is
+\begin{equation*}
+ T = \frac{\overline{X} - \mu_0}{S / \sqrt{m}} \,.
+\end{equation*}
+
+For a hypothesis test at level $\alpha$, we use the following procedure: 
+        
+If $H_a : \mu > \mu_0$, then $P$-value is the area under $\mathsf{t}(m-1)$ to the right of $t$.
+
+If $H_a : \mu < \mu_0$, then $P$-value is the area under $\mathsf{t}(m-1)$ to the left of $t$.
+
+If $H_a : \mu \neq \mu_0$, then $P$-value is twice the area under $\mathsf{t}(m-1)$ to the right of $|t|$.
+```    
+
+
+```{example, exm-htest-ttest}
+From the **Cherry Tree Data**, let's look at the average volume of timber, given in Table \@ref(tab:cherry-data-vol). The distribution for this data is approximately normal.^[After looking at the normal quantile-quantile plot, I decided to test a hypothesis. For level $0.01$, I ran a Kolmogorov--Smirnov test for the null hypothesis that the data is consistent with $\mathsf{N}(\overline{x}, s^2)$ vs the alternative that the data is not consistent with the specified reference distribution. The $P$-value attained was $P = 0.2532 > 0.10$, and therefore I fail to reject the null hypothesis. The data is consistent with being drawn from a normal population.] We might ask if the data provides compelling evidence, say at level 0.05, for concluding that the true average volume of timber exceeds 21.3 cubic feet.^[How much wood is that? About a sixth of a cord. A full cord of chopped fire wood in the US is $124$ cu ft; about enough to keep you warm through a New England winter (according to my inlaws).]
+```   
+
+```{r cherry-data-vol, echo = FALSE, warning = FALSE, message = FALSE}
+dattab <- trees %>%
+  arrange(Volume) %>%
+  summarise(volume = list(Volume))
+kbl(dattab, col.names = c("Volume [cu ft]"), caption = "Observations of $m = 31$ felled black cherry trees.", booktabs = T) %>%
+ kable_styling(latex_options = c("striped", "hold_position"))
+```    
+
+Let's carry out a significance test for the true average volume of timber $\mu$ at level $\alpha = 0.05$. We assume the null hypothesis
+\begin{equation*}
+ H_0 : \mu = 21.3\,.
+\end{equation*}
+An appropriate null hypothesis is 
+\begin{equation*}
+ H_a : \mu > 21.3\,,
+\end{equation*}
+that is, we will adopt the stance that the true average exceeds $\mu_0 = 21.3$ only if the null is rejected. 
+
+From our $m = 31$ samples, we find that $\overline{x} = `r signif(mean(trees$Volume), digits = 4)`$ and that $s = `r signif(sd(trees$Volume), digits = 4)`$. The computed value of the one-sample $\mathsf{t}$-statistic is given by 
+\begin{equation}
+\begin{aligned}
+ t &= \frac{\overline{x} - \mu_0}{s / \sqrt{m}}\\
+ &= \frac{`r signif(mean(trees$Volume), digits = 4)` - 21.3}{`r signif(sd(trees$Volume), digits = 4)` / \sqrt{31}}\\
+ & = `r signif( (mean(trees$Volume) - 21.3) / (sd(trees$Volume) / sqrt(31)), digits = 3)`\,.
+ \end{aligned}
+\end{equation}
+The test is based on $\nu = 31-1$ df, and $P = `r signif(pt(t, df=30, lower.tail = FALSE), digits = 4)`$. This is the upper-tail area, i.e. the area to the right of $t$ (see Figure \@ref(fig:exm-htest-ttest-plot)). 
+```{r exm-htest-ttest-plot, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "For this test, the $P$-value is the upper-tail area, i.e., to the right of the computed statistic t."}
+t <- 1.8
+ggplot(NULL, aes(c(-3.5,3.5))) + 
+  geom_line(stat = "function", fun = dt, args = list(df = 18), xlim = c(-3.5, 3.5), size = 1.5) +
+  geom_area(stat = "function", fun = dt, args = list(df = 18), fill = "blue", xlim = c(t, 3.5), alpha = 0.3) + theme(axis.title.y = element_blank(), axis.ticks.y=element_blank(), axis.text.y=element_blank(), axis.title.x = element_blank(), axis.ticks.x=element_blank(), axis.text.x=element_blank()) + annotate("text", x = 3, y = .1, label=TeX("$P$-value"), size = 5, color = "blue") + annotate("segment", x = 3., xend = 2., y = 0.08, yend = .01, color = "blue", arrow=arrow(length=unit(0.2,"cm"))) + annotate("text", x = t, y = -.030, label=TeX("$t$"), size = 5) + geom_segment(aes(x = t, xend = t, y = 0, yend = dt(t, df = 18)), linetype = 44)
+```
+Since $P \ll \alpha$, we reject the null hypothesis that the population mean is $21.3$. The data provides sufficient evidence that the population mean is different from $21.3$. $\lozenge$    
 
 ## Estimating proportions {#estimating-proportions}
 
-Consider a population of size $N$ in which a proportion $p$ of the population satisfies a given property. The $p \in (0,1)$ is a parameter characterizing the population, with distribution $F(p)$,^[Here we write $F$ for a general distribution, but what special distribution might this be?] that we might be interested in estimating. A sample, $X_1, \dots, X_n \sim F(p)$, of size $n$ from the population contains a proportion,
+Consider a population of size $M$ in which a proportion $p$ of the population satisfies a given property. The $p \in (0,1)$ is a parameter characterizing the population, with distribution $F(p)$, that we might be interested in estimating.^[Here we write $F$ for a general distribution, but what special distribution might this be?] A sample, $X_1, \dots, X_m \sim F(p)$, from the population contains a proportion,
 \begin{equation}
- \widehat{p} = \frac{1}{n} \sum_{i=1}^n X_i\,,
+ \widehat{p} = \frac{1}{m} \sum_{i=1}^m X_i\,,
  (\#eq:proportion-estimator)
 \end{equation}
-satisfying the given property. The estimator $\widehat{p}$ varies with the sample and for large $n$ it's sampling distribution has the following properties:
+satisfying the given property. The estimator $\widehat{p}$ varies with the sample and for large $m$ it's sampling distribution has the following properties:
 \begin{equation*}
 \mu_{\widehat{p}} = \E[X_i] = p 
  (\#eq:proportion-mean)
 \end{equation*}
 and 
 \begin{equation}
- \sigma_{\widehat{p}}^2 = \frac{\Var[X_i]}{n} = \frac{p(1-p)}{n}\,,
+ \sigma_{\widehat{p}}^2 = \frac{\Var[X_i]}{m} = \frac{p(1-p)}{m}\,,
  (\#eq:proportion-var)
 \end{equation}
-provided that $n$ is small relative to $N$ (a rule of thumb is $n \leq 0.05 N$).^[Note that if $n$ is large relative to $N$ ($n > 0.05 N$) then the variance \@ref(eq:proportion-var) must be adjusted by a factor (related to the hypergeometric distribution):
+provided that $m$ is small relative to $M$ (a rule of thumb is $m \leq 0.05 M$).^[Note that if $m$ is large relative to $M$ ($m > 0.05 M$) then the variance \@ref(eq:proportion-var) must be adjusted by a factor (related to the hypergeometric distribution):
 \begin{equation*}
- \sigma_{\widehat{p}}^2 = \frac{p(1-p)}{n} \frac{N-n}{N-1}\,,
+ \sigma_{\widehat{p}}^2 = \frac{p(1-p)}{m} \frac{M-m}{M-1}\,,
 \end{equation*}
-where for fixed $n$ the factor converges to $1$ as $N\to \infty$.] Moreover, by invoking the Central Limit Theorem we have the distribution of $\widehat{p}$ is approximately normal for sufficiently large $n$ as \@ref(eq:proportion-estimator) is a sample mean. Indeed, this normal approximation works well for moderately large $n$ as long as $p$ is not too close to zero or one; a rule of thumb is that $np > 5$ and $n(1-p) > 5$.
+where for fixed $m$ the factor converges to $1$ as $M\to \infty$.] Moreover, by invoking the Central Limit Theorem we have the distribution of $\widehat{p}$ is approximately normal for sufficiently large $m$ as \@ref(eq:proportion-estimator) is a sample mean. Indeed, this normal approximation works well for moderately large $m$ as long as $p$ is not too close to zero or one; a rule of thumb is that $mp > 5$ and $m(1-p) > 5$.
 
 ```{proposition, ci-proportion}
 For large samples $n$, a $100(1-\alpha)\%$ confidence interval for the parameter $p$ is given by
 \begin{equation}
- \widehat{p} \pm z_{\alpha/2} \sqrt{\frac{\widehat{p} (1-\widehat{p})}{n}}\,.
+ \widehat{p} \pm z_{\alpha/2} \sqrt{\frac{\widehat{p} (1-\widehat{p})}{m}}\,.
  (\#eq:proportion-mean-ci)
 \end{equation}
 ```
 
 This follows from Proposition \@ref(prp:ci-large-sample) by observing that \@ref(eq:proportion-estimator) is a sample mean and replacing the standard error $\sigma_{\widehat{p}}$ from \@ref(eq:proportion-var) by the estimated standard error,
 \begin{equation*}
- \widehat{\se}(\widehat{p}) = \sqrt{\frac{\widehat{p} (1-\widehat{p})}{n}}\,;
+ \widehat{\se}(\widehat{p}) = \sqrt{\frac{\widehat{p} (1-\widehat{p})}{m}}\,;
 \end{equation*}
-recall the $s$ in \@ref(eq:ci-large-sample) is the sample variance for the *population* and $s / \sqrt{n} = \se$ is the standard error of the point estimator.
+recall the $s$ in \@ref(eq:ci-large-sample) is the sample variance for the *population* and $s / \sqrt{m} = \se$ is the standard error of the point estimator.   
 
-```{example, eg-est-prop-norm-approx-binom}
-**TODO**: Examples of sampling distribution for p $\lozenge$
-```
+```{proposition, htest-proportion}
+Let $X$ be the count of members with a given property based on a sample of size $m$ from a population where a proportion $p$ share the property.
+Then $\widehat{p} = X / m$ is an estimator of $p$. Assume $m p_0 \geq 10$ and $ m (1-p_0) \geq 10$. 
+ 
+Consider $H_0 : p = p_0$. The test statistic is
+\begin{equation*}
+ Z = \frac{\widehat{p} - p_0}{\sqrt{p_0 (1-p_0) / m}} \,.
+\end{equation*}
 
-```{example, eg-est-prop-ci}
-**TODO**: Example confidence interval for p $\lozenge$
-```
+For a hypothesis test at level $\alpha$, we use the following procedure: 
+        
+If $H_a : p > p_0$, then $P$-value is the area under $\mathsf{N}(0,1)$ to the right of $z$.
+
+If $H_a : p < p_0$, then $P$-value is the area under $\mathsf{N}(0,1)$ to the left of $z$.
+
+If $H_a : p \neq p_0$, then $P$-value is twice the area under $\mathsf{N}(0,1)$ to the right of $|t|$.
+```    
+
 
 ```{example, eg-est-prop-hypothesis-test}
-**TODO**: Example hypothesis test $\lozenge$
+Let us revisit Example \@ref(exm:htest-setup), where we were considering Churchill's claim that he will receive half the votes for the House of Commons seat for the constituency of Dundee. We are skeptical that he is as popular as he says. Suppose 116 out of 263 Dundonians polled claimed that they intended to vote for Churchill. Can it be concluded at significance level $0.10$ that more than half of all eligible Dundonains will vote for Churchill?
 ```
+
+The parameter of interest is $p$, the proportion of votes for Churchill. The null hypothesis is $H_0 : p = 0.5$. The alternative hypothesis is $H_a : p < 0.5$, since we . Since $263(0.5) = 131.5 > 10$, we satisfy the assumptions stated in Proposition \@ref(prp:htest-proportion).
+
+Based on the sample, $\widehat{p} = 116 / 263 = 0.4411$. The test statistic value is 
+\begin{equation*}
+\begin{aligned}
+ z &= \frac{\widehat{p} - p_0}{\sqrt{p_0 (1-p_0) / m}} \\
+ &= \frac{0.4411 - 0.5}{\sqrt{0.5 (1-0.5) / 263}}\\
+ &= `r signif((0.4411-0.5)/sqrt(0.5*0.5/263), digits=3)`  \,.
+\end{aligned}
+\end{equation*}
+The $P$-value for this lower-tailed $z$ test is  $P = \Phi(`r signif((0.4411-0.5)/sqrt(0.5*0.5/263), digits=3)`) = `r signif(pnorm(signif((0.4411-0.5)/sqrt(0.5*0.5/263), digits=3)), digits=2)`$. Since $P < 0.10 = \alpha$, we reject the null hypothesis at the $0.05$ level. The evidence for concluding that the true proportion is different from $p_0 = 0.5$ at the $0.10$ level is compelling.^[Churchill took ca. $44\%$ of the vote in the 1908 by-election to become MP for Dundee. [[W]](https://www.wikiwand.com/en/1908_Dundee_by-election)] $\lozenge$   
+
 
 ## Estimating variances {#estimating-variances}
 
-Next we consider estimates of the population variance (and standard deviation) when the population is assumed to have a normal distribution. In this case, the sample variance $S^2$ in \@ref(eq:sample-var) provides the basis for inferences. Consider iid samples $X_1, \dots, X_n \sim \mathsf{N}(\mu, \sigma^2)$. We provide the following theorem without proof.
+Next we consider estimates of the population variance (and standard deviation) when the population is assumed to have a normal distribution. In this case, the sample variance $S^2$ in \@ref(eq:sample-var) provides the basis for inferences. Consider iid samples $X_1, \dots, X_m \sim \mathsf{N}(\mu, \sigma^2)$. We provide the following theorem without proof.
 
 ```{theorem, samp-var-chisq}
-For the sample variance $S^2$ based on $n$ samples from a normal distribution with variance $\sigma$, the rv
+For the sample variance $S^2$ based on $m$ samples from a normal distribution with variance $\sigma^2$, the rv
 \begin{equation*}
-V = \frac{(n-1)S^2}{\sigma^2} = \frac{\sum_i(X_i - \overline{X})^2}{\sigma^2} \qquad \sim \chi^2_{n-1}\,,
+V = \frac{(m-1)S^2}{\sigma^2} = \frac{\sum_i(X_i - \overline{X})^2}{\sigma^2} \qquad \sim \chi^2_{m-1}\,,
 \end{equation*}
-that is, $V$ has a $\chi^2$ distribution with $\nu = n-1$ df. 
+that is, $V$ has a $\chi^2$ distribution with $\nu = m-1$ df. 
 ```  
 
 Based on Theorem \@ref(thm:samp-var-chisq), 
 \begin{equation*}
-P\left(\chi^2_{1-\alpha/2, n-1} < \frac{(n-1)S^2}{\sigma^2} < \chi^2_{\alpha/2, n-1} \right) = 1 - \alpha \,,
+P\left(\chi^2_{1-\alpha/2, m-1} < \frac{(m-1)S^2}{\sigma^2} < \chi^2_{\alpha/2, m-1} \right) = 1 - \alpha \,,
 \end{equation*}
 i.e., the area captured between the right and left tail critical $\chi^2$ values is $1-\alpha$. The expression above can be further manipulated to obtain an interval for the unknown parameter $\sigma^2$:
 \begin{equation*}
-P\left(\frac{(n-1) s^2}{\chi^2_{\alpha/2, n-1}} < \sigma^2 < \frac{(n-1) s^2}{\chi^2_{1-\alpha/2, n-1}} \right) = 1 - \alpha \,,
+P\left(\frac{(m-1) s^2}{\chi^2_{\alpha/2, m-1}} < \sigma^2 < \frac{(m-1) s^2}{\chi^2_{1-\alpha/2, m-1}} \right) = 1 - \alpha \,,
 \end{equation*}
 where we substitute the computed value of the point estimate $s^2$ for the estimator into the limits to give a CI for $\sigma^2$. If we take square roots of the inequality above, we obtain a CI for the population standard deviation $\sigma$. 
 
 ```{proposition, ci-variance}
 A $100(1-\alpha)\%$ confidence interval for the variance of a normal population is
 \begin{equation*}
- \left( (n-1)s^2 / \chi^2_{\alpha/2, n-1} \,,  (n-1)s^2 / \chi^2_{1-\alpha/2, n-1} \right) \,.
+ \left( (m-1)s^2 / \chi^2_{\alpha/2, m-1} \,,  (m-1)s^2 / \chi^2_{1-\alpha/2, m-1} \right) \,.
  (\#eq:ci-variance)
 \end{equation*}
 A $100(1-\alpha)\%$ confidence interval for the standard deviation $\sigma$ of a normal population is given by taking the square roots of the lower and upper limits in \@ref(eq:ci-variance).
+```   
+
+ 
+```{example, eg-ci-variance}
+For the **Cherry Tree Data** in Table \@ref(tab:cherry-data-vol) concerning the timber volume of $31$ felled black cherry trees, give a $95%$ CI for the variance.
+```     
+
+
+We are interested in estimating the true variance $\sigma^2$ of the volume of timber based on $m=31$ samples. Recall that the mean of our data is $\overline{x} = 30.17$ cu ft and that the sample variance is $s^2 = 270.2$ using the estimator \@ref(eq:sample-var). The critical values for the $\chi^2_{.975, 30} = 16.7908$ and $\chi^2{.025, 30} = 46.9792$ can be found by checking a table of critical values of the $\chi^2(\nu=30)$ distribution or by using the `r` code `qchisq(1-0.05/2, df=30, lower.tail = FALSE)` and `qchisq(0.05/2, df=df, lower.tail = FALSE)`, respectively (see \@ref(fig:exm-htest-chisq-plot)).
+
+```{r exm-htest-chisq-plot, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "As the $\\chi^2$ distribution is not symmetric, the upper and lower critical values will not be the same (the shaded areas are equal)."}
+df <- 10
+L <- 30
+x1 <- qchisq(1-0.05/2, df=df, lower.tail = FALSE)
+x2 <- qchisq(0.05/2, df=df, lower.tail = FALSE)
+ggplot(NULL, aes(c(0,L))) + 
+  geom_line(stat = "function", fun = dchisq, args = list(df = df), xlim = c(0, L), size = 1.5) +
+  geom_area(stat = "function", fun = dchisq, args = list(df = df), fill = "blue", xlim = c(0, x1), alpha = 0.3) + 
+        geom_area(stat = "function", fun = dchisq, args = list(df = df), fill = "blue", xlim = c(x2, L), alpha = 0.3) + 
+        theme(axis.title.y = element_blank(), axis.ticks.y=element_blank(), axis.text.y=element_blank(), axis.title.x = element_blank(), axis.ticks.x=element_blank(), axis.text.x=element_blank()) + 
+        annotate("text", x = 10, y = .02, label=TeX("Each shaded area $=\\alpha$"), size = 5, color = "blue") + 
+        annotate("segment", x = 10, xend = x1-1, y = 0.015, yend = .002, color = "blue", arrow=arrow(length=unit(0.2,"cm"))) + 
+        annotate("segment", x = 10, xend = x2+1, y = 0.015, yend = .002, color = "blue", arrow=arrow(length=unit(0.2,"cm"))) + 
+        annotate("text", x = x1, y = -0.005, label=TeX("$\\chi^2_{1-\\alpha, \\nu}$"), size = 5) + 
+        annotate("text", x = x2, y = -0.005, label=TeX("$\\chi^2_{\\alpha, \\nu}$"), size = 5) + 
+        geom_segment(aes(x = x1, xend = x1, y = 0, yend = dchisq(x1, df = df)), linetype = 44) + 
+        geom_segment(aes(x = x2, xend = x2, y = 0, yend = dchisq(x2, df = df)), linetype = 44)
 ```
 
-```{example, eg-ci-variance}
-**TODO**: Example CI for variance (using the tree data?) $\lozenge$
-```   
+Pulling everything together, a $95\%$ CI for the population variance is given by 
+\begin{equation*}
+\begin{aligned}
+ & \left( (m-1)s^2 / \chi^2_{\alpha/2, m-1} \,,  (m-1)s^2 / \chi^2_{1-\alpha/2, m-1} \right) \\
+ &\qquad = \left( (30) 270.2 / 46.9792 \,, (30) 270.2 / 16.7908  \right) \\
+ &\qquad = \left(172.5\,, 482.8\right)\,.
+ \end{aligned}
+\end{equation*}
+Note that the position of the critical values---don't swap them round. $\lozenge$   

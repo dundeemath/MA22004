@@ -166,6 +166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.1</b> Normal distribution</a>
 <ul>
 <li class="chapter" data-level="1.1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about Normals</a></li>
+<li class="chapter" data-level="1.1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#empirical-rule-68-95-99.7-rule"><i class="fa fa-check"></i><b>1.1.2</b> Empirical rule (<span class="math inline">\(68-95-99.7\)</span> rule)</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\mathsf{t}\)</span> distribution</a>
 <ul>
@@ -259,9 +260,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   \overline{X} = \frac{1}{m} \sum_{i=1}^m X_i\,, \tag{2.1}
 \end{equation}\]</span>
 or the sample variance,
-<span class="math display" id="eq:sample-var">\[\begin{equation*}
+<span class="math display" id="eq:sample-var">\[\begin{equation}
   S^2 = \frac{1}{m-1} \sum_{i=1}^m (X_i - \overline{X})^2 \,, \tag{2.2}
-\end{equation*}\]</span>
+\end{equation}\]</span>
 is also a rv.</p>
 <p>Suppose we actually find and measure the petal length of <span class="math inline">\(50\)</span> independent <em>setosa</em> flowers resulting in observations <span class="math inline">\(x_1, x_2, \dots, x_{50}\)</span>; the distribution (counts) of <span class="math inline">\(50\)</span> such petal length measurements are displayed in Figure <a href="statistical-inference.html#fig:setosa-petal-lengths">2.1</a>. The sample mean <span class="math inline">\(\overline{x}\)</span> for petal length can then be used to draw a conclusion about the (true) value of the population mean <span class="math inline">\(\mu\)</span>. Based on the data in Figure <a href="statistical-inference.html#fig:setosa-petal-lengths">2.1</a> and using <a href="statistical-inference.html#eq:sample-mean">(2.1)</a>, the value of the sample mean is <span class="math inline">\(\overline{x} = 1.462\)</span>. The value <span class="math inline">\(\overline{x}\)</span> provides a “best guess” or point estimate for the true value of <span class="math inline">\(\mu\)</span> based on the <span class="math inline">\(m=50\)</span> samples.</p>
 <div class="figure" style="text-align: center"><span id="fig:setosa-petal-lengths"></span>
@@ -359,7 +360,7 @@ for all <span class="math inline">\(\theta \in \Theta\)</span>.
 </blockquote>
 <p>This interpretation makes clear that a confidence interval is not a probability statement about the parameter <span class="math inline">\(\theta\)</span>. In Definition <a href="statistical-inference.html#def:confidence-interval-gen">2.3</a>, note that <span class="math inline">\(\theta\)</span> is fixed (<span class="math inline">\(\theta\)</span> is not a rv) and the interval <span class="math inline">\(C_m\)</span> is random. After data has been collected and a point estimator has been calculated, the resulting CIs either contain the true parameter value or they do not, as illustrated in Figure <a href="statistical-inference.html#fig:fifty-cis">2.3</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:fifty-cis"></span>
-<img src="ma22004_files/figure-html/fifty-cis-1.svg" alt="Fifty $95\%$ CIs for a population mean $\mu$. After a sample is taken, the computed interval estimate either contains $\mu$ or it does not (asterisk identify intervals that do not include $\mu$). When drawing such a large number of $95\%$ CIs, we would anticipate that approximately $5\%$ (ca. 2 or 3) would fail to cover the true parameter $\mu$." width="384" />
+<img src="ma22004_files/figure-html/fifty-cis-1.svg" alt="Fifty $95\%$ CIs for a population mean $\mu$. After a sample is taken, the computed interval estimate either contains $\mu$ or it does not (asterisk identify intervals that do not include $\mu$). When drawing such a large number of $95\%$ CIs, we would anticipate that approximately $5\%$ (ca. 2 or 3) would fail to cover the true parameter $\mu$." width="288" />
 <p class="caption">
 Figure 2.3: Fifty <span class="math inline">\(95\%\)</span> CIs for a population mean <span class="math inline">\(\mu\)</span>. After a sample is taken, the computed interval estimate either contains <span class="math inline">\(\mu\)</span> or it does not (asterisk identify intervals that do not include <span class="math inline">\(\mu\)</span>). When drawing such a large number of <span class="math inline">\(95\%\)</span> CIs, we would anticipate that approximately <span class="math inline">\(5\%\)</span> (ca. 2 or 3) would fail to cover the true parameter <span class="math inline">\(\mu\)</span>.
 </p>
@@ -452,8 +453,7 @@ where <span class="math inline">\(c\)</span> is referred to as a <strong>critica
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(H_0\)</span> is TRUE,</li>
 <li><span class="math inline">\(H_0\)</span> is FALSE, or</li>
-<li>a wrong conclusion is reached.<br />
-</li>
+<li>a wrong conclusion is reached.</li>
 </ol>
 </div>
 
