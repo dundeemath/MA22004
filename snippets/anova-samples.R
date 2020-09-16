@@ -24,3 +24,13 @@ df <- read_csv("data/anova-samples.csv")
 df$category <- factor(df$category, levels = seq(1, 6), labels = LETTERS[1:6])
 ggplot(df, aes(x = obs, y = reorder(category, desc(category)))) + geom_boxplot() + theme(axis.title.y = element_blank())
 ```   
+
+
+xx <- rnorm(40, mean = 0, sd = 1)
+yy <- rnorm(40, mean = 0, sd = 1)
+a <- rnorm(40, mean = 0, sd = .1)
+b <- rnorm(40, mean = 0, sd = .1)
+
+df <- tibble(xx = xx, yy = yy, a = a, b = b)
+
+write.csv(df, file = "data/linear-model-correlation.csv", row.names = FALSE)

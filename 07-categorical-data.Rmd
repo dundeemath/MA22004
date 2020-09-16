@@ -6,10 +6,9 @@ df_cat <- read_csv("data/cell-counts.csv")
 
 ## Multinomial experiments
 
-Suppose we have a population that is divided into $k > 2$ distinct categories. We consider an experiment where we select $m$ individuals (or objects) from the population and categorize each one. We denote the proportion of the population in the $i$th category by $p_i$. 
-If the sample size $m$ is much smaller than the population size $M$ (so that the $m$ trials are independent), this experiment will be approximately *multinomial* with success probability $p_i$ for each category, $i=1, \dots, k$. 
+Suppose we have a population that is divided into $k > 2$ distinct categories. We consider an experiment where we select $m$ individuals (or objects) from the population and categorize each one. We denote the proportion of the population in the $i$th category by $p_i$. If the sample size $m$ is much smaller than the population size $M$ (so that the $m$ trials are independent), this experiment will be approximately *multinomial* with success probability $p_i$ for each category, $i=1, \dots, k$. 
 
-Before the experiment is performed, we denote the number (or count) of the trails resulting in category $i$ by the rv $N_i$. The expected number of trails that result in category $i$ is given by 
+Before the experiment is performed, we denote the number (or count) of the trials resulting in category $i$ by the rv $N_i$. The expected number of trails that result in category $i$ is given by 
 \begin{equation}
 \E[N_i] = m p_i\,, \quad i=1, \dots, k\,.
 (\#eq:mean-count-multinomial)
@@ -51,24 +50,46 @@ that is, $V$ has approximately a $\chi^2$ distribution with $\nu = k-1$ df.
 ```  
 
 ```{proposition, htest-multinomial}
-For the null hypothesis 
+Consider the null
 \begin{equation*}
 H_0 : p_1 = p_{10}, p_2 = p_{20}, \cdots, p_k = p_{k0}\,,
 \end{equation*}
-and alternative 
+and the alternative 
 \begin{equation*}
-H_a : p_i \neq p_{i0}\; \text{for at least one}\; i\,,
+H_a : p_i \neq p_{i0}\; \text{for at least one}\; i\,.
 \end{equation*}
-the test statistic to consider is:
+The test statistic is
 \begin{equation*}
- V = \sum_{i=1}^k \frac{(n_i - m p_{i0})^2}{m p_{i0}}\,,
+ V = \sum_{i=1}^k \frac{(N_i - m p_{i0})^2}{m p_{i0}}\,.
 \end{equation*}
-provided, as a rule of thumb, $m p_{i0} \geq 5$ for all $i = 1, \dots, k$. 
+As a rule of thumb, provided $m p_{i0} \geq 5$ for all $i = 1, \dots, k$, then the $P$-value is the area under $\chi^2(k-1)$ to the right of $v$. 
 ```
+
+If $m p_{i0} < 5$ for some $i$ then it may be possible to combine the categories such that the new categorizations satisfy the assumptions of Proposition \@ref(prp:htest-multinomial).
 
 :::{.warningblock}
 Things are much more complicated if the category probabilities are not completely specified.   
 :::   
+
+<!-- ## Test for normality -->
+
+<!-- Probability plots comparing the theoretical quantiles of the normal distribution against the quantiles of sample data were introduced as an informal way of determining whether a distribution was normal (cf. Figures \@ref(fig:qq-plot-cherry) and \@ref(fig:qc-beer-pH-norm)); the closer the fit to a straight line, the stronger the evidence that the distribution is normal. In Section \@ref(correlation), we saw how the sample correlation $r$ was a quantitative measure of linear association. We give a special test for normality called the **Ryan--Joiner test**.  -->
+
+<!-- ```{theorem, ryan-joiner-test} -->
+<!-- For ordered^[Ordered smallest to largest.] sample data $x_{(1)}, x_{(2)}, \dots, x_{(m)}$, let  -->
+<!-- \begin{equation*} -->
+<!--  y_i = \Phi^{-1}\left( \frac{i - 0.375}{m + 0.25}\right)\,. -->
+<!-- \end{equation*} -->
+<!-- Compute the sample correlation coefficient $r$ in \@ref(eq:sample-correlation-statistic) for the pairs $(x_{(1)}, y_1), \dots, (x_{(m)}, y_m)$. For a level $\alpha$, the **Ryan--Joiner test** assumes the null hypothesis -->
+<!-- \begin{equation*} -->
+<!--  H_0 : \text{the population distribution is normal}\,, -->
+<!-- \end{equation*} -->
+<!-- against the alternative  -->
+<!-- \begin{equation*} -->
+<!--  H_a : \text{the population distribution is not normal}\,. -->
+<!-- \end{equation*} -->
+<!-- using the test statistic \@ref(eq:sample-correlation-statistic). The $P$-value is the area under the  -->
+<!-- ``` -->
 
 ## Test for independence of factors
 
@@ -91,15 +112,15 @@ that is, that an individual's category in factor 1 is independent of the categor
 
 Following the same program as for the single category goodness-of-fit test, we note that, assuming the null hypothesis \@ref(eq:null-two-factor) is true, then the expected count in cell $i,j$ is
 \begin{equation*}
- \E[N_{ij}] = n p_{ij} = m p_{i} p_{j}\,;
+ \E[N_{ij}] = m p_{ij} = m p_{i} p_{j}\,;
 \end{equation*}
 and we estimate $p_i$ and $p_j$ by the appropriate sample proportion:
 \begin{equation*}
-\widehat{p}_i = \frac{n_i}{m}\,, \quad n_i = \sum_{j} n_{ij} \qquad \text{(row total)}\,,
+\widehat{p}_i = \frac{n_i}{m}\,, \qquad n_i = \sum_{j} n_{ij} \quad \text{(row totals)}\,,
 \end{equation*}
 and 
 \begin{equation*}
-\widehat{p}_j = \frac{n_j}{m}\,, \quad n_j = \sum_{i} n_{ij}\qquad \text{(col total)}\,.
+\widehat{p}_j = \frac{n_j}{m}\,, \qquad n_j = \sum_{i} n_{ij}\quad \text{(column totals)}\,.
 \end{equation*}
 Thus, the expected cell count is given by
 \begin{equation*}
@@ -109,13 +130,19 @@ and we assess the goodness of fit between the observed cell count $n_ij$ and the
 
 
 ```{proposition, independence-test}
-Null hypothesis $H_0 : p_{ij} = p_i p_j$ for all $i=1, \dots, I$, $j=1, \dots, J$. 
-Alternative hypothesis $H_a : H_0 \;\text{is not true}$. 
-Test statistic:
+Assume the null hypothesis 
 \begin{equation*}
-V = \sum_{i=1}^I \sum_{j=1}^J \frac{(n_{ij} - \widehat{e}_{ij})^2}{\widehat{e}_{ij}}
+H_0 : p_{ij} = p_i p_j \; \text{for all } i=1, \dots, I\,, j=1, \dots, J\,,
 \end{equation*}
-Rule of thumb, $\widehat{e}_{ij} \geq 5$ for all $i,j$, and when $H_0$ is true then the test statistic has approximately $\chi^2((I-1)(J-1))$ distribution. Upper tail. 
+against the alternative hypothesis 
+\begin{equation*}
+H_a : H_0 \;\text{is not true}\,. 
+\end{equation*}
+The test statistic is 
+\begin{equation*}
+V = \sum_{i=1}^I \sum_{j=1}^J \frac{(N_{ij} - \widehat{e}_{ij})^2}{\widehat{e}_{ij}} \,.
+\end{equation*}
+As a rule of thumb, provided $\widehat{e}_{ij} \geq 5$ for all $i,j$ and when $H_0$ is true, then the test statistic has approximately a $\chi^2(\nu)$ distribution with $\nu = (I-1)(J-1)$ df. For a hypothesis test at level $\alpha$, the procedure is upper-tailed and the $P$-value is the area under $\chi^2(\nu)$ to the right of $v$. 
 ```
 
 

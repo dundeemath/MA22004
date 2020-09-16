@@ -4,6 +4,9 @@ x <- trees$Girth
 fit <- lm(y ~ x)
 e <- resid(fit)
 yhat <- predict(fit)
+ybar <- mean(y)
+sse <- (y - yhat)
+sst <- (y - ybar)
 df <- tibble(x = x, y = y, e = e, yhat = yhat)
 ```
 
@@ -23,7 +26,7 @@ and estimate the intercept $\beta_0$ and slope $\beta_1$ of this linear model fr
  (Y_1, X_1), \dots, (Y_m, X_m) \sim F_{Y,X}\,.
 \end{equation*}
 
-## Simple linear regression models
+## Simple linear regression models {#simple-linear-regression}
 
 The simplest regression is when $X_i$ is one-dimensional and $r(x)$ is linear as in \@ref(eq:linear-regression-function). A linear regression posits the expected value of $Y_i$ is a linear function of the data $X_i$, but that $Y$ deviates from its expected value by a random amount for fixed $x_i$. 
 
@@ -54,7 +57,7 @@ and the **predicted** or **fitted value** $\widehat{Y}_i = \widehat{r}(X_i)$ is 
  \widehat{\epsilon}_i = Y_i - \widehat{Y}_i = Y_i - \left( \widehat{\beta}_0 + \widehat{\beta}_1 X_i \right) \,.
  (\#eq:ls-residuals)
 \end{equation}
-The **residual sums of squares**,^[The $\mathsf{RSS}$ is sometimes referred to as the **error sum of squares** and abbreviated $\mathsf{SSE}$ (no, that isn't a typo).]
+The **residual sums of squares**,^[The $\mathsf{RSS}$ is sometimes referred to as the **error sum of squares** and abbreviated $\mathsf{SSE}$ (no, the order is not a typo a typo).]
 \begin{equation}
  \mathsf{RSS} = \sum_{i=1}^m \widehat{\epsilon}_i^2\,,
  (\#eq:rss)
@@ -77,7 +80,7 @@ and
 Equation \@ref(eq:rss) is a function of $\widehat{\beta}_0$ and $\widehat{\beta}_1$ from the definition of the residuals \@ref(eq:ls-residuals). Then \@ref(eq:ls-slope) and \@ref(eq:ls-intercept) follow by equating the partial derivatives of \@ref(eq:rss) to zero. The $\widehat{\beta}_0$ and $\widehat{\beta}_1$ are the unique solution to this linear system.
 
 ```{example, linear-model-fit-residuals}
-In Figure \@ref(fig:linear-model-fit), we consider the **Cherry Tree Data** (see Table \@ref(tab:cherry-data) and discussion). We fit a least squares regression of the volume of timber (response variable) to the diameter of the tree (independent variable). As you would expect, the volume of timber yielded from a tree increases with its diameter.
+In Figures \@ref(fig:linear-model-fit) and \@ref(fig:linear-model-residuals), we consider the **Cherry Tree Data** (see Table \@ref(tab:cherry-data) and discussion). We fit a least squares regression of the volume of timber (response variable) to the diameter of the tree (independent variable). As you would expect, the timber yield increases with diameter.
 ```
 
 The `r` code below can be used to calculate the least squares regression and residuals. 
@@ -95,18 +98,30 @@ The `fit` data frame contains the estimates for $\widehat{\beta}_0$ and $\wideha
 fit$coefficients
 ```
 
-In Figure \@ref(fig:linear-model-fit), the regression line is `yhat` plotted against `x` and the error bars indicate the least squares residuals, i.e., the difference `y - yhat`. The residuals are presented a second way in Figure \@ref(fig:linear-model-residuals).  $\lozenge$   
+Both Figures \@ref(fig:linear-model-fit) and \@ref(fig:linear-model-residuals) are scatter plots of the observed values $y$. In Figure \@ref(fig:linear-model-fit), the regression line $\widehat{y}$ is plotted along with the residuals $\widehat{\epsilon}$. In Figure \@ref(fig:linear-model-residuals), the sample mean $\overline{y}$ is plotted together with the deviations $y - \overline{y}$.  $\lozenge$   
 
-```{r linear-model-fit, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Linear regression (or least squares fit) of Volume to Diameter from the **Cherry Tree Data**. The vertical bars between the observed data point and the regression line indicate the error in the fit (the least squares residual)."}
-ggplot(df, aes(x = x, y = y)) + geom_line(aes(y=yhat, color = "regression"), size = 1) + geom_segment(aes(x=x, xend=x, y=y, yend=yhat, color="error"), linetype = 11) + geom_point(alpha = 0.8) +  xlab("Diameter [in]") + ylab("Volume [cu ft]") + theme_lr + theme(legend.title = element_blank()) 
+```{r linear-model-fit, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Linear regression (or least squares fit) of Volume to Diameter from the **Cherry Tree Data**. The vertical bars between the observed data point and the regression line indicate the error in the fit (the least squares residual). The residuals are squared and summed to yield the $\\mathsf{RSS}$ (alt: $\\mathsf{SSE}$)."}
+ggplot(df, aes(x = x, y = y)) + 
+        geom_line(aes(y=yhat, color = "regression"), size = 1) + 
+        geom_segment(aes(x=x, xend=x, y=y, yend=yhat, color="residuals"), linetype = 11) + 
+        geom_point(alpha = 0.8) +  
+        annotate("text", x = 10.5, y = 75, size = 5,
+                 label=TeX("$\\widehat{\\beta}_0 = -36.943\\,,\\; \\widehat{\\beta}_1 = 5.066$")) + 
+        xlab("Diameter [in]") + ylab("Volume [cu ft]") + 
+        theme_lr + theme(legend.title = element_blank()) 
 ```   
 
-```{r linear-model-residuals, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "The residuals of the least squares fit of Volume to Diameter plotted in Figure \\@ref(fig:linear-model-fit)."}
-ggplot(df, aes(x = x, y = e)) + geom_line(aes(y=0), size = 1) + geom_segment(aes(x=x, xend=x, y=e, yend=0, color="error"), linetype = 11) + geom_point(alpha = 0.8) +  xlab("Diameter [in]") + ylab("Residuals") + theme_lr + theme(legend.title = element_blank())
+```{r linear-model-residuals, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "The deviations about the sample mean $\\overline{y}$. The sum of the squared deviations or $\\mathsf{SST}$ (total sum of squares) is a measure of the total variation in the observations."}
+ggplot(df, aes(x = x, y = y)) + geom_line(aes(y = ybar, color = "mean"), size = 1) + 
+        geom_segment(aes(x = x, xend = x, y = ybar, yend = y, color = "deviations"), linetype = 10) + 
+        geom_point(alpha = 0.8) +  
+        annotate("text", x = 8, y = ybar, size = 5, vjust = .75, label=TeX("$\\bar{y}$")) + 
+        xlab("Diameter [in]") + ylab("Volume [cu ft]") + 
+        theme_lr + theme(legend.title = element_blank())
 ```   
 
 
-## Estimating $\sigma^2$ for linear regressions
+## Estimating $\sigma^2$ for linear regressions {#ls-estimate-var}
 
 The parameter $\sigma^2$ (the variance of the random deviation) determines the variability in the regression model.   
 
@@ -145,7 +160,7 @@ is an unbiased estimator or $\sigma^2$ and the random variable
 Moreover, the statistic $S^2$ is independent of both $\widehat{\beta}_0$ and $\widehat{\beta}_1$. 
 
 
-## Inferences for least-squares estimators
+## Inferences for least-squares parameters {#inference-ls}
 
 If $\epsilon_i$ in \@ref(eq:linear-model) is assumed to be normally distributed, then we can derive the sampling distributions of the estimators $\widehat{\beta}_0$ and $\widehat{\beta}_1$. Hence, we can use these sampling distributions to make inferences about the parameters $\beta_0$ and $\beta_1$. 
 
@@ -159,21 +174,25 @@ Provided iid $\epsilon_i \mid X_i \sim \mathsf{N}(0, \sigma^2)$, the least-squar
 
 These properties can be determined by working directly from \@ref(eq:ls-slope) and \@ref(eq:ls-intercept).   
 
+
 ```{proposition, htest-ls-betas}
-To test the null hypothesis $H_0 : \beta_i = \beta_{i0}$ against the alternatives
+Consider $H_0 : \beta_i = \beta_{i0}$. The test statistic is
 \begin{equation*}
-H_a : \begin{cases} 
-\beta_i > \beta_{i0} & \text{upper-tail RR} \\ 
-\beta_i < \beta_{i0} & \text{lower-tail RR} \\ 
-\beta_i \neq \beta_{i0} & \text{two-tailed RR}
-\end{cases}
+ T = \frac{\widehat{\beta}_i - \beta_{i0}}{S\sqrt{c_{ii}}} \,.
+ (\#eq:htest-ls-betas-statistic)
 \end{equation*}
-Test statistic:
-\begin{equation*}
- T = \frac{\widehat{\beta}_i - \beta_{i0}}{S\sqrt{c_{ii}}}
-\end{equation*}
-where $t_\alpha$ is based on $m-2$ df.
-```
+
+For a hypothesis test at level $\alpha$, we use the following procedure:
+
+If $H_a : \beta_i > \beta_{i0}$, then $P$-value is the area under $\mathsf{t}(m-2)$ to the right of $t$.
+
+If $H_a : \beta_i < \beta_{i0}$, tthen $P$-value is the area under $\mathsf{t}(m-2)$ to the left of $t$.
+
+If $H_a : \beta_i \neq \beta_{i0}$, then $P$-value is twice the area under $\mathsf{t}(m-2)$ to the right of $|t|$.
+```    
+
+
+A confidence interval for $\beta_i$, based on the statistic \@ref(eq:htest-ls-betas-statistic), can be given following the procedures in \@ref(inference-single-sample).
 
 ```{proposition, ci-ls-betas}
 A $100(1-\alpha)\%$ CI for $\beta_i$ is given by 
@@ -183,21 +202,48 @@ A $100(1-\alpha)\%$ CI for $\beta_i$ is given by
 ```
 
 
-## Correlation
+## Correlation {#correlation}
 
 Let $(X_1, Y_1), \dots, (X_m, Y_m)$ denote a random sample from a bivariate normal distribution with $\E[X_i] = \mu_X$, $\E[Y_i] = \mu_Y$, $\Var[X_i] = \sigma_X^2$, $\Var[Y_i] = \sigma_Y^2$, and correlation coefficient $\rho$. The sample correlation coefficient is given by,
-\begin{equation*}
+\begin{equation}
  r = \frac{\sum_{i=1}^m (X_i - \overline{X})(Y_i - \overline{Y})}{\sqrt{\sum_{i=1}^m (X_i - \overline{X})^2 \sum_{i=1}^m (Y_i - \overline{Y})^2}}\,,
-\end{equation*}
+ (\#eq:sample-correlation-statistic)
+\end{equation}
 which can be rewritten in terms of $S_{xx}$, $S_{xy}$, and $S_{yy}$:
 \begin{equation*}
  r = \frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}} = \widehat{\beta}_1 \sqrt{\frac{S_{xx}}{S_{yy}}}\,,
 \end{equation*}
-using \@ref(eq:ls-slope) and we see that $r$ and $\widehat{\beta}_1$ have the same sign. A $|r|$ close to $1$ means that the regression line is a good fit to the data and, similarly, an $|r|$ close to $0$ means a poor fit to the data. 
+using \@ref(eq:ls-slope) and we see that $r$ and $\widehat{\beta}_1$ have the same sign. A $|r|$ close to $1$ means that the regression line is a good fit to the data and, similarly, an $|r|$ close to $0$ means a poor fit to the data. Note that the correlation coefficient (and the least squares regression) are only suitable for describing *linear* relationships; a nonlinear relationship can also yield $r$ near zero (see Figure \@ref(fig:linear-model-correlation)).
 
-```{}
-**TODO**: insert plots for correlation coefficients and interpretation
-```   
+```{r linear-model-correlation, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Correlations range from $-1$ to $1$ with $|r|=1$ indicating a strong linear relationship and $r$ near zero indicating the absence of a linear relationship."}
+df6 <- read_csv("data/linear-model-correlation.csv")
+pa <- ggplot(df6, aes(x = xx, y = yy)) + geom_point(aes(color = "pts")) + 
+        ggtitle(TeX('(c) $r \\approx 0$, no relationship apparent')) + 
+        theme(axis.title.y = element_blank(), axis.ticks.y=element_blank(), 
+              axis.text.y=element_blank(), axis.title.x = element_blank(), 
+              axis.ticks.x=element_blank(), axis.text.x=element_blank(), 
+              legend.position = "none", plot.title = element_text(size = 12))
+pb <- ggplot(df6, aes(x = xx, y = -xx^2 + a)) + geom_point(aes(color = "pts")) + 
+        ggtitle(TeX('(d) $r \\approx 0$, nonlinear relationship')) + 
+        theme(axis.title.y = element_blank(), axis.ticks.y=element_blank(), 
+              axis.text.y=element_blank(), axis.title.x = element_blank(), 
+              axis.ticks.x=element_blank(), axis.text.x=element_blank(), 
+              legend.position = "none", plot.title = element_text(size = 12))
+pc <- ggplot(df6, aes(x = xx, y = xx + 2 + a)) + geom_point(aes(color = "pts")) + 
+        ggtitle(TeX('(a) $r \\approx +1$, linear relationship')) + 
+        theme(axis.title.y = element_blank(), axis.ticks.y=element_blank(), 
+              axis.text.y=element_blank(), axis.title.x = element_blank(), 
+              axis.ticks.x=element_blank(), axis.text.x=element_blank(), 
+              legend.position = "none", plot.title = element_text(size = 12))
+pd <- ggplot(df6, aes(x = xx, y = 8 - xx + b)) + geom_point(aes(color = "pts")) + 
+        ggtitle(TeX('(b) $r \\approx -1$, linear relationship')) + 
+        theme(axis.title.y = element_blank(), axis.ticks.y=element_blank(), 
+              axis.text.y=element_blank(), axis.title.x = element_blank(), 
+              axis.ticks.x=element_blank(), axis.text.x=element_blank(), 
+              legend.position = "none", plot.title = element_text(size = 12))
+plot_grid(pc, pd, pa, pb, ncol = 2, nrow = 2)
+```  
+
 
 Once a model is fit, it can be used to predict a value of $y$ for a given $x$. However, the model only gives the most likely value of $y$; a corresponding **prediction interval** is usually more appropriate. 
 

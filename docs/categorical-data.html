@@ -211,9 +211,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>6</b> Linear regression</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="linear-models.html"><a href="linear-models.html#simple-linear-regression-models"><i class="fa fa-check"></i><b>6.1</b> Simple linear regression models</a></li>
-<li class="chapter" data-level="6.2" data-path="linear-models.html"><a href="linear-models.html#estimating-sigma2-for-linear-regressions"><i class="fa fa-check"></i><b>6.2</b> Estimating <span class="math inline">\(\sigma^2\)</span> for linear regressions</a></li>
-<li class="chapter" data-level="6.3" data-path="linear-models.html"><a href="linear-models.html#inferences-for-least-squares-estimators"><i class="fa fa-check"></i><b>6.3</b> Inferences for least-squares estimators</a></li>
+<li class="chapter" data-level="6.1" data-path="linear-models.html"><a href="linear-models.html#simple-linear-regression"><i class="fa fa-check"></i><b>6.1</b> Simple linear regression models</a></li>
+<li class="chapter" data-level="6.2" data-path="linear-models.html"><a href="linear-models.html#ls-estimate-var"><i class="fa fa-check"></i><b>6.2</b> Estimating <span class="math inline">\(\sigma^2\)</span> for linear regressions</a></li>
+<li class="chapter" data-level="6.3" data-path="linear-models.html"><a href="linear-models.html#inference-ls"><i class="fa fa-check"></i><b>6.3</b> Inferences for least-squares parameters</a></li>
 <li class="chapter" data-level="6.4" data-path="linear-models.html"><a href="linear-models.html#correlation"><i class="fa fa-check"></i><b>6.4</b> Correlation</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="categorical-data.html"><a href="categorical-data.html"><i class="fa fa-check"></i><b>7</b> Categorical data</a>
@@ -253,9 +253,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">7</span> Categorical data</h1>
 <div id="multinomial-experiments" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Multinomial experiments</h2>
-<p>Suppose we have a population that is divided into <span class="math inline">\(k &gt; 2\)</span> distinct categories. We consider an experiment where we select <span class="math inline">\(m\)</span> individuals (or objects) from the population and categorize each one. We denote the proportion of the population in the <span class="math inline">\(i\)</span>th category by <span class="math inline">\(p_i\)</span>.
-If the sample size <span class="math inline">\(m\)</span> is much smaller than the population size <span class="math inline">\(M\)</span> (so that the <span class="math inline">\(m\)</span> trials are independent), this experiment will be approximately <em>multinomial</em> with success probability <span class="math inline">\(p_i\)</span> for each category, <span class="math inline">\(i=1, \dots, k\)</span>.</p>
-<p>Before the experiment is performed, we denote the number (or count) of the trails resulting in category <span class="math inline">\(i\)</span> by the rv <span class="math inline">\(N_i\)</span>. The expected number of trails that result in category <span class="math inline">\(i\)</span> is given by
+<p>Suppose we have a population that is divided into <span class="math inline">\(k &gt; 2\)</span> distinct categories. We consider an experiment where we select <span class="math inline">\(m\)</span> individuals (or objects) from the population and categorize each one. We denote the proportion of the population in the <span class="math inline">\(i\)</span>th category by <span class="math inline">\(p_i\)</span>. If the sample size <span class="math inline">\(m\)</span> is much smaller than the population size <span class="math inline">\(M\)</span> (so that the <span class="math inline">\(m\)</span> trials are independent), this experiment will be approximately <em>multinomial</em> with success probability <span class="math inline">\(p_i\)</span> for each category, <span class="math inline">\(i=1, \dots, k\)</span>.</p>
+<p>Before the experiment is performed, we denote the number (or count) of the trials resulting in category <span class="math inline">\(i\)</span> by the rv <span class="math inline">\(N_i\)</span>. The expected number of trails that result in category <span class="math inline">\(i\)</span> is given by
 <span class="math display" id="eq:mean-count-multinomial">\[\begin{equation}
 \E[N_i] = m p_i\,, \quad i=1, \dots, k\,.
 \tag{7.1}
@@ -359,23 +358,41 @@ that is, <span class="math inline">\(V\)</span> has approximately a <span class=
 </div>
 
 <div class="proposition">
-<span id="prp:htest-multinomial" class="proposition"><strong>Proposition 7.1  </strong></span>For the null hypothesis
+<span id="prp:htest-multinomial" class="proposition"><strong>Proposition 7.1  </strong></span>Consider the null
 <span class="math display">\[\begin{equation*}
 H_0 : p_1 = p_{10}, p_2 = p_{20}, \cdots, p_k = p_{k0}\,,
 \end{equation*}\]</span>
-and alternative
+and the alternative
 <span class="math display">\[\begin{equation*}
-H_a : p_i \neq p_{i0}\; \text{for at least one}\; i\,,
+H_a : p_i \neq p_{i0}\; \text{for at least one}\; i\,.
 \end{equation*}\]</span>
-the test statistic to consider is:
+The test statistic is
 <span class="math display">\[\begin{equation*}
- V = \sum_{i=1}^k \frac{(n_i - m p_{i0})^2}{m p_{i0}}\,,
+ V = \sum_{i=1}^k \frac{(N_i - m p_{i0})^2}{m p_{i0}}\,.
 \end{equation*}\]</span>
-provided, as a rule of thumb, <span class="math inline">\(m p_{i0} \geq 5\)</span> for all <span class="math inline">\(i = 1, \dots, k\)</span>.
+As a rule of thumb, provided <span class="math inline">\(m p_{i0} \geq 5\)</span> for all <span class="math inline">\(i = 1, \dots, k\)</span>, then the <span class="math inline">\(P\)</span>-value is the area under <span class="math inline">\(\chi^2(k-1)\)</span> to the right of <span class="math inline">\(v\)</span>.
 </div>
+<p>If <span class="math inline">\(m p_{i0} &lt; 5\)</span> for some <span class="math inline">\(i\)</span> then it may be possible to combine the categories such that the new categorizations satisfy the assumptions of Proposition <a href="categorical-data.html#prp:htest-multinomial">7.1</a>.</p>
 <div class="warningblock">
 <p>Things are much more complicated if the category probabilities are not completely specified.</p>
 </div>
+<!-- ## Test for normality -->
+<!-- Probability plots comparing the theoretical quantiles of the normal distribution against the quantiles of sample data were introduced as an informal way of determining whether a distribution was normal (cf. Figures \@ref(fig:qq-plot-cherry) and \@ref(fig:qc-beer-pH-norm)); the closer the fit to a straight line, the stronger the evidence that the distribution is normal. In Section \@ref(correlation), we saw how the sample correlation $r$ was a quantitative measure of linear association. We give a special test for normality called the **Ryan--Joiner test**.  -->
+<!-- ```{theorem, ryan-joiner-test} -->
+<!-- For ordered^[Ordered smallest to largest.] sample data $x_{(1)}, x_{(2)}, \dots, x_{(m)}$, let  -->
+<!-- \begin{equation*} -->
+<!--  y_i = \Phi^{-1}\left( \frac{i - 0.375}{m + 0.25}\right)\,. -->
+<!-- \end{equation*} -->
+<!-- Compute the sample correlation coefficient $r$ in \@ref(eq:sample-correlation-statistic) for the pairs $(x_{(1)}, y_1), \dots, (x_{(m)}, y_m)$. For a level $\alpha$, the **Ryan--Joiner test** assumes the null hypothesis -->
+<!-- \begin{equation*} -->
+<!--  H_0 : \text{the population distribution is normal}\,, -->
+<!-- \end{equation*} -->
+<!-- against the alternative  -->
+<!-- \begin{equation*} -->
+<!--  H_a : \text{the population distribution is not normal}\,. -->
+<!-- \end{equation*} -->
+<!-- using the test statistic \@ref(eq:sample-correlation-statistic). The $P$-value is the area under the  -->
+<!-- ``` -->
 </div>
 <div id="test-for-independence-of-factors" class="section level2" number="7.3">
 <h2><span class="header-section-number">7.3</span> Test for independence of factors</h2>
@@ -396,15 +413,15 @@ H_0 : p_{ij} = p_{i} \cdot p_{j} \; \forall (i,j)\,,
 that is, that an individual’s category in factor 1 is independent of the category in factor 2.</p>
 <p>Following the same program as for the single category goodness-of-fit test, we note that, assuming the null hypothesis <a href="categorical-data.html#eq:null-two-factor">(7.3)</a> is true, then the expected count in cell <span class="math inline">\(i,j\)</span> is
 <span class="math display">\[\begin{equation*}
- \E[N_{ij}] = n p_{ij} = m p_{i} p_{j}\,;
+ \E[N_{ij}] = m p_{ij} = m p_{i} p_{j}\,;
 \end{equation*}\]</span>
 and we estimate <span class="math inline">\(p_i\)</span> and <span class="math inline">\(p_j\)</span> by the appropriate sample proportion:
 <span class="math display">\[\begin{equation*}
-\widehat{p}_i = \frac{n_i}{m}\,, \quad n_i = \sum_{j} n_{ij} \qquad \text{(row total)}\,,
+\widehat{p}_i = \frac{n_i}{m}\,, \qquad n_i = \sum_{j} n_{ij} \quad \text{(row totals)}\,,
 \end{equation*}\]</span>
 and
 <span class="math display">\[\begin{equation*}
-\widehat{p}_j = \frac{n_j}{m}\,, \quad n_j = \sum_{i} n_{ij}\qquad \text{(col total)}\,.
+\widehat{p}_j = \frac{n_j}{m}\,, \qquad n_j = \sum_{i} n_{ij}\quad \text{(column totals)}\,.
 \end{equation*}\]</span>
 Thus, the expected cell count is given by
 <span class="math display">\[\begin{equation*}
@@ -413,13 +430,19 @@ Thus, the expected cell count is given by
 and we assess the goodness of fit between the observed cell count <span class="math inline">\(n_ij\)</span> and the expected cell count <span class="math inline">\(\widehat{e}_ij\)</span>.</p>
 
 <div class="proposition">
-<span id="prp:independence-test" class="proposition"><strong>Proposition 7.2  </strong></span>Null hypothesis <span class="math inline">\(H_0 : p_{ij} = p_i p_j\)</span> for all <span class="math inline">\(i=1, \dots, I\)</span>, <span class="math inline">\(j=1, \dots, J\)</span>.
-Alternative hypothesis <span class="math inline">\(H_a : H_0 \;\text{is not true}\)</span>.
-Test statistic:
+<span id="prp:independence-test" class="proposition"><strong>Proposition 7.2  </strong></span>Assume the null hypothesis
 <span class="math display">\[\begin{equation*}
-V = \sum_{i=1}^I \sum_{j=1}^J \frac{(n_{ij} - \widehat{e}_{ij})^2}{\widehat{e}_{ij}}
+H_0 : p_{ij} = p_i p_j \; \text{for all } i=1, \dots, I\,, j=1, \dots, J\,,
 \end{equation*}\]</span>
-Rule of thumb, <span class="math inline">\(\widehat{e}_{ij} \geq 5\)</span> for all <span class="math inline">\(i,j\)</span>, and when <span class="math inline">\(H_0\)</span> is true then the test statistic has approximately <span class="math inline">\(\chi^2((I-1)(J-1))\)</span> distribution. Upper tail.
+against the alternative hypothesis
+<span class="math display">\[\begin{equation*}
+H_a : H_0 \;\text{is not true}\,. 
+\end{equation*}\]</span>
+The test statistic is
+<span class="math display">\[\begin{equation*}
+V = \sum_{i=1}^I \sum_{j=1}^J \frac{(N_{ij} - \widehat{e}_{ij})^2}{\widehat{e}_{ij}} \,.
+\end{equation*}\]</span>
+As a rule of thumb, provided <span class="math inline">\(\widehat{e}_{ij} \geq 5\)</span> for all <span class="math inline">\(i,j\)</span> and when <span class="math inline">\(H_0\)</span> is true, then the test statistic has approximately a <span class="math inline">\(\chi^2(\nu)\)</span> distribution with <span class="math inline">\(\nu = (I-1)(J-1)\)</span> df. For a hypothesis test at level <span class="math inline">\(\alpha\)</span>, the procedure is upper-tailed and the <span class="math inline">\(P\)</span>-value is the area under <span class="math inline">\(\chi^2(\nu)\)</span> to the right of <span class="math inline">\(v\)</span>.
 </div>
 
 </div>
