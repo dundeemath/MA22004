@@ -108,7 +108,7 @@ For a hypothesis test at level $\alpha$, we use the following procedure:
 
 If $H_a : \mu > \mu_0$, then $P = 1 - \Phi(z)$, i.e., upper-tail $R = \{z > z_{\alpha}\}$.
 
-If $H_a : \mu < \mu_0$, then $P = \Phi(z)$, i.e., lower-tail $R = \{z < z_{\alpha}\}$. 
+If $H_a : \mu < \mu_0$, then $P = \Phi(z)$, i.e., lower-tail $R = \{z < - z_{\alpha}\}$. 
 
 If $H_a : \mu \neq \mu_0$, then $P = 2(1-\Phi(|z|))$, i.e., two-tailed $R = \{|z| > z_{\alpha/2}\}$.
 ```
@@ -422,4 +422,4 @@ Pulling everything together, a $95\%$ CI for the population variance is given by
  &\qquad = \left(172.5\,, 482.8\right)\,.
  \end{aligned}
 \end{equation*}
-Note that the position of the critical values---don't swap them round. $\lozenge$   
+Note the position of the critical values---don't swap them round. $\lozenge$   

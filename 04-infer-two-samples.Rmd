@@ -51,7 +51,7 @@ When $\sigma_X^2$ and $\sigma_Y^2$ are known, standardizing $\overline{X} - \ove
  Z = \frac{\overline{X} - \overline{Y} - (\mu_X - \mu_Y)}{\sqrt{\frac{\sigma_X^2}{m} + \frac{\sigma_Y^2}{n}}}\quad \sim \mathsf{N}(0,1)\,.
  (\#eq:compare-means-standard-trans)
 \end{equation}  
-Inferences proceed by treating the parameter of interest $\theta$ as a single sample using \@ref(eq:compare-means-standard-trans).  
+Inferences proceed by treating the parameter of interest $\theta$ as in the single sample case using the test statistic \@ref(eq:compare-means-standard-trans).  
 
 ```{proposition, ci-compare-means-normpops-vars-known}
 A $100(1-\alpha)\%$ CI for the parameter $\theta = \mu_X - \mu_Y$ based on samples of size $m$ from a normal population $\mathsf{N}(\mu_X, \sigma_X^2)$ and of size $n$ from $\mathsf{N}(\mu_Y, \sigma_Y^2)$  with known variances, is given by
@@ -59,15 +59,25 @@ A $100(1-\alpha)\%$ CI for the parameter $\theta = \mu_X - \mu_Y$ based on sampl
  (\overline{x} + \overline{y}) \pm z_{\alpha/2} 
  \cdot \sqrt{\frac{\sigma_X^2}{m} + \frac{\sigma_Y^2}{n}} \,.
 \end{equation*}
-```  
-
+```   
 
 ```{proposition, htest-compare-means-normpops-vars-known}
-For null hypothesis $H_0 : \mu_X - \mu_Y = \theta_0$, the test statistic to consider is:
-\begin{equation*}
- z = \frac{\overline{x} - \overline{y} - \theta_0}{\sqrt{\frac{\sigma_X^2}{m} + \frac{\sigma_Y^2}{n}}}
-\end{equation*}
-```  
+Assume that we sample iid $X_1, \dots, X_m \sim \mathsf{N}(\mu_X, \sigma_X^2)$ and iid $Y_1, \dots, Y_n \sim \mathsf{N}(\mu_Y, \sigma_Y^2)$ and that the $X$ and $Y$ samples are independent. 
+
+Consider $H_0 : \mu_X - \mu_Y = \theta_0$. The test statistic is
+\begin{equation}
+ Z = \frac{\overline{X} - \overline{Y} - \theta_0}{\sqrt{\frac{\sigma_{X}^2}{m} + \frac{\sigma_{Y}^2}{n}}}\,.
+ (\#eq:htest-compare-means-normpops-vars-known-statistic)
+\end{equation}
+
+For a hypothesis test at level $\alpha$, we use the following procedure:
+
+If $H_a : \mu_X - \mu_Y > \theta_0$, then $P = 1 - \Phi(z)$, i.e., upper-tail $R = \{z > z_{\alpha}\}$.
+
+If $H_a : \mu_X - \mu_Y < \theta_0$, then $P = \Phi(z)$, i.e., lower-tail $R = \{z < - z_{\alpha}\}$. 
+
+If $H_a : \mu_X - \mu_Y \neq \theta_0$, then $P = 2(1-\Phi(|z|))$, i.e., two-tailed $R = \{|z| > z_{\alpha/2}\}$.
+```   
 
 ### Comparing means when the sample sizes are large {#compare-means-large-samples}
 
@@ -82,11 +92,12 @@ For $m$ and $n$ sufficiently large, an approximate $100(1-\alpha)\%$ CI for $\mu
 ```
 
 ```{proposition, htest-compare-means-large-samples}
-For null hypothesis $H_0 : \mu_X - \mu_Y = \theta_0$, the test statistic to consider is:
+Under the same assumptions and procedures as in Proposition \@ref(prp:htest-compare-means-normpops-vars-known), a large-sample, i.e., $m > 40$ and $n > 40$, test statistic,
 \begin{equation*}
- z = \frac{\overline{x} - \overline{y} - \theta_0}{\sqrt{\frac{s_{X}^2}{m} + \frac{s_{Y}^2}{n}}}
+ Z = \frac{\overline{X} - \overline{Y} - \theta_0}{\sqrt{\frac{S_{X}^2}{m} + \frac{S_{Y}^2}{n}}}\,,
 \end{equation*}
-```
+can be used in place of \@ref(eq:htest-compare-means-normpops-vars-known-statistic) for hypothesis testing. 
+```   
 
 ### Comparing means of normal populations when variances are unknown and the sample size is small {#compare-means-normpops-vars-unknown}
 
@@ -110,7 +121,7 @@ where $s_X^2$ and $s_Y^2$ are point estimators of the sample variances; alternat
  \quad \text{and} \quad \qquad 
  s_{\overline{Y}} = \frac{s_Y}{\sqrt{n}} \,.
 \end{equation*}
-```  
+```   
 
 The formula \@ref(eq:dist-t-compare-means-normpops-nu) for the data-driven choice of $\nu$ calls for the computation of the standard error of the sample means. 
 
@@ -124,13 +135,27 @@ where we recall that $t_{\alpha/2, \nu}$ is the $\alpha/2$ critical value of $\m
 
 
 ```{proposition, htest-compare-means-normpops-vars-unknown}
-For the null hypothesis $H_0 = \mu_X - \mu_Y = \theta_0$, the test statistic to consider is:
-\begin{equation*}
-t = \frac{(\overline{x} - \overline{y}) - \theta_0}{\sqrt{ \frac{s_X^2}{m} + \frac{s_Y^2}{n}}}
-\end{equation*}
-```  
+Assume that we sample iid $X_1, \dots, X_m$ and iid $Y_1, \dots, Y_n$ from normal populations with with unknown variances and means $\mu_X$ and $\mu_Y$, respecitvely, and that the $X$ and $Y$ samples are independent. 
 
-If the normal populations have the same variance (i.e., the populations differ only in *location* not in *spread*), then matters simplify. If the variances of the normal populations are unknown but are the same (i.e., $\sigma_X^2 = \sigma_Y^2$), then deriving CIs and test statistics for comparing the means can be simplified by considering a combined or pooled estimator for (the single parameter) $\sigma^2$. If we have two samples from populations with variance $\sigma^2$, then each sample provides an estimate for $\sigma^2$. That is, $S_X^2$, based on the $m$ observations of the first sample, is one estimator for $\sigma^2$ and another is given by $S_Y^2$, based on $n$ observations of the second sample. The correct way to combine these two estimators into a single estimator for the sample variance is to consider the **pooled estimator** of $\sigma^2$, 
+Consider $H_0 : \mu_X - \mu_Y = \theta_0$. The test statistic is
+\begin{equation}
+ T = \frac{\overline{X} - \overline{Y} - \theta_0}{\sqrt{\frac{S_{X}^2}{m} + \frac{S_{Y}^2}{n}}}\,.
+ (\#eq:htest-compare-means-normpops-vars-unknown-statistic)
+\end{equation}
+
+For a hypothesis test at level $\alpha$, we use the following procedure:
+
+If $H_a : \mu_X - \mu_Y > \theta_0$, then $P$-value is the area under $\mathsf{t}(\nu)$ to the right of $t$, i.e., upper-tail $R = \{t > t_{\alpha,\nu}\}$.
+
+If $H_a : \mu_X - \mu_Y < \theta_0$, then $P$-value is the area under $\mathsf{t}(\nu)$ to the left of $t$, i.e., lower-tail $R = \{t < - t_{\alpha,\nu}\}$. 
+
+If $H_a : \mu_X - \mu_Y \neq \theta_0$, then $P$-value is twice the area under $\mathsf{t}(\nu)$ to the right of $|t|$, i.e., two-tailed $R = \{|t| > t_{\alpha/2, \nu}\}$.
+
+Here $\nu$ is given by \@ref(eq:dist-t-compare-means-normpops-nu).
+```   
+
+
+If the variances of the normal populations are unknown but are the same, $\sigma_X^2 = \sigma_Y^2$, then deriving CIs and test statistics for comparing the means can be simplified by considering a combined or pooled estimator for the single parameter $\sigma^2$. If we have two samples from populations with variance $\sigma^2$, then each sample provides an estimate for $\sigma^2$. That is, $S_X^2$, based on the $m$ observations of the first sample, is one estimator for $\sigma^2$ and another is given by $S_Y^2$, based on $n$ observations of the second sample. The correct way to combine these two estimators into a single estimator for the sample variance is to consider the **pooled estimator** of $\sigma^2$, 
 \begin{equation}
  S_{\mathsf{p}}^2 = \frac{m-1}{m+n-2} S_X^2 + \frac{n-1}{m+n-2} S_Y^2 \,.
  (\#eq:pooled-sample-var)
@@ -146,11 +171,16 @@ A $100(1-\alpha)\%$ CI for $\mu_X - \mu_Y$ for two samples of size $m$ and $n$ f
 where we recall that $t_{\alpha/2, m+n-2}$ is the $\alpha/2$ critical value of the $\mathsf{t}(\nu)$ with $\nu = m + n - 2$ df. 
 ```  
 
-Similarly, one can consider a pooled $\mathsf{t}$ test, i.e., a hypothesis test based on the pooled estimator for the variance as opposed to the two-sample $\mathsf{t}$ test in Proposition \@ref(prp:htest-compare-means-normpops-vars-unknown). If you have reasons to believe that $\sigma_X^2 = \sigma_Y^2$, these pooled $\mathsf{t}$ procedures are appealing because $\nu$ is very easy to compute. 
+Similarly, one can consider a pooled $\mathsf{t}$ test, i.e., a hypothesis test based on the pooled estimator for the variance as opposed to the two-sample $\mathsf{t}$ test in Proposition \@ref(prp:htest-compare-means-normpops-vars-unknown). In the case of a pooled $\mathsf{t}$ test, the test statistic
+\begin{equation*}
+ T = \frac{\overline{X} - \overline{Y} - \theta_0}{\sqrt{S_{\mathsf{p}}^2 \left(\frac{1}{m} + \frac{1}{n}\right)}}\,,
+\end{equation*}
+with the pooled estimator of the variance, replaces \@ref(eq:htest-compare-means-normpops-vars-unknown-statistic) in Proposition \@ref(prp:htest-compare-means-normpops-vars-unknown) and the same procedures are followed for determining the $P$-value with $\nu = m+n-2$ in place of \@ref(eq:dist-t-compare-means-normpops-nu). If you have reasons to believe that $\sigma_X^2 = \sigma_Y^2$, these pooled $\mathsf{t}$ procedures are appealing because $\nu$ is very easy to compute. 
 
 :::{.warningblock}
 Pooled $t$ procedures are not robust if the assumption of equalized variance is violated. Theoretically, you could first carry out a statistical test $H_0 : \sigma_X^2 = \sigma_Y^2$ on the equality of variances and then use a pooled $\mathsf{t}$ procedure if the null hypothesis is not rejected. However, there is no free lunch: the typical $\mathsf{F}$ test for equal variances (see Section \@ref(compare-variances)) is sensitive to normality assumptions. The two sample $\mathsf{t}$ procedures, with the data-driven choice of $\nu$ in \@ref(eq:dist-t-compare-means-normpops-nu), are therefore recommended unless, of course, you have a very compelling reason to believe $\sigma_X^2 = \sigma_Y^2$. 
 :::   
+
 
 ## Comparing paired samples {#compare-paired-samples}
 
@@ -200,18 +230,28 @@ Proposition \@ref(prp:ci-compare-proportions) does not pool the estimators for t
 \begin{equation*}
 H_0 : p_X - p_Y = 0 \,,
 \end{equation*}
-then we are assuming that $p_X = p_Y$ (unless the data suggests otherwise). Therefore as a matter of consistency we should replace the standard error in \@ref(eq:ci-compare-proportions) with a pooled estimator for the standard error of the population proportion,
+then we assume $p_X = p_Y$ as our default position. Therefore, as a matter of consistency, we should replace the standard error in \@ref(eq:ci-compare-proportions) with a pooled estimator for the standard error of the population proportion,
 \begin{equation*}
  \widehat{p} = \frac{m}{m + n} \widehat{p}_X + \frac{n}{m + n} \widehat{p}_Y \,.
 \end{equation*}
 
 
 ```{proposition, htest-compare-proportions}
-For the null hypothesis $H_0 : p_X - p_Y = 0$, the test statistic to consider is:
+Assume that $m \widehat{p}_X$, $m (1-\widehat{p}_X)$, $n\widehat{p}_Y$, $n(1-\widehat{p}_Y)$ are all greater than $10$. 
+
+Consider $H_0 : p_X - p_Y = 0$. The test statistic is
 \begin{equation*}
-z = \frac{\widehat{p}_X - \widehat{p}_Y}{\sqrt{\widehat{p} (1 - \widehat{p}) \left( \frac{1}{m} + \frac{1}{n} \right)}} 
+ Z = \frac{\widehat{p}_X - \widehat{p}_Y}{\sqrt{\widehat{p} (1 - \widehat{p}) \left( \frac{1}{m} + \frac{1}{n} \right)}} \,.
 \end{equation*}
-```  
+
+For a hypothesis test at level $\alpha$, we use the following procedure:
+
+If $H_a : p_X - p_Y > 0$, then $P = 1 - \Phi(z)$, i.e., upper-tail $R = \{z > z_{\alpha}\}$.
+
+If $H_a : p_X - p_Y < 0$, then $P = \Phi(z)$, i.e., lower-tail $R = \{z < - z_{\alpha}\}$.
+
+If $H_a : p_X - p_Y \neq 0$, then $P = 2(1-\Phi(|z|))$, i.e., two-tailed $R = \{|z| > z_{\alpha/2}\}$.
+```   
 
 ## Comparing variances {#compare-variances}
 
@@ -255,3 +295,19 @@ A $100(1-\alpha)\%$ CI for the ratio of population variances $\sigma_X^2 / \sigm
 \end{equation*}
 ```   
 
+```{proposition, htest-compre-variances}
+Assume the population distributions are normal and the random samples are both independent of one another.
+
+Consider $H_0 : \sigma_X^2 = \sigma_Y^2$. The test statistic is
+\begin{equation*}
+ F = S_X^2 / S_Y^2 \,.
+\end{equation*}
+
+For a hypothesis test at level $\alpha$, we use the following procedure:
+
+If $H_a : \sigma_X^2 > \sigma_Y^2$, then $P$-value is $A_R = {}$ area under the $\mathsf{F}(m-1, n-1)$ curve to the right of $f$.
+
+If $H_a : \sigma_X^2 < \sigma_Y^2$, then $P$-value is $A_L = {}$ area under the $\mathsf{F}(m-1, n-1)$ curve to the left of $f$.
+
+If $H_a : \sigma_X^2 \neq \sigma_Y^2$, then $P$-value is $2 \cdot \min(A_R, A_L)$.
+```   
