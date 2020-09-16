@@ -10,10 +10,10 @@
 
   <meta property="og:title" content="6 Linear regression | MA22004 - Statistics and Probability II" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://ejhall.github.io/MA22004/" />
+  <meta property="og:url" content="https://dundeemath.github.io/MA22004" />
   
   <meta property="og:description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
-  <meta name="github-repo" content="ejhall/MA22004/" />
+  <meta name="github-repo" content="dundeemath/MA22004" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="6 Linear regression | MA22004 - Statistics and Probability II" />
@@ -175,7 +175,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3" data-path="sampling-distributions.html"><a href="sampling-distributions.html#chisq-distribution"><i class="fa fa-check"></i><b>1.3</b> <span class="math inline">\(\chi^2\)</span> distribution</a></li>
 <li class="chapter" data-level="1.4" data-path="sampling-distributions.html"><a href="sampling-distributions.html#F-distribution"><i class="fa fa-check"></i><b>1.4</b> <span class="math inline">\(\mathsf{F}\)</span> distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>2</b> Basics of statistical inferences</a>
+<li class="chapter" data-level="2" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>2</b> Basics of statistical inference</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="statistical-inference.html"><a href="statistical-inference.html#point-estimation"><i class="fa fa-check"></i><b>2.1</b> Point estimation</a></li>
 <li class="chapter" data-level="2.2" data-path="statistical-inference.html"><a href="statistical-inference.html#confidence-intervals"><i class="fa fa-check"></i><b>2.2</b> Confidence intervals</a></li>
@@ -223,7 +223,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="categorical-data.html"><a href="categorical-data.html#test-for-independence-of-factors"><i class="fa fa-check"></i><b>7.3</b> Test for independence of factors</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="quality-control.html"><a href="quality-control.html"><i class="fa fa-check"></i><b>8</b> Quality Control</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="http://uod.ac.uk/sig-home" rel="nofollow"><img width="73" height="73" src="https://www.dundee.ac.uk/media/dundeewebsite/themes/brandnewhope/img/university-of-dundee-email-favicon.png" alt="University of Dundee shield logo"> </a></li>
 
@@ -321,14 +320,14 @@ and
 <span id="exm:linear-model-fit-residuals" class="example"><strong>Example 6.1  </strong></span>In Figure <a href="linear-models.html#fig:linear-model-fit">6.1</a>, we consider the <strong>Cherry Tree Data</strong> (see Table <a href="statistical-inference.html#tab:cherry-data">2.1</a> and discussion). We fit a least squares regression of the volume of timber (response variable) to the diameter of the tree (independent variable). As you would expect, the volume of timber yielded from a tree increases with its diameter.
 </div>
 <p>The <code>r</code> code below can be used to calculate the least squares regression and residuals.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="linear-models.html#cb11-1" aria-hidden="true"></a><span class="kw">data</span>(trees)</span>
-<span id="cb11-2"><a href="linear-models.html#cb11-2" aria-hidden="true"></a>y &lt;-<span class="st"> </span>trees<span class="op">$</span>Volume</span>
-<span id="cb11-3"><a href="linear-models.html#cb11-3" aria-hidden="true"></a>x &lt;-<span class="st"> </span>trees<span class="op">$</span>Girth <span class="co"># NB: this is diameter; data mislabeled!</span></span>
-<span id="cb11-4"><a href="linear-models.html#cb11-4" aria-hidden="true"></a>fit &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x)</span>
-<span id="cb11-5"><a href="linear-models.html#cb11-5" aria-hidden="true"></a>e &lt;-<span class="st"> </span><span class="kw">resid</span>(fit)</span>
-<span id="cb11-6"><a href="linear-models.html#cb11-6" aria-hidden="true"></a>yhat &lt;-<span class="st"> </span><span class="kw">predict</span>(fit)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="linear-models.html#cb12-1" aria-hidden="true"></a><span class="kw">data</span>(trees)</span>
+<span id="cb12-2"><a href="linear-models.html#cb12-2" aria-hidden="true"></a>y &lt;-<span class="st"> </span>trees<span class="op">$</span>Volume</span>
+<span id="cb12-3"><a href="linear-models.html#cb12-3" aria-hidden="true"></a>x &lt;-<span class="st"> </span>trees<span class="op">$</span>Girth <span class="co"># NB: this is diameter; data mislabeled!</span></span>
+<span id="cb12-4"><a href="linear-models.html#cb12-4" aria-hidden="true"></a>fit &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x)</span>
+<span id="cb12-5"><a href="linear-models.html#cb12-5" aria-hidden="true"></a>e &lt;-<span class="st"> </span><span class="kw">resid</span>(fit)</span>
+<span id="cb12-6"><a href="linear-models.html#cb12-6" aria-hidden="true"></a>yhat &lt;-<span class="st"> </span><span class="kw">predict</span>(fit)</span></code></pre></div>
 <p>The <code>fit</code> data frame contains the estimates for <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span>:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="linear-models.html#cb12-1" aria-hidden="true"></a>fit<span class="op">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="linear-models.html#cb13-1" aria-hidden="true"></a>fit<span class="op">$</span>coefficients</span></code></pre></div>
 <pre><code>(Intercept)           x 
  -36.943459    5.065856 </code></pre>
 <p>In Figure <a href="linear-models.html#fig:linear-model-fit">6.1</a>, the regression line is <code>yhat</code> plotted against <code>x</code> and the error bars indicate the least squares residuals, i.e., the difference <code>y - yhat</code>. The residuals are presented a second way in Figure <a href="linear-models.html#fig:linear-model-residuals">6.2</a>. <span class="math inline">\(\lozenge\)</span></p>

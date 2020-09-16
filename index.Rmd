@@ -2,11 +2,13 @@
 title: "MA22004 - Statistics and Probability II"
 author: "Dr Eric Hall"
 date: "Last updated: `r Sys.Date()`"
-site: bookdown::bookdown_site
+fontsize: 11pt
+classoption: oneside
 documentclass: book
+site: bookdown::bookdown_site
 link-citations: yes
-github-repo: ejhall/MA22004/
-url: 'https\://ejhall.github.io/MA22004/'
+github-repo: dundeemath/MA22004
+url: 'https\://dundeemath.github.io/MA22004'
 bibliography: ma22004.bib
 description: "Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee."
 always_allow_html: true
@@ -49,6 +51,7 @@ if (knitr::is_html_output()){
 }
 theme_ur <- theme(legend.justification = c(1,1), legend.position = c(1,1), legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))
 theme_lr <- theme(legend.justification = c(1,0), legend.position = c(1,0), legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))
+options(width = 90)
 # opts <- options()  # save old options
 # options(ggplot2.continuous.colour="viridis")
 # options(ggplot2.continuous.fill = "viridis")

@@ -188,7 +188,7 @@ This leads us to consider a CI for the population parameter $\mu$ that is based 
 A **$100(1-\alpha)\%$ confidence interval** for the mean $\mu$ of a normal population, when $\sigma^2$ is unknown, is given by 
 \begin{equation} 
  \left(\overline{x} - t_{\alpha/2, m-1} \cdot \frac{s}{\sqrt{m}}\,, 
-        \overline{x} + t_{\alpha/2, m-1} \cdot \frac{s}{\sqrt{m}} \right)\,,  (\#eq:ci-norm-known-var)
+        \overline{x} + t_{\alpha/2, m-1} \cdot \frac{s}{\sqrt{m}} \right)\,,  (\#eq:ci-norm-uknown-var)
 \end{equation}
 or $\overline{x} \pm t_{\alpha/2, m-1} \cdot s/ \sqrt{m}$. Here $\overline{x}$ and $s$ are the sample mean and sample standard deviation, respectively.
 ```    
@@ -250,7 +250,8 @@ dattab <- trees %>%
   arrange(Volume) %>%
   summarise(volume = list(Volume))
 kbl(dattab, col.names = c("Volume [cu ft]"), caption = "Observations of $m = 31$ felled black cherry trees.", booktabs = T) %>%
- kable_styling(latex_options = c("striped", "hold_position"))
+ kable_styling(latex_options = c("striped", "hold_position")) %>%
+  column_spec(1, width = "150mm")
 ```    
 
 Let's carry out a significance test for the true average volume of timber $\mu$ at level $\alpha = 0.05$. We assume the null hypothesis
@@ -272,12 +273,14 @@ From our $m = 31$ samples, we find that $\overline{x} = `r signif(mean(trees$Vol
  \end{aligned}
 \end{equation}
 The test is based on $\nu = 31-1$ df, and $P = `r signif(pt(t, df=30, lower.tail = FALSE), digits = 4)`$. This is the upper-tail area, i.e. the area to the right of $t$ (see Figure \@ref(fig:exm-htest-ttest-plot)). 
+
 ```{r exm-htest-ttest-plot, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "For this test, the $P$-value is the upper-tail area, i.e., to the right of the computed statistic t."}
 t <- 1.8
 ggplot(NULL, aes(c(-3.5,3.5))) + 
   geom_line(stat = "function", fun = dt, args = list(df = 18), xlim = c(-3.5, 3.5), size = 1.5) +
   geom_area(stat = "function", fun = dt, args = list(df = 18), fill = "blue", xlim = c(t, 3.5), alpha = 0.3) + theme(axis.title.y = element_blank(), axis.ticks.y=element_blank(), axis.text.y=element_blank(), axis.title.x = element_blank(), axis.ticks.x=element_blank(), axis.text.x=element_blank()) + annotate("text", x = 3, y = .1, label=TeX("$P$-value"), size = 5, color = "blue") + annotate("segment", x = 3., xend = 2., y = 0.08, yend = .01, color = "blue", arrow=arrow(length=unit(0.2,"cm"))) + annotate("text", x = t, y = -.030, label=TeX("$t$"), size = 5) + geom_segment(aes(x = t, xend = t, y = 0, yend = dt(t, df = 18)), linetype = 44)
-```
+```   
+
 Since $P \ll \alpha$, we reject the null hypothesis that the population mean is $21.3$. The data provides sufficient evidence that the population mean is different from $21.3$. $\lozenge$    
 
 ## Estimating proportions {#estimating-proportions}

@@ -1,32 +1,34 @@
 \usepackage{unicode-math}%
 \setmathfont{XITS Math}%
 \usepackage{fontspec}%
-\setmainfont[Numbers={Lining,Proportional},Ligatures ={Common, TeX},
-RawFeature={+tnum,+cpsp,+frac},Scale=1]{XITS}%
-% \setsansfont[Ligatures ={Common,TeX}, RawFeature={+cpsp},
-% Scale=1]{Gill Sans}%
-\setsansfont[Ligatures ={Common,TeX}, RawFeature={+cpsp},
-Scale=1]{Helvetica Neue}%
+\setmainfont[Ligatures ={Common, TeX}, Scale=1, RawFeature={+cpsp}]{XITS} 
+%Numbers={Lining,Proportional},Ligatures ={Common, TeX},RawFeature={+tnum,+cpsp,+frac},
+\setsansfont[RawFeature={+cpsp},Scale=MatchLowercase]{Helvetica Neue}%
+\setmonofont[Scale=0.85]{Source Code Pro}%
 
 \usepackage[a4paper, margin=2.5cm, bottom=3cm]{geometry}%
 %% For nice tables
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{multirow}
-\usepackage{wrapfig}
-\usepackage{float}
-\usepackage{colortbl}
-\usepackage{pdflscape}
-\usepackage{tabu}
-\usepackage{threeparttable}
-\usepackage{threeparttablex}
-\usepackage[normalem]{ulem}
-\usepackage{makecell}
+\usepackage{booktabs}%
+%\usepackage{longtable}%
+%\usepackage{array}%
+%\usepackage{multirow}%
+%\usepackage{wrapfig}%
+%\usepackage{float}%
+\usepackage{colortbl}%
+%\usepackage{pdflscape}%
+%\usepackage{tabu}%
+%\usepackage{threeparttable}%
+%\usepackage{threeparttablex}%
+%\usepackage[normalem]{ulem}%
+%\usepackage{makecell}%
+%% Wrap long output lines
+% \usepackage{listings}%
+% \lstset{breaklines=true}%
 %% For nice info boxes
 \usepackage{awesomebox}%
 \usepackage{siunitx}%
 \newcolumntype{d}{S[table-format=3.2]}%
+\renewcommand{\bibname}{References}%
 \usepackage{hyperref}%
 
 %%% BEGIN SHORTCUTS
@@ -39,4 +41,11 @@ Scale=1]{Helvetica Neue}%
 \newcommand{\gt}{>}%
 \newcommand{\lt}{<}%
 %%% END SHORTCUTS
+
+%% Change chapter to Topic
+\makeatletter
+\renewcommand{\@chapapp}{Topic}
+\makeatother
+
+
 

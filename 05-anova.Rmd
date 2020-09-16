@@ -86,7 +86,8 @@ ggplot(df, aes(x = mean_salary, y = reorder(nation, desc(nation)))) + geom_boxpl
 For $\alpha = 0.05$, we compute the upper-tail area $F_{0.05}$ i.e. to the right of the critical value $F_{0.05, 3, 16}$ by consulting a statistical table or by using `r` to find $F_{0.05} = `r qf(.05, df1 = 4-1, df2 = 20-4, lower.tail = FALSE)`$.
 
 ```{r eg-code-F-upper-tail-area, echo=TRUE}
-qf(1-.05, df1 = 4-1, df2 = 20-4) # alt: qf(.05, df1 = 4-1, df2 = 20-4, lower.tail = FALSE)
+# alt: qf(.05, df1 = 3, df2 = 16, lower.tail = FALSE)
+qf(1-.05, df1 = 4-1, df2 = 20-4) 
 ```  
  
 The grand mean is 
@@ -149,7 +150,8 @@ Determine a $90\%$ CI for the difference in mean average salary for councils in 
 For $\alpha = 0.10$, the critical value $t_{0.05, 16} = `r qt(1-0.1/2, df = 20 - 4)`$ is found by looking in a table of $\mathsf{t}$ critical values or by using `r`:
 
 ```{r eg-code-crit-t-val-anova, echo=TRUE}
-qt(1-0.1/2, df = 20 - 4) # alt: qt(0.1/2, 16, lower.tail = FALSE)
+# alt: qt(0.1/2, 16, lower.tail = FALSE)
+qt(1-0.1/2, df = 20 - 4) 
 ```
 
 Then for the function $\overline{x}_2 - \overline{x_1}$, 

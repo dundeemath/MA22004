@@ -1,4 +1,4 @@
-# Basics of statistical inferences {#statistical-inference}
+# Basics of statistical inference {#statistical-inference}
 
 We discuss point estimation, confidence intervals, and hypothesis testing in Sections \@ref(point-estimation), \@ref(confidence-intervals), and \@ref(hypothesis-testing), respectively. These three tools will form the basis for making inferences about a population.
 
@@ -53,7 +53,8 @@ dattab <- trees %>%
   arrange(Height) %>%
   summarise(heights = list(Height))
 kbl(dattab, col.names = c("Height [in]"), caption = "Observations of $m = 31$ felled black cherry trees.", booktabs = T) %>%
- kable_styling(latex_options = c("striped", "hold_position"))
+ kable_styling(latex_options = c("striped", "hold_position")) %>%
+  column_spec(1, width = "150mm")
 ```    
 
 :::{.tipblock}
@@ -125,7 +126,8 @@ The **null hypothesis**, denoted by $H_0$, is a claim that we intially assume to
 Typically, we shall consider hypothesis concerning a parameter $\theta \in \Theta$ taking values in a parameter space. The statistical hypothesis are contradictory in that $H_0$ and $H_a$ divide $\Theta$ into two disjoint sets. For example, for a statistical hypothesis regarding the *equality* of a parameter $\theta$ with a fixed quantity $\theta_0$, the null and alternative hypotheses will usually take one of the following forms in Table \@ref(tab:htest-null-alt-forms).
 
 ```{r htest-null-alt-forms, echo=FALSE, warning = FALSE, message = FALSE}
-kbl(tibble(read_csv("data/htest-null-alt-forms.csv")), caption = "Typical null hypothesis and corresponding alternative hypothesis.", booktabs = T) %>%
+df <- read_csv("data/htest-null-alt-forms.csv")
+kbl(df, caption = "Typical null hypothesis and corresponding alternative hypothesis.", booktabs = T) %>%
  kable_styling(latex_options = c("striped", "hold_position"))
 ``` 
 
