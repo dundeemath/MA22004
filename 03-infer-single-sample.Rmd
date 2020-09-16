@@ -322,7 +322,7 @@ recall the $s$ in \@ref(eq:ci-large-sample) is the sample variance for the *popu
 
 ```{proposition, htest-proportion}
 Let $X$ be the count of members with a given property based on a sample of size $m$ from a population where a proportion $p$ share the property.
-Then $\widehat{p} = X / m$ is an estimator of $p$. Assume $m p_0 \geq 10$ and $ m (1-p_0) \geq 10$. 
+Then $\widehat{p} = X / m$ is an estimator of $p$. Assume $m p_0 \geq 10$ and $m (1-p_0) \geq 10$. 
  
 Consider $H_0 : p = p_0$. The test statistic is
 \begin{equation*}
