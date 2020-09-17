@@ -1,0 +1,59 @@
+---
+title: 'Lab NUMBER: TITLE'
+author: "TEST STUDENT --- ID-NUMBER"
+date: "`r Sys.Date()`"
+output:
+  word_document: default
+  pdf_document: default
+papersize: a4
+fontsize: 11pt
+---
+
+```{r setup, include = FALSE}
+### Some formatting options
+options(width = 80)
+knitr::opts_chunk$set(fig.width = 6, fig.asp = 0.75, fig.align = "center")
+
+### LOAD NECESSARY PACKAGES HERE
+library(openintro)
+```
+
+***
+
+### Answer 1
+
+Insert any text here.
+
+```{r answer-1}
+# Insert code for Exercise 2 here
+```
+
+\newpage
+
+### Answer 2
+
+Insert any text here.
+
+```{r answer-2}
+# Insert code for Exercise 2 here
+```
+
+\newpage
+
+### Answer 3
+
+Insert any text here.
+
+```{r answer-3}
+# Insert code for Exercise 3 here
+```
+
+\newpage
+
+### Answer 4
+
+Insert any text here.
+
+```{r answer-4}
+# Insert code for Exercise 4 here
+```
