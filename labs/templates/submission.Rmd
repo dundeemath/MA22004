@@ -1,18 +1,17 @@
 ---
-title: 'Lab NUMBER: TITLE'
+title: "Lab NUMBER: TITLE"
 author: "TEST STUDENT --- ID-NUMBER"
 date: "`r Sys.Date()`"
 output:
   word_document: default
   pdf_document: default
 papersize: a4
-fontsize: 11pt
 ---
 
 ```{r setup, include = FALSE}
 ### Some formatting options
 options(width = 80)
-knitr::opts_chunk$set(fig.width = 6, fig.asp = 0.75, fig.align = "center")
+knitr::opts_chunk$set(comment = "", fig.width = 5, fig.asp = 0.75, fig.align = "left")
 
 ### LOAD NECESSARY PACKAGES HERE
 library(openintro)
@@ -20,17 +19,17 @@ library(openintro)
 
 ***
 
-### Answer 1
+### Exercise 1
 
 Insert any text here.
 
 ```{r answer-1}
-# Insert code for Exercise 2 here
+# Insert code for Exercise 1 here
 ```
 
 \newpage
 
-### Answer 2
+### Exercise 2
 
 Insert any text here.
 
@@ -40,7 +39,7 @@ Insert any text here.
 
 \newpage
 
-### Answer 3
+### Exercise 3
 
 Insert any text here.
 
@@ -50,7 +49,7 @@ Insert any text here.
 
 \newpage
 
-### Answer 4
+### Exercise 4
 
 Insert any text here.
 
