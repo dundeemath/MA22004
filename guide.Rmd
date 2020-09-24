@@ -27,7 +27,7 @@ If you have a problem regarding the course, then you should make an appointment 
 Due to COVID19, these plans may be subject to change. 
 ::: 
 
-The delivery of this module consists of a blend of synchronous and asynchronous content delivered both in-person and online. On an average week, there will be seven planned teaching and learning activities.
+The delivery of this module consists of a blend of synchronous and asynchronous content delivered both in-person and online. On an average week, there will be six planned teaching and learning activities.
 
 ```{r table-activities, echo=FALSE, warning = FALSE, message = FALSE, fig.cap = "Learning activities."}
 kbl(tibble(read_csv("data/activities.csv")), booktabs = T) %>%
