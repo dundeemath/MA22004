@@ -1,0 +1,13 @@
+Week,Test,Seminar Topic,Reading,Labs,Feedback (Planned)
+1,,Discuss expectations,"Guide, § 1","Install R, RStudio",
+2,,Basics of statistical inference,§ 2,L1 ,
+3,,Inferences based on a single sample,§ 3.1,L2,L1
+4,T1 W13-15,Inferences based on a single sample,"§ 3.2, 3.3",,L2
+5,,Inferences based on two samples,"§ 4.1, 4.2",L3,T1
+6,,Inferences based on two samples,"§ 4.3, 4.4",L4,L3
+7,,Analysis of variance (ANOVA),§ 5,L5,L4
+8,T2 W13-15,Linear regression,§ 6,,L5
+9,,Categorical data,§ 7,L6,T2
+10,,Quality Control,§ 8,L7,L6
+11,T3 W14-17,Review,Review,,L7
+12,,,,,T3

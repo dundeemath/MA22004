@@ -85,7 +85,7 @@ kbl(df, booktabs = T) %>%
 
 Assessed coursework includes:
 
-- six hand-in laboratory reports and 
+- six hand-in laboratory reports (there will be seven labs, the lowest grade will be dropped) and 
 - weekly engagement with the reading material using [Perusall](https://perusall.com/). 
 
 There will also be alternative means of demonstrating your mastery of course material through:
@@ -115,13 +115,7 @@ Unless you have mitigating circumstances, if you fail to achieve a module grade 
 
 ## Your Commitment {-#cg-commitment}
 
-You should attend all synchronous timetabled sessions except on medical grounds or with the special permission of Dr Hall. If you are unable to attend the degree examination or complete elements of the coursework on time, then you should inform Dr Hall and submit a medical certificate. Medical certificates should be submitted to your School Office as soon as possible after the absence.
-
-:::{.warningblock}
-You must also submit a Mitigating Circumstances form to explain which aspects of assessment have been affected by your absence.
-:::
-
-A Medical Certificate will only be taken into account if accompanied by a completed Mitigating Circumstances form that refers to the medical certificate.
+You should attend all synchronous timetabled sessions except on medical grounds or with the special permission of Dr Hall. If you are unable to attend the degree examination or complete elements of the coursework on time, then you should inform Dr Hall and submit a medical certificate. Medical certificates should be submitted to your School Office as soon as possible after the absence. You must also submit a Mitigating Circumstances form to explain which aspects of assessment have been affected by your absence. A Medical Certificate will only be taken into account if accompanied by a completed Mitigating Circumstances form that refers to the medical certificate.
 
 ## Approved Calculators {-#cg-calcs}
 

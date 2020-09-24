@@ -1,0 +1,7 @@
+# Lab Guide {-#labs}
+
+You will learn about the statistical programming language `R` and the software RStudio by working through 7 interactive lab tutorials and by completing lab reports. 
+
+These tutorials and all associated materials (templates, data sets, etc) are available as an `R` package at:
+
+[https://github.com/dundeemath/MA22004labs](https://github.com/dundeemath/MA22004labs).

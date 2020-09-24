@@ -1,0 +1,7 @@
+# Deadlines {-#deadlines}
+
+```{r table-deadlines, echo=FALSE, warning = FALSE, message = FALSE, fig.cap = "An overview of all deadlines and important dates associated with the course."}
+kbl(tibble(read_csv("data/deadlines.csv")), booktabs = T) %>%
+ kable_styling(latex_options = c("striped", "hold_position"))
+```
+
