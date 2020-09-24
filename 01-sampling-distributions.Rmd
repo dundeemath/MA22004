@@ -74,11 +74,19 @@ Let $X \sim \mathsf{N}(5, 9)$ and find $P(X \geq 5.5)$.
 where we look up the value of $\Phi(z) = P(Z\leq z)$ in a table of standard normal curve areas.
 ```  
 
-Alternatively, we can use the `r` code:
-```{r eg-code-norm-rt, echo=TRUE}
-pnorm(5.5, mean = 5, sd = 3, lower.tail = FALSE) 
-```  
-**TODO**: plot of area under normal curve (right tail)  $\lozenge$
+The probability corresponds to the shaded area under the normal density $\varphi(x) = \Phi'(x)$ corresponding to $x \geq 5.5$.
+
+```{r example-norm-geq, warning = FALSE, echo = FALSE}
+ggplot(NULL, aes(c(-4, 14))) + 
+ geom_line(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), xlim = c(-4, 14), size = 1.5) +
+ geom_area(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), fill = "blue", xlim = c(5.5, 14), alpha = 0.3) + 
+ geom_segment(aes(x = 5.5, y = 0, xend = 5.5, yend = 0.131), linetype = "dashed") + 
+ theme(axis.title.y = element_blank(), axis.ticks.y = element_blank(), axis.text.y = element_blank(), axis.title.x = element_blank(), axis.ticks.x = element_blank(), axis.text.x = element_blank()) + 
+ annotate("text", x = 5.5, y = -0.005, label = TeX("$x \\geq 5.5$"), size = 5, color = "blue") + 
+ annotate("text", x = 10, y = 0.1, label = TeX("$X \\sim N(5,9)$"), size = 5)
+```
+
+Alternatively, we can use the `r` code: `pnorm(5.5, mean = 5, sd = 3, lower.tail = FALSE)`.  $\lozenge$   
 
 
 ```{example, eg-norm-dt}
@@ -94,12 +102,21 @@ Let $X \sim \mathsf{N}(5, 9)$ and find $P(4 \leq X \leq 5.25)$.
 where we look up the value of $\Phi(z) = P(Z\leq z)$ in a table of standard normal curve areas. 
 ```  
 
-Alternatively, we can use the `r` code:
-```{r eg-code-norm-dt, echo=TRUE}
-pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3) 
-```  
+The probability corresponds to the shaded area under the normal density $\varphi(x) = \Phi'(x)$ corresponding to $4 \leq x \leq 5.25$.
 
-**TODO**: plot area under normal curve (interior)  $\lozenge$
+```{r example-norm-interval, warning = FALSE, echo = FALSE}
+ggplot(NULL, aes(c(-4, 14))) + 
+ geom_line(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), xlim = c(-4, 14), size = 1.5) +
+ geom_area(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), fill = "blue", xlim = c(4, 5.25), alpha = 0.3) + 
+ geom_segment(aes(x = c(4, 5.25), y = 0, xend = c(4, 5.25), yend = c(0.125, 0.133)), linetype = "dashed") + 
+ theme(axis.title.y = element_blank(), axis.ticks.y = element_blank(), axis.text.y = element_blank(), axis.title.x = element_blank(), axis.ticks.x = element_blank(), axis.text.x = element_blank()) + 
+ annotate("text", x = 4.625, y = -0.005, label = TeX("$4 \\leq x \\leq 5.25$"), size = 5, color = "blue") + 
+ #annotate("text", x = 5.25, y = -0.005, label = "5.25", size = 4, color = "blue") + 
+ annotate("text", x = 10, y = 0.1, label = TeX("$X \\sim \\textbf{N}(5,9)$"), size = 5)
+```
+
+Alternatively, we can use the `r` code:
+`pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3)`.  $\lozenge$
 
 ### Empirical rule ($68-95-99.7$ rule)
 

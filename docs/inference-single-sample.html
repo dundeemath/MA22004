@@ -155,6 +155,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-honesty"><i class="fa fa-check"></i>Academic Honesty</a></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-questionaire"><i class="fa fa-check"></i>End of Module Questionaire</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="labs.html"><a href="labs.html"><i class="fa fa-check"></i>Lab Guide</a></li>
+<li class="chapter" data-level="" data-path="deadlines.html"><a href="deadlines.html"><i class="fa fa-check"></i>Deadlines</a></li>
 <li class="part"><span><b>Course Notes</b></span></li>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html"><i class="fa fa-check"></i>Preliminaries</a>
 <ul>
@@ -223,6 +225,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="categorical-data.html"><a href="categorical-data.html#test-for-independence-of-factors"><i class="fa fa-check"></i><b>7.3</b> Test for independence of factors</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="quality-control.html"><a href="quality-control.html"><i class="fa fa-check"></i><b>8</b> Quality Control</a></li>
+<li class="part"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html"><i class="fa fa-check"></i>Curated Content</a>
+<ul>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html#investigation-0"><i class="fa fa-check"></i>Investigation 0</a></li>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html#investigation-1"><i class="fa fa-check"></i>Investigation 1</a></li>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html#investigation-2"><i class="fa fa-check"></i>Investigation 2</a></li>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html#investigation-3"><i class="fa fa-check"></i>Investigation 3</a></li>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html#investigation-4"><i class="fa fa-check"></i>Investigation 4</a></li>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html#investigation-5"><i class="fa fa-check"></i>Investigation 5</a></li>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html#investigation-6"><i class="fa fa-check"></i>Investigation 6</a></li>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html#investigation-7"><i class="fa fa-check"></i>Investigation 7</a></li>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html#investigation-8"><i class="fa fa-check"></i>Investigation 8</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="http://uod.ac.uk/sig-home" rel="nofollow"><img width="73" height="73" src="https://www.dundee.ac.uk/media/dundeewebsite/themes/brandnewhope/img/university-of-dundee-email-favicon.png" alt="University of Dundee shield logo"> </a></li>
 
@@ -445,7 +461,7 @@ to form the interval estimate
 \end{aligned}
 \end{equation*}\]</span>
 For comparison, the critical value <span class="math inline">\(t_{.01/2, \nu}\)</span> for <span class="math inline">\(\nu = 13, \dots, 30\)</span></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="inference-single-sample.html#cb5-1" aria-hidden="true"></a><span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.01</span><span class="op">/</span><span class="dv">2</span>, <span class="dt">df =</span> <span class="kw">seq</span>(<span class="dv">12</span><span class="op">:</span><span class="dv">39</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="inference-single-sample.html#cb1-1" aria-hidden="true"></a><span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.01</span><span class="op">/</span><span class="dv">2</span>, <span class="dt">df =</span> <span class="kw">seq</span>(<span class="dv">12</span><span class="op">:</span><span class="dv">39</span>))</span></code></pre></div>
 <pre><code> [1] 63.656741  9.924843  5.840909  4.604095  4.032143  3.707428  3.499483  3.355387
  [9]  3.249836  3.169273  3.105807  3.054540  3.012276  2.976843  2.946713  2.920782
 [17]  2.898231  2.878440  2.860935  2.845340  2.831360  2.818756  2.807336  2.796940
@@ -504,7 +520,7 @@ that is, we will adopt the stance that the true average exceeds <span class="mat
  &amp; = 3\,.
  \end{aligned}
 \end{equation}\]</span>
-The test is based on <span class="math inline">\(\nu = 31-1\)</span> df, and <span class="math inline">\(P = 0.04096\)</span>. This is the upper-tail area, i.e. the area to the right of <span class="math inline">\(t\)</span> (see Figure <a href="inference-single-sample.html#fig:exm-htest-ttest-plot">3.2</a>).</p>
+The test is based on <span class="math inline">\(\nu = 31-1\)</span> df, and <span class="math inline">\(P = 0.002663\)</span>. This is the upper-tail area, i.e. the area to the right of <span class="math inline">\(t\)</span> (see Figure <a href="inference-single-sample.html#fig:exm-htest-ttest-plot">3.2</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:exm-htest-ttest-plot"></span>
 <img src="ma22004_files/figure-html/exm-htest-ttest-plot-1.svg" alt="For this test, the $P$-value is the upper-tail area, i.e., to the right of the computed statistic t." width="768" />
 <p class="caption">

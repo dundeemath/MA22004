@@ -1,50 +1,34 @@
 # (PART\*) Appendix {-}
 
-# Curated Content
+# Curated Content {-}
 
 Below we provide links to supplementary online material. Hopefully some of the items will inspire you to further examine different aspects of the course. 
 
 ## Investigation 0 {-}
--
--
--
+
 
 ## Investigation 1 {-}
--
--
--
+
 
 ## Investigation 2 {-}
--
--
--
+
 
 ## Investigation 3 {-}
--
--
--
+
 
 ## Investigation 4 {-}
--
--
--
+
 
 ## Investigation 5 {-}
--
--
--
+
 
 ## Investigation 6 {-}
--
--
--
+
 
 ## Investigation 7 {-}
--
--
--
+
 
 ## Investigation 8 {-}
--
--
--
+
+
+# References {-}

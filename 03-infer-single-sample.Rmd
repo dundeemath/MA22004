@@ -272,7 +272,7 @@ From our $m = 31$ samples, we find that $\overline{x} = `r signif(mean(trees$Vol
  & = `r signif( (mean(trees$Volume) - 21.3) / (sd(trees$Volume) / sqrt(31)), digits = 3)`\,.
  \end{aligned}
 \end{equation}
-The test is based on $\nu = 31-1$ df, and $P = `r signif(pt(t, df=30, lower.tail = FALSE), digits = 4)`$. This is the upper-tail area, i.e. the area to the right of $t$ (see Figure \@ref(fig:exm-htest-ttest-plot)). 
+The test is based on $\nu = 31-1$ df, and $P = `r signif(pt((mean(trees$Volume) - 21.3) / (sd(trees$Volume) / sqrt(31)), df=30, lower.tail = FALSE), digits = 4)`$. This is the upper-tail area, i.e. the area to the right of $t$ (see Figure \@ref(fig:exm-htest-ttest-plot)). 
 
 ```{r exm-htest-ttest-plot, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "For this test, the $P$-value is the upper-tail area, i.e., to the right of the computed statistic t."}
 t <- 1.8

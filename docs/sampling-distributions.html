@@ -155,6 +155,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-honesty"><i class="fa fa-check"></i>Academic Honesty</a></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-questionaire"><i class="fa fa-check"></i>End of Module Questionaire</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="labs.html"><a href="labs.html"><i class="fa fa-check"></i>Lab Guide</a></li>
+<li class="chapter" data-level="" data-path="deadlines.html"><a href="deadlines.html"><i class="fa fa-check"></i>Deadlines</a></li>
 <li class="part"><span><b>Course Notes</b></span></li>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html"><i class="fa fa-check"></i>Preliminaries</a>
 <ul>
@@ -223,6 +225,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="categorical-data.html"><a href="categorical-data.html#test-for-independence-of-factors"><i class="fa fa-check"></i><b>7.3</b> Test for independence of factors</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="quality-control.html"><a href="quality-control.html"><i class="fa fa-check"></i><b>8</b> Quality Control</a></li>
+<li class="part"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html"><i class="fa fa-check"></i>Curated Content</a>
+<ul>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html#investigation-0"><i class="fa fa-check"></i>Investigation 0</a></li>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html#investigation-1"><i class="fa fa-check"></i>Investigation 1</a></li>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html#investigation-2"><i class="fa fa-check"></i>Investigation 2</a></li>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html#investigation-3"><i class="fa fa-check"></i>Investigation 3</a></li>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html#investigation-4"><i class="fa fa-check"></i>Investigation 4</a></li>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html#investigation-5"><i class="fa fa-check"></i>Investigation 5</a></li>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html#investigation-6"><i class="fa fa-check"></i>Investigation 6</a></li>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html#investigation-7"><i class="fa fa-check"></i>Investigation 7</a></li>
+<li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html#investigation-8"><i class="fa fa-check"></i>Investigation 8</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="http://uod.ac.uk/sig-home" rel="nofollow"><img width="73" height="73" src="https://www.dundee.ac.uk/media/dundeewebsite/themes/brandnewhope/img/university-of-dundee-email-favicon.png" alt="University of Dundee shield logo"> </a></li>
 
@@ -311,10 +327,9 @@ This process is often referred to as <em>standardizing</em> (the normal rv).</p>
     \end{aligned}\]</span>
 where we look up the value of <span class="math inline">\(\Phi(z) = P(Z\leq z)\)</span> in a table of standard normal curve areas.
 </div>
-<p>Alternatively, we can use the <code>r</code> code:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="sampling-distributions.html#cb1-1" aria-hidden="true"></a><span class="kw">pnorm</span>(<span class="fl">5.5</span>, <span class="dt">mean =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">3</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>) </span></code></pre></div>
-<pre><code>[1] 0.4338162</code></pre>
-<p><strong>TODO</strong>: plot of area under normal curve (right tail) <span class="math inline">\(\lozenge\)</span></p>
+<p>The probability corresponds to the shaded area under the normal density <span class="math inline">\(\varphi(x) = \Phi&#39;(x)\)</span> corresponding to <span class="math inline">\(x \geq 5.5\)</span>.</p>
+<p><img src="ma22004_files/figure-html/example-norm-geq-1.svg" width="768" style="display: block; margin: auto;" /></p>
+<p>Alternatively, we can use the <code>r</code> code: <code>pnorm(5.5, mean = 5, sd = 3, lower.tail = FALSE)</code>. <span class="math inline">\(\lozenge\)</span></p>
 
 <div class="example">
 <p><span id="exm:eg-norm-dt" class="example"><strong>Example 1.2  </strong></span>Let <span class="math inline">\(X \sim \mathsf{N}(5, 9)\)</span> and find <span class="math inline">\(P(4 \leq X \leq 5.25)\)</span>.</p>
@@ -327,10 +342,10 @@ where we look up the value of <span class="math inline">\(\Phi(z) = P(Z\leq z)\)
   \end{aligned}\]</span>
 where we look up the value of <span class="math inline">\(\Phi(z) = P(Z\leq z)\)</span> in a table of standard normal curve areas.
 </div>
-<p>Alternatively, we can use the <code>r</code> code:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="sampling-distributions.html#cb3-1" aria-hidden="true"></a><span class="kw">pnorm</span>(<span class="fl">5.25</span>, <span class="dt">mean =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">3</span>) <span class="op">-</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="dv">4</span>, <span class="dt">mean =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">3</span>) </span></code></pre></div>
-<pre><code>[1] 0.1637654</code></pre>
-<p><strong>TODO</strong>: plot area under normal curve (interior) <span class="math inline">\(\lozenge\)</span></p>
+<p>The probability corresponds to the shaded area under the normal density <span class="math inline">\(\varphi(x) = \Phi&#39;(x)\)</span> corresponding to <span class="math inline">\(4 \leq x \leq 5.25\)</span>.</p>
+<p><img src="ma22004_files/figure-html/example-norm-interval-1.svg" width="768" style="display: block; margin: auto;" /></p>
+<p>Alternatively, we can use the <code>r</code> code:
+<code>pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3)</code>. <span class="math inline">\(\lozenge\)</span></p>
 </div>
 <div id="empirical-rule-68-95-99.7-rule" class="section level3" number="1.1.2">
 <h3><span class="header-section-number">1.1.2</span> Empirical rule (<span class="math inline">\(68-95-99.7\)</span> rule)</h3>

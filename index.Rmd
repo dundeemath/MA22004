@@ -52,7 +52,7 @@ if (knitr::is_html_output()){
 }
 theme_ur <- theme(legend.justification = c(1,1), legend.position = c(1,1), legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))
 theme_lr <- theme(legend.justification = c(1,0), legend.position = c(1,0), legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))
-options(width = 90)
+options(width = 90, knitr.kable.NA = '')
 # opts <- options()  # save old options
 # options(ggplot2.continuous.colour="viridis")
 # options(ggplot2.continuous.fill = "viridis")
