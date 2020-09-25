@@ -348,6 +348,15 @@ Figure 2.2: Normal quantile-quantile plot for the <strong>Cherry Tree Data</stro
 </p>
 </div>
 <p>Each estimator above uses a different notion of center for the sample data, i.e., a different statistic. An interesting question to think about is: which estimator will tend to produce estimates closest to the true parameter value? Will the estimators work universally well for all distributions? <span class="math inline">\(\lozenge\)</span></p>
+<!-- ```{example, exm-infer-point-estimation} -->
+<!-- Although probably overkill for this problem, the `infer` package can be used for point estimation using the `specify` and `calculate` commands as follows: -->
+<!-- ``` -->
+<!-- ```{r echo = TRUE} -->
+<!-- trees %>%  -->
+<!--  specify(response = Height) %>%  -->
+<!--  calculate(stat = "mean") -->
+<!-- ``` -->
+<!-- where we point out the `response` option specifies the variable of interest and the `stat` option can be changed to a number of quantities of interest. $\lozenge$ -->
 <p>In addition to reporting a point estimate together with its estimator, some indication of its precision should be given. One measure of the precision of an estimate is its standard error.</p>
 
 <div class="definition">

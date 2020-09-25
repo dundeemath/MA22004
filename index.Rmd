@@ -42,6 +42,7 @@ library(formattable)
 library(DT)
 library(dplyr)
 library(datasets)
+library(infer)
 # ggplot theme
 if (knitr::is_html_output()){
   theme_set(theme_gray(base_size = 12))

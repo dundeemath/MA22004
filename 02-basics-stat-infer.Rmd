@@ -18,7 +18,7 @@ Suppose we actually find and measure the petal length of $50$ independent *setos
 
 ```{r setosa-petal-lengths, echo = FALSE, fig.cap = "The distribution (counts) of $m = 50$ *setosa* petal length measurments."}
 df <-  select(iris, Petal.Length, Species) %>% filter(Species == "setosa")
-ggplot(data = df, aes(x = Petal.Length, fill = Species)) + geom_histogram(binwidth = 0.1) + geom_vline(aes(xintercept = 1.462, linetype = "mean"))  + geom_vline(aes(xintercept = 1.114672, linetype = "mean - 2sd")) + scale_linetype_manual(values = c(1, 10), name = "Sample stats") + xlab("Petal Length") + ylab("Count") + theme_ur
+ggplot(data = df, aes(x = Petal.Length, fill = Species)) + geom_histogram(binwidth = 0.1) + geom_vline(aes(xintercept = 1.462, linetype = "mean"))  + geom_vline(aes(xintercept = 1.114672, linetype = "mean - 2sd")) + scale_linetype_manual(values = c(1, 10), name = "Sample stats") + xlab("Petal Length [cm]") + ylab("Count") + theme_ur
 ```
 
 ::: {.tipblock}
@@ -78,6 +78,19 @@ ggplot(trees, aes(sample = Height)) + stat_qq() + stat_qq_line()
 ```   
 
 Each estimator above uses a different notion of center for the sample data, i.e., a different statistic. An interesting question to think about is: which estimator will tend to produce estimates closest to the true parameter value? Will the estimators work universally well for all distributions? $\lozenge$
+
+<!-- ```{example, exm-infer-point-estimation} -->
+<!-- Although probably overkill for this problem, the `infer` package can be used for point estimation using the `specify` and `calculate` commands as follows: -->
+<!-- ``` -->
+
+<!-- ```{r echo = TRUE} -->
+<!-- trees %>%  -->
+<!--  specify(response = Height) %>%  -->
+<!--  calculate(stat = "mean") -->
+<!-- ``` -->
+
+<!-- where we point out the `response` option specifies the variable of interest and the `stat` option can be changed to a number of quantities of interest. $\lozenge$ -->
+
  
 In addition to reporting a point estimate together with its estimator, some indication of its precision should be given. One measure of the precision of an estimate is its standard error.  
 

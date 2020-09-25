@@ -48,11 +48,11 @@ Data analysis and vizualization.
 : [https://www.autodeskresearch.com/publications/samestats](https://www.autodeskresearch.com/publications/samestats) <br /> Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing (ACM SIGCHI Conference on Human Factors in Computing Systems) by Justin Matejka, George Fitzmaurice.
 
 - Why do we so often use 0.05 for hypothesis testing?
-: [https://www.openintro.org/book/stat/why05/](https://www.openintro.org/book/stat/why05/) In this online exercise, you will gain an improved understanding of what a significance level is, and why a value in the neighborhood of 0.05 is reasonable as a default.
+: [https://www.openintro.org/book/stat/why05/](https://www.openintro.org/book/stat/why05/) <br /> In this online exercise, you will gain an improved understanding of what a significance level is, and why a value in the neighborhood of 0.05 is reasonable as a default.
 
 - Data visualizations
-: [https://flowingdata.com/](https://flowingdata.com/) FlowingData blog by Nathan Yau.
-: [https://fivethirtyeight.com/](https://fivethirtyeight.com/) FiveThirtyEight blog by Nate Silver.
+: [https://flowingdata.com/](https://flowingdata.com/) <br /> FlowingData blog by Nathan Yau.
+: [https://fivethirtyeight.com/](https://fivethirtyeight.com/) <br /> FiveThirtyEight blog by Nate Silver.
 
 
 ## Investigation 3 {-}
@@ -60,7 +60,7 @@ Data analysis and vizualization.
 Paradoxes. 
 
 - How statistics can be misleading (TED-Ed)
-: [https://www.ted.com/talks/mark_liddell_how_statistics_can_be_misleading](https://www.ted.com/talks/mark_liddell_how_statistics_can_be_misleading) Mark Liddell (Educator) discusses Simpson's Paradox in this TED-Ed animation.
+: [https://www.ted.com/talks/mark_liddell_how_statistics_can_be_misleading](https://www.ted.com/talks/mark_liddell_how_statistics_can_be_misleading) <br /> Mark Liddell (Educator) discusses Simpson's Paradox in this TED-Ed animation.
 
 - Low birth-weight paradox
 : [https://www.wikiwand.com/en/Low_birth-weight_paradox](https://www.wikiwand.com/en/Low_birth-weight_paradox) 
