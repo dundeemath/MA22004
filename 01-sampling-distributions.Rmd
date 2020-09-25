@@ -213,9 +213,9 @@ The $\mathsf{F}$ distribution arises as a test statistic when comparing populati
 A continuous rv $X$ has an **$\mathsf{F}$ distribution** with df parameters $\nu_1$ and $\nu_2$, if $X$ has pdf
 \begin{equation*}
  f(x; \nu_1, \nu_2) = 
-    \frac{\Gamma\left(\frac{n+m}{2}\right) n^{n/2} m^{m/2}}
- {\Gamma\left(\frac{n}{2}\right) \Gamma\left(\frac{m}{2}\right)} 
- \frac{x^{n/2 - 1}}{(m+nx)^{(n+m)/2}} \,.
+    \frac{\Gamma\left(\frac{\nu_1+\nu_2}{2}\right) \nu_1^{\nu_1/2} \nu_2^{\nu_2/2}}
+ {\Gamma\left(\frac{\nu_1}{2}\right) \Gamma\left(\frac{\nu_2}{2}\right)} 
+ \frac{x^{\nu_1/2 - 1}}{(\nu_2+\nu_1 x)^{(\nu_1+\nu_2)/2}} \,.
 \end{equation*}
 ```
 
