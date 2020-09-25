@@ -278,7 +278,7 @@ The test is based on $\nu = 31-1$ df, and $P = `r signif(pt((mean(trees$Volume) 
 t <- 1.8
 ggplot(NULL, aes(c(-3.5,3.5))) + 
   geom_line(stat = "function", fun = dt, args = list(df = 18), xlim = c(-3.5, 3.5), size = lsz) +
-  geom_area(stat = "function", fun = dt, args = list(df = 18), fill = "blue", xlim = c(t, 3.5), alpha = 0.3) + theme(axis.title.y = element_blank(), axis.ticks.y=element_blank(), axis.text.y=element_blank(), axis.title.x = element_blank(), axis.ticks.x=element_blank(), axis.text.x=element_blank()) + annotate("text", x = 3, y = .1, label=TeX("$P$-value"), size = 5, color = "blue") + annotate("segment", x = 3., xend = 2., y = 0.08, yend = .01, color = "blue", arrow=arrow(length=unit(0.2,"cm"))) + annotate("text", x = t, y = -.030, label=TeX("$t$"), size = 5) + geom_segment(aes(x = t, xend = t, y = 0, yend = dt(t, df = 18)), linetype = 44)
+  geom_area(stat = "function", fun = dt, args = list(df = 18), fill = "blue", xlim = c(t, 3.5), alpha = 0.3) + theme(axis.title.y = element_blank(), axis.ticks.y=element_blank(), axis.text.y=element_blank(), axis.title.x = element_blank(), axis.ticks.x=element_blank(), axis.text.x=element_blank()) + annotate("text", x = 3, y = .1, label=TeX("$P$-value"), size = tsz, color = "blue") + annotate("segment", x = 3., xend = 2., y = 0.08, yend = .01, color = "blue", arrow=arrow(length=unit(0.2,"cm"))) + annotate("text", x = t, y = -.030, label=TeX("$t$"), size = tsz) + geom_segment(aes(x = t, xend = t, y = 0, yend = dt(t, df = 18)), linetype = 44)
 ```   
 
 Since $P \ll \alpha$, we reject the null hypothesis that the population mean is $21.3$. The data provides sufficient evidence that the population mean is different from $21.3$. $\lozenge$    
@@ -405,11 +405,11 @@ ggplot(NULL, aes(c(0,L))) +
   geom_area(stat = "function", fun = dchisq, args = list(df = df), fill = "blue", xlim = c(0, x1), alpha = 0.3) + 
         geom_area(stat = "function", fun = dchisq, args = list(df = df), fill = "blue", xlim = c(x2, L), alpha = 0.3) + 
         theme(axis.title.y = element_blank(), axis.ticks.y=element_blank(), axis.text.y=element_blank(), axis.title.x = element_blank(), axis.ticks.x=element_blank(), axis.text.x=element_blank()) + 
-        annotate("text", x = 10, y = .02, label=TeX("Each shaded area $=\\alpha$"), size = 5, color = "blue") + 
+        annotate("text", x = 10, y = .02, label=TeX("Each shaded area $=\\alpha$"), size = tsz, color = "blue") + 
         annotate("segment", x = 10, xend = x1-1, y = 0.015, yend = .002, color = "blue", arrow=arrow(length=unit(0.2,"cm"))) + 
         annotate("segment", x = 10, xend = x2+1, y = 0.015, yend = .002, color = "blue", arrow=arrow(length=unit(0.2,"cm"))) + 
-        annotate("text", x = x1, y = -0.005, label=TeX("$\\chi^2_{1-\\alpha, \\nu}$"), size = 5) + 
-        annotate("text", x = x2, y = -0.005, label=TeX("$\\chi^2_{\\alpha, \\nu}$"), size = 5) + 
+        annotate("text", x = x1, y = -0.005, label=TeX("$\\chi^2_{1-\\alpha, \\nu}$"), size = tsz) + 
+        annotate("text", x = x2, y = -0.005, label=TeX("$\\chi^2_{\\alpha, \\nu}$"), size = tsz) + 
         geom_segment(aes(x = x1, xend = x1, y = 0, yend = dchisq(x1, df = df)), linetype = 44) + 
         geom_segment(aes(x = x2, xend = x2, y = 0, yend = dchisq(x2, df = df)), linetype = 44)
 ```

@@ -105,7 +105,7 @@ ggplot(df, aes(x = x, y = y)) +
         geom_line(aes(y=yhat, color = "regression"), size = lsz) + 
         geom_segment(aes(x=x, xend=x, y=y, yend=yhat, color="residuals"), linetype = 11) + 
         geom_point(alpha = 0.8) +  
-        annotate("text", x = 10.5, y = 75, size = 5,
+        annotate("text", x = 10.5, y = 75, size = tsz,
                  label=TeX("$\\widehat{\\beta}_0 = -36.943\\,,\\; \\widehat{\\beta}_1 = 5.066$")) + 
         xlab("Diameter [in]") + ylab("Volume [cu ft]") + 
         theme_lr + theme(legend.title = element_blank()) 
@@ -115,7 +115,7 @@ ggplot(df, aes(x = x, y = y)) +
 ggplot(df, aes(x = x, y = y)) + geom_line(aes(y = ybar, color = "mean"), size = lsz) + 
         geom_segment(aes(x = x, xend = x, y = ybar, yend = y, color = "deviations"), linetype = 10) + 
         geom_point(alpha = 0.8) +  
-        annotate("text", x = 8, y = ybar, size = 5, vjust = .75, label=TeX("$\\bar{y}$")) + 
+        annotate("text", x = 8, y = ybar, size = tsz, vjust = .75, label=TeX("$\\bar{y}$")) + 
         xlab("Diameter [in]") + ylab("Volume [cu ft]") + 
         theme_lr + theme(legend.title = element_blank())
 ```   

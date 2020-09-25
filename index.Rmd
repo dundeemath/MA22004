@@ -60,6 +60,7 @@ options(width = 90, knitr.kable.NA = '')
 # data sets
 
 lsz <- 1.0
+tsz <- 4
 data(iris)
 data(trees)
 

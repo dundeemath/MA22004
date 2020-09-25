@@ -82,8 +82,8 @@ ggplot(NULL, aes(c(-4, 14))) +
  geom_area(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), fill = "blue", xlim = c(5.5, 14), alpha = 0.3) + 
  geom_segment(aes(x = 5.5, y = 0, xend = 5.5, yend = 0.131), linetype = "dashed") + 
  theme(axis.title.y = element_blank(), axis.ticks.y = element_blank(), axis.text.y = element_blank(), axis.title.x = element_blank(), axis.ticks.x = element_blank(), axis.text.x = element_blank()) + 
- annotate("text", x = 5.5, y = -0.005, label = TeX("$x \\geq 5.5$"), size = 5, color = "blue") + 
- annotate("text", x = 10, y = 0.1, label = TeX("$X \\sim N(5,9)$"), size = 5)
+ annotate("text", x = 5.5, y = -0.005, label = TeX("$x \\geq 5.5$"), size = tsz, color = "blue") + 
+ annotate("text", x = 10, y = 0.1, label = TeX("$X \\sim N(5,9)$"), size = tsz)
 ```
 
 Alternatively, we can use the `r` code: `pnorm(5.5, mean = 5, sd = 3, lower.tail = FALSE)`.  $\lozenge$   
@@ -110,8 +110,8 @@ ggplot(NULL, aes(c(-4, 14))) +
  geom_area(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), fill = "blue", xlim = c(4, 5.25), alpha = 0.3) + 
  geom_segment(aes(x = c(4, 5.25), y = 0, xend = c(4, 5.25), yend = c(0.125, 0.133)), linetype = "dashed") + 
  theme(axis.title.y = element_blank(), axis.ticks.y = element_blank(), axis.text.y = element_blank(), axis.title.x = element_blank(), axis.ticks.x = element_blank(), axis.text.x = element_blank()) + 
- annotate("text", x = 4.625, y = -0.005, label = TeX("$4 \\leq x \\leq 5.25$"), size = 5, color = "blue") + 
- annotate("text", x = 10, y = 0.1, label = TeX("$X \\sim \\textbf{N}(5,9)$"), size = 5)
+ annotate("text", x = 4.625, y = -0.005, label = TeX("$4 \\leq x \\leq 5.25$"), size = tsz, color = "blue") + 
+ annotate("text", x = 10, y = 0.1, label = TeX("$X \\sim \\textbf{N}(5,9)$"), size = tsz)
 ```
 
 Alternatively, we can use the `r` code:

@@ -111,7 +111,7 @@ This interpretation makes clear that a confidence interval is not a probability 
 ```{r fifty-cis, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Fifty $95\\%$ CIs for a population mean $\\mu$. After a sample is taken, the computed interval estimate either contains $\\mu$ or it does not (asterisk identify intervals that do not include $\\mu$). When drawing such a large number of $95\\%$ CIs, we would anticipate that approximately $5\\%$ (ca. 2 or 3) would fail to cover the true parameter $\\mu$.", fig.width = 3, fig.asp = 2}
 df <- read_csv("data/fifty-cis.csv")
 df$star <- factor(df$star, level = c(0,1), labels = c("", "*"))
-ggplot(df, aes(x = idx, y = xbar, color = star, shape = star)) + geom_hline(yintercept = 0, size = lsz, alpha = 1) + geom_pointrange(aes(ymin = l, ymax = u)) + scale_shape_manual(values = c(19,8)) + theme(axis.title.y = element_blank(), axis.title.x = element_blank(), legend.position = "none", axis.ticks.x=element_blank(), axis.text.x=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + coord_flip() + annotate("text", x = 0, y = 0, label=TeX("$\\mu$"), hjust = -.6, vjust = 1.2, size = 5)
+ggplot(df, aes(x = idx, y = xbar, color = star, shape = star)) + geom_hline(yintercept = 0, size = lsz, alpha = 1) + geom_pointrange(aes(ymin = l, ymax = u)) + scale_shape_manual(values = c(19,8)) + theme(axis.title.y = element_blank(), axis.title.x = element_blank(), legend.position = "none", axis.ticks.x=element_blank(), axis.text.x=element_blank(), axis.text.y=element_blank(), axis.ticks.y=element_blank()) + coord_flip() + annotate("text", x = 0, y = 0, label=TeX("$\\mu$"), hjust = -.6, vjust = 1.2, size = tsz)
 ```   
 
 
