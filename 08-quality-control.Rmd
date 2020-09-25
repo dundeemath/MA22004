@@ -81,9 +81,9 @@ lcl = muhat - 3*sbar / (a(m) * sqrt(m))
 ucl = muhat + 3*sbar / (a(m) * sqrt(m))
 
 ggplot(ipa_stat, aes(x = Day)) + geom_point(aes(y = mean)) + 
- geom_hline(aes(yintercept = muhat, color = "Mean"), size = 1) + 
- geom_hline(aes(yintercept = lcl, color = "LCL"), size = 1.5) + 
- geom_hline(aes(yintercept = ucl, color = "UCL"), size = 2) + ylab("pH") + 
+ geom_hline(aes(yintercept = muhat, color = "Mean"), size = lsz) + 
+ geom_hline(aes(yintercept = lcl, color = "LCL"), size = lsz*1.5) + 
+ geom_hline(aes(yintercept = ucl, color = "UCL"), size = lsz*1.5) + ylab("pH") + 
    theme(legend.justification = c(1,1), legend.position = c(1,1),
          legend.title = element_blank(), 
          legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))

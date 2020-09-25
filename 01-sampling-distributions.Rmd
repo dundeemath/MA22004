@@ -78,7 +78,7 @@ The probability corresponds to the shaded area under the normal density $\varphi
 
 ```{r example-norm-geq, warning = FALSE, echo = FALSE, fig.cap = "The normal density from the exercise with the (one-sided) interval shaded in blue."}
 ggplot(NULL, aes(c(-4, 14))) + 
- geom_line(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), xlim = c(-4, 14), size = 1.5) +
+ geom_line(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), xlim = c(-4, 14), size = lsz) +
  geom_area(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), fill = "blue", xlim = c(5.5, 14), alpha = 0.3) + 
  geom_segment(aes(x = 5.5, y = 0, xend = 5.5, yend = 0.131), linetype = "dashed") + 
  theme(axis.title.y = element_blank(), axis.ticks.y = element_blank(), axis.text.y = element_blank(), axis.title.x = element_blank(), axis.ticks.x = element_blank(), axis.text.x = element_blank()) + 
@@ -106,12 +106,11 @@ The probability corresponds to the shaded area under the normal density $\varphi
 
 ```{r example-norm-interval, warning = FALSE, echo = FALSE, fig.cap = "The normal density from the exercise with the interval shaded in blue."}
 ggplot(NULL, aes(c(-4, 14))) + 
- geom_line(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), xlim = c(-4, 14), size = 1.5) +
+ geom_line(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), xlim = c(-4, 14), size = lsz) +
  geom_area(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), fill = "blue", xlim = c(4, 5.25), alpha = 0.3) + 
  geom_segment(aes(x = c(4, 5.25), y = 0, xend = c(4, 5.25), yend = c(0.125, 0.133)), linetype = "dashed") + 
  theme(axis.title.y = element_blank(), axis.ticks.y = element_blank(), axis.text.y = element_blank(), axis.title.x = element_blank(), axis.ticks.x = element_blank(), axis.text.x = element_blank()) + 
  annotate("text", x = 4.625, y = -0.005, label = TeX("$4 \\leq x \\leq 5.25$"), size = 5, color = "blue") + 
- #annotate("text", x = 5.25, y = -0.005, label = "5.25", size = 4, color = "blue") + 
  annotate("text", x = 10, y = 0.1, label = TeX("$X \\sim \\textbf{N}(5,9)$"), size = 5)
 ```
 
@@ -155,7 +154,7 @@ t.dist <- data.frame(t = seq(-4, 4, 0.1)) %>%
  gather(key = "df", value = "density", -t)
 t.dist$df <- factor(t.dist$df, levels = c("df1", "df2", "df5", "df1000"), labels = c(1, 2, 5, 1000))
 ggplot(t.dist, aes(x = t, y = density, color = df)) +
- geom_line(size = 1.5) +
+ geom_line(size = lsz) +
  labs(y = TeX("$f(x;\\nu)$"), x = TeX("$x$"), color = TeX("$\\nu$ (df)")) + theme_ur
 ```
 
@@ -193,7 +192,7 @@ chisq.dist <- data.frame(chisq = 0:7000 / 100) %>%
  gather(key = "df", value = "density", -chisq)
 chisq.dist$df <- factor(chisq.dist$df, levels = c("df1", "df2", "df3", "df4", "df6", "df9"), labels = c(1, 2, 3, 4, 6, 9))
 ggplot(chisq.dist, aes(x = chisq, y = density, color = df)) +
- geom_line(size = 1.5) + ylim(c(0,.6)) + xlim(c(0,15)) +
+ geom_line(size = lsz) + ylim(c(0,.6)) + xlim(c(0,15)) +
  labs(y = TeX("$f(x;\\nu)$"), x = TeX("$x$"), color = TeX("$\\nu$ (df)")) + theme_ur
 ```
 
@@ -232,7 +231,7 @@ f.dist <- data.frame(f = 0:1000 / 100) %>%
  gather(key = "df", value = "density", -f)
 f.dist$df <- factor(f.dist$df, levels = c("df_1_1", "df_2_1", "df_5_2", "df_10_2", "df_100_100"), labels = c("(1, 1)", "(2, 1)", "(5, 2)", "(10, 2)", "(100, 100)"))
 ggplot(f.dist, aes(x = f, y = density, color = df)) +
- geom_line(size = 1.5) + ylim(c(0,2.1)) + xlim(c(0,3)) +
+ geom_line(size = lsz) + ylim(c(0,2.1)) + xlim(c(0,3)) +
  labs(y = TeX("$f(x;\\nu_1, \\nu_2)$"), x = TeX("$x$"), color = TeX("$(\\nu_1, \\nu_2)$")) + theme_ur
 ```
 

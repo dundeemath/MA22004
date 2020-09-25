@@ -54,7 +54,7 @@ Consider $400$ samples from a normal population with a known standard deviation 
 
 ```{r ci-norm-known-var-code, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "$400$ samples from a normal population with known variance $\\sigma = 17000$ together with the corresponding (normal) sampling distribution for the observed mean."}
 xdat <- read_csv("data/exm-ci-norm-known-var.csv")
-ggplot(xdat, aes(x = obs)) + geom_histogram(aes(y = ..density..)) + stat_function(aes(color = "Sample mean"), fun = dnorm, args = list(mean = mean(xdat$obs), sd = sd(xdat$obs)), size = 1) + ylab("Density") + xlab("Observations") + theme_ur + theme(legend.title = element_blank())
+ggplot(xdat, aes(x = obs)) + geom_histogram(aes(y = ..density..)) + stat_function(aes(color = "Sample mean"), fun = dnorm, args = list(mean = mean(xdat$obs), sd = sd(xdat$obs)), size = lsz) + ylab("Density") + xlab("Observations") + theme_ur + theme(legend.title = element_blank())
 ```
 
 For $\alpha = 0.05$, the critical value $z_{0.025} = 1.96$; this value can be found by looking in a table of critical $z$ values or using the `r` code `qnorm(1-.05/2)`. From Definition \@ref(def:ci-norm-known-var),
@@ -277,7 +277,7 @@ The test is based on $\nu = 31-1$ df, and $P = `r signif(pt((mean(trees$Volume) 
 ```{r exm-htest-ttest-plot, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "For this test, the $P$-value is the upper-tail area, i.e., to the right of the computed statistic t."}
 t <- 1.8
 ggplot(NULL, aes(c(-3.5,3.5))) + 
-  geom_line(stat = "function", fun = dt, args = list(df = 18), xlim = c(-3.5, 3.5), size = 1.5) +
+  geom_line(stat = "function", fun = dt, args = list(df = 18), xlim = c(-3.5, 3.5), size = lsz) +
   geom_area(stat = "function", fun = dt, args = list(df = 18), fill = "blue", xlim = c(t, 3.5), alpha = 0.3) + theme(axis.title.y = element_blank(), axis.ticks.y=element_blank(), axis.text.y=element_blank(), axis.title.x = element_blank(), axis.ticks.x=element_blank(), axis.text.x=element_blank()) + annotate("text", x = 3, y = .1, label=TeX("$P$-value"), size = 5, color = "blue") + annotate("segment", x = 3., xend = 2., y = 0.08, yend = .01, color = "blue", arrow=arrow(length=unit(0.2,"cm"))) + annotate("text", x = t, y = -.030, label=TeX("$t$"), size = 5) + geom_segment(aes(x = t, xend = t, y = 0, yend = dt(t, df = 18)), linetype = 44)
 ```   
 
@@ -401,7 +401,7 @@ L <- 30
 x1 <- qchisq(1-0.05/2, df=df, lower.tail = FALSE)
 x2 <- qchisq(0.05/2, df=df, lower.tail = FALSE)
 ggplot(NULL, aes(c(0,L))) + 
-  geom_line(stat = "function", fun = dchisq, args = list(df = df), xlim = c(0, L), size = 1.5) +
+  geom_line(stat = "function", fun = dchisq, args = list(df = df), xlim = c(0, L), size = lsz) +
   geom_area(stat = "function", fun = dchisq, args = list(df = df), fill = "blue", xlim = c(0, x1), alpha = 0.3) + 
         geom_area(stat = "function", fun = dchisq, args = list(df = df), fill = "blue", xlim = c(x2, L), alpha = 0.3) + 
         theme(axis.title.y = element_blank(), axis.ticks.y=element_blank(), axis.text.y=element_blank(), axis.title.x = element_blank(), axis.ticks.x=element_blank(), axis.text.x=element_blank()) + 

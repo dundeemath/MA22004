@@ -58,6 +58,8 @@ options(width = 90, knitr.kable.NA = '')
 # options(ggplot2.continuous.fill = "viridis")
 # scale_colour_discrete <- scale_colour_viridis_d
 # data sets
+
+lsz <- 1.0
 data(iris)
 data(trees)
 

@@ -432,9 +432,9 @@ Figure 1.6: The density for <span class="math inline">\(\chi^2(\nu)\)</span> for
 <span id="def:F-dist" class="definition"><strong>Definition 1.5  </strong></span>A continuous rv <span class="math inline">\(X\)</span> has an <strong><span class="math inline">\(\mathsf{F}\)</span> distribution</strong> with df parameters <span class="math inline">\(\nu_1\)</span> and <span class="math inline">\(\nu_2\)</span>, if <span class="math inline">\(X\)</span> has pdf
 <span class="math display">\[\begin{equation*}
  f(x; \nu_1, \nu_2) = 
-    \frac{\Gamma\left(\frac{n+m}{2}\right) n^{n/2} m^{m/2}}
- {\Gamma\left(\frac{n}{2}\right) \Gamma\left(\frac{m}{2}\right)} 
- \frac{x^{n/2 - 1}}{(m+nx)^{(n+m)/2}} \,.
+    \frac{\Gamma\left(\frac{\nu_1+\nu_2}{2}\right) \nu_1^{\nu_1/2} \nu_2^{\nu_2/2}}
+ {\Gamma\left(\frac{\nu_1}{2}\right) \Gamma\left(\frac{\nu_2}{2}\right)} 
+ \frac{x^{\nu_1/2 - 1}}{(\nu_2+\nu_1 x)^{(\nu_1+\nu_2)/2}} \,.
 \end{equation*}\]</span>
 </div>
 <p>The pdf <span class="math inline">\(f(x; \nu_1, \nu_2)\)</span> of the <span class="math inline">\(\mathsf{F}(\nu_1, \nu_2)\)</span> distribution depends on two positive integers <span class="math inline">\(\nu_1\)</span> and <span class="math inline">\(\nu_2\)</span> referred to, respectively, as the numerator and denominator df. The density is plotted below for several combinations of <span class="math inline">\((\nu_1, \nu_2)\)</span>.</p>

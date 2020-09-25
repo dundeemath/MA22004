@@ -102,7 +102,7 @@ Both Figures \@ref(fig:linear-model-fit) and \@ref(fig:linear-model-residuals) a
 
 ```{r linear-model-fit, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Linear regression (or least squares fit) of Volume to Diameter from the **Cherry Tree Data**. The vertical bars between the observed data point and the regression line indicate the error in the fit (the least squares residual). The residuals are squared and summed to yield the $\\mathsf{RSS}$ (alt: $\\mathsf{SSE}$)."}
 ggplot(df, aes(x = x, y = y)) + 
-        geom_line(aes(y=yhat, color = "regression"), size = 1) + 
+        geom_line(aes(y=yhat, color = "regression"), size = lsz) + 
         geom_segment(aes(x=x, xend=x, y=y, yend=yhat, color="residuals"), linetype = 11) + 
         geom_point(alpha = 0.8) +  
         annotate("text", x = 10.5, y = 75, size = 5,
@@ -112,7 +112,7 @@ ggplot(df, aes(x = x, y = y)) +
 ```   
 
 ```{r linear-model-residuals, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "The deviations about the sample mean $\\overline{y}$. The sum of the squared deviations or $\\mathsf{SST}$ (total sum of squares) is a measure of the total variation in the observations."}
-ggplot(df, aes(x = x, y = y)) + geom_line(aes(y = ybar, color = "mean"), size = 1) + 
+ggplot(df, aes(x = x, y = y)) + geom_line(aes(y = ybar, color = "mean"), size = lsz) + 
         geom_segment(aes(x = x, xend = x, y = ybar, yend = y, color = "deviations"), linetype = 10) + 
         geom_point(alpha = 0.8) +  
         annotate("text", x = 8, y = ybar, size = 5, vjust = .75, label=TeX("$\\bar{y}$")) + 
