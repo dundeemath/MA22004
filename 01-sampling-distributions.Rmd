@@ -76,7 +76,7 @@ where we look up the value of $\Phi(z) = P(Z\leq z)$ in a table of standard norm
 
 The probability corresponds to the shaded area under the normal density $\varphi(x) = \Phi'(x)$ corresponding to $x \geq 5.5$.
 
-```{r example-norm-geq, warning = FALSE, echo = FALSE}
+```{r example-norm-geq, warning = FALSE, echo = FALSE, fig.cap = "The normal density from the exercise with the (one-sided) interval shaded in blue."}
 ggplot(NULL, aes(c(-4, 14))) + 
  geom_line(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), xlim = c(-4, 14), size = 1.5) +
  geom_area(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), fill = "blue", xlim = c(5.5, 14), alpha = 0.3) + 
@@ -104,7 +104,7 @@ where we look up the value of $\Phi(z) = P(Z\leq z)$ in a table of standard norm
 
 The probability corresponds to the shaded area under the normal density $\varphi(x) = \Phi'(x)$ corresponding to $4 \leq x \leq 5.25$.
 
-```{r example-norm-interval, warning = FALSE, echo = FALSE}
+```{r example-norm-interval, warning = FALSE, echo = FALSE, fig.cap = "The normal density from the exercise with the interval shaded in blue."}
 ggplot(NULL, aes(c(-4, 14))) + 
  geom_line(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), xlim = c(-4, 14), size = 1.5) +
  geom_area(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), fill = "blue", xlim = c(4, 5.25), alpha = 0.3) + 
@@ -144,6 +144,21 @@ f(x; \nu) = \frac{\Gamma\left(\tfrac{\nu+1}{2}\right)}{\sqrt{\nu \pi} \Gamma \le
 We write $X \sim \mathsf{t}(\nu)$. 
 ```  
 
+The density for $\mathsf{t}(\nu)$ for several values of $\nu$ are plotted below. 
+
+```{r exemplar-t-dist, echo = FALSE, fig.cap = "The density for $\\mathsf{t}(\\nu)$ for several values of $\\nu$ (df)."}
+t.dist <- data.frame(t = seq(-4, 4, 0.1)) %>% 
+ mutate(df1 = dt(x = t, df = 1), 
+        df2 = dt(x = t, df = 2), 
+        df5 = dt(x = t, df = 5), 
+        df1000 = dt(x = t, df = 1000)) %>% 
+ gather(key = "df", value = "density", -t)
+t.dist$df <- factor(t.dist$df, levels = c("df1", "df2", "df5", "df1000"), labels = c(1, 2, 5, 1000))
+ggplot(t.dist, aes(x = t, y = density, color = df)) +
+ geom_line(size = 1.5) +
+ labs(y = TeX("$f(x;\\nu)$"), x = TeX("$x$"), color = TeX("$\\nu$ (df)")) + theme_ur
+```
+
 ### Properties of $\mathsf{t}$ distributions {#facts-t}
 
 1. The density for $\mathsf{t}(\nu)$ is a bell-shaped curve centered at $0$.
@@ -165,7 +180,24 @@ f(x; \nu) = \frac{1}{2^{\nu/2} \Gamma(\nu/2)} x^{(\nu/2)-1} e^{-x/2} \,,
 with support $x \in (0, \infty)$ if $\nu=1$, otherwise $x \in [0, \infty)$. We write $X \sim \chi^2(\nu)$. 
 ```  
 
-The pdf $f(x; \nu)$ of the $\chi^2(\nu)$ distribution depends on a positive integer $\nu$ referred to as the df. The density $f(x;\nu)$ is positively skewed, i.e., the right tail is longer and hence the mass is concentrated to the left of the figure. The distribution becomes more symmetric as $\nu$ increases. We denote critical values of the $\chi^2(\nu)$ distribution by $\chi^2_{\alpha, \nu}$.  
+The pdf $f(x; \nu)$ of the $\chi^2(\nu)$ distribution depends on a positive integer $\nu$ referred to as the df. The density for several values of $\nu$ are plotted below. 
+
+```{r exemplar-chisq-dist, echo = FALSE, warning = FALSE, fig.cap = "The density for $\\chi^2(\\nu)$ for several values of $\\nu$ (df)."}
+chisq.dist <- data.frame(chisq = 0:7000 / 100) %>% 
+ mutate(df1 = dchisq(x = chisq, df = 1), 
+        df2 = dchisq(x = chisq, df = 2),
+        df3 = dchisq(x = chisq, df = 3),
+        df4 = dchisq(x = chisq, df = 4),
+        df6 = dchisq(x = chisq, df = 6),
+        df9 = dchisq(x = chisq, df = 9)) %>%
+ gather(key = "df", value = "density", -chisq)
+chisq.dist$df <- factor(chisq.dist$df, levels = c("df1", "df2", "df3", "df4", "df6", "df9"), labels = c(1, 2, 3, 4, 6, 9))
+ggplot(chisq.dist, aes(x = chisq, y = density, color = df)) +
+ geom_line(size = 1.5) + ylim(c(0,.6)) + xlim(c(0,15)) +
+ labs(y = TeX("$f(x;\\nu)$"), x = TeX("$x$"), color = TeX("$\\nu$ (df)")) + theme_ur
+```
+
+The density $f(x;\nu)$ is positively skewed, i.e., the right tail is longer and hence the mass is concentrated to the left of the figure. The distribution becomes more symmetric as $\nu$ increases. We denote critical values of the $\chi^2(\nu)$ distribution by $\chi^2_{\alpha, \nu}$.  
 
 :::{.warningblock}
 Unlike the normal and $t$ distributions, the $\mathsf{\chi}^2$ distribution is not symmetric. This means that the critical values e.g. $\chi^2_{.99, \nu}$ and $\chi^2_{0.01,\nu}$ are **not** equal. Hence, it will be necessary to look up both values for CIs based on $\chi^2$ critical values.  
@@ -186,6 +218,25 @@ A continuous rv $X$ has an **$\mathsf{F}$ distribution** with df parameters $\nu
  \frac{x^{n/2 - 1}}{(m+nx)^{(n+m)/2}} \,.
 \end{equation*}
 ```
+
+The pdf $f(x; \nu_1, \nu_2)$ of the $\mathsf{F}(\nu_1, \nu_2)$ distribution depends on two positive integers $\nu_1$ and $\nu_2$ referred to, respectively, as the numerator and denominator df. The density is plotted below for several combinations of $(\nu_1, \nu_2)$. 
+
+```{r exemplar-F-dist, echo = FALSE, warning = FALSE, fig.cap = "The density for $\\mathsf{F}(\\nu_1, \\nu_2)$ for several combinations of $(\\nu_1, \\nu_2)$."}
+
+f.dist <- data.frame(f = 0:1000 / 100) %>% 
+ mutate(df_1_1 = df(x = f, df1 = 1, df2 = 1),
+        df_2_1 = df(x = f, df1 = 2, df2 = 1),
+        df_5_2 = df(x = f, df1 = 5, df2 = 2),
+        df_10_2 = df(x = f, df1 = 10, df2 = 2),
+        df_100_100 = df(x = f, df1 = 100, df2 = 100)) %>%
+ gather(key = "df", value = "density", -f)
+f.dist$df <- factor(f.dist$df, levels = c("df_1_1", "df_2_1", "df_5_2", "df_10_2", "df_100_100"), labels = c("(1, 1)", "(2, 1)", "(5, 2)", "(10, 2)", "(100, 100)"))
+ggplot(f.dist, aes(x = f, y = density, color = df)) +
+ geom_line(size = 1.5) + ylim(c(0,2.1)) + xlim(c(0,3)) +
+ labs(y = TeX("$f(x;\\nu_1, \\nu_2)$"), x = TeX("$x$"), color = TeX("$(\\nu_1, \\nu_2)$")) + theme_ur
+```
+
+Where do the terms numerator and denominator df come from? The $\mathsf{F}$ distribution is related to ratios of $\chi^2$ rvs.
 
 ```{theorem, F-dist-chisq}
 If $X_1 \sim \chi^2(\nu_1)$ and $X_2 \sim \chi^2(\nu_2)$ are independent rvs, then the rv 

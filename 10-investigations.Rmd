@@ -4,6 +4,7 @@
 
 Below we provide links to supplementary online material. Hopefully some of the items will inspire you to further examine different aspects of the course. 
 
+
 ## Investigation 0 {-}
 
 What is Statistics? 
@@ -96,19 +97,39 @@ Spurious correlations.
 : [https://www.youtube.com/watch?v=lbODqslc4Tg](https://www.youtube.com/watch?v=lbODqslc4Tg) <br /> Correlation vs. causality from the Clip from the 2010 documentary "Freakonomics: The Movie".
 
 
-
-
 ## Investigation 7 {-}
 
-Data and society. 
+Data and society: can data-driven and predictive modeling lead to a better world? What are the ethics of mass data collection?
 
+- Science behind the news: Predictive Policing
+: [https://www.youtube.com/watch?v=U0gX_z0V0nE](https://www.youtube.com/watch?v=U0gX_z0V0nE) <br /> The Los Angeles Police Department is using a new tactic in their fight against crime called "predictive policing." It's a computer program that was originally developed by a team at UCLA, including mathematician Andrea Bertozzi and anthropologist Jeff Brantingham. "Science Behind the News" is produced in partnership with NBC Learn. (Provided by the National Science Foundation & NBC Learn)
 
+- You should get paid for your data
+: [https://www.nytimes.com/video/opinion/100000006678020/data-privacy-jaron-lanier-2.html](https://www.nytimes.com/video/opinion/100000006678020/data-privacy-jaron-lanier-2.html) <br /> Jaron Lanier (Computer Scientist and Author) discusses a compensation plan and data dignity. 
+: [https://www.ted.com/talks/jennifer_zhu_scott_why_you_should_get_paid_for_your_data](https://www.ted.com/talks/jennifer_zhu_scott_why_you_should_get_paid_for_your_data) <br /> Jennifer Zhu Scott (Computer Scientist) also thinks you should get paid for your data. 
 
+- How tech companies deceive you into giving up your data and privacy
+: [https://www.ted.com/talks/finn_lutzow_holm_myrstad_how_tech_companies_deceive_you_into_giving_up_your_data_and_privacy](https://www.ted.com/talks/finn_lutzow_holm_myrstad_how_tech_companies_deceive_you_into_giving_up_your_data_and_privacy) <br /> Finn Lützow-Holm Myrstad (Norwegian Consumer Council) discusses consumer protections and data collection. 
+
+- Your company's data could help end world hunger
+: [https://www.ted.com/talks/mallory_freeman_your_company_s_data_could_help_end_world_hunger](https://www.ted.com/talks/mallory_freeman_your_company_s_data_could_help_end_world_hunger) <br /> Mallory Freeman (Data Scientist) discusses how to do the most good with data. 
 
 
 ## Investigation 8 {-}
 
 Machine learning / big data.
+
+- What is Machine Learning? 
+: [https://www.youtube.com/watch?v=f_uwKZIAeM0](https://www.youtube.com/watch?v=f_uwKZIAeM0) <br /> OxfordSparks discusses the topic of supervised learning algorithms and how machine learning is used all around us.  
+
+- Big Data (TED-Ed)
+: [https://www.youtube.com/watch?v=j-0cUmUyb-Y](https://www.youtube.com/watch?v=j-0cUmUyb-Y) <br /> Tim Smith (educator) discusses the historical arc of big data in this TED-Ed animation. 
+
+- The human insights missing from big data
+: [https://www.ted.com/talks/tricia_wang_the_human_insights_missing_from_big_data](https://www.ted.com/talks/tricia_wang_the_human_insights_missing_from_big_data) <br /> Tricia Wang (Ethnographer) discusses the human insights missing from big data. 
+
+- How we can find ourselves in data
+: [https://www.ted.com/talks/giorgia_lupi_how_we_can_find_ourselves_in_data](https://www.ted.com/talks/giorgia_lupi_how_we_can_find_ourselves_in_data) <br /> Giorgia Lupi (Designer) discusses a humanistic approach to data and data visualization. 
 
 
 

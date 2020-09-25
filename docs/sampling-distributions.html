@@ -328,7 +328,12 @@ This process is often referred to as <em>standardizing</em> (the normal rv).</p>
 where we look up the value of <span class="math inline">\(\Phi(z) = P(Z\leq z)\)</span> in a table of standard normal curve areas.
 </div>
 <p>The probability corresponds to the shaded area under the normal density <span class="math inline">\(\varphi(x) = \Phi&#39;(x)\)</span> corresponding to <span class="math inline">\(x \geq 5.5\)</span>.</p>
-<p><img src="ma22004_files/figure-html/example-norm-geq-1.svg" width="768" style="display: block; margin: auto;" /></p>
+<div class="figure" style="text-align: center"><span id="fig:example-norm-geq"></span>
+<img src="ma22004_files/figure-html/example-norm-geq-1.svg" alt="The normal density from the exercise with the (one-sided) interval shaded in blue." width="768" />
+<p class="caption">
+Figure 1.3: The normal density from the exercise with the (one-sided) interval shaded in blue.
+</p>
+</div>
 <p>Alternatively, we can use the <code>r</code> code: <code>pnorm(5.5, mean = 5, sd = 3, lower.tail = FALSE)</code>. <span class="math inline">\(\lozenge\)</span></p>
 
 <div class="example">
@@ -343,7 +348,12 @@ where we look up the value of <span class="math inline">\(\Phi(z) = P(Z\leq z)\)
 where we look up the value of <span class="math inline">\(\Phi(z) = P(Z\leq z)\)</span> in a table of standard normal curve areas.
 </div>
 <p>The probability corresponds to the shaded area under the normal density <span class="math inline">\(\varphi(x) = \Phi&#39;(x)\)</span> corresponding to <span class="math inline">\(4 \leq x \leq 5.25\)</span>.</p>
-<p><img src="ma22004_files/figure-html/example-norm-interval-1.svg" width="768" style="display: block; margin: auto;" /></p>
+<div class="figure" style="text-align: center"><span id="fig:example-norm-interval"></span>
+<img src="ma22004_files/figure-html/example-norm-interval-1.svg" alt="The normal density from the exercise with the interval shaded in blue." width="768" />
+<p class="caption">
+Figure 1.4: The normal density from the exercise with the interval shaded in blue.
+</p>
+</div>
 <p>Alternatively, we can use the <code>r</code> code:
 <code>pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3)</code>. <span class="math inline">\(\lozenge\)</span></p>
 </div>
@@ -373,6 +383,13 @@ f(x; \nu) = \frac{\Gamma\left(\tfrac{\nu+1}{2}\right)}{\sqrt{\nu \pi} \Gamma \le
 \end{equation*}\]</span>
 We write <span class="math inline">\(X \sim \mathsf{t}(\nu)\)</span>.
 </div>
+<p>The density for <span class="math inline">\(\mathsf{t}(\nu)\)</span> for several values of <span class="math inline">\(\nu\)</span> are plotted below.</p>
+<div class="figure" style="text-align: center"><span id="fig:exemplar-t-dist"></span>
+<img src="ma22004_files/figure-html/exemplar-t-dist-1.svg" alt="The density for $\mathsf{t}(\nu)$ for several values of $\nu$ (df)." width="768" />
+<p class="caption">
+Figure 1.5: The density for <span class="math inline">\(\mathsf{t}(\nu)\)</span> for several values of <span class="math inline">\(\nu\)</span> (df).
+</p>
+</div>
 <div id="facts-t" class="section level3" number="1.2.1">
 <h3><span class="header-section-number">1.2.1</span> Properties of <span class="math inline">\(\mathsf{t}\)</span> distributions</h3>
 <ol style="list-style-type: decimal">
@@ -394,7 +411,14 @@ f(x; \nu) = \frac{1}{2^{\nu/2} \Gamma(\nu/2)} x^{(\nu/2)-1} e^{-x/2} \,,
 \end{equation*}\]</span>
 with support <span class="math inline">\(x \in (0, \infty)\)</span> if <span class="math inline">\(\nu=1\)</span>, otherwise <span class="math inline">\(x \in [0, \infty)\)</span>. We write <span class="math inline">\(X \sim \chi^2(\nu)\)</span>.
 </div>
-<p>The pdf <span class="math inline">\(f(x; \nu)\)</span> of the <span class="math inline">\(\chi^2(\nu)\)</span> distribution depends on a positive integer <span class="math inline">\(\nu\)</span> referred to as the df. The density <span class="math inline">\(f(x;\nu)\)</span> is positively skewed, i.e., the right tail is longer and hence the mass is concentrated to the left of the figure. The distribution becomes more symmetric as <span class="math inline">\(\nu\)</span> increases. We denote critical values of the <span class="math inline">\(\chi^2(\nu)\)</span> distribution by <span class="math inline">\(\chi^2_{\alpha, \nu}\)</span>.</p>
+<p>The pdf <span class="math inline">\(f(x; \nu)\)</span> of the <span class="math inline">\(\chi^2(\nu)\)</span> distribution depends on a positive integer <span class="math inline">\(\nu\)</span> referred to as the df. The density for several values of <span class="math inline">\(\nu\)</span> are plotted below.</p>
+<div class="figure" style="text-align: center"><span id="fig:exemplar-chisq-dist"></span>
+<img src="ma22004_files/figure-html/exemplar-chisq-dist-1.svg" alt="The density for $\chi^2(\nu)$ for several values of $\nu$ (df)." width="768" />
+<p class="caption">
+Figure 1.6: The density for <span class="math inline">\(\chi^2(\nu)\)</span> for several values of <span class="math inline">\(\nu\)</span> (df).
+</p>
+</div>
+<p>The density <span class="math inline">\(f(x;\nu)\)</span> is positively skewed, i.e., the right tail is longer and hence the mass is concentrated to the left of the figure. The distribution becomes more symmetric as <span class="math inline">\(\nu\)</span> increases. We denote critical values of the <span class="math inline">\(\chi^2(\nu)\)</span> distribution by <span class="math inline">\(\chi^2_{\alpha, \nu}\)</span>.</p>
 <div class="warningblock">
 <p>Unlike the normal and <span class="math inline">\(t\)</span> distributions, the <span class="math inline">\(\mathsf{\chi}^2\)</span> distribution is not symmetric. This means that the critical values e.g. <span class="math inline">\(\chi^2_{.99, \nu}\)</span> and <span class="math inline">\(\chi^2_{0.01,\nu}\)</span> are <strong>not</strong> equal. Hence, it will be necessary to look up both values for CIs based on <span class="math inline">\(\chi^2\)</span> critical values.</p>
 </div>
@@ -413,6 +437,14 @@ with support <span class="math inline">\(x \in (0, \infty)\)</span> if <span cla
  \frac{x^{n/2 - 1}}{(m+nx)^{(n+m)/2}} \,.
 \end{equation*}\]</span>
 </div>
+<p>The pdf <span class="math inline">\(f(x; \nu_1, \nu_2)\)</span> of the <span class="math inline">\(\mathsf{F}(\nu_1, \nu_2)\)</span> distribution depends on two positive integers <span class="math inline">\(\nu_1\)</span> and <span class="math inline">\(\nu_2\)</span> referred to, respectively, as the numerator and denominator df. The density is plotted below for several combinations of <span class="math inline">\((\nu_1, \nu_2)\)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:exemplar-F-dist"></span>
+<img src="ma22004_files/figure-html/exemplar-F-dist-1.svg" alt="The density for $\mathsf{F}(\nu_1, \nu_2)$ for several combinations of $(\nu_1, \nu_2)$." width="768" />
+<p class="caption">
+Figure 1.7: The density for <span class="math inline">\(\mathsf{F}(\nu_1, \nu_2)\)</span> for several combinations of <span class="math inline">\((\nu_1, \nu_2)\)</span>.
+</p>
+</div>
+<p>Where do the terms numerator and denominator df come from? The <span class="math inline">\(\mathsf{F}\)</span> distribution is related to ratios of <span class="math inline">\(\chi^2\)</span> rvs.</p>
 
 <div class="theorem">
 <span id="thm:F-dist-chisq" class="theorem"><strong>Theorem 1.1  </strong></span>If <span class="math inline">\(X_1 \sim \chi^2(\nu_1)\)</span> and <span class="math inline">\(X_2 \sim \chi^2(\nu_2)\)</span> are independent rvs, then the rv
