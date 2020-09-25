@@ -44,3 +44,21 @@ null_dist %>%
  visualise() +
  shade_p_value(obs_stat = mu_hat, direction = "two-sided")
 
+data("trees")
+
+s <- trees %>%
+ specify(response = Volume) %>%
+ calculate(stat = "sd")
+
+s <- sd(trees$Volume)
+
+null_dist <- trees %>%
+ specify(response = Volume) %>%
+ generate(reps = 1000, type = "bootstrap") %>%
+ calculate(stat = "sd")
+
+ci <- null_dist %>%
+ get_confidence_interval(point_estimate = s, level = 0.95, type = "se")
+
+null_dist %>% 
+ visualise() + shade_ci(ci)

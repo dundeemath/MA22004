@@ -453,3 +453,29 @@ Pulling everything together, a $95\%$ CI for the population variance is given by
  \end{aligned}
 \end{equation*}
 Note the position of the critical values---don't swap them round. $\lozenge$   
+
+
+```{example, eg-ci-variance-infer}
+Revisit Example \@ref(exm:eg-ci-variance) and using the `infer` package to construct a $95\%$ confidence interval for the true standard deviation of the timber volume of black cherry trees based on the available mesurements in the **Cherry Tree Data**,  Table \@ref(tab:cherry-data-vol).
+```
+
+```{r eg-ci-variance-infer-code, echo = TRUE}
+s <- sd(trees$Volume)
+
+null_dist <- trees %>%
+ specify(response = Volume) %>%
+ generate(reps = 1000, type = "bootstrap") %>%
+ calculate(stat = "sd")
+
+ci <- null_dist %>%
+ get_confidence_interval(point_estimate = s, level = 0.95, type = "se")
+
+null_dist %>% 
+ visualise() + shade_ci(ci)
+```
+
+We plot the 95\% confidence interval for the standard deviation based on the computational null distribution obtained using 1000 bootstrap replications; note the interval estimate 
+```{r infer-ci-sd-sq, echo = TRUE}
+ci^2
+```
+is in good agreement with the values obtained Example \@ref(exm:eg-ci-variance). Due to the computational nature of the interval estimate it is not precisely the same and rerunning the code will yield a slightly different interval. $\lozenge$
