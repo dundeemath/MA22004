@@ -1,0 +1,269 @@
+---
+title: "MA22004 - Statistics and Probability II"
+author: "Dr Eric Hall"
+date: "Last updated: `r Sys.Date()`"
+fontsize: 11pt
+classoption: oneside
+documentclass: book
+site: bookdown::bookdown_site
+link-citations: yes
+github-repo: dundeemath/MA22004
+url: 'https\://dundeemath.github.io/MA22004'
+bibliography: ma22004.bib
+description: "Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee."
+always_allow_html: true
+include-before:
+  - '$\DeclareMathOperator{\E}{\mathbf{E}}$'
+  - '$\DeclareMathOperator{\Var}{Var}$'
+  - '$\DeclareMathOperator{\Cov}{Cov}$'
+  - '$\DeclareMathOperator{\corr}{corr}$'
+  - '$\newcommand{\se}{\mathsf{se}}$'
+  - '$\DeclareMathOperator{\sd}{sd}$'
+---
+
+# (PART\*) Course Documents {-}
+# Welcome {-}
+
+Placeholder
+
+
+
+<!--chapter:end:index.Rmd-->
+
+
+# Course Guide {-#cg}
+
+Placeholder
+
+
+## Organisation {-#cg-organization}
+## Timetable {-#cg-timetable}
+## Pre-requisites {-#cg-prerecs}
+## Syllabus {-#cg-syllabus}
+## Recommended Books {-#cg-books}
+## Assessment {-#cg-assessment}
+### Coursework {-#cg-assessment-coursework}
+### Examinations {-#cg-assessment-exams}
+## Your Commitment {-#cg-commitment}
+## Approved Calculators {-#cg-calcs}
+## Study Support {-#cg-support}
+## Disability {-#cg-disability}
+## Academic Honesty {-#cg-honesty}
+## End of Module Questionaire {-#cg-questionaire}
+
+<!--chapter:end:guide.Rmd-->
+
+# Lab Guide {-#labs}
+
+You will learn about the statistical programming language `R` and the software RStudio by working through 7 interactive lab tutorials and by completing lab reports. 
+
+These tutorials and all associated materials (templates, data sets, etc) are available as an `R` package at:
+
+[https://github.com/dundeemath/MA22004labs](https://github.com/dundeemath/MA22004labs).
+
+<!--chapter:end:labs.Rmd-->
+
+# Deadlines {-#deadlines}
+
+Below we have collected all the deadlines and important dates for the module. The three class tests (T1, T2, and T2) are on Wednesdays (W) from 13:00-15:00 and 14:00-17:00, respectively; we will practice (P) at uploading a test on Gradescope on Friday of week 1. Please keep in mind that you must engage with the weekly readings on Perusall **before** the seminar meeting on Wednesday afternoon. The lab reports (L1, L2, L3, L4, L5, L6, L7) are due on Thursday evenings at 17:00. 
+
+Further details about the practice upload and the class tests will be circulated nearer in time to the relevant deadline.
+
+```{r table-deadlines, echo=FALSE, warning = FALSE, message = FALSE, fig.cap = "An overview of all deadlines and important dates associated with the course."}
+df <- tibble(read_csv("data/deadlines.csv")) %>% relocate(Reading, .after = Week)
+kbl(df, booktabs = T) %>%
+ kable_styling(latex_options = c("striped", "hold_position"))
+```
+
+
+<!--chapter:end:guide_deadlines.Rmd-->
+
+# (PART\*) Course Notes {-}
+
+# Preliminaries {-}
+
+## Notation {-}
+
+Uppercase roman letters, e.g., $X$, will typically denote random variables (rvs); lower case letters, e.g., $x$, will denote a particular value (observation) of a rv. Rvs have probability distributions. Distributions are typically characterized by *parameters* which are fixed real numbers. Parameters describe population characteristics that are often unknown and must be estimated from data. Statistical inference is a tool that will help us to do this.
+
+:::{.warningblock}
+Statistical models comprise both rvs and parameters. Be careful not to confuse them! 
+:::
+
+## Abbreviations {-}
+
+```{r notation-abbrev, echo=FALSE, warning = FALSE, message = FALSE}
+# datatable(tibble(read_csv("data/notation-abbrev.csv")), rownames = FALSE, #filter = 'bottom',
+#           options = list(pageLength = 5, scrollX = T), autoHideNavigation = TRUE,
+#           caption = "Collection of abbreviations that are used in these notes.")
+kbl(tibble(read_csv("data/notation-abbrev.csv")), longtable = T, booktabs = T) %>%
+ kable_styling(latex_options = c("striped", "repeat_header"))
+```
+
+<!--chapter:end:00-prelim.Rmd-->
+
+
+# Sampling distributions {#sampling-distributions}
+
+Placeholder
+
+
+## Normal distribution {#normal-distribution}
+### Some useful facts about Normals {#facts-normals}
+### Empirical rule ($68-95-99.7$ rule)
+## $\mathsf{t}$ distribution {#t-distribution}
+### Properties of $\mathsf{t}$ distributions {#facts-t}
+## $\chi^2$ distribution {#chisq-distribution}
+## $\mathsf{F}$ distribution {#F-distribution}
+
+<!--chapter:end:01-sampling-distributions.Rmd-->
+
+
+# Basics of statistical inference {#statistical-inference}
+
+Placeholder
+
+
+## Point estimation {#point-estimation}
+## Confidence intervals {#confidence-intervals}
+## Hypothesis testing {#hypothesis-testing}
+
+<!--chapter:end:02-basics-stat-infer.Rmd-->
+
+
+# Inferences based on a single sample {#inference-single-sample}
+
+Placeholder
+
+
+## Estimating means {#estimating-means}
+### Mean of a normal population with known variance {#mean-normal-var-known}
+### Mean of a population with unknown variance (large-sample) {#mean-large-sample}
+### Mean of a normal population with unknown variance {#mean-normal-var-unknown}
+## Estimating proportions {#estimating-proportions}
+## Estimating variances {#estimating-variances}
+
+<!--chapter:end:03-infer-single-sample.Rmd-->
+
+
+# Inferences based on two samples {#inference-two-samples}
+
+Placeholder
+
+
+## Comparing means {#compare-means}
+### Comparing means of normal populations when variances are known {#compare-means-normpops-vars-known}
+### Comparing means when the sample sizes are large {#compare-means-large-samples}
+### Comparing means of normal populations when variances are unknown and the sample size is small {#compare-means-normpops-vars-unknown}
+## Comparing paired samples {#compare-paired-samples}
+## Comparing proportions {#compare-proportions}
+## Comparing variances {#compare-variances}
+
+<!--chapter:end:04-infer-two-samples.Rmd-->
+
+
+# Analysis of variance (ANOVA) {#anova}
+
+Placeholder
+
+
+## Single factor ANOVA test {#anova-single-factor-test}
+## Confidence intervals {#anova-ci}
+
+<!--chapter:end:05-anova.Rmd-->
+
+
+# Linear regression {#linear-models}
+
+Placeholder
+
+
+## Simple linear regression models {#simple-linear-regression}
+## Estimating $\sigma^2$ for linear regressions {#ls-estimate-var}
+## Inferences for least-squares parameters {#inference-ls}
+## Correlation {#correlation}
+
+<!--chapter:end:06-linear-models.Rmd-->
+
+
+# Categorical data {#categorical-data}
+
+Placeholder
+
+
+## Multinomial experiments
+## Goodness-of-fit for a single factor {#goodness-of-fit-tests}
+## Test for independence of factors
+
+<!--chapter:end:07-categorical-data.Rmd-->
+
+
+# Quality Control {#quality-control}
+
+Placeholder
+
+
+
+<!--chapter:end:08-quality-control.Rmd-->
+
+# (PART\*) Appendix {-}
+
+# Curated Content {-}
+
+Below we provide links to supplementary online material. Hopefully some of the items will inspire you to further examine different aspects of the course. 
+
+## Investigation 0 {-}
+
+What is Statistics? 
+
+Cambridge Ideas - Professor Risk ::
+[https://www.youtube.com/watch?v=a1PtQ67urG4](https://www.youtube.com/watch?v=a1PtQ67urG4) Prof David Spiegelhalter (Cambridge University) discusses public understanding of risk.
+
+The Joy of Statistics ::
+[https://www.youtube.com/watch?v=jbkSRLYSojo](https://www.youtube.com/watch?v=jbkSRLYSojo) Prof Hans Rosling (Karolinska Institute and Gapminder Foundation) analyzes data from 200 Countries over 200 Years in 4 Minutes - The Joy of Stats - BBC Four.
+
+Teach statistics before calculus! ::
+[https://www.ted.com/talks/arthur_benjamin_teach_statistics_before_calculus](https://www.ted.com/talks/arthur_benjamin_teach_statistics_before_calculus) Prof Arthur Benjamin (Harvey Mudd College) argues that the pinnacle of math education be probability and statistics --- not calculus.
+
+## Investigation 1 {-}
+
+Bad statistics / Good statistics
+
+Three ways to spot bad statistics ::
+[https://www.ted.com/talks/mona_chalabi_3_ways_to_spot_a_bad_statistic](https://www.ted.com/talks/mona_chalabi_3_ways_to_spot_a_bad_statistic) Mona Chalabi (Data Journalist) discusses three ways to spot bad statistics.
+
+No. 10 daily Covid-19 briefings ::
+[https://www.youtube.com/watch?v=QIw2l-trRXc](https://www.youtube.com/watch?v=QIw2l-trRXc) Prof David Spiegelhalter (Cambridge University) claims that No. 10 is misrepresenting Covid-19 data in a discussion with Andrew Marr (BBC).
+
+
+
+
+## Investigation 2 {-}
+
+Confounders.
+
+How statistics can be misleading (TED-Ed) ::
+[https://www.ted.com/talks/mark_liddell_how_statistics_can_be_misleading](https://www.ted.com/talks/mark_liddell_how_statistics_can_be_misleading) Mark Liddell (Educator) discusses Simpson's Paradox in this TED-Ed animation.
+
+## Investigation 3 {-}
+
+
+## Investigation 4 {-}
+
+
+## Investigation 5 {-}
+
+
+## Investigation 6 {-}
+
+
+## Investigation 7 {-}
+
+
+## Investigation 8 {-}
+
+
+# References {-}
+
+<!--chapter:end:10-investigations.Rmd-->
+

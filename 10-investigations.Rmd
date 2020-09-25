@@ -6,29 +6,98 @@ Below we provide links to supplementary online material. Hopefully some of the i
 
 ## Investigation 0 {-}
 
+What is Statistics? 
+
+Cambridge Ideas - Professor Risk ::
+[https://www.youtube.com/watch?v=a1PtQ67urG4](https://www.youtube.com/watch?v=a1PtQ67urG4) Prof David Spiegelhalter (Cambridge University) discusses public understanding of risk.
+
+The Joy of Statistics ::
+[https://www.youtube.com/watch?v=jbkSRLYSojo](https://www.youtube.com/watch?v=jbkSRLYSojo) Prof Hans Rosling (Karolinska Institute and Gapminder Foundation) analyzes data from 200 Countries over 200 Years in 4 Minutes - The Joy of Stats - BBC Four.
+
+Teach statistics before calculus! ::
+[https://www.ted.com/talks/arthur_benjamin_teach_statistics_before_calculus](https://www.ted.com/talks/arthur_benjamin_teach_statistics_before_calculus) Prof Arthur Benjamin (Harvey Mudd College) argues that the pinnacle of math education be probability and statistics --- not calculus.
 
 ## Investigation 1 {-}
+
+Defense against the dark arts.
+
+Three ways to spot bad statistics ::
+[https://www.ted.com/talks/mona_chalabi_3_ways_to_spot_a_bad_statistic](https://www.ted.com/talks/mona_chalabi_3_ways_to_spot_a_bad_statistic) Mona Chalabi (Data Journalist) discusses three ways to spot bad statistics.
+
+No. 10 daily Covid-19 briefings ::
+[https://www.youtube.com/watch?v=QIw2l-trRXc](https://www.youtube.com/watch?v=QIw2l-trRXc) Prof David Spiegelhalter (Cambridge University) claims that No. 10 is misrepresenting Covid-19 data in a discussion with Andrew Marr (BBC).
+
+Statistics Done Wrong ::
+[https://www.statisticsdonewrong.com/](https://www.statisticsdonewrong.com/) a book by Dr Alex Reinhart (Carnegie Mellon University).
+
+How to defend yourself against misleading statistics in the news ::
+[https://www.youtube.com/watch?v=mJ63-bQc9Xg](https://www.youtube.com/watch?v=mJ63-bQc9Xg) Sanne Blauw (Journalist) discusses how the presentation of statistics can mislead. 
 
 
 ## Investigation 2 {-}
 
+Data analysis. 
+
+Same Stats, Different Graphs ::
+[https://www.autodeskresearch.com/publications/samestats](https://www.autodeskresearch.com/publications/samestats) Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing (ACM SIGCHI Conference on Human Factors in Computing Systems) by Justin Matejka, George Fitzmaurice.
+
+Why do we so often use 0.05 for hypothesis testing? ::
+[https://www.openintro.org/book/stat/why05/](https://www.openintro.org/book/stat/why05/) In this online exercise, you will gain an improved understanding of what a significance level is, and why a value in the neighborhood of 0.05 is reasonable as a default.
+
+
 
 ## Investigation 3 {-}
+
+Paradoxes. 
+
+How statistics can be misleading (TED-Ed) ::
+[https://www.ted.com/talks/mark_liddell_how_statistics_can_be_misleading](https://www.ted.com/talks/mark_liddell_how_statistics_can_be_misleading) Mark Liddell (Educator) discusses Simpson's Paradox in this TED-Ed animation.
+
+Low birth-weight paradox :: 
+[https://www.wikiwand.com/en/Low_birth-weight_paradox](https://www.wikiwand.com/en/Low_birth-weight_paradox) 
+
+Gambler's Fallacy ::
+[https://www.youtube.com/watch?v=4eVluL-idkM](https://www.youtube.com/watch?v=4eVluL-idkM) Prof Kelly Shue (Chicago Booth) discusses the gambler's fallacy. 
 
 
 ## Investigation 4 {-}
 
+Spurious correlations. 
+
+The danger of mixing up causality and correlation :: 
+[https://www.youtube.com/watch?v=8B271L3NtAw](https://www.youtube.com/watch?v=8B271L3NtAw) Prov Ionica Smeets (University of Leiden) discusses causality and correlation.
+
+Spurious correlations ::
+[https://tylervigen.com/spurious-correlations](https://tylervigen.com/spurious-correlations) Tyler Vigen's site dedicated to spurious correlations. 
+
+Cause & Effect ::
+[https://www.youtube.com/watch?v=lbODqslc4Tg](https://www.youtube.com/watch?v=lbODqslc4Tg) Correlation vs. causality from the Clip from the 2010 documentary "Freakonomics: The Movie".
+
 
 ## Investigation 5 {-}
+
+Gambling.
+
+
 
 
 ## Investigation 6 {-}
 
+Epidemiology. 
+
+
+
 
 ## Investigation 7 {-}
 
+Data and society. 
+
+
 
 ## Investigation 8 {-}
+
+Machine learning / big data.
+
 
 
 # References {-}
