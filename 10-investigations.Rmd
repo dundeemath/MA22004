@@ -38,7 +38,7 @@ Defense against the dark arts.
 
 ## Investigation 2 {-}
 
-Data analysis and vizualization. 
+Data analysis and vizualization.
 
 - The Grammar of Graphics
 : [https://www.youtube.com/watch?v=h-62NwWUI5c](https://www.youtube.com/watch?v=h-62NwWUI5c) <br /> What Makes A Good Visualisation? Rhys Jackson from RocketMill, a UK Digital Marketing Agency, gives a perspective on visualizing data from a marketing perspective. 
@@ -57,7 +57,7 @@ Data analysis and vizualization.
 
 ## Investigation 3 {-}
 
-Paradoxes. 
+Statistical paradoxes. 
 
 - How statistics can be misleading (TED-Ed)
 : [https://www.ted.com/talks/mark_liddell_how_statistics_can_be_misleading](https://www.ted.com/talks/mark_liddell_how_statistics_can_be_misleading) <br /> Mark Liddell (Educator) discusses Simpson's Paradox in this TED-Ed animation.
@@ -71,21 +71,40 @@ Paradoxes.
 
 ## Investigation 4 {-}
 
-Gambling.
+The law and interpreting statistics.
 
+- How stats fool juries.
+: [https://ed.ted.com/lessons/peter-donnelly-shows-how-stats-fool-juries](https://ed.ted.com/lessons/peter-donnelly-shows-how-stats-fool-juries) <br /> Prof Peter Donnelly (Oxford University) discusses common mistakes in interpreting statistics. 
 
+- Better Data in Forensic Science
+: [https://www.dundee.ac.uk/leverhulme/projects/details/better-data-in-forensic-science.php](https://www.dundee.ac.uk/leverhulme/projects/details/better-data-in-forensic-science.php) <br /> Dr Christian Cole (Dundee) is leading a data-focused project as part of the Leverhulme Research Centre for Forensic Science right here at Dundee. 
+
+- Prosecutor's fallacy
+: [https://www.wikiwand.com/en/Prosecutor%27s_fallacy](https://www.wikiwand.com/en/Prosecutor%27s_fallacy) <br /> A fallacy of statistical reasoning, typically used by a prosecutor to exaggerate the likelihood of guilt: because $P(\text{hypothesis} \mid \text{evidence}) \neq P(\text{evidence} \mid \text{hypothesis})$!
 
 
 ## Investigation 5 {-}
 
-Epidemiology. 
+Data-driven decision making in epidemiology. 
+
+- Project Tycho 
+: [https://www.tycho.pitt.edu/](https://www.tycho.pitt.edu/) <br /> Digitized archival epidemiological data for the United States and the world. 
+: [https://www.youtube.com/watch?v=Kn9OJy1BPDo](https://www.youtube.com/watch?v=Kn9OJy1BPDo) <br /> An overview of the origins of project Tycho. 
 
 
+- Public Health Scotland COVID-19 Dashboard
+: [https://public.tableau.com/shared/N2M72MH2B](https://public.tableau.com/shared/N2M72MH2B) <br /> The official COVID-19 dashboard of Public Health Scotland. 
+
+- Our World in Data
+: [https://ourworldindata.org/](https://ourworldindata.org/) <br /> A project of the Oxford Martin School to make public health data, including progress in UN Sustainable Development Goals, available and accessible.
+
+- Demographic Party Trick 
+: [https://www.youtube.com/watch?v=2nDh8MQuS-Y](https://www.youtube.com/watch?v=2nDh8MQuS-Y) Prof Hans Rosling (Karolinska Institute and Gapminder Foundation) and Bill Gates seek to shed light on the true statistics of childhood vaccinations. 
 
 
 ## Investigation 6 {-}
 
-Spurious correlations. 
+Spurious correlations! 
 
 -  The danger of mixing up causality and correlation 
 : [https://www.youtube.com/watch?v=8B271L3NtAw](https://www.youtube.com/watch?v=8B271L3NtAw) <br /> Prov Ionica Smeets (University of Leiden) discusses causality and correlation.
