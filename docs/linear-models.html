@@ -50,6 +50,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -336,14 +337,14 @@ and
 <span id="exm:linear-model-fit-residuals" class="example"><strong>Example 6.1  </strong></span>In Figures <a href="linear-models.html#fig:linear-model-fit">6.1</a> and <a href="linear-models.html#fig:linear-model-residuals">6.2</a>, we consider the <strong>Cherry Tree Data</strong> (see Table <a href="statistical-inference.html#tab:cherry-data">2.1</a> and discussion). We fit a least squares regression of the volume of timber (response variable) to the diameter of the tree (independent variable). As you would expect, the timber yield increases with diameter.
 </div>
 <p>The <code>r</code> code below can be used to calculate the least squares regression and residuals.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="linear-models.html#cb13-1" aria-hidden="true"></a><span class="kw">data</span>(trees)</span>
-<span id="cb13-2"><a href="linear-models.html#cb13-2" aria-hidden="true"></a>y &lt;-<span class="st"> </span>trees<span class="op">$</span>Volume</span>
-<span id="cb13-3"><a href="linear-models.html#cb13-3" aria-hidden="true"></a>x &lt;-<span class="st"> </span>trees<span class="op">$</span>Girth <span class="co"># NB: this is diameter; data mislabeled!</span></span>
-<span id="cb13-4"><a href="linear-models.html#cb13-4" aria-hidden="true"></a>fit &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x)</span>
-<span id="cb13-5"><a href="linear-models.html#cb13-5" aria-hidden="true"></a>e &lt;-<span class="st"> </span><span class="kw">resid</span>(fit)</span>
-<span id="cb13-6"><a href="linear-models.html#cb13-6" aria-hidden="true"></a>yhat &lt;-<span class="st"> </span><span class="kw">predict</span>(fit)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="linear-models.html#cb13-1"></a><span class="kw">data</span>(trees)</span>
+<span id="cb13-2"><a href="linear-models.html#cb13-2"></a>y &lt;-<span class="st"> </span>trees<span class="op">$</span>Volume</span>
+<span id="cb13-3"><a href="linear-models.html#cb13-3"></a>x &lt;-<span class="st"> </span>trees<span class="op">$</span>Girth <span class="co"># NB: this is diameter; data mislabeled!</span></span>
+<span id="cb13-4"><a href="linear-models.html#cb13-4"></a>fit &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x)</span>
+<span id="cb13-5"><a href="linear-models.html#cb13-5"></a>e &lt;-<span class="st"> </span><span class="kw">resid</span>(fit)</span>
+<span id="cb13-6"><a href="linear-models.html#cb13-6"></a>yhat &lt;-<span class="st"> </span><span class="kw">predict</span>(fit)</span></code></pre></div>
 <p>The <code>fit</code> data frame contains the estimates for <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span>:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="linear-models.html#cb14-1" aria-hidden="true"></a>fit<span class="op">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="linear-models.html#cb14-1"></a>fit<span class="op">$</span>coefficients</span></code></pre></div>
 <pre><code>(Intercept)           x 
  -36.943459    5.065856 </code></pre>
 <p>Both Figures <a href="linear-models.html#fig:linear-model-fit">6.1</a> and <a href="linear-models.html#fig:linear-model-residuals">6.2</a> are scatter plots of the observed values <span class="math inline">\(y\)</span>. In Figure <a href="linear-models.html#fig:linear-model-fit">6.1</a>, the regression line <span class="math inline">\(\widehat{y}\)</span> is plotted along with the residuals <span class="math inline">\(\widehat{\epsilon}\)</span>. In Figure <a href="linear-models.html#fig:linear-model-residuals">6.2</a>, the sample mean <span class="math inline">\(\overline{y}\)</span> is plotted together with the deviations <span class="math inline">\(y - \overline{y}\)</span>. <span class="math inline">\(\lozenge\)</span></p>
