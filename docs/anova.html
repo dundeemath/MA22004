@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Analysis of variance (ANOVA) | MA22004 - Statistics and Probability II</title>
+  <title>5 Analysis of variance (ANOVA) | MA22004 – Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Analysis of variance (ANOVA) | MA22004 - Statistics and Probability II" />
+  <meta property="og:title" content="5 Analysis of variance (ANOVA) | MA22004 – Statistics and Probability II" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://dundeemath.github.io/MA22004" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="dundeemath/MA22004" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Analysis of variance (ANOVA) | MA22004 - Statistics and Probability II" />
+  <meta name="twitter:title" content="5 Analysis of variance (ANOVA) | MA22004 – Statistics and Probability II" />
   
   <meta name="twitter:description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   
@@ -168,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.1</b> Normal distribution</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about Normals</a></li>
+<li class="chapter" data-level="1.1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about normal variates</a></li>
 <li class="chapter" data-level="1.1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#empirical-rule-68-95-99.7-rule"><i class="fa fa-check"></i><b>1.1.2</b> Empirical rule (<span class="math inline">\(68-95-99.7\)</span> rule)</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\mathsf{t}\)</span> distribution</a>
@@ -252,7 +252,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MA22004 - Statistics and Probability II</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MA22004 – Statistics and Probability II</a>
           </h1>
         </div>
 
@@ -271,7 +271,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Analysis of variance, shortened as ANOVA, is a collection of statistical models and estimation procedures for analyzing the variation among different groups. In particular, a single-factor ANOVA provides a hypothesis test regarding the equality of two or more population means, thereby generalizing the one-sample and two-sample <span class="math inline">\(\mathsf{t}\)</span> tests considered in Sections <a href="inference-single-sample.html#mean-normal-var-unknown">3.1.3</a> and <a href="inference-two-samples.html#compare-means-normpops-vars-unknown">4.1.3</a>.</p>
 <div id="anova-single-factor-test" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Single factor ANOVA test</h2>
-<p>Suppose that we have <span class="math inline">\(k\)</span> normally distributed populations<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> with different means <span class="math inline">\(\mu_1, \dots, \mu_k\)</span> and equal variances <span class="math inline">\(\sigma^2\)</span>. We denote the rv for the <span class="math inline">\(j\)</span>th measurement taken from the <span class="math inline">\(i\)</span>th population by <span class="math inline">\(X_{ij}\)</span> and the corresponding sample observation by <span class="math inline">\(x_{ij}\)</span>. For samples of size <span class="math inline">\(m_1, \dots, m_k\)</span>, we denote the sample means
+<p>Suppose that we have <span class="math inline">\(k\)</span> normally distributed populations<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a> with different means <span class="math inline">\(\mu_1, \dots, \mu_k\)</span> and equal variances <span class="math inline">\(\sigma^2\)</span>. We denote the rv for the <span class="math inline">\(j\)</span>th measurement taken from the <span class="math inline">\(i\)</span>th population by <span class="math inline">\(X_{ij}\)</span> and the corresponding sample observation by <span class="math inline">\(x_{ij}\)</span>. For samples of size <span class="math inline">\(m_1, \dots, m_k\)</span>, we denote the sample means
 <span class="math display">\[\begin{equation*}
  \overline{X}_i = \frac{1}{m_i} \sum_{j=1}^{m_i} X_{ij}\,, 
 \end{equation*}\]</span>
@@ -426,8 +426,8 @@ Figure 5.1: Box plots of the average mean salary data in Table <a href="anova.ht
 </p>
 </div>
 <p>For <span class="math inline">\(\alpha = 0.05\)</span>, we compute the upper-tail area <span class="math inline">\(F_{0.05}\)</span> i.e. to the right of the critical value <span class="math inline">\(F_{0.05, 3, 16}\)</span> by consulting a statistical table or by using <code>r</code> to find <span class="math inline">\(F_{0.05} = 3.2388715\)</span>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="anova.html#cb9-1"></a><span class="co"># alt: qf(.05, df1 = 3, df2 = 16, lower.tail = FALSE)</span></span>
-<span id="cb9-2"><a href="anova.html#cb9-2"></a><span class="kw">qf</span>(<span class="dv">1</span><span class="fl">-.05</span>, <span class="dt">df1 =</span> <span class="dv">4-1</span>, <span class="dt">df2 =</span> <span class="dv">20-4</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="anova.html#cb9-1" aria-hidden="true"></a><span class="co"># alt: qf(.05, df1 = 3, df2 = 16, lower.tail = FALSE)</span></span>
+<span id="cb9-2"><a href="anova.html#cb9-2" aria-hidden="true"></a><span class="kw">qf</span>(<span class="dv">1</span><span class="fl">-.05</span>, <span class="dt">df1 =</span> <span class="dv">4-1</span>, <span class="dt">df2 =</span> <span class="dv">20-4</span>) </span></code></pre></div>
 <pre><code>[1] 3.238872</code></pre>
 <p>The grand mean is
 <span class="math display">\[\begin{equation*}
@@ -486,8 +486,8 @@ Estimating <span class="math inline">\(\sigma^2\)</span> by the <span class="mat
 <span id="exm:anova-ci" class="example"><strong>Example 5.2  </strong></span>Determine a <span class="math inline">\(90\%\)</span> CI for the difference in mean average salary for councils in Scotland and England, based on the data available in Table <a href="anova.html#tab:anova-samples-stats">5.1</a>
 </div>
 <p>For <span class="math inline">\(\alpha = 0.10\)</span>, the critical value <span class="math inline">\(t_{0.05, 16} = 1.7458837\)</span> is found by looking in a table of <span class="math inline">\(\mathsf{t}\)</span> critical values or by using <code>r</code>:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="anova.html#cb11-1"></a><span class="co"># alt: qt(0.1/2, 16, lower.tail = FALSE)</span></span>
-<span id="cb11-2"><a href="anova.html#cb11-2"></a><span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.1</span><span class="op">/</span><span class="dv">2</span>, <span class="dt">df =</span> <span class="dv">20</span> <span class="op">-</span><span class="st"> </span><span class="dv">4</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="anova.html#cb11-1" aria-hidden="true"></a><span class="co"># alt: qt(0.1/2, 16, lower.tail = FALSE)</span></span>
+<span id="cb11-2"><a href="anova.html#cb11-2" aria-hidden="true"></a><span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.1</span><span class="op">/</span><span class="dv">2</span>, <span class="dt">df =</span> <span class="dv">20</span> <span class="op">-</span><span class="st"> </span><span class="dv">4</span>) </span></code></pre></div>
 <pre><code>[1] 1.745884</code></pre>
 <p>Then for the function <span class="math inline">\(\overline{x}_2 - \overline{x_1}\)</span>,
 <span class="math display">\[\begin{equation*}
@@ -506,8 +506,8 @@ Thus a <span class="math inline">\(90\%\)</span> confidence interval for <span c
 </div>
 <div class="footnotes">
 <hr />
-<ol start="15">
-<li id="fn15"><p>In the context of ANOVA, these <span class="math inline">\(k\)</span> populations are often referred to as <strong>treatment distributions</strong>.<a href="anova.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<ol start="18">
+<li id="fn18"><p>In the context of ANOVA, these <span class="math inline">\(k\)</span> populations are often referred to as <strong>treatment distributions</strong>.<a href="anova.html#fnref18" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

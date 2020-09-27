@@ -383,7 +383,7 @@ Based on the sample, $\widehat{p} = 116 / 263 = 0.4411$. The test statistic valu
  &= `r signif((0.4411-0.5)/sqrt(0.5*0.5/263), digits=3)`  \,.
 \end{aligned}
 \end{equation*}
-The $P$-value for this lower-tailed $z$ test is  $P = \Phi(`r signif((0.4411-0.5)/sqrt(0.5*0.5/263), digits=3)`) = `r signif(pnorm(signif((0.4411-0.5)/sqrt(0.5*0.5/263), digits=3)), digits=2)`$. Since $P < 0.10 = \alpha$, we reject the null hypothesis at the $0.05$ level. The evidence for concluding that the true proportion is different from $p_0 = 0.5$ at the $0.10$ level is compelling.^[Churchill took ca. $44\%$ of the vote in the 1908 by-election to become MP for Dundee. [[W]](https://www.wikiwand.com/en/1908_Dundee_by-election)] $\lozenge$   
+The $P$-value for this lower-tailed $z$ test is  $P = \Phi(`r signif((0.4411-0.5)/sqrt(0.5*0.5/263), digits=3)`) = `r signif(pnorm(signif((0.4411-0.5)/sqrt(0.5*0.5/263), digits=3)), digits=2)`$. Since $P < 0.10 = \alpha$, we reject the null hypothesis at the $0.05$ level. The evidence for concluding that the true proportion is different from $p_0 = 0.5$ at the $0.10$ level is compelling.^[Churchill took ca. $44\%$ of the vote in the 1908 by-election to become MP for Dundee [[https://www.wikiwand.com/en/1908_Dundee_by-election](https://www.wikiwand.com/en/1908_Dundee_by-election)].] $\lozenge$   
 
 
 ## Estimating variances {#estimating-variances}
@@ -478,4 +478,4 @@ We plot the 95\% confidence interval for the standard deviation based on the com
 ```{r infer-ci-sd-sq, echo = TRUE}
 ci^2
 ```
-is in good agreement with the values obtained Example \@ref(exm:eg-ci-variance). Due to the computational nature of the interval estimate it is not precisely the same and rerunning the code will yield a slightly different interval. $\lozenge$
+is in good agreement with the values obtained Example \@ref(exm:eg-ci-variance). Due to the computational nature, the bootstrapped interval estimate is not precisely the same as the theoretical interval estimate and moreover rerunning the code will yield a slightly different interval. $\lozenge$

@@ -40,10 +40,10 @@ ipa_stat <- ipa %>%
  group_by(Day) %>% 
  summarise(observations = list(pH), mean = signif(mean(pH), digits = 4), 
            sd = signif(sd(pH), digits = 4), range = max(pH) - min(pH))
-kbl(ipa_stat, align = "llccc", 
+kbl(ipa_stat, align = "rlccc", 
       caption = "Observations and summary statistics for the **Beer Data**.",
       col.names = c('Day', "pH Observations", '$\\overline{x}$', '$s$', 'Range'), 
-    booktabs = T) %>%
+    booktabs = T, escape = F) %>%
    kable_styling(latex_options = c("striped", "hold_position"))
 ```   
 

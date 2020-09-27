@@ -35,7 +35,7 @@ Provided the null hypothesis in \@ref(eq:null-multinomial) is true, the expected
 Often the $n_i$, referred to as the **observed cell counts**, and the corresponding $m p_{i0}$, referred to as the **expected cell counts**, are tabulated, for example, as in Table \@ref(tab:cell-counts).   
 
 ```{r cell-counts, echo = FALSE, warning = FALSE, message = FALSE}
-kbl(df_cat, align = "cccccc", caption = "Observed and expected cell counts.", booktabs = T) %>%
+kbl(df_cat, align = "cccccc", caption = "Observed and expected cell counts.", booktabs = T, escape = F) %>%
  kable_styling(latex_options = c("striped", "hold_position"))
 ```   
 

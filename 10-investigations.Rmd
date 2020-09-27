@@ -1,8 +1,8 @@
 # (PART\*) Appendix {-}
-
+\markboth{}{CURATED CONTENT}
 # Curated Content {-}
 
-Below we provide links to supplementary online material. Hopefully some of the items will inspire you to further examine different aspects of the course. 
+Below we provide links to supplementary online material. Hopefully some of the items will inspire you view the course material in a broader context and lead to further investigations. 
 
 
 ## Investigation 0 {-}
@@ -10,13 +10,13 @@ Below we provide links to supplementary online material. Hopefully some of the i
 What is Statistics? 
 
 - Cambridge Ideas - Professor Risk
-: [https://www.youtube.com/watch?v=a1PtQ67urG4](https://www.youtube.com/watch?v=a1PtQ67urG4) <br /> Prof David Spiegelhalter (Cambridge University) discusses public understanding of risk.
+:  [https://www.youtube.com/watch?v=a1PtQ67urG4](https://www.youtube.com/watch?v=a1PtQ67urG4) <br />\newline  Prof David Spiegelhalter (Cambridge University) discusses public understanding of risk.
 
-- The Joy of Statistics
-: [https://www.youtube.com/watch?v=jbkSRLYSojo](https://www.youtube.com/watch?v=jbkSRLYSojo) <br /> Prof Hans Rosling (Karolinska Institute and Gapminder Foundation) analyzes data from 200 Countries over 200 Years in 4 Minutes - The Joy of Stats - BBC Four.
+- The Joy of Statistics 
+:  [https://www.youtube.com/watch?v=jbkSRLYSojo](https://www.youtube.com/watch?v=jbkSRLYSojo) <br />\newline  Prof Hans Rosling (Karolinska Institute and Gapminder Foundation) analyzes data from 200 Countries over 200 Years in 4 Minutes - The Joy of Stats - BBC Four.
 
-- Teach statistics before calculus!
-: [https://www.ted.com/talks/arthur_benjamin_teach_statistics_before_calculus](https://www.ted.com/talks/arthur_benjamin_teach_statistics_before_calculus) <br /> Prof Arthur Benjamin (Harvey Mudd College) argues that the pinnacle of math education be probability and statistics --- not calculus.
+- Teach statistics before calculus! 
+:  [https://www.ted.com/talks/arthur_benjamin_teach_statistics_before_calculus](https://www.ted.com/talks/arthur_benjamin_teach_statistics_before_calculus) <br />\newline  Prof Arthur Benjamin (Harvey Mudd College) argues that the pinnacle of math education be probability and statistics --- not calculus.
 
 
 ## Investigation 1 {-}
@@ -24,63 +24,63 @@ What is Statistics?
 Defense against the dark arts.
 
 - Three ways to spot bad statistics 
-: [https://www.ted.com/talks/mona_chalabi_3_ways_to_spot_a_bad_statistic](https://www.ted.com/talks/mona_chalabi_3_ways_to_spot_a_bad_statistic) <br /> Mona Chalabi (Data Journalist) discusses three ways to spot bad statistics.
+:  [https://www.ted.com/talks/mona_chalabi_3_ways_to_spot_a_bad_statistic](https://www.ted.com/talks/mona_chalabi_3_ways_to_spot_a_bad_statistic) <br />\newline  Mona Chalabi (Data Journalist) discusses three ways to spot bad statistics.
 
 - No. 10 daily Covid-19 briefings
-: [https://www.youtube.com/watch?v=QIw2l-trRXc](https://www.youtube.com/watch?v=QIw2l-trRXc) <br /> Prof David Spiegelhalter (Cambridge University) claims that No. 10 is misrepresenting Covid-19 data in a discussion with Andrew Marr (BBC).
+:  [https://www.youtube.com/watch?v=QIw2l-trRXc](https://www.youtube.com/watch?v=QIw2l-trRXc) <br />\newline  Prof David Spiegelhalter (Cambridge University) claims that No. 10 is misrepresenting Covid-19 data in a discussion with Andrew Marr (BBC).
 
-- Statistics Done Wrong
-: [https://www.statisticsdonewrong.com/](https://www.statisticsdonewrong.com/) <br /> A book by Dr Alex Reinhart (Carnegie Mellon University).
+- Statistics Done Wrong 
+:  [https://www.statisticsdonewrong.com/](https://www.statisticsdonewrong.com/) <br />\newline  A book by Dr Alex Reinhart (Carnegie Mellon University).
 
-- How to defend yourself against misleading statistics in the news 
-: [https://www.youtube.com/watch?v=mJ63-bQc9Xg](https://www.youtube.com/watch?v=mJ63-bQc9Xg) <br /> Sanne Blauw (Journalist) discusses how the presentation of statistics can mislead. 
+- How to defend yourself against misleading statistics in the news
+:  [https://www.youtube.com/watch?v=mJ63-bQc9Xg](https://www.youtube.com/watch?v=mJ63-bQc9Xg) <br />\newline  Sanne Blauw (Journalist) discusses how the presentation of statistics can mislead. 
 
 
 ## Investigation 2 {-}
 
 Data analysis and vizualization.
 
-- The Grammar of Graphics
-: [https://www.youtube.com/watch?v=h-62NwWUI5c](https://www.youtube.com/watch?v=h-62NwWUI5c) <br /> What Makes A Good Visualisation? Rhys Jackson from RocketMill, a UK Digital Marketing Agency, gives a perspective on visualizing data from a marketing perspective. 
-: [https://www.youtube.com/watch?v=kepKM7Z2O54](https://www.youtube.com/watch?v=kepKM7Z2O54) <br /> David Keyes (RStudio) discusses how the grammar of graphics underpins the `ggplot2` data vizualization package in `R`.
+- The Grammar of Graphics 
+:  [https://www.youtube.com/watch?v=h-62NwWUI5c](https://www.youtube.com/watch?v=h-62NwWUI5c) <br />\newline  What Makes A Good Visualisation? Rhys Jackson from RocketMill, a UK Digital Marketing Agency, gives a perspective on visualizing data from a marketing perspective. 
+:  [https://www.youtube.com/watch?v=kepKM7Z2O54](https://www.youtube.com/watch?v=kepKM7Z2O54) <br />\newline  David Keyes (RStudio) discusses how the grammar of graphics underpins the `ggplot2` data vizualization package in `R`.
 
-- Same Stats, Different Graphs
-: [https://www.autodeskresearch.com/publications/samestats](https://www.autodeskresearch.com/publications/samestats) <br /> Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing (ACM SIGCHI Conference on Human Factors in Computing Systems) by Justin Matejka, George Fitzmaurice.
+- Same Stats, Different Graphs 
+:  [https://www.autodeskresearch.com/publications/samestats](https://www.autodeskresearch.com/publications/samestats) <br />\newline  Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing (ACM SIGCHI Conference on Human Factors in Computing Systems) by Justin Matejka, George Fitzmaurice.
 
-- Why do we so often use 0.05 for hypothesis testing?
-: [https://www.openintro.org/book/stat/why05/](https://www.openintro.org/book/stat/why05/) <br /> In this online exercise, you will gain an improved understanding of what a significance level is, and why a value in the neighborhood of 0.05 is reasonable as a default.
+- Why do we so often use 0.05 for hypothesis testing? 
+:  [https://www.openintro.org/book/stat/why05/](https://www.openintro.org/book/stat/why05/) <br />\newline  In this online exercise, you will gain an improved understanding of what a significance level is, and why a value in the neighborhood of 0.05 is reasonable as a default.
 
-- Data visualizations
-: [https://flowingdata.com/](https://flowingdata.com/) <br /> FlowingData blog by Nathan Yau.
-: [https://fivethirtyeight.com/](https://fivethirtyeight.com/) <br /> FiveThirtyEight blog by Nate Silver.
+- Data visualizations 
+:  [https://flowingdata.com/](https://flowingdata.com/) <br />\newline  FlowingData blog by Nathan Yau. 
+:  [https://fivethirtyeight.com/](https://fivethirtyeight.com/) <br />\newline  FiveThirtyEight blog by Nate Silver.
 
 
 ## Investigation 3 {-}
 
 Statistical paradoxes. 
 
-- How statistics can be misleading (TED-Ed)
-: [https://www.ted.com/talks/mark_liddell_how_statistics_can_be_misleading](https://www.ted.com/talks/mark_liddell_how_statistics_can_be_misleading) <br /> Mark Liddell (Educator) discusses Simpson's Paradox in this TED-Ed animation.
+- How statistics can be misleading (TED-Ed) 
+:  [https://www.ted.com/talks/mark_liddell_how_statistics_can_be_misleading](https://www.ted.com/talks/mark_liddell_how_statistics_can_be_misleading) <br />\newline  Mark Liddell (Educator) discusses Simpson's Paradox in this TED-Ed animation.
 
-- Low birth-weight paradox
-: [https://www.wikiwand.com/en/Low_birth-weight_paradox](https://www.wikiwand.com/en/Low_birth-weight_paradox) 
+- Low birth-weight paradox 
+:  [https://www.wikiwand.com/en/Low_birth-weight_paradox](https://www.wikiwand.com/en/Low_birth-weight_paradox) 
 
-- Gambler's Fallacy
-: [https://www.youtube.com/watch?v=4eVluL-idkM](https://www.youtube.com/watch?v=4eVluL-idkM) <br /> Prof Kelly Shue (Chicago Booth) discusses the gambler's fallacy. 
+- Gambler's Fallacy 
+:  [https://www.youtube.com/watch?v=4eVluL-idkM](https://www.youtube.com/watch?v=4eVluL-idkM) <br />\newline  Prof Kelly Shue (Chicago Booth) discusses the gambler's fallacy. 
 
 
 ## Investigation 4 {-}
 
 The law and interpreting statistics.
 
-- How stats fool juries.
-: [https://ed.ted.com/lessons/peter-donnelly-shows-how-stats-fool-juries](https://ed.ted.com/lessons/peter-donnelly-shows-how-stats-fool-juries) <br /> Prof Peter Donnelly (Oxford University) discusses common mistakes in interpreting statistics. 
+- How stats fool juries. 
+:  [https://ed.ted.com/lessons/peter-donnelly-shows-how-stats-fool-juries](https://ed.ted.com/lessons/peter-donnelly-shows-how-stats-fool-juries) <br />\newline  Prof Peter Donnelly (Oxford University) discusses common mistakes in interpreting statistics. 
 
-- Better Data in Forensic Science
-: [https://www.dundee.ac.uk/leverhulme/projects/details/better-data-in-forensic-science.php](https://www.dundee.ac.uk/leverhulme/projects/details/better-data-in-forensic-science.php) <br /> Dr Christian Cole (Dundee) is leading a data-focused project as part of the Leverhulme Research Centre for Forensic Science right here at Dundee. 
+- Better Data in Forensic Science 
+:  [https://www.dundee.ac.uk/leverhulme/projects/details/better-data-in-forensic-science.php](https://www.dundee.ac.uk/leverhulme/projects/details/better-data-in-forensic-science.php) <br />\newline  Dr Christian Cole (Dundee) is leading a data-focused project as part of the Leverhulme Research Centre for Forensic Science right here at Dundee. 
 
-- Prosecutor's fallacy
-: [https://www.wikiwand.com/en/Prosecutor%27s_fallacy](https://www.wikiwand.com/en/Prosecutor%27s_fallacy) <br /> A fallacy of statistical reasoning, typically used by a prosecutor to exaggerate the likelihood of guilt: because $P(\text{hypothesis} \mid \text{evidence}) \neq P(\text{evidence} \mid \text{hypothesis})$!
+- Prosecutor's fallacy 
+:  [https://www.wikiwand.com/en/Prosecutor%27s_fallacy](https://www.wikiwand.com/en/Prosecutor%27s_fallacy) <br />\newline  A fallacy of statistical reasoning, typically used by a prosecutor to exaggerate the likelihood of guilt:  because $P(\text{hypothesis} \mid \text{evidence}) \neq P(\text{evidence} \mid \text{hypothesis})$!
 
 
 ## Investigation 5 {-}
@@ -88,18 +88,18 @@ The law and interpreting statistics.
 Data-driven decision making in epidemiology. 
 
 - Project Tycho 
-: [https://www.tycho.pitt.edu/](https://www.tycho.pitt.edu/) <br /> Digitized archival epidemiological data for the United States and the world. 
-: [https://www.youtube.com/watch?v=Kn9OJy1BPDo](https://www.youtube.com/watch?v=Kn9OJy1BPDo) <br /> An overview of the origins of project Tycho. 
+:  [https://www.tycho.pitt.edu/](https://www.tycho.pitt.edu/) <br />\newline  Digitized archival epidemiological data for the United States and the world. 
+:  [https://www.youtube.com/watch?v=Kn9OJy1BPDo](https://www.youtube.com/watch?v=Kn9OJy1BPDo) <br />\newline  An overview of the origins of project Tycho. 
 
 
-- Public Health Scotland COVID-19 Dashboard
-: [https://public.tableau.com/shared/N2M72MH2B](https://public.tableau.com/shared/N2M72MH2B) <br /> The official COVID-19 dashboard of Public Health Scotland. 
+- Public Health Scotland COVID-19 Dashboard 
+:  [https://public.tableau.com/shared/N2M72MH2B](https://public.tableau.com/shared/N2M72MH2B) <br />\newline  The official COVID-19 dashboard of Public Health Scotland. 
 
-- Our World in Data
-: [https://ourworldindata.org/](https://ourworldindata.org/) <br /> A project of the Oxford Martin School to make public health data, including progress in UN Sustainable Development Goals, available and accessible.
+- Our World in Data 
+:  [https://ourworldindata.org/](https://ourworldindata.org/) <br />\newline  A project of the Oxford Martin School to make public health data, including progress in UN Sustainable Development Goals, available and accessible.
 
 - Demographic Party Trick 
-: [https://www.youtube.com/watch?v=2nDh8MQuS-Y](https://www.youtube.com/watch?v=2nDh8MQuS-Y) Prof Hans Rosling (Karolinska Institute and Gapminder Foundation) and Bill Gates seek to shed light on the true statistics of childhood vaccinations. 
+:  [https://www.youtube.com/watch?v=2nDh8MQuS-Y](https://www.youtube.com/watch?v=2nDh8MQuS-Y) <br />\newline  Prof Hans Rosling (Karolinska Institute and Gapminder Foundation) and Bill Gates seek to shed light on the true statistics of childhood vaccinations. 
 
 
 ## Investigation 6 {-}
@@ -107,31 +107,31 @@ Data-driven decision making in epidemiology.
 Spurious correlations! 
 
 -  The danger of mixing up causality and correlation 
-: [https://www.youtube.com/watch?v=8B271L3NtAw](https://www.youtube.com/watch?v=8B271L3NtAw) <br /> Prov Ionica Smeets (University of Leiden) discusses causality and correlation.
+:  [https://www.youtube.com/watch?v=8B271L3NtAw](https://www.youtube.com/watch?v=8B271L3NtAw) <br />\newline  Prov Ionica Smeets (University of Leiden) discusses causality and correlation.
 
--  Spurious correlations
-: [https://tylervigen.com/spurious-correlations](https://tylervigen.com/spurious-correlations) <br /> Tyler Vigen's site dedicated to spurious correlations. 
+-  Spurious correlations 
+:  [https://tylervigen.com/spurious-correlations](https://tylervigen.com/spurious-correlations) <br />\newline  Tyler Vigen's site dedicated to spurious correlations. 
 
 -  Cause & Effect
-: [https://www.youtube.com/watch?v=lbODqslc4Tg](https://www.youtube.com/watch?v=lbODqslc4Tg) <br /> Correlation vs. causality from the Clip from the 2010 documentary "Freakonomics: The Movie".
+:  [https://www.youtube.com/watch?v=lbODqslc4Tg](https://www.youtube.com/watch?v=lbODqslc4Tg) <br />\newline  Correlation vs. causality from the Clip from the 2010 documentary "Freakonomics:  The Movie".
 
 
 ## Investigation 7 {-}
 
-Data and society: can data-driven and predictive modeling lead to a better world? What are the ethics of mass data collection?
+Data and society:  can data-driven and predictive modeling lead to a better world? What are the ethics of mass data collection?
 
-- Science behind the news: Predictive Policing
-: [https://www.youtube.com/watch?v=U0gX_z0V0nE](https://www.youtube.com/watch?v=U0gX_z0V0nE) <br /> The Los Angeles Police Department is using a new tactic in their fight against crime called "predictive policing." It's a computer program that was originally developed by a team at UCLA, including mathematician Andrea Bertozzi and anthropologist Jeff Brantingham. "Science Behind the News" is produced in partnership with NBC Learn. (Provided by the National Science Foundation & NBC Learn)
+- Science behind the news:  Predictive Policing 
+:  [https://www.youtube.com/watch?v=U0gX_z0V0nE](https://www.youtube.com/watch?v=U0gX_z0V0nE) <br />\newline  The Los Angeles Police Department is using a new tactic in their fight against crime called "predictive policing." It's a computer program that was originally developed by a team at UCLA, including mathematician Andrea Bertozzi and anthropologist Jeff Brantingham. "Science Behind the News" is produced in partnership with NBC Learn. (Provided by the National Science Foundation & NBC Learn)
 
-- You should get paid for your data
-: [https://www.nytimes.com/video/opinion/100000006678020/data-privacy-jaron-lanier-2.html](https://www.nytimes.com/video/opinion/100000006678020/data-privacy-jaron-lanier-2.html) <br /> Jaron Lanier (Computer Scientist and Author) discusses a compensation plan and data dignity. 
-: [https://www.ted.com/talks/jennifer_zhu_scott_why_you_should_get_paid_for_your_data](https://www.ted.com/talks/jennifer_zhu_scott_why_you_should_get_paid_for_your_data) <br /> Jennifer Zhu Scott (Computer Scientist) also thinks you should get paid for your data. 
+- You should get paid for your data 
+:  [https://www.nytimes.com/video/opinion/100000006678020/data-privacy-jaron-lanier-2.html](https://www.nytimes.com/video/opinion/100000006678020/data-privacy-jaron-lanier-2.html) <br />\newline  Jaron Lanier (Computer Scientist and Author) discusses a compensation plan and data dignity. 
+:  [https://www.ted.com/talks/jennifer_zhu_scott_why_you_should_get_paid_for_your_data](https://www.ted.com/talks/jennifer_zhu_scott_why_you_should_get_paid_for_your_data) <br />\newline  Jennifer Zhu Scott (Computer Scientist) also thinks you should get paid for your data. 
 
-- How tech companies deceive you into giving up your data and privacy
-: [https://www.ted.com/talks/finn_lutzow_holm_myrstad_how_tech_companies_deceive_you_into_giving_up_your_data_and_privacy](https://www.ted.com/talks/finn_lutzow_holm_myrstad_how_tech_companies_deceive_you_into_giving_up_your_data_and_privacy) <br /> Finn Lützow-Holm Myrstad (Norwegian Consumer Council) discusses consumer protections and data collection. 
+- How tech companies deceive you into giving up your data and privacy 
+:  [https://www.ted.com/talks/finn_lutzow_holm_myrstad_how_tech_companies_deceive_you_into_giving_up_your_data_and_privacy](https://www.ted.com/talks/finn_lutzow_holm_myrstad_how_tech_companies_deceive_you_into_giving_up_your_data_and_privacy) <br />\newline  Finn Lützow-Holm Myrstad (Norwegian Consumer Council) discusses consumer protections and data collection. 
 
-- Your company's data could help end world hunger
-: [https://www.ted.com/talks/mallory_freeman_your_company_s_data_could_help_end_world_hunger](https://www.ted.com/talks/mallory_freeman_your_company_s_data_could_help_end_world_hunger) <br /> Mallory Freeman (Data Scientist) discusses how to do the most good with data. 
+- Your company's data could help end world hunger 
+:  [https://www.ted.com/talks/mallory_freeman_your_company_s_data_could_help_end_world_hunger](https://www.ted.com/talks/mallory_freeman_your_company_s_data_could_help_end_world_hunger) <br />\newline Mallory Freeman (Data Scientist) discusses how to do the most good with data. 
 
 
 ## Investigation 8 {-}
@@ -139,17 +139,14 @@ Data and society: can data-driven and predictive modeling lead to a better world
 Machine learning / big data.
 
 - What is Machine Learning? 
-: [https://www.youtube.com/watch?v=f_uwKZIAeM0](https://www.youtube.com/watch?v=f_uwKZIAeM0) <br /> OxfordSparks discusses the topic of supervised learning algorithms and how machine learning is used all around us.  
+:  [https://www.youtube.com/watch?v=f_uwKZIAeM0](https://www.youtube.com/watch?v=f_uwKZIAeM0) <br />\newline  OxfordSparks discusses the topic of supervised learning algorithms and how machine learning is used all around us.  
 
-- Big Data (TED-Ed)
-: [https://www.youtube.com/watch?v=j-0cUmUyb-Y](https://www.youtube.com/watch?v=j-0cUmUyb-Y) <br /> Tim Smith (educator) discusses the historical arc of big data in this TED-Ed animation. 
+- Big Data (TED-Ed) 
+:  [https://www.youtube.com/watch?v=j-0cUmUyb-Y](https://www.youtube.com/watch?v=j-0cUmUyb-Y) <br />\newline Tim Smith (educator) discusses the historical arc of big data in this TED-Ed animation. 
 
-- The human insights missing from big data
-: [https://www.ted.com/talks/tricia_wang_the_human_insights_missing_from_big_data](https://www.ted.com/talks/tricia_wang_the_human_insights_missing_from_big_data) <br /> Tricia Wang (Ethnographer) discusses the human insights missing from big data. 
+- The human insights missing from big data 
+:  [https://www.ted.com/talks/tricia_wang_the_human_insights_missing_from_big_data](https://www.ted.com/talks/tricia_wang_the_human_insights_missing_from_big_data) <br />\newline  Tricia Wang (Ethnographer) discusses the human insights missing from big data. 
 
-- How we can find ourselves in data
-: [https://www.ted.com/talks/giorgia_lupi_how_we_can_find_ourselves_in_data](https://www.ted.com/talks/giorgia_lupi_how_we_can_find_ourselves_in_data) <br /> Giorgia Lupi (Designer) discusses a humanistic approach to data and data visualization. 
+- How we can find ourselves in data 
+:  [https://www.ted.com/talks/giorgia_lupi_how_we_can_find_ourselves_in_data](https://www.ted.com/talks/giorgia_lupi_how_we_can_find_ourselves_in_data) <br />\newline Giorgia Lupi (Designer) discusses a humanistic approach to data and data visualization. 
 
-
-
-# References {-}

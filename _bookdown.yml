@@ -1,7 +1,7 @@
 book_filename: "ma22004"
 repo: https://github.com/dundeemath/MA22004
 output_dir: docs
-rmd_files: ["index.Rmd", "guide.Rmd", "labs.Rmd", "guide_deadlines.Rmd", "00-prelim.Rmd", "01-sampling-distributions.Rmd", "02-basics-stat-infer.Rmd", "03-infer-single-sample.Rmd", "04-infer-two-samples.Rmd", "05-anova.Rmd", "06-linear-models.Rmd", "07-categorical-data.Rmd", "08-quality-control.Rmd", "10-investigations.Rmd"] #, "99-references.Rmd"
+rmd_files: ["index.Rmd", "guide.Rmd", "labs.Rmd", "guide_deadlines.Rmd", "00-prelim.Rmd", "01-sampling-distributions.Rmd", "02-basics-stat-infer.Rmd", "03-infer-single-sample.Rmd", "04-infer-two-samples.Rmd", "05-anova.Rmd", "06-linear-models.Rmd", "07-categorical-data.Rmd", "08-quality-control.Rmd", "10-investigations.Rmd", "99-references.Rmd"] 
 delete_merged_file: true
 clean: [packages.bib, bookdown.bbl]
 new_session: no

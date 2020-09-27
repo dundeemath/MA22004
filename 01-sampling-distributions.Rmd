@@ -41,12 +41,12 @@ ggplot(data = df, aes(x = x, color = variable)) + geom_line(aes(y=y)) + theme_ur
 We say that $X$ has a **standard normal distribution** if $\mu=0$ and $\sigma = 1$ and we will usually denote standard Normal rvs by $Z$ (why? [tradition!](https://www.youtube.com/watch?v=gRdfX7ut8gw)).
 ```  
 
-### Some useful facts about Normals {#facts-normals}
+### Some useful facts about normal variates {#facts-normals}
 
 Here are some useful facts about how to manipulate Normal rvs.  
 
-1. If $X \sim \mathsf{N}(\mu, \sigma^2),$ then $Z = (X - \mu) / \sigma \quad \sim \mathsf{N}(0,1).$ 
-2. If $Z \sim \mathsf{N}(0, 1),$ then $X = \mu + \sigma Z \quad \sim \mathsf{N}(\mu, \sigma^2).$ 
+1. If $X \sim \mathsf{N}(\mu, \sigma^2),$ then $Z = (X - \mu) / \sigma  \sim \mathsf{N}(0,1).$ 
+2. If $Z \sim \mathsf{N}(0, 1),$ then $X = \mu + \sigma Z \sim \mathsf{N}(\mu, \sigma^2).$ 
 3. If $X_i \sim \mathsf{N}(\mu_i, \sigma_i^2)$ for $i = 1, \dots, n$ are independent rvs, then 
 \[\sum_{i=1}^{n} X_i \sim \mathsf{N} \left( \sum_{i=1}^{n} \mu_i, \sum_{i=1}^{n} \sigma_i^2 \right) \,.\]  
 
@@ -133,7 +133,7 @@ For a normal population, this means that nearly all the the values lie within "t
 
 ## $\mathsf{t}$ distribution {#t-distribution}
 
-Student's $\mathsf{t}$ distribution gets its peculiar name as it was first published under the pseudonym  ["Student"](https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/). This bit of obfuscation was to protect the identity of [his employer](https://www.wikiwand.com/en/Guinness_Brewery), and thereby vital trade secrets, in a highly competitive and lucrative industry.  
+Student's $\mathsf{t}$ distribution gets its peculiar name as it was first published under the pseudonym  "Student".^[https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/] This bit of obfuscation was to protect the identity of his employer,^[https://www.wikiwand.com/en/Guinness_Brewery] and thereby vital trade secrets, in a highly competitive and lucrative industry.  
 
 ```{definition, t-dist}
 A continuous rv $X$ has a **$\mathsf{t}$ distribution** with parameter $\nu > 0$, if $X$ has pdf
@@ -199,7 +199,7 @@ ggplot(chisq.dist, aes(x = chisq, y = density, color = df)) +
 The density $f(x;\nu)$ is positively skewed, i.e., the right tail is longer and hence the mass is concentrated to the left of the figure. The distribution becomes more symmetric as $\nu$ increases. We denote critical values of the $\chi^2(\nu)$ distribution by $\chi^2_{\alpha, \nu}$.  
 
 :::{.warningblock}
-Unlike the normal and $t$ distributions, the $\mathsf{\chi}^2$ distribution is not symmetric. This means that the critical values e.g. $\chi^2_{.99, \nu}$ and $\chi^2_{0.01,\nu}$ are **not** equal. Hence, it will be necessary to look up both values for CIs based on $\chi^2$ critical values.  
+Unlike the normal and $t$ distributions, the $\chi^2$ distribution is not symmetric. This means that the critical values e.g. $\chi^2_{.99, \nu}$ and $\chi^2_{0.01,\nu}$ are **not** equal. Hence, it will be necessary to look up both values for CIs based on $\chi^2$ critical values.  
 :::
 
 If $X \sim \chi^2(\nu)$, then $\E[X] = \nu$ and $\Var[X] = 2\nu$.  

@@ -70,8 +70,7 @@ df$nation <- factor(df$nation)
 dattab <- df %>%
  group_by(nation) %>%
  summarise(observations = list(mean_salary), n = n(), means = signif(mean(mean_salary), digits = 4), ssds = signif(sd(mean_salary), digits = 4))
-kbl(dattab, col.names = c('Nation', "Average salaries ('000 £)", 'Size $(m_i)$', 'Sample Mean $(\\overline{x}_i)$', 'Sample SD $(s_i)$'), align = "llccc", caption = "**Average Salary Data** reported from $20$ local councils.", booktabs = T) %>%
- kable_styling(latex_options = c("striped", "hold_position"))
+kbl(dattab, col.names = c('Nation', "Average salaries ('000 £)", 'Size $(m_i)$', 'Sample Mean $(\\overline{x}_i)$', 'Sample SD $(s_i)$'), align = c("l", "l", "c", "c", "c"), caption = "**Average Salary Data** reported from $20$ local councils.", booktabs = T, escape = F) %>% kable_styling(latex_options = c("striped", "hold_position"))
 ```   
 
 :::{.tipblock}

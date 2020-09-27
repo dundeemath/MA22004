@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 Linear regression | MA22004 - Statistics and Probability II</title>
+  <title>6 Linear regression | MA22004 – Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 Linear regression | MA22004 - Statistics and Probability II" />
+  <meta property="og:title" content="6 Linear regression | MA22004 – Statistics and Probability II" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://dundeemath.github.io/MA22004" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="dundeemath/MA22004" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Linear regression | MA22004 - Statistics and Probability II" />
+  <meta name="twitter:title" content="6 Linear regression | MA22004 – Statistics and Probability II" />
   
   <meta name="twitter:description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   
@@ -168,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.1</b> Normal distribution</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about Normals</a></li>
+<li class="chapter" data-level="1.1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about normal variates</a></li>
 <li class="chapter" data-level="1.1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#empirical-rule-68-95-99.7-rule"><i class="fa fa-check"></i><b>1.1.2</b> Empirical rule (<span class="math inline">\(68-95-99.7\)</span> rule)</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\mathsf{t}\)</span> distribution</a>
@@ -252,7 +252,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MA22004 - Statistics and Probability II</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MA22004 – Statistics and Probability II</a>
           </h1>
         </div>
 
@@ -268,7 +268,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="math inline">\(\DeclareMathOperator{\sd}{sd}\)</span>
 <div id="linear-models" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Linear regression</h1>
-<p><strong>Regression analysis</strong> allows us to study the relationship among two or more rvs. Typically, we are interested in the relationship between a <strong>response</strong> or <strong>dependent</strong> rv <span class="math inline">\(Y\)</span> and a <strong>covariate</strong> <span class="math inline">\(X\)</span>.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a> The relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> will be explained through a <strong>regression function</strong>,
+<p><strong>Regression analysis</strong> allows us to study the relationship among two or more rvs. Typically, we are interested in the relationship between a <strong>response</strong> or <strong>dependent</strong> rv <span class="math inline">\(Y\)</span> and a <strong>covariate</strong> <span class="math inline">\(X\)</span>.<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a> The relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> will be explained through a <strong>regression function</strong>,
 <span class="math display">\[\begin{equation*}
  r(x) = \E[Y \mid X = x] = \int y f(y\mid x) dy \,.
 \end{equation*}\]</span>
@@ -312,7 +312,7 @@ and the <strong>predicted</strong> or <strong>fitted value</strong> <span class=
  \widehat{\epsilon}_i = Y_i - \widehat{Y}_i = Y_i - \left( \widehat{\beta}_0 + \widehat{\beta}_1 X_i \right) \,.
  \tag{6.3}
 \end{equation}\]</span>
-The <strong>residual sums of squares</strong>,<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a>
+The <strong>residual sums of squares</strong>,<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a>
 <span class="math display" id="eq:rss">\[\begin{equation}
  \mathsf{RSS} = \sum_{i=1}^m \widehat{\epsilon}_i^2\,,
  \tag{6.4}
@@ -337,14 +337,14 @@ and
 <span id="exm:linear-model-fit-residuals" class="example"><strong>Example 6.1  </strong></span>In Figures <a href="linear-models.html#fig:linear-model-fit">6.1</a> and <a href="linear-models.html#fig:linear-model-residuals">6.2</a>, we consider the <strong>Cherry Tree Data</strong> (see Table <a href="statistical-inference.html#tab:cherry-data">2.1</a> and discussion). We fit a least squares regression of the volume of timber (response variable) to the diameter of the tree (independent variable). As you would expect, the timber yield increases with diameter.
 </div>
 <p>The <code>r</code> code below can be used to calculate the least squares regression and residuals.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="linear-models.html#cb13-1"></a><span class="kw">data</span>(trees)</span>
-<span id="cb13-2"><a href="linear-models.html#cb13-2"></a>y &lt;-<span class="st"> </span>trees<span class="op">$</span>Volume</span>
-<span id="cb13-3"><a href="linear-models.html#cb13-3"></a>x &lt;-<span class="st"> </span>trees<span class="op">$</span>Girth <span class="co"># NB: this is diameter; data mislabeled!</span></span>
-<span id="cb13-4"><a href="linear-models.html#cb13-4"></a>fit &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x)</span>
-<span id="cb13-5"><a href="linear-models.html#cb13-5"></a>e &lt;-<span class="st"> </span><span class="kw">resid</span>(fit)</span>
-<span id="cb13-6"><a href="linear-models.html#cb13-6"></a>yhat &lt;-<span class="st"> </span><span class="kw">predict</span>(fit)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="linear-models.html#cb13-1" aria-hidden="true"></a><span class="kw">data</span>(trees)</span>
+<span id="cb13-2"><a href="linear-models.html#cb13-2" aria-hidden="true"></a>y &lt;-<span class="st"> </span>trees<span class="op">$</span>Volume</span>
+<span id="cb13-3"><a href="linear-models.html#cb13-3" aria-hidden="true"></a>x &lt;-<span class="st"> </span>trees<span class="op">$</span>Girth <span class="co"># NB: this is diameter; data mislabeled!</span></span>
+<span id="cb13-4"><a href="linear-models.html#cb13-4" aria-hidden="true"></a>fit &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x)</span>
+<span id="cb13-5"><a href="linear-models.html#cb13-5" aria-hidden="true"></a>e &lt;-<span class="st"> </span><span class="kw">resid</span>(fit)</span>
+<span id="cb13-6"><a href="linear-models.html#cb13-6" aria-hidden="true"></a>yhat &lt;-<span class="st"> </span><span class="kw">predict</span>(fit)</span></code></pre></div>
 <p>The <code>fit</code> data frame contains the estimates for <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span>:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="linear-models.html#cb14-1"></a>fit<span class="op">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="linear-models.html#cb14-1" aria-hidden="true"></a>fit<span class="op">$</span>coefficients</span></code></pre></div>
 <pre><code>(Intercept)           x 
  -36.943459    5.065856 </code></pre>
 <p>Both Figures <a href="linear-models.html#fig:linear-model-fit">6.1</a> and <a href="linear-models.html#fig:linear-model-residuals">6.2</a> are scatter plots of the observed values <span class="math inline">\(y\)</span>. In Figure <a href="linear-models.html#fig:linear-model-fit">6.1</a>, the regression line <span class="math inline">\(\widehat{y}\)</span> is plotted along with the residuals <span class="math inline">\(\widehat{\epsilon}\)</span>. In Figure <a href="linear-models.html#fig:linear-model-residuals">6.2</a>, the sample mean <span class="math inline">\(\overline{y}\)</span> is plotted together with the deviations <span class="math inline">\(y - \overline{y}\)</span>. <span class="math inline">\(\lozenge\)</span></p>
@@ -476,9 +476,9 @@ and thus, for the simple hypothesis tests we have considered (Table <a href="sta
 </div>
 <div class="footnotes">
 <hr />
-<ol start="16">
-<li id="fn16"><p>The covariates <span class="math inline">\(X\)</span> are also called <strong>predictor variables</strong>, <strong>explanatory variables</strong>, <strong>independent variables</strong>, and/or <strong>features</strong> depending on who you are talking to.<a href="linear-models.html#fnref16" class="footnote-back">↩︎</a></p></li>
-<li id="fn17"><p>The <span class="math inline">\(\mathsf{RSS}\)</span> is sometimes referred to as the <strong>error sum of squares</strong> and abbreviated <span class="math inline">\(\mathsf{SSE}\)</span> (no, the order is not a typo a typo).<a href="linear-models.html#fnref17" class="footnote-back">↩︎</a></p></li>
+<ol start="19">
+<li id="fn19"><p>The covariates <span class="math inline">\(X\)</span> are also called <strong>predictor variables</strong>, <strong>explanatory variables</strong>, <strong>independent variables</strong>, and/or <strong>features</strong> depending on who you are talking to.<a href="linear-models.html#fnref19" class="footnote-back">↩︎</a></p></li>
+<li id="fn20"><p>The <span class="math inline">\(\mathsf{RSS}\)</span> is sometimes referred to as the <strong>error sum of squares</strong> and abbreviated <span class="math inline">\(\mathsf{SSE}\)</span> (no, the order is not a typo a typo).<a href="linear-models.html#fnref20" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

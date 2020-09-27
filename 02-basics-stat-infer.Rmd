@@ -4,7 +4,7 @@ We discuss point estimation, confidence intervals, and hypothesis testing in Sec
 
 ## Point estimation {#point-estimation}
 
-Statistical inference seeks to draw conclusions about the characteristics of a population from data. For example, suppose we are botanists interested in taxonomic classification of iris flowers. Let $\mu$ denote the true average petal length (in cm) of the [*Iris setosa*](https://www.wikiwand.com/en/Iris_setosa) (AKA the bristle-pointed iris). The parameter $\mu$ is a characteristic of the whole population of the *setosa* species. Before we collect data, the petal lengths of $m$ independent *setosa* flowers are denoted by rvs $X_1, X_2, \dots, X_m$. Any function of the $X_i$'s, such as the sample mean,
+Statistical inference seeks to draw conclusions about the characteristics of a population from data. For example, suppose we are botanists interested in taxonomic classification of iris flowers. Let $\mu$ denote the true average petal length (in cm) of the *Iris setosa*^[https://www.wikiwand.com/en/Iris_setosa] (AKA the bristle-pointed iris). The parameter $\mu$ is a characteristic of the whole population of the *setosa* species. Before we collect data, the petal lengths of $m$ independent *setosa* flowers are denoted by rvs $X_1, X_2, \dots, X_m$. Any function of the $X_i$'s, such as the sample mean,
 \begin{equation}
   \overline{X} = \frac{1}{m} \sum_{i=1}^m X_i\,, (\#eq:sample-mean)
 \end{equation}
@@ -61,7 +61,7 @@ kbl(dattab, col.names = c("Height [in]"), caption = "Observations of $m = 31$ fe
 The **Cherry Tree Data** contains 31 obs. of three features (diameter, height, and volume) and can be accessed in `r` by loading `library(datasets)` and then calling `data(trees)`.
 :::   
 
-The quantile-quantile plot in Figure \@ref(fig:qq-plot-cherry), that compares the quantiles of this data to the quantiles of a normal distribution, is fairly straight.^[How do we tell whether a population is normal? Constructing a normal quantile-quantile plot is one way of assessing whether a normality assumption is reasonable; such a plot compares the quantiles of the sample data $x_i$ against the (theoretical) standard normal quantiles. If the sample data is consistent with a sample from a normal distribution, then the points will lie on a straight line (more or less). Below we display the QQ plot comparing quantiles of cherry tree heights from \@ref(tab:cherry-data) to normal quantiles.] Therefore, we assume that the distribution of black cherry tree heights is (at least approximately) normal with a mean value $\mu$; i.e., that the population of heights is distributed $\mathsf{N}(\mu, \sigma^2)$ where $\mu$ is a parameter to be estimated and $\sigma^2$ is unknown. The observations $X_1, \dots, X_{31}$ are then assumed to be a random sample from this normal distribution, i.e., iid
+The quantile-quantile plot in Figure \@ref(fig:qq-plot-cherry), that compares the quantiles of this data to the quantiles of a normal distribution, is fairly straight.^[How do we tell whether a population is normal? Constructing a normal quantile-quantile plot is one way of assessing whether a normality assumption is reasonable; such a plot compares the quantiles of the sample data $x_i$ against the (theoretical) standard normal quantiles (see Figure \@ref(fig:qq-plot-cherry)). If the sample data is consistent with a sample from a normal distribution, then the points will lie on a straight line (more or less). The QQ plot Figure \@ref(fig:qq-plot-cherry) comparing quantiles of cherry tree heights from Table \@ref(tab:cherry-data) to normal quantiles.] Therefore, we assume that the distribution of black cherry tree heights is (at least approximately) normal with a mean value $\mu$; i.e., that the population of heights is distributed $\mathsf{N}(\mu, \sigma^2)$ where $\mu$ is a parameter to be estimated and $\sigma^2$ is unknown. The observations $X_1, \dots, X_{31}$ are then assumed to be a random sample from this normal distribution, i.e., iid
 \begin{equation*}
 \quad X_1, \dots, X_{31} \sim \mathsf{N}(\mu, \sigma^2) \,.
 \end{equation*}
@@ -117,7 +117,7 @@ for all $\theta \in \Theta$.
 
 My favorite interpretation of a confidence interval is due to [@Wasserman:2013as, p 92]:  
 
-> On day 1, you collect data and construct a 95 percent confidence interval for a parameter $\theta_1$. On day 2, you collect new data and construct a 95 percent confidence interval for an unrelated parameter $\theta_2$. On day 3, you collect new data and construct a 95 percent confidence interval for an unrelated parameter $\theta_3$. You continue this way constructing confidence intervals for a sequence of unrelated parameters $\theta_1$, $\theta_2$, $\dots$ Then 95 percent of your intervals will trap the true parameter value. There is no need to introduce the idea of repeating the same experiment over and over.  
+> *On day 1, you collect data and construct a 95 percent confidence interval for a parameter $\theta_1$. On day 2, you collect new data and construct a 95 percent confidence interval for an unrelated parameter $\theta_2$. On day 3, you collect new data and construct a 95 percent confidence interval for an unrelated parameter $\theta_3$. You continue this way constructing confidence intervals for a sequence of unrelated parameters $\theta_1$, $\theta_2$, $\dots$ Then 95 percent of your intervals will trap the true parameter value. There is no need to introduce the idea of repeating the same experiment over and over.*
 
 This interpretation makes clear that a confidence interval is not a probability statement about the parameter $\theta$. In Definition \@ref(def:confidence-interval-gen), note that $\theta$ is fixed ($\theta$ is not a rv) and the interval $C_m$ is random. After data has been collected and a point estimator has been calculated, the resulting CIs either contain the true parameter value or they do not, as illustrated in Figure \@ref(fig:fifty-cis). 
 
@@ -140,8 +140,7 @@ Typically, we shall consider hypothesis concerning a parameter $\theta \in \Thet
 
 ```{r htest-null-alt-forms, echo=FALSE, warning = FALSE, message = FALSE}
 df <- read_csv("data/htest-null-alt-forms.csv")
-kbl(df, caption = "Typical null hypothesis and corresponding alternative hypothesis.", booktabs = T) %>%
- kable_styling(latex_options = c("striped", "hold_position"))
+df %>% kbl(escape = F, caption = "Typical null hypothesis and corresponding alternative hypothesis.", booktabs = T) %>% kable_styling(latex_options = c("striped", "hold_position"))
 ``` 
 
 These pairs of hypothesis are associated with either a one-sided or two-sided test; what this means will become clear in the sequel. The value $\theta_0$, called the **null value**, separates the alternative from the null. 
@@ -190,7 +189,7 @@ has $P(\text{type I error}) = \alpha$.
 ```   
 
 ```{example, htest-setup}
-Churchill claims that he will receive half the votes for the House of Commons seat for the constituency of Dundee.^[Sir Winston Churchill was Member of Parliament for Dundee from 1908--1922. [[W]](https://www.wikiwand.com/en/Winston_Churchill)] If we do not believe Churchill's claim and we are doubtful of his popularity, then we would seek to test an alternative hypothesis. How should we write down our research hypotheses?
+Churchill claims that he will receive half the votes for the House of Commons seat for the constituency of Dundee.^[Sir Winston Churchill was Member of Parliament for Dundee from 1908--1922 [[https://www.wikiwand.com/en/Winston_Churchill](https://www.wikiwand.com/en/Winston_Churchill)].] If we do not believe Churchill's claim and we are doubtful of his popularity, then we would seek to test an alternative hypothesis. How should we write down our research hypotheses?
 ```
 
 If we let $p$ be the fraction of the population voting for Churchill, then we have the null hypothesis,

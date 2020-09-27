@@ -31,7 +31,7 @@ The delivery of this module consists of a blend of synchronous and asynchronous 
 
 ```{r table-activities, echo=FALSE, warning = FALSE, message = FALSE, fig.cap = "Learning activities."}
 kbl(tibble(read_csv("data/activities.csv")), booktabs = T) %>%
- kable_styling(latex_options = c("striped", "hold_position"))
+ kable_styling(latex_options = c("striped", "hold_position"), )
 ```
 
 The anticipated student effort is 200 hours over the length of the module. You are expected to be "present" for all synchronous timetabled activities except for the online office hours, which are optional. You may engage with the asynchronous material at your own pace, keeping in mind to meet any deadlines for engagement and/or attainment that will be posted to Ultra and discussed. 
@@ -77,7 +77,7 @@ The module will be *continuously* assessed using coursework and examinations. De
 ```{r table, echo=FALSE}
 df <- tibble(Assessment=c("Assignments", "Midterm Exam 1", "Midterm Exam 2", "Final Exam"),
              Weight=c("20%", "20%", "20%", "40%"))
-kbl(df, booktabs = T) %>%
+kbl(df, booktabs = T, align = c("l", "r")) %>%
  kable_styling(latex_options = c("striped", "hold_position"))
 ```
 
@@ -136,5 +136,3 @@ Honesty in scholarship and research is integral to the integrity of the academic
 ## End of Module Questionaire {-#cg-questionaire}
 
 You will have the opportunity to complete a confidential questionnaire regarding the content and presentation of the module periodically. These questionaires form an important element in the University's Academic Standards procedures. Thank you in advance for your cooperation. 
-
-***
