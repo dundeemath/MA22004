@@ -38,7 +38,7 @@ ggplot(data = df, aes(x = x, color = variable)) + geom_line(aes(y=y)) + theme_ur
 ```  
 
 ```{definition, standard-normal}
-We say that $X$ has a **standard normal distribution** if $\mu=0$ and $\sigma = 1$ and we will usually denote standard Normal rvs by $Z$ (why? [tradition!](https://www.youtube.com/watch?v=gRdfX7ut8gw)).
+We say that $X$ has a **standard normal distribution** if $\mu=0$ and $\sigma = 1$ and we will usually denote standard Normal rvs by $Z$ (why? tradition!^["Traditions, traditions... Without our traditions, our lives would be as shaky as a fiddler on the roof!" [https://www.youtube.com/watch?v=gRdfX7ut8gw](https://www.youtube.com/watch?v=gRdfX7ut8gw).]).
 ```  
 
 ### Some useful facts about normal variates {#facts-normals}
@@ -133,7 +133,7 @@ For a normal population, this means that nearly all the the values lie within "t
 
 ## $\mathsf{t}$ distribution {#t-distribution}
 
-Student's $\mathsf{t}$ distribution gets its peculiar name as it was first published under the pseudonym  "Student".^[https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/] This bit of obfuscation was to protect the identity of his employer,^[https://www.wikiwand.com/en/Guinness_Brewery] and thereby vital trade secrets, in a highly competitive and lucrative industry.  
+Student's $\mathsf{t}$ distribution gets its peculiar name as it was first published under the pseudonym  "Student".^[William Sealy Gosset (1876--1937) wrote under the pseudonym "Student" [https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/](https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/).] This bit of obfuscation was to protect the identity of his employer,^[Gosset invented the t-test to handle small samples for quality control in brewing, specifically fro the Guinness brewery in Dublin [https://www.wikiwand.com/en/Guinness_Brewery](https://www.wikiwand.com/en/Guinness_Brewery).] and thereby vital trade secrets, in a highly competitive and lucrative industry.  
 
 ```{definition, t-dist}
 A continuous rv $X$ has a **$\mathsf{t}$ distribution** with parameter $\nu > 0$, if $X$ has pdf

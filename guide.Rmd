@@ -17,7 +17,7 @@ Fulton Building
 01382 TBA
 :::
 
-This course uses [Blackboard Ultra](my.dundee.ac.uk) (look for course `MA22004_SEM0000_2021`) for communicating all announcements/deadlines and also for running online meetings. This course also uses [Gradescope](https://www.gradescope.com/) for submission of some of the continuous assessment items and [Perusall](https://perusall.com/) for collaborative engagement with reading materials.
+This course uses Blackboard Ultra^[Visit [https://my.dundee.ac.uk](https://my.dundee.ac.uk) and search for course `MA22004_SEM0000_2021`.] for communicating all announcements/deadlines and also for running online meetings. This course also uses Gradescope^[Available at [https://www.gradescope.com/](https://www.gradescope.com/); "course entry code" at **Welcome > Overview of online platforms used in this course > Gradescope** on Blackboard Ultra.] for submission of some of the continuous assessment items and Perusall^[Available at [https://perusall.com/](https://perusall.com/); "course access code" at **Welcome > Overview of online platforms used in this course > Perusall** on Blackboard Ultra.] for collaborative engagement with reading materials.
 
 If you have a problem regarding the course, then you should make an appointment to see Dr Hall. You may also bring matters of concern about the course to the attention of the Mathematics Division Staff/Student Committee, which meets once each semester. A volunteer from Level 2 Mathematics will act as class representative to sit on the Staff/Student Committee (see Ultra for contact details).
 
@@ -86,7 +86,7 @@ kbl(df, booktabs = T, align = c("l", "r")) %>%
 Assessed coursework includes:
 
 - six hand-in laboratory reports (there will be seven labs, the lowest grade will be dropped) and 
-- weekly engagement with the reading material using [Perusall](https://perusall.com/). 
+- weekly engagement with the reading material using Perusall. 
 
 There will also be alternative means of demonstrating your mastery of course material through:
 
@@ -97,7 +97,7 @@ There will also be alternative means of demonstrating your mastery of course mat
 
 The **Midterm Exams** will be computer-assessed and will be one (1) hour in scope. These will likely be in weeks 4 and 8. 
 
-The **Final Exam** will be a two (2) hour hand-written exam that will be submitted using [Gradescope](https://www.gradescope.com/). This process will be thoroughly discussed and trialled with a dummy exam in advance of the real submission. The Final Exam will be in week 11 (i.e., during the last week of the term).
+The **Final Exam** will be a two (2) hour hand-written exam that will be submitted using Gradescope. This process will be thoroughly discussed and trialled with a dummy exam in advance of the real submission. The Final Exam will be in week 11 (i.e., during the last week of the term).
 
 To pass this module, you must:
 
@@ -127,11 +127,11 @@ If you are having difficulty with the course, you are encouraged to seek help at
 
 ## Disability {-#cg-disability}
 
-The University of Dundee is committed to making reasonable, effective and appropriate accommodations to meet the needs of students with disabilities and to create an inclusive and barrier-free campus. If you require accommodation for a documented disability, then you are advised to register with [Disability Services](https://www.dundee.ac.uk/disabilityservices/). Please communicate any needs you may have directly with Dr Hall and as soon as possible to ensure timely management of any accommodations. 
+The University of Dundee is committed to making reasonable, effective and appropriate accommodations to meet the needs of students with disabilities and to create an inclusive and barrier-free campus. If you require accommodation for a documented disability, then you are advised to register with Disability Services.^[Website available at [https://www.dundee.ac.uk/disabilityservices/](https://www.dundee.ac.uk/disabilityservices/).] Please communicate any needs you may have directly with Dr Hall and as soon as possible to ensure timely management of any accommodations. 
 
 ## Academic Honesty {-#cg-honesty}
 
-Honesty in scholarship and research is integral to the integrity of the academic enterprise of any higher education institution. Therefore, all students at the University of Dundee must practice academic honesty. Academic dishonesty includes cheating, fabrication, plagiarism, and facilitating dishonesty. Cases of academic dishonesty will be subject to appropriate sanctions and ignorance of such standards is not sufficient evidence of lack of intent. Please see the [*Code of Practice on Academic Misconduct by Students*](https://www.dundee.ac.uk/qf/documents/details/academic-misconduct.php) for more information about what constitutes academic dishonesty.
+Honesty in scholarship and research is integral to the integrity of the academic enterprise of any higher education institution. Therefore, all students at the University of Dundee must practice academic honesty. Academic dishonesty includes cheating, fabrication, plagiarism, and facilitating dishonesty. Cases of academic dishonesty will be subject to appropriate sanctions and ignorance of such standards is not sufficient evidence of lack of intent. Please see the *Code of Practice on Academic Misconduct by Students*^[Available at [https://www.dundee.ac.uk/qf/documents/details/academic-misconduct.php](https://www.dundee.ac.uk/qf/documents/details/academic-misconduct.php).] for more information about what constitutes academic dishonesty.
 
 ## End of Module Questionaire {-#cg-questionaire}
 
