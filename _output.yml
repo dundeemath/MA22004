@@ -17,7 +17,7 @@ bookdown::gitbook:
     sharing: 
       github: yes
       facebook: no
-      twitter: yes
+      twitter: no
       all: no
     fontsettings:
       theme: white
