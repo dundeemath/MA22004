@@ -18,6 +18,10 @@ What is Statistics?
 - Teach statistics before calculus! 
 :  [https://www.ted.com/talks/arthur_benjamin_teach_statistics_before_calculus](https://www.ted.com/talks/arthur_benjamin_teach_statistics_before_calculus) <br />\newline  Prof Arthur Benjamin (Harvey Mudd College) argues that the pinnacle of math education be probability and statistics --- not calculus.
 
+- Kaggle
+:  [https://www.kaggle.com/](https://www.kaggle.com/) <br />\newline Towards data science. 
+:  [https://www.youtube.com/watch?v=TNzDMOg_zsw](https://www.youtube.com/watch?v=TNzDMOg_zsw) <br />\newline What's Kaggle? 
+
 
 ## Investigation 1 {-}
 
@@ -53,6 +57,10 @@ Data analysis and vizualization.
 - Data visualizations 
 :  [https://flowingdata.com/](https://flowingdata.com/) <br />\newline  FlowingData blog by Nathan Yau. 
 :  [https://fivethirtyeight.com/](https://fivethirtyeight.com/) <br />\newline  FiveThirtyEight blog by Nate Silver.
+
+- Storytelling with data
+:  [http://www.storytellingwithdata.com/blog](http://www.storytellingwithdata.com/blog) <br />\newline Blog with nice hints and tips for how to present data in tables, graphics, and visualizations.
+:  [https://community.storytellingwithdata.com/challenges](https://community.storytellingwithdata.com/challenges) <br />\newline Monthly challenge. 
 
 
 ## Investigation 3 {-}

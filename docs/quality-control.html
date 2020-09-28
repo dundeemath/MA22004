@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 Quality Control | MA22004 – Statistics and Probability II</title>
+  <title>8 Quality control | MA22004 – Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 Quality Control | MA22004 – Statistics and Probability II" />
+  <meta property="og:title" content="8 Quality control | MA22004 – Statistics and Probability II" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://dundeemath.github.io/MA22004" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="dundeemath/MA22004" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Quality Control | MA22004 – Statistics and Probability II" />
+  <meta name="twitter:title" content="8 Quality control | MA22004 – Statistics and Probability II" />
   
   <meta name="twitter:description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   
@@ -224,7 +224,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="categorical-data.html"><a href="categorical-data.html#goodness-of-fit-tests"><i class="fa fa-check"></i><b>7.2</b> Goodness-of-fit for a single factor</a></li>
 <li class="chapter" data-level="7.3" data-path="categorical-data.html"><a href="categorical-data.html#test-for-independence-of-factors"><i class="fa fa-check"></i><b>7.3</b> Test for independence of factors</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="quality-control.html"><a href="quality-control.html"><i class="fa fa-check"></i><b>8</b> Quality Control</a></li>
+<li class="chapter" data-level="8" data-path="quality-control.html"><a href="quality-control.html"><i class="fa fa-check"></i><b>8</b> Quality control</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="quality-control.html"><a href="quality-control.html#control-charts"><i class="fa fa-check"></i><b>8.1</b> Control charts</a></li>
+</ul></li>
 <li class="part"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html"><i class="fa fa-check"></i>Curated Content</a>
 <ul>
@@ -266,8 +269,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="math inline">\(\newcommand{\se}{\mathsf{se}}\)</span>
 <span class="math inline">\(\DeclareMathOperator{\sd}{sd}\)</span>
 <div id="quality-control" class="section level1" number="8">
-<h1><span class="header-section-number">8</span> Quality Control</h1>
+<h1><span class="header-section-number">8</span> Quality control</h1>
 <p>Quality control is an area of applies statistics that seeks to make interventions to maintain or improve the outcome of industrial processes. Random variations in output processes might negatively impact the quality of a product. We would like to identify the sources of random variations in output processes that might have <em>assignable causes</em>. <strong>Control charts</strong> are a tool that help us to recognize when industrial processes are no longer controlled so that one might then seek to identify assignable causes.</p>
+<div id="control-charts" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Control charts</h2>
 <p>The basic elements of control charting involve specifying a control region and then analyzing time-series data. We will specify a base-line value along with an upper and lower limit of control and assume that a process is under control unless a test statistic suggests otherwise.<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a> To construct a control chart, one collects data about a process at fixed points of time and calculates the running value of quality statistic. If the quality statistic exceeds the upper or lower control limits, the process is deemed to out of control and the quality of the product is assumed to be negatively impacted.</p>
 <p>The process of creating a control chart is best illustrated through an extended example, like Example <a href="quality-control.html#exm:qc-three-sigma">8.1</a> provided below.</p>
 
@@ -646,6 +651,7 @@ Figure 8.2: The <span class="math inline">\(3\sigma\)</span> <strong>control cha
 <p>From Figure <a href="quality-control.html#fig:qc-beer-control-chart">8.2</a>, we observe for each day the process is in-control as the observed mean pH values fall within the control limits <span class="math inline">\((\mathsf{LCL}, \mathsf{UCL})\)</span>. If this were not the case, then our initial assumption, that process is in-control, would be violated. The violation of the assumption would require that we seek to identify an assignable cause for the variation. If a cause could be identified, then the we would need to recompute our control limits with the observations that were out of control removed. <span class="math inline">\(\lozenge\)</span></p>
 
 </div>
+</div>
 
 
 
@@ -680,7 +686,7 @@ gitbook.start({
 "sharing": {
 "github": true,
 "facebook": false,
-"twitter": false,
+"twitter": true,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,

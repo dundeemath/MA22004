@@ -17,28 +17,30 @@ We write $X \sim \mathsf{N}(\mu, \sigma^2)$.
 
 For $X\sim \mathsf{N}(\mu,\sigma^2)$, it can be shown that $\E(X) = \mu$ and $\Var(X) = \sigma^2$, that is, $\mu$ is the *mean* and $\sigma^2$ is the *variance* of $X$. The pdf takes the form of a bell-shaped curve that is symmetric about $\mu$. The value $\sigma$ (*standard deviation*) is the distance from $\mu$ to the inflection points of the curve. Thus, the position (location) and spread of the distribution depends on $\mu$ and $\sigma$.  
 
-```{r normals-diff-mean, echo = FALSE, fig.cap = "The pdfs of two normal rvs with different means and the same standard deviations."}
-x <- seq(-8, 8, length=1000)
-y0 <- dnorm(x, -2, 1)
-y1 <- dnorm(x, 2, 1)
-df <- tibble(x, y0, y1)
-df <- melt(df, id.var = "x", value.name = "y")
-
-ggplot(data = df, aes(x = x, color = variable)) + geom_line(aes(y=y)) + theme_ur
+```{r normals-diff-mean, echo = FALSE, fig.cap = "The pdfs of two normal rvs, $X_1 \\sim \\mathsf{N}(-2, 1)$ and $X_2 \\sim \\mathsf{N}(2, 1)$, with *different means* and the same standard deviations."}
+norm1.dist <- data.frame(x = seq(-8, 8, by =0.01)) %>% 
+ mutate(X1 = dnorm(x = x, mean = -2, sd = 1),
+        X2 = dnorm(x = x, mean = 2, sd = 1)) %>%
+ gather(key = "X", value = "density", -x)
+norm1.dist$X <- factor(norm1.dist$X, levels = c("X1", "X2"), labels = c("-2", "2"))
+ggplot(norm1.dist, aes(x = x, y = density, color = X, linetype = X)) +
+ geom_line(size = lsz) +
+ labs(y = TeX("$f(x;\\mu, \\sigma)$"), x = TeX("$x$"), color = TeX("$\\mu$"), linetype = TeX("$\\mu$")) + theme_ur
 ```  
 
-```{r normals-diff-sd, echo = FALSE, fig.cap = "The pdfs of two normal rvs with the same means and different standard deviations."}
-x <- seq(-8, 8, length=1000)
-y0 <- dnorm(x, 0, 3)
-y1 <- dnorm(x, 0, 1)
-df <- tibble(x, y0, y1)
-df <- melt(df, id.var = "x", value.name = "y")
-
-ggplot(data = df, aes(x = x, color = variable)) + geom_line(aes(y=y)) + theme_ur
+```{r normals-diff-sd, echo = FALSE, fig.cap = "The pdfs of two normal rvs, $X_1 \\sim \\mathsf{N}(0, 9)$ and $X_2 \\sim \\mathsf{N}(0, 1)$, with the same means and *different standard deviations*."}
+norm2.dist <- data.frame(x = seq(-8, 8, by =0.01)) %>% 
+ mutate(X1 = dnorm(x = x, mean = 0, sd = 3),
+        X2 = dnorm(x = x, mean = 0, sd = 1)) %>%
+ gather(key = "X", value = "density", -x)
+norm2.dist$X <- factor(norm2.dist$X, levels = c("X1", "X2"), labels = c("3", "1"))
+ggplot(norm2.dist, aes(x = x, y = density, color = X, linetype = X)) +
+ geom_line(size = lsz) +
+ labs(y = TeX("$f(x;\\mu, \\sigma)$"), x = TeX("$x$"), color = TeX("$\\sigma$"), linetype = TeX("$\\sigma$")) + theme_ur
 ```  
 
 ```{definition, standard-normal}
-We say that $X$ has a **standard normal distribution** if $\mu=0$ and $\sigma = 1$ and we will usually denote standard Normal rvs by $Z$ (why? tradition!^["Traditions, traditions... Without our traditions, our lives would be as shaky as a fiddler on the roof!" [https://www.youtube.com/watch?v=gRdfX7ut8gw](https://www.youtube.com/watch?v=gRdfX7ut8gw).]).
+We say that $X$ has a **standard normal distribution** if $\mu=0$ and $\sigma = 1$ and we will usually denote standard Normal rvs by $Z$ (why? tradition!^["Traditions, traditions... Without our traditions, our lives would be as shaky as a fiddler on the roof!" [[https://www.youtube.com/watch?v=gRdfX7ut8gw](https://www.youtube.com/watch?v=gRdfX7ut8gw)].]).
 ```  
 
 ### Some useful facts about normal variates {#facts-normals}
@@ -133,7 +135,7 @@ For a normal population, this means that nearly all the the values lie within "t
 
 ## $\mathsf{t}$ distribution {#t-distribution}
 
-Student's $\mathsf{t}$ distribution gets its peculiar name as it was first published under the pseudonym  "Student".^[William Sealy Gosset (1876--1937) wrote under the pseudonym "Student" [https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/](https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/).] This bit of obfuscation was to protect the identity of his employer,^[Gosset invented the t-test to handle small samples for quality control in brewing, specifically fro the Guinness brewery in Dublin [https://www.wikiwand.com/en/Guinness_Brewery](https://www.wikiwand.com/en/Guinness_Brewery).] and thereby vital trade secrets, in a highly competitive and lucrative industry.  
+Student's $\mathsf{t}$ distribution gets its peculiar name as it was first published under the pseudonym  "Student".^[William Sealy Gosset (1876--1937) wrote under the pseudonym "Student" [[https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/](https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/)].] This bit of obfuscation was to protect the identity of his employer,^[Gosset invented the t-test to handle small samples for quality control in brewing, specifically fro the Guinness brewery in Dublin [[https://www.wikiwand.com/en/Guinness_Brewery](https://www.wikiwand.com/en/Guinness_Brewery)].] and thereby vital trade secrets, in a highly competitive and lucrative industry.  
 
 ```{definition, t-dist}
 A continuous rv $X$ has a **$\mathsf{t}$ distribution** with parameter $\nu > 0$, if $X$ has pdf

@@ -224,7 +224,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="categorical-data.html"><a href="categorical-data.html#goodness-of-fit-tests"><i class="fa fa-check"></i><b>7.2</b> Goodness-of-fit for a single factor</a></li>
 <li class="chapter" data-level="7.3" data-path="categorical-data.html"><a href="categorical-data.html#test-for-independence-of-factors"><i class="fa fa-check"></i><b>7.3</b> Test for independence of factors</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="quality-control.html"><a href="quality-control.html"><i class="fa fa-check"></i><b>8</b> Quality Control</a></li>
+<li class="chapter" data-level="8" data-path="quality-control.html"><a href="quality-control.html"><i class="fa fa-check"></i><b>8</b> Quality control</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="quality-control.html"><a href="quality-control.html#control-charts"><i class="fa fa-check"></i><b>8.1</b> Control charts</a></li>
+</ul></li>
 <li class="part"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="" data-path="curated-content.html"><a href="curated-content.html"><i class="fa fa-check"></i>Curated Content</a>
 <ul>
@@ -282,15 +285,15 @@ We write <span class="math inline">\(X \sim \mathsf{N}(\mu, \sigma^2)\)</span>.
 </div>
 <p>For <span class="math inline">\(X\sim \mathsf{N}(\mu,\sigma^2)\)</span>, it can be shown that <span class="math inline">\(\E(X) = \mu\)</span> and <span class="math inline">\(\Var(X) = \sigma^2\)</span>, that is, <span class="math inline">\(\mu\)</span> is the <em>mean</em> and <span class="math inline">\(\sigma^2\)</span> is the <em>variance</em> of <span class="math inline">\(X\)</span>. The pdf takes the form of a bell-shaped curve that is symmetric about <span class="math inline">\(\mu\)</span>. The value <span class="math inline">\(\sigma\)</span> (<em>standard deviation</em>) is the distance from <span class="math inline">\(\mu\)</span> to the inflection points of the curve. Thus, the position (location) and spread of the distribution depends on <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>.</p>
 <div class="figure" style="text-align: center"><span id="fig:normals-diff-mean"></span>
-<img src="ma22004_files/figure-html/normals-diff-mean-1.svg" alt="The pdfs of two normal rvs with different means and the same standard deviations." width="768" />
+<img src="ma22004_files/figure-html/normals-diff-mean-1.svg" alt="The pdfs of two normal rvs, $X_1 \sim \mathsf{N}(-2, 1)$ and $X_2 \sim \mathsf{N}(2, 1)$, with *different means* and the same standard deviations." width="768" />
 <p class="caption">
-Figure 1.1: The pdfs of two normal rvs with different means and the same standard deviations.
+Figure 1.1: The pdfs of two normal rvs, <span class="math inline">\(X_1 \sim \mathsf{N}(-2, 1)\)</span> and <span class="math inline">\(X_2 \sim \mathsf{N}(2, 1)\)</span>, with <em>different means</em> and the same standard deviations.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:normals-diff-sd"></span>
-<img src="ma22004_files/figure-html/normals-diff-sd-1.svg" alt="The pdfs of two normal rvs with the same means and different standard deviations." width="768" />
+<img src="ma22004_files/figure-html/normals-diff-sd-1.svg" alt="The pdfs of two normal rvs, $X_1 \sim \mathsf{N}(0, 9)$ and $X_2 \sim \mathsf{N}(0, 1)$, with the same means and *different standard deviations*." width="768" />
 <p class="caption">
-Figure 1.2: The pdfs of two normal rvs with the same means and different standard deviations.
+Figure 1.2: The pdfs of two normal rvs, <span class="math inline">\(X_1 \sim \mathsf{N}(0, 9)\)</span> and <span class="math inline">\(X_2 \sim \mathsf{N}(0, 1)\)</span>, with the same means and <em>different standard deviations</em>.
 </p>
 </div>
 
@@ -459,9 +462,9 @@ that comprises the ratio of two <span class="math inline">\(\chi^2\)</span> rvs 
 <div class="footnotes">
 <hr />
 <ol start="6">
-<li id="fn6"><p>“Traditions, traditions… Without our traditions, our lives would be as shaky as a fiddler on the roof!” <a href="https://www.youtube.com/watch?v=gRdfX7ut8gw">https://www.youtube.com/watch?v=gRdfX7ut8gw</a>.<a href="sampling-distributions.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>William Sealy Gosset (1876–1937) wrote under the pseudonym “Student” <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/">https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/</a>.<a href="sampling-distributions.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>Gosset invented the t-test to handle small samples for quality control in brewing, specifically fro the Guinness brewery in Dublin <a href="https://www.wikiwand.com/en/Guinness_Brewery">https://www.wikiwand.com/en/Guinness_Brewery</a>.<a href="sampling-distributions.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>“Traditions, traditions… Without our traditions, our lives would be as shaky as a fiddler on the roof!” [<a href="https://www.youtube.com/watch?v=gRdfX7ut8gw">https://www.youtube.com/watch?v=gRdfX7ut8gw</a>].<a href="sampling-distributions.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>William Sealy Gosset (1876–1937) wrote under the pseudonym “Student” [<a href="https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/">https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/</a>].<a href="sampling-distributions.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>Gosset invented the t-test to handle small samples for quality control in brewing, specifically fro the Guinness brewery in Dublin [<a href="https://www.wikiwand.com/en/Guinness_Brewery">https://www.wikiwand.com/en/Guinness_Brewery</a>].<a href="sampling-distributions.html#fnref8" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -488,7 +491,7 @@ gitbook.start({
 "sharing": {
 "github": true,
 "facebook": false,
-"twitter": false,
+"twitter": true,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,

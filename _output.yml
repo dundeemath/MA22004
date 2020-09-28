@@ -17,7 +17,7 @@ bookdown::gitbook:
     sharing: 
       github: yes
       facebook: no
-      twitter: no
+      twitter: yes
       all: no
     fontsettings:
       theme: white
@@ -26,7 +26,6 @@ bookdown::gitbook:
     info: yes
     highlight: pygments
     number_sections: yes
-    #split_by: chapter
 bookdown::pdf_book:
   keep_tex: yes
   includes:

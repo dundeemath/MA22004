@@ -4,7 +4,7 @@ We discuss point estimation, confidence intervals, and hypothesis testing in Sec
 
 ## Point estimation {#point-estimation}
 
-Statistical inference seeks to draw conclusions about the characteristics of a population from data. For example, suppose we are botanists interested in taxonomic classification of iris flowers. Let $\mu$ denote the true average petal length (in cm) of the *Iris setosa*^[https://www.wikiwand.com/en/Iris_setosa] (AKA the bristle-pointed iris). The parameter $\mu$ is a characteristic of the whole population of the *setosa* species. Before we collect data, the petal lengths of $m$ independent *setosa* flowers are denoted by rvs $X_1, X_2, \dots, X_m$. Any function of the $X_i$'s, such as the sample mean,
+Statistical inference seeks to draw conclusions about the characteristics of a population from data. For example, suppose we are botanists interested in taxonomic classification of iris flowers. Let $\mu$ denote the true average petal length (in cm) of the *Iris setosa*^[More about the *Iris setosa* here [[https://www.wikiwand.com/en/Iris_setosa](https://www.wikiwand.com/en/Iris_setosa)].] (AKA the bristle-pointed iris). The parameter $\mu$ is a characteristic of the whole population of the *setosa* species. Before we collect data, the petal lengths of $m$ independent *setosa* flowers are denoted by rvs $X_1, X_2, \dots, X_m$. Any function of the $X_i$'s, such as the sample mean,
 \begin{equation}
   \overline{X} = \frac{1}{m} \sum_{i=1}^m X_i\,, (\#eq:sample-mean)
 \end{equation}

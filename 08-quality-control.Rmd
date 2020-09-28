@@ -2,9 +2,11 @@
 beer <- read_csv("data/beer.csv")
 ```
 
-# Quality Control {#quality-control}
+# Quality control {#quality-control}
 
 Quality control is an area of applies statistics that seeks to make interventions to maintain or improve the outcome of industrial processes. Random variations in output processes might negatively impact the quality of a product. We would like to identify the sources of random variations in output processes that might have *assignable causes*. **Control charts** are a tool that help us to recognize when industrial processes are no longer controlled so that one might then seek to identify assignable causes. 
+
+## Control charts {#control-charts}
 
 The basic elements of control charting involve specifying a control region and then analyzing time-series data. We will specify a base-line value along with an upper and lower limit of control and assume that a process is under control unless a test statistic suggests otherwise.^[The default position here will be reminiscent of hypothesis testing.] To construct a control chart, one collects data about a process at fixed points of time and calculates the running value of quality statistic. If the quality statistic exceeds the upper or lower control limits, the process is deemed to out of control and the quality of the product is assumed to be negatively impacted. 
 
