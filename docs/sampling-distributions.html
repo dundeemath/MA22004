@@ -135,7 +135,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="part"><span><b>Course Documents</b></span></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-your-instructor"><i class="fa fa-check"></i>About your instructor</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html"><i class="fa fa-check"></i>Course Guide</a>
 <ul>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-organization"><i class="fa fa-check"></i>Organisation</a></li>
@@ -146,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment"><i class="fa fa-check"></i>Assessment</a>
 <ul>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-coursework"><i class="fa fa-check"></i>Coursework</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Examinations</a></li>
+<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Examinations (Class Tests)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-commitment"><i class="fa fa-check"></i>Your Commitment</a></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-calcs"><i class="fa fa-check"></i>Approved Calculators</a></li>
@@ -298,7 +301,7 @@ Figure 1.2: The pdfs of two normal rvs, <span class="math inline">\(X_1 \sim \ma
 </div>
 
 <div class="definition">
-<span id="def:standard-normal" class="definition"><strong>Definition 1.2  </strong></span>We say that <span class="math inline">\(X\)</span> has a <strong>standard normal distribution</strong> if <span class="math inline">\(\mu=0\)</span> and <span class="math inline">\(\sigma = 1\)</span> and we will usually denote standard Normal rvs by <span class="math inline">\(Z\)</span> (why? tradition!<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>).
+<span id="def:standard-normal" class="definition"><strong>Definition 1.2  </strong></span>We say that <span class="math inline">\(X\)</span> has a <strong>standard normal distribution</strong> if <span class="math inline">\(\mu=0\)</span> and <span class="math inline">\(\sigma = 1\)</span> and we will usually denote standard Normal rvs by <span class="math inline">\(Z\)</span> (why? tradition!<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>).
 </div>
 <div id="facts-normals" class="section level3" number="1.1.1">
 <h3><span class="header-section-number">1.1.1</span> Some useful facts about normal variates</h3>
@@ -377,7 +380,7 @@ For a normal population, this means that nearly all the the values lie within �
 </div>
 <div id="t-distribution" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> <span class="math inline">\(\mathsf{t}\)</span> distribution</h2>
-<p>Student’s <span class="math inline">\(\mathsf{t}\)</span> distribution gets its peculiar name as it was first published under the pseudonym “Student.”<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> This bit of obfuscation was to protect the identity of his employer,<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> and thereby vital trade secrets, in a highly competitive and lucrative industry.</p>
+<p>Student’s <span class="math inline">\(\mathsf{t}\)</span> distribution gets its peculiar name as it was first published under the pseudonym “Student.”<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> This bit of obfuscation was to protect the identity of his employer,<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> and thereby vital trade secrets, in a highly competitive and lucrative industry.</p>
 
 <div class="definition">
 <span id="def:t-dist" class="definition"><strong>Definition 1.3  </strong></span>A continuous rv <span class="math inline">\(X\)</span> has a <strong><span class="math inline">\(\mathsf{t}\)</span> distribution</strong> with parameter <span class="math inline">\(\nu &gt; 0\)</span>, if <span class="math inline">\(X\)</span> has pdf
@@ -461,10 +464,10 @@ that comprises the ratio of two <span class="math inline">\(\chi^2\)</span> rvs 
 </div>
 <div class="footnotes">
 <hr />
-<ol start="6">
-<li id="fn6"><p>“Traditions, traditions… Without our traditions, our lives would be as shaky as a fiddler on the roof!” [<a href="https://www.youtube.com/watch?v=gRdfX7ut8gw">https://www.youtube.com/watch?v=gRdfX7ut8gw</a>].<a href="sampling-distributions.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>William Sealy Gosset (1876–1937) wrote under the pseudonym “Student” [<a href="https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/">https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/</a>].<a href="sampling-distributions.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>Gosset invented the t-test to handle small samples for quality control in brewing, specifically fro the Guinness brewery in Dublin [<a href="https://www.wikiwand.com/en/Guinness_Brewery">https://www.wikiwand.com/en/Guinness_Brewery</a>].<a href="sampling-distributions.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<ol start="8">
+<li id="fn8"><p>“Traditions, traditions… Without our traditions, our lives would be as shaky as a fiddler on the roof!” [<a href="https://www.youtube.com/watch?v=gRdfX7ut8gw">https://www.youtube.com/watch?v=gRdfX7ut8gw</a>].<a href="sampling-distributions.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>William Sealy Gosset (1876–1937) wrote under the pseudonym “Student” [<a href="https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/">https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/</a>].<a href="sampling-distributions.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>Gosset invented the t-test to handle small samples for quality control in brewing, specifically fro the Guinness brewery in Dublin [<a href="https://www.wikiwand.com/en/Guinness_Brewery">https://www.wikiwand.com/en/Guinness_Brewery</a>].<a href="sampling-distributions.html#fnref10" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

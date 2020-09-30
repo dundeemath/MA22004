@@ -135,7 +135,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="part"><span><b>Course Documents</b></span></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-your-instructor"><i class="fa fa-check"></i>About your instructor</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html"><i class="fa fa-check"></i>Course Guide</a>
 <ul>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-organization"><i class="fa fa-check"></i>Organisation</a></li>
@@ -146,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment"><i class="fa fa-check"></i>Assessment</a>
 <ul>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-coursework"><i class="fa fa-check"></i>Coursework</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Examinations</a></li>
+<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Examinations (Class Tests)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-commitment"><i class="fa fa-check"></i>Your Commitment</a></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-calcs"><i class="fa fa-check"></i>Approved Calculators</a></li>
@@ -273,7 +276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We discuss point estimation, confidence intervals, and hypothesis testing in Sections <a href="statistical-inference.html#point-estimation">2.1</a>, <a href="statistical-inference.html#confidence-intervals">2.2</a>, and <a href="statistical-inference.html#hypothesis-testing">2.3</a>, respectively. These three tools will form the basis for making inferences about a population.</p>
 <div id="point-estimation" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Point estimation</h2>
-<p>Statistical inference seeks to draw conclusions about the characteristics of a population from data. For example, suppose we are botanists interested in taxonomic classification of iris flowers. Let <span class="math inline">\(\mu\)</span> denote the true average petal length (in cm) of the <em>Iris setosa</em><a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> (AKA the bristle-pointed iris). The parameter <span class="math inline">\(\mu\)</span> is a characteristic of the whole population of the <em>setosa</em> species. Before we collect data, the petal lengths of <span class="math inline">\(m\)</span> independent <em>setosa</em> flowers are denoted by rvs <span class="math inline">\(X_1, X_2, \dots, X_m\)</span>. Any function of the <span class="math inline">\(X_i\)</span>’s, such as the sample mean,
+<p>Statistical inference seeks to draw conclusions about the characteristics of a population from data. For example, suppose we are botanists interested in taxonomic classification of iris flowers. Let <span class="math inline">\(\mu\)</span> denote the true average petal length (in cm) of the <em>Iris setosa</em><a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> (AKA the bristle-pointed iris). The parameter <span class="math inline">\(\mu\)</span> is a characteristic of the whole population of the <em>setosa</em> species. Before we collect data, the petal lengths of <span class="math inline">\(m\)</span> independent <em>setosa</em> flowers are denoted by rvs <span class="math inline">\(X_1, X_2, \dots, X_m\)</span>. Any function of the <span class="math inline">\(X_i\)</span>’s, such as the sample mean,
 <span class="math display" id="eq:sample-mean">\[\begin{equation}
   \overline{X} = \frac{1}{m} \sum_{i=1}^m X_i\,, \tag{2.1}
 \end{equation}\]</span>
@@ -334,7 +337,7 @@ Height [in]
 <div class="tipblock">
 <p>The <strong>Cherry Tree Data</strong> contains 31 obs. of three features (diameter, height, and volume) and can be accessed in <code>r</code> by loading <code>library(datasets)</code> and then calling <code>data(trees)</code>.</p>
 </div>
-<p>The quantile-quantile plot in Figure <a href="statistical-inference.html#fig:qq-plot-cherry">2.2</a>, that compares the quantiles of this data to the quantiles of a normal distribution, is fairly straight.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> Therefore, we assume that the distribution of black cherry tree heights is (at least approximately) normal with a mean value <span class="math inline">\(\mu\)</span>; i.e., that the population of heights is distributed <span class="math inline">\(\mathsf{N}(\mu, \sigma^2)\)</span> where <span class="math inline">\(\mu\)</span> is a parameter to be estimated and <span class="math inline">\(\sigma^2\)</span> is unknown. The observations <span class="math inline">\(X_1, \dots, X_{31}\)</span> are then assumed to be a random sample from this normal distribution, i.e., iid
+<p>The quantile-quantile plot in Figure <a href="statistical-inference.html#fig:qq-plot-cherry">2.2</a>, that compares the quantiles of this data to the quantiles of a normal distribution, is fairly straight.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> Therefore, we assume that the distribution of black cherry tree heights is (at least approximately) normal with a mean value <span class="math inline">\(\mu\)</span>; i.e., that the population of heights is distributed <span class="math inline">\(\mathsf{N}(\mu, \sigma^2)\)</span> where <span class="math inline">\(\mu\)</span> is a parameter to be estimated and <span class="math inline">\(\sigma^2\)</span> is unknown. The observations <span class="math inline">\(X_1, \dots, X_{31}\)</span> are then assumed to be a random sample from this normal distribution, i.e., iid
 <span class="math display">\[\begin{equation*}
 \quad X_1, \dots, X_{31} \sim \mathsf{N}(\mu, \sigma^2) \,.
 \end{equation*}\]</span>
@@ -367,7 +370,7 @@ Figure 2.2: Normal quantile-quantile plot for the <strong>Cherry Tree Data</stro
 <span class="math display">\[\begin{equation*}
 \sigma_{\widehat{\theta}} = \sqrt{\Var(\widehat{\theta})}\,.
 \end{equation*}\]</span>
-Often, the standard error depends on unknown parameters and must also be estimated. The <strong>estimated standard error</strong> is denoted by <span class="math inline">\(\widehat{\sigma}_{\widehat{\theta}}\)</span> or simply <span class="math inline">\(s_{\widehat{\theta}}\)</span>.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>
+Often, the standard error depends on unknown parameters and must also be estimated. The <strong>estimated standard error</strong> is denoted by <span class="math inline">\(\widehat{\sigma}_{\widehat{\theta}}\)</span> or simply <span class="math inline">\(s_{\widehat{\theta}}\)</span>.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>
 </div>
 </div>
 <div id="confidence-intervals" class="section level2" number="2.2">
@@ -457,7 +460,7 @@ one-sided test
 <p>These pairs of hypothesis are associated with either a one-sided or two-sided test; what this means will become clear in the sequel. The value <span class="math inline">\(\theta_0\)</span>, called the <strong>null value</strong>, separates the alternative from the null.</p>
 
 <div class="definition">
-<span id="def:hypothesis-test" class="definition"><strong>Definition 2.5  </strong></span>A <strong>hypothesis test</strong> asks if the available data provides sufficient evidence to reject <span class="math inline">\(H_0\)</span>. If the observations disagree with <span class="math inline">\(H_0\)</span>, then we reject the null hypothesis. If the sample evidence does not strongly contradict <span class="math inline">\(H_0\)</span>, then we continue to believe <span class="math inline">\(H_0\)</span>. The two possible conclustions of a hypothesis test are: <em>reject <span class="math inline">\(H_0\)</span></em> or <em>fail to reject <span class="math inline">\(H_0\)</span></em>.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>
+<span id="def:hypothesis-test" class="definition"><strong>Definition 2.5  </strong></span>A <strong>hypothesis test</strong> asks if the available data provides sufficient evidence to reject <span class="math inline">\(H_0\)</span>. If the observations disagree with <span class="math inline">\(H_0\)</span>, then we reject the null hypothesis. If the sample evidence does not strongly contradict <span class="math inline">\(H_0\)</span>, then we continue to believe <span class="math inline">\(H_0\)</span>. The two possible conclustions of a hypothesis test are: <em>reject <span class="math inline">\(H_0\)</span></em> or <em>fail to reject <span class="math inline">\(H_0\)</span></em>.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>
 </div>
 <p>A procedure for carrying out a hypothesis test is based on specifying two additional items: a test statistic and a corresponding rejection region. A <strong>test statistic</strong> <span class="math inline">\(T\)</span> is a function of the sample data (like an estimator). The decision to reject or fail to reject <span class="math inline">\(H_0\)</span> will involve computing the test statistic. The <strong>rejection region</strong> <span class="math inline">\(R\)</span> is the collection of values of the test statistic for which <span class="math inline">\(H_0\)</span> is to be rejected in favor of the alternative, e.g.,
 <span class="math display">\[\begin{equation*}
@@ -496,7 +499,7 @@ has <span class="math inline">\(P(\text{type I error}) = \alpha\)</span>.
 </div>
 
 <div class="example">
-<span id="exm:htest-setup" class="example"><strong>Example 2.2  </strong></span>Churchill claims that he will receive half the votes for the House of Commons seat for the constituency of Dundee.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> If we do not believe Churchill’s claim and we are doubtful of his popularity, then we would seek to test an alternative hypothesis. How should we write down our research hypotheses?
+<span id="exm:htest-setup" class="example"><strong>Example 2.2  </strong></span>Churchill claims that he will receive half the votes for the House of Commons seat for the constituency of Dundee.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> If we do not believe Churchill’s claim and we are doubtful of his popularity, then we would seek to test an alternative hypothesis. How should we write down our research hypotheses?
 </div>
 <p>If we let <span class="math inline">\(p\)</span> be the fraction of the population voting for Churchill, then we have the null hypothesis,
 <span class="math display">\[\begin{equation*}
@@ -521,7 +524,7 @@ Support for the alternative hypothesis is obtain by showing lack of support for 
   &amp;= P(X \leq 2 \text{ when } p = 0.5) \,.
  \end{aligned}
 \end{equation*}\]</span>
-Since <span class="math inline">\(X \sim \mathsf{Binom}(15, 0.50)\)</span>,<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> we calculate that <span class="math inline">\(\alpha = 0.00369\)</span>. Thus, for this particular choice of rejection region <span class="math inline">\(R\)</span>, the risk of concluding that Churchill will lose if in fact he is the winner is very small.</p>
+Since <span class="math inline">\(X \sim \mathsf{Binom}(15, 0.50)\)</span>,<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a> we calculate that <span class="math inline">\(\alpha = 0.00369\)</span>. Thus, for this particular choice of rejection region <span class="math inline">\(R\)</span>, the risk of concluding that Churchill will lose if in fact he is the winner is very small.</p>
 <p>For this rejection region, how good is the test at protecting us from type II errors, i.e., concluding that Churchill is the winner if in fact he will lose? Suppose that Churchill receive <span class="math inline">\(25%\)</span> of the votes (<span class="math inline">\(p=0.25\)</span>). The probability of a type II error <span class="math inline">\(\beta\)</span>,
 <span class="math display">\[\begin{equation*}
   \begin{aligned}
@@ -555,13 +558,13 @@ For <span class="math inline">\(X \sim \mathsf{Binom}(15, 0.25)\)</span>, we cal
 </div>
 <div class="footnotes">
 <hr />
-<ol start="9">
-<li id="fn9"><p>More about the <em>Iris setosa</em> here [<a href="https://www.wikiwand.com/en/Iris_setosa">https://www.wikiwand.com/en/Iris_setosa</a>].<a href="statistical-inference.html#fnref9" class="footnote-back">↩︎</a></p></li>
-<li id="fn10"><p>How do we tell whether a population is normal? Constructing a normal quantile-quantile plot is one way of assessing whether a normality assumption is reasonable; such a plot compares the quantiles of the sample data <span class="math inline">\(x_i\)</span> against the (theoretical) standard normal quantiles (see Figure <a href="statistical-inference.html#fig:qq-plot-cherry">2.2</a>). If the sample data is consistent with a sample from a normal distribution, then the points will lie on a straight line (more or less). The QQ plot Figure <a href="statistical-inference.html#fig:qq-plot-cherry">2.2</a> comparing quantiles of cherry tree heights from Table <a href="statistical-inference.html#tab:cherry-data">2.1</a> to normal quantiles.<a href="statistical-inference.html#fnref10" class="footnote-back">↩︎</a></p></li>
-<li id="fn11"><p>The standard error is sometimes denoted <span class="math inline">\(\se = \se(\widehat{\theta})\)</span> and the estimated standard error by <span class="math inline">\(\widehat{\se}\)</span>.<a href="statistical-inference.html#fnref11" class="footnote-back">↩︎</a></p></li>
-<li id="fn12"><p>We comment that <em>fail to reject <span class="math inline">\(H_0\)</span></em> is sometimes phrased <em>retain <span class="math inline">\(H_0\)</span></em> or (perhaps less accurately) <em>accept <span class="math inline">\(H_0\)</span></em>. Why not just <em>accept</em> the null and move on with our lives? Well, if I search the Highlands for the Scottish wildcat (critically endangered) and fail to find any, does that prove they do not exist?<a href="statistical-inference.html#fnref12" class="footnote-back">↩︎</a></p></li>
-<li id="fn13"><p>Sir Winston Churchill was Member of Parliament for Dundee from 1908–1922 [<a href="https://www.wikiwand.com/en/Winston_Churchill">https://www.wikiwand.com/en/Winston_Churchill</a>].<a href="statistical-inference.html#fnref13" class="footnote-back">↩︎</a></p></li>
-<li id="fn14"><p><span class="math inline">\(X\)</span> is a binomial random variable because it can be modeled as <span class="math inline">\(m\)</span> independent Bernoulli trails each with probability <span class="math inline">\(p\)</span> of success (i.e. votes Churchill) as long as the sample size <span class="math inline">\(m\)</span> is much smaller than the population of Dundee. If we had the means to canvas nearly the whole population, what goes wrong conceptually?<a href="statistical-inference.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<ol start="11">
+<li id="fn11"><p>More about the <em>Iris setosa</em> here [<a href="https://www.wikiwand.com/en/Iris_setosa">https://www.wikiwand.com/en/Iris_setosa</a>].<a href="statistical-inference.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>How do we tell whether a population is normal? Constructing a normal quantile-quantile plot is one way of assessing whether a normality assumption is reasonable; such a plot compares the quantiles of the sample data <span class="math inline">\(x_i\)</span> against the (theoretical) standard normal quantiles (see Figure <a href="statistical-inference.html#fig:qq-plot-cherry">2.2</a>). If the sample data is consistent with a sample from a normal distribution, then the points will lie on a straight line (more or less). The QQ plot Figure <a href="statistical-inference.html#fig:qq-plot-cherry">2.2</a> comparing quantiles of cherry tree heights from Table <a href="statistical-inference.html#tab:cherry-data">2.1</a> to normal quantiles.<a href="statistical-inference.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>The standard error is sometimes denoted <span class="math inline">\(\se = \se(\widehat{\theta})\)</span> and the estimated standard error by <span class="math inline">\(\widehat{\se}\)</span>.<a href="statistical-inference.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>We comment that <em>fail to reject <span class="math inline">\(H_0\)</span></em> is sometimes phrased <em>retain <span class="math inline">\(H_0\)</span></em> or (perhaps less accurately) <em>accept <span class="math inline">\(H_0\)</span></em>. Why not just <em>accept</em> the null and move on with our lives? Well, if I search the Highlands for the Scottish wildcat (critically endangered) and fail to find any, does that prove they do not exist?<a href="statistical-inference.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>Sir Winston Churchill was Member of Parliament for Dundee from 1908–1922 [<a href="https://www.wikiwand.com/en/Winston_Churchill">https://www.wikiwand.com/en/Winston_Churchill</a>].<a href="statistical-inference.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p><span class="math inline">\(X\)</span> is a binomial random variable because it can be modeled as <span class="math inline">\(m\)</span> independent Bernoulli trails each with probability <span class="math inline">\(p\)</span> of success (i.e. votes Churchill) as long as the sample size <span class="math inline">\(m\)</span> is much smaller than the population of Dundee. If we had the means to canvas nearly the whole population, what goes wrong conceptually?<a href="statistical-inference.html#fnref16" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

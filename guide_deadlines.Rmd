@@ -1,6 +1,6 @@
 # Deadlines {-#deadlines}
 
-Below we have collected all the deadlines and important dates for the module. The three class tests (T1, T2, and T2) are on Wednesdays (W) from 13:00-15:00 and 14:00-17:00, respectively; we will practice (P) at uploading a test on Gradescope on Friday of week 1. Please keep in mind that you must engage with the weekly readings on Perusall **before** the seminar meeting on Wednesday afternoon. The lab reports (L1, L2, L3, L4, L5, L6, L7) are due on Thursday evenings at 17:00. 
+All the deadlines and important dates for the module are listed in the Table below. The three class tests (T1, T2, and T2) are on Wednesdays (W) from 13:00-15:00 and 14:00-17:00, respectively; there will be a practice test (P) on Friday (F) of week 1.^[Don't worry, you got this: the practice test will only gauge your skills at scanning and uploading a document to Gradescope.] Please keep in mind that you must engage with the weekly readings on Perusall **before** the seminar meeting on Wednesday afternoon. The lab reports (L1, L2, L3, L4, L5, L6, L7) are due on Thursday evenings at 17:00. 
 
 Further details about the practice upload and the class tests will be circulated nearer in time to the relevant deadline.
 

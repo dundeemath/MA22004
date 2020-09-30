@@ -17,9 +17,9 @@ Fulton Building
 01382 TBA
 :::
 
-This course uses Blackboard Ultra^[Visit [https://my.dundee.ac.uk](https://my.dundee.ac.uk) and search for course `MA22004_SEM0000_2021`.] for communicating all announcements/deadlines and also for running online meetings. This course also uses Gradescope^[Available at [https://www.gradescope.com/](https://www.gradescope.com/); "course entry code" at **Welcome > Overview of online platforms used in this course > Gradescope** on Blackboard Ultra.] for submission of some of the continuous assessment items and Perusall^[Available at [https://perusall.com/](https://perusall.com/); "course access code" at **Welcome > Overview of online platforms used in this course > Perusall** on Blackboard Ultra.] for collaborative engagement with reading materials.
+This course uses Blackboard Ultra^[Visit [https://my.dundee.ac.uk](https://my.dundee.ac.uk) and search for course `MA22004_SEM0000_2021`.] for communicating all announcements/deadlines and also for running online meetings (we will use Blackboard Collaborate for online seminars and workshops). This course also uses Gradescope^[Available at [https://www.gradescope.com/](https://www.gradescope.com/); "course entry code" at **Welcome > Overview of online platforms used in this course > Gradescope** on Blackboard Ultra.] for submission of some of the continuous assessment items and Perusall^[Available at [https://perusall.com/](https://perusall.com/); "course access code" at **Welcome > Overview of online platforms used in this course > Perusall** on Blackboard Ultra.] for collaborative engagement with reading materials.
 
-If you have a problem regarding the course, then you should make an appointment to see Dr Hall. You may also bring matters of concern about the course to the attention of the Mathematics Division Staff/Student Committee, which meets once each semester. A volunteer from Level 2 Mathematics will act as class representative to sit on the Staff/Student Committee (see Ultra for contact details).
+If you have a problem regarding the course, then you should make an appointment to speak with Dr Hall. You may also bring matters of concern about the course to the attention of the Mathematics Division Staff/Student Committee, which meets once each semester. A volunteer from Level 2 Mathematics will act as class representative to sit on the Staff/Student Committee (see Ultra for contact details).
 
 ## Timetable {-#cg-timetable}
 
@@ -34,7 +34,7 @@ kbl(tibble(read_csv("data/activities.csv")), booktabs = T) %>%
  kable_styling(latex_options = c("striped", "hold_position"), )
 ```
 
-The anticipated student effort is 200 hours over the length of the module. You are expected to be "present" for all synchronous timetabled activities except for the online office hours, which are optional. You may engage with the asynchronous material at your own pace, keeping in mind to meet any deadlines for engagement and/or attainment that will be posted to Ultra and discussed. 
+The anticipated student effort is 200 hours over the length of the module. You are expected to be "present" for all synchronous timetabled activities. You may engage with the asynchronous material at your own pace, keeping in mind to meet any deadlines for engagement and/or attainment that will be posted to Ultra and discussed. 
 
 ## Pre-requisites {-#cg-prerecs}
 
@@ -85,19 +85,22 @@ kbl(df, booktabs = T, align = c("l", "r")) %>%
 
 Assessed coursework includes:
 
-- six hand-in laboratory reports (there will be seven labs, the lowest grade will be dropped) and 
+- seven hand-in laboratory reports (the lowest non-zero lab report grade will be dropped)^[Yes---you must attempt and submit a report for each lab, but, on the bright side, there is some flexibility to have a bad day.] and 
 - weekly engagement with the reading material using Perusall. 
 
-There will also be alternative means of demonstrating your mastery of course material through:
+The lab reports will be submitted using Gradescope.
 
-- one (group) lab presentation and
-- short seminar quizzes (announced in advance).
+<!-- There will also be alternative means of demonstrating your mastery of course material through: -->
+<!-- - one (group) lab presentation and -->
+<!-- - short seminar quizzes (announced in advance). -->
 
-### Examinations {-#cg-assessment-exams}
+### Examinations (Class Tests) {-#cg-assessment-exams}
 
-The **Midterm Exams** will be computer-assessed and will be one (1) hour in scope. These will likely be in weeks 4 and 8. 
+The **Midterm Exams** will be (1) hour in scope. These will be in weeks 4 and 8. 
 
-The **Final Exam** will be a two (2) hour hand-written exam that will be submitted using Gradescope. This process will be thoroughly discussed and trialled with a dummy exam in advance of the real submission. The Final Exam will be in week 11 (i.e., during the last week of the term).
+The **Final Exam** will be a two (2) hour hand-written exam.
+
+The exams that will be submitted using Gradescope. This process will be thoroughly discussed and trialed with a dummy exam in advance of the real submission. The Final Exam will be in week 11 (i.e., during the last week of the term).
 
 To pass this module, you must:
 
@@ -135,4 +138,4 @@ Honesty in scholarship and research is integral to the integrity of the academic
 
 ## End of Module Questionaire {-#cg-questionaire}
 
-You will have the opportunity to complete a confidential questionnaire regarding the content and presentation of the module periodically. These questionaires form an important element in the University's Academic Standards procedures. Thank you in advance for your cooperation. 
+You will have the opportunity to complete a confidential questionnaire regarding the content and presentation of the module periodically. These questionnaires form an important element in the University's Academic Standards procedures. Thank you in advance for your cooperation. 

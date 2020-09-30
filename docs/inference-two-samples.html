@@ -135,7 +135,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="part"><span><b>Course Documents</b></span></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-your-instructor"><i class="fa fa-check"></i>About your instructor</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html"><i class="fa fa-check"></i>Course Guide</a>
 <ul>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-organization"><i class="fa fa-check"></i>Organisation</a></li>
@@ -146,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment"><i class="fa fa-check"></i>Assessment</a>
 <ul>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-coursework"><i class="fa fa-check"></i>Coursework</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Examinations</a></li>
+<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Examinations (Class Tests)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-commitment"><i class="fa fa-check"></i>Your Commitment</a></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-calcs"><i class="fa fa-check"></i>Approved Calculators</a></li>
@@ -411,7 +414,7 @@ Here <span class="math inline">\(\nu\)</span> is given by <a href="inference-two
  S_{\mathsf{p}}^2 = \frac{m-1}{m+n-2} S_X^2 + \frac{n-1}{m+n-2} S_Y^2 \,.
  \tag{4.5}
 \end{equation}\]</span>
-The pooled estimator is a weighted average that adjusts for differences between the sample sizes <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span>.<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a></p>
+The pooled estimator is a weighted average that adjusts for differences between the sample sizes <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span>.<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a></p>
 
 <div class="proposition">
 <span id="prp:ci-compare-means-normpops-pooled" class="proposition"><strong>Proposition 4.8  </strong></span>A <span class="math inline">\(100(1-\alpha)\%\)</span> CI for <span class="math inline">\(\mu_X - \mu_Y\)</span> for two samples of size <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> from normal populations where the variance <span class="math inline">\(\sigma^2\)</span> is unknown is given by
@@ -548,8 +551,8 @@ If <span class="math inline">\(H_a : \sigma_X^2 \neq \sigma_Y^2\)</span>, then <
 </div>
 <div class="footnotes">
 <hr />
-<ol start="23">
-<li id="fn23"><p>If <span class="math inline">\(m \neq n\)</span>, then the estimator with <em>more</em> samples will contain <em>more</em> information about the parameter <span class="math inline">\(\sigma^2\)</span>. Thus, the simple average <span class="math inline">\((S_X^2 + S_Y^2)/2\)</span> wouldn’t really be fair, would it?<a href="inference-two-samples.html#fnref23" class="footnote-back">↩︎</a></p></li>
+<ol start="25">
+<li id="fn25"><p>If <span class="math inline">\(m \neq n\)</span>, then the estimator with <em>more</em> samples will contain <em>more</em> information about the parameter <span class="math inline">\(\sigma^2\)</span>. Thus, the simple average <span class="math inline">\((S_X^2 + S_Y^2)/2\)</span> wouldn’t really be fair, would it?<a href="inference-two-samples.html#fnref25" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

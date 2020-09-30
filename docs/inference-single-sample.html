@@ -135,7 +135,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="part"><span><b>Course Documents</b></span></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-your-instructor"><i class="fa fa-check"></i>About your instructor</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html"><i class="fa fa-check"></i>Course Guide</a>
 <ul>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-organization"><i class="fa fa-check"></i>Organisation</a></li>
@@ -146,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment"><i class="fa fa-check"></i>Assessment</a>
 <ul>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-coursework"><i class="fa fa-check"></i>Coursework</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Examinations</a></li>
+<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Examinations (Class Tests)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-commitment"><i class="fa fa-check"></i>Your Commitment</a></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-calcs"><i class="fa fa-check"></i>Approved Calculators</a></li>
@@ -386,7 +389,7 @@ since we are concerned with a deviation in either direction from <span class="ma
 <span class="math display">\[\begin{equation*}
  z = \frac{\overline{x} - \mu_0}{\sigma / \sqrt{m}} = \frac{20992 - 20000}{17000 / \sqrt{400}} = 1.167\,.
 \end{equation*}\]</span>
-That is, the observed sample mean <span class="math inline">\(\overline{x}\)</span> is a little more than <span class="math inline">\(1\)</span> standard deviation above what we would expect under <span class="math inline">\(H_0\)</span>. Consulting <a href="inference-single-sample.html#prp:htest-norm-known-var">3.2</a>, we see that a two-tailed test is indicated for this particular <span class="math inline">\(H_a\)</span> (i.e., containing “<span class="math inline">\(\neq\)</span>”). The <span class="math inline">\(P\)</span>-value is the area,<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>
+That is, the observed sample mean <span class="math inline">\(\overline{x}\)</span> is a little more than <span class="math inline">\(1\)</span> standard deviation above what we would expect under <span class="math inline">\(H_0\)</span>. Consulting <a href="inference-single-sample.html#prp:htest-norm-known-var">3.2</a>, we see that a two-tailed test is indicated for this particular <span class="math inline">\(H_a\)</span> (i.e., containing “<span class="math inline">\(\neq\)</span>”). The <span class="math inline">\(P\)</span>-value is the area,<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a>
 <span class="math display">\[\begin{equation*}
 P = 2(1 - \Phi(1.167)) = 2 (0.1216052) = 0.2432.
 \end{equation*}\]</span>
@@ -409,7 +412,7 @@ since the transformed variable has approximately a standard normal distribution.
 \end{equation}\]</span>
 or <span class="math inline">\(\overline{x} \pm z_{\alpha/2} \cdot s / \sqrt{m}\)</span>.
 </div>
-<p>The CI for the mean <a href="inference-single-sample.html#eq:ci-large-sample">(3.5)</a> applies regardless of the shape of the population distribution so long as the number of samples is large. A rule of thumb is that <span class="math inline">\(m &gt; 40\)</span> is sufficient.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a> In words, the CI <a href="inference-single-sample.html#eq:ci-large-sample">(3.5)</a> can be expressed (cf. <a href="inference-single-sample.html#eq:ci-gen-form">(3.1)</a>) as
+<p>The CI for the mean <a href="inference-single-sample.html#eq:ci-large-sample">(3.5)</a> applies regardless of the shape of the population distribution so long as the number of samples is large. A rule of thumb is that <span class="math inline">\(m &gt; 40\)</span> is sufficient.<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a> In words, the CI <a href="inference-single-sample.html#eq:ci-large-sample">(3.5)</a> can be expressed (cf. <a href="inference-single-sample.html#eq:ci-gen-form">(3.1)</a>) as
 <span class="math display">\[\begin{equation*}
  \text{point estimate}\; \mu \pm 
  (z \;\text{critical value}) \cdot (\text{estimated standard error of mean})\,.
@@ -445,12 +448,12 @@ We are interested in testing the null hypothesis <span class="math inline">\(H_0
 <pre><code># A tibble: 1 x 1
   p_value
     &lt;dbl&gt;
-1   0.033</code></pre>
-<p>The bootstrapped null distribution is plotted using the <code>visualize</code> command and the regions of the null distribution that are as (or more) extreme than the observed statistic <span class="math inline">\(\widehat{\mu}\)</span> can be highlighted using the <code>shade_p_value</code> command. <span class="math inline">\(P = 0.033\)</span> is found which is quite small; if <span class="math inline">\(\mu \leq 3.5\)</span>, then the probability of obtaining the sample mean value <span class="math inline">\(\widehat{\mu} = 3.758\)</span> is only 0.033! Thus, the data provides sufficient evidence at the 0.05 level against the hypothesis that the true mean petal length is at most 3.5 cm. <span class="math inline">\(\lozenge\)</span></p>
+1   0.034</code></pre>
+<p>The bootstrapped null distribution is plotted using the <code>visualize</code> command and the regions of the null distribution that are as (or more) extreme than the observed statistic <span class="math inline">\(\widehat{\mu}\)</span> can be highlighted using the <code>shade_p_value</code> command. <span class="math inline">\(P = 0.034\)</span> is found which is quite small; if <span class="math inline">\(\mu \leq 3.5\)</span>, then the probability of obtaining the sample mean value <span class="math inline">\(\widehat{\mu} = 3.758\)</span> is only 0.034! Thus, the data provides sufficient evidence at the 0.05 level against the hypothesis that the true mean petal length is at most 3.5 cm. <span class="math inline">\(\lozenge\)</span></p>
 </div>
 <div id="mean-normal-var-unknown" class="section level3" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> Mean of a normal population with unknown variance</h3>
-<p>In Section <a href="inference-single-sample.html#mean-normal-var-known">3.1.1</a>, we considered samples <span class="math inline">\(X_1, \dots, X_m\)</span> from a normal population with a known <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>. In contrast, here we consider samples from a normal population and assume the population parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> are unknown. If the number of samples is large, the discussion in Section <a href="inference-single-sample.html#mean-large-sample">3.1.2</a> indicates that the rv <span class="math inline">\(Z = (\overline{X} - \mu) \sqrt{m} / S\)</span> has approximately a standard normal distribution. However, if <span class="math inline">\(m\)</span> is not sufficiently large<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a> then the transformed variable will be more spread out than a standard normal distribution.</p>
+<p>In Section <a href="inference-single-sample.html#mean-normal-var-known">3.1.1</a>, we considered samples <span class="math inline">\(X_1, \dots, X_m\)</span> from a normal population with a known <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>. In contrast, here we consider samples from a normal population and assume the population parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> are unknown. If the number of samples is large, the discussion in Section <a href="inference-single-sample.html#mean-large-sample">3.1.2</a> indicates that the rv <span class="math inline">\(Z = (\overline{X} - \mu) \sqrt{m} / S\)</span> has approximately a standard normal distribution. However, if <span class="math inline">\(m\)</span> is not sufficiently large<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a> then the transformed variable will be more spread out than a standard normal distribution.</p>
 
 <div class="theorem">
 <span id="thm:sample-mean-t-dist" class="theorem"><strong>Theorem 3.1  </strong></span>For the sample mean <span class="math inline">\(\overline{X}\)</span> based on <span class="math inline">\(m\)</span> samples from a normal distribution with mean <span class="math inline">\(\mu\)</span>, the rv
@@ -512,7 +515,7 @@ If <span class="math inline">\(H_a : \mu \neq \mu_0\)</span>, then <span class="
 </div>
 
 <div class="example">
-<span id="exm:exm-htest-ttest" class="example"><strong>Example 3.6  </strong></span>From the <strong>Cherry Tree Data</strong>, let’s look at the average volume of timber, given in Table <a href="inference-single-sample.html#tab:cherry-data-vol">3.1</a>. The distribution for this data is approximately normal.<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a> We might ask if the data provides compelling evidence, say at level 0.05, for concluding that the true average volume of timber exceeds 21.3 cubic feet.<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a>
+<span id="exm:exm-htest-ttest" class="example"><strong>Example 3.6  </strong></span>From the <strong>Cherry Tree Data</strong>, let’s look at the average volume of timber, given in Table <a href="inference-single-sample.html#tab:cherry-data-vol">3.1</a>. The distribution for this data is approximately normal.<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a> We might ask if the data provides compelling evidence, say at level 0.05, for concluding that the true average volume of timber exceeds 21.3 cubic feet.<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a>
 </div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
@@ -562,7 +565,7 @@ Figure 3.2: For this test, the <span class="math inline">\(P\)</span>-value is t
 </div>
 <div id="estimating-proportions" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Estimating proportions</h2>
-<p>Consider a population of size <span class="math inline">\(M\)</span> in which a proportion <span class="math inline">\(p\)</span> of the population satisfies a given property. The <span class="math inline">\(p \in (0,1)\)</span> is a parameter characterizing the population, with distribution <span class="math inline">\(F(p)\)</span>, that we might be interested in estimating.<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a> A sample, <span class="math inline">\(X_1, \dots, X_m \sim F(p)\)</span>, from the population contains a proportion,
+<p>Consider a population of size <span class="math inline">\(M\)</span> in which a proportion <span class="math inline">\(p\)</span> of the population satisfies a given property. The <span class="math inline">\(p \in (0,1)\)</span> is a parameter characterizing the population, with distribution <span class="math inline">\(F(p)\)</span>, that we might be interested in estimating.<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a> A sample, <span class="math inline">\(X_1, \dots, X_m \sim F(p)\)</span>, from the population contains a proportion,
 <span class="math display" id="eq:proportion-estimator">\[\begin{equation}
  \widehat{p} = \frac{1}{m} \sum_{i=1}^m X_i\,,
  \tag{3.8}
@@ -577,7 +580,7 @@ and
  \sigma_{\widehat{p}}^2 = \frac{\Var[X_i]}{m} = \frac{p(1-p)}{m}\,,
  \tag{3.10}
 \end{equation}\]</span>
-provided that <span class="math inline">\(m\)</span> is small relative to <span class="math inline">\(M\)</span> (a rule of thumb is <span class="math inline">\(m \leq 0.05 M\)</span>).<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a> Moreover, by invoking the Central Limit Theorem we have the distribution of <span class="math inline">\(\widehat{p}\)</span> is approximately normal for sufficiently large <span class="math inline">\(m\)</span> as <a href="inference-single-sample.html#eq:proportion-estimator">(3.8)</a> is a sample mean. Indeed, this normal approximation works well for moderately large <span class="math inline">\(m\)</span> as long as <span class="math inline">\(p\)</span> is not too close to zero or one; a rule of thumb is that <span class="math inline">\(mp &gt; 5\)</span> and <span class="math inline">\(m(1-p) &gt; 5\)</span>.</p>
+provided that <span class="math inline">\(m\)</span> is small relative to <span class="math inline">\(M\)</span> (a rule of thumb is <span class="math inline">\(m \leq 0.05 M\)</span>).<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a> Moreover, by invoking the Central Limit Theorem we have the distribution of <span class="math inline">\(\widehat{p}\)</span> is approximately normal for sufficiently large <span class="math inline">\(m\)</span> as <a href="inference-single-sample.html#eq:proportion-estimator">(3.8)</a> is a sample mean. Indeed, this normal approximation works well for moderately large <span class="math inline">\(m\)</span> as long as <span class="math inline">\(p\)</span> is not too close to zero or one; a rule of thumb is that <span class="math inline">\(mp &gt; 5\)</span> and <span class="math inline">\(m(1-p) &gt; 5\)</span>.</p>
 
 <div class="proposition">
 <span id="prp:ci-proportion" class="proposition"><strong>Proposition 3.6  </strong></span>For large samples <span class="math inline">\(n\)</span>, a <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for the parameter <span class="math inline">\(p\)</span> is given by
@@ -617,7 +620,7 @@ If <span class="math inline">\(H_a : p \neq p_0\)</span>, then <span class="math
  &amp;= -1.91  \,.
 \end{aligned}
 \end{equation*}\]</span>
-The <span class="math inline">\(P\)</span>-value for this lower-tailed <span class="math inline">\(z\)</span> test is <span class="math inline">\(P = \Phi(-1.91) = 0.028\)</span>. Since <span class="math inline">\(P &lt; 0.10 = \alpha\)</span>, we reject the null hypothesis at the <span class="math inline">\(0.05\)</span> level. The evidence for concluding that the true proportion is different from <span class="math inline">\(p_0 = 0.5\)</span> at the <span class="math inline">\(0.10\)</span> level is compelling.<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a> <span class="math inline">\(\lozenge\)</span></p>
+The <span class="math inline">\(P\)</span>-value for this lower-tailed <span class="math inline">\(z\)</span> test is <span class="math inline">\(P = \Phi(-1.91) = 0.028\)</span>. Since <span class="math inline">\(P &lt; 0.10 = \alpha\)</span>, we reject the null hypothesis at the <span class="math inline">\(0.05\)</span> level. The evidence for concluding that the true proportion is different from <span class="math inline">\(p_0 = 0.5\)</span> at the <span class="math inline">\(0.10\)</span> level is compelling.<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a> <span class="math inline">\(\lozenge\)</span></p>
 </div>
 <div id="estimating-variances" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Estimating variances</h2>
@@ -688,26 +691,26 @@ Note the position of the critical values—don’t swap them round. <span class=
 <p>We plot the 95% confidence interval for the standard deviation based on the computational null distribution obtained using 1000 bootstrap replications; note the interval estimate</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="inference-single-sample.html#cb7-1" aria-hidden="true"></a>ci<span class="op">^</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>  lower_ci upper_ci
-1 140.2245 442.4313</code></pre>
+1 141.9777 439.3323</code></pre>
 <p>is in good agreement with the values obtained Example <a href="inference-single-sample.html#exm:eg-ci-variance">3.8</a>. Due to the computational nature, the bootstrapped interval estimate is not precisely the same as the theoretical interval estimate and moreover rerunning the code will yield a slightly different interval. <span class="math inline">\(\lozenge\)</span></p>
 
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="15">
-<li id="fn15"><p>Note <span class="math inline">\(\Phi(z) = P(Z \leq z)\)</span> is found by calling <code>pnorm(z)</code> in <code>r</code> or by looking up the value in a <span class="math inline">\(Z\)</span> table.<a href="inference-single-sample.html#fnref15" class="footnote-back">↩︎</a></p></li>
-<li id="fn16"><p>For <span class="math inline">\(m &gt; 20\)</span>, the interval estimate <span class="math display">\[\text{point estimate } \pm 2\sd\]</span> has <span class="math inline">\(95\%\)</span> coverage and is surprisingly robust, i.e. applies to a wide variety of population distributions including the normal. However, this rule of thumb won’t apply if you want to consider some different level, say <span class="math inline">\(80\%\)</span> <span class="citation">(Belle <a href="#ref-vanBelle:2008rt" role="doc-biblioref">2008</a>, sec. 1)</span>.<a href="inference-single-sample.html#fnref16" class="footnote-back">↩︎</a></p></li>
-<li id="fn17"><p>Recall that we would consider <span class="math inline">\(m &gt; 40\)</span> to be large.<a href="inference-single-sample.html#fnref17" class="footnote-back">↩︎</a></p></li>
-<li id="fn18"><p>After looking at the normal quantile-quantile plot, I decided to test a hypothesis. For level <span class="math inline">\(0.01\)</span>, I ran a Kolmogorov–Smirnov test for the null hypothesis that the data is consistent with <span class="math inline">\(\mathsf{N}(\overline{x}, s^2)\)</span> vs the alternative that the data is not consistent with the specified reference distribution. The <span class="math inline">\(P\)</span>-value attained was <span class="math inline">\(P = 0.2532 &gt; 0.10\)</span>, and therefore I fail to reject the null hypothesis. The data is consistent with being drawn from a normal population.<a href="inference-single-sample.html#fnref18" class="footnote-back">↩︎</a></p></li>
-<li id="fn19"><p>How much wood is that? About a sixth of a cord. A full cord of chopped fire wood in the US is <span class="math inline">\(124\)</span> cu ft; about enough to keep you warm through a New England winter (according to my inlaws).<a href="inference-single-sample.html#fnref19" class="footnote-back">↩︎</a></p></li>
-<li id="fn20"><p>Here we write <span class="math inline">\(F\)</span> for a general distribution, but what special distribution might this be?<a href="inference-single-sample.html#fnref20" class="footnote-back">↩︎</a></p></li>
-<li id="fn21"><p>Note that if <span class="math inline">\(m\)</span> is large relative to <span class="math inline">\(M\)</span> (<span class="math inline">\(m &gt; 0.05 M\)</span>) then the variance <a href="inference-single-sample.html#eq:proportion-var">(3.10)</a> must be adjusted by a factor (related to the hypergeometric distribution):
+<ol start="17">
+<li id="fn17"><p>Note <span class="math inline">\(\Phi(z) = P(Z \leq z)\)</span> is found by calling <code>pnorm(z)</code> in <code>r</code> or by looking up the value in a <span class="math inline">\(Z\)</span> table.<a href="inference-single-sample.html#fnref17" class="footnote-back">↩︎</a></p></li>
+<li id="fn18"><p>For <span class="math inline">\(m &gt; 20\)</span>, the interval estimate <span class="math display">\[\text{point estimate } \pm 2\sd\]</span> has <span class="math inline">\(95\%\)</span> coverage and is surprisingly robust, i.e. applies to a wide variety of population distributions including the normal. However, this rule of thumb won’t apply if you want to consider some different level, say <span class="math inline">\(80\%\)</span> <span class="citation">(Belle <a href="#ref-vanBelle:2008rt" role="doc-biblioref">2008</a>, sec. 1)</span>.<a href="inference-single-sample.html#fnref18" class="footnote-back">↩︎</a></p></li>
+<li id="fn19"><p>Recall that we would consider <span class="math inline">\(m &gt; 40\)</span> to be large.<a href="inference-single-sample.html#fnref19" class="footnote-back">↩︎</a></p></li>
+<li id="fn20"><p>After looking at the normal quantile-quantile plot, I decided to test a hypothesis. For level <span class="math inline">\(0.01\)</span>, I ran a Kolmogorov–Smirnov test for the null hypothesis that the data is consistent with <span class="math inline">\(\mathsf{N}(\overline{x}, s^2)\)</span> vs the alternative that the data is not consistent with the specified reference distribution. The <span class="math inline">\(P\)</span>-value attained was <span class="math inline">\(P = 0.2532 &gt; 0.10\)</span>, and therefore I fail to reject the null hypothesis. The data is consistent with being drawn from a normal population.<a href="inference-single-sample.html#fnref20" class="footnote-back">↩︎</a></p></li>
+<li id="fn21"><p>How much wood is that? About a sixth of a cord. A full cord of chopped fire wood in the US is <span class="math inline">\(124\)</span> cu ft; about enough to keep you warm through a New England winter (according to my inlaws).<a href="inference-single-sample.html#fnref21" class="footnote-back">↩︎</a></p></li>
+<li id="fn22"><p>Here we write <span class="math inline">\(F\)</span> for a general distribution, but what special distribution might this be?<a href="inference-single-sample.html#fnref22" class="footnote-back">↩︎</a></p></li>
+<li id="fn23"><p>Note that if <span class="math inline">\(m\)</span> is large relative to <span class="math inline">\(M\)</span> (<span class="math inline">\(m &gt; 0.05 M\)</span>) then the variance <a href="inference-single-sample.html#eq:proportion-var">(3.10)</a> must be adjusted by a factor (related to the hypergeometric distribution):
 <span class="math display">\[\begin{equation*}
  \sigma_{\widehat{p}}^2 = \frac{p(1-p)}{m} \frac{M-m}{M-1}\,,
 \end{equation*}\]</span>
-where for fixed <span class="math inline">\(m\)</span> the factor converges to <span class="math inline">\(1\)</span> as <span class="math inline">\(M\to \infty\)</span>.<a href="inference-single-sample.html#fnref21" class="footnote-back">↩︎</a></p></li>
-<li id="fn22"><p>Churchill took ca. <span class="math inline">\(44\%\)</span> of the vote in the 1908 by-election to become MP for Dundee [<a href="https://www.wikiwand.com/en/1908_Dundee_by-election">https://www.wikiwand.com/en/1908_Dundee_by-election</a>].<a href="inference-single-sample.html#fnref22" class="footnote-back">↩︎</a></p></li>
+where for fixed <span class="math inline">\(m\)</span> the factor converges to <span class="math inline">\(1\)</span> as <span class="math inline">\(M\to \infty\)</span>.<a href="inference-single-sample.html#fnref23" class="footnote-back">↩︎</a></p></li>
+<li id="fn24"><p>Churchill took ca. <span class="math inline">\(44\%\)</span> of the vote in the 1908 by-election to become MP for Dundee [<a href="https://www.wikiwand.com/en/1908_Dundee_by-election">https://www.wikiwand.com/en/1908_Dundee_by-election</a>].<a href="inference-single-sample.html#fnref24" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
