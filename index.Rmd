@@ -14,12 +14,12 @@ description: "Course guide and course notes for MA22004 - Statistics and Probabi
 always_allow_html: true
 urlcolor: #4365e2
 include-before:
-  # - '$\DeclareMathOperator{\E}{\mathbf{E}}$'
-  # - '$\DeclareMathOperator{\Var}{Var}$'
-  # - '$\DeclareMathOperator{\Cov}{Cov}$'
-  # - '$\DeclareMathOperator{\corr}{corr}$'
-  # - '$\newcommand{\se}{\mathsf{se}}$'
-  # - '$\DeclareMathOperator{\sd}{sd}$'
+  - '$\DeclareMathOperator{\E}{\mathbf{E}}$'
+  - '$\DeclareMathOperator{\Var}{Var}$'
+  - '$\DeclareMathOperator{\Cov}{Cov}$'
+  - '$\DeclareMathOperator{\corr}{corr}$'
+  - '$\newcommand{\se}{\mathsf{se}}$'
+  - '$\DeclareMathOperator{\sd}{sd}$'
 ---
 
 ```{r setup, include=FALSE}
