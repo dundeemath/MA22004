@@ -73,6 +73,23 @@ li.appendix span, li.part span { /* for TOC part names */
  text-transform: uppercase;
 }
 
+/*------------ My definitions --------------*/
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 40px;
+}
+
+.caption {
+  font-style: italic;
+  color: grey;
+  margin-right: 10%;
+  margin-left: 10%;  
+  text-align: justify;
+}
+
+.definition, .proposition, .theorem, .example, .exercise{
+  padding-bottom: 16px;
+}
+
 .floatright {
     float: right;
     width: 30%;
