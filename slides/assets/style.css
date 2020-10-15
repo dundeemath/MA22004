@@ -1,0 +1,55 @@
+slide:not(.nobackground):before {
+  width: 100px;
+  height: 100px;
+  background-size: 100px 100px;
+}
+
+/*-----Body Links-------*/
+
+slide a {
+  color: #4365e2;
+}
+
+slide a:hover {
+color: #ff6264; /* highlight color when hovering */
+text-decoration: none;
+}
+
+
+/*------------ Fancy blocks --------------*/
+
+.noteblock {
+  padding: 1em 1em 1em 6em;
+  margin-bottom: 0;
+  margin-top: 0;
+  border-left: 6px solid #042e6b;
+  background: 1.5em center/2.5em no-repeat;
+  background-image: url("images/info-circle.svg");
+}
+
+.tipblock {
+  padding: 1em 1em 1em 6em;
+  margin-bottom: 0;
+  margin-top: 0;
+  border-left: 6px solid #d5d5ce;
+  background: 1.5em center/2em no-repeat;
+  background-image: url("images/lightbulb.svg");
+}
+
+.warningblock {
+  padding: 1em 1em 1em 6em;
+  margin-bottom: 0;
+  margin-top: 0;
+  border-left: 6px solid #be4e00;
+  background: 1.5em center/2.5em no-repeat;
+  background-image: url("images/exclamation-triangle.svg");
+}
+
+.importantblock {
+  padding: 1em 1em 1em 6em;
+  margin-bottom: 0;
+  margin-top: 0;
+  border-left: 6px solid #c30000;
+  background: 1.5em center/2.5em no-repeat;
+  background-image: url("images/exclamation-circle.svg");
+}
