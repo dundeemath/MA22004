@@ -1,0 +1,178 @@
+---
+title: "MA22004"
+subtitle: "Seminar 4"
+author: "Dr Eric Hall"
+date: "29/10/2020"
+output: 
+ ioslides_presentation:
+   widescreen: true
+   css: ../assets/style.css
+   logo: ../assets/images/rev_logo.png
+---
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\E}{\mathbf{E}}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\corr}{corr}
+\newcommand{\se}{\mathsf{se}}
+\DeclareMathOperator{\sd}{sd}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, comment = "")
+library(tidyverse)
+library(latex2exp)
+theme_ur <- theme(legend.justification = c(1,1), legend.position = c(1,1), legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))
+theme_lr <- theme(legend.justification = c(1,0), legend.position = c(1,0), legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))
+options(width = 90, knitr.kable.NA = '')
+lsz <- 1.0
+tsz <- 4
+```
+
+## Announcements
+
+### Reminders 
+
+- It is week 4! You should have read the remainder of §3 of the notes on **Perusall**.
+- Feedback for Lab 2 is posted.
+
+### Upcoming
+- Lab 3 due **Thursday 5 Nov** at **17:00**: upload to **Gradescope**. 
+- Worksheet #4 (Estimating Variances) on **Blackboard**: do before next workshop.
+- Investigation #3 on **Perusall**: do before next workshop. 
+- Reading assignment #5 (start of §4) on **Perusall**: do before next seminar. 
+
+
+## Estimating Population Proportions $p$
+
+Let $X$ be the count of members with a given property based on a sample of size $m$ from a population where a proportion $p$ share the property.
+
+Then $\widehat{p} = X / m$ is an estimator of $p$. 
+
+Assume $m p_0 \geq 10$ and $m (1-p_0) \geq 10$. 
+
+### Eg.
+
+$p\in (0,1)$ and consider Bernoulli trials $X_1, \dots, X_m \sim \mathsf{Bernoulli}(p)$.
+
+$\widehat{p} = \frac{1}{m} \sum_{i=1}^m X_i\,, \qquad  \mu_{\widehat{p}} = \E X_i = p\,, \qquad \sigma_{\widehat{p}} = \sqrt{\frac{\Var{X_i}}{m}} = \sqrt{\frac{p(1-p)}{m}}$
+
+
+## $100(1-\alpha)\%$ CI for $p$
+
+\[\widehat{p} \pm z_{\alpha/2} \sqrt{\frac{\widehat{p}(1-\widehat{p})}{m}}\]
+
+:::{.tipblock}
+How is the standard error different from the standard error for estimate of mean?
+:::
+
+## Hypothesis test for $p$ at level $\alpha$:
+
+Consider $H_0 : p = p_0$. The test statistic is
+\[
+ Z = \frac{\widehat{p} - p_0}{\sqrt{p_0 (1-p_0) / m}} \,.
+\]
+
+For a hypothesis test at level $\alpha$, we use the following procedure: 
+        
+If $H_a : p > p_0$, then $P$-value is the area under $\mathsf{N}(0,1)$ to the right of $z$.
+
+If $H_a : p < p_0$, then $P$-value is the area under $\mathsf{N}(0,1)$ to the left of $z$.
+
+If $H_a : p \neq p_0$, then $P$-value is twice the area under $\mathsf{N}(0,1)$ to the right of $|z|$.  
+
+
+## The skinny on hypothesis testing
+
+1. Compute the value of an appropriate test statistic.
+2. Determine the $P$-value, probability calculated assuming the null is true of observing a test statistic value at least as contradictory to $H_0$ as what was obtained from evidence.
+3. For given $\alpha$, reject $H_0$ if $P \leq \alpha$. If evidence is not strong enough, we fail to reject $H_0$. 
+
+## Estimating Normal Variances $\sigma^2$
+
+Consider iid $X_1, \dots, X_m \sim \mathsf{N}(\mu, \sigma^2)$.
+
+\[V = \frac{(m-1)S^2}{\sigma^2} = \frac{\sum_i (X_i - \overline{X})^2}{\sigma^2}  \sim \chi^2(m-1)\]
+
+### $100(1-\alpha)\%$ CI for $\sigma^2$ of normal population
+
+\[\left((m-1)s^2 / \chi^2_{\alpha/2, m-1} \,, (m-1)s^2 / \chi^2_{1-\alpha/2, m-1} \right)\]
+
+## $\chi^2$ critical values
+
+```{r exm-htest-chisq-plot, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "As the $\\chi^2$ distribution is not symmetric, the upper and lower critical values will not be the same (the shaded areas are equal)."}
+df <- 10
+L <- 30
+x1 <- qchisq(1-0.05/2, df=df, lower.tail = FALSE)
+x2 <- qchisq(0.05/2, df=df, lower.tail = FALSE)
+ggplot(NULL, aes(c(0,L))) + 
+  geom_line(stat = "function", fun = dchisq, args = list(df = df), xlim = c(0, L), size = lsz) +
+  geom_area(stat = "function", fun = dchisq, args = list(df = df), fill = "blue", xlim = c(0, x1), alpha = 0.3) + 
+        geom_area(stat = "function", fun = dchisq, args = list(df = df), fill = "blue", xlim = c(x2, L), alpha = 0.3) + 
+        theme(axis.title.y = element_blank(), axis.ticks.y=element_blank(), axis.text.y=element_blank(), axis.title.x = element_blank(), axis.ticks.x=element_blank(), axis.text.x=element_blank()) + 
+        annotate("text", x = 10, y = .02, label=TeX("Each shaded area $=\\alpha$"), size = tsz, color = "blue") + 
+        annotate("segment", x = 10, xend = x1-1, y = 0.015, yend = .002, color = "blue", arrow=arrow(length=unit(0.2,"cm"))) + 
+        annotate("segment", x = 10, xend = x2+1, y = 0.015, yend = .002, color = "blue", arrow=arrow(length=unit(0.2,"cm"))) + 
+        annotate("text", x = x1, y = -0.005, label=TeX("$\\chi^2_{1-\\alpha, \\nu}$"), size = tsz) + 
+        annotate("text", x = x2, y = -0.005, label=TeX("$\\chi^2_{\\alpha, \\nu}$"), size = tsz) + 
+        geom_segment(aes(x = x1, xend = x1, y = 0, yend = dchisq(x1, df = df)), linetype = 44) + 
+        geom_segment(aes(x = x2, xend = x2, y = 0, yend = dchisq(x2, df = df)), linetype = 44)
+```
+
+## Example: Churchill 1/n
+
+Churchill claims that he will receive half the votes for the House of Commons seat for the constituency of Dundee. 
+
+We are skeptical that he is as popular as he says. Suppose 116 out of 263 Dundonians polled claimed that they intended to vote for Churchill. 
+
+Can it be concluded at significance level $0.10$ that more than half of all eligible Dundonains will vote for Churchill?
+
+## Example: Churhill 2/n
+
+The parameter of interest is $p$, the proportion of votes for Churchill. 
+
+:::{.tipblock}
+What are the null and alternative hypotheses? 
+:::
+
+## Example: Churhill 3/n
+The null hypothesis is $H_0 : p = 0.5$. 
+
+The alternative hypothesis is $H_a : p < 0.5$. 
+
+:::{.warningblock}
+Since $263(0.5) = 131.5 > 10$, we satisfy the assumptions to carry out the hypothesis test using the statistic described earlier.
+:::
+
+## Example: Churhill 4/n
+
+Based on the sample, $\widehat{p} = 116 / 263 = 0.4411$. 
+
+The test statistic value is 
+\[
+\begin{aligned}
+ z &= \frac{\widehat{p} - p_0}{\sqrt{p_0 (1-p_0) / m}} \\
+ &= \frac{0.4411 - 0.5}{\sqrt{0.5 (1-0.5) / 263}}\\
+ &= −1.91 \,.
+\end{aligned}
+\]
+
+The $P$-value for this lower-tailed $z$ test is  $P = \Phi(−1.91) = 0.028$. 
+
+## Example: Churhill 5/n
+
+Since $P < 0.10 = \alpha$, we reject the null hypothesis at the $0.05$ level. 
+
+:::{.tipblock}
+What does this mean in words?
+:::
+
+## Example: Churhill 6/n (conclusion)6
+
+The evidence for concluding that the true proportion is different from $p_0 = 0.5$ at the $0.10$ level is compelling.
+
+
+## Summary
+
+Today we discussed CI and hypothesis tests for:
+
+- population proportions
+- population standard deviations

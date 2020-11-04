@@ -365,7 +365,7 @@ If $H_a : p > p_0$, then $P$-value is the area under $\mathsf{N}(0,1)$ to the ri
 
 If $H_a : p < p_0$, then $P$-value is the area under $\mathsf{N}(0,1)$ to the left of $z$.
 
-If $H_a : p \neq p_0$, then $P$-value is twice the area under $\mathsf{N}(0,1)$ to the right of $|t|$.   
+If $H_a : p \neq p_0$, then $P$-value is twice the area under $\mathsf{N}(0,1)$ to the right of $|z|$.   
 ```    
 
 
