@@ -1,0 +1,224 @@
+---
+title: "MA22004"
+subtitle: "Seminar 5"
+author: "Dr Eric Hall"
+date: "05/11/2020"
+output: 
+ ioslides_presentation:
+   widescreen: true
+   css: ../assets/style.css
+   logo: ../assets/images/rev_logo.png
+---
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\E}{\mathbf{E}}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\corr}{corr}
+\newcommand{\se}{\mathsf{se}}
+\DeclareMathOperator{\sd}{sd}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, comment = "")
+library(tidyverse)
+library(latex2exp)
+library(openintro)
+data(hsb2)
+library(knitr)
+library(kableExtra)
+
+theme_ur <- theme(legend.justification = c(1,1), legend.position = c(1,1), legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))
+theme_lr <- theme(legend.justification = c(1,0), legend.position = c(1,0), legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))
+options(width = 90, knitr.kable.NA = '', "kableExtra.html.bsTable" = T)
+lsz <- 1.0
+tsz <- 4
+```
+
+## Announcements 
+
+### Reminders 
+
+- It is week 4! You should have read the remainder of §3 of the notes on **Perusall**.
+- Feedback for Lab 2 is posted.
+
+### Upcoming
+- Lab 3 due **Thursday 5 Nov** at **17:00**: upload to **Gradescope**; late submissions will be accepted until Sat 7 Nov at 13:00.  
+- Worksheet #5 (Two sample inferences) is on **Blackboard**: start before next workshop (should last two weeks).
+- Investigation #4 on **Perusall**: do before next workshop. 
+- Reading assignment #6 (rest of §4) on **Perusall**: do before next seminar. 
+
+
+## Inferences for means based on two samples 
+
+Today we compare **means** based on two samples from different groups. 
+
+E.g.,
+\[\overline{X} = \frac{1}{m} \sum_{i=1}^m X_i \,, \qquad X_1, \dots, X_m \sim \mathsf{N}(\mu_X, \sigma_X^2)\]
+\[\overline{Y} = \frac{1}{n} \sum_{i=1}^n Y_i \,, \qquad Y_1, \dots, Y_n \sim \mathsf{N}(\mu_Y, \sigma_Y^2)\]
+
+## Two types of sampling 
+
+Comparisons for means fall into two types:
+
+- sets of observations are dependent (i.e.\ **paired** between the groups)
+- sets of observations are independent (i.e.\ between the groups)
+
+:::{.warningblock}
+The samples must still be independent *within* each set of observations. 
+:::
+
+## Paired data 
+
+:::{.noteblock}
+When two sets of observations have a special correspondence (i.e.\ are dependent) the sets of observations are said to be paired. 
+:::
+
+### What is the approach?
+To analyze paired data we will consider the difference of each paired observation:
+
+\[ \mu_{D} = \mu_{X} - \mu_{Y}\]
+
+
+## Paired data: math and science scores
+
+Consider 200 observations of students that took a standardized science and math test. How are the distributions similar? How are they different?
+
+```{r scores, echo = FALSE, warning = FALSE, message = FALSE}
+xs <- mean(hsb2$science)
+ss <- sd(hsb2$science)
+xm <- mean(hsb2$math)
+sm <- sd(hsb2$math)
+scores <- hsb2 %>% select(id, math, science) %>%
+  pivot_longer(cols = 2:3, names_to = "subject", values_to = "score")
+ggplot(scores, aes(x = subject, y = score)) + 
+  geom_boxplot() + 
+  geom_point(color = "blue", alpha = 0.2, position = position_nudge(x = .2))
+  #geom_dotplot(binaxis = 'y', dotsize = 0.5, stackdir = 'center', alpha = 0.2)
+```
+
+<div class="notes">
+- $\mu_{sci}$, $\sigma_{sci}$, $\mu_{mat}$, $\sigma_{mat}$
+- Science scores are slightly more left skewed (median is closer to 75\% than to 25%); more disperse. 
+- $\overline{x}_{sci} = 51.85$, $s_{sci} = 9.9009$
+- $\overline{x}_{mat} = 52.645$, $s_{mat} = 9.3684$
+</div>
+
+## Paired or not?
+
+:::{.tipblock}
+Can the math and science scores for a given student be assumed to be independent of each other?
+:::
+
+```{r score-glance}
+hsb2 <- hsb2 %>% select(id, math, science) %>%
+  mutate(diff = math - science)
+xd <- mean(hsb2$diff)
+sd <- sd(hsb2$diff)
+hsb2 %>%
+  head(4) %>%
+  kable() %>%
+  kable_styling()
+```
+
+<div class="notes">
+- If they are a high achieving student, they are more likely to score higher on both tests. 
+- Socio-economic factors, etc.
+</div>
+
+## Means of paired data {.columns-2}
+
+### Parameter of interest
+\[\mu_{\text{diff}}\] 
+Average difference between math and science scores of **all** students.
+
+<p class="forceBreak"></p>
+
+### Point estimator
+\[\overline{x}_{\text{diff}}\]
+Average difference between math and science scores of 200 **sampled** students.
+
+## Hypothesis test for paired data 
+
+\[H_0 : \mu_{\text{diff}} = 0\,, \quad \text{(there is no difference between scores)}\]
+\[\mathsf{vs}\]
+\[H_a : \mu_{\text{diff}} \neq 0\,, \quad \text{(there is a difference between scores)}\]
+
+Calculate an appropriate test statistic for the *new* parameter $\mu_{\text{diff}}$. 
+
+\[\overline{x}_{\text{diff}} =  0.795 \,,\quad s_{\text{diff}} = 8.2938 \,,\quad n_{\text{diff}} = 200\,. \]
+
+:::{.importantblock}
+Nothing new: carry out inference on a single sample population mean. 
+:::
+
+## Calculate test statistic
+Let $\alpha = 0.10$
+
+$H_0 : \mu_{\text{diff}} = 0$
+
+$H_a : \mu_{\text{diff}} \neq 0$ 
+
+$\overline{x}_{\text{diff}} =  0.7950$
+
+$s_{\text{diff}} = 8.2938$
+
+$n_{\text{diff}} = 200$ 
+
+<div class="notes">
+- $t = \frac{0.7950 - 0}{ \frac{8.2938}{\sqrt{200}}} = 1.3556$ where $df = 200-1 = 199$
+- $P$-value is twice area under $\mathsf{t}(199)$ to right of $|t|$ : 0.1767629; `2*pt(1.3556, df=199, lower.tail = FALSE)`
+- $P = 0.18 > 0.1 = \alpha \Rightarrow$ "fail to reject": the evidence does not provide convincing evidence that the means are different at the 0.1 level. 
+</div>
+
+## Recap: $P$-values 
+
+```{r exemplar-t-dist, echo = FALSE, out.width="50%"}
+t <- 1.3556
+tdist <- tibble(x = seq(-4, 4, 0.1), density = dt(x = seq(-4, 4, 0.1), df = 199))
+ggplot(tdist, aes(x = x, y = density)) +
+  geom_line(size = 1) + 
+  theme(axis.title.x = element_blank(), axis.title.y = element_blank())
+```
+
+:::{.tipblock}
+What is the correct interpretation of the $P$-value?
+:::
+
+## Difference of two independent means 
+
+General interval estimate:
+\[\text{point estimate} \pm \text{margin of error}\]
+
+Now for the parameter of interest $\mu_{D} = \mu_{X} - \mu_{Y}$:
+\[(\overline{x} - \overline{y}) \pm t_{\alpha/2, \nu} \cdot \widehat{\sigma}_{(\overline{x} - \overline{y})}\]
+
+Only new concept:
+\[\widehat{\sigma}_{(\overline{x} - \overline{y})} = \sqrt{\frac{s_x^2}{m} + \frac{s_y^2}{n}}\]
+
+<div class="notes">
+- standard error: $\sqrt{\frac{s_x^2}{m} + \frac{s_y^2}{n}}$
+- note even though we are looking for difference, the variances add!
+</div>
+
+
+## Tricky parts... 
+
+### Complicated to compute true df!
+
+:::{.importantblock}
+A conservative estimate for the degrees of freedom $\nu$ is 
+\[\nu = \min(m-1, n-1)\,.\]
+:::
+
+### Check conditions
+
+1. Independence of samples both within and between groups. 
+2. Sample size and skew (more skewed distributions need larger number of samples).
+
+
+## Summary
+
+Today we discussed CI and hypothesis tests for:
+
+- differences of means of paired observations
+- differences of means of independent observations
+
+from two different groups.
