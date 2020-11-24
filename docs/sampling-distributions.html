@@ -310,7 +310,7 @@ Figure 1.2: The pdfs of two normal rvs, <span class="math inline">\(X_1 \sim \ma
 </div>
 
 <div class="definition">
-<span id="def:standard-normal" class="definition"><strong>Definition 1.2  </strong></span>We say that <span class="math inline">\(X\)</span> has a <strong>standard normal distribution</strong> if <span class="math inline">\(\mu=0\)</span> and <span class="math inline">\(\sigma = 1\)</span> and we will usually denote standard Normal rvs by <span class="math inline">\(Z\)</span> (why? tradition!<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>).
+<span id="def:standard-normal" class="definition"><strong>Definition 1.2  </strong></span>We say that <span class="math inline">\(X\)</span> has a <strong>standard normal distribution</strong> if <span class="math inline">\(\mu=0\)</span> and <span class="math inline">\(\sigma = 1\)</span> and we will usually denote standard Normal rvs by <span class="math display">\[Z \sim \mathsf{N}(0,1)\]</span> (why? tradition!<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>). We denote the cumulative density function of the standard normal by <span class="math display">\[\Phi(z) = P(Z \leq z)\]</span> and write <span class="math inline">\(\varphi = \Phi&#39;\)</span> for its density function.
 </div>
 <div id="facts-normals" class="section level3" number="1.1.1">
 <h3><span class="header-section-number">1.1.1</span> Some useful facts about normal variates</h3>
@@ -322,7 +322,7 @@ Figure 1.2: The pdfs of two normal rvs, <span class="math inline">\(X_1 \sim \ma
 <span class="math display">\[\sum_{i=1}^{n} X_i \sim \mathsf{N} \left( \sum_{i=1}^{n} \mu_i, \sum_{i=1}^{n} \sigma_i^2 \right) \,.\]</span></li>
 </ol>
 <p>In particular, we note that for differences of independent rvs <span class="math inline">\(X_1 \sim \mathsf{N}(\mu_1, \sigma_1^2)\)</span> and <span class="math inline">\(X_2 \sim \mathsf{N}(\mu_2, \sigma_2^2)\)</span> then the variances also add:
-<span class="math display">\[ X_1 - X_2 \sim \mathsf{N}(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2) \,.\]</span></p>
+<span class="math display">\[ X_1 - X_2 \sim \mathsf{N}(\mu_1 - \mu_2, \sigma_1^2 + \sigma_2^2) \,.\]</span></p>
 <p>Probabilities <span class="math inline">\(P(a \leq X \leq b)\)</span> are found by converting the problem in <span class="math inline">\(X \sim \mathsf{N}(\mu, \sigma^2)\)</span> to the <em>standard normal</em> distribution <span class="math inline">\(Z \sim \mathsf{N}(0, 1)\)</span> whose probability values <span class="math inline">\(\Phi(z) = P(Z\leq z)\)</span> can then be looked up in a table. From (1.) above,
 <span class="math display">\[\begin{aligned}
    P(a &lt; X &lt; b) &amp;= P\left( \frac{a-\mu}{\sigma} &lt; Z &lt; \frac{b-\mu}{\sigma} \right) \\ 
@@ -396,7 +396,7 @@ For a normal population, this means that nearly all the the values lie within �
 <span class="math display">\[\begin{equation*}
 f(x; \nu) = \frac{\Gamma\left(\tfrac{\nu+1}{2}\right)}{\sqrt{\nu \pi} \Gamma \left(\tfrac{\nu}{2}\right)} \left( 1 + \tfrac{x^2}{\nu} \right)^{- \frac{\nu+1}{2}} \,, \quad -\infty &lt; x &lt; \infty\,.
 \end{equation*}\]</span>
-We write <span class="math inline">\(X \sim \mathsf{t}(\nu)\)</span>.
+We write <span class="math inline">\(X \sim \mathsf{t}(\nu)\)</span>. Note <span class="math inline">\(\Gamma\)</span> is the standard gamma function.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>
 </div>
 <p>The density for <span class="math inline">\(\mathsf{t}(\nu)\)</span> for several values of <span class="math inline">\(\nu\)</span> are plotted below.</p>
 <div class="figure" style="text-align: center"><span id="fig:exemplar-t-dist"></span>
@@ -441,7 +441,7 @@ Figure 1.6: The density for <span class="math inline">\(\chi^2(\nu)\)</span> for
 </div>
 <div id="F-distribution" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> <span class="math inline">\(\mathsf{F}\)</span> distribution</h2>
-<p>The <span class="math inline">\(\mathsf{F}\)</span> distribution arises as a test statistic when comparing population variances and in ANOVA.</p>
+<p>The <span class="math inline">\(\mathsf{F}\)</span> distribution arises as a test statistic when comparing population variances and in analysis of variance (see <a href="anova.html#anova">5</a>).</p>
 
 <div class="definition">
 <span id="def:F-dist" class="definition"><strong>Definition 1.5  </strong></span>A continuous rv <span class="math inline">\(X\)</span> has an <strong><span class="math inline">\(\mathsf{F}\)</span> distribution</strong> with df parameters <span class="math inline">\(\nu_1\)</span> and <span class="math inline">\(\nu_2\)</span>, if <span class="math inline">\(X\)</span> has pdf
@@ -477,6 +477,7 @@ that comprises the ratio of two <span class="math inline">\(\chi^2\)</span> rvs 
 <li id="fn8"><p>“Traditions, traditions… Without our traditions, our lives would be as shaky as a fiddler on the roof!” [<a href="https://www.youtube.com/watch?v=gRdfX7ut8gw">https://www.youtube.com/watch?v=gRdfX7ut8gw</a>].<a href="sampling-distributions.html#fnref8" class="footnote-back">↩︎</a></p></li>
 <li id="fn9"><p>William Sealy Gosset (1876–1937) wrote under the pseudonym “Student” [<a href="https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/">https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/</a>].<a href="sampling-distributions.html#fnref9" class="footnote-back">↩︎</a></p></li>
 <li id="fn10"><p>Gosset invented the t-test to handle small samples for quality control in brewing, specifically fro the Guinness brewery in Dublin [<a href="https://www.wikiwand.com/en/Guinness_Brewery">https://www.wikiwand.com/en/Guinness_Brewery</a>].<a href="sampling-distributions.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>The gamma function is defined by <span class="math inline">\(\Gamma(z) = \int_0^\infty x^{z-1}e^{-x} dx\)</span> when the real part of <span class="math inline">\(z\)</span> is positive. For any positive integer <span class="math inline">\(n\)</span>, <span class="math inline">\(\Gamma(n) = (n-1)!\)</span> and for half-integers <span class="math inline">\(\Gamma(\tfrac{1}{2} + n) = \frac{(2n)!}{4^n n!} \sqrt{\pi}\)</span>.<a href="sampling-distributions.html#fnref11" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

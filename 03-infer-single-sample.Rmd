@@ -315,7 +315,7 @@ Since $P \ll \alpha$, we reject the null hypothesis that the population mean is 
 
 ## Estimating proportions {#estimating-proportions}
 
-Consider a population of size $M$ in which a proportion $p$ of the population satisfies a given property. The $p \in (0,1)$ is a parameter characterizing the population, with distribution $F(p)$, that we might be interested in estimating.^[Here we write $F$ for a general distribution, but what special distribution might this be?] A sample, $X_1, \dots, X_m \sim F(p)$, from the population contains a proportion,
+Consider a population of size $M$ in which each member either satisfies a given property or does not (i.e. a binary classification). The  proportion $p \in (0,1)$ of the population satisfying the given property is a parameter characterizing the population that we might be interested in estimating. A sample of classified observations, $X_1, \dots, X_m \sim \mathsf{Bernoulli}(p)$, from the population contains a proportion,
 \begin{equation}
  \widehat{p} = \frac{1}{m} \sum_{i=1}^m X_i\,,
  (\#eq:proportion-estimator)

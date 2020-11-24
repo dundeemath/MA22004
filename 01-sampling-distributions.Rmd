@@ -40,7 +40,7 @@ ggplot(norm2.dist, aes(x = x, y = density, color = X, linetype = X)) +
 ```  
 
 ```{definition, standard-normal}
-We say that $X$ has a **standard normal distribution** if $\mu=0$ and $\sigma = 1$ and we will usually denote standard Normal rvs by $Z$ (why? tradition!^["Traditions, traditions... Without our traditions, our lives would be as shaky as a fiddler on the roof!" [[https://www.youtube.com/watch?v=gRdfX7ut8gw](https://www.youtube.com/watch?v=gRdfX7ut8gw)].]).
+We say that $X$ has a **standard normal distribution** if $\mu=0$ and $\sigma = 1$ and we will usually denote standard Normal rvs by \[Z \sim \mathsf{N}(0,1)\] (why? tradition!^["Traditions, traditions... Without our traditions, our lives would be as shaky as a fiddler on the roof!" [[https://www.youtube.com/watch?v=gRdfX7ut8gw](https://www.youtube.com/watch?v=gRdfX7ut8gw)].]). We denote the cumulative density function of the standard normal by \[\Phi(z) = P(Z \leq z)\] and write $\varphi = \Phi'$ for its density function. 
 ```  
 
 ### Some useful facts about normal variates {#facts-normals}
@@ -53,7 +53,7 @@ Here are some useful facts about how to manipulate Normal rvs.
 \[\sum_{i=1}^{n} X_i \sim \mathsf{N} \left( \sum_{i=1}^{n} \mu_i, \sum_{i=1}^{n} \sigma_i^2 \right) \,.\]  
 
 In particular, we note that for differences of independent rvs $X_1 \sim \mathsf{N}(\mu_1, \sigma_1^2)$ and $X_2 \sim \mathsf{N}(\mu_2, \sigma_2^2)$ then the variances also add:
-\[ X_1 - X_2 \sim \mathsf{N}(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2) \,.\]  
+\[ X_1 - X_2 \sim \mathsf{N}(\mu_1 - \mu_2, \sigma_1^2 + \sigma_2^2) \,.\]  
 
 Probabilities $P(a \leq X \leq b)$ are found by converting the problem in $X \sim \mathsf{N}(\mu, \sigma^2)$ to the *standard normal* distribution $Z \sim \mathsf{N}(0, 1)$ whose probability values $\Phi(z) = P(Z\leq z)$ can then be looked up in a table. From (1.) above, 
 \[\begin{aligned}
@@ -142,7 +142,7 @@ A continuous rv $X$ has a **$\mathsf{t}$ distribution** with parameter $\nu > 0$
 \begin{equation*}
 f(x; \nu) = \frac{\Gamma\left(\tfrac{\nu+1}{2}\right)}{\sqrt{\nu \pi} \Gamma \left(\tfrac{\nu}{2}\right)} \left( 1 + \tfrac{x^2}{\nu} \right)^{- \frac{\nu+1}{2}} \,, \quad -\infty < x < \infty\,.
 \end{equation*}
-We write $X \sim \mathsf{t}(\nu)$. 
+We write $X \sim \mathsf{t}(\nu)$. Note $\Gamma$ is the standard gamma function.^[The gamma function is defined by $\Gamma(z) = \int_0^\infty x^{z-1}e^{-x} dx$ when the real part of $z$ is positive. For any positive integer $n$, $\Gamma(n) = (n-1)!$ and for half-integers $\Gamma(\tfrac{1}{2} + n) = \frac{(2n)!}{4^n n!} \sqrt{\pi}$.]
 ```  
 
 The density for $\mathsf{t}(\nu)$ for several values of $\nu$ are plotted below. 
@@ -208,7 +208,7 @@ If $X \sim \chi^2(\nu)$, then $\E[X] = \nu$ and $\Var[X] = 2\nu$.
 
 ## $\mathsf{F}$ distribution {#F-distribution}
 
-The $\mathsf{F}$ distribution arises as a test statistic when comparing population variances and in ANOVA. 
+The $\mathsf{F}$ distribution arises as a test statistic when comparing population variances and in analysis of variance (see \@ref(anova)). 
 
 ```{definition, F-dist}
 A continuous rv $X$ has an **$\mathsf{F}$ distribution** with df parameters $\nu_1$ and $\nu_2$, if $X$ has pdf

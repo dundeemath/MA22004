@@ -334,7 +334,7 @@ In the present context a large test statistic value is more constradictory to <s
 </div>
 
 <div class="example">
-<span id="exm:anova" class="example"><strong>Example 5.1  </strong></span>Consider the average salary data from lcocal councils in Table <a href="anova.html#tab:anova-samples-stats">5.1</a>. Is the expected average salary in each nation the same at the <span class="math inline">\(5\%\)</span> level?
+<span id="exm:anova" class="example"><strong>Example 5.1  </strong></span>Consider the average salary data from local councils in Table <a href="anova.html#tab:anova-samples-stats">5.1</a>. Is the expected average salary in each nation the same at the <span class="math inline">\(5\%\)</span> level?
 </div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
@@ -482,17 +482,18 @@ for constants <span class="math inline">\(c_i\)</span>. As we assume the <span c
 \end{equation*}\]</span>
 is normally distributed with
 <span class="math display">\[\begin{equation*}
- \Var[\widehat{\theta}] - \sum_{i=1}^k c_i^2 \Var[\overline{X}_i] = \sigma^2 \sum_{i=1}^{k} \frac{c_i}{m_i}\,.
+ \Var[\widehat{\theta}] = \sum_{i=1}^k c_i^2 \Var[\overline{X}_i] = \sigma^2 \sum_{i=1}^{k} \frac{c_i^2}{m_i}\,.
 \end{equation*}\]</span>
-Estimating <span class="math inline">\(\sigma^2\)</span> by the <span class="math inline">\(\mathsf{MSE}\)</span> and forming <span class="math inline">\(\widehat{\sigma}_{\widehat{\theta}}\)</span> results in a <span class="math inline">\(\mathsf{t}\)</span> variable
+We estimate <span class="math inline">\(\sigma^2\)</span> by the <span class="math inline">\(\mathsf{MSE}\)</span> and standardize the estimator to arrive at a <span class="math inline">\(\mathsf{t}\)</span> variable
 <span class="math display">\[\begin{equation*}
- \frac{\widehat{\theta} - \theta}{\widehat{\sigma}_{\widehat{\theta}}}\,.
-\end{equation*}\]</span></p>
+ \frac{\widehat{\theta} - \theta}{\widehat{\sigma}_{\widehat{\theta}}}\,,
+\end{equation*}\]</span>
+where <span class="math inline">\(\widehat{\sigma}_{\widehat{\theta}}\)</span> is the estimated standard error of the estimator.</p>
 
 <div class="proposition">
 <span id="prp:ci-anova" class="proposition"><strong>Proposition 5.2  </strong></span>A <span class="math inline">\(100(1-\alpha)\%\)</span> CI for <span class="math inline">\(\sum c_i \mu_i\)</span> is given by
 <span class="math display">\[\begin{equation*}
- \sum_{i=1}^k c_i \overline{x}_i \pm t_{\alpha/2, m-k} \sqrt{\mathsf{MSE} \sum_{i=1}^k \frac{c_i}{m_i}}\,.
+ \sum_{i=1}^k c_i \overline{x}_i \pm t_{\alpha/2, m-k} \sqrt{\mathsf{MSE} \sum_{i=1}^k \frac{c_i^2}{m_i}}\,.
 \end{equation*}\]</span>
 </div>
 

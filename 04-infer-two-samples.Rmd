@@ -184,7 +184,7 @@ Pooled $t$ procedures are not robust if the assumption of equalized variance is 
 
 ## Comparing paired samples {#compare-paired-samples}
 
-The preceding analysis for comparing population means was based on the assumption that a random sample $X_1, \dots, X_m$ is drawn from a distribution with mean $\mu_X$ and that a completely independent random sample $Y_1, \dots, Y_n$ is drawn from a distribution with mean $\mu_Y$. Some situations, e.g., comparing observations before and after a treatment or exposure, necessitate the consideration of paired values. 
+The preceding analysis for comparing population means was based on the assumption that a random sample $X_1, \dots, X_n$ is drawn from a distribution with mean $\mu_X$ and that a completely independent random sample $Y_1, \dots, Y_n$ is drawn from a distribution with mean $\mu_Y$. Some situations, e.g., comparing observations before and after a treatment or exposure, necessitate the consideration of paired values. 
 
 Consider a random sample of iid pairs
 \begin{equation*}
