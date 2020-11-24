@@ -56,7 +56,7 @@ Inferences proceed by treating the parameter of interest $\theta$ as in the sing
 ```{proposition, ci-compare-means-normpops-vars-known}
 A $100(1-\alpha)\%$ CI for the parameter $\theta = \mu_X - \mu_Y$ based on samples of size $m$ from a normal population $\mathsf{N}(\mu_X, \sigma_X^2)$ and of size $n$ from $\mathsf{N}(\mu_Y, \sigma_Y^2)$  with known variances, is given by
 \begin{equation*}
- (\overline{x} + \overline{y}) \pm z_{\alpha/2} 
+ (\overline{x} - \overline{y}) \pm z_{\alpha/2} 
  \cdot \sqrt{\frac{\sigma_X^2}{m} + \frac{\sigma_Y^2}{n}} \,.
 \end{equation*}
 ```   
@@ -86,7 +86,7 @@ When the samples are large, then the assumptions about normality of the populati
 ```{proposition, ci-compare-means-large-samples}
 For $m$ and $n$ sufficiently large, an approximate $100(1-\alpha)\%$ CI for $\mu_X - \mu_Y$ for two samples from populations with any underlying distribution is given by
 \begin{equation*}
- (\overline{x} + \overline{y}) \pm z_{\alpha/2} 
+ (\overline{x} - \overline{y}) \pm z_{\alpha/2} 
  \cdot \sqrt{\frac{s_{X}^2}{m} + \frac{s_{Y}^2}{n}}
 \end{equation*}
 ```

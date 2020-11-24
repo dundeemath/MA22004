@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Basics of statistical inference | MA22004 – Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Basics of statistical inference | MA22004 – Statistics and Probability II" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,7 @@
   
 <link rel="prev" href="sampling-distributions.html"/>
 <link rel="next" href="inference-single-sample.html"/>
-<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/header-attrs-2.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -410,7 +410,7 @@ Figure 2.3: Fifty <span class="math inline">\(95\%\)</span> CIs for a population
 <p>Sections <a href="statistical-inference.html#point-estimation">2.1</a> and <a href="statistical-inference.html#confidence-intervals">2.2</a> reviewed how to estimate a parameter by a single number (point estimate) or range of plausible values (confidence interval), respectively. Next we discuss methods for determining which of two contradictory claims, or <strong>hypotheses</strong>, about a parameter is correct.</p>
 
 <div class="definition">
-<span id="def:null-alt-hypothesis" class="definition"><strong>Definition 2.4  </strong></span>The <strong>null hypothesis</strong>, denoted by <span class="math inline">\(H_0\)</span>, is a claim that we intially assume to be true by dafault. The <strong>alternative hypothesis</strong>, denoted by <span class="math inline">\(H_a\)</span>, is an assertion that is contradictory to <span class="math inline">\(H_0\)</span>.
+<span id="def:null-alt-hypothesis" class="definition"><strong>Definition 2.4  </strong></span>The <strong>null hypothesis</strong>, denoted by <span class="math inline">\(H_0\)</span>, is a claim that we initially assume to be true by default. The <strong>alternative hypothesis</strong>, denoted by <span class="math inline">\(H_a\)</span>, is an assertion that is contradictory to <span class="math inline">\(H_0\)</span>.
 </div>
 <p>Typically, we shall consider hypothesis concerning a parameter <span class="math inline">\(\theta \in \Theta\)</span> taking values in a parameter space. The statistical hypothesis are contradictory in that <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_a\)</span> divide <span class="math inline">\(\Theta\)</span> into two disjoint sets. For example, for a statistical hypothesis regarding the <em>equality</em> of a parameter <span class="math inline">\(\theta\)</span> with a fixed quantity <span class="math inline">\(\theta_0\)</span>, the null and alternative hypotheses will usually take one of the following forms in Table <a href="statistical-inference.html#tab:htest-null-alt-forms">2.2</a>.</p>
 <table class="table" style="margin-left: auto; margin-right: auto;">
@@ -544,7 +544,7 @@ Since <span class="math inline">\(X \sim \mathsf{Binom}(15, 0.50)\)</span>,<a hr
  \end{aligned}
 \end{equation*}\]</span>
 For <span class="math inline">\(X \sim \mathsf{Binom}(15, 0.25)\)</span>, we calculate <span class="math inline">\(\beta = 0.764\)</span>. If we use <span class="math inline">\(R = \{ x \leq 2\}\)</span> then our test will lead us to conclude that Churchill is the winner with probability <span class="math inline">\(0.764\)</span> even if <span class="math inline">\(p\)</span> is as low as <span class="math inline">\(0.25\)</span>!</p>
-<p>If we repeat these caclculations for <span class="math inline">\(R^* = \{x \leq 5\}\)</span>, we find <span class="math inline">\(\alpha = 0.151\)</span> versus <span class="math inline">\(\beta = 0.148\)</span>, even if <span class="math inline">\(p\)</span> is as low as <span class="math inline">\(0.25\)</span>, which is a much better balance between type I and type II errors. <span class="math inline">\(\lozenge\)</span></p>
+<p>If we repeat these calculations for <span class="math inline">\(R^* = \{x \leq 5\}\)</span>, we find <span class="math inline">\(\alpha = 0.151\)</span> versus <span class="math inline">\(\beta = 0.148\)</span>, even if <span class="math inline">\(p\)</span> is as low as <span class="math inline">\(0.25\)</span>, which is a much better balance between type I and type II errors. <span class="math inline">\(\lozenge\)</span></p>
 <div class="noteblock">
 <p>To summarize, the elements of a statistical test are:</p>
 <ol style="list-style-type: decimal">

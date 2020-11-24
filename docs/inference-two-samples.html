@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Inferences based on two samples | MA22004 – Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Inferences based on two samples | MA22004 – Statistics and Probability II" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,7 @@
   
 <link rel="prev" href="inference-single-sample.html"/>
 <link rel="next" href="anova.html"/>
-<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/header-attrs-2.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -334,7 +334,7 @@ Inferences proceed by treating the parameter of interest <span class="math inlin
 <div class="proposition">
 <span id="prp:ci-compare-means-normpops-vars-known" class="proposition"><strong>Proposition 4.2  </strong></span>A <span class="math inline">\(100(1-\alpha)\%\)</span> CI for the parameter <span class="math inline">\(\theta = \mu_X - \mu_Y\)</span> based on samples of size <span class="math inline">\(m\)</span> from a normal population <span class="math inline">\(\mathsf{N}(\mu_X, \sigma_X^2)\)</span> and of size <span class="math inline">\(n\)</span> from <span class="math inline">\(\mathsf{N}(\mu_Y, \sigma_Y^2)\)</span> with known variances, is given by
 <span class="math display">\[\begin{equation*}
- (\overline{x} + \overline{y}) \pm z_{\alpha/2} 
+ (\overline{x} - \overline{y}) \pm z_{\alpha/2} 
  \cdot \sqrt{\frac{\sigma_X^2}{m} + \frac{\sigma_Y^2}{n}} \,.
 \end{equation*}\]</span>
 </div>
@@ -359,7 +359,7 @@ If <span class="math inline">\(H_a : \mu_X - \mu_Y \neq \theta_0\)</span>, then 
 <div class="proposition">
 <span id="prp:ci-compare-means-large-samples" class="proposition"><strong>Proposition 4.4  </strong></span>For <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> sufficiently large, an approximate <span class="math inline">\(100(1-\alpha)\%\)</span> CI for <span class="math inline">\(\mu_X - \mu_Y\)</span> for two samples from populations with any underlying distribution is given by
 <span class="math display">\[\begin{equation*}
- (\overline{x} + \overline{y}) \pm z_{\alpha/2} 
+ (\overline{x} - \overline{y}) \pm z_{\alpha/2} 
  \cdot \sqrt{\frac{s_{X}^2}{m} + \frac{s_{Y}^2}{n}}
 \end{equation*}\]</span>
 </div>
