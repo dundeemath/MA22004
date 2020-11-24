@@ -1,0 +1,205 @@
+---
+title: "MA22004"
+subtitle: "Seminar 7"
+author: "Dr Eric Hall"
+date: "19/11/2020"
+output: 
+ ioslides_presentation:
+   widescreen: true
+   css: ../assets/style.css
+   logo: ../assets/images/rev_logo.png
+---
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\E}{\mathbf{E}}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\corr}{corr}
+\newcommand{\se}{\mathsf{se}}
+\DeclareMathOperator{\sd}{sd}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, comment = "")
+library(tidyverse)
+library(latex2exp)
+library(knitr)
+library(kableExtra)
+library(janitor)
+
+df <- read_csv("../../data/anova-salaries.csv")
+df$nation <- factor(df$nation)
+
+theme_ur <- theme(legend.justification = c(1,1), legend.position = c(1,1), legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))
+theme_lr <- theme(legend.justification = c(1,0), legend.position = c(1,0), legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))
+options(width = 90, knitr.kable.NA = '', "kableExtra.html.bsTable" = T)
+lsz <- 1.0
+tsz <- 4
+```
+
+## Announcements 
+
+### Reminders 
+
+- It is week 7! You should have read the remainder of §5 of the notes on **Perusall**.
+- Class test 2 next week.
+
+
+## Comparing many means
+
+We would like to consider $k$ groups/treatment populations
+
+with means $\mu_1, \dots, \mu_k$. 
+
+Based on samples from these $k$ groups, how can we determine whether the means are equal across each of the groups?
+
+:::{.noteblock}
+Test procedure based on comparing a measure of difference in variation among the sample means to a measure of variation within each sample. 
+:::
+
+## Variability partitioning
+
+We consider different factors that contribute to variability in our response variable. 
+
+:::{.tipblock}
+Next week you will all take Class Test 2. What are some factors that might influence one's performance on the test?
+:::
+
+## Variability partitioning : class test
+
+A number of factors might influence performance:
+
+- Hours
+- Completing all components (worksheets, labs, perusall)
+- Pre-exposure
+
+If we wanted to consider how strongly completing all components might influence performance, we can partition variability in performance (score) into:
+
+variability due to completing all components and 
+
+variability due to all other factors (explanatory variables).
+
+## Salary data
+
+**Average Salary Data** reported from $20$ local councils.
+
+```{r salary-glance, message=FALSE}
+dattab <- df %>%
+ group_by(nation) %>%
+ summarise(observations = list(mean_salary), n = n(), means = signif(mean(mean_salary), digits = 4), ssds = signif(sd(mean_salary), digits = 4))
+kbl(dattab, col.names = c('Nation', "Average salaries ('000 £)", 'Size $(m_i)$', 'Sample Mean $(\\overline{x}_i)$', 'Sample SD $(s_i)$'), align = c("l", "l", "c", "c", "c"), booktabs = T, escape = F) %>% kable_styling(latex_options = c("striped", "hold_position"))
+```   
+
+:::{.tipblock}
+What are our groups? What means might we want to compare? What question might we want to ask?
+:::
+
+<div class="notes">
+- $k = 4$ groups are each nation. 
+- Compare the mean salary in each nation.
+- Ask if the true mean salaries are different across each nation (i.e. if the observed difference is due to chance)
+</div>
+
+## Variability partitioning : salary data
+
+<div class="notes">
+- Partition "total variability" into: 
+- (.1) variabilty due to nation (between group var) and 
+- (.2) variability due to all other factors (within group var -- nuissance factor)
+</div>
+
+## Salary data : hypothesis test
+
+$H_0 : \text{the average salary is the same accross all nations}$ 
+
+($\mu_{S} = \mu_{E} = \mu_{NI} = \mu_{W}$)
+
+$H_a : \text{the average salaries differ between at least one pair of nations}$
+
+```{r salary-totals, message=FALSE}
+dattab <- df %>%
+ group_by(nation) %>%
+ summarise(n = n(), means = signif(mean(mean_salary), digits = 4), ssds = signif(sd(mean_salary), digits = 4)) %>% adorn_totals()
+kbl(dattab, col.names = c('Nation', 'Size $(m_i)$', 'Sample Mean $(\\overline{x}_i)$', 'Sample SD $(s_i)$'), align = c("l", "c", "c", "c"), booktabs = T, escape = F) %>% kable_styling(latex_options = c("striped", "hold_position"))
+```  
+
+## Test statistic
+
+\[F = \frac{\mathsf{MSTr}}{\mathsf{MSE}}\]
+
+<div class="notes">
+- Ratio of between and within group variabilities.
+- $\mathsf{MSTr}$ = $\mathsf{SSTr} / \text{df}_{\mathsf{Tr}}$ and $\mathsf{MSE}$ = $\mathsf{SSE} / \text{df}_{\mathsf{E}}$ 
+</div>
+
+## Computing test statistic
+
+1) Sum of squares total (measures total variation in response variable)
+\[\mathsf{SST} = \sum_{i=1}^m (x_i - \overline{x})^2\]
+
+
+
+2) Sum of squares treatment/group (measures variability between groups)
+\[\mathsf{SSTr} = \sum_{j=1}^k m_j (\overline{x}_j - \overline{x})^2\]
+
+
+3) Sum of squares error (measures variability within groups) 
+
+\[\mathsf{SSE} = \mathsf{SST} - \mathsf{SSTr}\]
+
+
+<div class="notes">
+- (.1) sq dev from mean of response
+- (.2) sq dev from group means from mean of response, weighted by sample size [explained variability: var in response explained by factors/explanatory variables]
+- (.3) i.e. unexplained variation
+- (.2) as percent of (1) : percent of variation in response (mean salary) as explained by nation; remainder is not explained by variation in nation.
+</div>
+
+## Computing test statistic (degrees of freedom)
+
+To go from sum of squares to mean sum of squares, we need to scale calculations with respect to sample size. 
+
+1) total degrees of freedom:  $\quad \text{df}_{\mathsf{T}} = m - 1$
+2) treatment/group degrees of freedom:  $\quad \text{df}_{\mathsf{T}} = k-1$
+3) error degrees of freedom: $\quad \text{df}_{\mathsf{E}} = \text{df}_{\mathsf{T}} - \text{df}_{\mathsf{T}}$
+
+<div class="notes">
+- (.1) sample size - 1
+- (.2) number groups - 1
+</div>
+
+## Test statistic and $P$-value
+
+\[F = \frac{\mathsf{MSTr}}{\mathsf{MSE}} = \frac{\mathsf{SSTr}/\text{df}_{\mathsf{Tr}}}{\mathsf{SSE} / \text{df}_{\mathsf{E}}}\]
+
+$P$-value area under $\mathsf{F} (\text{df}_{\mathsf{Tr}}, \text{df}_{\mathsf{E}} )$ to the right of computed statistic $f$. 
+
+```{r p-value, echo = TRUE, eval = FALSE}
+pf(obsf, dfTr, dfE, lower.tail = FALSE)
+```
+
+- If $P$-value is small, we reject null hypothesis (i.e. we have sufficient evidence that at least one pair of population means are different from each other at level $\alpha$)
+
+- If $P$-value is large, we fail to reject null hypothesis (i.e. the data do not provide convincing evidence that at least one pair of population means are different from each other: the observed difference in the sample means are attributed to sampling variability)
+
+<div class="notes">
+- Even though we are considering difference we only consider upper tail of $\mathsf{F}$ b/c $f$ can never be negative (ratio of two positive measures of variation)
+</div>
+
+## Conditions for ANOVA
+
+1.  Independence 
+   
+   -  within groups
+   -  between groups (i.e. NOT paired)
+2. Approximately normal
+3. Equal variance (homoscedasticity)
+
+
+## Summary
+
+Today we discussed single factor anova.
+
+- Idea behind the test statistic (partitioning variability)
+- Calculating test statistic
+- Concluding hypothesis test
+- Conditions for anova
+
+That's a lot to take it!
