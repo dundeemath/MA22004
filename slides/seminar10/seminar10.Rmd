@@ -1,0 +1,214 @@
+---
+title: "MA22004"
+subtitle: "Seminar 10"
+author: "Dr Eric Hall"
+date: "10/12/2020"
+output: 
+ ioslides_presentation:
+   widescreen: true
+   css: ../assets/style.css
+   logo: ../assets/images/rev_logo.png
+---
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\E}{\mathbf{E}}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\corr}{corr}
+\newcommand{\se}{\mathsf{se}}
+\DeclareMathOperator{\sd}{sd}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, comment = "", fig.asp = .5)
+library(tidyverse)
+library(latex2exp)
+library(knitr)
+library(kableExtra)
+library(janitor)
+beer <- read_csv("../../data/beer.csv")
+ipa_new <- read_csv("../../data/beer2.csv")
+ipa <- beer %>% 
+ select(Batch_Id, pH, ABV, OG, IBU, Beer) %>% 
+ filter(Beer == "IPA") %>% 
+ rename(Day = Batch_Id)
+ipa$Day[1:48] <- rep(1:16, each = 3)
+ipa <- ipa[1:48,]
+m <- 3    # three batches per day
+k <- 16   # number of days
+
+theme_ur <- theme(legend.justification = c(1,1), legend.position = c(1,1), legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))
+theme_lr <- theme(legend.justification = c(1,0), legend.position = c(1,0), legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))
+options(width = 90, knitr.kable.NA = '', "kableExtra.html.bsTable" = T)
+lsz <- 1.0
+tsz <- 4
+```
+
+## Announcements
+
+### Reminders 
+
+- It is week 10! This is our **last seminar before** the Class Test 3. 
+- You should have read §8 Quality Control on **Perusall**.
+- Please look over the feedback from Class Test 2. 
+
+### Upcoming
+- Lab 7 due **Thursday 10 Dec** at **17:00** (late accepted until Sunday w/o penalty).
+- Worksheet #10 Review is already posted to Blackboard.
+- Class Test 3 is **Wednesday 16 Dec** from **14:00--17:00**.
+
+
+## What will Class Test 3 cover?
+
+Class Test 3 will be longer than the first two tests and will be cumulative in nature, but will focus on the following topics.
+
+- Categorical data ($\chi^2$ tests for goodness of fit and independence)
+- Linear regression (linear models, least squares estimates, inference for variances and least squares parameters, correlation)
+- ANOVA (single factor tests and confidence intervals)
+
+:::{.warningblock}
+Revise inferences (hypothesis tests and confidence intervals) for single samples and two samples. 
+:::
+
+Monday's workshop will include a review of important topics. 
+
+
+## Quality Control (QC)
+
+- Identify the sources of random variations in output processes that might have *assignable causes*.
+- **Control charts** help us to recognize when industrial processes are no longer controlled.
+- Control charts use time series data to calculate the running value of a quality statistic. 
+- If the quality statistic exceed upper/lower control limits, process is deemed to be out of control (quality negatively impacted).
+
+:::{.noteblock}
+Workflow:
+
+time series $\longrightarrow$ control chart $\longrightarrow$ identify assignable causes 
+:::
+
+## Beer Data: IPA
+
+A brewer produces 3 batches of IPA per day and measures the pH value of each batch, which influences saccharification. 
+
+```{r scatter, echo = TRUE, eval = TRUE}
+ggplot(ipa, aes(x = Day, y = pH)) + geom_point(size = 2)
+```
+
+
+## $3\sigma$ Control Chart
+
+We consider the typical $3\sigma$ control chart for the mean pH $\overline{X}$.
+
+Assume generating process $X$ is normally distributed with unknown $\mu$ and $\sigma$. 
+
+Our control region is specified to by three standard deviations: the process remains in control if it stays three deviations within a baseline value. 
+
+:::{.tipblock}
+Why consider three standard deviations from the mean?
+:::
+
+## Checking for normality: `qqplot`
+
+```{r qqplot, echo = TRUE, eval = TRUE}
+ggplot(ipa, aes(sample = pH)) + stat_qq(size = 2) + stat_qq_line(color = "purple")
+```
+
+## Checking for normality: `shapiro.test`
+
+Shapiro--Wilk tests the null hypothesis that a given sample came from a normally distributed population. Thus if $P$-value small, reject null and do no proceed. 
+
+```{r shapiro, echo = TRUE, eval = TRUE}
+shapiro.test(ipa$pH)
+```
+
+:::{.warningblock}
+Failing to reject null does *not* tell us the population is normally distributed...
+:::
+
+## Checking for normality ?
+
+:::{.tipblock}
+If the sample size is *large*, which should we use (`qqplot` vs `shapiro.test`)?
+:::
+
+## Constructing a control chart
+
+```{r ipa-stat, echo = FALSE, eval = TRUE, message = FALSE}
+ipa_stat <- ipa %>% 
+   group_by(Day) %>% 
+   summarise(observations = list(pH), mean = signif(mean(pH), digits = 4), 
+             sd = signif(sd(pH), digits = 4), range = max(pH) - min(pH))
+   
+kbl(head(ipa_stat), align = "rlccc", 
+    col.names = c('Day', "pH Observations", '$\\overline{x}$', '$s$', 'Range'),
+    booktabs = T) %>%
+ kable_styling(latex_options = c("hold_position")) 
+```
+
+$\widehat{\mu}$ 
+
+
+$\widehat{\sigma}$
+
+## Estimating $\sigma$
+
+Recall that the sample standard deviation is a biased estimator for the standard deviation. 
+
+For $X_1, \dots, X_n \sim \mathsf{N}(\mu,\sigma^2)$,
+\[\E(S) = a_n \cdot \sigma\]
+where the *bias correction* can be computed exactly:
+\[a_n = \sqrt{\frac{2}{n-1}}\frac{\Gamma(\tfrac{n}{2})}{\Gamma(\tfrac{n-1}{2})} \,.\]
+
+```{r bias-correction, echo = FALSE, eval = TRUE, message = FALSE}
+cor <- rbind(c("$n$",seq(3,8,1)), c("$a_n$", .886,.921,.940,.952,.959,.965))
+kbl(cor, booktabs = T) %>%
+ kable_styling(latex_options = c("hold_position")) 
+```
+
+## Unbiased estimator $\sigma$
+
+Let $\overline{S} = \frac{1}{k} \sum_{i=1}^k S_i$, where $S_i$ are the sample sd for $k$ days.
+
+<!-- Then  -->
+<!-- \[\E(\overline{S}) = \frac{1}{k} \E\left(\sum_{i=1}^k S_i\right) = -->
+<!-- \frac{1}{k} \sum_{i=1}^{k} \E(S_i) = \frac{1}{k} \sum_{i=1}^{k} a_n \sigma  = an \sigma \] -->
+
+<!-- Thus -->
+<!-- \[\E(\overline{S}/a_n) = \frac{1}{a_n} \E(\overline{S}) = \frac{1}{a_n} a_n \sigma = \sigma \] -->
+
+<!-- so $\widehat{\sigma} = \overline{S} / a_n$ is an unbiased estimator of $\sigma$.  -->
+
+
+## Control limits based on sample sds
+
+\[\mathsf{LCL} = \widehat{\mu} - 3 \frac{\overline{s}}{a_n \sqrt{n}}\]
+\[\mathsf{UCL} = \widehat{\mu} + 3 \frac{\overline{s}}{a_n \sqrt{n}}\]
+where 
+
+$\widehat{\mu} = \frac{1}{k} \sum_{i=1}^k \overline{x}_i$
+
+$\overline{s} = \frac{1}{k} \sum_{i=1}^k s_i$
+
+## Control Chart
+
+- Assume process is in-control over the 16 days and compute the limits. 
+- Violation would require that we seek to identify an assignable cause.
+
+```{r qc-beer-control-chart, echo = FALSE, warning = FALSE, message = FALSE}
+a <- function(m){ sqrt(2) * gamma(m/2) / (sqrt(m-1) * gamma((m-1)/2)) }
+muhat = sum(ipa_stat$mean) / k
+sbar = sum(ipa_stat$sd) / k
+lcl = muhat - 3*sbar / (a(m) * sqrt(m))
+ucl = muhat + 3*sbar / (a(m) * sqrt(m))
+
+ggplot(ipa_new, aes(x = Day)) + geom_point(aes(y = mean)) + 
+ geom_hline(aes(yintercept = muhat, color = "Mean"), size = lsz) + 
+ geom_hline(aes(yintercept = lcl, color = "LCL"), size = lsz*1.5) + 
+ geom_hline(aes(yintercept = ucl, color = "UCL"), size = lsz*1.5) + ylab("pH") + 
+   theme(legend.justification = c(1,1), legend.position = c(1,1),
+         legend.title = element_blank(), 
+         legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))
+```  
+
+## Summary
+
+Today we discussed control charts for Quality Control. 
+
+We learned about bias correction for estimating the population standard deviation. 
