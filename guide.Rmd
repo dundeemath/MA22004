@@ -5,12 +5,14 @@
 All organisation and teaching will be carried out by:
 
 :::{.noteblock data-latex=""}
-Dr Eric Hall   
+Dr Eric Hall  
 
 [ehall001@dundee.ac.uk](mailto:ehall001@dundee.ac.uk)
 
-Mathematics Division   
+Mathematics Division
+
 School of Science and Engineering
+
 Fulton G10
 
 :::
