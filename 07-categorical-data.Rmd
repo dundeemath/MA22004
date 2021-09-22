@@ -67,7 +67,7 @@ As a rule of thumb, provided $m p_{i0} \geq 5$ for all $i = 1, \dots, k$, then t
 
 If $m p_{i0} < 5$ for some $i$ then it may be possible to combine the categories such that the new categorizations satisfy the assumptions of Proposition \@ref(prp:htest-multinomial).
 
-:::{.warningblock}
+:::{.warningblock data-latex=""}
 Things are much more complicated if the category probabilities are not completely specified.   
 :::   
 

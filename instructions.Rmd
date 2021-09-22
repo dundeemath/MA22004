@@ -1,6 +1,6 @@
 # Instructions {-#instructions}
 
-## Gradescope Class Test Submissions {-}
+## Gradescope Submissions {-}
 
 These instructions will help you prepare a single multipage PDF file of your Class Test to submit via Gradescope.
 
@@ -30,13 +30,13 @@ The apps all work in largely the same way: you take a photo of the page; the app
 
 ### Submission workflow {-#workflow}
 
-\faIcon{edit} `r fa("edit")` Write your work 
-\hspace*{1em} \faIcon{long-arrow-alt-right} `r fa("long-arrow-alt-right")` 
-\hspace*{1em} \faIcon{file-pdf} `r fa("file-pdf")` Create a PDF of your work 
-\hspace*{1em} \faIcon{long-arrow-alt-right} `r fa("long-arrow-alt-right")` 
-\hspace*{1em} \faIcon{cloud-upload-alt} `r fa("cloud-upload-alt")` Upload and Zone your work 
+`r fa("edit")` Write your work 
+\hspace*{1em} `r fa("long-arrow-alt-right")` 
+\hspace*{1em} `r fa("file-pdf")` Create a PDF of your work 
+\hspace*{1em} `r fa("long-arrow-alt-right")` 
+\hspace*{1em} `r fa("cloud-upload-alt")` Upload and Zone your work 
 
-#### Step 1. Write your work \hspace*{1em}\faIcon{edit} `r fa("edit")` {-#step1}
+#### Step 1. `r fa("edit")` Write your work {-#step1}
 
 The goal is to simulate the (joyous) experience of writing an in-person class test as closely as possible. 
 
@@ -55,7 +55,7 @@ knitr::include_graphics("assets/images/instruct2.png")
 <!-- ![Figure: Not good practice---please avoide placing two questions on the same page.](assets/images/instruct2.png "Please avoide placing two questions on the same page.") -->
 
 
-#### Step 2. Create a PDF of your work \hspace*{1em}\faIcon{file-pdf} `r fa("file-pdf")` {-#step2}
+#### Step 2. `r fa("file-pdf")` Create a PDF of your work {-#step2}
 
 - If you are using a tablet and can directly create a PDF of your submission, go to Step [3](step3).
 
@@ -68,7 +68,7 @@ knitr::include_graphics("assets/images/instruct2.png")
 - Place each page on a flat surface, ideally of a different color to the paper you have written on, and create a single PDF containing all the pages you wish to submit.
 
 
-#### Step 3. Upload and Zone your work  \hspace*{1em}\faIcon{cloud-upload-alt} `r fa("cloud-upload-alt")` {-#step3}
+#### Step 3. `r fa("cloud-upload-alt")` Upload and Zone your work {-#step3}
 
 - Log into Gradescope (first time: use the course access code on Blackboard).
 - Select the course and then the appropriate assignment. 
@@ -89,9 +89,11 @@ knitr::include_graphics("assets/images/zone.png")
 <!-- ![Figure: Please associate each question to a page.](assets/images/zone.png "Diagram illustrating the association of each question to a page on Gradescope.") -->
 
 
-## Using Blackboard {-}
+## Using Collaborate {-}
 
-Note that we will meet for synchronous online sessions using Blackboard Collaborate. You must log into Blackboard Ultra, navigate to the course page, and then select "Join session" in the left-hand column. 
+Note that we will meet for synchronous online sessions using Blackboard Collaborate through MyDundee. You must log into MyDundee (Blackboard Ultra), navigate to the course page, and then select "Join session" in the left-hand column. 
+
+Please remember to follow University guidance on registering your attendance. 
 
 ```{r bbultra-overview, fig.margin = TRUE, echo = FALSE, fig.cap="An annotated overview of the Blackboard Ultra course landing page.", out.width = "100%", fig.align = "center", fig.pos="h"}
 knitr::include_graphics("assets/images/bbultra.png")

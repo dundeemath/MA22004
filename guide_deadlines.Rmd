@@ -1,8 +1,8 @@
 # Deadlines {-#deadlines}
 
-All the deadlines and important dates for the module are listed in the Table below. The three class tests (T1, T2, and T2) are on Wednesdays (W) from 13:00-15:00 and 14:00-17:00, respectively; there will be a practice test (P) on Friday (F) of week 1.^[Don't worry, you got this: the practice test will only gauge your skills at scanning and uploading a document to Gradescope.] Please keep in mind that you must engage with the weekly readings on Perusall **before** the seminar meeting on Wednesday afternoon. The lab reports (L1, L2, L3, L4, L5, L6, L7) are due on Thursday evenings at 17:00. 
+All the deadlines and important dates for the module are listed in the table below (this information is also available on MyDundee in the Assessments section following the University template). 
 
-Further details about the practice upload and the class tests will be circulated nearer in time to the relevant deadline.
+The three class tests (T1, T2, and T2) are timetabled. The practice test (P). Please keep in mind that you must engage with the weekly readings on Perusall **before** the seminar meeting on Tuesday afternoons. The lab reports (L1, L2, L3, L4, L5, L6, L7) are due on Friday evenings at 17:00; you may submit labs by noon on Sunday (i.e., 43 hours late) without any penalty, but after Friday your ability to ask any last minute questions will be limited. 
 
 ```{r table-deadlines, echo=FALSE, warning = FALSE, message = FALSE, fig.cap = "An overview of all deadlines and important dates associated with the course."}
 df <- tibble(read_csv("data/deadlines.csv")) %>% relocate(Reading, .after = Week)
@@ -10,3 +10,4 @@ kbl(df, booktabs = T) %>%
  kable_styling(latex_options = c("striped", "hold_position"))
 ```
 
+P will be on Friday (F) of week 1.^[Don't worry, you got this: the practice test will only gauge your skills at scanning and uploading a document to Gradescope.] T1 and T2 are on Wednesdays (W) from 14:30-16:30. T3 is on a Monday (M) from 14:00-17:00. Further details about the practice upload and the class tests will be circulated nearer in time to the relevant deadline.

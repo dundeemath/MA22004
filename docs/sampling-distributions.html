@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1 Sampling distributions | MA22004 – Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1 Sampling distributions | MA22004 – Statistics and Probability II" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="preliminaries.html"/>
 <link rel="next" href="statistical-inference.html"/>
-<script src="libs/header-attrs-2.4/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,7 +50,8 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -58,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -118,6 +121,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
 </head>
 
@@ -149,7 +175,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment"><i class="fa fa-check"></i>Assessment</a>
 <ul>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-coursework"><i class="fa fa-check"></i>Coursework</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Examinations (Class Tests)</a></li>
+<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Class Tests</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-commitment"><i class="fa fa-check"></i>Your Commitment</a></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-calcs"><i class="fa fa-check"></i>Approved Calculators</a></li>
@@ -159,15 +185,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-questionaire"><i class="fa fa-check"></i>End of Module Questionaire</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="labs.html"><a href="labs.html"><i class="fa fa-check"></i>Lab Guide</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i>Writing Lab Reports</a>
+<ul>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-assess"><i class="fa fa-check"></i>Assessment Criteria</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-content"><i class="fa fa-check"></i>Content</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-present"><i class="fa fa-check"></i>Presentation</a>
+<ul>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-plots"><i class="fa fa-check"></i>Plots</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-math"><i class="fa fa-check"></i>Mathematical formulas</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-eng"><i class="fa fa-check"></i>Writing</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-format"><i class="fa fa-check"></i>Formatting</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="deadlines.html"><a href="deadlines.html"><i class="fa fa-check"></i>Deadlines</a></li>
 <li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html"><i class="fa fa-check"></i>Instructions</a>
 <ul>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#gradescope-class-test-submissions"><i class="fa fa-check"></i>Gradescope Class Test Submissions</a>
+<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#gradescope-submissions"><i class="fa fa-check"></i>Gradescope Submissions</a>
 <ul>
 <li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#equipment"><i class="fa fa-check"></i>Equipment you will need</a></li>
 <li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#workflow"><i class="fa fa-check"></i>Submission workflow</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#using-blackboard"><i class="fa fa-check"></i>Using Blackboard</a></li>
+<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#using-collaborate"><i class="fa fa-check"></i>Using Collaborate</a></li>
 </ul></li>
 <li class="part"><span><b>Course Notes</b></span></li>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html"><i class="fa fa-check"></i>Preliminaries</a>
@@ -296,13 +335,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 We write <span class="math inline">\(X \sim \mathsf{N}(\mu, \sigma^2)\)</span>.
 </div>
 <p>For <span class="math inline">\(X\sim \mathsf{N}(\mu,\sigma^2)\)</span>, it can be shown that <span class="math inline">\(\E(X) = \mu\)</span> and <span class="math inline">\(\Var(X) = \sigma^2\)</span>, that is, <span class="math inline">\(\mu\)</span> is the <em>mean</em> and <span class="math inline">\(\sigma^2\)</span> is the <em>variance</em> of <span class="math inline">\(X\)</span>. The pdf takes the form of a bell-shaped curve that is symmetric about <span class="math inline">\(\mu\)</span>. The value <span class="math inline">\(\sigma\)</span> (<em>standard deviation</em>) is the distance from <span class="math inline">\(\mu\)</span> to the inflection points of the curve. Thus, the position (location) and spread of the distribution depends on <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>.</p>
-<div class="figure" style="text-align: center"><span id="fig:normals-diff-mean"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:normals-diff-mean"></span>
 <img src="ma22004_files/figure-html/normals-diff-mean-1.svg" alt="The pdfs of two normal rvs, $X_1 \sim \mathsf{N}(-2, 1)$ and $X_2 \sim \mathsf{N}(2, 1)$, with *different means* and the same standard deviations." width="768" />
 <p class="caption">
 Figure 1.1: The pdfs of two normal rvs, <span class="math inline">\(X_1 \sim \mathsf{N}(-2, 1)\)</span> and <span class="math inline">\(X_2 \sim \mathsf{N}(2, 1)\)</span>, with <em>different means</em> and the same standard deviations.
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:normals-diff-sd"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:normals-diff-sd"></span>
 <img src="ma22004_files/figure-html/normals-diff-sd-1.svg" alt="The pdfs of two normal rvs, $X_1 \sim \mathsf{N}(0, 9)$ and $X_2 \sim \mathsf{N}(0, 1)$, with the same means and *different standard deviations*." width="768" />
 <p class="caption">
 Figure 1.2: The pdfs of two normal rvs, <span class="math inline">\(X_1 \sim \mathsf{N}(0, 9)\)</span> and <span class="math inline">\(X_2 \sim \mathsf{N}(0, 1)\)</span>, with the same means and <em>different standard deviations</em>.
@@ -343,7 +382,7 @@ This process is often referred to as <em>standardizing</em> (the normal rv).</p>
 where we look up the value of <span class="math inline">\(\Phi(z) = P(Z\leq z)\)</span> in a table of standard normal curve areas.
 </div>
 <p>The probability corresponds to the shaded area under the normal density <span class="math inline">\(\varphi(x) = \Phi&#39;(x)\)</span> corresponding to <span class="math inline">\(x \geq 5.5\)</span>.</p>
-<div class="figure" style="text-align: center"><span id="fig:example-norm-geq"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:example-norm-geq"></span>
 <img src="ma22004_files/figure-html/example-norm-geq-1.svg" alt="The normal density from the exercise with the (one-sided) interval shaded in blue." width="768" />
 <p class="caption">
 Figure 1.3: The normal density from the exercise with the (one-sided) interval shaded in blue.
@@ -363,7 +402,7 @@ Figure 1.3: The normal density from the exercise with the (one-sided) interval s
 where we look up the value of <span class="math inline">\(\Phi(z) = P(Z\leq z)\)</span> in a table of standard normal curve areas.
 </div>
 <p>The probability corresponds to the shaded area under the normal density <span class="math inline">\(\varphi(x) = \Phi&#39;(x)\)</span> corresponding to <span class="math inline">\(4 \leq x \leq 5.25\)</span>.</p>
-<div class="figure" style="text-align: center"><span id="fig:example-norm-interval"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:example-norm-interval"></span>
 <img src="ma22004_files/figure-html/example-norm-interval-1.svg" alt="The normal density from the exercise with the interval shaded in blue." width="768" />
 <p class="caption">
 Figure 1.4: The normal density from the exercise with the interval shaded in blue.
@@ -389,7 +428,7 @@ For a normal population, this means that nearly all the the values lie within �
 </div>
 <div id="t-distribution" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> <span class="math inline">\(\mathsf{t}\)</span> distribution</h2>
-<p>Student’s <span class="math inline">\(\mathsf{t}\)</span> distribution gets its peculiar name as it was first published under the pseudonym “Student.”<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> This bit of obfuscation was to protect the identity of his employer,<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> and thereby vital trade secrets, in a highly competitive and lucrative industry.</p>
+<p>Student’s <span class="math inline">\(\mathsf{t}\)</span> distribution gets its peculiar name as it was first published under the pseudonym “Student”.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> This bit of obfuscation was to protect the identity of his employer,<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> and thereby vital trade secrets, in a highly competitive and lucrative industry.</p>
 
 <div class="definition">
 <span id="def:t-dist" class="definition"><strong>Definition 1.3  </strong></span>A continuous rv <span class="math inline">\(X\)</span> has a <strong><span class="math inline">\(\mathsf{t}\)</span> distribution</strong> with parameter <span class="math inline">\(\nu &gt; 0\)</span>, if <span class="math inline">\(X\)</span> has pdf
@@ -399,7 +438,7 @@ f(x; \nu) = \frac{\Gamma\left(\tfrac{\nu+1}{2}\right)}{\sqrt{\nu \pi} \Gamma \le
 We write <span class="math inline">\(X \sim \mathsf{t}(\nu)\)</span>. Note <span class="math inline">\(\Gamma\)</span> is the standard gamma function.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>
 </div>
 <p>The density for <span class="math inline">\(\mathsf{t}(\nu)\)</span> for several values of <span class="math inline">\(\nu\)</span> are plotted below.</p>
-<div class="figure" style="text-align: center"><span id="fig:exemplar-t-dist"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:exemplar-t-dist"></span>
 <img src="ma22004_files/figure-html/exemplar-t-dist-1.svg" alt="The density for $\mathsf{t}(\nu)$ for several values of $\nu$ (df)." width="768" />
 <p class="caption">
 Figure 1.5: The density for <span class="math inline">\(\mathsf{t}(\nu)\)</span> for several values of <span class="math inline">\(\nu\)</span> (df).
@@ -427,7 +466,7 @@ f(x; \nu) = \frac{1}{2^{\nu/2} \Gamma(\nu/2)} x^{(\nu/2)-1} e^{-x/2} \,,
 with support <span class="math inline">\(x \in (0, \infty)\)</span> if <span class="math inline">\(\nu=1\)</span>, otherwise <span class="math inline">\(x \in [0, \infty)\)</span>. We write <span class="math inline">\(X \sim \chi^2(\nu)\)</span>.
 </div>
 <p>The pdf <span class="math inline">\(f(x; \nu)\)</span> of the <span class="math inline">\(\chi^2(\nu)\)</span> distribution depends on a positive integer <span class="math inline">\(\nu\)</span> referred to as the df. The density for several values of <span class="math inline">\(\nu\)</span> are plotted below.</p>
-<div class="figure" style="text-align: center"><span id="fig:exemplar-chisq-dist"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:exemplar-chisq-dist"></span>
 <img src="ma22004_files/figure-html/exemplar-chisq-dist-1.svg" alt="The density for $\chi^2(\nu)$ for several values of $\nu$ (df)." width="768" />
 <p class="caption">
 Figure 1.6: The density for <span class="math inline">\(\chi^2(\nu)\)</span> for several values of <span class="math inline">\(\nu\)</span> (df).
@@ -453,7 +492,7 @@ Figure 1.6: The density for <span class="math inline">\(\chi^2(\nu)\)</span> for
 \end{equation*}\]</span>
 </div>
 <p>The pdf <span class="math inline">\(f(x; \nu_1, \nu_2)\)</span> of the <span class="math inline">\(\mathsf{F}(\nu_1, \nu_2)\)</span> distribution depends on two positive integers <span class="math inline">\(\nu_1\)</span> and <span class="math inline">\(\nu_2\)</span> referred to, respectively, as the numerator and denominator df. The density is plotted below for several combinations of <span class="math inline">\((\nu_1, \nu_2)\)</span>.</p>
-<div class="figure" style="text-align: center"><span id="fig:exemplar-F-dist"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:exemplar-F-dist"></span>
 <img src="ma22004_files/figure-html/exemplar-F-dist-1.svg" alt="The density for $\mathsf{F}(\nu_1, \nu_2)$ for several combinations of $(\nu_1, \nu_2)$." width="768" />
 <p class="caption">
 Figure 1.7: The density for <span class="math inline">\(\mathsf{F}(\nu_1, \nu_2)\)</span> for several combinations of <span class="math inline">\((\nu_1, \nu_2)\)</span>.
@@ -490,7 +529,6 @@ that comprises the ratio of two <span class="math inline">\(\chi^2\)</span> rvs 
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -509,6 +547,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {
@@ -529,6 +568,10 @@ gitbook.start({
 "text": null
 },
 "download": ["ma22004.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Inferences based on a single sample | MA22004 – Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Inferences based on a single sample | MA22004 – Statistics and Probability II" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="statistical-inference.html"/>
 <link rel="next" href="inference-two-samples.html"/>
-<script src="libs/header-attrs-2.4/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,7 +50,8 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -58,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -118,6 +121,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
 </head>
 
@@ -149,7 +175,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment"><i class="fa fa-check"></i>Assessment</a>
 <ul>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-coursework"><i class="fa fa-check"></i>Coursework</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Examinations (Class Tests)</a></li>
+<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Class Tests</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-commitment"><i class="fa fa-check"></i>Your Commitment</a></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-calcs"><i class="fa fa-check"></i>Approved Calculators</a></li>
@@ -159,15 +185,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-questionaire"><i class="fa fa-check"></i>End of Module Questionaire</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="labs.html"><a href="labs.html"><i class="fa fa-check"></i>Lab Guide</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i>Writing Lab Reports</a>
+<ul>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-assess"><i class="fa fa-check"></i>Assessment Criteria</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-content"><i class="fa fa-check"></i>Content</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-present"><i class="fa fa-check"></i>Presentation</a>
+<ul>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-plots"><i class="fa fa-check"></i>Plots</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-math"><i class="fa fa-check"></i>Mathematical formulas</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-eng"><i class="fa fa-check"></i>Writing</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-format"><i class="fa fa-check"></i>Formatting</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="deadlines.html"><a href="deadlines.html"><i class="fa fa-check"></i>Deadlines</a></li>
 <li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html"><i class="fa fa-check"></i>Instructions</a>
 <ul>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#gradescope-class-test-submissions"><i class="fa fa-check"></i>Gradescope Class Test Submissions</a>
+<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#gradescope-submissions"><i class="fa fa-check"></i>Gradescope Submissions</a>
 <ul>
 <li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#equipment"><i class="fa fa-check"></i>Equipment you will need</a></li>
 <li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#workflow"><i class="fa fa-check"></i>Submission workflow</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#using-blackboard"><i class="fa fa-check"></i>Using Blackboard</a></li>
+<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#using-collaborate"><i class="fa fa-check"></i>Using Collaborate</a></li>
 </ul></li>
 <li class="part"><span><b>Course Notes</b></span></li>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html"><i class="fa fa-check"></i>Preliminaries</a>
@@ -329,7 +368,7 @@ The <span class="math inline">\(z\)</span> critical value is related to the tail
 <div class="example">
 <span id="exm:exm-ci-norm-known-var" class="example"><strong>Example 3.1  </strong></span>Consider <span class="math inline">\(400\)</span> samples from a normal population with a known standard deviation <span class="math inline">\(\sigma = 17000\)</span> with mean <span class="math inline">\(\overline{x} = 20992\)</span> (as depicted in <a href="inference-single-sample.html#fig:ci-norm-known-var-code">3.1</a>). How do we construct a <span class="math inline">\(95\%\)</span> confidence interval for <span class="math inline">\(\mu\)</span>?
 </div>
-<div class="figure" style="text-align: center"><span id="fig:ci-norm-known-var-code"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ci-norm-known-var-code"></span>
 <img src="ma22004_files/figure-html/ci-norm-known-var-code-1.svg" alt="$400$ samples from a normal population with known variance $\sigma = 17000$ together with the corresponding (normal) sampling distribution for the observed mean." width="768" />
 <p class="caption">
 Figure 3.1: <span class="math inline">\(400\)</span> samples from a normal population with known variance <span class="math inline">\(\sigma = 17000\)</span> together with the corresponding (normal) sampling distribution for the observed mean.
@@ -439,26 +478,26 @@ under the null hypothesis, i.e., we replace the population standard deviation <s
 <p>Recall that the <strong>Iris Data</strong> contains <span class="math inline">\(m= 150\)</span> measurements of petal length across three species of Iris flowers and that the true variance is unknown.
 We are interested in testing the null hypothesis <span class="math inline">\(H_0 : \mu \leq 3.5\)</span> against the alternative <span class="math inline">\(H_a : \mu &gt; 3.5\)</span> (i.e., a one-sided test).</p>
 <p>We begin by first computing the observed statistic (sample mean) <span class="math inline">\(\widehat{\mu}\)</span>. We use the <code>infer</code> package to construct a null distribution <em>computationally</em> for the response variable (petal length). We specifying that the hypothesis test is for parameter based on a point estimate and that we are testing for equality with the value <span class="math inline">\(\mu_0 = 3.5\)</span>. The null distribution is generated by computing 1000 bootstrap replications of the sample mean, i.e., the sample mean is generated 1000 times by drawing 150 values at random with replacement from the original corpus of <span class="math inline">\(m=150\)</span> samples. (Note that here, we obtain the null distribution computationally, so we do not need to standardize to <span class="math inline">\(Z\)</span>.)</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="inference-single-sample.html#cb1-1" aria-hidden="true"></a>mu_hat &lt;-<span class="st"> </span><span class="kw">mean</span>(iris<span class="op">$</span>Petal.Length) </span>
-<span id="cb1-2"><a href="inference-single-sample.html#cb1-2" aria-hidden="true"></a></span>
-<span id="cb1-3"><a href="inference-single-sample.html#cb1-3" aria-hidden="true"></a>null_dist &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span></span>
-<span id="cb1-4"><a href="inference-single-sample.html#cb1-4" aria-hidden="true"></a><span class="st"> </span><span class="kw">specify</span>(<span class="dt">response =</span> Petal.Length) <span class="op">%&gt;%</span></span>
-<span id="cb1-5"><a href="inference-single-sample.html#cb1-5" aria-hidden="true"></a><span class="st"> </span><span class="kw">hypothesise</span>(<span class="dt">null =</span> <span class="st">&quot;point&quot;</span>, <span class="dt">mu =</span> <span class="fl">3.5</span>) <span class="op">%&gt;%</span></span>
-<span id="cb1-6"><a href="inference-single-sample.html#cb1-6" aria-hidden="true"></a><span class="st"> </span><span class="kw">generate</span>(<span class="dt">reps =</span> <span class="dv">1000</span>, <span class="dt">type =</span> <span class="st">&quot;bootstrap&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb1-7"><a href="inference-single-sample.html#cb1-7" aria-hidden="true"></a><span class="st"> </span><span class="kw">calculate</span>(<span class="dt">stat =</span> <span class="st">&quot;mean&quot;</span>)</span>
-<span id="cb1-8"><a href="inference-single-sample.html#cb1-8" aria-hidden="true"></a></span>
-<span id="cb1-9"><a href="inference-single-sample.html#cb1-9" aria-hidden="true"></a>null_dist <span class="op">%&gt;%</span></span>
-<span id="cb1-10"><a href="inference-single-sample.html#cb1-10" aria-hidden="true"></a><span class="st"> </span><span class="kw">visualise</span>() <span class="op">+</span></span>
-<span id="cb1-11"><a href="inference-single-sample.html#cb1-11" aria-hidden="true"></a><span class="st"> </span><span class="kw">shade_p_value</span>(<span class="dt">obs_stat =</span> mu_hat, <span class="dt">direction =</span> <span class="st">&quot;greater&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="inference-single-sample.html#cb1-1" aria-hidden="true" tabindex="-1"></a>mu_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(iris<span class="sc">$</span>Petal.Length) </span>
+<span id="cb1-2"><a href="inference-single-sample.html#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="inference-single-sample.html#cb1-3" aria-hidden="true" tabindex="-1"></a>null_dist <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb1-4"><a href="inference-single-sample.html#cb1-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">specify</span>(<span class="at">response =</span> Petal.Length) <span class="sc">%&gt;%</span></span>
+<span id="cb1-5"><a href="inference-single-sample.html#cb1-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">hypothesise</span>(<span class="at">null =</span> <span class="st">&quot;point&quot;</span>, <span class="at">mu =</span> <span class="fl">3.5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-6"><a href="inference-single-sample.html#cb1-6" aria-hidden="true" tabindex="-1"></a> <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">&quot;bootstrap&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-7"><a href="inference-single-sample.html#cb1-7" aria-hidden="true" tabindex="-1"></a> <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb1-8"><a href="inference-single-sample.html#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="inference-single-sample.html#cb1-9" aria-hidden="true" tabindex="-1"></a>null_dist <span class="sc">%&gt;%</span></span>
+<span id="cb1-10"><a href="inference-single-sample.html#cb1-10" aria-hidden="true" tabindex="-1"></a> <span class="fu">visualise</span>() <span class="sc">+</span></span>
+<span id="cb1-11"><a href="inference-single-sample.html#cb1-11" aria-hidden="true" tabindex="-1"></a> <span class="fu">shade_p_value</span>(<span class="at">obs_stat =</span> mu_hat, <span class="at">direction =</span> <span class="st">&quot;greater&quot;</span>)</span></code></pre></div>
 <p><img src="ma22004_files/figure-html/exm-mean-large-sample-infer-htest-1.svg" width="768" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="inference-single-sample.html#cb2-1" aria-hidden="true"></a>p_val &lt;-<span class="st"> </span>null_dist <span class="op">%&gt;%</span></span>
-<span id="cb2-2"><a href="inference-single-sample.html#cb2-2" aria-hidden="true"></a><span class="st"> </span><span class="kw">get_p_value</span>(<span class="dt">obs_stat =</span> mu_hat, <span class="dt">direction =</span> <span class="st">&quot;greater&quot;</span>)</span>
-<span id="cb2-3"><a href="inference-single-sample.html#cb2-3" aria-hidden="true"></a>p_val</span></code></pre></div>
-<pre><code># A tibble: 1 x 1
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="inference-single-sample.html#cb2-1" aria-hidden="true" tabindex="-1"></a>p_val <span class="ot">&lt;-</span> null_dist <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="inference-single-sample.html#cb2-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">get_p_value</span>(<span class="at">obs_stat =</span> mu_hat, <span class="at">direction =</span> <span class="st">&quot;greater&quot;</span>)</span>
+<span id="cb2-3"><a href="inference-single-sample.html#cb2-3" aria-hidden="true" tabindex="-1"></a>p_val</span></code></pre></div>
+<pre><code># A tibble: 1 × 1
   p_value
     &lt;dbl&gt;
-1   0.033</code></pre>
-<p>The bootstrapped null distribution is plotted using the <code>visualize</code> command and the regions of the null distribution that are as (or more) extreme than the observed statistic <span class="math inline">\(\widehat{\mu}\)</span> can be highlighted using the <code>shade_p_value</code> command. <span class="math inline">\(P = 0.033\)</span> is found which is quite small; if <span class="math inline">\(\mu \leq 3.5\)</span>, then the probability of obtaining the sample mean value <span class="math inline">\(\widehat{\mu} = 3.758\)</span> is only 0.033! Thus, the data provides sufficient evidence at the 0.05 level against the hypothesis that the true mean petal length is at most 3.5 cm. <span class="math inline">\(\lozenge\)</span></p>
+1   0.032</code></pre>
+<p>The bootstrapped null distribution is plotted using the <code>visualize</code> command and the regions of the null distribution that are as (or more) extreme than the observed statistic <span class="math inline">\(\widehat{\mu}\)</span> can be highlighted using the <code>shade_p_value</code> command. <span class="math inline">\(P = 0.032\)</span> is found which is quite small; if <span class="math inline">\(\mu \leq 3.5\)</span>, then the probability of obtaining the sample mean value <span class="math inline">\(\widehat{\mu} = 3.758\)</span> is only 0.032! Thus, the data provides sufficient evidence at the 0.05 level against the hypothesis that the true mean petal length is at most 3.5 cm. <span class="math inline">\(\lozenge\)</span></p>
 </div>
 <div id="mean-normal-var-unknown" class="section level3" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> Mean of a normal population with unknown variance</h3>
@@ -503,7 +542,7 @@ to form the interval estimate
 \end{aligned}
 \end{equation*}\]</span>
 For comparison, the critical value <span class="math inline">\(t_{.01/2, \nu}\)</span> for <span class="math inline">\(\nu = 13, \dots, 30\)</span></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="inference-single-sample.html#cb4-1" aria-hidden="true"></a><span class="kw">qt</span>(<span class="dv">1</span><span class="fl">-0.01</span><span class="op">/</span><span class="dv">2</span>, <span class="dt">df =</span> <span class="kw">seq</span>(<span class="dv">12</span><span class="op">:</span><span class="dv">39</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="inference-single-sample.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="dv">1</span><span class="fl">-0.01</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> <span class="fu">seq</span>(<span class="dv">12</span><span class="sc">:</span><span class="dv">39</span>))</span></code></pre></div>
 <pre><code> [1] 63.656741  9.924843  5.840909  4.604095  4.032143  3.707428  3.499483  3.355387
  [9]  3.249836  3.169273  3.105807  3.054540  3.012276  2.976843  2.946713  2.920782
 [17]  2.898231  2.878440  2.860935  2.845340  2.831360  2.818756  2.807336  2.796940
@@ -563,7 +602,7 @@ that is, we will adopt the stance that the true average exceeds <span class="mat
  \end{aligned}
 \end{equation}\]</span>
 The test is based on <span class="math inline">\(\nu = 31-1\)</span> df, and <span class="math inline">\(P = 0.002663\)</span>. This is the upper-tail area, i.e. the area to the right of <span class="math inline">\(t\)</span> (see Figure <a href="inference-single-sample.html#fig:exm-htest-ttest-plot">3.2</a>).</p>
-<div class="figure" style="text-align: center"><span id="fig:exm-htest-ttest-plot"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:exm-htest-ttest-plot"></span>
 <img src="ma22004_files/figure-html/exm-htest-ttest-plot-1.svg" alt="For this test, the $P$-value is the upper-tail area, i.e., to the right of the computed statistic t." width="768" />
 <p class="caption">
 Figure 3.2: For this test, the <span class="math inline">\(P\)</span>-value is the upper-tail area, i.e., to the right of the computed statistic t.
@@ -665,7 +704,7 @@ A <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for t
 <span id="exm:eg-ci-variance" class="example"><strong>Example 3.8  </strong></span>For the <strong>Cherry Tree Data</strong> in Table <a href="inference-single-sample.html#tab:cherry-data-vol">3.1</a> concerning the timber volume of <span class="math inline">\(31\)</span> felled black cherry trees, give a <span class="math inline">\(95%\)</span> CI for the variance.
 </div>
 <p>We are interested in estimating the true variance <span class="math inline">\(\sigma^2\)</span> of the volume of timber based on <span class="math inline">\(m=31\)</span> samples. Recall that the mean of our data is <span class="math inline">\(\overline{x} = 30.17\)</span> cu ft and that the sample variance is <span class="math inline">\(s^2 = 270.2\)</span> using the estimator <a href="statistical-inference.html#eq:sample-var">(2.2)</a>. The critical values for the <span class="math inline">\(\chi^2_{.975, 30} = 16.7908\)</span> and <span class="math inline">\(\chi^2{.025, 30} = 46.9792\)</span> can be found by checking a table of critical values of the <span class="math inline">\(\chi^2(\nu=30)\)</span> distribution or by using the <code>r</code> code <code>qchisq(1-0.05/2, df=30, lower.tail = FALSE)</code> and <code>qchisq(0.05/2, df=df, lower.tail = FALSE)</code>, respectively (see <a href="inference-single-sample.html#fig:exm-htest-chisq-plot">3.3</a>).</p>
-<div class="figure" style="text-align: center"><span id="fig:exm-htest-chisq-plot"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:exm-htest-chisq-plot"></span>
 <img src="ma22004_files/figure-html/exm-htest-chisq-plot-1.svg" alt="As the $\chi^2$ distribution is not symmetric, the upper and lower critical values will not be the same (the shaded areas are equal)." width="768" />
 <p class="caption">
 Figure 3.3: As the <span class="math inline">\(\chi^2\)</span> distribution is not symmetric, the upper and lower critical values will not be the same (the shaded areas are equal).
@@ -684,32 +723,38 @@ Note the position of the critical values—don’t swap them round. <span class=
 <div class="example">
 <span id="exm:eg-ci-variance-infer" class="example"><strong>Example 3.9  </strong></span>Revisit Example <a href="inference-single-sample.html#exm:eg-ci-variance">3.8</a> and using the <code>infer</code> package to construct a <span class="math inline">\(95\%\)</span> confidence interval for the true standard deviation of the timber volume of black cherry trees based on the available mesurements in the <strong>Cherry Tree Data</strong>, Table <a href="inference-single-sample.html#tab:cherry-data-vol">3.1</a>.
 </div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="inference-single-sample.html#cb6-1" aria-hidden="true"></a>s &lt;-<span class="st"> </span><span class="kw">sd</span>(trees<span class="op">$</span>Volume)</span>
-<span id="cb6-2"><a href="inference-single-sample.html#cb6-2" aria-hidden="true"></a></span>
-<span id="cb6-3"><a href="inference-single-sample.html#cb6-3" aria-hidden="true"></a>null_dist &lt;-<span class="st"> </span>trees <span class="op">%&gt;%</span></span>
-<span id="cb6-4"><a href="inference-single-sample.html#cb6-4" aria-hidden="true"></a><span class="st"> </span><span class="kw">specify</span>(<span class="dt">response =</span> Volume) <span class="op">%&gt;%</span></span>
-<span id="cb6-5"><a href="inference-single-sample.html#cb6-5" aria-hidden="true"></a><span class="st"> </span><span class="kw">generate</span>(<span class="dt">reps =</span> <span class="dv">1000</span>, <span class="dt">type =</span> <span class="st">&quot;bootstrap&quot;</span>) <span class="op">%&gt;%</span></span>
-<span id="cb6-6"><a href="inference-single-sample.html#cb6-6" aria-hidden="true"></a><span class="st"> </span><span class="kw">calculate</span>(<span class="dt">stat =</span> <span class="st">&quot;sd&quot;</span>)</span>
-<span id="cb6-7"><a href="inference-single-sample.html#cb6-7" aria-hidden="true"></a></span>
-<span id="cb6-8"><a href="inference-single-sample.html#cb6-8" aria-hidden="true"></a>ci &lt;-<span class="st"> </span>null_dist <span class="op">%&gt;%</span></span>
-<span id="cb6-9"><a href="inference-single-sample.html#cb6-9" aria-hidden="true"></a><span class="st"> </span><span class="kw">get_confidence_interval</span>(<span class="dt">point_estimate =</span> s, <span class="dt">level =</span> <span class="fl">0.95</span>, <span class="dt">type =</span> <span class="st">&quot;se&quot;</span>)</span>
-<span id="cb6-10"><a href="inference-single-sample.html#cb6-10" aria-hidden="true"></a></span>
-<span id="cb6-11"><a href="inference-single-sample.html#cb6-11" aria-hidden="true"></a>null_dist <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb6-12"><a href="inference-single-sample.html#cb6-12" aria-hidden="true"></a><span class="st"> </span><span class="kw">visualise</span>() <span class="op">+</span><span class="st"> </span><span class="kw">shade_ci</span>(ci)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="inference-single-sample.html#cb6-1" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(trees<span class="sc">$</span>Volume)</span>
+<span id="cb6-2"><a href="inference-single-sample.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="inference-single-sample.html#cb6-3" aria-hidden="true" tabindex="-1"></a>null_dist <span class="ot">&lt;-</span> trees <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="inference-single-sample.html#cb6-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">specify</span>(<span class="at">response =</span> Volume) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="inference-single-sample.html#cb6-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">&quot;bootstrap&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-6"><a href="inference-single-sample.html#cb6-6" aria-hidden="true" tabindex="-1"></a> <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">&quot;sd&quot;</span>)</span>
+<span id="cb6-7"><a href="inference-single-sample.html#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="inference-single-sample.html#cb6-8" aria-hidden="true" tabindex="-1"></a>ci <span class="ot">&lt;-</span> null_dist <span class="sc">%&gt;%</span></span>
+<span id="cb6-9"><a href="inference-single-sample.html#cb6-9" aria-hidden="true" tabindex="-1"></a> <span class="fu">get_confidence_interval</span>(<span class="at">point_estimate =</span> s, <span class="at">level =</span> <span class="fl">0.95</span>, <span class="at">type =</span> <span class="st">&quot;se&quot;</span>)</span>
+<span id="cb6-10"><a href="inference-single-sample.html#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="inference-single-sample.html#cb6-11" aria-hidden="true" tabindex="-1"></a>null_dist <span class="sc">%&gt;%</span> </span>
+<span id="cb6-12"><a href="inference-single-sample.html#cb6-12" aria-hidden="true" tabindex="-1"></a> <span class="fu">visualise</span>() <span class="sc">+</span> <span class="fu">shade_ci</span>(ci)</span></code></pre></div>
 <p><img src="ma22004_files/figure-html/eg-ci-variance-infer-code-1.svg" width="768" style="display: block; margin: auto;" /></p>
 <p>We plot the 95% confidence interval for the standard deviation based on the computational null distribution obtained using 1000 bootstrap replications; note the interval estimate</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="inference-single-sample.html#cb7-1" aria-hidden="true"></a>ci<span class="op">^</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="inference-single-sample.html#cb7-1" aria-hidden="true" tabindex="-1"></a>ci<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>  lower_ci upper_ci
-1 140.0446 442.7511</code></pre>
+1 136.4488 449.2094</code></pre>
 <p>is in good agreement with the values obtained Example <a href="inference-single-sample.html#exm:eg-ci-variance">3.8</a>. Due to the computational nature, the bootstrapped interval estimate is not precisely the same as the theoretical interval estimate and moreover rerunning the code will yield a slightly different interval. <span class="math inline">\(\lozenge\)</span></p>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-vanBelle:2008rt" class="csl-entry">
+Belle, G. van (2008), <em>Statistical <span>R</span>ules of <span>T</span>humb</em>, Wiley series in probability and statistics, Hoboken, NJ: John Wiley &amp; Sons, Inc., p. xxii+272.
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="18">
 <li id="fn18"><p>Note <span class="math inline">\(\Phi(z) = P(Z \leq z)\)</span> is found by calling <code>pnorm(z)</code> in <code>r</code> or by looking up the value in a <span class="math inline">\(Z\)</span> table.<a href="inference-single-sample.html#fnref18" class="footnote-back">↩︎</a></p></li>
-<li id="fn19"><p>For <span class="math inline">\(m &gt; 20\)</span>, the interval estimate <span class="math display">\[\text{point estimate } \pm 2\sd\]</span> has <span class="math inline">\(95\%\)</span> coverage and is surprisingly robust, i.e. applies to a wide variety of population distributions including the normal. However, this rule of thumb won’t apply if you want to consider some different level, say <span class="math inline">\(80\%\)</span> <span class="citation">(Belle <a href="#ref-vanBelle:2008rt" role="doc-biblioref">2008</a>, sec. 1)</span>.<a href="inference-single-sample.html#fnref19" class="footnote-back">↩︎</a></p></li>
+<li id="fn19"><p>For <span class="math inline">\(m &gt; 20\)</span>, the interval estimate <span class="math display">\[\text{point estimate } \pm 2\sd\]</span> has <span class="math inline">\(95\%\)</span> coverage and is surprisingly robust, i.e. applies to a wide variety of population distributions including the normal. However, this rule of thumb won’t apply if you want to consider some different level, say <span class="math inline">\(80\%\)</span> <span class="citation">(<a href="#ref-vanBelle:2008rt" role="doc-biblioref">Belle 2008,sec. 1</a>)</span>.<a href="inference-single-sample.html#fnref19" class="footnote-back">↩︎</a></p></li>
 <li id="fn20"><p>Recall that we would consider <span class="math inline">\(m &gt; 40\)</span> to be large.<a href="inference-single-sample.html#fnref20" class="footnote-back">↩︎</a></p></li>
 <li id="fn21"><p>After looking at the normal quantile-quantile plot, I decided to test a hypothesis. For level <span class="math inline">\(0.01\)</span>, I ran a Kolmogorov–Smirnov test for the null hypothesis that the data is consistent with <span class="math inline">\(\mathsf{N}(\overline{x}, s^2)\)</span> vs the alternative that the data is not consistent with the specified reference distribution. The <span class="math inline">\(P\)</span>-value attained was <span class="math inline">\(P = 0.2532 &gt; 0.10\)</span>, and therefore I fail to reject the null hypothesis. The data is consistent with being drawn from a normal population.<a href="inference-single-sample.html#fnref21" class="footnote-back">↩︎</a></p></li>
 <li id="fn22"><p>How much wood is that? About a sixth of a cord. A full cord of chopped fire wood in the US is <span class="math inline">\(124\)</span> cu ft; about enough to keep you warm through a New England winter (according to my inlaws).<a href="inference-single-sample.html#fnref22" class="footnote-back">↩︎</a></p></li>
@@ -731,7 +776,6 @@ where for fixed <span class="math inline">\(m\)</span> the factor converges to <
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -750,6 +794,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {
@@ -770,6 +815,10 @@ gitbook.start({
 "text": null
 },
 "download": ["ma22004.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

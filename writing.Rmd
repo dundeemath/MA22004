@@ -1,0 +1,33 @@
+# Writing Lab Reports {-#writing}
+
+## Assessment Criteria {-#w-assess}
+
+There are seven interactive lab tutorials with accompanying exercises. Each lab tutorial specifies how marks are allocated across the exercises (a maximum of 20 marks available for each lab report). 
+
+:::{.importantblock data-latex=""}
+Marks are awarded for both **content** and **presentation**. 
+:::
+
+## Content {-#w-content}
+
+Please work through the interactive tutorial for each lab. Your lab report should provide answers to the exercises found at the end of each tutorial. 
+
+## Presentation {-#w-present}
+
+Please use R Markdown to create your lab report. Further instructions on using R Markdown for creating *reproducible* lab reports that combine data analysis and text can be found in Lab 1.
+
+### Plots {-#w-plots}
+Plots should be neat and legible, with appropriate aesthetic elements. Please use `ggplot` for creating plots and visualizations. Each plot should be annotated with titles, axis labels, and legends as appropriate.  Plot aesthetics should be clearly distinguished, e.g. using colors or line styles that are identified using a legend. Important data points and coordinates should be annotated using labels.
+
+### Mathematical formulas {-#w-math}
+Mathematical formulas should follow the same style rules as the lecture notes. Formulas can be included in R Markdown documents using \LaTeX{} syntax. There should be appropriate spacing around operators and equals signs, e.g. $a + b = c$. For punctuation, formulas are treated as part of the text, so they often need to end with a full stop or comma. Important formulas can appear "displayed" on their own line (with line spacing above and below them), e.g.
+\[A=πr^2\,.\]
+
+### Structure {-#w-structure}
+Structure should be logical and clear. Organize your writing with suitable headings and sub-headings. For example, provide a solution to each exercise under its own heading. 
+
+### Writing {-#w-eng}
+Writing should follow the usual rules of good written English, including writing full sentences and paragraphs that get to the point quickly. Your tone and language should be similar to lecture notes or scientific journal articles. Formal writing does not require unnecessary words, long words or monotonous use of passive voice. I will reward concise and clear communication, so please do not write “Upon carefully analyzing the aforementioned equations, the following mathematical solution was found,” when “The solution is” conveys the same thing. 
+
+### Formatting {-#w-format}
+Formatting should rely on the *MA22004 Lab Report* template. This is available in the  `MA22004labs` package and further instructions can be found in Lab 1. 

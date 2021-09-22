@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Basics of statistical inference | MA22004 – Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Basics of statistical inference | MA22004 – Statistics and Probability II" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="sampling-distributions.html"/>
 <link rel="next" href="inference-single-sample.html"/>
-<script src="libs/header-attrs-2.4/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,7 +50,8 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -58,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -118,6 +121,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
 </head>
 
@@ -149,7 +175,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment"><i class="fa fa-check"></i>Assessment</a>
 <ul>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-coursework"><i class="fa fa-check"></i>Coursework</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Examinations (Class Tests)</a></li>
+<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Class Tests</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-commitment"><i class="fa fa-check"></i>Your Commitment</a></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-calcs"><i class="fa fa-check"></i>Approved Calculators</a></li>
@@ -159,15 +185,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-questionaire"><i class="fa fa-check"></i>End of Module Questionaire</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="labs.html"><a href="labs.html"><i class="fa fa-check"></i>Lab Guide</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i>Writing Lab Reports</a>
+<ul>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-assess"><i class="fa fa-check"></i>Assessment Criteria</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-content"><i class="fa fa-check"></i>Content</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-present"><i class="fa fa-check"></i>Presentation</a>
+<ul>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-plots"><i class="fa fa-check"></i>Plots</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-math"><i class="fa fa-check"></i>Mathematical formulas</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-eng"><i class="fa fa-check"></i>Writing</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-format"><i class="fa fa-check"></i>Formatting</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="deadlines.html"><a href="deadlines.html"><i class="fa fa-check"></i>Deadlines</a></li>
 <li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html"><i class="fa fa-check"></i>Instructions</a>
 <ul>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#gradescope-class-test-submissions"><i class="fa fa-check"></i>Gradescope Class Test Submissions</a>
+<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#gradescope-submissions"><i class="fa fa-check"></i>Gradescope Submissions</a>
 <ul>
 <li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#equipment"><i class="fa fa-check"></i>Equipment you will need</a></li>
 <li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#workflow"><i class="fa fa-check"></i>Submission workflow</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#using-blackboard"><i class="fa fa-check"></i>Using Blackboard</a></li>
+<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#using-collaborate"><i class="fa fa-check"></i>Using Collaborate</a></li>
 </ul></li>
 <li class="part"><span><b>Course Notes</b></span></li>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html"><i class="fa fa-check"></i>Preliminaries</a>
@@ -295,7 +334,7 @@ or the sample variance,
 \end{equation}\]</span>
 is also a rv.</p>
 <p>Suppose we actually find and measure the petal length of <span class="math inline">\(50\)</span> independent <em>setosa</em> flowers resulting in observations <span class="math inline">\(x_1, x_2, \dots, x_{50}\)</span>; the distribution (counts) of <span class="math inline">\(50\)</span> such petal length measurements are displayed in Figure <a href="statistical-inference.html#fig:setosa-petal-lengths">2.1</a>. The sample mean <span class="math inline">\(\overline{x}\)</span> for petal length can then be used to draw a conclusion about the (true) value of the population mean <span class="math inline">\(\mu\)</span>. Based on the data in Figure <a href="statistical-inference.html#fig:setosa-petal-lengths">2.1</a> and using <a href="statistical-inference.html#eq:sample-mean">(2.1)</a>, the value of the sample mean is <span class="math inline">\(\overline{x} = 1.462\)</span>. The value <span class="math inline">\(\overline{x}\)</span> provides a “best guess” or point estimate for the true value of <span class="math inline">\(\mu\)</span> based on the <span class="math inline">\(m=50\)</span> samples.</p>
-<div class="figure" style="text-align: center"><span id="fig:setosa-petal-lengths"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:setosa-petal-lengths"></span>
 <img src="ma22004_files/figure-html/setosa-petal-lengths-1.svg" alt="The distribution (counts) of $m = 50$ *setosa* petal length measurments." width="768" />
 <p class="caption">
 Figure 2.1: The distribution (counts) of <span class="math inline">\(m = 50\)</span> <em>setosa</em> petal length measurments.
@@ -356,7 +395,7 @@ Consider the following three different estimators and the resulting point estima
 <li><p>Estimator (average of extreme heights) <span class="math inline">\(\widetilde{X} = [\min(X_i) + \max(X_i)]/2\)</span> and estimate <span class="math inline">\(\widetilde{x} = (63 + 87)/2 = 75\)</span>.</p></li>
 <li><p>Estimator (<span class="math inline">\(10\%\)</span> trimmed mean – i.e., in this instance exclude the smallest and largest three values) <span class="math inline">\(\overline{X}_{\text{tr}(10)}\)</span> and estimate <span class="math inline">\(\overline{x}_{\text{tr}(10)} = (2356 - 63 - 64 - 65 - 87 - 86 - 85) / 25 = 76.24\)</span>.</p></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:qq-plot-cherry"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:qq-plot-cherry"></span>
 <img src="ma22004_files/figure-html/qq-plot-cherry-1.svg" alt="Normal quantile-quantile plot for the **Cherry Tree Data**." width="768" />
 <p class="caption">
 Figure 2.2: Normal quantile-quantile plot for the <strong>Cherry Tree Data</strong>.
@@ -393,12 +432,12 @@ P_{\theta}(L_m &lt; \theta &lt; U_m ) = 1 - \alpha\,,
 \end{equation}\]</span>
 for all <span class="math inline">\(\theta \in \Theta\)</span>.
 </div>
-<p>My favorite interpretation of a confidence interval is due to <span class="citation">(Wasserman <a href="#ref-Wasserman:2013as" role="doc-biblioref">2004</a>, p 92)</span>:</p>
+<p>My favorite interpretation of a confidence interval is due to <span class="citation">(<a href="#ref-Wasserman:2013as" role="doc-biblioref">Wasserman 2004</a>, p 92)</span>:</p>
 <blockquote>
-<p><em>On day 1, you collect data and construct a 95 percent confidence interval for a parameter <span class="math inline">\(\theta_1\)</span>. On day 2, you collect new data and construct a 95 percent confidence interval for an unrelated parameter <span class="math inline">\(\theta_2\)</span>. On day 3, you collect new data and construct a 95 percent confidence interval for an unrelated parameter <span class="math inline">\(\theta_3\)</span>. You continue this way constructing confidence intervals for a sequence of unrelated parameters <span class="math inline">\(\theta_1\)</span>, <span class="math inline">\(\theta_2\)</span>, <span class="math inline">\(\dots\)</span> Then 95 percent of your intervals will trap the true parameter value. There is no need to introduce the idea of repeating the same experiment over and over.</em></p>
+<p><em>On day 1, you collect data and construct a 95 percent confidence interval for a parameter <span class="math inline">\(\theta_1.\)</span> On day 2, you collect new data and construct a 95 percent confidence interval for an unrelated parameter <span class="math inline">\(\theta_2.\)</span> On day 3, you collect new data and construct a 95 percent confidence interval for an unrelated parameter <span class="math inline">\(\theta_3.\)</span> You continue this way constructing confidence intervals for a sequence of unrelated parameters <span class="math inline">\(\theta_1\)</span>, <span class="math inline">\(\theta_2\)</span>, <span class="math inline">\(\dots\)</span> Then 95 percent of your intervals will trap the true parameter value. There is no need to introduce the idea of repeating the same experiment over and over.</em></p>
 </blockquote>
 <p>This interpretation makes clear that a confidence interval is not a probability statement about the parameter <span class="math inline">\(\theta\)</span>. In Definition <a href="statistical-inference.html#def:confidence-interval-gen">2.3</a>, note that <span class="math inline">\(\theta\)</span> is fixed (<span class="math inline">\(\theta\)</span> is not a rv) and the interval <span class="math inline">\(C_m\)</span> is random. After data has been collected and a point estimator has been calculated, the resulting CIs either contain the true parameter value or they do not, as illustrated in Figure <a href="statistical-inference.html#fig:fifty-cis">2.3</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:fifty-cis"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fifty-cis"></span>
 <img src="ma22004_files/figure-html/fifty-cis-1.svg" alt="Fifty $95\%$ CIs for a population mean $\mu$. After a sample is taken, the computed interval estimate either contains $\mu$ or it does not (asterisk identify intervals that do not include $\mu$). When drawing such a large number of $95\%$ CIs, we would anticipate that approximately $5\%$ (ca. 2 or 3) would fail to cover the true parameter $\mu$." width="288" />
 <p class="caption">
 Figure 2.3: Fifty <span class="math inline">\(95\%\)</span> CIs for a population mean <span class="math inline">\(\mu\)</span>. After a sample is taken, the computed interval estimate either contains <span class="math inline">\(\mu\)</span> or it does not (asterisk identify intervals that do not include <span class="math inline">\(\mu\)</span>). When drawing such a large number of <span class="math inline">\(95\%\)</span> CIs, we would anticipate that approximately <span class="math inline">\(5\%\)</span> (ca. 2 or 3) would fail to cover the true parameter <span class="math inline">\(\mu\)</span>.
@@ -560,9 +599,9 @@ For <span class="math inline">\(X \sim \mathsf{Binom}(15, 0.25)\)</span>, we cal
 </div>
 </div>
 <h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-Wasserman:2013as">
-<p>Wasserman, Larry. 2004. <em>All of Statistics</em>. Springer-Verlag, New York. <a href="https://doi.org/10.1007/978-0-387-21736-9">https://doi.org/10.1007/978-0-387-21736-9</a>.</p>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Wasserman:2013as" class="csl-entry">
+Wasserman, L. (2004), <em>All of <span>S</span>tatistics</em>, New York: Springer-Verlag.
 </div>
 </div>
 <div class="footnotes">
@@ -586,7 +625,6 @@ For <span class="math inline">\(X \sim \mathsf{Binom}(15, 0.25)\)</span>, we cal
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -605,6 +643,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {
@@ -625,6 +664,10 @@ gitbook.start({
 "text": null
 },
 "download": ["ma22004.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

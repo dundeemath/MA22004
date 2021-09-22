@@ -145,7 +145,7 @@ df2$Measurement <- factor(df2$Measurement, levels = c("Girth", "Height"), labels
 ggplot(df2 , aes(x = Value, y = Volume)) + geom_smooth(method = "lm") + geom_point(alpha = 0.8) + facet_grid(. ~ Measurement, scales = 'free') + ylab("Volume [cu ft]") + theme(axis.title.x = element_blank())
 ```   
 
-:::{.noteblock}
+:::{.noteblock data-latex=""}
 In Theorem \@ref(thm:least-squares-var-estimate), the number in the denominator is the df associated with the $\mathsf{RSS}$ and $s^2$. To calculate $\mathsf{RSS}$ you must estimate two parameters $\beta_0$ and $\beta_1$ which results in the loss of two df. Hence the $m-2$.   
 :::   
 
@@ -254,7 +254,7 @@ A $100(1-\alpha)\%$ **prediction interval** for an actual value of $Y$ when $x =
 \end{equation*}
 ```
 
-:::{.warningblock}
+:::{.warningblock data-latex=""}
 The prediction interval is not the same as the confidence interval for expected $Y$. Note that the length of the *confidence interval* for $\E[Y]$ when $x=x^*$ is given by 
 \begin{equation*}
  2 \cdot t_{\alpha/2} S  \sqrt{\frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}}

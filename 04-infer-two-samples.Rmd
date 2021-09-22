@@ -177,7 +177,7 @@ Similarly, one can consider a pooled $\mathsf{t}$ test, i.e., a hypothesis test 
 \end{equation*}
 with the pooled estimator of the variance, replaces \@ref(eq:htest-compare-means-normpops-vars-unknown-statistic) in Proposition \@ref(prp:htest-compare-means-normpops-vars-unknown) and the same procedures are followed for determining the $P$-value with $\nu = m+n-2$ in place of \@ref(eq:dist-t-compare-means-normpops-nu). If you have reasons to believe that $\sigma_X^2 = \sigma_Y^2$, these pooled $\mathsf{t}$ procedures are appealing because $\nu$ is very easy to compute. 
 
-:::{.warningblock}
+:::{.warningblock data-latex=""}
 Pooled $t$ procedures are not robust if the assumption of equalized variance is violated. Theoretically, you could first carry out a statistical test $H_0 : \sigma_X^2 = \sigma_Y^2$ on the equality of variances and then use a pooled $\mathsf{t}$ procedure if the null hypothesis is not rejected. However, there is no free lunch: the typical $\mathsf{F}$ test for equal variances (see Section \@ref(compare-variances)) is sensitive to normality assumptions. The two sample $\mathsf{t}$ procedures, with the data-driven choice of $\nu$ in \@ref(eq:dist-t-compare-means-normpops-nu), are therefore recommended unless, of course, you have a very compelling reason to believe $\sigma_X^2 = \sigma_Y^2$. 
 :::   
 

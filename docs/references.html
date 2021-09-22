@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>References | MA22004 – Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="References | MA22004 – Statistics and Probability II" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="curated-content.html"/>
 
-<script src="libs/header-attrs-2.4/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,7 +50,8 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -58,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -118,6 +121,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
 </head>
 
@@ -149,7 +175,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment"><i class="fa fa-check"></i>Assessment</a>
 <ul>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-coursework"><i class="fa fa-check"></i>Coursework</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Examinations (Class Tests)</a></li>
+<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Class Tests</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-commitment"><i class="fa fa-check"></i>Your Commitment</a></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-calcs"><i class="fa fa-check"></i>Approved Calculators</a></li>
@@ -159,15 +185,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-questionaire"><i class="fa fa-check"></i>End of Module Questionaire</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="labs.html"><a href="labs.html"><i class="fa fa-check"></i>Lab Guide</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i>Writing Lab Reports</a>
+<ul>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-assess"><i class="fa fa-check"></i>Assessment Criteria</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-content"><i class="fa fa-check"></i>Content</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-present"><i class="fa fa-check"></i>Presentation</a>
+<ul>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-plots"><i class="fa fa-check"></i>Plots</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-math"><i class="fa fa-check"></i>Mathematical formulas</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-eng"><i class="fa fa-check"></i>Writing</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-format"><i class="fa fa-check"></i>Formatting</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="deadlines.html"><a href="deadlines.html"><i class="fa fa-check"></i>Deadlines</a></li>
 <li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html"><i class="fa fa-check"></i>Instructions</a>
 <ul>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#gradescope-class-test-submissions"><i class="fa fa-check"></i>Gradescope Class Test Submissions</a>
+<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#gradescope-submissions"><i class="fa fa-check"></i>Gradescope Submissions</a>
 <ul>
 <li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#equipment"><i class="fa fa-check"></i>Equipment you will need</a></li>
 <li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#workflow"><i class="fa fa-check"></i>Submission workflow</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#using-blackboard"><i class="fa fa-check"></i>Using Blackboard</a></li>
+<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#using-collaborate"><i class="fa fa-check"></i>Using Collaborate</a></li>
 </ul></li>
 <li class="part"><span><b>Course Notes</b></span></li>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html"><i class="fa fa-check"></i>Preliminaries</a>
@@ -283,21 +322,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
 
-<div id="refs" class="references hanging-indent">
-<div>
-<p>Belle, Gerald van. 2008. <em>Statistical Rules of Thumb</em>. Second. Wiley Series in Probability and Statistics. John Wiley &amp; Sons, Inc., Hoboken, NJ. <a href="https://doi.org/10.1002/9780470377963">https://doi.org/10.1002/9780470377963</a>.</p>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Belle, G. van (2008), <em>Statistical <span>R</span>ules of <span>T</span>humb</em>, Wiley series in probability and statistics, Hoboken, NJ: John Wiley &amp; Sons, Inc., p. xxii+272.
 </div>
-<div>
-<p>DeGroot, M, and M Schervish. 2001. <em>Probability and Statistics</em>. 3rd ed. Addison-Wesley.</p>
+<div class="csl-entry">
+Dalgaard, P. (2008), <em>Introductory <span>S</span>tatistics with <span>R</span></em>, New York: Springer.
 </div>
-<div>
-<p>Devore, Jay L. 2016. <em>Probability and Statistics for Engineering and the Sciences</em>. 9th ed. Cengage Learning.</p>
+<div class="csl-entry">
+DeGroot, M., and Schervish, M. (2001), <em>Probability and <span>S</span>tatistics</em>, New York: Addison-Wesley.
 </div>
-<div>
-<p>Rice, John A. 2006. <em>Mathematical Statistics and Data Analysis</em>. Cengage Learning.</p>
+<div class="csl-entry">
+Devore, J. L. (2016), <em>Probability and <span>S</span>tatistics for <span>E</span>ngineering and the <span>S</span>ciences</em>, Boston, MA: Cengage Learning.
 </div>
-<div>
-<p>Wasserman, Larry. 2004. <em>All of Statistics</em>. Springer-Verlag, New York. <a href="https://doi.org/10.1007/978-0-387-21736-9">https://doi.org/10.1007/978-0-387-21736-9</a>.</p>
+<div class="csl-entry">
+Rice, J. A. (2006), <em>Mathematical <span>S</span>tatistics and <span>D</span>ata <span>A</span>nalysis</em>, Belmont, CA: Cengage Learning.
+</div>
+<div class="csl-entry">
+Wasserman, L. (2004), <em>All of <span>S</span>tatistics</em>, New York: Springer-Verlag.
 </div>
 </div>
 </div>
@@ -352,7 +394,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -371,6 +412,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {
@@ -391,6 +433,10 @@ gitbook.start({
 "text": null
 },
 "download": ["ma22004.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

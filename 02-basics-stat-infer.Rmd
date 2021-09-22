@@ -21,7 +21,7 @@ df <-  select(iris, Petal.Length, Species) %>% filter(Species == "setosa")
 ggplot(data = df, aes(x = Petal.Length, fill = Species)) + geom_histogram(binwidth = 0.1) + geom_vline(aes(xintercept = 1.462, linetype = "mean"))  + geom_vline(aes(xintercept = 1.114672, linetype = "mean - 2sd")) + scale_linetype_manual(values = c(1, 10), name = "Sample stats") + xlab("Petal Length [cm]") + ylab("Count") + theme_ur
 ```
 
-::: {.tipblock}
+::: {.tipblock data-latex=""}
 The botonist Edgar Anderson's **Iris Data** contains 50 obs. of four features (sepal length [cm], sepal width [cm], petal length [cm], and petal width [cm]) for each of three plant species (*setosa*, *virginica*, *versicolor*) for 150 obs. total. This data set can be accessed in `r` by loading `library(datasets)` and then calling `data(iris)`. 
 :::   
 
@@ -33,7 +33,7 @@ A **point estimate** of a parameter $\theta$ (recall: a fixed, unknown quantity)
 A point estimate $\widehat{\theta}_m$ can then be computed from the estimator using sample data.
 ```
 
-:::{.warningblock}
+:::{.warningblock data-latex=""}
 The symbol $\widehat{\theta}_m$ (or simply $\widehat{\theta}$ when the sample size $m$ is clear from context) is typically used to denote both the estimator and the point estimate resulting from a given sample. Note that writing, e.g., $\widehat{\theta} = 42$ does not indicate how the point estimate was obtained. Therefore, it is essential to report both the estimator and the resulting point estimate. 
 :::   
 
@@ -57,7 +57,7 @@ kbl(dattab, col.names = c("Height [in]"), caption = "Observations of $m = 31$ fe
   column_spec(1, width = "150mm")
 ```    
 
-:::{.tipblock}
+:::{.tipblock data-latex=""}
 The **Cherry Tree Data** contains 31 obs. of three features (diameter, height, and volume) and can be accessed in `r` by loading `library(datasets)` and then calling `data(trees)`.
 :::   
 
@@ -117,7 +117,7 @@ for all $\theta \in \Theta$.
 
 My favorite interpretation of a confidence interval is due to [@Wasserman:2013as, p 92]:  
 
-> *On day 1, you collect data and construct a 95 percent confidence interval for a parameter $\theta_1$. On day 2, you collect new data and construct a 95 percent confidence interval for an unrelated parameter $\theta_2$. On day 3, you collect new data and construct a 95 percent confidence interval for an unrelated parameter $\theta_3$. You continue this way constructing confidence intervals for a sequence of unrelated parameters $\theta_1$, $\theta_2$, $\dots$ Then 95 percent of your intervals will trap the true parameter value. There is no need to introduce the idea of repeating the same experiment over and over.*
+> *On day 1, you collect data and construct a 95 percent confidence interval for a parameter $\theta_1.$ On day 2, you collect new data and construct a 95 percent confidence interval for an unrelated parameter $\theta_2.$ On day 3, you collect new data and construct a 95 percent confidence interval for an unrelated parameter $\theta_3.$ You continue this way constructing confidence intervals for a sequence of unrelated parameters $\theta_1$, $\theta_2$, $\dots$ Then 95 percent of your intervals will trap the true parameter value. There is no need to introduce the idea of repeating the same experiment over and over.*
 
 This interpretation makes clear that a confidence interval is not a probability statement about the parameter $\theta$. In Definition \@ref(def:confidence-interval-gen), note that $\theta$ is fixed ($\theta$ is not a rv) and the interval $C_m$ is random. After data has been collected and a point estimator has been calculated, the resulting CIs either contain the true parameter value or they do not, as illustrated in Figure \@ref(fig:fifty-cis). 
 
@@ -169,7 +169,7 @@ A **$P$-value** is the probability, calculated assuming $H_0$ is true, of obtain
 
 Smaller $P$-values indicate stronger evidence against $H_0$ in favor of $H_a$. If $P \leq \alpha$ then we reject $H_0$ at significance level $\alpha$. If $P \geq \alpha$ we fail to reject $H_0$ at significance level $\alpha$.   
 
-:::{.warningblock}
+:::{.warningblock data-latex=""}
 The $P$-value is a probability calculated assuming that $H_0$ is true. However, the $P$-value is **not** the probability that:
 
 1. $H_0$ is TRUE, 
@@ -232,7 +232,7 @@ For $X \sim \mathsf{Binom}(15, 0.25)$, we calculate $\beta = `r signif(pbinom(2,
 
 If we repeat these calculations for $R^* = \{x \leq 5\}$, we find $\alpha = `r signif(pbinom(5, 15, 0.5), digits = 3)`$ versus $\beta = `r signif(pbinom(5, 15, 0.25, lower.tail = FALSE), digits = 3)`$, even if $p$ is as low as $0.25$, which is a much better balance between type I and type II errors. $\lozenge$   
 
-:::{.noteblock}
+:::{.noteblock data-latex=""}
 To summarize, the elements of a statistical test are:  
 
 1. Null hypothesis ($H_0$)

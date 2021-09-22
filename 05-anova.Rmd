@@ -73,7 +73,7 @@ dattab <- df %>%
 kbl(dattab, col.names = c('Nation', "Average salaries ('000 £)", 'Size $(m_i)$', 'Sample Mean $(\\overline{x}_i)$', 'Sample SD $(s_i)$'), align = c("l", "l", "c", "c", "c"), caption = "**Average Salary Data** reported from $20$ local councils.", booktabs = T, escape = F) %>% kable_styling(latex_options = c("striped", "hold_position"))
 ```   
 
-:::{.tipblock}
+:::{.tipblock data-latex=""}
 Table \@ref(tab:anova-samples-stats) presents the **Average Salary Data** (in thousands of pounds) reported from 20 local councils classified by nation (England, N Ireland, Scotland, and Wales). The sample means together with the sample standard deviations are summarized in the table as well as presented using using box plots in Figure \@ref(fig:anova-samples-boxplots).  
 :::   
 
@@ -164,6 +164,6 @@ Then for the function $\overline{x}_2 - \overline{x_1}$,
 \end{equation*}
 Thus a $90\%$ confidence interval for $\mu_{Eng} - \mu_{Sco}$ is $(`r signif(1.5 - qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5), digits = 4)`\,, `r signif(1.5 + qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5), digits = 4)`)$. $\lozenge$   
 
-:::{.warningblock}
+:::{.warningblock data-latex=""}
 How does the result in Example \@ref(exm:anova-ci) compare to the $\mathsf{t}$ method in Section \@ref(compare-means-normpops-vars-unknown)?
 :::

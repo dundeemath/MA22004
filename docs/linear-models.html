@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6 Linear regression | MA22004 – Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 Linear regression | MA22004 – Statistics and Probability II" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="anova.html"/>
 <link rel="next" href="categorical-data.html"/>
-<script src="libs/header-attrs-2.4/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,7 +50,8 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -58,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -118,6 +121,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
 </head>
 
@@ -149,7 +175,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment"><i class="fa fa-check"></i>Assessment</a>
 <ul>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-coursework"><i class="fa fa-check"></i>Coursework</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Examinations (Class Tests)</a></li>
+<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Class Tests</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-commitment"><i class="fa fa-check"></i>Your Commitment</a></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-calcs"><i class="fa fa-check"></i>Approved Calculators</a></li>
@@ -159,15 +185,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-questionaire"><i class="fa fa-check"></i>End of Module Questionaire</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="labs.html"><a href="labs.html"><i class="fa fa-check"></i>Lab Guide</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i>Writing Lab Reports</a>
+<ul>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-assess"><i class="fa fa-check"></i>Assessment Criteria</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-content"><i class="fa fa-check"></i>Content</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-present"><i class="fa fa-check"></i>Presentation</a>
+<ul>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-plots"><i class="fa fa-check"></i>Plots</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-math"><i class="fa fa-check"></i>Mathematical formulas</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-eng"><i class="fa fa-check"></i>Writing</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-format"><i class="fa fa-check"></i>Formatting</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="deadlines.html"><a href="deadlines.html"><i class="fa fa-check"></i>Deadlines</a></li>
 <li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html"><i class="fa fa-check"></i>Instructions</a>
 <ul>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#gradescope-class-test-submissions"><i class="fa fa-check"></i>Gradescope Class Test Submissions</a>
+<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#gradescope-submissions"><i class="fa fa-check"></i>Gradescope Submissions</a>
 <ul>
 <li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#equipment"><i class="fa fa-check"></i>Equipment you will need</a></li>
 <li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#workflow"><i class="fa fa-check"></i>Submission workflow</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#using-blackboard"><i class="fa fa-check"></i>Using Blackboard</a></li>
+<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#using-collaborate"><i class="fa fa-check"></i>Using Collaborate</a></li>
 </ul></li>
 <li class="part"><span><b>Course Notes</b></span></li>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html"><i class="fa fa-check"></i>Preliminaries</a>
@@ -351,24 +390,24 @@ and
 <span id="exm:linear-model-fit-residuals" class="example"><strong>Example 6.1  </strong></span>In Figures <a href="linear-models.html#fig:linear-model-fit">6.1</a> and <a href="linear-models.html#fig:linear-model-residuals">6.2</a>, we consider the <strong>Cherry Tree Data</strong> (see Table <a href="statistical-inference.html#tab:cherry-data">2.1</a> and discussion). We fit a least squares regression of the volume of timber (response variable) to the diameter of the tree (independent variable). As you would expect, the timber yield increases with diameter.
 </div>
 <p>The <code>r</code> code below can be used to calculate the least squares regression and residuals.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="linear-models.html#cb13-1" aria-hidden="true"></a><span class="kw">data</span>(trees)</span>
-<span id="cb13-2"><a href="linear-models.html#cb13-2" aria-hidden="true"></a>y &lt;-<span class="st"> </span>trees<span class="op">$</span>Volume</span>
-<span id="cb13-3"><a href="linear-models.html#cb13-3" aria-hidden="true"></a>x &lt;-<span class="st"> </span>trees<span class="op">$</span>Girth <span class="co"># NB: this is diameter; data mislabeled!</span></span>
-<span id="cb13-4"><a href="linear-models.html#cb13-4" aria-hidden="true"></a>fit &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x)</span>
-<span id="cb13-5"><a href="linear-models.html#cb13-5" aria-hidden="true"></a>e &lt;-<span class="st"> </span><span class="kw">resid</span>(fit)</span>
-<span id="cb13-6"><a href="linear-models.html#cb13-6" aria-hidden="true"></a>yhat &lt;-<span class="st"> </span><span class="kw">predict</span>(fit)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="linear-models.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(trees)</span>
+<span id="cb13-2"><a href="linear-models.html#cb13-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> trees<span class="sc">$</span>Volume</span>
+<span id="cb13-3"><a href="linear-models.html#cb13-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> trees<span class="sc">$</span>Girth <span class="co"># NB: this is diameter; data mislabeled!</span></span>
+<span id="cb13-4"><a href="linear-models.html#cb13-4" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span>
+<span id="cb13-5"><a href="linear-models.html#cb13-5" aria-hidden="true" tabindex="-1"></a>e <span class="ot">&lt;-</span> <span class="fu">resid</span>(fit)</span>
+<span id="cb13-6"><a href="linear-models.html#cb13-6" aria-hidden="true" tabindex="-1"></a>yhat <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit)</span></code></pre></div>
 <p>The <code>fit</code> data frame contains the estimates for <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span>:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="linear-models.html#cb14-1" aria-hidden="true"></a>fit<span class="op">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="linear-models.html#cb14-1" aria-hidden="true" tabindex="-1"></a>fit<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>(Intercept)           x 
  -36.943459    5.065856 </code></pre>
 <p>Both Figures <a href="linear-models.html#fig:linear-model-fit">6.1</a> and <a href="linear-models.html#fig:linear-model-residuals">6.2</a> are scatter plots of the observed values <span class="math inline">\(y\)</span>. In Figure <a href="linear-models.html#fig:linear-model-fit">6.1</a>, the regression line <span class="math inline">\(\widehat{y}\)</span> is plotted along with the residuals <span class="math inline">\(\widehat{\epsilon}\)</span>. In Figure <a href="linear-models.html#fig:linear-model-residuals">6.2</a>, the sample mean <span class="math inline">\(\overline{y}\)</span> is plotted together with the deviations <span class="math inline">\(y - \overline{y}\)</span>. <span class="math inline">\(\lozenge\)</span></p>
-<div class="figure" style="text-align: center"><span id="fig:linear-model-fit"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:linear-model-fit"></span>
 <img src="ma22004_files/figure-html/linear-model-fit-1.svg" alt="Linear regression (or least squares fit) of Volume to Diameter from the **Cherry Tree Data**. The vertical bars between the observed data point and the regression line indicate the error in the fit (the least squares residual). The residuals are squared and summed to yield the $\mathsf{RSS}$ (alt: $\mathsf{SSE}$)." width="768" />
 <p class="caption">
 Figure 6.1: Linear regression (or least squares fit) of Volume to Diameter from the <strong>Cherry Tree Data</strong>. The vertical bars between the observed data point and the regression line indicate the error in the fit (the least squares residual). The residuals are squared and summed to yield the <span class="math inline">\(\mathsf{RSS}\)</span> (alt: <span class="math inline">\(\mathsf{SSE}\)</span>).
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:linear-model-residuals"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:linear-model-residuals"></span>
 <img src="ma22004_files/figure-html/linear-model-residuals-1.svg" alt="The deviations about the sample mean $\overline{y}$. The sum of the squared deviations or $\mathsf{SST}$ (total sum of squares) is a measure of the total variation in the observations." width="768" />
 <p class="caption">
 Figure 6.2: The deviations about the sample mean <span class="math inline">\(\overline{y}\)</span>. The sum of the squared deviations or <span class="math inline">\(\mathsf{SST}\)</span> (total sum of squares) is a measure of the total variation in the observations.
@@ -387,7 +426,7 @@ Figure 6.2: The deviations about the sample mean <span class="math inline">\(\ov
 \end{equation}\]</span>
 </div>
 <p>In Figure <a href="linear-models.html#fig:linear-model-sigma-large-v-small">6.3</a>, we present a least squares regression of timber volume on both tree diameter and height (for the <strong>Cherry Tree Data</strong>). As expected, the regressions indicate the volume increases with both covariates. Estimates for the variance of the random deviation <a href="linear-models.html#eq:least-squares-var-estimate">(6.7)</a> in both regression models, <span class="math inline">\(\sigma_{D}^2\)</span> and <span class="math inline">\(\sigma_{H}^2\)</span>, respectively, are computed to be <span class="math inline">\(s^2_{D} = 18.08\)</span> and <span class="math inline">\(s^2_{H} = 179.48\)</span>. Thus, we see that small variances lead to observations of <span class="math inline">\((x_i, y_i)\)</span> that sit tightly around the regression line, in contrast to large variances that lead to a large cloud of points.</p>
-<div class="figure" style="text-align: center"><span id="fig:linear-model-sigma-large-v-small"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:linear-model-sigma-large-v-small"></span>
 <img src="ma22004_files/figure-html/linear-model-sigma-large-v-small-1.svg" alt="For the **Cherry Tree Data**, we estimate the variance to be $s^2_{D} = 18.08$ (for Diameter) and $s^2_{H} = 179.48$ (for Height); small variances lead to observations of $(x_i, y_i)$ that sit tightly around the regression line, in contrast to large variances that lead to a large cloud of points." width="768" />
 <p class="caption">
 Figure 6.3: For the <strong>Cherry Tree Data</strong>, we estimate the variance to be <span class="math inline">\(s^2_{D} = 18.08\)</span> (for Diameter) and <span class="math inline">\(s^2_{H} = 179.48\)</span> (for Height); small variances lead to observations of <span class="math inline">\((x_i, y_i)\)</span> that sit tightly around the regression line, in contrast to large variances that lead to a large cloud of points.
@@ -451,7 +490,7 @@ which can be rewritten in terms of <span class="math inline">\(S_{xx}\)</span>, 
  r = \frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}} = \widehat{\beta}_1 \sqrt{\frac{S_{xx}}{S_{yy}}}\,,
 \end{equation*}\]</span>
 using <a href="linear-models.html#eq:ls-slope">(6.5)</a> and we see that <span class="math inline">\(r\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> have the same sign. A <span class="math inline">\(|r|\)</span> close to <span class="math inline">\(1\)</span> means that the regression line is a good fit to the data and, similarly, an <span class="math inline">\(|r|\)</span> close to <span class="math inline">\(0\)</span> means a poor fit to the data. Note that the correlation coefficient (and the least squares regression) are only suitable for describing <em>linear</em> relationships; a nonlinear relationship can also yield <span class="math inline">\(r\)</span> near zero (see Figure <a href="linear-models.html#fig:linear-model-correlation">6.4</a>).</p>
-<div class="figure" style="text-align: center"><span id="fig:linear-model-correlation"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:linear-model-correlation"></span>
 <img src="ma22004_files/figure-html/linear-model-correlation-1.svg" alt="Correlations range from $-1$ to $1$ with $|r|=1$ indicating a strong linear relationship and $r$ near zero indicating the absence of a linear relationship." width="768" />
 <p class="caption">
 Figure 6.4: Correlations range from <span class="math inline">\(-1\)</span> to <span class="math inline">\(1\)</span> with <span class="math inline">\(|r|=1\)</span> indicating a strong linear relationship and <span class="math inline">\(r\)</span> near zero indicating the absence of a linear relationship.
@@ -505,7 +544,6 @@ and thus, for the simple hypothesis tests we have considered (Table <a href="sta
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -524,6 +562,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {
@@ -544,6 +583,10 @@ gitbook.start({
 "text": null
 },
 "download": ["ma22004.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

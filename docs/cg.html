@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Course Guide | MA22004 – Statistics and Probability II</title>
   <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Course Guide | MA22004 – Statistics and Probability II" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="labs.html"/>
-<script src="libs/header-attrs-2.4/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,7 +50,8 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -58,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -118,6 +121,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
 </head>
 
@@ -149,7 +175,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment"><i class="fa fa-check"></i>Assessment</a>
 <ul>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-coursework"><i class="fa fa-check"></i>Coursework</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Examinations (Class Tests)</a></li>
+<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Class Tests</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-commitment"><i class="fa fa-check"></i>Your Commitment</a></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-calcs"><i class="fa fa-check"></i>Approved Calculators</a></li>
@@ -159,15 +185,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-questionaire"><i class="fa fa-check"></i>End of Module Questionaire</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="labs.html"><a href="labs.html"><i class="fa fa-check"></i>Lab Guide</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i>Writing Lab Reports</a>
+<ul>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-assess"><i class="fa fa-check"></i>Assessment Criteria</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-content"><i class="fa fa-check"></i>Content</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-present"><i class="fa fa-check"></i>Presentation</a>
+<ul>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-plots"><i class="fa fa-check"></i>Plots</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-math"><i class="fa fa-check"></i>Mathematical formulas</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-eng"><i class="fa fa-check"></i>Writing</a></li>
+<li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-format"><i class="fa fa-check"></i>Formatting</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="deadlines.html"><a href="deadlines.html"><i class="fa fa-check"></i>Deadlines</a></li>
 <li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html"><i class="fa fa-check"></i>Instructions</a>
 <ul>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#gradescope-class-test-submissions"><i class="fa fa-check"></i>Gradescope Class Test Submissions</a>
+<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#gradescope-submissions"><i class="fa fa-check"></i>Gradescope Submissions</a>
 <ul>
 <li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#equipment"><i class="fa fa-check"></i>Equipment you will need</a></li>
 <li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#workflow"><i class="fa fa-check"></i>Submission workflow</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#using-blackboard"><i class="fa fa-check"></i>Using Blackboard</a></li>
+<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#using-collaborate"><i class="fa fa-check"></i>Using Collaborate</a></li>
 </ul></li>
 <li class="part"><span><b>Course Notes</b></span></li>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html"><i class="fa fa-check"></i>Preliminaries</a>
@@ -284,24 +323,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>Course Guide</h1>
 <div id="cg-organization" class="section level2 unnumbered">
 <h2>Organisation</h2>
-<p>This module runs for 11 teaching weeks and is worth 20 SCQF credits (equivalently, 10 ECTS points). All organisation and teaching will be carried out by:</p>
+<p>All organisation and teaching will be carried out by:</p>
 <div class="noteblock">
 <p>Dr Eric Hall</p>
 <p><a href="mailto:ehall001@dundee.ac.uk">ehall001@dundee.ac.uk</a></p>
 <p>Mathematics Division</p>
-<p>Room TBA,
-Fulton Building</p>
-<p>01382 TBA</p>
+<p>Fulton G10</p>
+<p>+44 (0)1382 384488</p>
 </div>
-<p>This course uses Blackboard Ultra<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> for communicating all announcements/deadlines and also for running online meetings (we will use Blackboard Collaborate for online seminars and workshops). This course also uses Gradescope<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> for submission of some of the continuous assessment items and Perusall<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> for collaborative engagement with reading materials.</p>
-<p>If you have a problem regarding the course, then you should make an appointment to speak with Dr Hall. You may also bring matters of concern about the course to the attention of the Mathematics Division Staff/Student Committee, which meets once each semester. A volunteer from Level 2 Mathematics will act as class representative to sit on the Staff/Student Committee (see Ultra for contact details).</p>
+<p>The module will be supported by two tutors: Ms Lucy Brown and Mr Miloš Mičík. Lucy will assist with online workshops. Miloš will assist with the labs by answering questions about <code>R</code> and RStudio.</p>
+<p>This course uses MyDundee (a.k.a Blackboard Ultra)<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> for communicating all announcements/deadlines and also for running online meetings (we will use the Collaborate course room for online seminars and workshops). This course will use Gradescope<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> for submission of continuous assessments and Perusall<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> for collaborative engagement with reading materials. An <strong>MS Teams channel will be available for contacting the module tutors</strong> and for asynchronous communication.</p>
+<p>If you have a problem regarding the course, then you should make an appointment to speak with Dr Hall. You may also bring matters of concern about the course to the attention of the Mathematics Division Student-Staff Liaison Committee (SSLC). A volunteer from Level 2 Mathematics will act as class representative to sit on the SSLC (see Ultra for contact details).</p>
 </div>
 <div id="cg-timetable" class="section level2 unnumbered">
 <h2>Timetable</h2>
 <div class="importantblock">
 <p>Due to COVID19, these plans may be subject to change.</p>
 </div>
-<p>The delivery of this module consists of a blend of synchronous and asynchronous content delivered both in-person and online. On an average week, there will be six planned teaching and learning activities.</p>
+<p>This module runs for 11 teaching weeks and is worth 20 SCQF credits (equivalently, 10 ECTS points). The delivery of this module consists of a blend of synchronous and asynchronous content delivered both in-person and online. On an average week, there will be six planned teaching and learning activities.</p>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -427,7 +466,7 @@ face-to-face
 </tr>
 </tbody>
 </table>
-<p>The anticipated student effort is 200 hours over the length of the module. You are expected to be “present” for all synchronous timetabled activities. You may engage with the asynchronous material at your own pace, keeping in mind to meet any deadlines for engagement and/or attainment that will be posted to Ultra and discussed.</p>
+<p>The anticipated student effort is 200 hours over the length of the module. You are expected to be “present” for all synchronous timetabled activities and to check-in using the University’s attendance monitoring application. You may engage with the asynchronous material at your own pace, but please meet any deadlines for engagement and/or attainment that will be posted to Ultra and discussed.</p>
 </div>
 <div id="cg-prerecs" class="section level2 unnumbered">
 <h2>Pre-requisites</h2>
@@ -457,18 +496,19 @@ face-to-face
 <h2>Recommended Books</h2>
 <p>In addition to the course notes, here are some textbooks you may wish to consult.</p>
 <ul>
-<li><em>Probability and Statistics for Engineering and the Sciences,</em> <span class="citation">(Devore <a href="#ref-Devore:2016st" role="doc-biblioref">2016</a>, secs. 6–10, 12, 14, 16)</span></li>
-<li><em>Probability and Statistics,</em> <span class="citation">(DeGroot and Schervish <a href="#ref-DeGrootSchervish:2001ps" role="doc-biblioref">2001</a>, secs. 7–10)</span></li>
-<li><em>Mathematical statistics and data analysis,</em> <span class="citation">(Rice <a href="#ref-Rice:2006da" role="doc-biblioref">2006</a>, secs. 6–12)</span></li>
-<li><em>All of Statistics,</em> <span class="citation">(Wasserman <a href="#ref-Wasserman:2013as" role="doc-biblioref">2004</a>, Concise general reference)</span></li>
+<li><em>Probability and Statistics for Engineering and the Sciences,</em> <span class="citation">(<a href="#ref-Devore:2016st" role="doc-biblioref">Devore 2016,secs. 6–10, 12, 14, 16</a>)</span></li>
+<li><em>Probability and Statistics,</em> <span class="citation">(<a href="#ref-DeGrootSchervish:2001ps" role="doc-biblioref">DeGroot and Schervish 2001,secs. 7–10</a>)</span></li>
+<li><em>Introductory Statistics with R,</em> <span class="citation">(<a href="#ref-Dalgaard:2008st" role="doc-biblioref">Dalgaard 2008,secs. 6–7</a>)</span></li>
+<li><em>Mathematical statistics and data analysis,</em> <span class="citation">(<a href="#ref-Rice:2006da" role="doc-biblioref">Rice 2006,secs. 6–12</a>)</span></li>
+<li><em>All of Statistics,</em> <span class="citation">(<a href="#ref-Wasserman:2013as" role="doc-biblioref">Wasserman 2004</a>)</span> a concise general reference</li>
 </ul>
 <div class="warningblock">
-<p>You do not need to purchase these books.</p>
+<p>You do not need to purchase these books. Check the <em>Library Resource List</em> available on MyDundee.</p>
 </div>
 </div>
 <div id="cg-assessment" class="section level2 unnumbered">
 <h2>Assessment</h2>
-<p>The module will be <em>continuously</em> assessed using coursework and examinations. Deadlines, as well as test dates, will be posted on Ultra and announcements made in the class hours. The module assessment weighting is as follows.</p>
+<p>The module will be <em>continuously</em> assessed using coursework and class tests. Deadlines, as well as test dates, will be posted on Ultra and announcements made in the class hours. The module assessment weighting is as follows.</p>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -491,7 +531,7 @@ Assignments
 </tr>
 <tr>
 <td style="text-align:left;">
-Midterm Exam 1
+Class Test 1
 </td>
 <td style="text-align:right;">
 20%
@@ -499,7 +539,7 @@ Midterm Exam 1
 </tr>
 <tr>
 <td style="text-align:left;">
-Midterm Exam 2
+Class Test 2
 </td>
 <td style="text-align:right;">
 20%
@@ -507,7 +547,7 @@ Midterm Exam 2
 </tr>
 <tr>
 <td style="text-align:left;">
-Final Exam
+Class Test 3
 </td>
 <td style="text-align:right;">
 40%
@@ -528,17 +568,17 @@ Final Exam
 <!-- - short seminar quizzes (announced in advance). -->
 </div>
 <div id="cg-assessment-exams" class="section level3 unnumbered">
-<h3>Examinations (Class Tests)</h3>
-<p>The <strong>Midterm Exams</strong> will be (1) hour in scope. These will be in weeks 4 and 8.</p>
-<p>The <strong>Final Exam</strong> will be a two (2) hour hand-written exam.</p>
-<p>The exams that will be submitted using Gradescope. This process will be thoroughly discussed and trialed with a dummy exam in advance of the real submission. The Final Exam will be in week 11 (i.e., during the last week of the term).</p>
+<h3>Class Tests</h3>
+<p><strong>Class Test 1</strong> and <strong>Class Test 2</strong> will be 90 minutes in scope (with 30 minutes upload time). These will be in weeks 4 and 8.</p>
+<p><strong>Class Test 3</strong> will be a 150 minutes in scope (with 30 minutes upload time). This will be in week 11 (i.e., during the last week of the term).</p>
+<p>All class tests will be hand-written exams that you submit using Gradescope. This process will be thoroughly discussed and trialed with a dummy exam in advance of the real submission.</p>
 <p>To pass this module, you must:</p>
 <ul>
 <li>obtain an overall grade of at least <code>D3</code> in the overall assessment <strong>and</strong></li>
-<li>obtain a grade of at least <code>M1</code> for the exam <strong>and</strong></li>
+<li>obtain a grade of at least <code>M1</code> for the class tests <strong>and</strong></li>
 <li>obtain a grade of at least <code>M1</code> for the coursework.</li>
 </ul>
-<p>For those who fail the module, there may be an opportunity to take a two-hour resit examination paper at the next available exam diet.</p>
+<p>For those who fail the module, there may be an opportunity to take a two-hour resit examination (typically an oral examination) at the next available exam diet.</p>
 <div class="warningblock">
 <p>Resit marks are based on the resit exam only.</p>
 </div>
@@ -572,26 +612,29 @@ Final Exam
 </div>
 </div>
 <h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-DeGrootSchervish:2001ps">
-<p>DeGroot, M, and M Schervish. 2001. <em>Probability and Statistics</em>. 3rd ed. Addison-Wesley.</p>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Dalgaard:2008st" class="csl-entry">
+Dalgaard, P. (2008), <em>Introductory <span>S</span>tatistics with <span>R</span></em>, New York: Springer.
 </div>
-<div id="ref-Devore:2016st">
-<p>Devore, Jay L. 2016. <em>Probability and Statistics for Engineering and the Sciences</em>. 9th ed. Cengage Learning.</p>
+<div id="ref-DeGrootSchervish:2001ps" class="csl-entry">
+DeGroot, M., and Schervish, M. (2001), <em>Probability and <span>S</span>tatistics</em>, New York: Addison-Wesley.
 </div>
-<div id="ref-Rice:2006da">
-<p>Rice, John A. 2006. <em>Mathematical Statistics and Data Analysis</em>. Cengage Learning.</p>
+<div id="ref-Devore:2016st" class="csl-entry">
+Devore, J. L. (2016), <em>Probability and <span>S</span>tatistics for <span>E</span>ngineering and the <span>S</span>ciences</em>, Boston, MA: Cengage Learning.
 </div>
-<div id="ref-Wasserman:2013as">
-<p>Wasserman, Larry. 2004. <em>All of Statistics</em>. Springer-Verlag, New York. <a href="https://doi.org/10.1007/978-0-387-21736-9">https://doi.org/10.1007/978-0-387-21736-9</a>.</p>
+<div id="ref-Rice:2006da" class="csl-entry">
+Rice, J. A. (2006), <em>Mathematical <span>S</span>tatistics and <span>D</span>ata <span>A</span>nalysis</em>, Belmont, CA: Cengage Learning.
+</div>
+<div id="ref-Wasserman:2013as" class="csl-entry">
+Wasserman, L. (2004), <em>All of <span>S</span>tatistics</em>, New York: Springer-Verlag.
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>Visit <a href="https://my.dundee.ac.uk">https://my.dundee.ac.uk</a> and search for course <code>MA22004_SEM0000_2021</code>.<a href="cg.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>Visit <a href="https://my.dundee.ac.uk">https://my.dundee.ac.uk</a> and search for course <code>MA22004_SEM0100_2122</code>.<a href="cg.html#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>Available at <a href="https://www.gradescope.com/">https://www.gradescope.com/</a>; “course entry code” at <strong>Welcome &gt; Overview of online platforms used in this course &gt; Gradescope</strong> on Blackboard Ultra.<a href="cg.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>Available at <a href="https://perusall.com/">https://perusall.com/</a>; “course access code” at <strong>Welcome &gt; Overview of online platforms used in this course &gt; Perusall</strong> on Blackboard Ultra.<a href="cg.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Available through Blackboard Ultra.<a href="cg.html#fnref3" class="footnote-back">↩︎</a></p></li>
 <li id="fn4"><p>Yes—you must attempt and submit a report for each lab, but, on the bright side, there is some flexibility to have a bad day.<a href="cg.html#fnref4" class="footnote-back">↩︎</a></p></li>
 <li id="fn5"><p>Website available at <a href="https://www.dundee.ac.uk/disabilityservices/">https://www.dundee.ac.uk/disabilityservices/</a>.<a href="cg.html#fnref5" class="footnote-back">↩︎</a></p></li>
 <li id="fn6"><p>Available at <a href="https://www.dundee.ac.uk/qf/documents/details/academic-misconduct.php">https://www.dundee.ac.uk/qf/documents/details/academic-misconduct.php</a>.<a href="cg.html#fnref6" class="footnote-back">↩︎</a></p></li>
@@ -607,7 +650,6 @@ Final Exam
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -626,6 +668,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {
@@ -646,6 +689,10 @@ gitbook.start({
 "text": null
 },
 "download": ["ma22004.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
