@@ -10,10 +10,9 @@ Dr Eric Hall
 [ehall001@dundee.ac.uk](mailto:ehall001@dundee.ac.uk)
 
 Mathematics Division   
-
+School of Science and Engineering
 Fulton G10
 
-+44 (0)1382 384488
 :::
 
 The module will be supported by two tutors: Ms Lucy Brown and Mr Miloš Mičík. Lucy will assist with online workshops. Miloš will assist with the labs by answering questions about `R` and RStudio. 

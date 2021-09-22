@@ -496,8 +496,8 @@ We are interested in testing the null hypothesis <span class="math inline">\(H_0
 <pre><code># A tibble: 1 × 1
   p_value
     &lt;dbl&gt;
-1   0.032</code></pre>
-<p>The bootstrapped null distribution is plotted using the <code>visualize</code> command and the regions of the null distribution that are as (or more) extreme than the observed statistic <span class="math inline">\(\widehat{\mu}\)</span> can be highlighted using the <code>shade_p_value</code> command. <span class="math inline">\(P = 0.032\)</span> is found which is quite small; if <span class="math inline">\(\mu \leq 3.5\)</span>, then the probability of obtaining the sample mean value <span class="math inline">\(\widehat{\mu} = 3.758\)</span> is only 0.032! Thus, the data provides sufficient evidence at the 0.05 level against the hypothesis that the true mean petal length is at most 3.5 cm. <span class="math inline">\(\lozenge\)</span></p>
+1   0.039</code></pre>
+<p>The bootstrapped null distribution is plotted using the <code>visualize</code> command and the regions of the null distribution that are as (or more) extreme than the observed statistic <span class="math inline">\(\widehat{\mu}\)</span> can be highlighted using the <code>shade_p_value</code> command. <span class="math inline">\(P = 0.039\)</span> is found which is quite small; if <span class="math inline">\(\mu \leq 3.5\)</span>, then the probability of obtaining the sample mean value <span class="math inline">\(\widehat{\mu} = 3.758\)</span> is only 0.039! Thus, the data provides sufficient evidence at the 0.05 level against the hypothesis that the true mean petal length is at most 3.5 cm. <span class="math inline">\(\lozenge\)</span></p>
 </div>
 <div id="mean-normal-var-unknown" class="section level3" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> Mean of a normal population with unknown variance</h3>
@@ -739,7 +739,7 @@ Note the position of the critical values—don’t swap them round. <span class=
 <p>We plot the 95% confidence interval for the standard deviation based on the computational null distribution obtained using 1000 bootstrap replications; note the interval estimate</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="inference-single-sample.html#cb7-1" aria-hidden="true" tabindex="-1"></a>ci<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>  lower_ci upper_ci
-1 136.4488 449.2094</code></pre>
+1 138.5741 445.3764</code></pre>
 <p>is in good agreement with the values obtained Example <a href="inference-single-sample.html#exm:eg-ci-variance">3.8</a>. Due to the computational nature, the bootstrapped interval estimate is not precisely the same as the theoretical interval estimate and moreover rerunning the code will yield a slightly different interval. <span class="math inline">\(\lozenge\)</span></p>
 
 </div>
