@@ -2,7 +2,7 @@
 
 All the deadlines and important dates for the module are listed in the table below (this information is also available on MyDundee in the Assessments section following the University template). 
 
-The three class tests (T1, T2, and T2) are timetabled. The practice test (P). Please keep in mind that you must engage with the weekly readings on Perusall **before** the seminar meeting on Tuesday afternoons. The lab reports (L1, L2, L3, L4, L5, L6, L7) are due on Friday evenings at 17:00; you may submit labs by noon on Sunday (i.e., 43 hours late) without any penalty, but after Friday your ability to ask any last minute questions will be limited. 
+The three class tests (T1, T2, and T2) are timetabled. There will be a practice test (P) to practice scanning, uploading, and zoning your submission using Gradescope. Please keep in mind that you must engage with the weekly readings on Perusall **before** the seminar meeting on Tuesday afternoons. The lab reports (L1, L2, L3, L4, L5, L6, L7) are due on Friday evenings at 17:00; you may submit labs by noon on Sunday (i.e., 43 hours late) without any penalty, but after Friday your ability to ask any last minute questions will be limited. 
 
 ```{r table-deadlines, echo=FALSE, warning = FALSE, message = FALSE, fig.cap = "An overview of all deadlines and important dates associated with the course."}
 df <- tibble(read_csv("data/deadlines.csv")) %>% relocate(Reading, .after = Week)

@@ -1,4 +1,4 @@
-# (PART\*) Course Notes {-}
+# (PART\*) Lecture Notes {-}
 
 # Preliminaries {-}
 
