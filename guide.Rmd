@@ -1,5 +1,9 @@
 # Module Guide {-#cg}
 
+<!-- ::: {.importantblock data-latex=""}  -->
+<!-- Due to COVID19, all plans may be subject to change.  -->
+<!-- :::  -->
+
 ## Organisation {-#cg-organization}
 
 All organisation and teaching will be carried out by:
@@ -19,14 +23,16 @@ Fulton G10
 
 The module will be supported by two tutors: Ms Lucy Brown and Mr Miloš Mičík. Lucy will assist with online workshops. Miloš will assist with the labs by answering questions about `R` and RStudio. 
 
-This module uses MyDundee (a.k.a Blackboard Ultra)^[Visit [https://my.dundee.ac.uk](https://my.dundee.ac.uk) and search for `MA22004_SEM0100_2122`.] for communicating all announcements/deadlines and also for running online meetings (we will use the Collaborate "Course Room" for online seminars and workshops). This module will use Gradescope^[Available at [https://www.gradescope.com/](https://www.gradescope.com/); "course entry code" at **Welcome > Overview of online platforms used in this course > Gradescope** on Blackboard Ultra.] for submission of continuous assessments and Perusall^[Available through Blackboard Ultra.] for collaborative engagement with reading materials. An **MS Teams channel will be available for contacting the module tutors** and for asynchronous communication. 
+This module uses MyDundee (a.k.a Blackboard Ultra)^[Visit [https://my.dundee.ac.uk](https://my.dundee.ac.uk) and search for `MA22004_SEM0100_2122`.] for communicating all announcements/deadlines and also for running online meetings (we will use the Collaborate "Course Room" for online seminars and workshops). This module will use Gradescope^[Available at [https://www.gradescope.com/](https://www.gradescope.com/); "course entry code" available on MyDundee.] for submission of continuous assessments and Perusall^[Available through MyDundee.] for collaborative engagement with reading materials. An **MS Teams channel will be available for contacting the module tutors** and for asynchronous communication. 
 
 If you have a problem regarding the module, then you should make an appointment to speak with Dr Hall. You may also bring matters of concern about the module to the attention of the Mathematics Division Student-Staff Liaison Committee (SSLC). A volunteer from Level 2 Mathematics will act as class representative to sit on the SSLC (see Ultra for contact details). 
 
 ## Timetable {-#cg-timetable}
 
-::: {.importantblock data-latex=""} 
-Due to COVID19, these plans may be subject to change. 
+::: {.warningblock data-latex=""} 
+Please remember to check-in to synchronous activities using **SEAtS**, the University's attendance monitoring system. Further information is available at:
+
+[https://www.dundee.ac.uk/guides/check-your-classes-seats-mobile-app](https://www.dundee.ac.uk/guides/check-your-classes-seats-mobile-app). 
 ::: 
 
 This module runs for 11 teaching weeks and is worth 20 SCQF credits (equivalently, 10 ECTS points). The delivery of this module consists of a blend of synchronous and asynchronous content delivered both in-person and online. On an average week, there will be six planned teaching and learning activities.
@@ -40,7 +46,7 @@ The anticipated student effort is 200 hours over the length of the module. You a
 
 ## Pre-requisites {-#cg-prerecs}
 
-To take this module, you must have passed module MA12003 or equivalent.
+To take this module, you must have passed module MA12003 Statistics I or equivalent.
 
 ## Syllabus {-#cg-syllabus}
 
@@ -68,14 +74,17 @@ In addition to the lecture notes, here are some textbooks you may wish to consul
 + *Introductory Statistics with R,* [@Dalgaard:2008st, §6-7]
 + *Mathematical statistics and data analysis,* [@Rice:2006da, §6-12]
 + *All of Statistics,* [@Wasserman:2013as] a concise general reference
++ *R for data science,* [@WickhamGrolemund:2017or]
 
-::: {.warningblock data-latex=""}
-You do not need to purchase these books. Check the *Library Resource List* available on MyDundee. 
-:::   
+I would also like to recommend Prof David Spiegelhalter's new book *The Art of Statistics: Learning from Data* [@Spiegelhalter:2020ps].
+
+::: {.noteblock data-latex=""}
+You do not need to purchase any books for this course. Check the *Library Resource List* on MyDundee. 
+:::  
 
 ## Assessment {-#cg-assessment}
 
-The module will be *continuously* assessed using coursework and class tests. Deadlines, as well as test dates, will be posted on Ultra and announcements made in the class hours. The module assessment weighting is as follows. 
+The module will be *continuously* assessed using coursework and class tests. Deadlines, as well as test dates, will be posted on MyDundee and announcements made in the seminars. The module assessment weighting is as follows. 
 
 ```{r table, echo=FALSE}
 df <- tibble(Assessment=c("Assignments", "Class Test 1", "Class Test 2", "Class Test 3"),
@@ -91,17 +100,15 @@ Assessed coursework includes:
 - seven hand-in laboratory reports (the lowest non-zero lab report grade will be dropped)^[Yes---you must attempt and submit a report for each lab, but, on the bright side, there is some flexibility to have a bad day.] and 
 - weekly engagement with the reading material using Perusall. 
 
-The lab reports will be submitted using Gradescope.
+You will be asked to provide peer feedback on a few of the lab exercises. Please participate by providing positive and constructive feedback. If you cannot find anything positive or constructive to write, then please draw a smiley face. `r fa("grin-beam-sweat")`
 
-<!-- There will also be alternative means of demonstrating your mastery of course material through: -->
-<!-- - one (group) lab presentation and -->
-<!-- - short seminar quizzes (announced in advance). -->
+All lab reports will be submitted using Gradescope.
 
 ### Class Tests {-#cg-assessment-exams}
 
 **Class Test 1** and **Class Test 2** will be 90 minutes in scope (with 30 minutes upload time). These will be in weeks 4 and 8. 
 
-**Class Test 3** will be a 150 minutes in scope (with 30 minutes upload time). This will be in week 11 (i.e., during the last week of the term).
+**Class Test 3** will be a 150 minutes in scope (with 30 minutes upload time). This will be in week 11, i.e., during the last week of the term.
 
 All class tests will be hand-written exams that you submit using Gradescope. This process will be thoroughly discussed and trialed with a dummy exam in advance of the real submission. 
 
@@ -129,7 +136,7 @@ The Casio FX83 and the Casio FX85 are the only calculators approved for use in a
 
 ## Study Support {-#cg-support}
 
-If you are having difficulty with the module, you are encouraged to seek help at an early stage by making an appointment with Dr Hall. You may also obtain additional help from the Maths Base (see Ultra for details).
+If you are having difficulty with the module, you are encouraged to seek help at an early stage by making an appointment with Dr Hall. You may also obtain additional help from the Maths Cafe (there ).
 
 ## Disability {-#cg-disability}
 

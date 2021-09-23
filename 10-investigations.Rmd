@@ -10,7 +10,7 @@ Below we provide links to supplementary online material. Hopefully some of the i
 What is Statistics? 
 
 - Cambridge Ideas - Professor Risk
-:  [https://www.youtube.com/watch?v=a1PtQ67urG4](https://www.youtube.com/watch?v=a1PtQ67urG4) <br />\newline  Prof David Spiegelhalter (Cambridge University) discusses public understanding of risk.
+:  [https://www.youtube.com/watch?v=a1PtQ67urG4](https://www.youtube.com/watch?v=a1PtQ67urG4) <br />\newline  Prof David Spiegelhalter (Cambridge University) discusses public understanding of risk. You may also be interested in reading [@Spiegelhalter:2020ps].
 
 - The Joy of Statistics 
 :  [https://www.youtube.com/watch?v=jbkSRLYSojo](https://www.youtube.com/watch?v=jbkSRLYSojo) <br />\newline  Prof Hans Rosling (Karolinska Institute and Gapminder Foundation) analyzes data from 200 Countries over 200 Years in 4 Minutes - The Joy of Stats - BBC Four.

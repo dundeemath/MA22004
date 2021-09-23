@@ -16,7 +16,7 @@ description: Course guide and course notes for MA22004 - Statistics and Probabil
   II. Division of Mathematics, University of Dundee.
 always_allow_html: yes
 urlcolor: #4365e2
-# include-before below needs to be commented out to compile pdf latex
+#include-before below needs to be commented out to compile pdf latex
 include-before:
  - $\DeclareMathOperator{\E}{\mathbf{E}}$
  - $\DeclareMathOperator{\Var}{Var}$
