@@ -1,5 +1,5 @@
 ---
-title: "MA22004 – Statistics and Probability II"
+title: "MA22004 – Statistics II"
 author: "Dr Eric Hall"
 date: 'Last updated: `r Sys.Date()`'
 fontsize: 11pt
@@ -17,13 +17,13 @@ description: Course guide and course notes for MA22004 - Statistics and Probabil
 always_allow_html: yes
 urlcolor: #4365e2
 # include-before below needs to be commented out to compile pdf latex
-include-before:
- - $\DeclareMathOperator{\E}{\mathbf{E}}$
- - $\DeclareMathOperator{\Var}{Var}$
- - $\DeclareMathOperator{\Cov}{Cov}$
- - $\DeclareMathOperator{\corr}{corr}$
- - $\newcommand{\se}{\mathsf{se}}$
- - $\DeclareMathOperator{\sd}{sd}$
+# include-before:
+#  - $\DeclareMathOperator{\E}{\mathbf{E}}$
+#  - $\DeclareMathOperator{\Var}{Var}$
+#  - $\DeclareMathOperator{\Cov}{Cov}$
+#  - $\DeclareMathOperator{\corr}{corr}$
+#  - $\newcommand{\se}{\mathsf{se}}$
+#  - $\DeclareMathOperator{\sd}{sd}$
 ---
 
 ```{r setup, include=FALSE}
