@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.9.3)  23 SEP 2021 09:54
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.9.3)  23 SEP 2021 10:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1502,9 +1502,9 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 ] [11
 
-] [12] [13
+] [12
 
-]
+] [13]
 File: ma22004_files/figure-latex/fa-icon-9ffb6724f8cf1327bea4d6d83a14a7c8.pdf G
 raphic file (type pdf)
 <use ma22004_files/figure-latex/fa-icon-9ffb6724f8cf1327bea4d6d83a14a7c8.pdf>
@@ -1812,7 +1812,7 @@ File: ma22004_files/figure-latex/qc-beer-control-chart-1.pdf Graphic file (type
 Here is how much of TeX's memory you used:
  28422 strings out of 476533
  541532 string characters out of 5818001
- 1049469 words of memory out of 5000000
+ 1049483 words of memory out of 5000000
  48278 multiletter control sequences out of 15000+600000
  417383 words of font info for 196 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

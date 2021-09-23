@@ -1,4 +1,4 @@
-# Instructions {-#instructions}
+# Miscellaneous Instructions {-#instructions}
 
 ## Gradescope Submissions {-}
 
@@ -70,8 +70,8 @@ knitr::include_graphics("assets/images/instruct2.png")
 
 #### Step 3. `r fa("cloud-upload-alt")` Upload and Zone your work {-#step3}
 
-- Log into Gradescope (first time: use the course access code on Blackboard).
-- Select the course and then the appropriate assignment. 
+- Log into Gradescope (first time: use the "course access code" on MyDundee).
+- Select the module and then the appropriate assignment. 
 - Select submit PDF (shown below).
 - After uploading your PDF, please zone your work by identifying the first page that each question starts on (see below).
 - You may submit multiple times until the due date, but only your last submission will be seen and graded.
@@ -91,10 +91,10 @@ knitr::include_graphics("assets/images/zone.png")
 
 ## Using Collaborate {-}
 
-Note that we will meet for synchronous online sessions using Blackboard Collaborate through MyDundee. You must log into MyDundee (Blackboard Ultra), navigate to the course page, and then select "Join session" in the left-hand column. 
+Note that we will meet for synchronous online sessions using Blackboard Collaborate through MyDundee. You must log into MyDundee (Blackboard Ultra), navigate to the module page, and then select "Join session" in the left-hand column. 
 
 Please remember to follow University guidance on registering your attendance. 
 
-```{r bbultra-overview, fig.margin = TRUE, echo = FALSE, fig.cap="An annotated overview of the Blackboard Ultra course landing page.", out.width = "100%", fig.align = "center", fig.pos="h"}
+```{r bbultra-overview, fig.margin = TRUE, echo = FALSE, fig.cap="An annotated overview of the Blackboard Ultra module landing page.", out.width = "100%", fig.align = "center", fig.pos="h"}
 knitr::include_graphics("assets/images/bbultra.png")
 ```   

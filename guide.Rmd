@@ -1,4 +1,4 @@
-# Course Guide {-#cg}
+# Module Guide {-#cg}
 
 ## Organisation {-#cg-organization}
 
@@ -19,9 +19,9 @@ Fulton G10
 
 The module will be supported by two tutors: Ms Lucy Brown and Mr Miloš Mičík. Lucy will assist with online workshops. Miloš will assist with the labs by answering questions about `R` and RStudio. 
 
-This course uses MyDundee (a.k.a Blackboard Ultra)^[Visit [https://my.dundee.ac.uk](https://my.dundee.ac.uk) and search for course `MA22004_SEM0100_2122`.] for communicating all announcements/deadlines and also for running online meetings (we will use the Collaborate course room for online seminars and workshops). This course will use Gradescope^[Available at [https://www.gradescope.com/](https://www.gradescope.com/); "course entry code" at **Welcome > Overview of online platforms used in this course > Gradescope** on Blackboard Ultra.] for submission of continuous assessments and Perusall^[Available through Blackboard Ultra.] for collaborative engagement with reading materials. An **MS Teams channel will be available for contacting the module tutors** and for asynchronous communication. 
+This module uses MyDundee (a.k.a Blackboard Ultra)^[Visit [https://my.dundee.ac.uk](https://my.dundee.ac.uk) and search for `MA22004_SEM0100_2122`.] for communicating all announcements/deadlines and also for running online meetings (we will use the Collaborate "Course Room" for online seminars and workshops). This module will use Gradescope^[Available at [https://www.gradescope.com/](https://www.gradescope.com/); "course entry code" at **Welcome > Overview of online platforms used in this course > Gradescope** on Blackboard Ultra.] for submission of continuous assessments and Perusall^[Available through Blackboard Ultra.] for collaborative engagement with reading materials. An **MS Teams channel will be available for contacting the module tutors** and for asynchronous communication. 
 
-If you have a problem regarding the course, then you should make an appointment to speak with Dr Hall. You may also bring matters of concern about the course to the attention of the Mathematics Division Student-Staff Liaison Committee (SSLC). A volunteer from Level 2 Mathematics will act as class representative to sit on the SSLC (see Ultra for contact details). 
+If you have a problem regarding the module, then you should make an appointment to speak with Dr Hall. You may also bring matters of concern about the module to the attention of the Mathematics Division Student-Staff Liaison Committee (SSLC). A volunteer from Level 2 Mathematics will act as class representative to sit on the SSLC (see Ultra for contact details). 
 
 ## Timetable {-#cg-timetable}
 
@@ -40,7 +40,7 @@ The anticipated student effort is 200 hours over the length of the module. You a
 
 ## Pre-requisites {-#cg-prerecs}
 
-To take this course, you must have passed module MA12003 or equivalent.
+To take this module, you must have passed module MA12003 or equivalent.
 
 ## Syllabus {-#cg-syllabus}
 
@@ -61,7 +61,7 @@ R software package
 
 ## Recommended Books {-#cg-books}
 
-In addition to the course notes, here are some textbooks you may wish to consult.
+In addition to the lecture notes, here are some textbooks you may wish to consult.
 
 + *Probability and Statistics for Engineering and the Sciences,* [@Devore:2016st, §6-10, 12, 14, 16]
 + *Probability and Statistics,* [@DeGrootSchervish:2001ps, §7-10]
@@ -129,7 +129,7 @@ The Casio FX83 and the Casio FX85 are the only calculators approved for use in a
 
 ## Study Support {-#cg-support}
 
-If you are having difficulty with the course, you are encouraged to seek help at an early stage by making an appointment with Dr Hall. You may also obtain additional help from the Maths Base (see Ultra for details).
+If you are having difficulty with the module, you are encouraged to seek help at an early stage by making an appointment with Dr Hall. You may also obtain additional help from the Maths Base (see Ultra for details).
 
 ## Disability {-#cg-disability}
 

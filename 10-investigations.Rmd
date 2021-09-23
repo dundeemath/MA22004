@@ -2,7 +2,7 @@
 \markboth{}{CURATED CONTENT}
 # Curated Content {-}
 
-Below we provide links to supplementary online material. Hopefully some of the items will inspire you view the course material in a broader context and lead to further investigations. 
+Below we provide links to supplementary online material. Hopefully some of the items will inspire you view the module material in a broader context and lead to further investigations. 
 
 
 ## Investigation 0 {-}
