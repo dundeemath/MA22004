@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.9.3)  23 SEP 2021 17:48
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.9.3)  23 SEP 2021 17:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1816,7 +1816,7 @@ File: ma22004_files/figure-latex/qc-beer-control-chart-1.pdf Graphic file (type
 Here is how much of TeX's memory you used:
  28446 strings out of 476533
  542625 string characters out of 5818001
- 1052827 words of memory out of 5000000
+ 1051902 words of memory out of 5000000
  48299 multiletter control sequences out of 15000+600000
  417383 words of font info for 196 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

@@ -232,7 +232,7 @@ For $X \sim \mathsf{Binom}(15, 0.25)$, we calculate $\beta = `r signif(pbinom(2,
 
 If we repeat these calculations for $R^* = \{x \leq 5\}$, we find $\alpha = `r signif(pbinom(5, 15, 0.5), digits = 3)`$ versus $\beta = `r signif(pbinom(5, 15, 0.25, lower.tail = FALSE), digits = 3)`$, even if $p$ is as low as $0.25$, which is a much better balance between type I and type II errors. $\lozenge$   
 
-```{r fig-churchill-ballot, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Ballot listing Churchills name from the collection of the McManus, Dundee. When you take a break from studying, go and see if you can find it!"}
+```{r fig-churchill-ballot, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Ballot listing Churchill from the collection of the McManus, Dundee. When you take a break from studying, go and see if you can find it! For more information on visiting the McManus visit [https://www.mcmanus.co.uk/](https://www.mcmanus.co.uk/)."}
 include_graphics('assets/images/churchill_ballot.jpg')
 ```
 
