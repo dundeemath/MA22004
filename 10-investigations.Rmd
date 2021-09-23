@@ -30,8 +30,8 @@ Defense against the dark arts.
 - Three ways to spot bad statistics 
 :  [https://www.ted.com/talks/mona_chalabi_3_ways_to_spot_a_bad_statistic](https://www.ted.com/talks/mona_chalabi_3_ways_to_spot_a_bad_statistic) <br />\newline  Mona Chalabi (Data Journalist) discusses three ways to spot bad statistics.
 
-- No. 10 daily Covid-19 briefings
-:  [https://www.youtube.com/watch?v=QIw2l-trRXc](https://www.youtube.com/watch?v=QIw2l-trRXc) <br />\newline  Prof David Spiegelhalter (Cambridge University) claims that No. 10 is misrepresenting Covid-19 data in a discussion with Andrew Marr (BBC).
+<!-- - No. 10 daily Covid-19 briefings -->
+<!-- :  [https://www.youtube.com/watch?v=QIw2l-trRXc](https://www.youtube.com/watch?v=QIw2l-trRXc) <br />\newline  Prof David Spiegelhalter (Cambridge University) claims that No. 10 is misrepresenting Covid-19 data in a discussion with Andrew Marr (BBC). -->
 
 - Statistics Done Wrong 
 :  [https://www.statisticsdonewrong.com/](https://www.statisticsdonewrong.com/) <br />\newline  A book by Dr Alex Reinhart (Carnegie Mellon University).
@@ -82,7 +82,7 @@ Statistical paradoxes.
 The law and interpreting statistics.
 
 - How stats fool juries. 
-:  [https://ed.ted.com/lessons/peter-donnelly-shows-how-stats-fool-juries](https://ed.ted.com/lessons/peter-donnelly-shows-how-stats-fool-juries) <br />\newline  Prof Peter Donnelly (Oxford University) discusses common mistakes in interpreting statistics. 
+:  [https://youtu.be/kLmzxmRcUTo](https://youtu.be/kLmzxmRcUTo) <br />\newline  Prof Peter Donnelly (Oxford University) discusses common mistakes in interpreting statistics. 
 
 - Better Data in Forensic Science 
 :  [https://www.dundee.ac.uk/leverhulme/projects/details/better-data-in-forensic-science.php](https://www.dundee.ac.uk/leverhulme/projects/details/better-data-in-forensic-science.php) <br />\newline  Dr Christian Cole (Dundee) is leading a data-focused project as part of the Leverhulme Research Centre for Forensic Science right here at Dundee. 
@@ -129,7 +129,7 @@ Spurious correlations!
 Data and society:  can data-driven and predictive modeling lead to a better world? What are the ethics of mass data collection?
 
 - Science behind the news:  Predictive Policing 
-:  [https://www.youtube.com/watch?v=U0gX_z0V0nE](https://www.youtube.com/watch?v=U0gX_z0V0nE) <br />\newline  The Los Angeles Police Department is using a new tactic in their fight against crime called "predictive policing." It's a computer program that was originally developed by a team at UCLA, including mathematician Andrea Bertozzi and anthropologist Jeff Brantingham. "Science Behind the News" is produced in partnership with NBC Learn. (Provided by the National Science Foundation & NBC Learn)
+:  [https://www.youtube.com/watch?v=74_jreara3w](https://www.youtube.com/watch?v=74_jreara3w) <br />\newline  The Los Angeles Police Department is using a new tactic in their fight against crime called "predictive policing." It's a computer program that was originally developed by a team at UCLA, including mathematician Andrea Bertozzi and anthropologist Jeff Brantingham. "Science Behind the News" is produced in partnership with NBC Learn. (Provided by the National Science Foundation & NBC Learn)
 
 - You should get paid for your data 
 :  [https://www.nytimes.com/video/opinion/100000006678020/data-privacy-jaron-lanier-2.html](https://www.nytimes.com/video/opinion/100000006678020/data-privacy-jaron-lanier-2.html) <br />\newline  Jaron Lanier (Computer Scientist and Author) discusses a compensation plan and data dignity. 
