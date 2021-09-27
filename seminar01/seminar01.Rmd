@@ -1,0 +1,52 @@
+---
+title: "MA22004"
+author: "Dr Eric Hall"
+date: "2021-09-28"
+output: 
+   revealjs::revealjs_presentation:
+     theme: sky
+     self_contained: false
+     reveal_plugins: ["notes"]
+     highlight: pygments
+---
+
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\E}{\mathbf{E}}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\corr}{corr}
+\newcommand{\se}{\mathsf{se}}
+\DeclareMathOperator{\sd}{sd}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, comment = "", fig.asp = .5)
+library(tidyverse)
+library(latex2exp)
+library(knitr)
+library(kableExtra)
+library(janitor)
+
+theme_ur <- theme(legend.justification = c(1,1), legend.position = c(1,1), legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))
+theme_lr <- theme(legend.justification = c(1,0), legend.position = c(1,0), legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))
+options(width = 90, knitr.kable.NA = '', "kableExtra.html.bsTable" = T)
+lsz <- 1.0
+tsz <- 4
+```
+## Announcements
+
+### Outline of today
+
+- Discussion
+- Orientation
+- Upcoming this week
+
+
+## This semester will be stressful
+
+TEST
+
+
+## Summary
+
+Today we discussed control charts for Quality Control. 
+
+We learned about bias correction for estimating the population standard deviation. 
