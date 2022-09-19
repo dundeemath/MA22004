@@ -76,7 +76,7 @@ data(trees)
 
 
 #plotly::config(plot_ly(), displaylogo = FALSE, mathjax = "cdn")
-#htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
 # (PART\*) Module Documents {-}
