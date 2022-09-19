@@ -1,7 +1,6 @@
-Activity, Timetabled, Group, Hours, Delivery
-Reading, asynchronous, individually & in groups, 6, online
-Investigation, asynchronous, individually, 1, online
-Seminar, synchronous, whole class, 1, online
-Computer Lab, asynchronous, individually, 6, online
-Workshop Preparation, asynchronous, individually or in groups, 2, online
-Workshop, synchronous, in groups, 1, face-to-face
+Activity, Timetabled, Group, Hours (Est.)
+Reading (Peer Learning), asynchronous, individually & in groups,6
+Seminar, synchronous, whole class,2
+Computer Lab, asynchronous, individually,6
+Workshop Preparation, asynchronous, individually or in groups,3
+Workshop, synchronous, in groups,2

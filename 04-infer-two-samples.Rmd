@@ -12,7 +12,7 @@ and
 \begin{equation*}
  Y_1, \dots, Y_n \sim \mathsf{N}(\mu_Y, \sigma_Y^2)
 \end{equation*}
-and, moreover, that the $X$ and $Y$ samples are independent of one another. When comparing the means of  two populations, the quantity of interest is the difference: $\mu_X - \mu_Y$. 
+and, moreover, that the $X$ and $Y$ samples are independent of one another. When comparing the means of two populations, the quantity of interest is the difference: $\mu_X - \mu_Y$. 
 
 ```{proposition, qoi-diff-pop-means}
 If we consider the sample means $\overline{X}$ and $\overline{Y}$, then the mean of the variable $\overline{X} - \overline{Y}$ is,
@@ -35,13 +35,13 @@ then its estimator,
 \begin{equation*}
  \widehat{\theta} = \overline{X} - \overline{Y}\,,
 \end{equation*}
-is normally distributed with mean and variance given by Proposition \@ref(prp:qoi-diff-pop-means). If the samples sizes $m$ and $n$ are large, then the estimator is approximately normally distributed by the Central Limit Theorem regardless of the population. We now discuss CIs and hypothesis tests for comparing population means $\theta = \mu_X - \mu_Y$. We consider three cases when comparing means:
+is normally distributed with mean and variance given by Proposition \@ref(prp:qoi-diff-pop-means). If the sample sizes $m$ and $n$ are large, then the estimator is approximately normally distributed by the Central Limit Theorem regardless of the population. We now discuss CIs and hypothesis tests for comparing population means $\theta = \mu_X - \mu_Y$. We consider three cases when comparing means:
 
 1. [normal populations when the variances $\sigma_X^2$ and $\sigma_Y^2$ are known](#compare-means-normpops-vars-known),
 2. [any populations with unknown variances $\sigma_X^2$ and $\sigma_Y^2$, when the sample sizes $m$ and $n$ are large](#compare-means-large-samples),
 3. [normal populations when the variances $\sigma_X^2$ and $\sigma_Y^2$ are unknown, when the sample sizes $m$ and $n$ are small](#compare-means-normpops-vars-unknown),
 
-noting that the development largely reflects that of Section \@ref(estimating-means).
+noting that the development primarily reflects that of Section \@ref(estimating-means).
 
 
 ### Comparing means of normal populations when variances are known {#compare-means-normpops-vars-known}
@@ -81,7 +81,7 @@ If $H_a : \mu_X - \mu_Y \neq \theta_0$, then $P = 2(1-\Phi(|z|))$, i.e., two-tai
 
 ### Comparing means when the sample sizes are large {#compare-means-large-samples}
 
-When the samples are large, then the assumptions about normality of the populations and knowledge of the variances $\sigma_X^2$ and $\sigma_Y^2$ can be relaxed. For sufficiently large $m$ and $n$, the difference of the sample means, $\overline{X} - \overline{Y}$, has approximately a normal distribution for any underlying population distributions by the Central Limit Theorem. Moreover, if $m$ and $n$ are large enough, then replacing the population variances with the sample variances $S_X^2$ and $S_Y^2$ will not increase the variability of the estimator or the test statistic too much. 
+When the samples are large, the assumptions about the normality of the populations and knowledge of the variances $\sigma_X^2$ and $\sigma_Y^2$ can be relaxed. For sufficiently large $m$ and $n$, the difference of the sample means, $\overline{X} - \overline{Y}$, has approximately a normal distribution for any underlying population distributions by the Central Limit Theorem. Moreover, if $m$ and $n$ are large enough, replacing the population variances with the sample variances $S_X^2$ and $S_Y^2$ will not increase the variability of the estimator or the test statistic too much. 
 
 ```{proposition, ci-compare-means-large-samples}
 For $m$ and $n$ sufficiently large, an approximate $100(1-\alpha)\%$ CI for $\mu_X - \mu_Y$ for two samples from populations with any underlying distribution is given by
@@ -104,7 +104,7 @@ can be used in place of \@ref(eq:htest-compare-means-normpops-vars-known-statist
 If $\sigma_X$ and $\sigma_Y$ are unknown and either sample is small (e.g., $m < 30$ or $n <30$), but both populations are normally distributed, then we can use Student's $\mathsf{t}$ distribution to make inferences. We provide the following theorem without proof.  
 
 ```{theorem, dist-t-compare-means-normpops}
-When both population distributions are normal, the standardized variable 
+When both population distributions are normal, the standardised variable 
 \begin{equation*}
 T = \frac{\overline{X}-\overline{Y} - (\mu_X - \mu_Y)}{\sqrt{\frac{S_X^2}{m} + \frac{S_Y^2}{n}}} 
 \quad \sim \mathsf{t}(\nu)
@@ -135,7 +135,7 @@ where we recall that $t_{\alpha/2, \nu}$ is the $\alpha/2$ critical value of $\m
 
 
 ```{proposition, htest-compare-means-normpops-vars-unknown}
-Assume that we sample iid $X_1, \dots, X_m$ and iid $Y_1, \dots, Y_n$ from normal populations with with unknown variances and means $\mu_X$ and $\mu_Y$, respecitvely, and that the $X$ and $Y$ samples are independent. 
+Assume that we sample iid $X_1, \dots, X_m$ and iid $Y_1, \dots, Y_n$ from normal populations with unknown variances and means $\mu_X$ and $\mu_Y$, respectively, and that the $X$ and $Y$ samples are independent. 
 
 Consider $H_0 : \mu_X - \mu_Y = \theta_0$. The test statistic is
 \begin{equation}
@@ -155,12 +155,12 @@ Here $\nu$ is given by \@ref(eq:dist-t-compare-means-normpops-nu).
 ```   
 
 
-If the variances of the normal populations are unknown but are the same, $\sigma_X^2 = \sigma_Y^2$, then deriving CIs and test statistics for comparing the means can be simplified by considering a combined or pooled estimator for the single parameter $\sigma^2$. If we have two samples from populations with variance $\sigma^2$, then each sample provides an estimate for $\sigma^2$. That is, $S_X^2$, based on the $m$ observations of the first sample, is one estimator for $\sigma^2$ and another is given by $S_Y^2$, based on $n$ observations of the second sample. The correct way to combine these two estimators into a single estimator for the sample variance is to consider the **pooled estimator** of $\sigma^2$, 
+If the variances of the normal populations are unknown but are the same, $\sigma_X^2 = \sigma_Y^2$, then deriving CIs and test statistics for comparing the means can be simplified by considering a combined or pooled estimator for the single parameter $\sigma^2$. If we have two samples from populations with variance $\sigma^2$, each sample provides an estimate for $\sigma^2$. That is, $S_X^2$, based on the $m$ observations of the first sample, is one estimator for $\sigma^2$ and another is given by $S_Y^2$, based on $n$ observations of the second sample. The correct way to combine these two estimators into a single estimator for the sample variance is to consider the **pooled estimator** of $\sigma^2$, 
 \begin{equation}
  S_{\mathsf{p}}^2 = \frac{m-1}{m+n-2} S_X^2 + \frac{n-1}{m+n-2} S_Y^2 \,.
  (\#eq:pooled-sample-var)
 \end{equation}
-The pooled estimator is a weighted average that adjusts for differences between the sample sizes $m$ and $n$.^[If $m \neq n$, then the estimator with *more* samples will contain *more* information about the parameter $\sigma^2$. Thus, the simple average $(S_X^2 + S_Y^2)/2$ wouldn't really be fair, would it?]
+The pooled estimator is a weighted average that adjusts for differences between the sample sizes $m$ and $n$.^[If $m \neq n$, then the estimator with *more* samples will contain *more* information about the parameter $\sigma^2$. Thus, the simple average $(S_X^2 + S_Y^2)/2$ wouldn't be fair, would it?]
 
 
 ```{proposition, ci-compare-means-normpops-pooled}
@@ -178,7 +178,7 @@ Similarly, one can consider a pooled $\mathsf{t}$ test, i.e., a hypothesis test 
 with the pooled estimator of the variance, replaces \@ref(eq:htest-compare-means-normpops-vars-unknown-statistic) in Proposition \@ref(prp:htest-compare-means-normpops-vars-unknown) and the same procedures are followed for determining the $P$-value with $\nu = m+n-2$ in place of \@ref(eq:dist-t-compare-means-normpops-nu). If you have reasons to believe that $\sigma_X^2 = \sigma_Y^2$, these pooled $\mathsf{t}$ procedures are appealing because $\nu$ is very easy to compute. 
 
 :::{.warningblock data-latex=""}
-Pooled $t$ procedures are not robust if the assumption of equalized variance is violated. Theoretically, you could first carry out a statistical test $H_0 : \sigma_X^2 = \sigma_Y^2$ on the equality of variances and then use a pooled $\mathsf{t}$ procedure if the null hypothesis is not rejected. However, there is no free lunch: the typical $\mathsf{F}$ test for equal variances (see Section \@ref(compare-variances)) is sensitive to normality assumptions. The two sample $\mathsf{t}$ procedures, with the data-driven choice of $\nu$ in \@ref(eq:dist-t-compare-means-normpops-nu), are therefore recommended unless, of course, you have a very compelling reason to believe $\sigma_X^2 = \sigma_Y^2$. 
+Pooled $t$ procedures are not robust if the assumption of equalised variance is violated. Theoretically, you could first carry out a statistical test $H_0 : \sigma_X^2 = \sigma_Y^2$ on the equality of variances and then use a pooled $\mathsf{t}$ procedure if the null hypothesis is not rejected. However, there is no free lunch: the typical $\mathsf{F}$ test for equal variances (see Section \@ref(compare-variances)) is sensitive to normality assumptions. The two sample $\mathsf{t}$ procedures, with the data-driven choice of $\nu$ in \@ref(eq:dist-t-compare-means-normpops-nu), are therefore recommended unless, of course, you have a very compelling reason to believe $\sigma_X^2 = \sigma_Y^2$. 
 :::   
 
 
@@ -190,7 +190,7 @@ Consider a random sample of iid pairs
 \begin{equation*}
 (X_1, Y_1), \dots, (X_n, Y_n)
 \end{equation*}
-with $\E[X_i] = \mu_X$ and $\E[Y_i] = \mu_Y$. If we are interested in making inferences about the difference $\mu_X - \mu_Y$ then the paired differences
+with $\E[X_i] = \mu_X$ and $\E[Y_i] = \mu_Y$. If we are interested in making inferences about the difference $\mu_X - \mu_Y$, then the paired differences
 \begin{equation*}
 D_i = X_i - Y_i \,,\quad  i=1, \dots, n\,,
 \end{equation*}
@@ -210,7 +210,7 @@ and
  \sigma_{(\widehat{p}_X - \widehat{p}_Y)}^2 = \Var[\widehat{p}_X - \widehat{p}_Y] 
  = \frac{p_X(1-p_X)}{m} + \frac{p_Y(1-p_Y)}{n}\,,
 \end{equation*}
-by considering the fact that the count of individuals satisfying the given property in each population will be independent draws from $\mathsf{Binom}(m, p_X)$ and $\mathsf{Binom}(n, p_Y)$, respectively. Further, if $m$ and $n$ are large (e.g., $m \geq 30$ and $n \geq 30$), then $\widehat{p}_X$ and $\widehat{p}_Y$ are (approximately) normally distributed. Standardizing $\widehat{p}_X - \widehat{p}_Y$,
+because the count of individuals satisfying the given property in each population will be independent draws from $\mathsf{Binom}(m, p_X)$ and $\mathsf{Binom}(n, p_Y)$, respectively. Further, if $m$ and $n$ are large (e.g., $m \geq 30$ and $n \geq 30$), then $\widehat{p}_X$ and $\widehat{p}_Y$ are (approximately) normally distributed. Standardizing $\widehat{p}_X - \widehat{p}_Y$,
 \begin{equation*}
  Z = \frac{\widehat{p}_X - \widehat{p}_Y - (p_X - p_Y)}{\sqrt{\frac{p_X(1-p_X)}{m} + \frac{p_Y(1-p_Y)}{n}}}
  \quad \sim \mathsf{N}(0,1)\,.
@@ -296,7 +296,7 @@ A $100(1-\alpha)\%$ CI for the ratio of population variances $\sigma_X^2 / \sigm
 ```   
 
 ```{proposition, htest-compre-variances}
-Assume the population distributions are normal and the random samples are both independent of one another.
+Assume the population distributions are normal and the random samples are independent of one another.
 
 Consider $H_0 : \sigma_X^2 = \sigma_Y^2$. The test statistic is
 \begin{equation*}

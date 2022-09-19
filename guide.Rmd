@@ -13,6 +13,8 @@ Dr Eric Hall
 
 [ehall001@dundee.ac.uk](mailto:ehall001@dundee.ac.uk)
 
++44 1382 384632
+
 Mathematics Division
 
 School of Science and Engineering
@@ -21,32 +23,32 @@ Fulton G10
 
 :::
 
-The module will be supported by two tutors: Ms Lucy Brown and Mr Miloš Mičík. Lucy will assist with online workshops. Miloš will assist with the labs by answering questions about `R` and RStudio. 
+A tutor, Mr Miloš Mičík, will support the module. Miloš will assist with the workshops and can answer questions about the labs/`R`/RStudio posted to MS Teams. 
 
-This module uses MyDundee (a.k.a Blackboard Ultra)^[Visit [https://my.dundee.ac.uk](https://my.dundee.ac.uk) and search for `MA22004_SEM0100_2122`.] for communicating all announcements/deadlines and also for running online meetings (we will use the Collaborate "Course Room" for online seminars and workshops). This module will use Gradescope^[Available at [https://www.gradescope.com/](https://www.gradescope.com/); "course entry code" available on MyDundee.] for submission of continuous assessments and Perusall^[Available through MyDundee.] for collaborative engagement with reading materials. An **MS Teams channel will be available for contacting the module tutors** and for asynchronous communication. 
+This module uses MyDundee (a.k.a Blackboard Ultra)^[Visit [https://my.dundee.ac.uk](https://my.dundee.ac.uk) and search for `MA22004_SEM0100_2223`.] for communicating all announcements/deadlines. This module will use Gradescope^[With Blackboard integration, for more information about Gradescope, see [https://www.gradescope.com/](https://www.gradescope.com/).] for submission of lab reports and to deliver feedback on class tests and Perusall^[Available through MyDundee.] for collaborative peer learning focusing on the weekly reading materials. An **MS Teams channel will be available for contacting the module tutor** and for asynchronous communication. 
 
-If you have a problem regarding the module, then you should make an appointment to speak with Dr Hall. You may also bring matters of concern about the module to the attention of the Mathematics Division Student-Staff Liaison Committee (SSLC). A volunteer from Level 2 Mathematics will act as class representative to sit on the SSLC (see Ultra for contact details). 
+If you have a problem regarding the module, then you should make an appointment to speak with Dr Hall. You may also bring matters of concern about the module to the attention of the Mathematics Division Student-Staff Liaison Committee (SSLC). A volunteer from Level 2 Mathematics will act as a representative to sit on the SSLC (see Ultra for contact details). 
 
 ## Timetable {-#cg-timetable}
 
 ::: {.warningblock data-latex=""} 
-Please remember to check-in to synchronous activities using **SEAtS**, the University's attendance monitoring system. Further information is available at:
+Please remember to check in to synchronous activities using **SEAtS**, the University's attendance monitoring system. Further information is available at:
 
 [https://www.dundee.ac.uk/guides/check-your-classes-seats-mobile-app](https://www.dundee.ac.uk/guides/check-your-classes-seats-mobile-app). 
 ::: 
 
-This module runs for 11 teaching weeks and is worth 20 SCQF credits (equivalently, 10 ECTS points). The delivery of this module consists of a blend of synchronous and asynchronous content delivered both in-person and online. On an average week, there will be six planned teaching and learning activities.
+This module runs for 11 teaching weeks and is worth 20 SCQF credits (equivalently, 10 ECTS points). The delivery of this module consists of a blend of synchronous and asynchronous content delivered in-person and online. On a *typical* week, there will be five planned teaching and learning activities.
 
 ```{r table-activities, echo=FALSE, warning = FALSE, message = FALSE, fig.cap = "Learning activities."}
 kbl(tibble(read_csv("data/activities.csv")), booktabs = T) %>%
  kable_styling(latex_options = c("striped", "hold_position"), )
 ```
 
-The anticipated student effort is 200 hours over the length of the module. You are expected to be "present" for all synchronous timetabled activities and to check-in using the University's attendance monitoring application. You may engage with the asynchronous material at your own pace, but please meet any deadlines for engagement and/or attainment that will be posted to Ultra and discussed. 
+Some weeks will include class tests or other timetabled activities in place of the computer labs. The anticipated student effort is 200 hours over the length of the module. **You are expected to be present for all synchronous timetabled activities and check-in using SEAtS.** You may engage with the asynchronous material at your own pace but must meet deadlines for engagement and attainment that will be posted to Ultra and discussed. 
 
 ## Pre-requisites {-#cg-prerecs}
 
-To take this module, you must have passed module MA12003 Statistics I or equivalent.
+You must have passed module MA12003 Statistics I or equivalent to take this module.
 
 ## Syllabus {-#cg-syllabus}
 
@@ -76,7 +78,7 @@ In addition to the lecture notes, here are some textbooks you may wish to consul
 + *All of Statistics,* [@Wasserman:2013as] a concise general reference
 + *R for data science,* [@WickhamGrolemund:2017or]
 
-I would also like to recommend Prof David Spiegelhalter's new book *The Art of Statistics: Learning from Data* [@Spiegelhalter:2020ps].
+I would also recommend Prof David Spiegelhalter's new book *The Art of Statistics: Learning from Data* [@Spiegelhalter:2020ps].
 
 ::: {.noteblock data-latex=""}
 You do not need to purchase any books for this course. Check the *Library Resource List* on MyDundee. 
@@ -84,11 +86,11 @@ You do not need to purchase any books for this course. Check the *Library Resour
 
 ## Assessment {-#cg-assessment}
 
-The module will be *continuously* assessed using coursework and class tests. Deadlines, as well as test dates, will be posted on MyDundee and announcements made in the seminars. The module assessment weighting is as follows. 
+The module will be *continuously* assessed using coursework and class tests. Deadlines and test dates will be posted on MyDundee, and announcements will be made in the seminars. The module assessment weighting is as follows. 
 
 ```{r table, echo=FALSE}
-df <- tibble(Assessment=c("Assignments", "Class Test 1", "Class Test 2", "Class Test 3"),
-             Weight=c("20%", "20%", "20%", "40%"))
+df <- tibble(Assessment=c("Labs", "Peer Learning", "Class Test 1", "Class Test 2"),
+             Weight=c("35% (7 @ 5% each)", "5%", "30%", "30%"))
 kbl(df, booktabs = T, align = c("l", "r")) %>%
  kable_styling(latex_options = c("striped", "hold_position"))
 ```
@@ -97,26 +99,18 @@ kbl(df, booktabs = T, align = c("l", "r")) %>%
 
 Assessed coursework includes:
 
-- seven hand-in laboratory reports (the lowest non-zero lab report grade will be dropped)^[Yes---you must attempt and submit a report for each lab, but, on the bright side, there is some flexibility to have a bad day.] and 
-- weekly engagement with the reading material using Perusall. 
+- seven hand-in laboratory reports and 
+- weekly peer learning engagement using Perusall. 
 
-You will be asked to provide peer feedback on a few of the lab exercises. Please participate by providing positive and constructive feedback. If you cannot find anything positive or constructive to write, then please draw a smiley face. `r fa("grin-beam-sweat")`
+Please participate by providing positive and constructive feedback. 
 
 All lab reports will be submitted using Gradescope.
 
 ### Class Tests {-#cg-assessment-exams}
 
-**Class Test 1** and **Class Test 2** will be 90 minutes in scope (with 30 minutes upload time). These will be in weeks 4 and 8. 
+**Class Test 1** and **Class Test 2** will be 60 minutes long. A peer learning activity will follow each class test. 
 
-**Class Test 3** will be a 150 minutes in scope (with 30 minutes upload time). This will be in week 11, i.e., during the last week of the term.
-
-All class tests will be hand-written exams that you submit using Gradescope. This process will be thoroughly discussed and trialed with a dummy exam in advance of the real submission. 
-
-To pass this module, you must:
-
-- obtain an overall grade of at least `D3` in the overall assessment **and** 
-- obtain a grade of at least `M1` for the class tests **and** 
-- obtain a grade of at least `M1` for the coursework.
+All class tests will be hand-written. Feedback will be delivered using Gradescope. You are encouraged to use the Gradescope facilities to read and ask questions about the feedback if you have any. 
 
 For those who fail the module, there may be an opportunity to take a two-hour resit examination (typically an oral examination) at the next available exam diet. 
 
@@ -124,11 +118,11 @@ For those who fail the module, there may be an opportunity to take a two-hour re
 Resit marks are based on the resit exam only.
 :::
 
-Unless you have mitigating circumstances, if you fail to achieve a module grade of `CF` or above at first attempt, then you may not be permitted to resit the exam. Also, unless you have mitigating circumstances, any pass after a resit will be capped at a grade of `D3` regardless of the weighted average mark obtained.  
+Unless you have mitigating circumstances, if you fail to achieve a module grade of `CF` or above at first attempt, you may not be permitted to resit the exam. Also, unless you have mitigating circumstances, any pass after a resit will be capped at a grade of `D3` regardless of the weighted average mark.  
 
 ## Your Commitment {-#cg-commitment}
 
-You should attend all synchronous timetabled sessions except on medical grounds or with the special permission of Dr Hall. If you are unable to attend the degree examination or complete elements of the coursework on time, then you should inform Dr Hall and submit a medical certificate. Medical certificates should be submitted to your School Office as soon as possible after the absence. You must also submit a Mitigating Circumstances form to explain which aspects of assessment have been affected by your absence. A Medical Certificate will only be taken into account if accompanied by a completed Mitigating Circumstances form that refers to the medical certificate.
+You should attend all synchronous timetabled sessions except on medical grounds or with the special permission of Dr Hall. If you cannot participate in the class tests or complete elements of the coursework on time, then you should inform Dr Hall and submit a medical certificate. Medical certificates should be submitted to your School Office as soon as possible after the absence. You must also submit a Mitigating Circumstances form to explain which aspects of the assessment have been affected by your absence. A Medical Certificate will only be considered if accompanied by a completed Mitigating Circumstances form that refers to the medical certificate.
 
 ## Approved Calculators {-#cg-calcs}
 
@@ -136,16 +130,16 @@ The Casio FX83 and the Casio FX85 are the only calculators approved for use in a
 
 ## Study Support {-#cg-support}
 
-If you are having difficulty with the module, you are encouraged to seek help at an early stage by making an appointment with Dr Hall. You may also obtain additional help from the Maths Cafe (there ).
+If you are having difficulty with the module, you are encouraged to seek help at an early stage by making an appointment with Dr Hall. You may also obtain additional support from the Maths Cafe (there ).
 
 ## Disability {-#cg-disability}
 
-The University of Dundee is committed to making reasonable, effective and appropriate accommodations to meet the needs of students with disabilities and to create an inclusive and barrier-free campus. If you require accommodation for a documented disability, then you are advised to register with Disability Services.^[Website available at [https://www.dundee.ac.uk/disabilityservices/](https://www.dundee.ac.uk/disabilityservices/).] Please communicate any needs you may have directly with Dr Hall and as soon as possible to ensure timely management of any accommodations. 
+The University of Dundee is committed to making reasonable, effective and appropriate accommodations to meet the needs of students with disabilities and to create an inclusive and barrier-free campus. If you require accommodation for a documented disability, then you are advised to register with Disability Services.^[Website available at [https://www.dundee.ac.uk/disabilityservices/](https://www.dundee.ac.uk/disabilityservices/).] Please communicate any needs you may have directly with Dr Hall as soon as possible to ensure timely management of any accommodations. 
 
 ## Academic Honesty {-#cg-honesty}
 
-Honesty in scholarship and research is integral to the integrity of the academic enterprise of any higher education institution. Therefore, all students at the University of Dundee must practice academic honesty. Academic dishonesty includes cheating, fabrication, plagiarism, and facilitating dishonesty. Cases of academic dishonesty will be subject to appropriate sanctions and ignorance of such standards is not sufficient evidence of lack of intent. Please see the *Code of Practice on Academic Misconduct by Students*^[Available at [https://www.dundee.ac.uk/qf/documents/details/academic-misconduct.php](https://www.dundee.ac.uk/qf/documents/details/academic-misconduct.php).] for more information about what constitutes academic dishonesty.
+Honesty in scholarship and research is integral to the integrity of the academic enterprise of any higher education institution. Therefore, all students at the University of Dundee must understand and practice academic integrity. Academic dishonesty includes cheating, fabrication, plagiarism, and facilitating dishonesty. Cases of academic dishonesty will be subject to appropriate sanctions, and ignorance of such standards is insufficient evidence of lack of intent. Please see the *Code of Practice on Academic Misconduct by Students*^[Available at [https://www.dundee.ac.uk/qf/documents/details/academic-misconduct.php](https://www.dundee.ac.uk/qf/documents/details/academic-misconduct.php).] for more information about what constitutes academic dishonesty.
 
-## End of Module Questionaire {-#cg-questionaire}
+## Module Questionaires {-#cg-questionaire}
 
-You will have the opportunity to complete a confidential questionnaire regarding the content and presentation of the module periodically. These questionnaires form an important element in the University's Academic Standards procedures. Thank you in advance for your cooperation. 
+You will have the opportunity to periodically complete a confidential questionnaire regarding the content and presentation of the module. These questionnaires form an essential element in the University's Academic Standards procedures. Thank you in advance for your cooperation. 

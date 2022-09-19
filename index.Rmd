@@ -49,6 +49,9 @@ library(dplyr)
 library(datasets)
 library(infer)
 library(fontawesome)
+
+options(knitr.kable.NA = '')
+
 # ggplot theme
 if (knitr::is_html_output()){
   theme_set(theme_gray(base_size = 12))

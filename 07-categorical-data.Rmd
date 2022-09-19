@@ -6,7 +6,7 @@ df_cat <- read_csv("data/cell-counts.csv")
 
 ## Multinomial experiments
 
-Suppose we have a population that is divided into $k > 2$ distinct categories. We consider an experiment where we select $m$ individuals (or objects) from the population and categorize each one. We denote the proportion of the population in the $i$th category by $p_i$. If the sample size $m$ is much smaller than the population size $M$ (so that the $m$ trials are independent), this experiment will be approximately *multinomial* with success probability $p_i$ for each category, $i=1, \dots, k$. 
+Suppose we have a population divided into $k > 2$ distinct categories. We consider an experiment where we select $m$ individuals (or objects) from the population and categorise each. We denote the population proportion in the $i$th category by $p_i$. If the sample size $m$ is much smaller than the population size $M$ (so that the $m$ trials are independent), this experiment will be approximately *multinomial* with success probability $p_i$ for each category, $i=1, \dots, k$. 
 
 Before the experiment is performed, we denote the number (or count) of the trials resulting in category $i$ by the rv $N_i$. The expected number of trails that result in category $i$ is given by 
 \begin{equation}
@@ -39,7 +39,7 @@ kbl(df_cat, align = "cccccc", caption = "Observed and expected cell counts.", bo
  kable_styling(latex_options = c("striped", "hold_position"))
 ```   
 
-The test procedure assesses the discrepancy between the value of the observed and expected cell counts. This discrepancy, or **goodness of fit**, is measured by the squared deviations divided by the expected count.^[The division by the expected cell counts is to account for possible differences in the relative magnitude of the observed/expected counts.]
+The test procedure assesses the discrepancy between the value of the observed and expected cell counts. This discrepancy, or **goodness of fit**, is measured by the squared deviations divided by the expected count.^[The division by the expected cell counts accounts for possible differences in the relative magnitude of the observed/expected counts.]
 
 ```{theorem, multinomial-experiment}
 For $m p_i \geq 5$ for $i = 1, \dots, k$, the rv
@@ -68,19 +68,19 @@ As a rule of thumb, provided $m p_{i0} \geq 5$ for all $i = 1, \dots, k$, then t
 If $m p_{i0} < 5$ for some $i$ then it may be possible to combine the categories such that the new categorizations satisfy the assumptions of Proposition \@ref(prp:htest-multinomial).
 
 :::{.warningblock data-latex=""}
-Things are much more complicated if the category probabilities are not completely specified.   
+Things are much more complicated if the category probabilities are not entirely specified.   
 :::   
 
 <!-- ## Test for normality -->
 
-<!-- Probability plots comparing the theoretical quantiles of the normal distribution against the quantiles of sample data were introduced as an informal way of determining whether a distribution was normal (cf. Figures \@ref(fig:qq-plot-cherry) and \@ref(fig:qc-beer-pH-norm)); the closer the fit to a straight line, the stronger the evidence that the distribution is normal. In Section \@ref(correlation), we saw how the sample correlation $r$ was a quantitative measure of linear association. We give a special test for normality called the **Ryan--Joiner test**.  -->
+<!-- Probability plots comparing the theoretical quantiles of the normal distribution against the quantiles of sample data were introduced as an informal way of determining whether a distribution was normal (cf. Figures \@ref(fig:qq-plot-cherry) and \@ref(fig:qc-beer-pH-norm)); the closer the fit to a straight line, the more substantial the evidence that the distribution is normal. In Section \@ref(correlation), we saw how the sample correlation $r$ was a quantitative measure of linear association. We give a special test for normality called the **Ryan--Joiner test**.  -->
 
 <!-- ```{theorem, ryan-joiner-test} -->
 <!-- For ordered^[Ordered smallest to largest.] sample data $x_{(1)}, x_{(2)}, \dots, x_{(m)}$, let  -->
 <!-- \begin{equation*} -->
 <!--  y_i = \Phi^{-1}\left( \frac{i - 0.375}{m + 0.25}\right)\,. -->
 <!-- \end{equation*} -->
-<!-- Compute the sample correlation coefficient $r$ in \@ref(eq:sample-correlation-statistic) for the pairs $(x_{(1)}, y_1), \dots, (x_{(m)}, y_m)$. For a level $\alpha$, the **Ryan--Joiner test** assumes the null hypothesis -->
+<!-- Compute the sample correlation coefficient $r$ in \@ref(eq:sample-correlation-statistic) for the pairs $(x_{(1)}, y_1), \dots, (x_{(m)}, y_m)$. For a level, $\alpha$, the **Ryan--Joiner test** assumes the null hypothesis -->
 <!-- \begin{equation*} -->
 <!--  H_0 : \text{the population distribution is normal}\,, -->
 <!-- \end{equation*} -->
@@ -91,11 +91,11 @@ Things are much more complicated if the category probabilities are not completel
 <!-- using the test statistic \@ref(eq:sample-correlation-statistic). The $P$-value is the area under the  -->
 <!-- ``` -->
 
-## Test for independence of factors
+## Test for the independence of factors
 
-In Section \@ref(goodness-of-fit-tests) we considered the categorization of a population into a single factor. We now consider a single population where each individual is categorized into two factors with $I$ distinct categories for the first factor and $J$ distinct categories for the second factor. That is, each individual from the population belongs to exactly one of the $I$ categories of the first factor and exactly one of the $J$ categories of the second factor. We want to determine whether or not there is any dependency between the two factors. 
+In Section \@ref(goodness-of-fit-tests), we considered categorising a population into a single factor. We now consider a single population where each individual is categorised into two factors with $I$ distinct categories for the first factor and $J$ distinct categories for the second factor. Each individual from the population belongs to exactly one of the $I$ categories of the first factor and exactly one of the $J$ categories of the second factor. We want to determine whether or not there is any dependency between the two factors. 
 
-For a sample of $m$ individuals, we denote by $n_{ij}$ the count of the $m$ samples that fall both in category $i$ of the first factor and category $j$ of the second factor, for $i = 1, \dots, I$ and $j = 1, \dots, J$. A **contingency (data) table** with $I$ rows and $J$ columns (i.e., $IJ$ cells) will be used to record the $n_{ij}$ counts (in the obvious way).^[Contingency is another word for dependency in this context.] Let $p_{ij}$ be the proportion of individuals in the population who belong in category $i$ of factor 1 and category $j$ of factor $2$. Then, the probability that a randomly selected individual falls in category $i$ of factor 1 is found by summing over all $j$:
+For a sample of $m$ individuals, we denote by $n_{ij}$ the count of the $m$ samples that fall both in category $i$ of the first factor and category $j$ of the second factor, for $i = 1, \dots, I$ and $j = 1, \dots, J$. A **contingency (data) table** with $I$ rows and $J$ columns (i.e., $IJ$ cells) will be used to record the $n_{ij}$ counts (in an obvious way).^[Contingency is another word for dependency in this context.] Let $p_{ij}$ be the proportion of individuals in the population who belong in category $i$ of factor 1 and category $j$ of factor $2$. Then, the probability that a randomly selected individual falls in category $i$ of factor 1 is found by summing over all $j$:
 \begin{equation*}
 p_{i} = \sum_{j=1}^J p_{ij}\,,
 \end{equation*}
@@ -108,9 +108,9 @@ The null hypothesis that we will be interested in adopting is
 H_0 : p_{ij} = p_{i} \cdot p_{j} \; \forall (i,j)\,,
  (\#eq:null-two-factor)
 \end{equation*}
-that is, that an individual's category in factor 1 is independent of the category in factor 2. 
+that is, an individual's category in factor 1 is independent of the category in factor 2. 
 
-Following the same program as for the single category goodness-of-fit test, we note that, assuming the null hypothesis \@ref(eq:null-two-factor) is true, then the expected count in cell $i,j$ is
+Following the same program as for the single category goodness-of-fit test, we note that assuming the null hypothesis \@ref(eq:null-two-factor) is true, then the expected count in cell $i,j$ is
 \begin{equation*}
  \E[N_{ij}] = m p_{ij} = m p_{i} p_{j}\,;
 \end{equation*}
@@ -142,7 +142,7 @@ The test statistic is
 \begin{equation*}
 V = \sum_{i=1}^I \sum_{j=1}^J \frac{(N_{ij} - \widehat{e}_{ij})^2}{\widehat{e}_{ij}} \,.
 \end{equation*}
-As a rule of thumb, provided $\widehat{e}_{ij} \geq 5$ for all $i,j$ and when $H_0$ is true, then the test statistic has approximately a $\chi^2(\nu)$ distribution with $\nu = (I-1)(J-1)$ df. For a hypothesis test at level $\alpha$, the procedure is upper-tailed and the $P$-value is the area under $\chi^2(\nu)$ to the right of $v$. 
+As a rule of thumb, provided $\widehat{e}_{ij} \geq 5$ for all $i,j$ and when $H_0$ is true, then the test statistic has approximately a $\chi^2(\nu)$ distribution with $\nu = (I-1)(J-1)$ df. For a hypothesis test at level $\alpha$, the procedure is upper-tailed, and the $P$-value is the area under $\chi^2(\nu)$ to the right of $v$. 
 ```
 
 

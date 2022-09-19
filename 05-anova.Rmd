@@ -6,7 +6,7 @@ mstr <- (6*(14.5-11.9)^2 + 4*(10.0 - 11.9)^2 + 5*(13.0-11.9)^2 + 5*( 9.2 - 11.9)
 
 # Analysis of variance (ANOVA) {#anova}
 
-Analysis of variance, shortened as ANOVA, is a collection of statistical models and estimation procedures for analyzing the variation among different groups. In particular, a single-factor ANOVA provides a hypothesis test regarding the equality of two or more population means, thereby generalizing the one-sample and two-sample $\mathsf{t}$ tests considered in Sections \@ref(mean-normal-var-unknown) and \@ref(compare-means-normpops-vars-unknown).
+Analysis of variance, shortened as ANOVA, is a collection of statistical models and estimation procedures for analysing the variation among different groups. In particular, a single-factor ANOVA provides a hypothesis test regarding the equality of two or more population means, thereby generalising the one-sample and two-sample $\mathsf{t}$ tests considered in Sections \@ref(mean-normal-var-unknown) and \@ref(compare-means-normpops-vars-unknown).
 
 ## Single factor ANOVA test {#anova-single-factor-test}
 
@@ -34,7 +34,7 @@ versus the alternative hypothesis,
 \end{equation*}
 Note that if $k=3$ then $H_0$ is true only if all three means are the same, i.e., $\mu_1 = \mu_1 = \mu_3$, but there are a number of ways which the alternative might hold: $\mu_1 \neq \mu_2 = \mu_3$ or $\mu_1 = \mu_2 \neq \mu_3$ or $\mu_1 = \mu_3 \neq \mu_2$ or $\mu_1 \neq \mu_2 \neq \mu_3$. 
 
-The test procedure is based on comparing a measure of difference in variation among the sample means, i.e., the variation between $x_i$'s, to a measure of variation within each sample.  
+The test procedure is based on comparing a measure of the difference in variation among the sample means, i.e., the variation between $x_i$'s, to a measure of variation within each sample.  
 
 ```{definition, mstr-mse}
 The **mean square for treatments** is 
@@ -45,7 +45,7 @@ and the **mean square error** is
 \begin{equation*}
  \mathsf{MSE} = \frac{1}{m-k} \sum_{i=1}^k (m_i - 1) S_i^2 \,.
 \end{equation*}
-The $\mathsf{MSTr}$ and $\mathsf{MSE}$ are statistics that measure, respectively, the variation among sample means and the variation within samples. We will also use $\mathsf{MSTr}$ and $\mathsf{MSE}$ to denote calculated values of these statistics. 
+The $\mathsf{MSTr}$ and $\mathsf{MSE}$ are statistics that measure the variation among sample means and the variation within samples. We will also use $\mathsf{MSTr}$ and $\mathsf{MSE}$ to denote the calculated values of these statistics. 
 ```
 
 ```{proposition, htest-anova}
@@ -57,7 +57,7 @@ is the appropriate test statistic for the single-factor ANOVA problem involving 
 \begin{equation*}
 F \sim \mathsf{F}(\nu_1 = k-1, \nu_2 = m - k)\,.
 \end{equation*}
-In the present context a large test statistic value is more constradictory to $H_0$ than a smaller value, therefore the test is upper-tailed, i.e., consider the area $F_\alpha$ to the right of the critical value $F_{\alpha, \nu_1, \nu_2}$. We reject $H_0$ if the value of the test statistic $F > F_\alpha$.
+In the present context, a large test statistic value is more contradictory to $H_0$ than a smaller value. Therefore the test is upper-tailed, i.e., consider the area $F_\alpha$ to the right of the critical value $F_{\alpha, \nu_1, \nu_2}$. We reject $H_0$ if the value of the test statistic $F > F_\alpha$.
 ```   
 
 
@@ -74,7 +74,7 @@ kbl(dattab, col.names = c('Nation', "Average salaries ('000 £)", 'Size $(m_i)$'
 ```   
 
 :::{.tipblock data-latex=""}
-Table \@ref(tab:anova-samples-stats) presents the **Average Salary Data** (in thousands of pounds) reported from 20 local councils classified by nation (England, N Ireland, Scotland, and Wales). The sample means together with the sample standard deviations are summarized in the table as well as presented using using box plots in Figure \@ref(fig:anova-samples-boxplots).  
+Table \@ref(tab:anova-samples-stats) presents the **Average Salary Data** (in thousands of pounds) reported from 20 local councils classified by nation (England, N Ireland, Scotland, and Wales). The sample means and sample standard deviations are summarised in the table and presented using box plots in Figure \@ref(fig:anova-samples-boxplots).  
 :::   
 
 ```{r anova-samples-boxplots, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Box plots of the average mean salary data in Table \\@ref(tab:anova-samples-stats) indicate five summary statistics: the median, two hinges (first and third quartiles) and two whiskers (extending from the hinge to the most extreme data point within $1.5 \\cdot \\mathsf{IQR}$)."}
@@ -114,11 +114,11 @@ yielding the test statistic value
  F = \frac{\mathsf{MSTr}}{\mathsf{MSE}} = \frac{`r mstr`}{`r mse`} 
  = `r mstr / mse` \,.
 \end{equation*}
-Since $F > F_\alpha$ we reject $H_0$. The data does not support they hypothesis that the mean salaries in each nation are identical at the $5\%$ level. $\lozenge$    
+Since $F > F_\alpha$ we reject $H_0$. The data do not support the hypothesis that the mean salaries in each nation are identical at the $5\%$ level. $\lozenge$    
 
 ## Confidence intervals {#anova-ci}
 
-In Section \@ref(compare-means) we gave a CI for comparing population means that involved the difference $\mu_X - \mu_Y$. In some settings, we would like to give CIs for more complicated functions of population means $\mu_i$. Let
+In Section \@ref(compare-means), we gave a CI for comparing population means involving the difference $\mu_X - \mu_Y$. In some settings, we would like to give CIs for more complicated functions of population means $\mu_i$. Let
 \begin{equation*}
  \theta = \sum_{i=1}^k c_i \mu_i\,,
 \end{equation*}
@@ -130,7 +130,7 @@ is normally distributed with
 \begin{equation*}
  \Var[\widehat{\theta}] = \sum_{i=1}^k c_i^2 \Var[\overline{X}_i] = \sigma^2 \sum_{i=1}^{k} \frac{c_i^2}{m_i}\,.
 \end{equation*}
-We estimate $\sigma^2$ by the $\mathsf{MSE}$ and standardize the estimator to arrive at a $\mathsf{t}$ variable
+We estimate $\sigma^2$ by the $\mathsf{MSE}$ and standardise the estimator to arrive at a $\mathsf{t}$ variable
 \begin{equation*}
  \frac{\widehat{\theta} - \theta}{\widehat{\sigma}_{\widehat{\theta}}}\,,
 \end{equation*}

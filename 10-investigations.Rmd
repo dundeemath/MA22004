@@ -2,7 +2,7 @@
 \markboth{}{CURATED CONTENT}
 # Curated Content {-}
 
-Below we provide links to supplementary online material. Hopefully some of the items will inspire you view the module material in a broader context and lead to further investigations. 
+Below we provide links to supplementary online material. Hopefully, some of the items will inspire you to view the module material in a broader context and lead to further investigations. 
 
 
 ## Investigation 0 {-}
@@ -13,10 +13,10 @@ What is Statistics?
 :  [https://www.youtube.com/watch?v=a1PtQ67urG4](https://www.youtube.com/watch?v=a1PtQ67urG4) <br />\newline  Prof David Spiegelhalter (Cambridge University) discusses public understanding of risk. You may also be interested in reading [@Spiegelhalter:2020ps].
 
 - The Joy of Statistics 
-:  [https://www.youtube.com/watch?v=jbkSRLYSojo](https://www.youtube.com/watch?v=jbkSRLYSojo) <br />\newline  Prof Hans Rosling (Karolinska Institute and Gapminder Foundation) analyzes data from 200 Countries over 200 Years in 4 Minutes - The Joy of Stats - BBC Four.
+:  [https://www.youtube.com/watch?v=jbkSRLYSojo](https://www.youtube.com/watch?v=jbkSRLYSojo) <br />\newline  Prof Hans Rosling (Karolinska Institute and Gapminder Foundation) analyses data from 200 Countries over 200 Years in 4 Minutes - The Joy of Stats - BBC Four.
 
 - Teach statistics before calculus! 
-:  [https://www.ted.com/talks/arthur_benjamin_teach_statistics_before_calculus](https://www.ted.com/talks/arthur_benjamin_teach_statistics_before_calculus) <br />\newline  Prof Arthur Benjamin (Harvey Mudd College) argues that the pinnacle of math education be probability and statistics --- not calculus.
+:  [https://www.ted.com/talks/arthur_benjamin_teach_statistics_before_calculus](https://www.ted.com/talks/arthur_benjamin_teach_statistics_before_calculus) <br />\newline  Prof Arthur Benjamin (Harvey Mudd College) argues that the pinnacle of math education is probability and statistics --- not calculus.
 
 - Kaggle
 :  [https://www.kaggle.com/](https://www.kaggle.com/) <br />\newline Towards data science. 
@@ -25,7 +25,7 @@ What is Statistics?
 
 ## Investigation 1 {-}
 
-Defense against the dark arts.
+Defence against the dark arts.
 
 - Three ways to spot bad statistics 
 :  [https://www.ted.com/talks/mona_chalabi_3_ways_to_spot_a_bad_statistic](https://www.ted.com/talks/mona_chalabi_3_ways_to_spot_a_bad_statistic) <br />\newline  Mona Chalabi (Data Journalist) discusses three ways to spot bad statistics.
@@ -42,24 +42,24 @@ Defense against the dark arts.
 
 ## Investigation 2 {-}
 
-Data analysis and vizualization.
+Data analysis and visualisation.
 
 - The Grammar of Graphics 
-:  [https://www.youtube.com/watch?v=h-62NwWUI5c](https://www.youtube.com/watch?v=h-62NwWUI5c) <br />\newline  What Makes A Good Visualisation? Rhys Jackson from RocketMill, a UK Digital Marketing Agency, gives a perspective on visualizing data from a marketing perspective. 
-:  [https://www.youtube.com/watch?v=kepKM7Z2O54](https://www.youtube.com/watch?v=kepKM7Z2O54) <br />\newline  David Keyes (RStudio) discusses how the grammar of graphics underpins the `ggplot2` data vizualization package in `R`.
+:  [https://www.youtube.com/watch?v=h-62NwWUI5c](https://www.youtube.com/watch?v=h-62NwWUI5c) <br />\newline  What Makes A Good Visualisation? Rhys Jackson from RocketMill, a UK Digital Marketing Agency, gives a perspective on visualising data from a marketing perspective. 
+:  [https://www.youtube.com/watch?v=kepKM7Z2O54](https://www.youtube.com/watch?v=kepKM7Z2O54) <br />\newline  David Keyes (RStudio) discusses how the grammar of graphics underpins the `ggplot2` data visualization package in `R`.
 
 - Same Stats, Different Graphs 
 :  [https://www.autodeskresearch.com/publications/samestats](https://www.autodeskresearch.com/publications/samestats) <br />\newline  Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing (ACM SIGCHI Conference on Human Factors in Computing Systems) by Justin Matejka, George Fitzmaurice.
 
 - Why do we so often use 0.05 for hypothesis testing? 
-:  [https://www.openintro.org/book/stat/why05/](https://www.openintro.org/book/stat/why05/) <br />\newline  In this online exercise, you will gain an improved understanding of what a significance level is, and why a value in the neighborhood of 0.05 is reasonable as a default.
+:  [https://www.openintro.org/book/stat/why05/](https://www.openintro.org/book/stat/why05/) <br />\newline  In this online exercise, you will gain an improved understanding of what a significance level is, and why a value in the neighbourhood of 0.05 is reasonable as a default.
 
-- Data visualizations 
+- Data visualisations 
 :  [https://flowingdata.com/](https://flowingdata.com/) <br />\newline  FlowingData blog by Nathan Yau. 
 :  [https://fivethirtyeight.com/](https://fivethirtyeight.com/) <br />\newline  FiveThirtyEight blog by Nate Silver.
 
 - Storytelling with data
-:  [http://www.storytellingwithdata.com/blog](http://www.storytellingwithdata.com/blog) <br />\newline Blog with nice hints and tips for how to present data in tables, graphics, and visualizations.
+:  [http://www.storytellingwithdata.com/blog](http://www.storytellingwithdata.com/blog) <br />\newline Blog with nice hints and tips for how to present data in tables, graphics, and visualisations.
 :  [https://community.storytellingwithdata.com/challenges](https://community.storytellingwithdata.com/challenges) <br />\newline Monthly challenge. 
 
 
@@ -101,7 +101,7 @@ Data-driven decision making in epidemiology.
 
 
 - Public Health Scotland COVID-19 Dashboard 
-:  [https://public.tableau.com/shared/N2M72MH2B](https://public.tableau.com/shared/N2M72MH2B) <br />\newline  The official COVID-19 dashboard of Public Health Scotland. 
+:  [https://public.tableau.com/app/profile/phs.covid.19/viz/COVID-19DailyDashboard_15960160643010/Dailyupdate](https://public.tableau.com/app/profile/phs.covid.19/viz/COVID-19DailyDashboard_15960160643010/Dailyupdate) <br />\newline  The official COVID-19 dashboard of Public Health Scotland. 
 
 - Our World in Data 
 :  [https://ourworldindata.org/](https://ourworldindata.org/) <br />\newline  A project of the Oxford Martin School to make public health data, including progress in UN Sustainable Development Goals, available and accessible.
@@ -126,10 +126,10 @@ Spurious correlations!
 
 ## Investigation 7 {-}
 
-Data and society:  can data-driven and predictive modeling lead to a better world? What are the ethics of mass data collection?
+Data and Society:  can data-driven and predictive modelling lead to a better world? What are the ethics of mass data collection?
 
 - Science behind the news:  Predictive Policing 
-:  [https://www.youtube.com/watch?v=74_jreara3w](https://www.youtube.com/watch?v=74_jreara3w) <br />\newline  The Los Angeles Police Department is using a new tactic in their fight against crime called "predictive policing." It's a computer program that was originally developed by a team at UCLA, including mathematician Andrea Bertozzi and anthropologist Jeff Brantingham. "Science Behind the News" is produced in partnership with NBC Learn. (Provided by the National Science Foundation & NBC Learn)
+:  [https://www.youtube.com/watch?v=74_jreara3w](https://www.youtube.com/watch?v=74_jreara3w) <br />\newline  The Los Angeles Police Department is using a new tactic in their fight against crime called "predictive policing." It's a computer program originally developed by a team at UCLA, including mathematician Andrea Bertozzi and anthropologist Jeff Brantingham. "Science Behind the News" is produced in partnership with NBC Learn. (Provided by the National Science Foundation & NBC Learn)
 
 - You should get paid for your data 
 :  [https://www.nytimes.com/video/opinion/100000006678020/data-privacy-jaron-lanier-2.html](https://www.nytimes.com/video/opinion/100000006678020/data-privacy-jaron-lanier-2.html) <br />\newline  Jaron Lanier (Computer Scientist and Author) discusses a compensation plan and data dignity. 
