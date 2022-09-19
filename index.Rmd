@@ -8,12 +8,12 @@ documentclass: book
 site: bookdown::bookdown_site
 github-repo: dundeemath/MA22004
 url: https\://dundeemath.github.io/MA22004
+cover-image: ma22004-cover.png
 bibliography: ma22004.bib
 csl: assets/the-american-statistician.csl #www.zotero.org/styles
 link-citations: true
 link-bibliography: true
-description: Course guide and course notes for MA22004 - Statistics and Probability
-  II. Division of Mathematics, University of Dundee.
+description: Module guide and notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee.
 always_allow_html: yes
 urlcolor: #4365e2
 #include-before below needs to be commented out to compile pdf latex

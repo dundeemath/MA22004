@@ -5,21 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6 Linear regression | MA22004 – Statistics II</title>
-  <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="description" content="Module guide and notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 Linear regression | MA22004 – Statistics II" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://dundeemath.github.io/MA22004" />
-  
-  <meta property="og:description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
+  <meta property="og:image" content="https://dundeemath.github.io/MA22004/ma22004-cover.png" />
+  <meta property="og:description" content="Module guide and notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   <meta name="github-repo" content="dundeemath/MA22004" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="6 Linear regression | MA22004 – Statistics II" />
   
-  <meta name="twitter:description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
-  
+  <meta name="twitter:description" content="Module guide and notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
+  <meta name="twitter:image" content="https://dundeemath.github.io/MA22004/ma22004-cover.png" />
 
 <meta name="author" content="Dr Eric Hall" />
 
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="anova.html"/>
 <link rel="next" href="categorical-data.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -182,7 +181,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-support"><i class="fa fa-check"></i>Study Support</a></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-disability"><i class="fa fa-check"></i>Disability</a></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-honesty"><i class="fa fa-check"></i>Academic Honesty</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-questionaire"><i class="fa fa-check"></i>End of Module Questionaire</a></li>
+<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-questionaire"><i class="fa fa-check"></i>Module Questionaires</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="deadlines.html"><a href="deadlines.html"><i class="fa fa-check"></i>Deadlines</a></li>
 <li class="chapter" data-level="" data-path="labs.html"><a href="labs.html"><i class="fa fa-check"></i>Lab Guide</a></li>
@@ -198,15 +197,6 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-eng"><i class="fa fa-check"></i>Writing</a></li>
 <li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-format"><i class="fa fa-check"></i>Formatting</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html"><i class="fa fa-check"></i>Miscellaneous Instructions</a>
-<ul>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#gradescope-submissions"><i class="fa fa-check"></i>Gradescope Submissions</a>
-<ul>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#equipment"><i class="fa fa-check"></i>Equipment you will need</a></li>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#workflow"><i class="fa fa-check"></i>Submission workflow</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#using-collaborate"><i class="fa fa-check"></i>Using Collaborate</a></li>
 </ul></li>
 <li class="part"><span><b>Lecture Notes</b></span></li>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html"><i class="fa fa-check"></i>Preliminaries</a>
@@ -273,7 +263,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="7.1" data-path="categorical-data.html"><a href="categorical-data.html#multinomial-experiments"><i class="fa fa-check"></i><b>7.1</b> Multinomial experiments</a></li>
 <li class="chapter" data-level="7.2" data-path="categorical-data.html"><a href="categorical-data.html#goodness-of-fit-tests"><i class="fa fa-check"></i><b>7.2</b> Goodness-of-fit for a single factor</a></li>
-<li class="chapter" data-level="7.3" data-path="categorical-data.html"><a href="categorical-data.html#test-for-independence-of-factors"><i class="fa fa-check"></i><b>7.3</b> Test for independence of factors</a></li>
+<li class="chapter" data-level="7.3" data-path="categorical-data.html"><a href="categorical-data.html#test-for-the-independence-of-factors"><i class="fa fa-check"></i><b>7.3</b> Test for the independence of factors</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="quality-control.html"><a href="quality-control.html"><i class="fa fa-check"></i><b>8</b> Quality control</a>
 <ul>
@@ -319,80 +309,76 @@ div.csl-indent {
 <span class="math inline">\(\DeclareMathOperator{\corr}{corr}\)</span>
 <span class="math inline">\(\newcommand{\se}{\mathsf{se}}\)</span>
 <span class="math inline">\(\DeclareMathOperator{\sd}{sd}\)</span>
-<div id="linear-models" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Linear regression</h1>
-<p><strong>Regression analysis</strong> allows us to study the relationship among two or more rvs. Typically, we are interested in the relationship between a <strong>response</strong> or <strong>dependent</strong> rv <span class="math inline">\(Y\)</span> and a <strong>covariate</strong> <span class="math inline">\(X\)</span>.<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a> The relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> will be explained through a <strong>regression function</strong>,
+<div id="linear-models" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> Linear regression<a href="linear-models.html#linear-models" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><strong>Regression analysis</strong> allows us to study the relationship among two or more rvs. Typically, we are interested in the relationship between a <strong>response</strong> or <strong>dependent</strong> rv <span class="math inline">\(Y\)</span> and a <strong>covariate</strong> <span class="math inline">\(X\)</span>.<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a> The relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> will be explained through a <strong>regression function</strong>,
 <span class="math display">\[\begin{equation*}
- r(x) = \E[Y \mid X = x] = \int y f(y\mid x) dy \,.
+r(x) = \E[Y \mid X = x] = \int y f(y\mid x) dy \,.
 \end{equation*}\]</span>
 In particular, we shall assume that <span class="math inline">\(r\)</span> is linear,
 <span class="math display" id="eq:linear-regression-function">\[\begin{equation}
- r(x) = \beta_0 + \beta_1 x\,,
- \tag{6.1}
+r(x) = \beta_0 + \beta_1 x\,,
+\tag{6.1}
 \end{equation}\]</span>
 and estimate the intercept <span class="math inline">\(\beta_0\)</span> and slope <span class="math inline">\(\beta_1\)</span> of this linear model from sample data
 <span class="math display">\[\begin{equation*}
- (Y_1, X_1), \dots, (Y_m, X_m) \sim F_{Y,X}\,.
+(Y_1, X_1), \dots, (Y_m, X_m) \sim F_{Y,X}\,.
 \end{equation*}\]</span></p>
-<div id="simple-linear-regression" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Simple linear regression models</h2>
+<div id="simple-linear-regression" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Simple linear regression models<a href="linear-models.html#simple-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The simplest regression is when <span class="math inline">\(X_i\)</span> is one-dimensional and <span class="math inline">\(r(x)\)</span> is linear as in <a href="linear-models.html#eq:linear-regression-function">(6.1)</a>. A linear regression posits the expected value of <span class="math inline">\(Y_i\)</span> is a linear function of the data <span class="math inline">\(X_i\)</span>, but that <span class="math inline">\(Y\)</span> deviates from its expected value by a random amount for fixed <span class="math inline">\(x_i\)</span>.</p>
-
 <div class="definition">
 <p><span id="def:linear-model" class="definition"><strong>Definition 6.1  </strong></span>The <strong>simple linear regression model</strong> relates a random response <span class="math inline">\(Y_i\)</span> to a set of independent variables <span class="math inline">\(X_i\)</span>,
 <span class="math display" id="eq:linear-model">\[\begin{equation}
- Y_i = \beta_0 + \beta_1 X_i + \epsilon_i \,,
- \tag{6.2}
+Y_i = \beta_0 + \beta_1 X_i + \epsilon_i \,,
+\tag{6.2}
 \end{equation}\]</span>
 where the intercept <span class="math inline">\(\beta_0\)</span> and slope <span class="math inline">\(\beta_1\)</span> are unknown parameters and the <strong>random deviation</strong> or <strong>random error</strong> <span class="math inline">\(\epsilon_i\)</span> is a rv assumed to satisfy:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\E[\epsilon_i \mid X_i = x_i] = 0\)</span>,</li>
 <li><span class="math inline">\(\Var[\epsilon_i \mid X_i = x_i] = \sigma^2\)</span> does not depend on <span class="math inline">\(x_i\)</span>,</li>
-<li><span class="math inline">\(\epsilon_i\)</span> and <span class="math inline">\(\epsilon_j\)</span> are independent for <span class="math inline">\(i, j = 1, \dots, m\)</span>.<br />
-</li>
+<li><span class="math inline">\(\epsilon_i\)</span> and <span class="math inline">\(\epsilon_j\)</span> are independent for <span class="math inline">\(i, j = 1, \dots, m\)</span>.</li>
 </ol>
 </div>
 <p>From the assumptions on <span class="math inline">\(\epsilon_i\)</span>, the linear model <a href="linear-models.html#eq:linear-model">(6.2)</a> implies
 <span class="math display">\[\begin{equation*}
- \E[Y_i \mid X_i = x_i] = \beta_0 + \beta_1 x_i \,.
+\E[Y_i \mid X_i = x_i] = \beta_0 + \beta_1 x_i \,.
 \end{equation*}\]</span>
 Thus, if <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> are estimators of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>, then the <strong>fitted line</strong> is
 <span class="math display">\[\begin{equation*}
- \widehat{r}(x) = \widehat{\beta}_0 + \widehat{\beta}_1 x
+\widehat{r}(x) = \widehat{\beta}_0 + \widehat{\beta}_1 x
 \end{equation*}\]</span>
 and the <strong>predicted</strong> or <strong>fitted value</strong> <span class="math inline">\(\widehat{Y}_i = \widehat{r}(X_i)\)</span> is an estimator for <span class="math inline">\(\E[Y_i \mid X_i = x_i]\)</span>. The <strong>residuals</strong> are defined to be
 <span class="math display" id="eq:ls-residuals">\[\begin{equation}
- \widehat{\epsilon}_i = Y_i - \widehat{Y}_i = Y_i - \left( \widehat{\beta}_0 + \widehat{\beta}_1 X_i \right) \,.
- \tag{6.3}
+\widehat{\epsilon}_i = Y_i - \widehat{Y}_i = Y_i - \left( \widehat{\beta}_0 + \widehat{\beta}_1 X_i \right) \,.
+\tag{6.3}
 \end{equation}\]</span>
-The <strong>residual sums of squares</strong>,<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a>
+The <strong>residual sums of squares</strong>,<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a>
 <span class="math display" id="eq:rss">\[\begin{equation}
- \mathsf{RSS} = \sum_{i=1}^m \widehat{\epsilon}_i^2\,,
- \tag{6.4}
+\mathsf{RSS} = \sum_{i=1}^m \widehat{\epsilon}_i^2\,,
+\tag{6.4}
 \end{equation}\]</span>
 measures how well the regression line <span class="math inline">\(\widehat{r}\)</span> fits the data <span class="math inline">\((Y_1, X_1), \dots, (Y_m, X_m)\)</span>. The <strong>least squares estimates</strong> of <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> are the values that minimize the <span class="math inline">\(\mathsf{RSS}\)</span> in <a href="linear-models.html#eq:rss">(6.4)</a>.</p>
-
 <div class="theorem">
-<span id="thm:least-squares-estimates" class="theorem"><strong>Theorem 6.1  </strong></span>The <strong>least squares estimates</strong> for <span class="math inline">\(\widehat{\beta}_1\)</span> and <span class="math inline">\(\widehat{\beta}_0\)</span> are given by, respectively,
+<p><span id="thm:least-squares-estimates" class="theorem"><strong>Theorem 6.1  </strong></span>The <strong>least squares estimates</strong> for <span class="math inline">\(\widehat{\beta}_1\)</span> and <span class="math inline">\(\widehat{\beta}_0\)</span> are given by, respectively,
 <span class="math display" id="eq:ls-slope">\[\begin{equation}
- \widehat{\beta}_1 = \frac{\sum_{i=1}^m (X_i - \overline{X})(Y_i - \overline{Y})}{\sum_{i=1}^m (X_i - \overline{X})^2} = \frac{S_{xy}}{S_{xx}} \,,
- \tag{6.5}
+\widehat{\beta}_1 = \frac{\sum_{i=1}^m (X_i - \overline{X})(Y_i - \overline{Y})}{\sum_{i=1}^m (X_i - \overline{X})^2} = \frac{S_{xy}}{S_{xx}} \,,
+\tag{6.5}
 \end{equation}\]</span>
 and
 <span class="math display" id="eq:ls-intercept">\[\begin{equation}
- \widehat{\beta}_0 = \overline{Y} - \widehat{\beta}_1 \overline{X}\,.
- \tag{6.6}
-\end{equation}\]</span>
+\widehat{\beta}_0 = \overline{Y} - \widehat{\beta}_1 \overline{X}\,.
+\tag{6.6}
+\end{equation}\]</span></p>
 </div>
 <p>Equation <a href="linear-models.html#eq:rss">(6.4)</a> is a function of <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> from the definition of the residuals <a href="linear-models.html#eq:ls-residuals">(6.3)</a>. Then <a href="linear-models.html#eq:ls-slope">(6.5)</a> and <a href="linear-models.html#eq:ls-intercept">(6.6)</a> follow by equating the partial derivatives of <a href="linear-models.html#eq:rss">(6.4)</a> to zero. The <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> are the unique solution to this linear system.</p>
-
 <div class="example">
-<span id="exm:linear-model-fit-residuals" class="example"><strong>Example 6.1  </strong></span>In Figures <a href="linear-models.html#fig:linear-model-fit">6.1</a> and <a href="linear-models.html#fig:linear-model-residuals">6.2</a>, we consider the <strong>Cherry Tree Data</strong> (see Table <a href="statistical-inference.html#tab:cherry-data">2.1</a> and discussion). We fit a least squares regression of the volume of timber (response variable) to the diameter of the tree (independent variable). As you would expect, the timber yield increases with diameter.
+<p><span id="exm:linear-model-fit-residuals" class="example"><strong>Example 6.1  </strong></span>In Figures <a href="linear-models.html#fig:linear-model-fit">6.1</a> and <a href="linear-models.html#fig:linear-model-residuals">6.2</a>, we consider the <strong>Cherry Tree Data</strong> (see Table <a href="statistical-inference.html#tab:cherry-data">2.1</a> and discussion). We fit a least squares regression of timber volume (response variable) to the tree’s diameter (independent variable). As you would expect, the timber yield increases with diameter.</p>
 </div>
 <p>The <code>r</code> code below can be used to calculate the least squares regression and residuals.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="linear-models.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(trees)</span>
 <span id="cb13-2"><a href="linear-models.html#cb13-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> trees<span class="sc">$</span>Volume</span>
-<span id="cb13-3"><a href="linear-models.html#cb13-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> trees<span class="sc">$</span>Girth <span class="co"># NB: this is diameter; data mislabeled!</span></span>
+<span id="cb13-3"><a href="linear-models.html#cb13-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> trees<span class="sc">$</span>Girth <span class="co"># NB: this is the diameter; data mislabeled!</span></span>
 <span id="cb13-4"><a href="linear-models.html#cb13-4" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span>
 <span id="cb13-5"><a href="linear-models.html#cb13-5" aria-hidden="true" tabindex="-1"></a>e <span class="ot">&lt;-</span> <span class="fu">resid</span>(fit)</span>
 <span id="cb13-6"><a href="linear-models.html#cb13-6" aria-hidden="true" tabindex="-1"></a>yhat <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit)</span></code></pre></div>
@@ -414,16 +400,15 @@ Figure 6.2: The deviations about the sample mean <span class="math inline">\(\ov
 </p>
 </div>
 </div>
-<div id="ls-estimate-var" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Estimating <span class="math inline">\(\sigma^2\)</span> for linear regressions</h2>
+<div id="ls-estimate-var" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Estimating <span class="math inline">\(\sigma^2\)</span> for linear regressions<a href="linear-models.html#ls-estimate-var" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The parameter <span class="math inline">\(\sigma^2\)</span> (the variance of the random deviation) determines the variability in the regression model.</p>
-
 <div class="theorem">
-<span id="thm:least-squares-var-estimate" class="theorem"><strong>Theorem 6.2  </strong></span>An unbiased estimate of <span class="math inline">\(\sigma^2\)</span> is given by
+<p><span id="thm:least-squares-var-estimate" class="theorem"><strong>Theorem 6.2  </strong></span>An unbiased estimate of <span class="math inline">\(\sigma^2\)</span> is given by
 <span class="math display" id="eq:least-squares-var-estimate">\[\begin{equation}
- \widehat{\sigma}^2 = s^2 = \frac{\mathsf{RSS}}{m-2} = \frac{1}{m-2} \sum_{i=1}^m (y_i - \widehat{y}_i)^2\,.
- \tag{6.7}
-\end{equation}\]</span>
+\widehat{\sigma}^2 = s^2 = \frac{\mathsf{RSS}}{m-2} = \frac{1}{m-2} \sum_{i=1}^m (y_i - \widehat{y}_i)^2\,.
+\tag{6.7}
+\end{equation}\]</span></p>
 </div>
 <p>In Figure <a href="linear-models.html#fig:linear-model-sigma-large-v-small">6.3</a>, we present a least squares regression of timber volume on both tree diameter and height (for the <strong>Cherry Tree Data</strong>). As expected, the regressions indicate the volume increases with both covariates. Estimates for the variance of the random deviation <a href="linear-models.html#eq:least-squares-var-estimate">(6.7)</a> in both regression models, <span class="math inline">\(\sigma_{D}^2\)</span> and <span class="math inline">\(\sigma_{H}^2\)</span>, respectively, are computed to be <span class="math inline">\(s^2_{D} = 18.08\)</span> and <span class="math inline">\(s^2_{H} = 179.48\)</span>. Thus, we see that small variances lead to observations of <span class="math inline">\((x_i, y_i)\)</span> that sit tightly around the regression line, in contrast to large variances that lead to a large cloud of points.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:linear-model-sigma-large-v-small"></span>
@@ -433,20 +418,20 @@ Figure 6.3: For the <strong>Cherry Tree Data</strong>, we estimate the variance 
 </p>
 </div>
 <div class="noteblock">
-<p>In Theorem <a href="linear-models.html#thm:least-squares-var-estimate">6.2</a>, the number in the denominator is the df associated with the <span class="math inline">\(\mathsf{RSS}\)</span> and <span class="math inline">\(s^2\)</span>. To calculate <span class="math inline">\(\mathsf{RSS}\)</span> you must estimate two parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> which results in the loss of two df. Hence the <span class="math inline">\(m-2\)</span>.</p>
+<p>In Theorem <a href="linear-models.html#thm:least-squares-var-estimate">6.2</a>, the number in the denominator is the df associated with the <span class="math inline">\(\mathsf{RSS}\)</span> and <span class="math inline">\(s^2\)</span>. To calculate <span class="math inline">\(\mathsf{RSS}\)</span>, you must estimate two parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>, which results in the loss of two df. Hence the <span class="math inline">\(m-2\)</span>.</p>
 </div>
-<p>We note for the purposes of making inferences, the statistic
+<p>We note to make inferences, the statistic
 <span class="math display">\[\begin{equation*}
- S^2 = \frac{\mathsf{RSS}}{m-2}
+S^2 = \frac{\mathsf{RSS}}{m-2}
 \end{equation*}\]</span>
 is an unbiased estimator or <span class="math inline">\(\sigma^2\)</span> and the random variable
 <span class="math display">\[\begin{equation*}
- \frac{(m-2) S^2}{\sigma^2} \sim \chi^2(m-2)\,.
+\frac{(m-2) S^2}{\sigma^2} \sim \chi^2(m-2)\,.
 \end{equation*}\]</span>
 Moreover, the statistic <span class="math inline">\(S^2\)</span> is independent of both <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span>.</p>
 </div>
-<div id="inference-ls" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Inferences for least-squares parameters</h2>
+<div id="inference-ls" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Inferences for least-squares parameters<a href="linear-models.html#inference-ls" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If <span class="math inline">\(\epsilon_i\)</span> in <a href="linear-models.html#eq:linear-model">(6.2)</a> is assumed to be normally distributed, then we can derive the sampling distributions of the estimators <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span>. Hence, we can use these sampling distributions to make inferences about the parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>.</p>
 <p>Provided iid <span class="math inline">\(\epsilon_i \mid X_i \sim \mathsf{N}(0, \sigma^2)\)</span>, the least-squares estimators possess the following properties.</p>
 <ol style="list-style-type: decimal">
@@ -457,39 +442,37 @@ Moreover, the statistic <span class="math inline">\(S^2\)</span> is independent 
 <li><span class="math inline">\(\Cov[\widehat{\beta}_0, \widehat{\beta}_1] = c_{01} \sigma^2\)</span> where <span class="math inline">\(c_{01} = - \overline{x} / S_{xx}\)</span>.</li>
 </ol>
 <p>These properties can be determined by working directly from <a href="linear-models.html#eq:ls-slope">(6.5)</a> and <a href="linear-models.html#eq:ls-intercept">(6.6)</a>.</p>
-
 <div class="proposition">
 <p><span id="prp:htest-ls-betas" class="proposition"><strong>Proposition 6.1  </strong></span>Consider <span class="math inline">\(H_0 : \beta_i = \beta_{i0}\)</span>. The test statistic is
 <span class="math display" id="eq:htest-ls-betas-statistic">\[\begin{equation*}
- T = \frac{\widehat{\beta}_i - \beta_{i0}}{S\sqrt{c_{ii}}} \,.
- \tag{6.8}
+T = \frac{\widehat{\beta}_i - \beta_{i0}}{S\sqrt{c_{ii}}} \,.
+\tag{6.8}
 \end{equation*}\]</span></p>
 <p>For a hypothesis test at level <span class="math inline">\(\alpha\)</span>, we use the following procedure:</p>
 <p>If <span class="math inline">\(H_a : \beta_i &gt; \beta_{i0}\)</span>, then <span class="math inline">\(P\)</span>-value is the area under <span class="math inline">\(\mathsf{t}(m-2)\)</span> to the right of <span class="math inline">\(t\)</span>.</p>
 <p>If <span class="math inline">\(H_a : \beta_i &lt; \beta_{i0}\)</span>, tthen <span class="math inline">\(P\)</span>-value is the area under <span class="math inline">\(\mathsf{t}(m-2)\)</span> to the left of <span class="math inline">\(t\)</span>.</p>
-If <span class="math inline">\(H_a : \beta_i \neq \beta_{i0}\)</span>, then <span class="math inline">\(P\)</span>-value is twice the area under <span class="math inline">\(\mathsf{t}(m-2)\)</span> to the right of <span class="math inline">\(|t|\)</span>.
+<p>If <span class="math inline">\(H_a : \beta_i \neq \beta_{i0}\)</span>, then <span class="math inline">\(P\)</span>-value is twice the area under <span class="math inline">\(\mathsf{t}(m-2)\)</span> to the right of <span class="math inline">\(|t|\)</span>.</p>
 </div>
 <p>A confidence interval for <span class="math inline">\(\beta_i\)</span>, based on the statistic <a href="linear-models.html#eq:htest-ls-betas-statistic">(6.8)</a>, can be given following the procedures in <a href="inference-single-sample.html#inference-single-sample">3</a>.</p>
-
 <div class="proposition">
-<span id="prp:ci-ls-betas" class="proposition"><strong>Proposition 6.2  </strong></span>A <span class="math inline">\(100(1-\alpha)\%\)</span> CI for <span class="math inline">\(\beta_i\)</span> is given by
+<p><span id="prp:ci-ls-betas" class="proposition"><strong>Proposition 6.2  </strong></span>A <span class="math inline">\(100(1-\alpha)\%\)</span> CI for <span class="math inline">\(\beta_i\)</span> is given by
 <span class="math display">\[\begin{equation*}
- \widehat{\beta}_i \pm t_{\alpha/2, m-2} S \sqrt{c_{ii}} \,.
-\end{equation*}\]</span>
+\widehat{\beta}_i \pm t_{\alpha/2, m-2} S \sqrt{c_{ii}} \,.
+\end{equation*}\]</span></p>
 </div>
 </div>
-<div id="correlation" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Correlation</h2>
+<div id="correlation" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Correlation<a href="linear-models.html#correlation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let <span class="math inline">\((X_1, Y_1), \dots, (X_m, Y_m)\)</span> denote a random sample from a bivariate normal distribution with <span class="math inline">\(\E[X_i] = \mu_X\)</span>, <span class="math inline">\(\E[Y_i] = \mu_Y\)</span>, <span class="math inline">\(\Var[X_i] = \sigma_X^2\)</span>, <span class="math inline">\(\Var[Y_i] = \sigma_Y^2\)</span>, and correlation coefficient <span class="math inline">\(\rho\)</span>. The sample correlation coefficient is given by,
 <span class="math display" id="eq:sample-correlation-statistic">\[\begin{equation}
- r = \frac{\sum_{i=1}^m (X_i - \overline{X})(Y_i - \overline{Y})}{\sqrt{\sum_{i=1}^m (X_i - \overline{X})^2 \sum_{i=1}^m (Y_i - \overline{Y})^2}}\,,
- \tag{6.9}
+r = \frac{\sum_{i=1}^m (X_i - \overline{X})(Y_i - \overline{Y})}{\sqrt{\sum_{i=1}^m (X_i - \overline{X})^2 \sum_{i=1}^m (Y_i - \overline{Y})^2}}\,,
+\tag{6.9}
 \end{equation}\]</span>
 which can be rewritten in terms of <span class="math inline">\(S_{xx}\)</span>, <span class="math inline">\(S_{xy}\)</span>, and <span class="math inline">\(S_{yy}\)</span>:
 <span class="math display">\[\begin{equation*}
- r = \frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}} = \widehat{\beta}_1 \sqrt{\frac{S_{xx}}{S_{yy}}}\,,
+r = \frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}} = \widehat{\beta}_1 \sqrt{\frac{S_{xx}}{S_{yy}}}\,,
 \end{equation*}\]</span>
-using <a href="linear-models.html#eq:ls-slope">(6.5)</a> and we see that <span class="math inline">\(r\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> have the same sign. A <span class="math inline">\(|r|\)</span> close to <span class="math inline">\(1\)</span> means that the regression line is a good fit to the data and, similarly, an <span class="math inline">\(|r|\)</span> close to <span class="math inline">\(0\)</span> means a poor fit to the data. Note that the correlation coefficient (and the least squares regression) are only suitable for describing <em>linear</em> relationships; a nonlinear relationship can also yield <span class="math inline">\(r\)</span> near zero (see Figure <a href="linear-models.html#fig:linear-model-correlation">6.4</a>).</p>
+using <a href="linear-models.html#eq:ls-slope">(6.5)</a> and we see that <span class="math inline">\(r\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> have the same sign. A <span class="math inline">\(|r|\)</span> close to <span class="math inline">\(1\)</span> means that the regression line is a good fit to the data, and, similarly, an <span class="math inline">\(|r|\)</span> close to <span class="math inline">\(0\)</span> means a poor fit to the data. Note that the correlation coefficient (and the least squares regression) are only suitable for describing <em>linear</em> relationships; a nonlinear relationship can also yield <span class="math inline">\(r\)</span> near zero (see Figure <a href="linear-models.html#fig:linear-model-correlation">6.4</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:linear-model-correlation"></span>
 <img src="ma22004_files/figure-html/linear-model-correlation-1.svg" alt="Correlations range from $-1$ to $1$ with $|r|=1$ indicating a strong linear relationship and $r$ near zero indicating the absence of a linear relationship." width="768" />
 <p class="caption">
@@ -497,31 +480,30 @@ Figure 6.4: Correlations range from <span class="math inline">\(-1\)</span> to <
 </p>
 </div>
 <p>Once a model is fit, it can be used to predict a value of <span class="math inline">\(y\)</span> for a given <span class="math inline">\(x\)</span>. However, the model only gives the most likely value of <span class="math inline">\(y\)</span>; a corresponding <strong>prediction interval</strong> is usually more appropriate.</p>
-
 <div class="proposition">
-<span id="prp:prediction-interval" class="proposition"><strong>Proposition 6.3  </strong></span>A <span class="math inline">\(100(1-\alpha)\%\)</span> <strong>prediction interval</strong> for an actual value of <span class="math inline">\(Y\)</span> when <span class="math inline">\(x = x^*\)</span> is given by
+<p><span id="prp:prediction-interval" class="proposition"><strong>Proposition 6.3  </strong></span>A <span class="math inline">\(100(1-\alpha)\%\)</span> <strong>prediction interval</strong> for an actual value of <span class="math inline">\(Y\)</span> when <span class="math inline">\(x = x^*\)</span> is given by
 <span class="math display">\[\begin{equation*}
- (\widehat{\beta}_0 + \widehat{\beta}_1 x^*) \pm t_{\alpha/2, m-2} S \sqrt{1 + \frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}} \,.
-\end{equation*}\]</span>
+(\widehat{\beta}_0 + \widehat{\beta}_1 x^*) \pm t_{\alpha/2, m-2} S \sqrt{1 + \frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}} \,.
+\end{equation*}\]</span></p>
 </div>
 <div class="warningblock">
-<p>The prediction interval is not the same as the confidence interval for expected <span class="math inline">\(Y\)</span>. Note that the length of the <em>confidence interval</em> for <span class="math inline">\(\E[Y]\)</span> when <span class="math inline">\(x=x^*\)</span> is given by
+<p>The prediction interval is different from the confidence interval for expected <span class="math inline">\(Y\)</span>. Note that the length of the <em>confidence interval</em> for <span class="math inline">\(\E[Y]\)</span> when <span class="math inline">\(x=x^*\)</span> is given by
 <span class="math display">\[\begin{equation*}
- 2 \cdot t_{\alpha/2} S  \sqrt{\frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}}
+2 \cdot t_{\alpha/2} S  \sqrt{\frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}}
 \end{equation*}\]</span>
 whereas the length for the <em>prediction interval</em> of <span class="math inline">\(Y\)</span> is
 <span class="math display">\[\begin{equation*}
- 2 \cdot t_{\alpha/2} S  \sqrt{1 + \frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}} \,.
+2 \cdot t_{\alpha/2} S  \sqrt{1 + \frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}} \,.
 \end{equation*}\]</span>
 Thus the prediction intervals for an actual value of <span class="math inline">\(Y\)</span> are longer than the confidence intervals for <span class="math inline">\(\E[Y]\)</span> if both are determined for the same value <span class="math inline">\(x^*\)</span>.</p>
 </div>
 <p>The linear model
 <span class="math display">\[\begin{equation*}
- \E[ Y \mid X = x ] = \beta_0 + \beta_1 x \,, 
+\E[ Y \mid X = x ] = \beta_0 + \beta_1 x \,,
 \end{equation*}\]</span>
 assumes that the conditional expectation of <span class="math inline">\(Y\)</span> for a fixed value of <span class="math inline">\(X\)</span> is a linear function of the <span class="math inline">\(x\)</span> value. If we assume that <span class="math inline">\((X,Y)\)</span> has a bivariate normal distribution, then
 <span class="math display">\[\begin{equation*}
- \beta_1 = \frac{\sigma_Y}{\sigma_X} \rho \,,
+\beta_1 = \frac{\sigma_Y}{\sigma_X} \rho \,,
 \end{equation*}\]</span>
 and thus, for the simple hypothesis tests we have considered (Table <a href="statistical-inference.html#tab:htest-null-alt-forms">2.2</a>), statistical tests for <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\rho\)</span> are equivalent.</p>
 
@@ -529,9 +511,9 @@ and thus, for the simple hypothesis tests we have considered (Table <a href="sta
 </div>
 <div class="footnotes">
 <hr />
-<ol start="27">
-<li id="fn27"><p>The covariates <span class="math inline">\(X\)</span> are also called <strong>predictor variables</strong>, <strong>explanatory variables</strong>, <strong>independent variables</strong>, and/or <strong>features</strong> depending on who you are talking to.<a href="linear-models.html#fnref27" class="footnote-back">↩︎</a></p></li>
-<li id="fn28"><p>The <span class="math inline">\(\mathsf{RSS}\)</span> is sometimes referred to as the <strong>error sum of squares</strong> and abbreviated <span class="math inline">\(\mathsf{SSE}\)</span> (no, the order is not a typo a typo).<a href="linear-models.html#fnref28" class="footnote-back">↩︎</a></p></li>
+<ol start="25">
+<li id="fn25"><p>The covariates <span class="math inline">\(X\)</span> are also called <strong>predictor variables</strong>, <strong>explanatory variables</strong>, <strong>independent variables</strong>, and/or <strong>features</strong> depending on who you are talking to.<a href="linear-models.html#fnref25" class="footnote-back">↩︎</a></p></li>
+<li id="fn26"><p>The <span class="math inline">\(\mathsf{RSS}\)</span> is sometimes referred to as the <strong>error sum of squares</strong> and abbreviated <span class="math inline">\(\mathsf{SSE}\)</span> (no, the order is not a typo).<a href="linear-models.html#fnref26" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -557,7 +539,7 @@ gitbook.start({
 "sharing": {
 "github": true,
 "facebook": false,
-"twitter": false,
+"twitter": true,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
@@ -582,7 +564,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["ma22004.pdf"],
+"download": ["ma22004.pdf", "ma22004.epub"],
 "search": {
 "engine": "fuse",
 "options": null
@@ -607,7 +589,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

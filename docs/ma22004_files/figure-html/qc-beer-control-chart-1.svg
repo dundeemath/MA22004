@@ -9,6 +9,9 @@
       stroke-linejoin: round;
       stroke-miterlimit: 10.00;
     }
+    .svglite text {
+      white-space: pre;
+    }
   ]]></style>
 </defs>
 <rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
@@ -63,10 +66,10 @@
 <line x1='38.93' y1='19.84' x2='570.02' y2='19.84' style='stroke-width: 3.20; stroke: #619CFF; stroke-linecap: butt;' />
 </g>
 <g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHwzNDUuNjA=)'>
-<text x='33.55' y='312.20' text-anchor='end' style='font-size: 9.60px; fill: #4D4D4D; font-family: Arial;' textLength='13.33px' lengthAdjust='spacingAndGlyphs'>3.5</text>
-<text x='33.55' y='217.01' text-anchor='end' style='font-size: 9.60px; fill: #4D4D4D; font-family: Arial;' textLength='13.33px' lengthAdjust='spacingAndGlyphs'>4.0</text>
-<text x='33.55' y='121.81' text-anchor='end' style='font-size: 9.60px; fill: #4D4D4D; font-family: Arial;' textLength='13.33px' lengthAdjust='spacingAndGlyphs'>4.5</text>
-<text x='33.55' y='26.62' text-anchor='end' style='font-size: 9.60px; fill: #4D4D4D; font-family: Arial;' textLength='13.33px' lengthAdjust='spacingAndGlyphs'>5.0</text>
+<text x='33.55' y='312.20' text-anchor='end' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Arial";' textLength='13.33px' lengthAdjust='spacingAndGlyphs'>3.5</text>
+<text x='33.55' y='217.01' text-anchor='end' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Arial";' textLength='13.33px' lengthAdjust='spacingAndGlyphs'>4.0</text>
+<text x='33.55' y='121.81' text-anchor='end' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Arial";' textLength='13.33px' lengthAdjust='spacingAndGlyphs'>4.5</text>
+<text x='33.55' y='26.62' text-anchor='end' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Arial";' textLength='13.33px' lengthAdjust='spacingAndGlyphs'>5.0</text>
 <polyline points='35.94,308.76 38.93,308.76 ' style='stroke-width: 1.16; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='35.94,213.57 38.93,213.57 ' style='stroke-width: 1.16; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='35.94,118.37 38.93,118.37 ' style='stroke-width: 1.16; stroke: #333333; stroke-linecap: butt;' />
@@ -75,12 +78,12 @@
 <polyline points='288.38,313.91 288.38,310.92 ' style='stroke-width: 1.16; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='417.13,313.91 417.13,310.92 ' style='stroke-width: 1.16; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='545.88,313.91 545.88,310.92 ' style='stroke-width: 1.16; stroke: #333333; stroke-linecap: butt;' />
-<text x='159.63' y='323.18' text-anchor='middle' style='font-size: 9.60px; fill: #4D4D4D; font-family: Arial;' textLength='5.34px' lengthAdjust='spacingAndGlyphs'>4</text>
-<text x='288.38' y='323.18' text-anchor='middle' style='font-size: 9.60px; fill: #4D4D4D; font-family: Arial;' textLength='5.34px' lengthAdjust='spacingAndGlyphs'>8</text>
-<text x='417.13' y='323.18' text-anchor='middle' style='font-size: 9.60px; fill: #4D4D4D; font-family: Arial;' textLength='10.67px' lengthAdjust='spacingAndGlyphs'>12</text>
-<text x='545.88' y='323.18' text-anchor='middle' style='font-size: 9.60px; fill: #4D4D4D; font-family: Arial;' textLength='10.67px' lengthAdjust='spacingAndGlyphs'>16</text>
-<text x='304.48' y='336.98' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='21.34px' lengthAdjust='spacingAndGlyphs'>Day</text>
-<text transform='translate(14.59,158.45) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='15.34px' lengthAdjust='spacingAndGlyphs'>pH</text>
+<text x='159.63' y='323.18' text-anchor='middle' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Arial";' textLength='5.34px' lengthAdjust='spacingAndGlyphs'>4</text>
+<text x='288.38' y='323.18' text-anchor='middle' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Arial";' textLength='5.34px' lengthAdjust='spacingAndGlyphs'>8</text>
+<text x='417.13' y='323.18' text-anchor='middle' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Arial";' textLength='10.67px' lengthAdjust='spacingAndGlyphs'>12</text>
+<text x='545.88' y='323.18' text-anchor='middle' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Arial";' textLength='10.67px' lengthAdjust='spacingAndGlyphs'>16</text>
+<text x='304.48' y='336.98' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='21.34px' lengthAdjust='spacingAndGlyphs'>Day</text>
+<text transform='translate(14.59,158.45) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='15.34px' lengthAdjust='spacingAndGlyphs'>pH</text>
 <rect x='505.81' y='9.96' width='60.22' height='69.77' style='stroke-width: 1.16; stroke: none; fill: #FFFFFF;' />
 <rect x='511.79' y='21.92' width='17.28' height='17.28' style='stroke-width: 1.16; stroke: none; fill: #F2F2F2;' />
 <line x1='513.52' y1='30.56' x2='527.34' y2='30.56' style='stroke-width: 2.13; stroke: #F8766D; stroke-linecap: butt;' />
@@ -94,8 +97,8 @@
 <line x1='513.52' y1='65.12' x2='527.34' y2='65.12' style='stroke-width: 2.13; stroke: #619CFF; stroke-linecap: butt;' />
 <line x1='513.52' y1='65.12' x2='527.34' y2='65.12' style='stroke-width: 3.20; stroke: #619CFF; stroke-linecap: butt;' />
 <line x1='513.52' y1='65.12' x2='527.34' y2='65.12' style='stroke-width: 3.20; stroke: #619CFF; stroke-linecap: butt;' />
-<text x='535.05' y='34.00' style='font-size: 9.60px; font-family: Arial;' textLength='17.60px' lengthAdjust='spacingAndGlyphs'>LCL</text>
-<text x='535.05' y='51.28' style='font-size: 9.60px; font-family: Arial;' textLength='24.00px' lengthAdjust='spacingAndGlyphs'>Mean</text>
-<text x='535.05' y='68.56' style='font-size: 9.60px; font-family: Arial;' textLength='19.19px' lengthAdjust='spacingAndGlyphs'>UCL</text>
+<text x='535.05' y='34.00' style='font-size: 9.60px; font-family: "Arial";' textLength='17.60px' lengthAdjust='spacingAndGlyphs'>LCL</text>
+<text x='535.05' y='51.28' style='font-size: 9.60px; font-family: "Arial";' textLength='24.00px' lengthAdjust='spacingAndGlyphs'>Mean</text>
+<text x='535.05' y='68.56' style='font-size: 9.60px; font-family: "Arial";' textLength='19.19px' lengthAdjust='spacingAndGlyphs'>UCL</text>
 </g>
 </svg>

@@ -9,6 +9,9 @@
       stroke-linejoin: round;
       stroke-miterlimit: 10.00;
     }
+    .svglite text {
+      white-space: pre;
+    }
   ]]></style>
 </defs>
 <rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
@@ -45,21 +48,20 @@
 <polyline points='261.16,36.70 261.51,36.32 261.87,35.95 262.22,35.58 262.58,35.21 262.93,34.85 263.28,34.50 263.64,34.14 263.99,33.80 264.35,33.45 264.70,33.11 265.05,32.78 265.41,32.45 265.76,32.12 266.12,31.80 266.47,31.48 266.83,31.17 267.18,30.86 267.53,30.56 267.89,30.26 268.24,29.96 268.60,29.67 268.95,29.39 269.30,29.10 269.66,28.83 270.01,28.56 270.37,28.29 270.72,28.03 271.08,27.77 271.43,27.52 271.78,27.27 272.14,27.02 272.49,26.79 272.85,26.55 273.20,26.32 273.56,26.10 273.91,25.88 274.26,25.66 274.62,25.45 274.97,25.25 275.33,25.04 275.68,24.85 276.03,24.66 276.39,24.47 276.74,24.29 277.10,24.11 277.45,23.94 277.81,23.77 278.16,23.61 278.51,23.46 278.87,23.30 279.22,23.16 279.58,23.01 279.93,22.88 280.29,22.74 280.64,22.62 280.99,22.49 281.35,22.38 281.70,22.26 282.06,22.16 282.41,22.05 282.76,21.96 283.12,21.86 283.47,21.78 283.83,21.69 284.18,21.61 284.54,21.54 284.89,21.47 285.24,21.41 285.60,21.35 285.95,21.30 286.31,21.25 286.66,21.21 287.01,21.17 287.37,21.14 287.72,21.11 288.08,21.09 288.43,21.07 288.79,21.06 289.14,21.05 289.49,21.05 289.85,21.05 290.20,21.06 290.56,21.07 290.91,21.09 291.27,21.11 291.62,21.14 291.97,21.17 292.33,21.21 292.68,21.25 293.04,21.30 293.39,21.35 293.74,21.41 294.10,21.47 294.45,21.54 294.81,21.61 295.16,21.69 295.52,21.78 295.87,21.86 296.22,21.96 296.58,22.05 ' style='stroke-width: 1.07; stroke: none;' />
 <line x1='261.16' y1='310.71' x2='261.16' y2='38.43' style='stroke-width: 1.07; stroke-dasharray: 5.69,5.69; stroke-linecap: butt;' />
 <line x1='296.58' y1='310.71' x2='296.58' y2='21.01' style='stroke-width: 1.07; stroke-dasharray: 5.69,5.69; stroke-linecap: butt;' />
-<text x='250.28' y='325.50' style='font-size: 11.38px; fill: #0000FF; font-family: Arial;' textLength='6.33px' lengthAdjust='spacingAndGlyphs'>4</text>
-<text x='259.24' y='325.50' style='font-size: 11.38px; fill: #0000FF; font-family: Symbol;' textLength='6.24px' lengthAdjust='spacingAndGlyphs'>≤</text>
-<text x='268.12' y='325.50' style='font-size: 11.38px; fill: #0000FF; font-family: Arial;' textLength='5.69px' lengthAdjust='spacingAndGlyphs'>x</text>
-<text x='276.44' y='325.50' style='font-size: 11.38px; fill: #0000FF; font-family: Symbol;' textLength='6.24px' lengthAdjust='spacingAndGlyphs'>≤</text>
-<text x='285.31' y='325.50' style='font-size: 11.38px; fill: #0000FF; font-family: Arial;' textLength='6.33px' lengthAdjust='spacingAndGlyphs'>5</text>
-<text x='291.64' y='325.50' style='font-size: 11.38px; fill: #0000FF; font-family: Arial;' textLength='3.16px' lengthAdjust='spacingAndGlyphs'>.</text>
-<text x='294.80' y='325.50' style='font-size: 11.38px; fill: #0000FF; font-family: Arial;' textLength='12.66px' lengthAdjust='spacingAndGlyphs'>25</text>
-<text x='405.62' y='95.88' style='font-size: 11.38px; font-family: Arial;' textLength='7.59px' lengthAdjust='spacingAndGlyphs'>X</text>
-<text x='415.84' y='95.88' style='font-size: 11.38px; font-family: Arial;' textLength='7.21px' lengthAdjust='spacingAndGlyphs'>∼</text>
-<text x='425.12' y='95.88' style='font-size: 11.38px; font-weight: bold; font-family: Arial;' textLength='8.22px' lengthAdjust='spacingAndGlyphs'>N</text>
-<text x='433.34' y='95.88' style='font-size: 11.38px; font-family: Arial;' textLength='3.79px' lengthAdjust='spacingAndGlyphs'>(</text>
-<text x='437.12' y='95.88' style='font-size: 11.38px; font-family: Arial;' textLength='6.33px' lengthAdjust='spacingAndGlyphs'>5</text>
-<text x='443.45' y='95.88' style='font-size: 11.38px; font-family: Arial;' textLength='3.16px' lengthAdjust='spacingAndGlyphs'>,</text>
-<text x='446.61' y='95.88' style='font-size: 11.38px; font-family: Arial;' textLength='6.33px' lengthAdjust='spacingAndGlyphs'>9</text>
-<text x='452.94' y='95.88' style='font-size: 11.38px; font-family: Arial;' textLength='3.79px' lengthAdjust='spacingAndGlyphs'>)</text>
+<text x='250.28' y='325.50' style='font-size: 11.38px;fill: #0000FF; font-family: "Arial";' textLength='6.33px' lengthAdjust='spacingAndGlyphs'>4</text>
+<text x='259.24' y='325.50' style='font-size: 11.38px;fill: #0000FF; font-family: "Symbol";' textLength='6.24px' lengthAdjust='spacingAndGlyphs'>≤</text>
+<text x='268.12' y='325.50' style='font-size: 11.38px;fill: #0000FF; font-family: "Arial";' textLength='5.69px' lengthAdjust='spacingAndGlyphs'>x</text>
+<text x='276.44' y='325.50' style='font-size: 11.38px;fill: #0000FF; font-family: "Symbol";' textLength='6.24px' lengthAdjust='spacingAndGlyphs'>≤</text>
+<text x='285.31' y='325.50' style='font-size: 11.38px;fill: #0000FF; font-family: "Arial";' textLength='22.15px' lengthAdjust='spacingAndGlyphs'>5.25</text>
+<text x='403.41' y='96.64' style='font-size: 11.38px; font-family: "Arial";' textLength='7.59px' lengthAdjust='spacingAndGlyphs'>X</text>
+<text x='413.63' y='96.64' style='font-size: 11.38px; font-family: "Arial";' textLength='7.21px' lengthAdjust='spacingAndGlyphs'>∼</text>
+<text x='422.91' y='96.64' style='font-size: 11.38px; font-weight: bold; font-family: "Arial";' textLength='8.22px' lengthAdjust='spacingAndGlyphs'>N</text>
+<text x='431.12' y='96.64' style='font-size: 14.23px; font-family: "Symbol";' textLength='4.74px' lengthAdjust='spacingAndGlyphs'>(</text>
+<text x='435.86' y='96.64' style='font-size: 11.38px; font-family: "Arial";' textLength='6.33px' lengthAdjust='spacingAndGlyphs'>5</text>
+<text x='442.19' y='96.64' style='font-size: 11.38px; font-family: "Symbol";' textLength='2.84px' lengthAdjust='spacingAndGlyphs'>,</text>
+<text x='445.03' y='96.64' style='font-size: 11.38px; font-family: "Symbol";' textLength='2.84px' lengthAdjust='spacingAndGlyphs'> </text>
+<text x='447.88' y='96.64' style='font-size: 11.38px; font-family: "Arial";' textLength='6.33px' lengthAdjust='spacingAndGlyphs'>9</text>
+<text x='454.20' y='96.64' style='font-size: 14.23px; font-family: "Symbol";' textLength='4.74px' lengthAdjust='spacingAndGlyphs'>)</text>
 </g>
 <g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHwzNDUuNjA=)'>
 </g>

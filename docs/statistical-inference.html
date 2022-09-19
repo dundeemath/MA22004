@@ -5,21 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Basics of statistical inference | MA22004 – Statistics II</title>
-  <meta name="description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="description" content="Module guide and notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Basics of statistical inference | MA22004 – Statistics II" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://dundeemath.github.io/MA22004" />
-  
-  <meta property="og:description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
+  <meta property="og:image" content="https://dundeemath.github.io/MA22004/ma22004-cover.png" />
+  <meta property="og:description" content="Module guide and notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
   <meta name="github-repo" content="dundeemath/MA22004" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="2 Basics of statistical inference | MA22004 – Statistics II" />
   
-  <meta name="twitter:description" content="Course guide and course notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
-  
+  <meta name="twitter:description" content="Module guide and notes for MA22004 - Statistics and Probability II. Division of Mathematics, University of Dundee." />
+  <meta name="twitter:image" content="https://dundeemath.github.io/MA22004/ma22004-cover.png" />
 
 <meta name="author" content="Dr Eric Hall" />
 
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="sampling-distributions.html"/>
 <link rel="next" href="inference-single-sample.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -182,7 +181,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-support"><i class="fa fa-check"></i>Study Support</a></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-disability"><i class="fa fa-check"></i>Disability</a></li>
 <li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-honesty"><i class="fa fa-check"></i>Academic Honesty</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-questionaire"><i class="fa fa-check"></i>End of Module Questionaire</a></li>
+<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-questionaire"><i class="fa fa-check"></i>Module Questionaires</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="deadlines.html"><a href="deadlines.html"><i class="fa fa-check"></i>Deadlines</a></li>
 <li class="chapter" data-level="" data-path="labs.html"><a href="labs.html"><i class="fa fa-check"></i>Lab Guide</a></li>
@@ -198,15 +197,6 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-eng"><i class="fa fa-check"></i>Writing</a></li>
 <li class="chapter" data-level="" data-path="writing.html"><a href="writing.html#w-format"><i class="fa fa-check"></i>Formatting</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html"><i class="fa fa-check"></i>Miscellaneous Instructions</a>
-<ul>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#gradescope-submissions"><i class="fa fa-check"></i>Gradescope Submissions</a>
-<ul>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#equipment"><i class="fa fa-check"></i>Equipment you will need</a></li>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#workflow"><i class="fa fa-check"></i>Submission workflow</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="instructions.html"><a href="instructions.html#using-collaborate"><i class="fa fa-check"></i>Using Collaborate</a></li>
 </ul></li>
 <li class="part"><span><b>Lecture Notes</b></span></li>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html"><i class="fa fa-check"></i>Preliminaries</a>
@@ -273,7 +263,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="7.1" data-path="categorical-data.html"><a href="categorical-data.html#multinomial-experiments"><i class="fa fa-check"></i><b>7.1</b> Multinomial experiments</a></li>
 <li class="chapter" data-level="7.2" data-path="categorical-data.html"><a href="categorical-data.html#goodness-of-fit-tests"><i class="fa fa-check"></i><b>7.2</b> Goodness-of-fit for a single factor</a></li>
-<li class="chapter" data-level="7.3" data-path="categorical-data.html"><a href="categorical-data.html#test-for-independence-of-factors"><i class="fa fa-check"></i><b>7.3</b> Test for independence of factors</a></li>
+<li class="chapter" data-level="7.3" data-path="categorical-data.html"><a href="categorical-data.html#test-for-the-independence-of-factors"><i class="fa fa-check"></i><b>7.3</b> Test for the independence of factors</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="quality-control.html"><a href="quality-control.html"><i class="fa fa-check"></i><b>8</b> Quality control</a>
 <ul>
@@ -319,12 +309,12 @@ div.csl-indent {
 <span class="math inline">\(\DeclareMathOperator{\corr}{corr}\)</span>
 <span class="math inline">\(\newcommand{\se}{\mathsf{se}}\)</span>
 <span class="math inline">\(\DeclareMathOperator{\sd}{sd}\)</span>
-<div id="statistical-inference" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Basics of statistical inference</h1>
+<div id="statistical-inference" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Basics of statistical inference<a href="statistical-inference.html#statistical-inference" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>We discuss point estimation, confidence intervals, and hypothesis testing in Sections <a href="statistical-inference.html#point-estimation">2.1</a>, <a href="statistical-inference.html#confidence-intervals">2.2</a>, and <a href="statistical-inference.html#hypothesis-testing">2.3</a>, respectively. These three tools will form the basis for making inferences about a population.</p>
-<div id="point-estimation" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Point estimation</h2>
-<p>Statistical inference seeks to draw conclusions about the characteristics of a population from data. For example, suppose we are botanists interested in taxonomic classification of iris flowers. Let <span class="math inline">\(\mu\)</span> denote the true average petal length (in cm) of the <em>Iris setosa</em><a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> (AKA the bristle-pointed iris). The parameter <span class="math inline">\(\mu\)</span> is a characteristic of the whole population of the <em>setosa</em> species. Before we collect data, the petal lengths of <span class="math inline">\(m\)</span> independent <em>setosa</em> flowers are denoted by rvs <span class="math inline">\(X_1, X_2, \dots, X_m\)</span>. Any function of the <span class="math inline">\(X_i\)</span>’s, such as the sample mean,
+<div id="point-estimation" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Point estimation<a href="statistical-inference.html#point-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Statistical inference seeks to draw conclusions about the characteristics of a population from data. For example, suppose we are botanists interested in the taxonomic classification of iris flowers. Let <span class="math inline">\(\mu\)</span> denote the true average petal length (in cm) of the <em>Iris setosa</em><a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> (AKA the bristle-pointed iris). The parameter <span class="math inline">\(\mu\)</span> is a characteristic of the whole population of the <em>setosa</em> species. Before we collect data, the petal lengths of <span class="math inline">\(m\)</span> independent <em>setosa</em> flowers are denoted by rvs <span class="math inline">\(X_1, X_2, \dots, X_m\)</span>. Any function of the <span class="math inline">\(X_i\)</span>’s, such as the sample mean,
 <span class="math display" id="eq:sample-mean">\[\begin{equation}
   \overline{X} = \frac{1}{m} \sum_{i=1}^m X_i\,, \tag{2.1}
 \end{equation}\]</span>
@@ -341,27 +331,25 @@ Figure 2.1: The distribution (counts) of <span class="math inline">\(m = 50\)</s
 </p>
 </div>
 <div class="tipblock">
-<p>The botonist Edgar Anderson’s <strong>Iris Data</strong> contains 50 obs. of four features (sepal length [cm], sepal width [cm], petal length [cm], and petal width [cm]) for each of three plant species (<em>setosa</em>, <em>virginica</em>, <em>versicolor</em>) for 150 obs. total. This data set can be accessed in <code>r</code> by loading <code>library(datasets)</code> and then calling <code>data(iris)</code>.</p>
+<p>The botanist Edgar Anderson’s <strong>Iris Data</strong> contains 50 obs. of four features (sepal length [cm], sepal width [cm], petal length [cm], and petal width [cm]) for each of three plant species (<em>setosa</em>, <em>virginica</em>, <em>versicolor</em>) for 150 obs. total. This data set can be accessed in <code>r</code> by loading <code>library(datasets)</code> and then calling <code>data(iris)</code>.</p>
 </div>
-
 <div class="definition">
-<span id="def:point-estimate" class="definition"><strong>Definition 2.1  </strong></span>A <strong>point estimate</strong> of a parameter <span class="math inline">\(\theta\)</span> (recall: a fixed, unknown quantity) is a single number that we regard as a sensible value for <span class="math inline">\(\theta\)</span>. Consider iid <span class="math inline">\(X_1, X_2, \dots, X_m \sim F(\theta)\)</span>. A <strong>point estimator</strong> <span class="math inline">\(\widehat{\theta}_m\)</span> of <span class="math inline">\(\theta\)</span> is obtained by selecting a suitable statistic <span class="math inline">\(g\)</span>,
+<p><span id="def:point-estimate" class="definition"><strong>Definition 2.1  </strong></span>A <strong>point estimate</strong> of a parameter <span class="math inline">\(\theta\)</span> (recall: a fixed, unknown quantity) is a single number that we consider a reasonable value for <span class="math inline">\(\theta\)</span>. Consider iid <span class="math inline">\(X_1, X_2, \dots, X_m \sim F(\theta)\)</span>. A <strong>point estimator</strong> <span class="math inline">\(\widehat{\theta}_m\)</span> of <span class="math inline">\(\theta\)</span> is obtained by selecting a suitable statistic <span class="math inline">\(g\)</span>,
 <span class="math display">\[\begin{equation*}
-  \widehat{\theta}_n = g(X_1, \dots, X_m) \,.
+  \widehat{\theta}_m = g(X_1, \dots, X_m) \,.
 \end{equation*}\]</span>
-A point estimate <span class="math inline">\(\widehat{\theta}_m\)</span> can then be computed from the estimator using sample data.
+A point estimate <span class="math inline">\(\widehat{\theta}_m\)</span> can then be computed from the estimator using sample data.</p>
 </div>
 <div class="warningblock">
 <p>The symbol <span class="math inline">\(\widehat{\theta}_m\)</span> (or simply <span class="math inline">\(\widehat{\theta}\)</span> when the sample size <span class="math inline">\(m\)</span> is clear from context) is typically used to denote both the estimator and the point estimate resulting from a given sample. Note that writing, e.g., <span class="math inline">\(\widehat{\theta} = 42\)</span> does not indicate how the point estimate was obtained. Therefore, it is essential to report both the estimator and the resulting point estimate.</p>
 </div>
-<p>Definition <a href="statistical-inference.html#def:point-estimate">2.1</a> does not say how to select an appropriate statistic. For the <em>setosa</em> example, the sample mean <span class="math inline">\(\overline{X}\)</span> is suggested as a good estimator of the population mean <span class="math inline">\(\mu\)</span>. That is, <span class="math inline">\(\widehat{\mu} = \overline{X}\)</span> or “the point estimator of <span class="math inline">\(\mu\)</span> is the sample mean <span class="math inline">\(\overline{X}\)</span>”. Here, while <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> are fixed quantities representing characteristics of the population, <span class="math inline">\(\overline{X}\)</span> and <span class="math inline">\(S^2\)</span> are rvs with sampling distributions. If the population is <em>normally distributed</em> or if the <em>sample is large</em> then the sampling distribution for <span class="math inline">\(\overline{X}\)</span> has a known form: <span class="math inline">\(\overline{X}\)</span> is normal with mean <span class="math inline">\(\mu_{\overline{X}} = \mu\)</span> and variance <span class="math inline">\(\sigma_{\overline{X}}^2 = \sigma^{2} / m\)</span>, i.e.,
+<p>Definition <a href="statistical-inference.html#def:point-estimate">2.1</a> does not say how to select an appropriate statistic. For the <em>setosa</em> example, the sample mean <span class="math inline">\(\overline{X}\)</span> is suggested as a good estimator of the population mean <span class="math inline">\(\mu\)</span>. That is, <span class="math inline">\(\widehat{\mu} = \overline{X}\)</span> or “the point estimator of <span class="math inline">\(\mu\)</span> is the sample mean <span class="math inline">\(\overline{X}\)</span>”. Here, while <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> are fixed quantities representing population characteristics, <span class="math inline">\(\overline{X}\)</span> and <span class="math inline">\(S^2\)</span> are rvs with sampling distributions. If the population is <em>normally distributed</em> or if the <em>sample is large</em> then the sampling distribution for <span class="math inline">\(\overline{X}\)</span> has a known form: <span class="math inline">\(\overline{X}\)</span> is normal with mean <span class="math inline">\(\mu_{\overline{X}} = \mu\)</span> and variance <span class="math inline">\(\sigma_{\overline{X}}^2 = \sigma^{2} / m\)</span>, i.e.,
 <span class="math display">\[\begin{equation*}
   \overline{X} \sim \mathsf{N}(\mu, \sigma^{2} / m) \,,
 \end{equation*}\]</span>
 where <span class="math inline">\(m\)</span> is the sample size and <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> are the (typically unknown) population parameters.</p>
-
 <div class="example">
-<span id="exm:eg-estimators" class="example"><strong>Example 2.1  </strong></span>Let us consider the heights (measured in inches) of <span class="math inline">\(31\)</span> black cherry trees (sorted, for your enjoyment) in Table <a href="statistical-inference.html#tab:cherry-data">2.1</a>.
+<p><span id="exm:eg-estimators" class="example"><strong>Example 2.1  </strong></span>Let us consider the heights (measured in inches) of <span class="math inline">\(31\)</span> black cherry trees (sorted, for your enjoyment) in Table <a href="statistical-inference.html#tab:cherry-data">2.1</a>.</p>
 </div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
@@ -385,7 +373,7 @@ Height [in]
 <div class="tipblock">
 <p>The <strong>Cherry Tree Data</strong> contains 31 obs. of three features (diameter, height, and volume) and can be accessed in <code>r</code> by loading <code>library(datasets)</code> and then calling <code>data(trees)</code>.</p>
 </div>
-<p>The quantile-quantile plot in Figure <a href="statistical-inference.html#fig:qq-plot-cherry">2.2</a>, that compares the quantiles of this data to the quantiles of a normal distribution, is fairly straight.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> Therefore, we assume that the distribution of black cherry tree heights is (at least approximately) normal with a mean value <span class="math inline">\(\mu\)</span>; i.e., that the population of heights is distributed <span class="math inline">\(\mathsf{N}(\mu, \sigma^2)\)</span> where <span class="math inline">\(\mu\)</span> is a parameter to be estimated and <span class="math inline">\(\sigma^2\)</span> is unknown. The observations <span class="math inline">\(X_1, \dots, X_{31}\)</span> are then assumed to be a random sample from this normal distribution, i.e., iid
+<p>The quantile-quantile plot in Figure <a href="statistical-inference.html#fig:qq-plot-cherry">2.2</a>, which compares the quantiles of this data to the quantiles of a normal distribution, is fairly straight.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> Therefore, we assume that the distribution of black cherry tree heights is (at least approximately) normal with a mean value <span class="math inline">\(\mu\)</span>; i.e., that the population of heights is distributed <span class="math inline">\(\mathsf{N}(\mu, \sigma^2)\)</span>, where <span class="math inline">\(\mu\)</span> is a parameter to be estimated and <span class="math inline">\(\sigma^2\)</span> is unknown. The observations <span class="math inline">\(X_1, \dots, X_{31}\)</span> are then assumed to be a random sample from this normal distribution, i.e., iid
 <span class="math display">\[\begin{equation*}
 \quad X_1, \dots, X_{31} \sim \mathsf{N}(\mu, \sigma^2) \,.
 \end{equation*}\]</span>
@@ -401,7 +389,7 @@ Consider the following three different estimators and the resulting point estima
 Figure 2.2: Normal quantile-quantile plot for the <strong>Cherry Tree Data</strong>.
 </p>
 </div>
-<p>Each estimator above uses a different notion of center for the sample data, i.e., a different statistic. An interesting question to think about is: which estimator will tend to produce estimates closest to the true parameter value? Will the estimators work universally well for all distributions? <span class="math inline">\(\lozenge\)</span></p>
+<p>Each estimator above uses a different notion of “centre” for the sample data, i.e., represents a different statistic. An interesting question is: which estimator will tend to produce estimates closest to the true parameter value? Will the estimators work universally well for all distributions? <span class="math inline">\(\lozenge\)</span></p>
 <!-- ```{example, exm-infer-point-estimation} -->
 <!-- Although probably overkill for this problem, the `infer` package can be used for point estimation using the `specify` and `calculate` commands as follows: -->
 <!-- ``` -->
@@ -410,48 +398,45 @@ Figure 2.2: Normal quantile-quantile plot for the <strong>Cherry Tree Data</stro
 <!--  specify(response = Height) %>%  -->
 <!--  calculate(stat = "mean") -->
 <!-- ``` -->
-<!-- where we point out the `response` option specifies the variable of interest and the `stat` option can be changed to a number of quantities of interest. $\lozenge$ -->
-<p>In addition to reporting a point estimate together with its estimator, some indication of its precision should be given. One measure of the precision of an estimate is its standard error.</p>
-
+<!-- where we point out the `response` option specifies the variable of interest, and the `stat` option can be changed to several quantities of interest. $\lozenge$ -->
+<p>In addition to reporting a point estimate and its estimator, some indication of its precision should be given. One measure of the precision of an estimate is its standard error.</p>
 <div class="definition">
-<span id="def:standard-error" class="definition"><strong>Definition 2.2  </strong></span>The <strong>standard error</strong> of an estimator <span class="math inline">\(\widehat{\theta}\)</span> is the standard deviation
+<p><span id="def:standard-error" class="definition"><strong>Definition 2.2  </strong></span>The <strong>standard error</strong> of an estimator <span class="math inline">\(\widehat{\theta}\)</span> is the standard deviation
 <span class="math display">\[\begin{equation*}
 \sigma_{\widehat{\theta}} = \sqrt{\Var(\widehat{\theta})}\,.
 \end{equation*}\]</span>
-Often, the standard error depends on unknown parameters and must also be estimated. The <strong>estimated standard error</strong> is denoted by <span class="math inline">\(\widehat{\sigma}_{\widehat{\theta}}\)</span> or simply <span class="math inline">\(s_{\widehat{\theta}}\)</span>.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>
+Often, the standard error depends on unknown parameters and must also be estimated. The <strong>estimated standard error</strong> is denoted by <span class="math inline">\(\widehat{\sigma}_{\widehat{\theta}}\)</span> or simply <span class="math inline">\(s_{\widehat{\theta}}\)</span>.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a></p>
 </div>
 </div>
-<div id="confidence-intervals" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Confidence intervals</h2>
-<p>An alternative to reporting a point estimate for a parameter is to report an interval estimate suggesting an entire range of plausible values for the parameter of interest. A confidence interval is an interval estimate that makes a probability statement about the degree of reliability, or the confidence level, of the interval. The first step in computing a confidence interval is to select the confidence level <span class="math inline">\(\alpha\)</span>. A popular choice is a <span class="math inline">\(95\%\)</span> confidence interval which corresponds to level <span class="math inline">\(\alpha = 0.05\)</span>.</p>
-
+<div id="confidence-intervals" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Confidence intervals<a href="statistical-inference.html#confidence-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>An alternative to reporting a point estimate for a parameter is to report an interval estimate suggesting an entire range of plausible values for the parameter of interest. A confidence interval is an estimate that makes a probability statement about the interval’s degree of reliability. The first step in computing a confidence interval is to select the confidence level <span class="math inline">\(\alpha\)</span>. A popular choice is a <span class="math inline">\(95\%\)</span> confidence interval which corresponds to level <span class="math inline">\(\alpha = 0.05\)</span>.</p>
 <div class="definition">
-<span id="def:confidence-interval-gen" class="definition"><strong>Definition 2.3  </strong></span>A <span class="math inline">\(100(1-\alpha)\%\)</span> <strong>confidence interval</strong> for a parameter <span class="math inline">\(\theta\)</span> is a <em>random</em> interval <span class="math inline">\(C_m = (L_m , U_m)\)</span>, where <span class="math inline">\(L_m = \ell(X_1, \dots, X_m)\)</span> and <span class="math inline">\(U_m = u(X_1, \dots, X_m)\)</span> are functions of the data, such that
+<p><span id="def:confidence-interval-gen" class="definition"><strong>Definition 2.3  </strong></span>A <span class="math inline">\(100(1-\alpha)\%\)</span> <strong>confidence interval</strong> for a parameter <span class="math inline">\(\theta\)</span> is a <em>random</em> interval <span class="math inline">\(C_m = (L_m , U_m)\)</span>, where <span class="math inline">\(L_m = \ell(X_1, \dots, X_m)\)</span> and <span class="math inline">\(U_m = u(X_1, \dots, X_m)\)</span> are functions of the data, such that
 <span class="math display">\[\begin{equation}
-P_{\theta}(L_m &lt; \theta &lt; U_m ) = 1 - \alpha\,, 
+P_{\theta}(L_m &lt; \theta &lt; U_m ) = 1 - \alpha\,,
 \end{equation}\]</span>
-for all <span class="math inline">\(\theta \in \Theta\)</span>.
+for all <span class="math inline">\(\theta \in \Theta\)</span>.</p>
 </div>
-<p>My favorite interpretation of a confidence interval is due to <span class="citation">(<a href="#ref-Wasserman:2013as" role="doc-biblioref">Wasserman 2004</a>, p 92)</span>:</p>
+<p>My favourite interpretation of a confidence interval is due to <span class="citation">(<a href="#ref-Wasserman:2013as" role="doc-biblioref">Wasserman 2004</a>, p 92)</span>:</p>
 <blockquote>
 <p><em>On day 1, you collect data and construct a 95 percent confidence interval for a parameter <span class="math inline">\(\theta_1.\)</span> On day 2, you collect new data and construct a 95 percent confidence interval for an unrelated parameter <span class="math inline">\(\theta_2.\)</span> On day 3, you collect new data and construct a 95 percent confidence interval for an unrelated parameter <span class="math inline">\(\theta_3.\)</span> You continue this way constructing confidence intervals for a sequence of unrelated parameters <span class="math inline">\(\theta_1\)</span>, <span class="math inline">\(\theta_2\)</span>, <span class="math inline">\(\dots\)</span> Then 95 percent of your intervals will trap the true parameter value. There is no need to introduce the idea of repeating the same experiment over and over.</em></p>
 </blockquote>
-<p>This interpretation makes clear that a confidence interval is not a probability statement about the parameter <span class="math inline">\(\theta\)</span>. In Definition <a href="statistical-inference.html#def:confidence-interval-gen">2.3</a>, note that <span class="math inline">\(\theta\)</span> is fixed (<span class="math inline">\(\theta\)</span> is not a rv) and the interval <span class="math inline">\(C_m\)</span> is random. After data has been collected and a point estimator has been calculated, the resulting CIs either contain the true parameter value or they do not, as illustrated in Figure <a href="statistical-inference.html#fig:fifty-cis">2.3</a>.</p>
+<p>This interpretation clarifies that a confidence interval is not a probability statement about the parameter <span class="math inline">\(\theta\)</span>. In Definition <a href="statistical-inference.html#def:confidence-interval-gen">2.3</a>, note that <span class="math inline">\(\theta\)</span> is fixed (<span class="math inline">\(\theta\)</span> is not a rv) and the interval <span class="math inline">\(C_m\)</span> is random. After data has been collected and a point estimator has been calculated, the resulting CIs either contain the true parameter value or do not, as illustrated in Figure <a href="statistical-inference.html#fig:fifty-cis">2.3</a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:fifty-cis"></span>
-<img src="ma22004_files/figure-html/fifty-cis-1.svg" alt="Fifty $95\%$ CIs for a population mean $\mu$. After a sample is taken, the computed interval estimate either contains $\mu$ or it does not (asterisk identify intervals that do not include $\mu$). When drawing such a large number of $95\%$ CIs, we would anticipate that approximately $5\%$ (ca. 2 or 3) would fail to cover the true parameter $\mu$." width="288" />
+<img src="ma22004_files/figure-html/fifty-cis-1.svg" alt="Fifty $95\%$ CIs for a population mean $\mu$. After a sample is taken, the computed interval estimate either contains $\mu$ or does not (asterisks identify intervals that do not include $\mu$). When drawing such a large number of $95\%$ CIs, we would anticipate that approximately $5\%$ (ca. 2 or 3) would fail to cover the true parameter $\mu$." width="288" />
 <p class="caption">
-Figure 2.3: Fifty <span class="math inline">\(95\%\)</span> CIs for a population mean <span class="math inline">\(\mu\)</span>. After a sample is taken, the computed interval estimate either contains <span class="math inline">\(\mu\)</span> or it does not (asterisk identify intervals that do not include <span class="math inline">\(\mu\)</span>). When drawing such a large number of <span class="math inline">\(95\%\)</span> CIs, we would anticipate that approximately <span class="math inline">\(5\%\)</span> (ca. 2 or 3) would fail to cover the true parameter <span class="math inline">\(\mu\)</span>.
+Figure 2.3: Fifty <span class="math inline">\(95\%\)</span> CIs for a population mean <span class="math inline">\(\mu\)</span>. After a sample is taken, the computed interval estimate either contains <span class="math inline">\(\mu\)</span> or does not (asterisks identify intervals that do not include <span class="math inline">\(\mu\)</span>). When drawing such a large number of <span class="math inline">\(95\%\)</span> CIs, we would anticipate that approximately <span class="math inline">\(5\%\)</span> (ca. 2 or 3) would fail to cover the true parameter <span class="math inline">\(\mu\)</span>.
 </p>
 </div>
 </div>
-<div id="hypothesis-testing" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Hypothesis testing</h2>
-<p>Sections <a href="statistical-inference.html#point-estimation">2.1</a> and <a href="statistical-inference.html#confidence-intervals">2.2</a> reviewed how to estimate a parameter by a single number (point estimate) or range of plausible values (confidence interval), respectively. Next we discuss methods for determining which of two contradictory claims, or <strong>hypotheses</strong>, about a parameter is correct.</p>
-
+<div id="hypothesis-testing" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Hypothesis testing<a href="statistical-inference.html#hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sections <a href="statistical-inference.html#point-estimation">2.1</a> and <a href="statistical-inference.html#confidence-intervals">2.2</a> reviewed how to estimate a parameter by a single number (point estimate) or range of plausible values (confidence interval), respectively. Next, we discuss methods for determining which of two contradictory claims, or <strong>hypotheses</strong>, about a parameter is correct.</p>
 <div class="definition">
-<span id="def:null-alt-hypothesis" class="definition"><strong>Definition 2.4  </strong></span>The <strong>null hypothesis</strong>, denoted by <span class="math inline">\(H_0\)</span>, is a claim that we initially assume to be true by default. The <strong>alternative hypothesis</strong>, denoted by <span class="math inline">\(H_a\)</span>, is an assertion that is contradictory to <span class="math inline">\(H_0\)</span>.
+<p><span id="def:null-alt-hypothesis" class="definition"><strong>Definition 2.4  </strong></span>The <strong>null hypothesis</strong>, denoted by <span class="math inline">\(H_0\)</span>, is a claim we initially assume to be true by default. The <strong>alternative hypothesis</strong>, denoted by <span class="math inline">\(H_a\)</span>, is an assertion contradictory to <span class="math inline">\(H_0\)</span>.</p>
 </div>
-<p>Typically, we shall consider hypothesis concerning a parameter <span class="math inline">\(\theta \in \Theta\)</span> taking values in a parameter space. The statistical hypothesis are contradictory in that <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_a\)</span> divide <span class="math inline">\(\Theta\)</span> into two disjoint sets. For example, for a statistical hypothesis regarding the <em>equality</em> of a parameter <span class="math inline">\(\theta\)</span> with a fixed quantity <span class="math inline">\(\theta_0\)</span>, the null and alternative hypotheses will usually take one of the following forms in Table <a href="statistical-inference.html#tab:htest-null-alt-forms">2.2</a>.</p>
+<p>Typically, we shall consider a hypothesis test concerning a parameter <span class="math inline">\(\theta \in \Theta\)</span>, i.e., taking values in a parameter space <span class="math inline">\(\Theta\)</span>. The statistical hypotheses are contradictory in that <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_a\)</span> divide <span class="math inline">\(\Theta\)</span> into two disjoint sets. For example, for a statistical inference regarding the <em>equality</em> of a parameter <span class="math inline">\(\theta\)</span> with a fixed quantity <span class="math inline">\(\theta_0\)</span>, the null and alternative hypotheses will usually take one of the following forms in Table <a href="statistical-inference.html#tab:htest-null-alt-forms">2.2</a>.</p>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:htest-null-alt-forms">Table 2.2: </span>Typical null hypothesis and corresponding alternative hypothesis.
@@ -505,25 +490,22 @@ one-sided test
 </tr>
 </tbody>
 </table>
-<p>These pairs of hypothesis are associated with either a one-sided or two-sided test; what this means will become clear in the sequel. The value <span class="math inline">\(\theta_0\)</span>, called the <strong>null value</strong>, separates the alternative from the null.</p>
-
+<p>These hypothesis pairs are associated with either a one-sided or two-sided test; what this means will become apparent in the sequel. The value <span class="math inline">\(\theta_0\)</span>, called the <strong>null value</strong>, separates the alternative from the null.</p>
 <div class="definition">
-<span id="def:hypothesis-test" class="definition"><strong>Definition 2.5  </strong></span>A <strong>hypothesis test</strong> asks if the available data provides sufficient evidence to reject <span class="math inline">\(H_0\)</span>. If the observations disagree with <span class="math inline">\(H_0\)</span>, then we reject the null hypothesis. If the sample evidence does not strongly contradict <span class="math inline">\(H_0\)</span>, then we continue to believe <span class="math inline">\(H_0\)</span>. The two possible conclustions of a hypothesis test are: <em>reject <span class="math inline">\(H_0\)</span></em> or <em>fail to reject <span class="math inline">\(H_0\)</span></em>.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>
+<p><span id="def:hypothesis-test" class="definition"><strong>Definition 2.5  </strong></span>A <strong>hypothesis test</strong> asks if the available data provides sufficient evidence to reject <span class="math inline">\(H_0\)</span>. If the observations disagree with <span class="math inline">\(H_0\)</span>, we reject the null hypothesis. If the sample evidence does not strongly contradict <span class="math inline">\(H_0\)</span>, then we continue to believe <span class="math inline">\(H_0\)</span>. The two possible conclusions of a hypothesis test are: <em>reject <span class="math inline">\(H_0\)</span></em> or <em>fail to reject <span class="math inline">\(H_0\)</span></em>.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a></p>
 </div>
-<p>A procedure for carrying out a hypothesis test is based on specifying two additional items: a test statistic and a corresponding rejection region. A <strong>test statistic</strong> <span class="math inline">\(T\)</span> is a function of the sample data (like an estimator). The decision to reject or fail to reject <span class="math inline">\(H_0\)</span> will involve computing the test statistic. The <strong>rejection region</strong> <span class="math inline">\(R\)</span> is the collection of values of the test statistic for which <span class="math inline">\(H_0\)</span> is to be rejected in favor of the alternative, e.g.,
+<p>A procedure for carrying out a hypothesis test is based on specifying two additional items: a test statistic and a corresponding rejection region. A <strong>test statistic</strong> <span class="math inline">\(T\)</span> is a function of the sample data (like an estimator). The decision to reject or fail to reject <span class="math inline">\(H_0\)</span> will involve computing the test statistic. The <strong>rejection region</strong> <span class="math inline">\(R\)</span> is the collection of values of the test statistic for which <span class="math inline">\(H_0\)</span> is to be rejected in favour of the alternative, e.g.,
 <span class="math display">\[\begin{equation*}
 R = \left\{ x : T(x) &gt; c \right\}\,,
 \end{equation*}\]</span>
-where <span class="math inline">\(c\)</span> is referred to as a <strong>critical value</strong>. If a given sample falls in the rejection region, then we reject <span class="math inline">\(H_0\)</span>. That is, if <span class="math inline">\(X \in R\)</span> (e.g., the calculated test statistic exceeds some critical value), then we reject <span class="math inline">\(H_0\)</span>. The alternative is that <span class="math inline">\(X \not\in R\)</span> and in this case we fail to reject the null.</p>
-<p>When carrying out a hypothesis test, two types of errors can be made. The basis for choosing a rejection region involves considering these errors.</p>
-
+where <span class="math inline">\(c\)</span> is referred to as a <strong>critical value</strong>. If a given sample falls in the rejection region, we reject <span class="math inline">\(H_0\)</span>. If <span class="math inline">\(X \in R\)</span> (e.g., the calculated test statistic exceeds some critical value), we reject <span class="math inline">\(H_0\)</span>. The alternative is that <span class="math inline">\(X \not\in R\)</span> and we fail to reject the null in this case.</p>
+<p>Two types of errors can be made when carrying out a hypothesis test. The basis for choosing a rejection region involves considering these errors.</p>
 <div class="definition">
-<span id="def:error-types" class="definition"><strong>Definition 2.6  </strong></span>A <strong>type I</strong> error occurs if <span class="math inline">\(H_0\)</span> is rejected when <span class="math inline">\(H_0\)</span> is actually true. A <strong>type II</strong> error is made if we fail to reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(H_0\)</span> is actually false.
+<p><span id="def:error-types" class="definition"><strong>Definition 2.6  </strong></span>A <strong>type I</strong> error occurs if <span class="math inline">\(H_0\)</span> is rejected when <span class="math inline">\(H_0\)</span> is actually true. A <strong>type II</strong> error is made if we fail to reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(H_0\)</span> is actually false.</p>
 </div>
-<p>If the maximal type I error of a test is fixed at an acceptably small value, then the type II error decreases as the sample size increases. In particular, a conclusion is reached in a hypothesis test by selecting a <strong>significance level</strong> <span class="math inline">\(\alpha\)</span> for the test linked to the maximal type I error rate. Typically, <span class="math inline">\(\alpha = 0.10\)</span>, <span class="math inline">\(0.05\)</span>, <span class="math inline">\(0.01\)</span>, or <span class="math inline">\(0.001\)</span> is selected for the significance level.</p>
-
+<p>If a test’s maximal type I error is fixed at an acceptably small value, then the type II error decreases as the sample size increases. In particular, a conclusion is reached in a hypothesis test by selecting a <strong>significance level</strong> <span class="math inline">\(\alpha\)</span> for the test linked to the maximal type I error rate. Typically, <span class="math inline">\(\alpha = 0.10\)</span>, <span class="math inline">\(0.05\)</span>, <span class="math inline">\(0.01\)</span>, or <span class="math inline">\(0.001\)</span> is selected for the significance level.</p>
 <div class="definition">
-<span id="def:P-value" class="definition"><strong>Definition 2.7  </strong></span>A <strong><span class="math inline">\(P\)</span>-value</strong> is the probability, calculated assuming <span class="math inline">\(H_0\)</span> is true, of obtaining a value of the test statistic at least as contradictory to <span class="math inline">\(H_0\)</span> as the value calculated from the sample data.
+<p><span id="def:P-value" class="definition"><strong>Definition 2.7  </strong></span>A <strong><span class="math inline">\(P\)</span>-value</strong> is the probability, calculated assuming <span class="math inline">\(H_0\)</span> is true, of obtaining a value of the test statistic at least as contradictory to <span class="math inline">\(H_0\)</span> as the value calculated from the sample data.</p>
 </div>
 <p>Smaller <span class="math inline">\(P\)</span>-values indicate stronger evidence against <span class="math inline">\(H_0\)</span> in favor of <span class="math inline">\(H_a\)</span>. If <span class="math inline">\(P \leq \alpha\)</span> then we reject <span class="math inline">\(H_0\)</span> at significance level <span class="math inline">\(\alpha\)</span>. If <span class="math inline">\(P \geq \alpha\)</span> we fail to reject <span class="math inline">\(H_0\)</span> at significance level <span class="math inline">\(\alpha\)</span>.</p>
 <div class="warningblock">
@@ -534,55 +516,52 @@ where <span class="math inline">\(c\)</span> is referred to as a <strong>critica
 <li>a wrong conclusion is reached.</li>
 </ol>
 </div>
-
 <div class="proposition">
-<span id="prp:signifiance-type1" class="proposition"><strong>Proposition 2.1  </strong></span>The hypothesis test procedure that
+<p><span id="prp:signifiance-type1" class="proposition"><strong>Proposition 2.1  </strong></span>The hypothesis test procedure that
 <span class="math display">\[\begin{equation*}
-\begin{cases} 
+\begin{cases}
 \text{rejects}\; H_0 &amp; \text{if}\; P \leq \alpha\\
 \text{fails to reject}\; H_0 &amp; \text{otherwise}
 \end{cases}
 \end{equation*}\]</span>
-has <span class="math inline">\(P(\text{type I error}) = \alpha\)</span>.
+has <span class="math inline">\(P(\text{type I error}) = \alpha\)</span>.</p>
 </div>
-
 <div class="example">
-<span id="exm:htest-setup" class="example"><strong>Example 2.2  </strong></span>Churchill claims that he will receive half the votes for the House of Commons seat for the constituency of Dundee.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a> If we do not believe Churchill’s claim and we are doubtful of his popularity, then we would seek to test an alternative hypothesis. How should we write down our research hypotheses?
+<p><span id="exm:htest-setup" class="example"><strong>Example 2.2  </strong></span>Churchill claims that he will receive half the votes for the House of Commons seat for the constituency of Dundee.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> If we do not believe Churchill’s claim and are doubtful of his popularity, we would seek to test an alternative hypothesis. How should we write down our research hypotheses?</p>
 </div>
 <p>If we let <span class="math inline">\(p\)</span> be the fraction of the population voting for Churchill, then we have the null hypothesis,
 <span class="math display">\[\begin{equation*}
- H_0 : p = 0.5 \,,
+H_0 : p = 0.5 \,,
 \end{equation*}\]</span>
 and the alternative hypothesis (we believe Churchill is less popular than he claims),
 <span class="math display">\[\begin{equation*}
- H_a : p &lt; 0.5 \,.
+H_a : p &lt; 0.5 \,.
 \end{equation*}\]</span>
-Support for the alternative hypothesis is obtain by showing lack of support for it’s converse hypothesis (the null hypothesis). <span class="math inline">\(\lozenge\)</span></p>
-
+Support for the alternative hypothesis is obtained by showing a lack of support for its converse hypothesis (the null hypothesis). <span class="math inline">\(\lozenge\)</span></p>
 <div class="example">
-<span id="exm:htest-alpha" class="example"><strong>Example 2.3  </strong></span>Suppose that <span class="math inline">\(m = 15\)</span> voters are selected from Dundee and <span class="math inline">\(X\)</span>, the number favoring Churchill, is recorded. Based on observing <span class="math inline">\(X\)</span>, we construct a rejection region <span class="math inline">\(R = \{x : x \leq k \}\)</span>. If <span class="math inline">\(k\)</span> is small compared to <span class="math inline">\(m\)</span>, then the rejection region would provide pretty strong evidence to reject <span class="math inline">\(H_0\)</span>. How should one choose the rejection region?
+<p><span id="exm:htest-alpha" class="example"><strong>Example 2.3  </strong></span>Suppose that <span class="math inline">\(m = 15\)</span> voters are selected from Dundee and <span class="math inline">\(X\)</span>, the number favouring Churchill, is recorded. Based on observing <span class="math inline">\(X\)</span>, we construct a rejection region <span class="math inline">\(R = \{x : x \leq k \}\)</span>. If <span class="math inline">\(k\)</span> is small compared to <span class="math inline">\(m\)</span>, then the rejection region would provide strong evidence to reject <span class="math inline">\(H_0\)</span>. How should one choose the rejection region?</p>
 </div>
-<p>Assume now that <span class="math inline">\(m = 15\)</span> voters are polled and that we select <span class="math inline">\(k = 2\)</span> to have a rejection region <span class="math inline">\(R = \{ x \leq 2 \}\)</span>. For this choice of <span class="math inline">\(k\)</span>, the rejection region <span class="math inline">\(R\)</span> provides strong support to reject <span class="math inline">\(H_0\)</span>. If we assume the null hypothesis is true, then we would expect that approximately half of the <span class="math inline">\(15\)</span> voters (ca. 7) would plump for Churchill. Observing <span class="math inline">\(x = 0\)</span>, <span class="math inline">\(x = 1\)</span> or <span class="math inline">\(x = 2\)</span> (the values that would place us in the rejection region) would provide strong evidence <em>against</em> <span class="math inline">\(H_0\)</span>.</p>
+<p>Assume now that <span class="math inline">\(m = 15\)</span> voters are polled and that we select <span class="math inline">\(k = 2\)</span> to have a rejection region <span class="math inline">\(R = \{ x \leq 2 \}\)</span>. For this choice of <span class="math inline">\(k\)</span>, the rejection region <span class="math inline">\(R\)</span> provides strong support to reject <span class="math inline">\(H_0\)</span>. Assuming the null hypothesis is true, we expect approximately half of the <span class="math inline">\(15\)</span> voters (ca. 7) to vote for Churchill. Observing <span class="math inline">\(x = 0\)</span>, <span class="math inline">\(x = 1\)</span> or <span class="math inline">\(x = 2\)</span> (the values that would place us in the rejection region) would provide strong evidence <em>against</em> <span class="math inline">\(H_0\)</span>.</p>
 <p>We can calculate the probability of a type I error. From the definition of type I error,
 <span class="math display">\[\begin{equation*}
- \begin{aligned}
- \alpha &amp;= P(\text{type I error})\\
+\begin{aligned}
+\alpha &amp;= P(\text{type I error})\\
   &amp;= P(\text{rejecting } H_0 \text{ when } H_0 \text{ is true})\\
   &amp;= P(X \in R \text{ when } H_0 \text{ is true})\\
   &amp;= P(X \leq 2 \text{ when } p = 0.5) \,.
- \end{aligned}
+\end{aligned}
 \end{equation*}\]</span>
-Since <span class="math inline">\(X \sim \mathsf{Binom}(15, 0.50)\)</span>,<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a> we calculate that <span class="math inline">\(\alpha = 0.00369\)</span>. Thus, for this particular choice of rejection region <span class="math inline">\(R\)</span>, the risk of concluding that Churchill will lose if in fact he is the winner is very small.</p>
-<p>For this rejection region, how good is the test at protecting us from type II errors, i.e., concluding that Churchill is the winner if in fact he will lose? Suppose that Churchill receive <span class="math inline">\(25%\)</span> of the votes (<span class="math inline">\(p=0.25\)</span>). The probability of a type II error <span class="math inline">\(\beta\)</span>,
+Since <span class="math inline">\(X \sim \mathsf{Binom}(15, 0.50)\)</span>,<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> we calculate that <span class="math inline">\(\alpha = 0.00369\)</span>. Thus, for this particular choice of rejection region <span class="math inline">\(R\)</span>, the risk of concluding that Churchill will lose if, in fact, he is the winner is tiny.</p>
+<p>For this rejection region, how good is the test at protecting us from type II errors, i.e., concluding that Churchill is the winner if, in fact, he will lose? Suppose that Churchill receives <span class="math inline">\(25%\)</span> of the votes (<span class="math inline">\(p=0.25\)</span>). The probability of type II error <span class="math inline">\(\beta\)</span> is,
 <span class="math display">\[\begin{equation*}
   \begin{aligned}
   \beta &amp;= P(\text{type II error})\\
   &amp;= P(\text{fail to reject } H_0 \text{ when } H_0 \text{ false})\\
   &amp;= P(X \not\in R \text{ when } H_0 \text{ false})\\
   &amp;= P(X &gt; 2 \text{ when } p = 0.3)\,.
- \end{aligned}
+\end{aligned}
 \end{equation*}\]</span>
-For <span class="math inline">\(X \sim \mathsf{Binom}(15, 0.25)\)</span>, we calculate <span class="math inline">\(\beta = 0.764\)</span>. If we use <span class="math inline">\(R = \{ x \leq 2\}\)</span> then our test will lead us to conclude that Churchill is the winner with probability <span class="math inline">\(0.764\)</span> even if <span class="math inline">\(p\)</span> is as low as <span class="math inline">\(0.25\)</span>!</p>
+For <span class="math inline">\(X \sim \mathsf{Binom}(15, 0.25)\)</span>, we calculate <span class="math inline">\(\beta = 0.764\)</span>. If we use <span class="math inline">\(R = \{ x \leq 2\}\)</span>, then our test will lead us to conclude that Churchill is the winner with a probability of <span class="math inline">\(0.764\)</span> even if <span class="math inline">\(p\)</span> is as low as <span class="math inline">\(0.25\)</span>!</p>
 <p>If we repeat these calculations for <span class="math inline">\(R^* = \{x \leq 5\}\)</span>, we find <span class="math inline">\(\alpha = 0.151\)</span> versus <span class="math inline">\(\beta = 0.148\)</span>, even if <span class="math inline">\(p\)</span> is as low as <span class="math inline">\(0.25\)</span>, which is a much better balance between type I and type II errors. <span class="math inline">\(\lozenge\)</span></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig-churchill-ballot"></span>
 <img src="assets/images/churchill_ballot.jpg" alt="Ballot listing Churchill from the collection of the McManus, Dundee. When you take a break from studying, go and see if you can find it! For more information on visiting the McManus visit [https://www.mcmanus.co.uk/](https://www.mcmanus.co.uk/)."  />
@@ -591,7 +570,7 @@ Figure 2.4: Ballot listing Churchill from the collection of the McManus, Dundee.
 </p>
 </div>
 <div class="noteblock">
-<p>To summarize, the elements of a statistical test are:</p>
+<p>To summarise, the elements of a statistical test are:</p>
 <ol style="list-style-type: decimal">
 <li>Null hypothesis (<span class="math inline">\(H_0\)</span>)</li>
 <li>Alternative hypothesis (<span class="math inline">\(H_a\)</span>)</li>
@@ -603,7 +582,7 @@ Figure 2.4: Ballot listing Churchill from the collection of the McManus, Dundee.
 
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Wasserman:2013as" class="csl-entry">
 Wasserman, L. (2004), <em>All of <span>S</span>tatistics</em>, New York: Springer-Verlag.
@@ -611,13 +590,13 @@ Wasserman, L. (2004), <em>All of <span>S</span>tatistics</em>, New York: Springe
 </div>
 <div class="footnotes">
 <hr />
-<ol start="12">
-<li id="fn12"><p>More about the <em>Iris setosa</em> here [<a href="https://www.wikiwand.com/en/Iris_setosa">https://www.wikiwand.com/en/Iris_setosa</a>].<a href="statistical-inference.html#fnref12" class="footnote-back">↩︎</a></p></li>
-<li id="fn13"><p>How do we tell whether a population is normal? Constructing a normal quantile-quantile plot is one way of assessing whether a normality assumption is reasonable; such a plot compares the quantiles of the sample data <span class="math inline">\(x_i\)</span> against the (theoretical) standard normal quantiles (see Figure <a href="statistical-inference.html#fig:qq-plot-cherry">2.2</a>). If the sample data is consistent with a sample from a normal distribution, then the points will lie on a straight line (more or less). The QQ plot Figure <a href="statistical-inference.html#fig:qq-plot-cherry">2.2</a> comparing quantiles of cherry tree heights from Table <a href="statistical-inference.html#tab:cherry-data">2.1</a> to normal quantiles.<a href="statistical-inference.html#fnref13" class="footnote-back">↩︎</a></p></li>
-<li id="fn14"><p>The standard error is sometimes denoted <span class="math inline">\(\se = \se(\widehat{\theta})\)</span> and the estimated standard error by <span class="math inline">\(\widehat{\se}\)</span>.<a href="statistical-inference.html#fnref14" class="footnote-back">↩︎</a></p></li>
-<li id="fn15"><p>We comment that <em>fail to reject <span class="math inline">\(H_0\)</span></em> is sometimes phrased <em>retain <span class="math inline">\(H_0\)</span></em> or (perhaps less accurately) <em>accept <span class="math inline">\(H_0\)</span></em>. Why not just <em>accept</em> the null and move on with our lives? Well, if I search the Highlands for the Scottish wildcat (critically endangered) and fail to find any, does that prove they do not exist?<a href="statistical-inference.html#fnref15" class="footnote-back">↩︎</a></p></li>
-<li id="fn16"><p>Sir Winston Churchill was Member of Parliament for Dundee from 1908–1922 [<a href="https://www.wikiwand.com/en/Winston_Churchill">https://www.wikiwand.com/en/Winston_Churchill</a>].<a href="statistical-inference.html#fnref16" class="footnote-back">↩︎</a></p></li>
-<li id="fn17"><p><span class="math inline">\(X\)</span> is a binomial random variable because it can be modeled as <span class="math inline">\(m\)</span> independent Bernoulli trails each with probability <span class="math inline">\(p\)</span> of success (i.e. votes Churchill) as long as the sample size <span class="math inline">\(m\)</span> is much smaller than the population of Dundee. If we had the means to canvas nearly the whole population, what goes wrong conceptually?<a href="statistical-inference.html#fnref17" class="footnote-back">↩︎</a></p></li>
+<ol start="10">
+<li id="fn10"><p>More about the <em>Iris setosa</em> here [<a href="https://www.wikiwand.com/en/Iris_setosa">https://www.wikiwand.com/en/Iris_setosa</a>].<a href="statistical-inference.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>How do we tell whether a population is normal? Constructing a normal quantile-quantile plot is one way of assessing whether a normality assumption is reasonable; such a plot compares the quantiles of the sample data <span class="math inline">\(x_i\)</span> against the (theoretical) standard normal quantiles (see Figure <a href="statistical-inference.html#fig:qq-plot-cherry">2.2</a>). If the sample data is consistent with a sample from a normal distribution, the points will lie in a straight line (more or less). The QQ plot Figure <a href="statistical-inference.html#fig:qq-plot-cherry">2.2</a> compares quantiles of cherry tree heights from Table <a href="statistical-inference.html#tab:cherry-data">2.1</a> to normal quantiles.<a href="statistical-inference.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>The standard error is sometimes denoted <span class="math inline">\(\se = \se(\widehat{\theta})\)</span> and the estimated standard error by <span class="math inline">\(\widehat{\se}\)</span>.<a href="statistical-inference.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>We comment that <em>fail to reject <span class="math inline">\(H_0\)</span></em> is sometimes phrased as <em>retain <span class="math inline">\(H_0\)</span></em> or (perhaps less accurately) <em>accept <span class="math inline">\(H_0\)</span></em>. Why not just <em>accept</em> the null and move on with our lives? Well, if I search the Highlands for the Scottish wildcat (critically endangered) and fail to find any, does that prove they do not exist?<a href="statistical-inference.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>Sir Winston Churchill was Member of Parliament for Dundee from 1908–1922 [<a href="https://www.wikiwand.com/en/Winston_Churchill">https://www.wikiwand.com/en/Winston_Churchill</a>].<a href="statistical-inference.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p><span class="math inline">\(X\)</span> is a binomial random variable because it can be modelled as <span class="math inline">\(m\)</span> independent Bernoulli trails each with probability <span class="math inline">\(p\)</span> of success (i.e. votes Churchill) as long as the sample size <span class="math inline">\(m\)</span> is much smaller than the population of Dundee. If we had the means to canvas nearly the whole population, what goes wrong conceptually?<a href="statistical-inference.html#fnref15" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -643,7 +622,7 @@ gitbook.start({
 "sharing": {
 "github": true,
 "facebook": false,
-"twitter": false,
+"twitter": true,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
@@ -668,7 +647,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["ma22004.pdf"],
+"download": ["ma22004.pdf", "ma22004.epub"],
 "search": {
 "engine": "fuse",
 "options": null
@@ -693,7 +672,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
