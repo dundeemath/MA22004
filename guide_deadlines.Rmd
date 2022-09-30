@@ -6,7 +6,7 @@ The two class tests (T1, T2) are timetabled. Please remember that you must engag
 
 ```{r table-deadlines, echo=FALSE, warning = FALSE, message = FALSE, fig.cap = "An overview of all deadlines and important dates associated with the MA22004."}
 options(knitr.kable.NA = '')
-df <- tibble(read_csv("data/deadlines.csv")) %>% relocate(Reading, .after = Week) 
+df <- tibble(read_csv("data/deadlines.csv")) %>% relocate(Topics, .after = Week) %>% relocate('Perusall Readings', .after = Topics)
 kbl(df, booktabs = T) %>%
  kable_styling(latex_options = c("striped", "hold_position"))
 ```
