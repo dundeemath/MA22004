@@ -13,7 +13,7 @@ link-bibliography: true
 description: Module notes. Mathematics Division, School of Science & Engineering, University of Dundee.
 always_allow_html: yes
 urlcolor: #4365e2
-url: 'https\://dundeemath.github.io/MA22004/'
+url: 'https\://dundeemath.github.io/MA22004'
 github-repo: dundeemath/MA22004
 cover-image: assets/images/cover_small.jpg
 #include-before below needs to be commented out to compile pdf latex
