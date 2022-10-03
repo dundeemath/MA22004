@@ -10,7 +10,7 @@
 
   <meta property="og:title" content="3 Inferences based on a single sample | MA22004 - Statistics II" />
   <meta property="og:type" content="book" />
-  
+  <meta property="og:image" content="https://dundeemath.github.io/MA22004/assets/images/cover.png" />
   <meta property="og:description" content="Module notes. Mathematics Division, School of Science &amp; Engineering, University of Dundee." />
   <meta name="github-repo" content="dundeemath/MA22004" />
 
@@ -18,7 +18,7 @@
   <meta name="twitter:title" content="3 Inferences based on a single sample | MA22004 - Statistics II" />
   
   <meta name="twitter:description" content="Module notes. Mathematics Division, School of Science &amp; Engineering, University of Dundee." />
-  
+  <meta name="twitter:image" content="https://dundeemath.github.io/MA22004/assets/images/cover.png" />
 
 <meta name="author" content="Dr Eric Hall" />
 
@@ -480,8 +480,8 @@ We are interested in testing the null hypothesis <span class="math inline">\(H_0
 <pre><code># A tibble: 1 × 1
   p_value
     &lt;dbl&gt;
-1    0.04</code></pre>
-<p>The bootstrapped null distribution is plotted using the <code>visualise</code> command, and the regions of the null distribution that are as extreme (or more extreme) than the observed statistic <span class="math inline">\(\widehat{\mu}\)</span> can be highlighted using the <code>shade_p_value</code> command. <span class="math inline">\(P = 0.04\)</span> is found which is quite small; if <span class="math inline">\(\mu \leq 3.5\)</span>, then the probability of obtaining the sample mean value <span class="math inline">\(\widehat{\mu} = 3.758\)</span> is only 0.04! Thus, the data provide sufficient evidence at the 0.05 level against the hypothesis that the true mean petal length is at most 3.5 cm. <span class="math inline">\(\lozenge\)</span></p>
+1   0.036</code></pre>
+<p>The bootstrapped null distribution is plotted using the <code>visualise</code> command, and the regions of the null distribution that are as extreme (or more extreme) than the observed statistic <span class="math inline">\(\widehat{\mu}\)</span> can be highlighted using the <code>shade_p_value</code> command. <span class="math inline">\(P = 0.036\)</span> is found which is quite small; if <span class="math inline">\(\mu \leq 3.5\)</span>, then the probability of obtaining the sample mean value <span class="math inline">\(\widehat{\mu} = 3.758\)</span> is only 0.036! Thus, the data provide sufficient evidence at the 0.05 level against the hypothesis that the true mean petal length is at most 3.5 cm. <span class="math inline">\(\lozenge\)</span></p>
 </div>
 <div id="mean-normal-var-unknown" class="section level3 hasAnchor" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> Mean of a normal population with unknown variance<a href="inference-single-sample.html#mean-normal-var-unknown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -711,7 +711,7 @@ Note the position of the critical values—don’t swap them around. <span class
 <p>We plot the 95% confidence interval for the standard deviation based on the computational null distribution obtained using 1000 bootstrap replications; note the interval estimate</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="inference-single-sample.html#cb7-1" aria-hidden="true" tabindex="-1"></a>ci<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>  lower_ci upper_ci
-1 138.4907 445.5259</code></pre>
+1 139.6646 443.4275</code></pre>
 <p>is in good agreement with the values obtained Example <a href="inference-single-sample.html#exm:eg-ci-variance">3.8</a>. Due to the computational nature, the bootstrapped interval estimate is not precisely the same as the theoretical interval estimate and rerunning the code will yield a slightly different interval. <span class="math inline">\(\lozenge\)</span></p>
 
 </div>
@@ -800,8 +800,7 @@ gitbook.start({
 },
 "info": true,
 "highlight": "pygments",
-"number_sections": true,
-"cover-image": "assets/images/cover.jpg"
+"number_sections": true
 });
 });
 </script>

@@ -26,7 +26,6 @@ bookdown::gitbook:
     info: yes
     highlight: pygments
     number_sections: yes
-    cover-image: assets/images/cover.jpg
 bookdown::pdf_book:
   keep_tex: yes
   includes:

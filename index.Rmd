@@ -6,6 +6,7 @@ fontsize: 11pt
 classoption: oneside
 documentclass: book
 site: bookdown::bookdown_site
+cover-image: assets/images/cover.png
 github-repo: dundeemath/MA22004
 url: https\://dundeemath.github.io/MA22004
 bibliography: ma22004.bib
