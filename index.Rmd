@@ -6,9 +6,9 @@ fontsize: 11pt
 classoption: oneside
 documentclass: book
 site: bookdown::bookdown_site
+cover-image: assets/images/cover.jpg
 github-repo: dundeemath/MA22004
-url: https\://dundeemath.github.io/MA22004
-cover-image: cover.jpg
+url: https\://dundeemath.github.io/MA22004/
 bibliography: ma22004.bib
 csl: assets/the-american-statistician.csl #www.zotero.org/styles
 link-citations: true
