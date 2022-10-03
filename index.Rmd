@@ -8,7 +8,7 @@ documentclass: book
 site: bookdown::bookdown_site
 cover-image: assets/images/cover_small.jpg
 github-repo: dundeemath/MA22004
-url: https\://dundeemath.github.io/MA22004
+url: https\://dundeemath.github.io/MA22004/
 bibliography: ma22004.bib
 csl: assets/the-american-statistician.csl #www.zotero.org/styles
 link-citations: true
