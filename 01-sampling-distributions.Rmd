@@ -1,10 +1,24 @@
 # Sampling distributions {#sampling-distributions}
 
-A **statistic** is a quantity that can be calculated from sample data. Before obtaining data, a statistic is an unknown quantity and is, therefore, a rv. We refer to the probability distribution for a statistic as a **sampling distribution** to emphasise how the distribution will vary across all possible sample data. 
+A **statistic** is a quantity that can be calculated from sample data. Before observing data, a statistic is an unknown quantity and is, therefore, a rv. 
+
+```{definition, statistic}
+Let $X_1, \dots, X_n$ be observable rvs and let $g$ be an arbitrary real-valued function of $n$ random variables. The rv $T = g(X_1, \dots, X_n)$ is a **statistic**. 
+```
+
+We refer to the probability distribution for a statistic as a **sampling distribution**. The sampling distribution illustrates how the statistic will vary across _possible_ sample data. The sampling distribution contains information about the values a statistic is likely to assume and how likely it is to assume those values _prior to observing data_. 
+
+```{definition, sampling-dist}
+Suppose rvs $X_1, \dots, X_n$ are a random sample from $F(\theta)$, a distribution depending a parameter $\theta$ whose value is uknown. Let the rv $T = g(X_1, \dots, X_n, \theta)$ be a function of $X_1, \dots, X_n$ and (possibly) $\theta$. The distribution of $T$ (given $\theta$) is the **sampling distribution** of $T$. 
+```
+
+The sampling distribution of $T$ is derived from the distribution of the random sample. Often we will be interested in a statistic $T$ that is an estimator for a parameter $\theta$ (that is, $T$ will not depend on $\theta$). 
+
+In what follows, we review several special families of distributions that are widely used in probability and statistics. These special families of distributions will be indexed by one or parameters. 
 
 ## Normal distribution {#normal-distribution}
 
-Normal distributions play an important role in probability and statistics as they describe many natural phenomena. For instance, the Central Limit Theorem tells us that sums of rvs are approximately normal in distribution.  
+Normal distributions play an important role in probability and statistics as they describe many natural phenomena. For instance, the Central Limit Theorem tells us that the sample mean of a large random sample (size $m$) of rvs with mean $\mu$ and variance $\sigma^2$ is approximately normal in distribution with mean $\mu$ and variance $\sigma^2/m$.  
 
 ```{definition, normal-dist}
 A continuous rv $X$ has a **normal distribution** with parameters $\mu$ and $\sigma^2$, where $-\infty < \mu < \infty$ and $\sigma > 0$, if $X$ has pdf
@@ -40,7 +54,7 @@ ggplot(norm2.dist, aes(x = x, y = density, color = X, linetype = X)) +
 ```  
 
 ```{definition, standard-normal}
-We say that $X$ has a **standard normal distribution** if $\mu=0$ and $\sigma = 1$ and we will usually denote standard Normal rvs by \[Z \sim \mathsf{N}(0,1)\] (why? tradition!^["Traditions, traditions... Without our traditions, our lives would be as shaky as a fiddler on the roof!" [[https://www.youtube.com/watch?v=gRdfX7ut8gw](https://www.youtube.com/watch?v=gRdfX7ut8gw)].]). We denote the cumulative distribution function of the standard normal by \[\Phi(z) = P(Z \leq z)\] and write $\varphi = \Phi'$ for its density function. 
+We say that $X$ has a **standard normal distribution** if $\mu=0$ and $\sigma = 1$ and we will usually denote standard Normal rvs by \[Z \sim \mathsf{N}(0,1)\] (why $Z$? tradition!^["Traditions, traditions... Without our traditions, our lives would be as shaky as a fiddler on the roof!" [[https://www.youtube.com/watch?v=gRdfX7ut8gw](https://www.youtube.com/watch?v=gRdfX7ut8gw)].]). We denote the cumulative distribution function of the standard normal by \[\Phi(z) = P(Z \leq z)\] and write $\varphi = \Phi'$ for its density function. 
 ```  
 
 ### Some useful facts about normal variates {#facts-normals}
@@ -208,7 +222,7 @@ If $X \sim \chi^2(\nu)$, then $\E[X] = \nu$ and $\Var[X] = 2\nu$.
 
 ## $\mathsf{F}$ distribution {#F-distribution}
 
-The $\mathsf{F}$ distribution arises as a test statistic when comparing population variances and in the analysis of variance (see \@ref(anova)). 
+The $\mathsf{F}$ distribution ("F" for Fisher) arises as a test statistic when comparing population variances and in the analysis of variance (see \@ref(anova)). 
 
 ```{definition, F-dist}
 A continuous rv $X$ has an **$\mathsf{F}$ distribution** with df parameters $\nu_1$ and $\nu_2$, if $X$ has pdf

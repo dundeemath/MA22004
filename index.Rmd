@@ -85,11 +85,7 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 Welcome to MA22004 at the University of Dundee. 
 
-This module covers the basics of statistical inference. The first part of this document contains information of a practical nature regarding the mechanics of the module. The second part of this document contains the content. The appendix contains a list of curated content for your to investigate. 
-
-These are some trying times. 
-
-Please try to stay healthy.
+This module covers the basics of statistical inference. This document contains the content. The appendix contains a list of curated content for your to investigate. 
 
 ```{r about-me-html-only, echo = FALSE, child='about-me.Rmd', eval = knitr::is_html_output()}
 ```

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Analysis of variance (ANOVA) | MA22004 - Statistics II</title>
   <meta name="description" content="Module notes. Mathematics Division, School of Science &amp; Engineering, University of Dundee." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Analysis of variance (ANOVA) | MA22004 - Statistics II" />
   <meta property="og:type" content="book" />
@@ -51,8 +51,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -95,7 +95,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -108,7 +108,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -122,6 +122,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
@@ -166,26 +170,6 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-your-instructor"><i class="fa fa-check"></i>About your instructor</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html"><i class="fa fa-check"></i>Module Guide</a>
-<ul>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-organization"><i class="fa fa-check"></i>Organisation</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-timetable"><i class="fa fa-check"></i>Timetable</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-prerecs"><i class="fa fa-check"></i>Pre-requisites</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-syllabus"><i class="fa fa-check"></i>Syllabus</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-books"><i class="fa fa-check"></i>Recommended Books</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment"><i class="fa fa-check"></i>Assessment</a>
-<ul>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-coursework"><i class="fa fa-check"></i>Coursework</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Class Tests</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-commitment"><i class="fa fa-check"></i>Your Commitment</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-calcs"><i class="fa fa-check"></i>Approved Calculators</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-support"><i class="fa fa-check"></i>Study Support</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-disability"><i class="fa fa-check"></i>Disability</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-honesty"><i class="fa fa-check"></i>Academic Honesty</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-questionaire"><i class="fa fa-check"></i>Module Questionaires</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="deadlines.html"><a href="deadlines.html"><i class="fa fa-check"></i>Deadlines</a></li>
 <li class="chapter" data-level="" data-path="labs.html"><a href="labs.html"><i class="fa fa-check"></i>Lab Guide</a></li>
 <li class="chapter" data-level="" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i>Writing Lab Reports</a>
 <ul>
@@ -205,6 +189,8 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#notation"><i class="fa fa-check"></i>Notation</a></li>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#abbreviations"><i class="fa fa-check"></i>Abbreviations</a></li>
+<li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#sample-space-events-probabilities"><i class="fa fa-check"></i>Sample space, events, probabilities</a></li>
+<li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#random-variables"><i class="fa fa-check"></i>Random variables</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="sampling-distributions.html"><a href="sampling-distributions.html"><i class="fa fa-check"></i><b>1</b> Sampling distributions</a>
 <ul>
@@ -316,7 +302,7 @@ div.csl-indent {
 <p>Analysis of variance, shortened as ANOVA, is a collection of statistical models and estimation procedures for analysing the variation among different groups. In particular, a single-factor ANOVA provides a hypothesis test regarding the equality of two or more population means, thereby generalising the one-sample and two-sample <span class="math inline">\(\mathsf{t}\)</span> tests considered in Sections <a href="inference-single-sample.html#mean-normal-var-unknown">3.1.3</a> and <a href="inference-two-samples.html#compare-means-normpops-vars-unknown">4.1.3</a>.</p>
 <div id="anova-single-factor-test" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Single factor ANOVA test<a href="anova.html#anova-single-factor-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Suppose that we have <span class="math inline">\(k\)</span> normally distributed populations<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a> with different means <span class="math inline">\(\mu_1, \dots, \mu_k\)</span> and equal variances <span class="math inline">\(\sigma^2\)</span>. We denote the rv for the <span class="math inline">\(j\)</span>th measurement taken from the <span class="math inline">\(i\)</span>th population by <span class="math inline">\(X_{ij}\)</span> and the corresponding sample observation by <span class="math inline">\(x_{ij}\)</span>. For samples of size <span class="math inline">\(m_1, \dots, m_k\)</span>, we denote the sample means
+<p>Suppose that we have <span class="math inline">\(k\)</span> normally distributed populations<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a> with different means <span class="math inline">\(\mu_1, \dots, \mu_k\)</span> and equal variances <span class="math inline">\(\sigma^2\)</span>. We denote the rv for the <span class="math inline">\(j\)</span>th measurement taken from the <span class="math inline">\(i\)</span>th population by <span class="math inline">\(X_{ij}\)</span> and the corresponding sample observation by <span class="math inline">\(x_{ij}\)</span>. For samples of size <span class="math inline">\(m_1, \dots, m_k\)</span>, we denote the sample means
 <span class="math display">\[\begin{equation*}
 \overline{X}_i = \frac{1}{m_i} \sum_{j=1}^{m_i} X_{ij}\,,
 \end{equation*}\]</span>
@@ -468,8 +454,8 @@ Figure 5.1: Box plots of the average mean salary data in Table <a href="anova.ht
 </p>
 </div>
 <p>For <span class="math inline">\(\alpha = 0.05\)</span>, we compute the upper-tail area <span class="math inline">\(F_{0.05}\)</span> i.e. to the right of the critical value <span class="math inline">\(F_{0.05, 3, 16}\)</span> by consulting a statistical table or by using <code>r</code> to find <span class="math inline">\(F_{0.05} = 3.2388715\)</span>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="anova.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># alt: qf(.05, df1 = 3, df2 = 16, lower.tail = FALSE)</span></span>
-<span id="cb9-2"><a href="anova.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(<span class="dv">1</span><span class="fl">-.05</span>, <span class="at">df1 =</span> <span class="dv">4-1</span>, <span class="at">df2 =</span> <span class="dv">20-4</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="anova.html#cb9-1" tabindex="-1"></a><span class="co"># alt: qf(.05, df1 = 3, df2 = 16, lower.tail = FALSE)</span></span>
+<span id="cb9-2"><a href="anova.html#cb9-2" tabindex="-1"></a><span class="fu">qf</span>(<span class="dv">1</span><span class="fl">-.05</span>, <span class="at">df1 =</span> <span class="dv">4-1</span>, <span class="at">df2 =</span> <span class="dv">20-4</span>) </span></code></pre></div>
 <pre><code>[1] 3.238872</code></pre>
 <p>The grand mean is
 <span class="math display">\[\begin{equation*}
@@ -527,8 +513,8 @@ where <span class="math inline">\(\widehat{\sigma}_{\widehat{\theta}}\)</span> i
 <p><span id="exm:anova-ci" class="example"><strong>Example 5.2  </strong></span>Determine a <span class="math inline">\(90\%\)</span> CI for the difference in mean average salary for councils in Scotland and England, based on the data available in Table <a href="anova.html#tab:anova-samples-stats">5.1</a></p>
 </div>
 <p>For <span class="math inline">\(\alpha = 0.10\)</span>, the critical value <span class="math inline">\(t_{0.05, 16} = 1.7458837\)</span> is found by looking in a table of <span class="math inline">\(\mathsf{t}\)</span> critical values or by using <code>r</code>:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="anova.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># alt: qt(0.1/2, 16, lower.tail = FALSE)</span></span>
-<span id="cb11-2"><a href="anova.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="dv">1</span><span class="fl">-0.1</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> <span class="dv">20</span> <span class="sc">-</span> <span class="dv">4</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="anova.html#cb11-1" tabindex="-1"></a><span class="co"># alt: qt(0.1/2, 16, lower.tail = FALSE)</span></span>
+<span id="cb11-2"><a href="anova.html#cb11-2" tabindex="-1"></a><span class="fu">qt</span>(<span class="dv">1</span><span class="fl">-0.1</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> <span class="dv">20</span> <span class="sc">-</span> <span class="dv">4</span>) </span></code></pre></div>
 <pre><code>[1] 1.745884</code></pre>
 <p>Then for the function <span class="math inline">\(\overline{x}_2 - \overline{x_1}\)</span>,
 <span class="math display">\[\begin{equation*}
@@ -547,8 +533,8 @@ Thus a <span class="math inline">\(90\%\)</span> confidence interval for <span c
 </div>
 <div class="footnotes">
 <hr />
-<ol start="24">
-<li id="fn24"><p>In the context of ANOVA, these <span class="math inline">\(k\)</span> populations are often referred to as <strong>treatment distributions</strong>.<a href="anova.html#fnref24" class="footnote-back">↩︎</a></p></li>
+<ol start="19">
+<li id="fn19"><p>In the context of ANOVA, these <span class="math inline">\(k\)</span> populations are often referred to as <strong>treatment distributions</strong>.<a href="anova.html#fnref19" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

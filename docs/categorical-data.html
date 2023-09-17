@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 Categorical data | MA22004 - Statistics II</title>
   <meta name="description" content="Module notes. Mathematics Division, School of Science &amp; Engineering, University of Dundee." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7 Categorical data | MA22004 - Statistics II" />
   <meta property="og:type" content="book" />
@@ -51,8 +51,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<link href="libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+<link href="libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -95,7 +95,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -108,7 +108,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -122,6 +122,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
@@ -166,26 +170,6 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-your-instructor"><i class="fa fa-check"></i>About your instructor</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html"><i class="fa fa-check"></i>Module Guide</a>
-<ul>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-organization"><i class="fa fa-check"></i>Organisation</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-timetable"><i class="fa fa-check"></i>Timetable</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-prerecs"><i class="fa fa-check"></i>Pre-requisites</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-syllabus"><i class="fa fa-check"></i>Syllabus</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-books"><i class="fa fa-check"></i>Recommended Books</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment"><i class="fa fa-check"></i>Assessment</a>
-<ul>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-coursework"><i class="fa fa-check"></i>Coursework</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-assessment-exams"><i class="fa fa-check"></i>Class Tests</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-commitment"><i class="fa fa-check"></i>Your Commitment</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-calcs"><i class="fa fa-check"></i>Approved Calculators</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-support"><i class="fa fa-check"></i>Study Support</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-disability"><i class="fa fa-check"></i>Disability</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-honesty"><i class="fa fa-check"></i>Academic Honesty</a></li>
-<li class="chapter" data-level="" data-path="cg.html"><a href="cg.html#cg-questionaire"><i class="fa fa-check"></i>Module Questionaires</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="deadlines.html"><a href="deadlines.html"><i class="fa fa-check"></i>Deadlines</a></li>
 <li class="chapter" data-level="" data-path="labs.html"><a href="labs.html"><i class="fa fa-check"></i>Lab Guide</a></li>
 <li class="chapter" data-level="" data-path="writing.html"><a href="writing.html"><i class="fa fa-check"></i>Writing Lab Reports</a>
 <ul>
@@ -205,6 +189,8 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#notation"><i class="fa fa-check"></i>Notation</a></li>
 <li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#abbreviations"><i class="fa fa-check"></i>Abbreviations</a></li>
+<li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#sample-space-events-probabilities"><i class="fa fa-check"></i>Sample space, events, probabilities</a></li>
+<li class="chapter" data-level="" data-path="preliminaries.html"><a href="preliminaries.html#random-variables"><i class="fa fa-check"></i>Random variables</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="sampling-distributions.html"><a href="sampling-distributions.html"><i class="fa fa-check"></i><b>1</b> Sampling distributions</a>
 <ul>
@@ -334,7 +320,7 @@ which indicates that, for a given <span class="math inline">\(m\)</span>, we onl
 H_0 : p_1 = p_{10}\,, p_2 = p_{20}\,, \cdots\,, p_k = p_{k0}\,,
 \tag{7.2}
 \end{equation}\]</span>
-that completely specifies a value <span class="math inline">\(p_{i0}\)</span> for each <span class="math inline">\(p_i\)</span>.<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a> The alternative hypothesis <span class="math inline">\(H_a\)</span> will state that <span class="math inline">\(H_0\)</span> is not true, i.e., that at least one <span class="math inline">\(p_i\)</span> is different from the value <span class="math inline">\(p_{i0}\)</span> claimed under the null <span class="math inline">\(H_0\)</span>.</p>
+that completely specifies a value <span class="math inline">\(p_{i0}\)</span> for each <span class="math inline">\(p_i\)</span>.<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a> The alternative hypothesis <span class="math inline">\(H_a\)</span> will state that <span class="math inline">\(H_0\)</span> is not true, i.e., that at least one <span class="math inline">\(p_i\)</span> is different from the value <span class="math inline">\(p_{i0}\)</span> claimed under the null <span class="math inline">\(H_0\)</span>.</p>
 <p>Provided the null hypothesis in <a href="categorical-data.html#eq:null-multinomial">(7.2)</a> is true, the expected values <a href="categorical-data.html#eq:mean-count-multinomial">(7.1)</a> can be written in terms of the expected frequencies,
 <span class="math display">\[\begin{equation*}
 \E[N_i] = m p_{i0}\,, \quad i=1,\dots,k\,.
@@ -409,7 +395,7 @@ Expected
 </tr>
 </tbody>
 </table>
-<p>The test procedure assesses the discrepancy between the value of the observed and expected cell counts. This discrepancy, or <strong>goodness of fit</strong>, is measured by the squared deviations divided by the expected count.<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a></p>
+<p>The test procedure assesses the discrepancy between the value of the observed and expected cell counts. This discrepancy, or <strong>goodness of fit</strong>, is measured by the squared deviations divided by the expected count.<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a></p>
 <div class="theorem">
 <p><span id="thm:multinomial-experiment" class="theorem"><strong>Theorem 7.1  </strong></span>For <span class="math inline">\(m p_i \geq 5\)</span> for <span class="math inline">\(i = 1, \dots, k\)</span>, the rv
 <span class="math display">\[\begin{equation*}
@@ -457,7 +443,7 @@ As a rule of thumb, provided <span class="math inline">\(m p_{i0} \geq 5\)</span
 <div id="test-for-the-independence-of-factors" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> Test for the independence of factors<a href="categorical-data.html#test-for-the-independence-of-factors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In Section <a href="categorical-data.html#goodness-of-fit-tests">7.2</a>, we considered categorising a population into a single factor. We now consider a single population where each individual is categorised into two factors with <span class="math inline">\(I\)</span> distinct categories for the first factor and <span class="math inline">\(J\)</span> distinct categories for the second factor. Each individual from the population belongs to exactly one of the <span class="math inline">\(I\)</span> categories of the first factor and exactly one of the <span class="math inline">\(J\)</span> categories of the second factor. We want to determine whether or not there is any dependency between the two factors.</p>
-<p>For a sample of <span class="math inline">\(m\)</span> individuals, we denote by <span class="math inline">\(n_{ij}\)</span> the count of the <span class="math inline">\(m\)</span> samples that fall both in category <span class="math inline">\(i\)</span> of the first factor and category <span class="math inline">\(j\)</span> of the second factor, for <span class="math inline">\(i = 1, \dots, I\)</span> and <span class="math inline">\(j = 1, \dots, J\)</span>. A <strong>contingency (data) table</strong> with <span class="math inline">\(I\)</span> rows and <span class="math inline">\(J\)</span> columns (i.e., <span class="math inline">\(IJ\)</span> cells) will be used to record the <span class="math inline">\(n_{ij}\)</span> counts (in an obvious way).<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a> Let <span class="math inline">\(p_{ij}\)</span> be the proportion of individuals in the population who belong in category <span class="math inline">\(i\)</span> of factor 1 and category <span class="math inline">\(j\)</span> of factor <span class="math inline">\(2\)</span>. Then, the probability that a randomly selected individual falls in category <span class="math inline">\(i\)</span> of factor 1 is found by summing over all <span class="math inline">\(j\)</span>:
+<p>For a sample of <span class="math inline">\(m\)</span> individuals, we denote by <span class="math inline">\(n_{ij}\)</span> the count of the <span class="math inline">\(m\)</span> samples that fall both in category <span class="math inline">\(i\)</span> of the first factor and category <span class="math inline">\(j\)</span> of the second factor, for <span class="math inline">\(i = 1, \dots, I\)</span> and <span class="math inline">\(j = 1, \dots, J\)</span>. A <strong>contingency (data) table</strong> with <span class="math inline">\(I\)</span> rows and <span class="math inline">\(J\)</span> columns (i.e., <span class="math inline">\(IJ\)</span> cells) will be used to record the <span class="math inline">\(n_{ij}\)</span> counts (in an obvious way).<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a> Let <span class="math inline">\(p_{ij}\)</span> be the proportion of individuals in the population who belong in category <span class="math inline">\(i\)</span> of factor 1 and category <span class="math inline">\(j\)</span> of factor <span class="math inline">\(2\)</span>. Then, the probability that a randomly selected individual falls in category <span class="math inline">\(i\)</span> of factor 1 is found by summing over all <span class="math inline">\(j\)</span>:
 <span class="math display">\[\begin{equation*}
 p_{i} = \sum_{j=1}^J p_{ij}\,,
 \end{equation*}\]</span>
@@ -508,10 +494,10 @@ As a rule of thumb, provided <span class="math inline">\(\widehat{e}_{ij} \geq 5
 </div>
 <div class="footnotes">
 <hr />
-<ol start="27">
-<li id="fn27"><p>Here for <span class="math inline">\(i=1, \dots, k\)</span> we use the notation <span class="math inline">\(p_{i0}\)</span> to denote the value of <span class="math inline">\(p_i\)</span> claimed under the null hypothesis.<a href="categorical-data.html#fnref27" class="footnote-back">↩︎</a></p></li>
-<li id="fn28"><p>The division by the expected cell counts accounts for possible differences in the relative magnitude of the observed/expected counts.<a href="categorical-data.html#fnref28" class="footnote-back">↩︎</a></p></li>
-<li id="fn29"><p>Contingency is another word for dependency in this context.<a href="categorical-data.html#fnref29" class="footnote-back">↩︎</a></p></li>
+<ol start="22">
+<li id="fn22"><p>Here for <span class="math inline">\(i=1, \dots, k\)</span> we use the notation <span class="math inline">\(p_{i0}\)</span> to denote the value of <span class="math inline">\(p_i\)</span> claimed under the null hypothesis.<a href="categorical-data.html#fnref22" class="footnote-back">↩︎</a></p></li>
+<li id="fn23"><p>The division by the expected cell counts accounts for possible differences in the relative magnitude of the observed/expected counts.<a href="categorical-data.html#fnref23" class="footnote-back">↩︎</a></p></li>
+<li id="fn24"><p>Contingency is another word for dependency in this context.<a href="categorical-data.html#fnref24" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
