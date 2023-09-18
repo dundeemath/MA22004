@@ -16,6 +16,26 @@ The sampling distribution of $T$ is derived from the distribution of the random 
 
 In what follows, we review several special families of distributions that are widely used in probability and statistics. These special families of distributions will be indexed by one or parameters. 
 
+## Uniform distribution {#uniform-distribution}
+
+The uniform distribution places equal on uniform weight on the items being sampled.
+
+```{definition, uniform-dist}
+A continuous rv $X$ has a **uniform distribution** on $[a,b]$ with $a<b$, if $X$ has pdf
+\begin{equation*}
+ f(x; a,b) = \frac{1}{b-a}\,, 
+ \quad a < x < b\,,
+\end{equation*}
+ or zero otherwise. 
+We write $X \sim \mathsf{Unif}(a,b)$. 
+```  
+
+Note $a$ and $b$ are parameters.
+
+```{example, eg-uniform-exercise}
+As an exercise, derive the cdf using the definition. Derive a formula for the mean and variance (in terms of the parameters $a$ and $b$).
+```  
+
 ## Normal distribution {#normal-distribution}
 
 Normal distributions play an important role in probability and statistics as they describe many natural phenomena. For instance, the Central Limit Theorem tells us that the sample mean of a large random sample (size $m$) of rvs with mean $\mu$ and variance $\sigma^2$ is approximately normal in distribution with mean $\mu$ and variance $\sigma^2/m$.  
@@ -147,7 +167,7 @@ P(\mu - 3 \sigma \leq X \leq \mu + 3 \sigma ) \approx 0.9973\,.
 \end{equation*}
 For a normal population, nearly all the values lie within "three sigmas" of the mean.
 
-## $\mathsf{t}$ distribution {#t-distribution}
+## $\mathsf{t}$ and Cauchy distribution {#t-distribution}
 
 Student's $\mathsf{t}$ distribution gets its peculiar name as it was first published under the pseudonym  "Student".^[William Sealy Gosset (1876--1937) wrote under the pseudonym "Student" [[https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/](https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/)].] This bit of obfuscation was to protect the identity of his employer,^[Gosset invented the t-test to handle small samples for quality control in brewing, specifically for the Guinness brewery in Dublin [[https://www.wikiwand.com/en/Guinness_Brewery](https://www.wikiwand.com/en/Guinness_Brewery)].] and thereby vital trade secrets, in a highly competitive and lucrative industry.  
 
@@ -173,6 +193,12 @@ ggplot(t.dist, aes(x = t, y = density, color = df)) +
  geom_line(size = lsz) +
  labs(y = TeX("$f(x;\\nu)$"), x = TeX("$x$"), color = TeX("$\\nu$ (df)")) + theme_ur
 ```
+
+::: {.tipblock data-latex=""}
+A $\mathsf{t}$ distributions with $\nu = 1$ has pdf 
+\[f(x) = \frac{1}{\pi (1 + x^2)}\,,\] 
+and we call this the Cauchy distribution. 
+:::
 
 ### Properties of $\mathsf{t}$ distributions {#facts-t}
 

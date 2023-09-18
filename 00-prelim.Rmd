@@ -81,7 +81,7 @@ We can interpret $P(A)$ as representing:
 :::
 
 ```{theorem, pie}
-The principal of inclusion-exclusion (PIE), 
+The **principal of inclusion-exclusion (PIE)**, 
 $$P(A\cup B) = P(A) + P(B) - P(A\cap B)\,.$$
 ```
 
@@ -101,10 +101,15 @@ Events $A$ and $B$ are **independent**, i.e., $A \perp \!\!\! \perp B$, iff $P(A
 That is, *events* $A$ and $B$ are independent if and only if the probability of $A$ and $B$ occurring is equal to the the probability $A$ occurring times the probability of $B$ occurring.
 
 ```{definition, cond-prob}
+(Conditional probability) 
 If $P(B) > 0$, then $$P(A \mid B) = \frac{P(A \cap B)}{P(B)}\,.$$
 ```
 
-Note that: - $P(\cdot \mid B)$ satisfies the axioms of probability, for fixed $B$, - in general, $P(A \mid \cdot)$ is not a probability for fixed $A$, and, - in general, $P(A\mid B) \neq P(B \mid A)$.
+Note that: 
+
+- $P(\cdot \mid B)$ satisfies the axioms of probability, for fixed $B$, 
+- in general, $P(A \mid \cdot)$ is not a probability for fixed $A$, and, 
+- in general, $P(A\mid B) \neq P(B \mid A)$.
 
 ```{theorem, bayes}
 (Bayes theorem) Let events $A_1, \dots, A_k$ parition $\Omega$, with $P(A_i) > 0$. 
@@ -128,7 +133,7 @@ How do we link sample spaces and events to data?
 We use random variables to link sample spaces and events to data.
 
 ```{definition, rv}
-A *random variable* (rv) is a mapping $X : \Omega \to \mathbf{R}$ that maps $\omega \in \Omega \mapsto X(\omega)$.
+A **random variable (rv)** is a mapping $X : \Omega \to \mathbf{R}$ that maps $\omega \in \Omega \mapsto X(\omega)$.
 ```
 
 ```{example, rv-1}
@@ -158,8 +163,30 @@ Consider a coin flipping experiment where you flip a fair coin twice. Let $X$ be
 ```
 
 ```{definition, cdf}
-The *cumulative distribution function* (cdf), $F_X:\mathbf{R} \to [0,1]$, is defined by $F_X(x) = P(X \leq x)$.
+The **cumulative distribution function** (cdf), $F_X:\mathbf{R} \to [0,1]$, is defined by $F_X(x) = P(X \leq x)$.
 ```
+
+```{r eg-cdf-coin-flip-plot, echo = FALSE, fig.cap = "The cdf for the two coin flip example."}
+x <- c(0, 0, 1, 1, 2, 2)
+y <- c(0, 0.25, 0.25, 0.75, 0.75, 1)
+b <- c("o", "c", "o", "c", "o", "c")
+dat <- data.frame(x, y, b)
+dat$b <- factor(dat$b)
+dat |> ggplot(aes(x, y, shape = b)) +
+  geom_point(size = lsz + lsz*2, color = "#E41A1C") +
+  geom_segment(aes(x = 0, y = 0, xend = -1, yend = 0), arrow = arrow(length = unit(0.25*lsz, "cm")), size = lsz, color = "#E41A1C") +
+  geom_segment(aes(x = 0, y = 0.25, xend = 1, yend = 0.25), size = lsz, color = "#E41A1C") +
+  geom_segment(aes(x = 1, y = 0.75, xend = 2, yend = 0.75), size = lsz, color = "#E41A1C") +
+  geom_segment(aes(x = 2, y = 1, xend = 3, yend = 1), arrow = arrow(length = unit(0.25*lsz, "cm")), size = lsz, color = "#E41A1C") +
+  geom_vline(aes(xintercept = 0)) +
+  geom_hline(aes(yintercept = 0)) +
+ scale_shape_manual(values = c(19, 1)) +
+  theme(axis.line.x = element_blank(), 
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank()) +
+ guides(shape = "none") + 
+ labs(x = TeX("$x$"), y = TeX("$F_X(x)$")) + theme_ur
+```  
 
 Note that a cdf completely determines the distribution of a random variable.
 
@@ -176,19 +203,32 @@ $F : \mathbf{R} \to [0,1]$ is a cdf for some $P$ iff,
 \end{enumerate}
 ```
 
-For a rv $X$ we say $X$ is *discrete* if it assumes at most a *countable* number of (discrete) values. For a discrete sample space, the collection of all probabilities of $X(\omega)$ gives us a probability distribution.
+For a rv $X$ we say $X$ is **discrete** if it assumes at most a *countable* number of (discrete) values. For a discrete sample space, the collection of all probabilities of $X(\omega)$ gives us a probability distribution.
 
 ```{definition, pmf}
-A *probability density function* (pdf) for a discrete rv $X$ is $f_X(x) = P(X = x)$. 
+A **probability density function (pdf)** for a discrete rv $X$ is $f_X(x) = P(X = x)$. 
+```
+
+```{r eg-pmf-histogram, echo = FALSE, fig.cap = "The histogram (pmf) for the two coin flip example."}
+x <- c(0, 1, 2)
+y <- c(0.25, 0.50, 0.25)
+b <- c("a", "a", "a")
+dat <- data.frame(x, y, b)
+dat$b <- factor(dat$b)
+dat |> ggplot(aes(x, y, color = b, fill = b)) +
+  geom_bar(stat = "identity", size = lsz) +
+  geom_hline(yintercept = 0) + geom_vline(xintercept = -1) +
+ guides(fill = "none", color = "none") + 
+ labs(x = TeX("$x_i$"), y = TeX("$f_X(x_i) = P(X(\\omega) = x_i)$")) + theme_ur
 ```
 
 ::: {.warningblock data-latex=""}
-Since the probabilities for a discrete rv form "point masses," the pdf is sometimes called a probability mass function.
+Since the probabilities for a discrete rv form "point masses," the pdf is sometimes called a *probability mass function*.
 :::
 
 Note, from the axioms of probability, that the pdf for a discrete random variable therefore satisfies $f(x) \geq 0$, $\forall x \in \mathbf{R}$ and $\sum_i f(x_i) = 1$. 
 
-A rv $X$ is *continuous* if there exists a continuous function $f_X$ such that,
+A rv $X$ is **continuous** if there exists a continuous function $f_X$ such that,
 \begin{enumerate}
 \item $f_X(x) \geq 0 \forall x$, 
 \item $\int_{-\infty}^\infty f_X(x) dx = 1$ and 
@@ -196,7 +236,7 @@ A rv $X$ is *continuous* if there exists a continuous function $f_X$ such that,
 \end{enumerate}
 
 ```{definition, pdf}
-A $f_X$ satisfying the three properties above is a *probability density function* for the continous rv $X$. 
+A $f_X$ satisfying the three properties above is a **pdf** for the continous rv $X$. 
 ```
 
 ::: {.warningblock data-latex=""}
@@ -205,19 +245,18 @@ If $X$ is continuous, then $P(X = x) = 0$ for every $x$. That is, \[P(a \leq X \
 
 The cdf is related to the pdf by the derivative (difference).  If $X$ is continuous:
 \[F_X(x) = P(X \leq x) = 
-int_{-\infty}^x f_X(t) dt\] and $f_X(x) = F_X\prime(x)$ at all $x$ at which $F_X$ is differentiable. 
-(Likewise, if $X$ is discrete,
-$F_X(x) = P(X \leq x) = \sum_{x_i \leq x} f_X(x_i)$.)
+\int_{-\infty}^x f_X(t) dt\] and $f_X(x) = F_X^\prime(x)$ at all $x$ at which $F_X$ is differentiable. 
+(Likewise, if $X$ is discrete, then we replace the integral with a sum $F_X(x) = P(X \leq x) = \sum_{x_i \leq x} f_X(x_i)$.)
 
 ```{definition, quantile}
-Let $X$ be a rv with cdf $F$. The inverse cdf, or *quantile function*, is defined by 
+Let $X$ be a rv with cdf $F$. The inverse cdf, or **quantile function**, is defined by 
 \[F^{-1}(q) = \inf \{x : F(x) > q\}\] for $q \in [0,1]$. If $F$ is monotonic increasing and continuous then $F^{-1}(q)$ is the unique real number $x$ such that $F(x) = q$. 
 ```
 
 Some quantiles get used more than others (and therefore get names). Important quantiles include, $F^{-1}(\frac{1}{4})$ is the first quantile, $F^{-1}(\frac{1}{2})$ is the median, and $F^{-1}(\frac{3}{4})$ is the third quantile.
 
 ```{definition, equal-dist}
-We say $X$ and $Y$ are *equal in distribution*, $X \equiv Y$, if $F_X(x) = F_Y(x)$ for all $x$.
+We say $X$ and $Y$ are **equal in distribution**, $X \equiv Y$, if $F_X(x) = F_Y(x)$ for all $x$.
 ```
 
 ::: {.warningblock data-latex=""}
@@ -229,7 +268,7 @@ Suppose $P(X = 1) = P(X = -1) = \frac{1}{2}$. Let $Y = -X$. Then $P(Y = 1) = P(Y
 We sometimes consider more than one random variable, taken to together. This leads to the concept of a joint and marginal densities.  
 
 ```{definition, joint-pdf}
-A *joint pdf* for $(X,Y)$ satisfies
+A **joint pdf** for $(X,Y)$ satisfies
 \begin{enumerate}
 \item $f(x,y) \geq 0$ $\forall x,y$,
 \item $\iint_{-\infty}^\infty f(x,y) dx dy = 1$,
@@ -238,7 +277,7 @@ A *joint pdf* for $(X,Y)$ satisfies
 ```
 
 ```{definition, joint-cdf}
-A *joint cdf* is given by $F(x,y) = P(X\leq x, Y\leq y)$. 
+A **joint cdf** is given by $F(x,y) = P(X\leq x, Y\leq y)$. 
 ```
 
 ```{definition, marginals}
@@ -248,7 +287,7 @@ For $X,Y$ with joint pdf $f(x,y)$, we define the marginals for $X$ and $Y$ as $f
 We also have a notion of independence for rvs. 
 
 ```{definition, indep-rv}
-Rvs $X$ and $Y$ are *independent$ if $P(X \in A, Y \in B) = P(X \in A) P(Y \in B)$.
+Rvs $X$ and $Y$ are **independent** if $P(X \in A, Y \in B) = P(X \in A) P(Y \in B)$.
 ```
 
 ```{theorem, pdf-indep-rv}
@@ -258,5 +297,36 @@ Let $X,Y$ have joint $f_{XY}$. Then $X$ and $Y$ are independent iff $f_{XY} = f_
 If $X_1, \dots X_n$ are independent and each as the same marginal distribution with cdf $F$, we say $X_1, \dots, X_n$ are iid and write $X_1, \dots, X_n \sim F$ iid. We also write $X_1, \dots, X_n \sim f$ if $F$ has corresponding density $f$, when no confusion arises. 
 
 ```{definition, sample}
-$X_1, \dots, X_n \sim F$ iid is a *random sample of size $n$ from $F$*. 
+$X_1, \dots, X_n \sim F$ iid is a **random sample of size $n$ from $F$**. 
 ```
+
+We also consider the **expected value** of a rv. 
+
+```{definition, expected-value}
+For a discrete rv $X$ with possible outcomes $x_1, x_2, \dots$ and corresponding probabilities $p_1, p_2, \dots$, the expectation is defined by 
+\[\E[X] = \sum_{i=1}^\infty x_i p_i\,.\]
+
+For a continuous rv $X$ with pdf $f$, the expectation is defined by
+\[\E[X] = \int_{-\infty}^{\infty} x f(x) dx\,.\]
+```
+
+For both discrete and continuous rvs, we refer to various statistics relating to expected values as moments of the distribution. 
+
+```{definition, raw-moments}
+For a rv $X$, the **raw moments** are:
+ \[\E[X]  \qquad \text{(first moment)}\,, \] 
+ \[\E[X^2]  \qquad \text{(second)}\,, \] 
+ \[\E[X^3]  \qquad \text{(third)}\,, \] 
+etc.
+```
+
+```{definition, central-moments}
+For a rv $X$ with $\mu = \mathbf{E}[X]$, the **central moments** are:
+ \[\E[(X - \mu)]  \qquad \text{(first central moment)}\,,\] 
+ \[\E[(X - \mu)^2]  \qquad \text{(second)}\,,\] 
+ \[\E[(X - \mu)^3]  \qquad \text{(third)}\,,\] 
+etc.
+```
+
+The **mean** of a distribution is the first raw moment. The **variance** of a distribution is the second central moment. 
+

@@ -194,17 +194,18 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="1" data-path="sampling-distributions.html"><a href="sampling-distributions.html"><i class="fa fa-check"></i><b>1</b> Sampling distributions</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.1</b> Normal distribution</a>
+<li class="chapter" data-level="1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#uniform-distribution"><i class="fa fa-check"></i><b>1.1</b> Uniform distribution</a></li>
+<li class="chapter" data-level="1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.2</b> Normal distribution</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about normal variates</a></li>
-<li class="chapter" data-level="1.1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#empirical-rule-68-95-99.7-rule"><i class="fa fa-check"></i><b>1.1.2</b> Empirical rule (<span class="math inline">\(68-95-99.7\)</span> rule)</a></li>
+<li class="chapter" data-level="1.2.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.2.1</b> Some useful facts about normal variates</a></li>
+<li class="chapter" data-level="1.2.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#empirical-rule-68-95-99.7-rule"><i class="fa fa-check"></i><b>1.2.2</b> Empirical rule (<span class="math inline">\(68-95-99.7\)</span> rule)</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\mathsf{t}\)</span> distribution</a>
+<li class="chapter" data-level="1.3" data-path="sampling-distributions.html"><a href="sampling-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.3</b> <span class="math inline">\(\mathsf{t}\)</span> and Cauchy distribution</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-t"><i class="fa fa-check"></i><b>1.2.1</b> Properties of <span class="math inline">\(\mathsf{t}\)</span> distributions</a></li>
+<li class="chapter" data-level="1.3.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-t"><i class="fa fa-check"></i><b>1.3.1</b> Properties of <span class="math inline">\(\mathsf{t}\)</span> distributions</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="sampling-distributions.html"><a href="sampling-distributions.html#chisq-distribution"><i class="fa fa-check"></i><b>1.3</b> <span class="math inline">\(\chi^2\)</span> distribution</a></li>
-<li class="chapter" data-level="1.4" data-path="sampling-distributions.html"><a href="sampling-distributions.html#F-distribution"><i class="fa fa-check"></i><b>1.4</b> <span class="math inline">\(\mathsf{F}\)</span> distribution</a></li>
+<li class="chapter" data-level="1.4" data-path="sampling-distributions.html"><a href="sampling-distributions.html#chisq-distribution"><i class="fa fa-check"></i><b>1.4</b> <span class="math inline">\(\chi^2\)</span> distribution</a></li>
+<li class="chapter" data-level="1.5" data-path="sampling-distributions.html"><a href="sampling-distributions.html#F-distribution"><i class="fa fa-check"></i><b>1.5</b> <span class="math inline">\(\mathsf{F}\)</span> distribution</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>2</b> Basics of statistical inference</a>
 <ul>
@@ -309,11 +310,28 @@ div.csl-indent {
 </div>
 <p>The sampling distribution of <span class="math inline">\(T\)</span> is derived from the distribution of the random sample. Often we will be interested in a statistic <span class="math inline">\(T\)</span> that is an estimator for a parameter <span class="math inline">\(\theta\)</span> (that is, <span class="math inline">\(T\)</span> will not depend on <span class="math inline">\(\theta\)</span>).</p>
 <p>In what follows, we review several special families of distributions that are widely used in probability and statistics. These special families of distributions will be indexed by one or parameters.</p>
-<div id="normal-distribution" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Normal distribution<a href="sampling-distributions.html#normal-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="uniform-distribution" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Uniform distribution<a href="sampling-distributions.html#uniform-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The uniform distribution places equal on uniform weight on the items being sampled.</p>
+<div class="definition">
+<p><span id="def:uniform-dist" class="definition"><strong>Definition 1.3  </strong></span>A continuous rv <span class="math inline">\(X\)</span> has a <strong>uniform distribution</strong> on <span class="math inline">\([a,b]\)</span> with <span class="math inline">\(a&lt;b\)</span>, if <span class="math inline">\(X\)</span> has pdf
+<span class="math display">\[\begin{equation*}
+f(x; a,b) = \frac{1}{b-a}\,,
+\quad a &lt; x &lt; b\,,
+\end{equation*}\]</span>
+or zero otherwise.
+We write <span class="math inline">\(X \sim \mathsf{Unif}(a,b)\)</span>.</p>
+</div>
+<p>Note <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are parameters.</p>
+<div class="example">
+<p><span id="exm:eg-uniform-exercise" class="example"><strong>Example 1.1  </strong></span>As an exercise, derive the cdf using the definition. Derive a formula for the mean and variance (in terms of the parameters <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>).</p>
+</div>
+</div>
+<div id="normal-distribution" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Normal distribution<a href="sampling-distributions.html#normal-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Normal distributions play an important role in probability and statistics as they describe many natural phenomena. For instance, the Central Limit Theorem tells us that the sample mean of a large random sample (size <span class="math inline">\(m\)</span>) of rvs with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span> is approximately normal in distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2/m\)</span>.</p>
 <div class="definition">
-<p><span id="def:normal-dist" class="definition"><strong>Definition 1.3  </strong></span>A continuous rv <span class="math inline">\(X\)</span> has a <strong>normal distribution</strong> with parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>, where <span class="math inline">\(-\infty &lt; \mu &lt; \infty\)</span> and <span class="math inline">\(\sigma &gt; 0\)</span>, if <span class="math inline">\(X\)</span> has pdf
+<p><span id="def:normal-dist" class="definition"><strong>Definition 1.4  </strong></span>A continuous rv <span class="math inline">\(X\)</span> has a <strong>normal distribution</strong> with parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>, where <span class="math inline">\(-\infty &lt; \mu &lt; \infty\)</span> and <span class="math inline">\(\sigma &gt; 0\)</span>, if <span class="math inline">\(X\)</span> has pdf
 <span class="math display">\[\begin{equation*}
 f(x; \mu, \sigma) = \frac{1}{\sqrt{2 \pi} \sigma}e^{-(x-\mu)^2/(2\sigma^2)}\,,
 \quad -\infty &lt; x &lt; \infty \,.
@@ -334,10 +352,10 @@ Figure 1.2: The pdfs of two normal rvs, <span class="math inline">\(X_1 \sim \ma
 </p>
 </div>
 <div class="definition">
-<p><span id="def:standard-normal" class="definition"><strong>Definition 1.4  </strong></span>We say that <span class="math inline">\(X\)</span> has a <strong>standard normal distribution</strong> if <span class="math inline">\(\mu=0\)</span> and <span class="math inline">\(\sigma = 1\)</span> and we will usually denote standard Normal rvs by <span class="math display">\[Z \sim \mathsf{N}(0,1)\]</span> (why <span class="math inline">\(Z\)</span>? tradition!<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>). We denote the cumulative distribution function of the standard normal by <span class="math display">\[\Phi(z) = P(Z \leq z)\]</span> and write <span class="math inline">\(\varphi = \Phi&#39;\)</span> for its density function.</p>
+<p><span id="def:standard-normal" class="definition"><strong>Definition 1.5  </strong></span>We say that <span class="math inline">\(X\)</span> has a <strong>standard normal distribution</strong> if <span class="math inline">\(\mu=0\)</span> and <span class="math inline">\(\sigma = 1\)</span> and we will usually denote standard Normal rvs by <span class="math display">\[Z \sim \mathsf{N}(0,1)\]</span> (why <span class="math inline">\(Z\)</span>? tradition!<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>). We denote the cumulative distribution function of the standard normal by <span class="math display">\[\Phi(z) = P(Z \leq z)\]</span> and write <span class="math inline">\(\varphi = \Phi&#39;\)</span> for its density function.</p>
 </div>
-<div id="facts-normals" class="section level3 hasAnchor" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Some useful facts about normal variates<a href="sampling-distributions.html#facts-normals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="facts-normals" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Some useful facts about normal variates<a href="sampling-distributions.html#facts-normals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Here are some useful facts about how to manipulate Normal rvs.</p>
 <ol style="list-style-type: decimal">
 <li>If <span class="math inline">\(X \sim \mathsf{N}(\mu, \sigma^2),\)</span> then <span class="math inline">\(Z = (X - \mu) / \sigma \sim \mathsf{N}(0,1).\)</span></li>
@@ -354,7 +372,7 @@ Figure 1.2: The pdfs of two normal rvs, <span class="math inline">\(X_1 \sim \ma
    \end{aligned}\]</span>
 This process is often referred to as <em>standardising</em> (the normal rv).</p>
 <div class="example">
-<p><span id="exm:eg-norm-rt" class="example"><strong>Example 1.1  </strong></span>Let <span class="math inline">\(X \sim \mathsf{N}(5, 9)\)</span> and find <span class="math inline">\(P(X \geq 5.5)\)</span>.</p>
+<p><span id="exm:eg-norm-rt" class="example"><strong>Example 1.2  </strong></span>Let <span class="math inline">\(X \sim \mathsf{N}(5, 9)\)</span> and find <span class="math inline">\(P(X \geq 5.5)\)</span>.</p>
 <p><span class="math display">\[\begin{aligned}
    P(X \geq 5.5) &amp;= P\left(Z \geq \frac{5.5 - 5}{3}\right) \\
     &amp;= P(Z \geq 0.1667) \\
@@ -374,7 +392,7 @@ Figure 1.3: The normal density from the exercise with the (one-sided) interval s
 </div>
 <p>Alternatively, we can use the <code>r</code> code: <code>pnorm(5.5, mean = 5, sd = 3, lower.tail = FALSE)</code>. <span class="math inline">\(\lozenge\)</span></p>
 <div class="example">
-<p><span id="exm:eg-norm-dt" class="example"><strong>Example 1.2  </strong></span>Let <span class="math inline">\(X \sim \mathsf{N}(5, 9)\)</span> and find <span class="math inline">\(P(4 \leq X \leq 5.25)\)</span>.</p>
+<p><span id="exm:eg-norm-dt" class="example"><strong>Example 1.3  </strong></span>Let <span class="math inline">\(X \sim \mathsf{N}(5, 9)\)</span> and find <span class="math inline">\(P(4 \leq X \leq 5.25)\)</span>.</p>
 <p><span class="math display">\[\begin{aligned}
    P(4 \leq X \leq 5.25) &amp;= P\left(\frac{4-5}{3} \leq Z \leq \frac{5.25-5}{3}\right) \\
    &amp;= P(-0.3333 \leq Z \leq 0.0833) \\
@@ -394,8 +412,8 @@ Figure 1.4: The normal density from the exercise with the interval shaded in blu
 <p>Alternatively, we can use the <code>r</code> code:
 <code>pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3)</code>. <span class="math inline">\(\lozenge\)</span></p>
 </div>
-<div id="empirical-rule-68-95-99.7-rule" class="section level3 hasAnchor" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> Empirical rule (<span class="math inline">\(68-95-99.7\)</span> rule)<a href="sampling-distributions.html#empirical-rule-68-95-99.7-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="empirical-rule-68-95-99.7-rule" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Empirical rule (<span class="math inline">\(68-95-99.7\)</span> rule)<a href="sampling-distributions.html#empirical-rule-68-95-99.7-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For samples from a normal distribution, the percentage of values that lie within one, two, and three standard deviations of the mean are <span class="math inline">\(68.27\%\)</span>, <span class="math inline">\(95.45\%\)</span>, and <span class="math inline">\(99.73\%\)</span>, respectively. That is, for <span class="math inline">\(X \sim \mathsf{N}(\mu, \sigma^2)\)</span>,
 <span class="math display">\[\begin{equation*}
 P(\mu - 1 \sigma \leq X \leq \mu + 1 \sigma ) \approx 0.6827\,,
@@ -409,11 +427,11 @@ P(\mu - 3 \sigma \leq X \leq \mu + 3 \sigma ) \approx 0.9973\,.
 For a normal population, nearly all the values lie within “three sigmas” of the mean.</p>
 </div>
 </div>
-<div id="t-distribution" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> <span class="math inline">\(\mathsf{t}\)</span> distribution<a href="sampling-distributions.html#t-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="t-distribution" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> <span class="math inline">\(\mathsf{t}\)</span> and Cauchy distribution<a href="sampling-distributions.html#t-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Student’s <span class="math inline">\(\mathsf{t}\)</span> distribution gets its peculiar name as it was first published under the pseudonym “Student”.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> This bit of obfuscation was to protect the identity of his employer,<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> and thereby vital trade secrets, in a highly competitive and lucrative industry.</p>
 <div class="definition">
-<p><span id="def:t-dist" class="definition"><strong>Definition 1.5  </strong></span>A continuous rv <span class="math inline">\(X\)</span> has a <strong><span class="math inline">\(\mathsf{t}\)</span> distribution</strong> with parameter <span class="math inline">\(\nu &gt; 0\)</span>, if <span class="math inline">\(X\)</span> has pdf
+<p><span id="def:t-dist" class="definition"><strong>Definition 1.6  </strong></span>A continuous rv <span class="math inline">\(X\)</span> has a <strong><span class="math inline">\(\mathsf{t}\)</span> distribution</strong> with parameter <span class="math inline">\(\nu &gt; 0\)</span>, if <span class="math inline">\(X\)</span> has pdf
 <span class="math display">\[\begin{equation*}
 f(x; \nu) = \frac{\Gamma\left(\tfrac{\nu+1}{2}\right)}{\sqrt{\nu \pi} \Gamma \left(\tfrac{\nu}{2}\right)} \left( 1 + \tfrac{x^2}{\nu} \right)^{- \frac{\nu+1}{2}} \,, \quad -\infty &lt; x &lt; \infty\,.
 \end{equation*}\]</span>
@@ -426,8 +444,13 @@ We write <span class="math inline">\(X \sim \mathsf{t}(\nu)\)</span>. Note <span
 Figure 1.5: The density for <span class="math inline">\(\mathsf{t}(\nu)\)</span> for several values of <span class="math inline">\(\nu\)</span> (df).
 </p>
 </div>
-<div id="facts-t" class="section level3 hasAnchor" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> Properties of <span class="math inline">\(\mathsf{t}\)</span> distributions<a href="sampling-distributions.html#facts-t" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="tipblock">
+<p>A <span class="math inline">\(\mathsf{t}\)</span> distributions with <span class="math inline">\(\nu = 1\)</span> has pdf
+<span class="math display">\[f(x) = \frac{1}{\pi (1 + x^2)}\,,\]</span>
+and we call this the Cauchy distribution.</p>
+</div>
+<div id="facts-t" class="section level3 hasAnchor" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Properties of <span class="math inline">\(\mathsf{t}\)</span> distributions<a href="sampling-distributions.html#facts-t" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>The density for <span class="math inline">\(\mathsf{t}(\nu)\)</span> is a bell-shaped curve centred at <span class="math inline">\(0\)</span>.</li>
 <li>The density for <span class="math inline">\(\mathsf{t}(\nu)\)</span> is more spread out than the standard normal density (i.e., it has “fatter tails” than the normal).</li>
@@ -436,11 +459,11 @@ Figure 1.5: The density for <span class="math inline">\(\mathsf{t}(\nu)\)</span>
 <p>If <span class="math inline">\(X \sim \mathsf{t}(\nu)\)</span>, then <span class="math inline">\(\E[X] = 0\)</span> for <span class="math inline">\(\nu &gt; 1\)</span> (otherwise the mean is undefined).</p>
 </div>
 </div>
-<div id="chisq-distribution" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> <span class="math inline">\(\chi^2\)</span> distribution<a href="sampling-distributions.html#chisq-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="chisq-distribution" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> <span class="math inline">\(\chi^2\)</span> distribution<a href="sampling-distributions.html#chisq-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <span class="math inline">\(\chi^2\)</span> distribution arises as the distribution of a sum of the squares of <span class="math inline">\(\nu\)</span> independent standard normal rvs.</p>
 <div class="definition">
-<p><span id="def:chisq-dist" class="definition"><strong>Definition 1.6  </strong></span>A continuous rv <span class="math inline">\(X\)</span> has a <strong><span class="math inline">\(\chi^2\)</span> distribution</strong> with parameter <span class="math inline">\(\nu \in \mathbf{N}_{&gt;}\)</span>, if <span class="math inline">\(X\)</span> has pdf
+<p><span id="def:chisq-dist" class="definition"><strong>Definition 1.7  </strong></span>A continuous rv <span class="math inline">\(X\)</span> has a <strong><span class="math inline">\(\chi^2\)</span> distribution</strong> with parameter <span class="math inline">\(\nu \in \mathbf{N}_{&gt;}\)</span>, if <span class="math inline">\(X\)</span> has pdf
 <span class="math display">\[\begin{equation*}
 f(x; \nu) = \frac{1}{2^{\nu/2} \Gamma(\nu/2)} x^{(\nu/2)-1} e^{-x/2} \,,
 \end{equation*}\]</span>
@@ -459,11 +482,11 @@ Figure 1.6: The density for <span class="math inline">\(\chi^2(\nu)\)</span> for
 </div>
 <p>If <span class="math inline">\(X \sim \chi^2(\nu)\)</span>, then <span class="math inline">\(\E[X] = \nu\)</span> and <span class="math inline">\(\Var[X] = 2\nu\)</span>.</p>
 </div>
-<div id="F-distribution" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> <span class="math inline">\(\mathsf{F}\)</span> distribution<a href="sampling-distributions.html#F-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="F-distribution" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> <span class="math inline">\(\mathsf{F}\)</span> distribution<a href="sampling-distributions.html#F-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <span class="math inline">\(\mathsf{F}\)</span> distribution (“F” for Fisher) arises as a test statistic when comparing population variances and in the analysis of variance (see <a href="anova.html#anova">5</a>).</p>
 <div class="definition">
-<p><span id="def:F-dist" class="definition"><strong>Definition 1.7  </strong></span>A continuous rv <span class="math inline">\(X\)</span> has an <strong><span class="math inline">\(\mathsf{F}\)</span> distribution</strong> with df parameters <span class="math inline">\(\nu_1\)</span> and <span class="math inline">\(\nu_2\)</span>, if <span class="math inline">\(X\)</span> has pdf
+<p><span id="def:F-dist" class="definition"><strong>Definition 1.8  </strong></span>A continuous rv <span class="math inline">\(X\)</span> has an <strong><span class="math inline">\(\mathsf{F}\)</span> distribution</strong> with df parameters <span class="math inline">\(\nu_1\)</span> and <span class="math inline">\(\nu_2\)</span>, if <span class="math inline">\(X\)</span> has pdf
 <span class="math display">\[\begin{equation*}
 f(x; \nu_1, \nu_2) =
     \frac{\Gamma\left(\frac{\nu_1+\nu_2}{2}\right) \nu_1^{\nu_1/2} \nu_2^{\nu_2/2}}

@@ -194,17 +194,18 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="1" data-path="sampling-distributions.html"><a href="sampling-distributions.html"><i class="fa fa-check"></i><b>1</b> Sampling distributions</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.1</b> Normal distribution</a>
+<li class="chapter" data-level="1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#uniform-distribution"><i class="fa fa-check"></i><b>1.1</b> Uniform distribution</a></li>
+<li class="chapter" data-level="1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.2</b> Normal distribution</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about normal variates</a></li>
-<li class="chapter" data-level="1.1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#empirical-rule-68-95-99.7-rule"><i class="fa fa-check"></i><b>1.1.2</b> Empirical rule (<span class="math inline">\(68-95-99.7\)</span> rule)</a></li>
+<li class="chapter" data-level="1.2.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.2.1</b> Some useful facts about normal variates</a></li>
+<li class="chapter" data-level="1.2.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#empirical-rule-68-95-99.7-rule"><i class="fa fa-check"></i><b>1.2.2</b> Empirical rule (<span class="math inline">\(68-95-99.7\)</span> rule)</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\mathsf{t}\)</span> distribution</a>
+<li class="chapter" data-level="1.3" data-path="sampling-distributions.html"><a href="sampling-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.3</b> <span class="math inline">\(\mathsf{t}\)</span> and Cauchy distribution</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-t"><i class="fa fa-check"></i><b>1.2.1</b> Properties of <span class="math inline">\(\mathsf{t}\)</span> distributions</a></li>
+<li class="chapter" data-level="1.3.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-t"><i class="fa fa-check"></i><b>1.3.1</b> Properties of <span class="math inline">\(\mathsf{t}\)</span> distributions</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="sampling-distributions.html"><a href="sampling-distributions.html#chisq-distribution"><i class="fa fa-check"></i><b>1.3</b> <span class="math inline">\(\chi^2\)</span> distribution</a></li>
-<li class="chapter" data-level="1.4" data-path="sampling-distributions.html"><a href="sampling-distributions.html#F-distribution"><i class="fa fa-check"></i><b>1.4</b> <span class="math inline">\(\mathsf{F}\)</span> distribution</a></li>
+<li class="chapter" data-level="1.4" data-path="sampling-distributions.html"><a href="sampling-distributions.html#chisq-distribution"><i class="fa fa-check"></i><b>1.4</b> <span class="math inline">\(\chi^2\)</span> distribution</a></li>
+<li class="chapter" data-level="1.5" data-path="sampling-distributions.html"><a href="sampling-distributions.html#F-distribution"><i class="fa fa-check"></i><b>1.5</b> <span class="math inline">\(\mathsf{F}\)</span> distribution</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>2</b> Basics of statistical inference</a>
 <ul>
@@ -466,8 +467,8 @@ We are interested in testing the null hypothesis <span class="math inline">\(H_0
 <pre><code># A tibble: 1 × 1
   p_value
     &lt;dbl&gt;
-1   0.027</code></pre>
-<p>The bootstrapped null distribution is plotted using the <code>visualise</code> command, and the regions of the null distribution that are as extreme (or more extreme) than the observed statistic <span class="math inline">\(\widehat{\mu}\)</span> can be highlighted using the <code>shade_p_value</code> command. <span class="math inline">\(P = 0.027\)</span> is found which is quite small; if <span class="math inline">\(\mu \leq 3.5\)</span>, then the probability of obtaining the sample mean value <span class="math inline">\(\widehat{\mu} = 3.758\)</span> is only 0.027! Thus, the data provide sufficient evidence at the 0.05 level against the hypothesis that the true mean petal length is at most 3.5 cm. <span class="math inline">\(\lozenge\)</span></p>
+1   0.043</code></pre>
+<p>The bootstrapped null distribution is plotted using the <code>visualise</code> command, and the regions of the null distribution that are as extreme (or more extreme) than the observed statistic <span class="math inline">\(\widehat{\mu}\)</span> can be highlighted using the <code>shade_p_value</code> command. <span class="math inline">\(P = 0.043\)</span> is found which is quite small; if <span class="math inline">\(\mu \leq 3.5\)</span>, then the probability of obtaining the sample mean value <span class="math inline">\(\widehat{\mu} = 3.758\)</span> is only 0.043! Thus, the data provide sufficient evidence at the 0.05 level against the hypothesis that the true mean petal length is at most 3.5 cm. <span class="math inline">\(\lozenge\)</span></p>
 </div>
 <div id="mean-normal-var-unknown" class="section level3 hasAnchor" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> Mean of a normal population with unknown variance<a href="inference-single-sample.html#mean-normal-var-unknown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -697,7 +698,7 @@ Note the position of the critical values—don’t swap them around. <span class
 <p>We plot the 95% confidence interval for the standard deviation based on the computational null distribution obtained using 1000 bootstrap replications; note the interval estimate</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="inference-single-sample.html#cb7-1" tabindex="-1"></a>ci<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>  lower_ci upper_ci
-1 138.2961 445.8751</code></pre>
+1  140.681 441.6213</code></pre>
 <p>is in good agreement with the values obtained Example <a href="inference-single-sample.html#exm:eg-ci-variance">3.8</a>. Due to the computational nature, the bootstrapped interval estimate is not precisely the same as the theoretical interval estimate and rerunning the code will yield a slightly different interval. <span class="math inline">\(\lozenge\)</span></p>
 
 </div>

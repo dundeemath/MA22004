@@ -194,17 +194,18 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="1" data-path="sampling-distributions.html"><a href="sampling-distributions.html"><i class="fa fa-check"></i><b>1</b> Sampling distributions</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.1</b> Normal distribution</a>
+<li class="chapter" data-level="1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#uniform-distribution"><i class="fa fa-check"></i><b>1.1</b> Uniform distribution</a></li>
+<li class="chapter" data-level="1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#normal-distribution"><i class="fa fa-check"></i><b>1.2</b> Normal distribution</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.1.1</b> Some useful facts about normal variates</a></li>
-<li class="chapter" data-level="1.1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#empirical-rule-68-95-99.7-rule"><i class="fa fa-check"></i><b>1.1.2</b> Empirical rule (<span class="math inline">\(68-95-99.7\)</span> rule)</a></li>
+<li class="chapter" data-level="1.2.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-normals"><i class="fa fa-check"></i><b>1.2.1</b> Some useful facts about normal variates</a></li>
+<li class="chapter" data-level="1.2.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#empirical-rule-68-95-99.7-rule"><i class="fa fa-check"></i><b>1.2.2</b> Empirical rule (<span class="math inline">\(68-95-99.7\)</span> rule)</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="sampling-distributions.html"><a href="sampling-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.2</b> <span class="math inline">\(\mathsf{t}\)</span> distribution</a>
+<li class="chapter" data-level="1.3" data-path="sampling-distributions.html"><a href="sampling-distributions.html#t-distribution"><i class="fa fa-check"></i><b>1.3</b> <span class="math inline">\(\mathsf{t}\)</span> and Cauchy distribution</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-t"><i class="fa fa-check"></i><b>1.2.1</b> Properties of <span class="math inline">\(\mathsf{t}\)</span> distributions</a></li>
+<li class="chapter" data-level="1.3.1" data-path="sampling-distributions.html"><a href="sampling-distributions.html#facts-t"><i class="fa fa-check"></i><b>1.3.1</b> Properties of <span class="math inline">\(\mathsf{t}\)</span> distributions</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="sampling-distributions.html"><a href="sampling-distributions.html#chisq-distribution"><i class="fa fa-check"></i><b>1.3</b> <span class="math inline">\(\chi^2\)</span> distribution</a></li>
-<li class="chapter" data-level="1.4" data-path="sampling-distributions.html"><a href="sampling-distributions.html#F-distribution"><i class="fa fa-check"></i><b>1.4</b> <span class="math inline">\(\mathsf{F}\)</span> distribution</a></li>
+<li class="chapter" data-level="1.4" data-path="sampling-distributions.html"><a href="sampling-distributions.html#chisq-distribution"><i class="fa fa-check"></i><b>1.4</b> <span class="math inline">\(\chi^2\)</span> distribution</a></li>
+<li class="chapter" data-level="1.5" data-path="sampling-distributions.html"><a href="sampling-distributions.html#F-distribution"><i class="fa fa-check"></i><b>1.5</b> <span class="math inline">\(\mathsf{F}\)</span> distribution</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>2</b> Basics of statistical inference</a>
 <ul>
@@ -421,7 +422,7 @@ degrees of freedom
 </ul>
 </div>
 <div class="theorem">
-<p><span id="thm:pie" class="theorem"><strong>Theorem 0.1  </strong></span>The principal of inclusion-exclusion (PIE),
+<p><span id="thm:pie" class="theorem"><strong>Theorem 0.1  </strong></span>The <strong>principal of inclusion-exclusion (PIE)</strong>,
 <span class="math display">\[P(A\cup B) = P(A) + P(B) - P(A\cap B)\,.\]</span></p>
 </div>
 <p>PIE follows from the definition of a probability distributions and facts about set theory.</p>
@@ -435,9 +436,15 @@ degrees of freedom
 </div>
 <p>That is, <em>events</em> <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent if and only if the probability of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> occurring is equal to the the probability <span class="math inline">\(A\)</span> occurring times the probability of <span class="math inline">\(B\)</span> occurring.</p>
 <div class="definition">
-<p><span id="def:cond-prob" class="definition"><strong>Definition 0.4  </strong></span>If <span class="math inline">\(P(B) &gt; 0\)</span>, then <span class="math display">\[P(A \mid B) = \frac{P(A \cap B)}{P(B)}\,.\]</span></p>
+<p><span id="def:cond-prob" class="definition"><strong>Definition 0.4  </strong></span>(Conditional probability)
+If <span class="math inline">\(P(B) &gt; 0\)</span>, then <span class="math display">\[P(A \mid B) = \frac{P(A \cap B)}{P(B)}\,.\]</span></p>
 </div>
-<p>Note that: - <span class="math inline">\(P(\cdot \mid B)\)</span> satisfies the axioms of probability, for fixed <span class="math inline">\(B\)</span>, - in general, <span class="math inline">\(P(A \mid \cdot)\)</span> is not a probability for fixed <span class="math inline">\(A\)</span>, and, - in general, <span class="math inline">\(P(A\mid B) \neq P(B \mid A)\)</span>.</p>
+<p>Note that:</p>
+<ul>
+<li><span class="math inline">\(P(\cdot \mid B)\)</span> satisfies the axioms of probability, for fixed <span class="math inline">\(B\)</span>,</li>
+<li>in general, <span class="math inline">\(P(A \mid \cdot)\)</span> is not a probability for fixed <span class="math inline">\(A\)</span>, and,</li>
+<li>in general, <span class="math inline">\(P(A\mid B) \neq P(B \mid A)\)</span>.</li>
+</ul>
 <div class="theorem">
 <p><span id="thm:bayes" class="theorem"><strong>Theorem 0.2  </strong></span>(Bayes theorem) Let events <span class="math inline">\(A_1, \dots, A_k\)</span> parition <span class="math inline">\(\Omega\)</span>, with <span class="math inline">\(P(A_i) &gt; 0\)</span>.</p>
 <p>If <span class="math inline">\(P(B) &gt; 0\)</span>, then
@@ -454,7 +461,7 @@ degrees of freedom
 </div>
 <p>We use random variables to link sample spaces and events to data.</p>
 <div class="definition">
-<p><span id="def:rv" class="definition"><strong>Definition 0.5  </strong></span>A <em>random variable</em> (rv) is a mapping <span class="math inline">\(X : \Omega \to \mathbf{R}\)</span> that maps <span class="math inline">\(\omega \in \Omega \mapsto X(\omega)\)</span>.</p>
+<p><span id="def:rv" class="definition"><strong>Definition 0.5  </strong></span>A <strong>random variable (rv)</strong> is a mapping <span class="math inline">\(X : \Omega \to \mathbf{R}\)</span> that maps <span class="math inline">\(\omega \in \Omega \mapsto X(\omega)\)</span>.</p>
 </div>
 <div class="example">
 <p><span id="exm:rv-1" class="example"><strong>Example 0.2  </strong></span>Consider a coin flipping experiment where you flip a fair coin eight times. Let <span class="math inline">\(X\)</span> be the number of heads in the sequence. If three heads occur, e.g., <span class="math inline">\(\omega = HTTTTTHH\)</span>, then <span class="math inline">\(X(\omega) = 3\)</span>.</p>
@@ -478,7 +485,13 @@ e.g., <span class="math inline">\(P(X=x) = P(X^{-1}(x)) = P(\{\omega \in \Omega 
 <span class="math display">\[P(X=2) = P(\{HH\}) = \frac{1}{4}\,.\]</span></p>
 </div>
 <div class="definition">
-<p><span id="def:cdf" class="definition"><strong>Definition 0.7  </strong></span>The <em>cumulative distribution function</em> (cdf), <span class="math inline">\(F_X:\mathbf{R} \to [0,1]\)</span>, is defined by <span class="math inline">\(F_X(x) = P(X \leq x)\)</span>.</p>
+<p><span id="def:cdf" class="definition"><strong>Definition 0.7  </strong></span>The <strong>cumulative distribution function</strong> (cdf), <span class="math inline">\(F_X:\mathbf{R} \to [0,1]\)</span>, is defined by <span class="math inline">\(F_X(x) = P(X \leq x)\)</span>.</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:eg-cdf-coin-flip-plot"></span>
+<img src="ma22004_files/figure-html/eg-cdf-coin-flip-plot-1.svg" alt="The cdf for the two coin flip example." width="768" />
+<p class="caption">
+Figure 0.1: The cdf for the two coin flip example.
+</p>
 </div>
 <p>Note that a cdf completely determines the distribution of a random variable.</p>
 <div class="theorem">
@@ -488,33 +501,38 @@ e.g., <span class="math inline">\(P(X=x) = P(X^{-1}(x)) = P(\{\omega \in \Omega 
 <p><span id="thm:cdf-properties" class="theorem"><strong>Theorem 0.4  </strong></span></p>
 <span class="math inline">\(F : \mathbf{R} \to [0,1]\)</span> is a cdf for some <span class="math inline">\(P\)</span> iff,
 </div>
-<p>For a rv <span class="math inline">\(X\)</span> we say <span class="math inline">\(X\)</span> is <em>discrete</em> if it assumes at most a <em>countable</em> number of (discrete) values. For a discrete sample space, the collection of all probabilities of <span class="math inline">\(X(\omega)\)</span> gives us a probability distribution.</p>
+<p>For a rv <span class="math inline">\(X\)</span> we say <span class="math inline">\(X\)</span> is <strong>discrete</strong> if it assumes at most a <em>countable</em> number of (discrete) values. For a discrete sample space, the collection of all probabilities of <span class="math inline">\(X(\omega)\)</span> gives us a probability distribution.</p>
 <div class="definition">
-<p><span id="def:pmf" class="definition"><strong>Definition 0.8  </strong></span>A <em>probability density function</em> (pdf) for a discrete rv <span class="math inline">\(X\)</span> is <span class="math inline">\(f_X(x) = P(X = x)\)</span>.</p>
+<p><span id="def:pmf" class="definition"><strong>Definition 0.8  </strong></span>A <strong>probability density function (pdf)</strong> for a discrete rv <span class="math inline">\(X\)</span> is <span class="math inline">\(f_X(x) = P(X = x)\)</span>.</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:eg-pmf-histogram"></span>
+<img src="ma22004_files/figure-html/eg-pmf-histogram-1.svg" alt="The histogram (pmf) for the two coin flip example." width="768" />
+<p class="caption">
+Figure 0.2: The histogram (pmf) for the two coin flip example.
+</p>
 </div>
 <div class="warningblock">
-<p>Since the probabilities for a discrete rv form “point masses,” the pdf is sometimes called a probability mass function.</p>
+<p>Since the probabilities for a discrete rv form “point masses,” the pdf is sometimes called a <em>probability mass function</em>.</p>
 </div>
 <p>Note, from the axioms of probability, that the pdf for a discrete random variable therefore satisfies <span class="math inline">\(f(x) \geq 0\)</span>, <span class="math inline">\(\forall x \in \mathbf{R}\)</span> and <span class="math inline">\(\sum_i f(x_i) = 1\)</span>.</p>
-A rv <span class="math inline">\(X\)</span> is <em>continuous</em> if there exists a continuous function <span class="math inline">\(f_X\)</span> such that,
+A rv <span class="math inline">\(X\)</span> is <strong>continuous</strong> if there exists a continuous function <span class="math inline">\(f_X\)</span> such that,
 <div class="definition">
-<p><span id="def:pdf" class="definition"><strong>Definition 0.9  </strong></span>A <span class="math inline">\(f_X\)</span> satisfying the three properties above is a <em>probability density function</em> for the continous rv <span class="math inline">\(X\)</span>.</p>
+<p><span id="def:pdf" class="definition"><strong>Definition 0.9  </strong></span>A <span class="math inline">\(f_X\)</span> satisfying the three properties above is a <strong>pdf</strong> for the continous rv <span class="math inline">\(X\)</span>.</p>
 </div>
 <div class="warningblock">
 <p>If <span class="math inline">\(X\)</span> is continuous, then <span class="math inline">\(P(X = x) = 0\)</span> for every <span class="math inline">\(x\)</span>. That is, <span class="math display">\[P(a \leq X \leq b) = P(a &lt; X \leq b) = P(a \leq X &lt; b) = P(a &lt; X &lt; b)\,.\]</span></p>
 </div>
 <p>The cdf is related to the pdf by the derivative (difference). If <span class="math inline">\(X\)</span> is continuous:
 <span class="math display">\[F_X(x) = P(X \leq x) =
-int_{-\infty}^x f_X(t) dt\]</span> and <span class="math inline">\(f_X(x) = F_X\prime(x)\)</span> at all <span class="math inline">\(x\)</span> at which <span class="math inline">\(F_X\)</span> is differentiable.
-(Likewise, if <span class="math inline">\(X\)</span> is discrete,
-<span class="math inline">\(F_X(x) = P(X \leq x) = \sum_{x_i \leq x} f_X(x_i)\)</span>.)</p>
+\int_{-\infty}^x f_X(t) dt\]</span> and <span class="math inline">\(f_X(x) = F_X^\prime(x)\)</span> at all <span class="math inline">\(x\)</span> at which <span class="math inline">\(F_X\)</span> is differentiable.
+(Likewise, if <span class="math inline">\(X\)</span> is discrete, then we replace the integral with a sum <span class="math inline">\(F_X(x) = P(X \leq x) = \sum_{x_i \leq x} f_X(x_i)\)</span>.)</p>
 <div class="definition">
-<p><span id="def:quantile" class="definition"><strong>Definition 0.10  </strong></span>Let <span class="math inline">\(X\)</span> be a rv with cdf <span class="math inline">\(F\)</span>. The inverse cdf, or <em>quantile function</em>, is defined by
+<p><span id="def:quantile" class="definition"><strong>Definition 0.10  </strong></span>Let <span class="math inline">\(X\)</span> be a rv with cdf <span class="math inline">\(F\)</span>. The inverse cdf, or <strong>quantile function</strong>, is defined by
 <span class="math display">\[F^{-1}(q) = \inf \{x : F(x) &gt; q\}\]</span> for <span class="math inline">\(q \in [0,1]\)</span>. If <span class="math inline">\(F\)</span> is monotonic increasing and continuous then <span class="math inline">\(F^{-1}(q)\)</span> is the unique real number <span class="math inline">\(x\)</span> such that <span class="math inline">\(F(x) = q\)</span>.</p>
 </div>
 <p>Some quantiles get used more than others (and therefore get names). Important quantiles include, <span class="math inline">\(F^{-1}(\frac{1}{4})\)</span> is the first quantile, <span class="math inline">\(F^{-1}(\frac{1}{2})\)</span> is the median, and <span class="math inline">\(F^{-1}(\frac{3}{4})\)</span> is the third quantile.</p>
 <div class="definition">
-<p><span id="def:equal-dist" class="definition"><strong>Definition 0.11  </strong></span>We say <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <em>equal in distribution</em>, <span class="math inline">\(X \equiv Y\)</span>, if <span class="math inline">\(F_X(x) = F_Y(x)\)</span> for all <span class="math inline">\(x\)</span>.</p>
+<p><span id="def:equal-dist" class="definition"><strong>Definition 0.11  </strong></span>We say <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>equal in distribution</strong>, <span class="math inline">\(X \equiv Y\)</span>, if <span class="math inline">\(F_X(x) = F_Y(x)\)</span> for all <span class="math inline">\(x\)</span>.</p>
 </div>
 <div class="warningblock">
 <p>Note that equality in distribution does not mean that the random variables are the same. Rather, probabilityu statements are the same.</p>
@@ -523,25 +541,48 @@ int_{-\infty}^x f_X(t) dt\]</span> and <span class="math inline">\(f_X(x) = F_X\
 <p>We sometimes consider more than one random variable, taken to together. This leads to the concept of a joint and marginal densities.</p>
 <div class="definition">
 <p><span id="def:joint-pdf" class="definition"><strong>Definition 0.12  </strong></span></p>
-A <em>joint pdf</em> for <span class="math inline">\((X,Y)\)</span> satisfies
+A <strong>joint pdf</strong> for <span class="math inline">\((X,Y)\)</span> satisfies
 </div>
 <div class="definition">
-<p><span id="def:joint-cdf" class="definition"><strong>Definition 0.13  </strong></span>A <em>joint cdf</em> is given by <span class="math inline">\(F(x,y) = P(X\leq x, Y\leq y)\)</span>.</p>
+<p><span id="def:joint-cdf" class="definition"><strong>Definition 0.13  </strong></span>A <strong>joint cdf</strong> is given by <span class="math inline">\(F(x,y) = P(X\leq x, Y\leq y)\)</span>.</p>
 </div>
 <div class="definition">
 <p><span id="def:marginals" class="definition"><strong>Definition 0.14  </strong></span>For <span class="math inline">\(X,Y\)</span> with joint pdf <span class="math inline">\(f(x,y)\)</span>, we define the marginals for <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> as <span class="math inline">\(f_X(x) \int f(x,y) dy\)</span> and <span class="math inline">\(f_Y(y) = \int f(x,y) dx\)</span>, respectively.</p>
 </div>
 <p>We also have a notion of independence for rvs.</p>
 <div class="definition">
-<p><span id="def:indep-rv" class="definition"><strong>Definition 0.15  </strong></span>Rvs <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are *independent$ if <span class="math inline">\(P(X \in A, Y \in B) = P(X \in A) P(Y \in B)\)</span>.</p>
+<p><span id="def:indep-rv" class="definition"><strong>Definition 0.15  </strong></span>Rvs <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are <strong>independent</strong> if <span class="math inline">\(P(X \in A, Y \in B) = P(X \in A) P(Y \in B)\)</span>.</p>
 </div>
 <div class="theorem">
 <p><span id="thm:pdf-indep-rv" class="theorem"><strong>Theorem 0.5  </strong></span>Let <span class="math inline">\(X,Y\)</span> have joint <span class="math inline">\(f_{XY}\)</span>. Then <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent iff <span class="math inline">\(f_{XY} = f_X \cdot f_Y\)</span> for all <span class="math inline">\(x,y\)</span>.</p>
 </div>
 <p>If <span class="math inline">\(X_1, \dots X_n\)</span> are independent and each as the same marginal distribution with cdf <span class="math inline">\(F\)</span>, we say <span class="math inline">\(X_1, \dots, X_n\)</span> are iid and write <span class="math inline">\(X_1, \dots, X_n \sim F\)</span> iid. We also write <span class="math inline">\(X_1, \dots, X_n \sim f\)</span> if <span class="math inline">\(F\)</span> has corresponding density <span class="math inline">\(f\)</span>, when no confusion arises.</p>
 <div class="definition">
-<p><span id="def:sample" class="definition"><strong>Definition 0.16  </strong></span><span class="math inline">\(X_1, \dots, X_n \sim F\)</span> iid is a <em>random sample of size <span class="math inline">\(n\)</span> from <span class="math inline">\(F\)</span></em>.</p>
+<p><span id="def:sample" class="definition"><strong>Definition 0.16  </strong></span><span class="math inline">\(X_1, \dots, X_n \sim F\)</span> iid is a <strong>random sample of size <span class="math inline">\(n\)</span> from <span class="math inline">\(F\)</span></strong>.</p>
 </div>
+<p>We also consider the <strong>expected value</strong> of a rv.</p>
+<div class="definition">
+<p><span id="def:expected-value" class="definition"><strong>Definition 0.17  </strong></span>For a discrete rv <span class="math inline">\(X\)</span> with possible outcomes <span class="math inline">\(x_1, x_2, \dots\)</span> and corresponding probabilities <span class="math inline">\(p_1, p_2, \dots\)</span>, the expectation is defined by
+<span class="math display">\[\E[X] = \sum_{i=1}^\infty x_i p_i\,.\]</span></p>
+<p>For a continuous rv <span class="math inline">\(X\)</span> with pdf <span class="math inline">\(f\)</span>, the expectation is defined by
+<span class="math display">\[\E[X] = \int_{-\infty}^{\infty} x f(x) dx\,.\]</span></p>
+</div>
+<p>For both discrete and continuous rvs, we refer to various statistics relating to expected values as moments of the distribution.</p>
+<div class="definition">
+<p><span id="def:raw-moments" class="definition"><strong>Definition 0.18  </strong></span>For a rv <span class="math inline">\(X\)</span>, the <strong>raw moments</strong> are:
+<span class="math display">\[\E[X]  \qquad \text{(first moment)}\,, \]</span>
+<span class="math display">\[\E[X^2]  \qquad \text{(second)}\,, \]</span>
+<span class="math display">\[\E[X^3]  \qquad \text{(third)}\,, \]</span>
+etc.</p>
+</div>
+<div class="definition">
+<p><span id="def:central-moments" class="definition"><strong>Definition 0.19  </strong></span>For a rv <span class="math inline">\(X\)</span> with <span class="math inline">\(\mu = \mathbf{E}[X]\)</span>, the <strong>central moments</strong> are:
+<span class="math display">\[\E[(X - \mu)]  \qquad \text{(first central moment)}\,,\]</span>
+<span class="math display">\[\E[(X - \mu)^2]  \qquad \text{(second)}\,,\]</span>
+<span class="math display">\[\E[(X - \mu)^3]  \qquad \text{(third)}\,,\]</span>
+etc.</p>
+</div>
+<p>The <strong>mean</strong> of a distribution is the first raw moment. The <strong>variance</strong> of a distribution is the second central moment.</p>
 
 </div>
 </div>
