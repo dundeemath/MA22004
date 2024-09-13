@@ -3,8 +3,7 @@ project:
   output-dir: docs
  
 book: 
-  title: |
-    MA22004 — Statistics II
+  title: "MA22004 — Statistics II"
   author: "Dr Eric Hall"
   # css: "assets/style.css"
   description: |
