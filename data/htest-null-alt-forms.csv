@@ -1,4 +1,0 @@
-Null hypothesis,Alternative hypothesis,Test form
-$H_0 : \theta = \theta_0$,$H_a : \theta \neq \theta_0$,two-sided test
-$H_0 : \theta \leq \theta_0$,$H_a : \theta \gt \theta_0$,one-sided test
-$H_0 : \theta \geq \theta_0$,$H_a : \theta \lt \theta_0$,one-sided test

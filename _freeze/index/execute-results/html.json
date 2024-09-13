@@ -1,0 +1,15 @@
+{
+  "hash": "bc80cdcf4bee91c9e8cfff97f2376563",
+  "result": {
+    "engine": "knitr",
+    "markdown": "\n\n\n\n# Welcome {-}\n\nWelcome to MA22004 Statistics II at the University of Dundee. \n\nThis module covers the basics of statistical inference including point estimation, interval estimation, hypothesis testing, linear regression, and simple goodness-of-fit tests. The appendix contains a list of curated content for your to investigate.\n\nThese notes are available at [dundeemath.github.io/MA22004/](https://dundeemath.github.io/MA22004/) and also as a PDF (visit the page and click on the PDF icon to download). \n\n## Licence\n\n![](https://i.creativecommons.org/l/by-nc/4.0/88x31.png){alt=\"Creative Commons License\" style=\"float:left;padding-right:30px;border-width:0\"}\n\nThis work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/).",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

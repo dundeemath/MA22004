@@ -1,0 +1,365 @@
+{{< include preamble.md >}}
+
+# Sampling distributions {#sec-sampling-distributions}
+
+A *statistic* is a quantity that can be calculated from sample data. Before observing data, a statistic is an unknown quantity and is, therefore, a rv. 
+
+::: {#def-statistic}
+## Statistic 
+
+Let $X_1, \dots, X_n$ be observable rvs and let $g$ be an arbitrary real-valued function of $n$ random variables. The rv $$T = g(X_1, \dots, X_n)$$ is a statistic. 
+:::
+
+We refer to the probability distribution for a statistic as a sampling distribution. The sampling distribution illustrates how the statistic will vary across possible sample data. The sampling distribution contains information about the values a statistic is likely to assume and how likely it is to assume those values prior to observing data. 
+
+::: {#def-sampling-dist}
+## Sampling distribution
+
+Suppose rvs $X_1, \dots, X_n$ are a random sample from $F(\theta),$ a distribution depending a parameter $\theta$ whose value is uknown. Let the rv $$T = g(X_1, \dots, X_n, \theta)$$ be a function of $X_1, \dots, X_n$ and (possibly) $\theta$. The distribution of $T$ (given $\theta$) is the sampling distribution of $T$. 
+:::
+
+The sampling distribution of $T$ is derived from the distribution of the random sample. Often we will be interested in a statistic $T$ that is an estimator for a parameter $\theta$ (that is, $T$ will not depend on $\theta$). 
+
+In what follows, we review several special families of distributions that are widely used in probability and statistics. These special families of distributions will be indexed by one or parameters. 
+
+## Uniform distribution {#sec-uniform-distribution}
+
+The uniform distribution places equal on uniform weight on the items being sampled.
+
+::: {#def-uniform-dist}
+## Uniform distribution
+
+A continuous rv $X$ has a uniform distribution on $[a,b]$ with $a<b,$ if $X$ has pdf
+$$
+ f(x; a,b) = \frac{1}{b-a}\,, 
+ \quad a < x < b\,,
+$$
+ or zero otherwise. 
+We write $X \sim \mathsf{Unif}(a,b)$. 
+:::  
+
+::: {.callout-warning}
+## Parameters
+
+Note that $a$ and $b$ are parameters in @def-uniform-dist.
+:::
+
+::: {#exr-uniform}
+As an exercise, derive the cdf using the definition. Derive a formula for the mean and variance in terms of the parameters $a$ and $b$.
+:::
+
+## Normal distribution {#sec-normal-distribution}
+
+Normal distributions play an important role in probability and statistics as they describe many natural phenomena. For instance, the Central Limit Theorem tells us that the sample mean of a large random sample (size $m$) of rvs with mean $\mu$ and variance $\sigma^2$ is approximately normal in distribution with mean $\mu$ and variance $\sigma^2/m$.  
+
+::: {#def-normal-dist}
+## Normal or Gaussian distribution
+
+A continuous rv $X$ has a normal distribution with parameters $\mu$ and $\sigma^2,$ where $-\infty < \mu < \infty$ and $\sigma > 0,$ if $X$ has pdf
+$$
+ f(x; \mu, \sigma) = \frac{1}{\sqrt{2 \pi} \sigma}e^{-(x-\mu)^2/(2\sigma^2)}\,, 
+ \quad -\infty < x < \infty \,.
+$$
+We write $X \sim \mathsf{N}(\mu, \sigma^2)$. 
+:::
+
+For $X\sim \mathsf{N}(\mu,\sigma^2),$ it can be shown that $\mathbf{E}(X) = \mu$ and $\Var(X) = \sigma^2,$ that is, $\mu$ is the *mean* and $\sigma^2$ is the *variance* of $X$. The pdf forms a bell-shaped curve that is symmetric about $\mu,$ as illustrated in @fig-normals-diff-mean. The value $\sigma$ (*standard deviation*) is the distance from $\mu$ to the inflection points of the curve. As $\sigma$ increases, the dispersion in the density increases, as illustrated in @fig-normals-diff-sd. Thus, the distribution's position (location) and spread depend on $\mu$ and $\sigma$.  
+
+```{r}
+#| label: fig-normals-diff-mean
+#| fig-cap: "The pdfs of two normal rvs, $X_1 \\sim \\mathsf{N}(-2, 1)$ and $X_2 \\sim \\mathsf{N}(2, 1),$ with *different means* and the same standard deviations."
+#| echo: false
+#| warning: false
+#| message: false
+norm1.dist <- data.frame(x = seq(-8, 8, by =0.01)) |> 
+ mutate(X1 = dnorm(x = x, mean = -2, sd = 1),
+        X2 = dnorm(x = x, mean = 2, sd = 1)) |>
+ gather(key = "X", value = "density", -x)
+norm1.dist$X <- factor(norm1.dist$X, levels = c("X1", "X2"), labels = c("-2", "2"))
+ggplot(norm1.dist, aes(x = x, y = density, color = X, linetype = X)) +
+ geom_line(linewidth = lsz) +
+ labs(y = TeX("$f(x;\\mu, \\sigma)$"), x = TeX("$x$"), color = TeX("$\\mu$"), linetype = TeX("$\\mu$")) + theme_ur
+```  
+
+```{r}
+#| label: fig-normals-diff-sd
+#| fig-cap: "The pdfs of two normal rvs, $X_1 \\sim \\mathsf{N}(0, 9)$ and $X_2 \\sim \\mathsf{N}(0, 1),$ with the same means and *different standard deviations*."
+#| echo: false
+#| warning: false
+#| message: false
+norm2.dist <- data.frame(x = seq(-8, 8, by =0.01)) |> 
+ mutate(X1 = dnorm(x = x, mean = 0, sd = 3),
+        X2 = dnorm(x = x, mean = 0, sd = 1)) |>
+ gather(key = "X", value = "density", -x)
+norm2.dist$X <- factor(norm2.dist$X, levels = c("X1", "X2"), labels = c("3", "1"))
+ggplot(norm2.dist, aes(x = x, y = density, color = X, linetype = X)) +
+ geom_line(linewidth = lsz) +
+ labs(y = TeX("$f(x;\\mu, \\sigma)$"), x = TeX("$x$"), color = TeX("$\\sigma$"), linetype = TeX("$\\sigma$")) + theme_ur
+```  
+
+::: {#def-standard-normal}
+## Standard normal distribution
+
+We say that $X$ has a standard normal distribution if $\mu=0$ and $\sigma = 1$ and we will usually denote standard normal rvs by $$Z \sim \mathsf{N}(0,1)$$ (why $Z$? tradition!^["Traditions, traditions... Without our traditions, our lives would be as shaky as a fiddler on the roof!" [[https://www.youtube.com/watch?v=gRdfX7ut8gw](https://www.youtube.com/watch?v=gRdfX7ut8gw)].]). We denote the cdf of the standard normal by $$\Phi(z) = P(Z \leq z)$$ and write $\varphi = \Phi'$ for its density function. 
+:::
+
+::: {.callout-important}
+## Useful facts about normal variates
+
+1. If $X \sim \mathsf{N}(\mu, \sigma^2),$ then $$Z = (X - \mu) / \sigma  \sim \mathsf{N}(0,1).$$
+2. If $Z \sim \mathsf{N}(0, 1),$ then $$X = \mu + \sigma Z \sim \mathsf{N}(\mu, \sigma^2).$$
+3. If $X_i \sim \mathsf{N}(\mu_i, \sigma_i^2)$ for $i = 1, \dots, n$ are independent rvs, then 
+$$\sum_{i=1}^{n} X_i \sim \mathsf{N} \left( \sum_{i=1}^{n} \mu_i, \sum_{i=1}^{n} \sigma_i^2 \right) \,.$$  
+::: 
+
+::: {.callout-warning}
+## Variances add
+
+In particular, for differences of independent rvs $X_1 \sim \mathsf{N}(\mu_1, \sigma_1^2)$ and $X_2 \sim \mathsf{N}(\mu_2, \sigma_2^2)$ then the variances add:
+$$ X_1 - X_2 \sim \mathsf{N}(\mu_1 - \mu_2, \sigma_1^2 + \sigma_2^2) \,.$$  
+:::
+
+Probabilities $P(a \leq X \leq b)$ are found by converting the problem in $X \sim \mathsf{N}(\mu, \sigma^2)$ to the *standard normal* distribution $Z \sim \mathsf{N}(0, 1)$ whose probability values $\Phi(z) = P(Z\leq z)$ can then be looked up in a table. From (1.) above, 
+$$
+\begin{aligned}
+   P(a < X < b) &= P\left( \frac{a-\mu}{\sigma} < Z < \frac{b-\mu}{\sigma} \right) \\ 
+    &= \Phi \left( \frac{b-\mu}{\sigma}\right) - \Phi\left(\frac{a-\mu}{\sigma}\right) \,.
+\end{aligned}
+$$
+This process is often referred to as *standardising* (the normal rv).  
+
+::: {#exm-norm-rt}
+
+Let $X \sim \mathsf{N}(5, 9)$ and find $P(X \geq 5.5)$. 
+
+$$
+\begin{aligned}
+   P(X \geq 5.5) &= P\left(Z \geq \frac{5.5 - 5}{3}\right) \\
+    &= P(Z \geq 0.1667) \\
+    &= 1 - P(Z \leq 0.1667) \\
+    &= 1 - \Phi(0.1667) \\
+    &= 1 - 0.5662 \\
+    &= 0.4338\,,
+\end{aligned}
+$$
+where we look up the value of $\Phi(z) = P(Z\leq z)$ in a table of standard normal curve areas.
+
+The probability corresponds to the shaded area under the normal density $\varphi(x) = \Phi'(x)$ corresponding to $x \geq 5.5$ (see @fig-example-norm-geq). To calculate this area, we can also use the `r` code: `pnorm(5.5, mean = 5, sd = 3, lower.tail = FALSE)`.  
+
+```{r}
+#| label: fig-example-norm-geq
+#| fig-cap: "The normal density $\\mathsf{N}(5,9)$ with the (one-sided) interval shaded in blue that corresponds to the probability $P(X \\geq 5.5)$."
+#| echo: false
+#| warning: false
+#| message: false
+ggplot(NULL, aes(c(-4, 14))) + 
+ geom_line(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), xlim = c(-4, 14), size = lsz) +
+ geom_area(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), fill = "blue", xlim = c(5.5, 14), alpha = 0.3) + 
+ geom_segment(aes(x = 5.5, y = 0, xend = 5.5, yend = 0.131), linetype = "dashed") + 
+ theme(axis.title.y = element_blank(), axis.ticks.y = element_blank(), axis.text.y = element_blank(), axis.title.x = element_blank(), axis.ticks.x = element_blank(), axis.text.x = element_blank()) + 
+ annotate("text", x = 5.5, y = -0.005, label = TeX("$x \\geq 5.5$"), size = tsz, color = "blue") + 
+ annotate("text", x = 10, y = 0.1, label = TeX("$X \\sim N(5,9)$"), size = tsz)
+```
+:::
+
+
+::: {#exm-norm-dt}
+
+Let $X \sim \mathsf{N}(5, 9)$ and find $P(4 \leq X \leq 5.25)$. 
+
+$$
+\begin{aligned}
+   P(4 \leq X \leq 5.25) &= P\left(\frac{4-5}{3} \leq Z \leq \frac{5.25-5}{3}\right) \\
+   &= P(-0.3333 \leq Z \leq 0.0833) \\
+   &= \Phi(0.0833) - \Phi(-0.3333) \\
+   &= 0.5332 - 0.3694 \\
+   &= 0.1638\,.
+  \end{aligned}
+$$
+where we look up the value of $\Phi(z) = P(Z\leq z)$ in a table of standard normal curve areas. 
+
+The probability corresponds to the shaded area under the normal density $\varphi(x) = \Phi'(x)$ corresponding to $4 \leq x \leq 5.25$ (see @fig-example-norm-interval). To calculate this area, we can use the `r` code: `pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3)`. 
+
+```{r}
+#| label: fig-example-norm-interval
+#| fig-cap: "The normal density $\\mathsf{N}(5,9)$ with the (two-sided) interval shaded in blue that corresponds to the probability $P(4 \\leq X \\leq 5.25)$."
+#| echo: false
+#| warning: false
+#| message: false
+ggplot(NULL, aes(c(-4, 14))) + 
+ geom_line(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), xlim = c(-4, 14), size = lsz) +
+ geom_area(stat = "function", fun = dnorm, args = list(mean = 5, sd = 3), fill = "blue", xlim = c(4, 5.25), alpha = 0.3) + 
+ geom_segment(aes(x = c(4, 5.25), y = 0, xend = c(4, 5.25), yend = c(0.125, 0.133)), linetype = "dashed") + 
+ theme(axis.title.y = element_blank(), axis.ticks.y = element_blank(), axis.text.y = element_blank(), axis.title.x = element_blank(), axis.ticks.x = element_blank(), axis.text.x = element_blank()) + 
+ annotate("text", x = 4.625, y = -0.005, label = TeX("$4 \\leq x \\leq 5.25$"), size = tsz, color = "blue") + 
+ annotate("text", x = 10, y = 0.1, label = TeX("$X \\sim \\textbf{N}(5,9)$"), size = tsz)
+```
+:::
+
+::: {.callout-important}
+## Empirical rule ($68-95-99.7$ rule)
+
+For samples from a normal distribution, the percentage of values that lie within one, two, and three standard deviations of the mean are $68.27\%,$ $95.45\%,$ and $99.73\%,$ respectively. That is, for $X \sim \mathsf{N}(\mu, \sigma^2),$ 
+$$
+P(\mu - 1 \sigma \leq X \leq \mu + 1 \sigma ) \approx 0.6827\,,
+$$
+$$
+P(\mu - 2 \sigma \leq X \leq \mu + 2 \sigma ) \approx 0.9545\,,
+$$
+$$
+P(\mu - 3 \sigma \leq X \leq \mu + 3 \sigma ) \approx 0.9973\,.
+$$
+For a normal population, nearly all the values lie within "three sigmas" of the mean.
+:::
+
+## Student's $\mathsf{t}$ distribution {#sec-t-distribution}
+
+Student's $\mathsf{t}$ distribution gets its peculiar name as it was first published under the pseudonym  "Student".^[William Sealy Gosset (1876--1937) wrote under the pseudonym "Student" [[https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/](https://mathshistory.st-andrews.ac.uk/Biographies/Gosset/)].] This bit of obfuscation was to protect the identity of his employer,^[Gosset invented the t-test to handle small samples for quality control in brewing, specifically for the Guinness brewery in Dublin [[https://www.wikiwand.com/en/Guinness_Brewery](https://www.wikiwand.com/en/Guinness_Brewery)].] and thereby vital trade secrets, in a highly competitive and lucrative industry.  
+
+::: {#def-t-dist}
+## Student's $\mathsf{t}$ distribution
+
+A continuous rv $X$ has a $\mathsf{t}$ distribution with parameter $\nu > 0,$ if $X$ has pdf
+$$
+f(x; \nu) = \frac{\Gamma\left(\tfrac{\nu+1}{2}\right)}{\sqrt{\nu \pi} \Gamma \left(\tfrac{\nu}{2}\right)} \left( 1 + \tfrac{x^2}{\nu} \right)^{- \frac{\nu+1}{2}} \,, \quad -\infty < x < \infty\,.
+$$
+We write $X \sim \mathsf{t}(\nu)$. Note $\Gamma$ is the standard gamma function.^[The gamma function is defined by $\Gamma(z) = \int_0^\infty x^{z-1}e^{-x} dx$ when the real part of $z$ is positive. For any positive integer $n,$ $\Gamma(n) = (n-1)!$ and for half-integers $\Gamma(\tfrac{1}{2} + n) = \frac{(2n)!}{4^n n!} \sqrt{\pi}$.]
+:::
+
+The density for $\mathsf{t}(\nu)$ for several values of $\nu$ are plotted below in @fig-example-t-dist. 
+
+```{r}
+#| label: fig-example-t-dist
+#| fig-cap: "The density for $\\mathsf{t}(\\nu)$ for several values of $\\nu$ (df)."
+#| echo: false
+#| warning: false
+#| message: false
+t.dist <- data.frame(t = seq(-4, 4, 0.1)) |> 
+ mutate(df1 = dt(x = t, df = 1), 
+        df2 = dt(x = t, df = 2), 
+        df5 = dt(x = t, df = 5), 
+        df1000 = dt(x = t, df = 1000)) |> 
+ gather(key = "df", value = "density", -t)
+t.dist$df <- factor(t.dist$df, levels = c("df1", "df2", "df5", "df1000"), labels = c(1, 2, 5, 1000))
+ggplot(t.dist, aes(x = t, y = density, color = df)) +
+ geom_line(linewidth = lsz) +
+ labs(y = TeX("$f(x;\\nu)$"), x = TeX("$x$"), color = TeX("$\\nu$ (df)")) + theme_ur
+```
+
+::: {.callout-important}
+## Properties of $\mathsf{t}$ distributions {#facts-t}
+
+1. The density for $\mathsf{t}(\nu)$ is a bell-shaped curve centred at $0$.
+2. The density for $\mathsf{t}(\nu)$ is more spread out than the standard normal density (i.e., it has "fatter tails" than the normal).
+3. As $\nu \to \infty,$ the spread of the corresponding $\mathsf{t}(\nu)$ density converges to the standard normal density (i.e., the spread of the $\mathsf{t}(\nu)$ density decreases relative to the standard normal).  
+
+If $X \sim \mathsf{t}(\nu),$ then $\mathbf{E}[X] = 0$ for $\nu > 1$ (otherwise the mean is undefined).  
+:::
+
+::: {.callout-note}
+## Cauchy distribution
+
+A $\mathsf{t}$ distributions with $\nu = 1$ has pdf 
+$$f(x) = \frac{1}{\pi (1 + x^2)}\,,$$
+and we call this the Cauchy distribution. 
+:::
+
+
+## $\chi^2$ distribution {#sec-chisq-distribution}
+
+The $\chi^2$ distribution arises as the distribution of a sum of the squares of $\nu$ independent standard normal rvs.  
+
+::: {#def-chisq-dist}
+## $\chi^2$ distribution
+
+A continuous rv $X$ has a $\chi^2$ distribution with parameter $\nu \in \mathbf{N}_{>},$ if $X$ has pdf
+\begin{equation*}
+f(x; \nu) = \frac{1}{2^{\nu/2} \Gamma(\nu/2)} x^{(\nu/2)-1} e^{-x/2} \,, 
+\end{equation*}
+with support $x \in (0, \infty)$ if $\nu=1,$ otherwise $x \in [0, \infty)$. We write $X \sim \chi^2(\nu)$. 
+:::  
+
+The pdf $f(x; \nu)$ of the $\chi^2(\nu)$ distribution depends on a positive integer $\nu$ referred to as the df. The densities for several values of $\nu$ are plotted below in @fig-example-chisq-dist. The density $f(x;\nu)$ is positively skewed, i.e., the right tail is longer, so the mass is concentrated to the figure's left in @fig-example-chisq-dist. The distribution becomes more symmetric as $\nu$ increases. We denote critical values of the $\chi^2(\nu)$ distribution by $\chi^2_{\alpha, \nu}$.
+
+```{r}
+#| label: fig-example-chisq-dist
+#| fig-cap: "The density for $\\chi^2(\\nu)$ for several values of $\\nu$ (df)."
+#| echo: false
+#| warning: false
+#| message: false
+chisq.dist <- data.frame(chisq = 0:7000 / 100) |> 
+ mutate(df1 = dchisq(x = chisq, df = 1), 
+        df2 = dchisq(x = chisq, df = 2),
+        df3 = dchisq(x = chisq, df = 3),
+        df4 = dchisq(x = chisq, df = 4),
+        df6 = dchisq(x = chisq, df = 6),
+        df9 = dchisq(x = chisq, df = 9)) |>
+ gather(key = "df", value = "density", -chisq)
+chisq.dist$df <- factor(chisq.dist$df, levels = c("df1", "df2", "df3", "df4", "df6", "df9"), labels = c(1, 2, 3, 4, 6, 9))
+ggplot(chisq.dist, aes(x = chisq, y = density, color = df)) +
+ geom_line(linewidth = lsz) + ylim(c(0,.6)) + xlim(c(0,15)) +
+ labs(y = TeX("$f(x;\\nu)$"), x = TeX("$x$"), color = TeX("$\\nu$ (df)")) + theme_ur
+```
+
+:::{.callout-warning} 
+## Skew
+
+Unlike the normal and $t$ distributions, the $\chi^2$ distribution is not symmetric! This means that critical values, e.g., $$\chi^2_{.99, \nu} \quad \text{and}\quad \chi^2_{0.01,\nu}\,,$$ are **not** equal. Hence, it will be necessary to look up both values for CIs based on $\chi^2$ critical values.  
+:::
+
+If $X \sim \chi^2(\nu),$ then $\mathbf{E}[X] = \nu$ and $\Var[X] = 2\nu$.  
+
+## $\mathsf{F}$ distribution {#sec-F-distribution}
+
+The $\mathsf{F}$ distribution ("F" for Fisher) arises as a test statistic when comparing population variances and in the analysis of variance (see \@sec-anova). 
+
+::: {#def-F-dist}
+## $\mathsf{F}$ distribution
+A continuous rv $X$ has an $\mathsf{F}$ distribution with df parameters $\nu_1$ and $\nu_2,$ if $X$ has pdf
+$$
+ f(x; \nu_1, \nu_2) = 
+    \frac{\Gamma\left(\frac{\nu_1+\nu_2}{2}\right) \nu_1^{\nu_1/2} \nu_2^{\nu_2/2}}
+ {\Gamma\left(\frac{\nu_1}{2}\right) \Gamma\left(\frac{\nu_2}{2}\right)} 
+ \frac{x^{\nu_1/2 - 1}}{(\nu_2+\nu_1 x)^{(\nu_1+\nu_2)/2}} \,.
+$$
+:::
+
+The pdf $f(x; \nu_1, \nu_2)$ of the $\mathsf{F}(\nu_1, \nu_2)$ distribution depends on two positive integers $\nu_1$ and $\nu_2$ referred to, respectively, as the numerator and denominator df. The density is plotted below for several combinations of $(\nu_1, \nu_2)$ in @fig-example-F-dist.
+
+```{r}
+#| label: fig-example-F-dist
+#| fig-cap: "The density for $\\mathsf{F}(\\nu_1, \\nu_2)$ for several combinations of $(\\nu_1, \\nu_2)$."
+#| echo: false
+#| warning: false
+#| message: false
+f.dist <- data.frame(f = 0:1000 / 100) |> 
+ mutate(df_1_1 = df(x = f, df1 = 1, df2 = 1),
+        df_2_1 = df(x = f, df1 = 2, df2 = 1),
+        df_5_2 = df(x = f, df1 = 5, df2 = 2),
+        df_10_2 = df(x = f, df1 = 10, df2 = 2),
+        df_100_100 = df(x = f, df1 = 100, df2 = 100)) |>
+ gather(key = "df", value = "density", -f)
+f.dist$df <- factor(f.dist$df, levels = c("df_1_1", "df_2_1", "df_5_2", "df_10_2", "df_100_100"), labels = c("(1, 1)", "(2, 1)", "(5, 2)", "(10, 2)", "(100, 100)"))
+ggplot(f.dist, aes(x = f, y = density, color = df)) +
+ geom_line(size = lsz) + ylim(c(0,2.1)) + xlim(c(0,3)) +
+ labs(y = TeX("$f(x;\\nu_1, \\nu_2)$"), x = TeX("$x$"), color = TeX("$(\\nu_1, \\nu_2)$")) + theme_ur
+```
+
+:::{.callout-tip}
+## Where do the terms numerator and denominator df come from?
+
+The $\mathsf{F}$ distribution is related to ratios of $\chi^2$ rvs, as captured in @thm-F-dist-chisq.
+:::
+
+
+
+::: {#thm-F-dist-chisq}
+## Ratio of $\chi^2$ rvs
+
+If $X_1 \sim \chi^2(\nu_1)$ and $X_2 \sim \chi^2(\nu_2)$ are independent rvs, then the rv 
+$$
+ F = \frac{X_1 / \nu_1}{X_2 / \nu_2} \quad \sim \mathsf{F}(\nu_1,\nu_2)\,,
+$$
+that comprises the ratio of two $\chi^2$ rvs divided by their respective df has an $\mathsf{F}(\nu_1, \nu_2)$ distribution. 
+:::
+ 

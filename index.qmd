@@ -1,0 +1,15 @@
+{{< include preamble.md >}}
+
+# Welcome {-}
+
+Welcome to MA22004 Statistics II at the University of Dundee. 
+
+This module covers the basics of statistical inference including point estimation, interval estimation, hypothesis testing, linear regression, and simple goodness-of-fit tests. The appendix contains a list of curated content for your to investigate.
+
+These notes are available at [dundeemath.github.io/MA22004/](https://dundeemath.github.io/MA22004/) and also as a PDF (visit the page and click on the PDF icon to download). 
+
+## Licence
+
+![](https://i.creativecommons.org/l/by-nc/4.0/88x31.png){alt="Creative Commons License" style="float:left;padding-right:30px;border-width:0"}
+
+This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/).

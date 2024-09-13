@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.554">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Module documents and lecture notes for MA22004 - Statistics II, a second year module about inferential statistics at the University of Dundee.">
+
+<title>MA22004 — Statistics II - 2&nbsp; Basics of statistical inference</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./03-infer-single-sample.html" rel="next">
+<link href="./01-sampling-distributions.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var sidebar = document.getElementById('quarto-sidebar');
+    var logo = sidebar.getElementsByTagName('img')[0];
+    
+    sidebar.appendChild(logo);
+  });
+</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-prelim.html">Lecture Notes</a></li><li class="breadcrumb-item"><a href="./02-basics-stat-infer.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Basics of statistical inference</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./assets/images/uod_shield_rgb.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">MA22004 — Statistics II<br></a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/dundeemath/MA22004/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./MA22004-—-Statistics-II--br-
+.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Module Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./about-me.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About Your Instructor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab Guide</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./writing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Writing Lab Reports</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Lecture Notes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-prelim.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-sampling-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sampling distributions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-basics-stat-infer.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Basics of statistical inference</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-infer-single-sample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Single sample inferences</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-infer-two-samples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Two samples inferences</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Analysis of variance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-linear-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-categorical-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Categorical data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-quality-control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Quality control</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-investigations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Curated Content</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+<div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
+<p>Text</p>
+</div></div></nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-point-estimation" id="toc-sec-point-estimation" class="nav-link active" data-scroll-target="#sec-point-estimation"><span class="header-section-number">2.1</span> Point estimation</a></li>
+  <li><a href="#sec-confidence-intervals" id="toc-sec-confidence-intervals" class="nav-link" data-scroll-target="#sec-confidence-intervals"><span class="header-section-number">2.2</span> Confidence intervals</a></li>
+  <li><a href="#sec-hypothesis-testing" id="toc-sec-hypothesis-testing" class="nav-link" data-scroll-target="#sec-hypothesis-testing"><span class="header-section-number">2.3</span> Hypothesis testing</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/dundeemath/MA22004/edit/master/02-basics-stat-infer.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-prelim.html">Lecture Notes</a></li><li class="breadcrumb-item"><a href="./02-basics-stat-infer.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Basics of statistical inference</span></a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-statistical-inference" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Basics of statistical inference</span></span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>We discuss point estimation, confidence intervals, and hypothesis testing in Sections <a href="#sec-point-estimation" class="quarto-xref"><span>Section 2.1</span></a>, <a href="#sec-confidence-intervals" class="quarto-xref"><span>Section 2.2</span></a>, and <a href="#sec-hypothesis-testing" class="quarto-xref"><span>Section 2.3</span></a>, respectively. These three tools will form the basis for making inferences about a population.</p>
+<section id="sec-point-estimation" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="sec-point-estimation"><span class="header-section-number">2.1</span> Point estimation</h2>
+<p>Statistical inference seeks to draw conclusions about the characteristics of a population from data. For example, suppose we are botanists interested in the taxonomic classification of iris flowers. Let <span class="math inline">\mu</span> denote the true average petal length (in cm) of the <em>Iris setosa</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> (AKA the bristle-pointed iris). The parameter <span class="math inline">\mu</span> is a characteristic of the whole population of the <em>setosa</em> species. Before we collect data, the petal lengths of <span class="math inline">m</span> independent <em>setosa</em> flowers are denoted by rvs <span class="math inline">X_1, X_2, \dots, X_m.</span> Any function of the <span class="math inline">X_i</span>’s, such as the sample mean, <span id="eq-sample-mean"><span class="math display">
+  \overline{X} = \frac{1}{m} \sum_{i=1}^m X_i\,,
+\tag{2.1}</span></span> or the sample variance, <span id="eq-sample-var"><span class="math display">
+  S^2 = \frac{1}{m-1} \sum_{i=1}^m (X_i - \overline{X})^2 \,,
+\tag{2.2}</span></span> is also a rv.</p>
+<p>Suppose we actually find and measure the petal length of <span class="math inline">50</span> independent <em>setosa</em> flowers resulting in observations <span class="math inline">x_1, x_2, \dots, x_{50}</span>; the distribution (counts) of <span class="math inline">50</span> such petal length measurements are displayed in <a href="#fig-setosa-petal-lengths" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>. The sample mean <span class="math inline">\overline{x}</span> for petal length can then be used to draw a conclusion about the (true) value of the population mean <span class="math inline">\mu.</span> Based on the data in <a href="#fig-setosa-petal-lengths" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> and using <a href="#eq-sample-mean" class="quarto-xref">Equation&nbsp;<span>2.1</span></a>, the value of the sample mean is <span class="math inline">\overline{x} = 1.462.</span> The value <span class="math inline">\overline{x}</span> provides a “best guess” or point estimate for the true value of <span class="math inline">\mu</span> based on the <span class="math inline">m=50</span> samples.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-setosa-petal-lengths" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-setosa-petal-lengths-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="02-basics-stat-infer_files/figure-html/fig-setosa-petal-lengths-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-setosa-petal-lengths-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: The distribution (counts) of <span class="math inline">m = 50</span> <em>setosa</em> petal length measurments.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Loading datasets
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>datasets</code> package has a variety of datasets that you can play with. Once installed, data sets can be accessed in <code>r</code> by loading <code>library(datasets)</code> and then calling, e.g., <code>data(iris)</code> to see the <code>iris</code> data set. For a full list of available data sets, call <code>library(help = "datasets")</code> from the console.</p>
+</div>
+</div>
+<div id="nte-iris" class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note&nbsp;2.1: Iris Data
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The botanist Edgar Anderson’s <strong>Iris Data</strong> contains 50 obs. of four features (sepal length [cm], sepal width [cm], petal length [cm], and petal width [cm]) for each of three plant species (<em>setosa</em>, <em>virginica</em>, <em>versicolor</em>) for 150 obs. total.</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 150
+Columns: 5
+$ Sepal.Length &lt;dbl&gt; 5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9, 5.4, 4.8, 4.8, 4.…
+$ Sepal.Width  &lt;dbl&gt; 3.5, 3.0, 3.2, 3.1, 3.6, 3.9, 3.4, 3.4, 2.9, 3.1, 3.7, 3.4, 3.0, 3.…
+$ Petal.Length &lt;dbl&gt; 1.4, 1.4, 1.3, 1.5, 1.4, 1.7, 1.4, 1.5, 1.4, 1.5, 1.5, 1.6, 1.4, 1.…
+$ Petal.Width  &lt;dbl&gt; 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.…
+$ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa, setosa, set…</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="def-point-estimate" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.1 (Point estimate)</strong></span> A point estimate of a parameter <span class="math inline">\theta</span> (recall: a parameter is a fixed, unknown quantity) is a single number that we consider a reasonable value for <span class="math inline">\theta.</span> Consider <span class="math display">\text{iid}\; X_1, X_2, \dots, X_m \sim F(\theta)\,.</span> A point estimator <span class="math inline">\widehat{\theta}_m</span> of <span class="math inline">\theta</span> is obtained by selecting a suitable statistic <span class="math inline">g,</span> <span class="math display">
+  \widehat{\theta}_m = g(X_1, \dots, X_m) \,.
+</span> A point estimate <span class="math inline">\widehat{\theta}_m</span> can then be computed from the estimator using sample data.</p>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Overloaded notation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The symbol <span class="math inline">\widehat{\theta}_m</span> (or simply <span class="math inline">\widehat{\theta}</span> when the sample size <span class="math inline">m</span> is clear from context) is typically used to denote both the estimator and the point estimate resulting from a given sample.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Best practice for reporting
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Writing, e.g., <span class="math inline">\widehat{\theta} = 42</span> does not indicate how the point estimate was obtained. Therefore, it is essential to report both the estimator and the resulting point estimate.</p>
+</div>
+</div>
+<p><a href="#def-point-estimate" class="quarto-xref">Definition&nbsp;<span>2.1</span></a> does not say how to select an appropriate statistic. For the <em>setosa</em> example, the sample mean <span class="math inline">\overline{X}</span> is suggested as a good estimator of the population mean <span class="math inline">\mu.</span> That is, <span class="math inline">\widehat{\mu} = \overline{X}</span> or:</p>
+<blockquote class="blockquote">
+<p>“the point estimator of <span class="math inline">\mu</span> is the sample mean <span class="math inline">\overline{X}</span>”.</p>
+</blockquote>
+<p>Here, while <span class="math inline">\mu</span> and <span class="math inline">\sigma^2</span> are fixed quantities representing population characteristics, <span class="math inline">\overline{X}</span> and <span class="math inline">S^2</span> are rvs with sampling distributions. If the population is <em>normally distributed</em> or if the <em>sample is large</em> then the sampling distribution for <span class="math inline">\overline{X}</span> has a known form: <span class="math display">
+  \overline{X} \sim \mathsf{N}(\mu, \sigma^{2} / m) \,,
+</span> that is, <span class="math inline">\overline{X}</span> is normal with mean <span class="math inline">\mu_{\overline{X}} = \mu</span> and variance <span class="math inline">\sigma_{\overline{X}}^2 = \sigma^{2} / m</span> where <span class="math inline">m</span> is the sample size and <span class="math inline">\mu</span> and <span class="math inline">\sigma</span> are the (typically unknown) population parameters.</p>
+<div id="nte-tree" class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note&nbsp;2.2: Cherry Tree Data
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The <strong>Cherry Tree Data</strong> contains 31 obs. of three features (diameter, height, and volume).</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>trees <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 31
+Columns: 3
+$ Girth  &lt;dbl&gt; 8.3, 8.6, 8.8, 10.5, 10.7, 10.8, 11.0, 11.0, 11.1, 11.2, 11.3, 11.4, 11.4…
+$ Height &lt;dbl&gt; 70, 65, 63, 72, 81, 83, 66, 75, 80, 75, 79, 76, 76, 69, 75, 74, 85, 86, 7…
+$ Volume &lt;dbl&gt; 10.3, 10.3, 10.2, 16.4, 18.8, 19.7, 15.6, 18.2, 22.6, 19.9, 24.2, 21.0, 2…</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="exm-estimators" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.1</strong></span> Let us consider the heights (measured in inches) of <span class="math inline">31</span> black cherry trees (sorted, for your enjoyment) in <a href="#tbl-cherry-data" class="quarto-xref">Table&nbsp;<span>2.1</span></a>.</p>
+<div class="cell" data-layout-align="center">
+<div id="tbl-cherry-data" class="cell quarto-float anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cherry-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.1: Observations of <span class="math inline">m = 31</span> felled black cherry trees.
+</figcaption>
+<div aria-describedby="tbl-cherry-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div>
+<table class="table do-not-create-environment cell table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Height [in]</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; width: 150mm;">63, 64, 65, 66, 69, 70, 71, 72, 72, 74, 74, 75, 75, 75, 76, 76, 77, 78, 79, 80, 80, 80, 80, 80, 81, 81, 82, 83, 85, 86, 87</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-qq-plot-cherry" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-qq-plot-cherry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="02-basics-stat-infer_files/figure-html/fig-qq-plot-cherry-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-qq-plot-cherry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.2: Normal quantile-quantile plot for the <code>Height</code> variable (feature) in the Cherry Tree Data.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The quantile-quantile plot in <a href="#fig-qq-plot-cherry" class="quarto-xref">Figure&nbsp;<span>2.2</span></a>, which compares the quantiles of this data to the quantiles of a normal distribution, is fairly straight. Therefore, we assume that the distribution of black cherry tree heights is (at least approximately) normal with a mean value <span class="math inline">\mu</span>; i.e., that the population of heights is distributed <span class="math inline">\mathsf{N}(\mu, \sigma^2),</span> where <span class="math inline">\mu</span> is a parameter to be estimated and <span class="math inline">\sigma^2</span> is unknown. The observations <span class="math inline">X_1, \dots, X_{31}</span> are then assumed to be a random sample from this normal distribution, <span class="math display">
+\text{iid} \quad X_1, \dots, X_{31} \sim \mathsf{N}(\mu, \sigma^2) \,.
+</span></p>
+<p>Consider the following three different estimators and the resulting point estimates for <span class="math inline">\mu</span> based on the <span class="math inline">31</span> samples in <a href="#tbl-cherry-data" class="quarto-xref">Table&nbsp;<span>2.1</span></a>.</p>
+<ol type="a">
+<li><p>Estimator (sample mean) <span class="math inline">\overline{X}</span> as in <a href="#eq-sample-mean" class="quarto-xref">Equation&nbsp;<span>2.1</span></a> and estimate <span class="math inline">\overline{x} = \sum x_i / n = 2356 / 31 = 76.</span></p></li>
+<li><p>Estimator (average of extreme heights) <span class="math inline">\widetilde{X} = [\min(X_i) + \max(X_i)]/2</span> and estimate <span class="math inline">\widetilde{x} = (63 + 87)/2 = 75.</span></p></li>
+<li><p>Estimator (<span class="math inline">10\%</span> trimmed mean – i.e., in this instance exclude the smallest and largest three values) <span class="math inline">\overline{X}_{\text{tr}(10)}</span> and estimate <span class="math inline">\overline{x}_{\text{tr}(10)} = (2356 - 63 - 64 - 65 - 87 - 86 - 85) / 25 = 76.24.</span></p></li>
+</ol>
+<p>Each estimator above uses a different notion of “centre” for the sample data, i.e., represents a different statistic. An interesting question is: which estimator will tend to produce estimates closest to the true parameter value? Will the estimators work universally well for all distributions?</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How do we tell whether a population is normal?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Constructing a normal quantile-quantile plot (or QQ plot) is one way of assessing whether a normality assumption is reasonable. A QQ plot compares the quantiles of the sample data <span class="math inline">x_i</span> against the theoretical standard normal quantiles, see <a href="#fig-qq-plot-cherry" class="quarto-xref">Figure&nbsp;<span>2.2</span></a>. If the sample data is consistent with a sample from a normal distribution, the points will lie in a straight line (more or less). The QQ plot in <a href="#fig-qq-plot-cherry" class="quarto-xref">Figure&nbsp;<span>2.2</span></a> compares quantiles of cherry tree heights from <a href="#tbl-cherry-data" class="quarto-xref">Table&nbsp;<span>2.1</span></a> to normal quantiles. It is produced using the following code.</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>trees <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> Height)) <span class="sc">+</span> <span class="fu">stat_qq</span>() <span class="sc">+</span> <span class="fu">stat_qq_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>The data <code>trees</code> is piped to the command <code>ggplot</code>. For a QQ plot the key aesthetic element is <code>sample</code>; in this particular instance we set this to <code>Height</code>. The geometry <code>stat_qq()</code> adds the data quantiles plotted versus the normal quantiles. The geometry <code>stat_qq_line()</code> simply adds the fit line.</p>
+</div>
+</div>
+<div id="exm-infer-point-estimation" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.2</strong></span> Although probably overkill for this problem, the <code>infer</code> package can be used for point estimation using the <code>specify</code> and <code>calculate</code> commands as follows:</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>trees <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">specify</span>(<span class="at">response =</span> Height) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Response: Height (numeric)
+# A tibble: 1 × 1
+   stat
+  &lt;dbl&gt;
+1    76</code></pre>
+</div>
+</div>
+<p>The <code>response</code> option specifies the variable of interest, and the <code>stat</code> option can be changed to several quantities of interest.</p>
+</div>
+<p>In addition to reporting a point estimate and its estimator, some indication of its precision should be given. One measure of the precision of an estimate is its standard error.</p>
+<div id="def-standard-error" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.2 (Standard error)</strong></span> The standard error of an estimator <span class="math inline">\widehat{\theta}</span> is the standard deviation <span class="math display">
+\sigma_{\widehat{\theta}} = \sqrt{\mathop{\mathrm{Var}}(\widehat{\theta})}\,.
+</span> Often, the standard error depends on unknown parameters and must also be estimated. The estimated standard error is denoted by <span class="math inline">\widehat{\sigma}_{\widehat{\theta}}</span> or simply <span class="math inline">s_{\widehat{\theta}}.</span></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Alternative notation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The standard error is sometimes denoted <span class="math inline">\mathsf{se}= \mathsf{se}(\widehat{\theta})</span> and the estimated standard error by <span class="math inline">\widehat{\mathsf{se}}.</span></p>
+</div>
+</div>
+</section>
+<section id="sec-confidence-intervals" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sec-confidence-intervals"><span class="header-section-number">2.2</span> Confidence intervals</h2>
+<p>An alternative to reporting a point estimate for a parameter is to report an interval estimate suggesting an entire range of plausible values for the parameter of interest. A confidence interval is an estimate that makes a probability statement about the interval’s degree of reliability. The first step in computing a confidence interval is to select the confidence level <span class="math inline">\alpha.</span> A popular choice is a <span class="math inline">95\%</span> confidence interval which corresponds to level <span class="math inline">\alpha = 0.05.</span></p>
+<div id="def-confidence-interval-gen" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.3 (Confidence interval)</strong></span> A <span class="math inline">100(1-\alpha)\%</span> confidence interval for a parameter <span class="math inline">\theta</span> is a <em>random</em> interval <span class="math display">C_m = (L_m , U_m)\,,</span> where <span class="math inline">L_m = \ell(X_1, \dots, X_m)</span> and <span class="math inline">U_m = u(X_1, \dots, X_m)</span> are functions of the data, such that <span class="math display">
+P_{\theta}(L_m &lt; \theta &lt; U_m ) = 1 - \alpha\,,
+</span> for all <span class="math inline">\theta \in \Theta.</span></p>
+</div>
+<p>My favourite interpretation of a confidence interval is due to <span class="citation" data-cites="Wasserman:2013as">(<a href="99-references.html#ref-Wasserman:2013as" role="doc-biblioref">Wasserman 2004</a>, p 92)</span>:</p>
+<blockquote class="blockquote">
+<p><em>On day 1, you collect data and construct a 95 percent confidence interval for a parameter <span class="math inline">\theta_1.</span> On day 2, you collect new data and construct a 95 percent confidence interval for an unrelated parameter <span class="math inline">\theta_2.</span> On day 3, you collect new data and construct a 95 percent confidence interval for an unrelated parameter <span class="math inline">\theta_3.</span> You continue this way constructing confidence intervals for a sequence of unrelated parameters <span class="math inline">\theta_1,</span> <span class="math inline">\theta_2,</span> <span class="math inline">\dots</span> Then 95 percent of your intervals will trap the true parameter value. There is no need to introduce the idea of repeating the same experiment over and over.</em></p>
+</blockquote>
+<p>This interpretation clarifies that a confidence interval is not a probability statement about the parameter <span class="math inline">\theta.</span> In <a href="#def-confidence-interval-gen" class="quarto-xref">Definition&nbsp;<span>2.3</span></a>, note that <span class="math inline">\theta</span> is fixed (<span class="math inline">\theta</span> is not a rv) and the interval <span class="math inline">C_m</span> is random. After data has been collected and a point estimator has been calculated, the resulting CIs either contain the true parameter value or do not, as illustrated in <a href="#fig-fifty-cis" class="quarto-xref">Figure&nbsp;<span>2.3</span></a>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-fifty-cis" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fifty-cis-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="02-basics-stat-infer_files/figure-html/fig-fifty-cis-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="288">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fifty-cis-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.3: Fifty <span class="math inline">95\%</span> CIs for a population mean <span class="math inline">\mu.</span> After a sample is taken, the computed interval estimate either contains <span class="math inline">\mu</span> or does not (asterisks identify intervals that do not include <span class="math inline">\mu</span>). When drawing such a large number of <span class="math inline">95\%</span> CIs, we would anticipate that approximately <span class="math inline">5\%</span> (ca. 2 or 3) would fail to cover the true parameter <span class="math inline">\mu.</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-hypothesis-testing" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="sec-hypothesis-testing"><span class="header-section-number">2.3</span> Hypothesis testing</h2>
+<p><a href="#sec-point-estimation" class="quarto-xref"><span>Section 2.1</span></a> and <a href="#sec-confidence-intervals" class="quarto-xref"><span>Section 2.2</span></a> reviewed how to estimate a parameter by a single number (point estimate) or range of plausible values (confidence interval), respectively. Next, we discuss methods for determining which of two contradictory claims, or hypotheses, about a parameter is correct.</p>
+<div id="def-null-alt-hypothesis" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.4 (Null and alternative)</strong></span> The null hypothesis, denoted by <span class="math inline">H_0,</span> is a claim we initially assume to be true by default. The alternative hypothesis, denoted by <span class="math inline">H_a,</span> is an assertion contradictory to <span class="math inline">H_0.</span></p>
+</div>
+<p>Typically, we shall consider a hypothesis test concerning a parameter <span class="math inline">\theta \in \Theta,</span> i.e., taking values in a parameter space <span class="math inline">\Theta.</span> The statistical hypotheses are contradictory in that <span class="math inline">H_0</span> and <span class="math inline">H_a</span> divide <span class="math inline">\Theta</span> into two disjoint sets. For example, for a statistical inference regarding the <em>equality</em> of a parameter <span class="math inline">\theta</span> with a fixed quantity <span class="math inline">\theta_0,</span> the null and alternative hypotheses will usually take one of the following forms in <a href="#tbl-htest-null-alt-forms" class="quarto-xref">Table&nbsp;<span>2.2</span></a>.</p>
+<div id="tbl-htest-null-alt-forms" class="striped hover quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-htest-null-alt-forms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.2: Typical null hypothesis and corresponding alternative hypothesis.
+</figcaption>
+<div aria-describedby="tbl-htest-null-alt-forms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Null hypothesis</th>
+<th>Alternative hypothesis</th>
+<th>Test form</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">H_0 : \theta = \theta_0</span></td>
+<td><span class="math inline">H_a : \theta \neq \theta_0</span></td>
+<td>two-sided test</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">H_0 : \theta \leq \theta_0</span></td>
+<td><span class="math inline">H_a : \theta &gt; \theta_0</span></td>
+<td>one-sided test</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">H_0 : \theta \geq \theta_0</span></td>
+<td><span class="math inline">H_a : \theta &lt; \theta_0</span></td>
+<td>one-sided test</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>These hypothesis pairs are associated with either a one-sided or two-sided test; what this means will become apparent in the sequel. The value <span class="math inline">\theta_0,</span> called the null value, separates the alternative from the null.</p>
+<div id="def-hypothesis-test" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.5 (Hypothesis test)</strong></span> A hypothesis test asks if the available data provides sufficient evidence to reject <span class="math inline">H_0.</span> If the observations disagree with <span class="math inline">H_0,</span> we reject the null hypothesis. If the sample evidence does not strongly contradict <span class="math inline">H_0,</span> then we continue to believe <span class="math inline">H_0.</span> The two possible conclusions of a hypothesis test are: <em>reject <span class="math inline">H_0</span></em> or <em>fail to reject <span class="math inline">H_0</span></em>.</p>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+“Fail to reject” versus “accept”
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We comment that <em>fail to reject <span class="math inline">H_0</span></em> is sometimes phrased as <em>retain <span class="math inline">H_0</span></em> or (perhaps less accurately) <em>accept <span class="math inline">H_0</span></em>.</p>
+<p>Why not just <em>accept</em> the null and move on with our lives?</p>
+<p>Well, if I search the Highlands for the Scottish wildcat (endangered) and fail to find any, does that prove they do not exist?</p>
+</div>
+</div>
+<p>A procedure for carrying out a hypothesis test is based on specifying two additional items: a test statistic and a corresponding rejection region. A test statistic <span class="math inline">T</span> is a function of the sample data (like an estimator). The decision to reject or fail to reject <span class="math inline">H_0</span> will involve computing the test statistic. The rejection region <span class="math inline">R</span> is the collection of values of the test statistic for which <span class="math inline">H_0</span> is to be rejected in favour of the alternative, e.g., <span class="math display">
+R = \left\{ x : T(x) &gt; c \right\}\,,
+</span> where <span class="math inline">c</span> is referred to as a critical value. If a given sample falls in the rejection region, we reject <span class="math inline">H_0.</span> If <span class="math inline">X \in R</span> (e.g., the calculated test statistic exceeds some critical value), we reject <span class="math inline">H_0.</span> The alternative is that <span class="math inline">X \not\in R</span> and we fail to reject the null in this case.</p>
+<p>Two types of errors can be made when carrying out a hypothesis test. The basis for choosing a rejection region involves considering these errors.</p>
+<div id="def-error-types" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.6 (Error types)</strong></span> A type I error occurs if <span class="math inline">H_0</span> is rejected when <span class="math inline">H_0</span> is actually true. A type II error is made if we fail to reject <span class="math inline">H_0</span> when <span class="math inline">H_0</span> is actually false.</p>
+</div>
+<p>If a test’s maximal type I error is fixed at an acceptably small value, then the type II error decreases as the sample size increases. In particular, a conclusion is reached in a hypothesis test by selecting a significance level <span class="math inline">\alpha</span> for the test linked to the maximal type I error rate. Typically, <span class="math inline">\alpha = 0.10,</span> <span class="math inline">0.05,</span> <span class="math inline">0.01,</span> or <span class="math inline">0.001</span> is selected for the significance level.</p>
+<div id="def-P-value" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.7 (<span class="math inline">P</span>-value)</strong></span> A <span class="math inline">P</span>-value is the probability, calculated assuming <span class="math inline">H_0</span> is true, of obtaining a value of the test statistic at least as contradictory to <span class="math inline">H_0</span> as the value calculated from the sample data.</p>
+</div>
+<p>Smaller <span class="math inline">P</span>-values indicate stronger evidence against <span class="math inline">H_0</span> in favor of <span class="math inline">H_a.</span> If <span class="math inline">P \leq \alpha</span> then we reject <span class="math inline">H_0</span> at significance level <span class="math inline">\alpha.</span> If <span class="math inline">P \geq \alpha</span> we fail to reject <span class="math inline">H_0</span> at significance level <span class="math inline">\alpha.</span></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What a <span class="math inline">P</span>-value isn’t…
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <span class="math inline">P</span>-value is a probability calculated assuming that <span class="math inline">H_0</span> is true. However, the <span class="math inline">P</span>-value is <strong>not</strong> the probability that:</p>
+<ol type="1">
+<li><span class="math inline">H_0</span> is TRUE,</li>
+<li><span class="math inline">H_0</span> is FALSE, or</li>
+<li>a wrong conclusion is reached.</li>
+</ol>
+</div>
+</div>
+<div id="prp-signifiance-type1" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2.1</strong></span> The hypothesis test procedure that <span class="math display">
+\begin{cases}
+\text{rejects}\; H_0 &amp; \text{if}\; P \leq \alpha,\\
+\text{fails to reject}\; H_0 &amp; \text{otherwise},
+\end{cases}
+</span> has <span class="math inline">P(\text{type I error}) = \alpha.</span></p>
+</div>
+<div id="exm-htest-setup" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.3</strong></span> Churchill claims that he will receive half the votes for the House of Commons seat for the constituency of Dundee.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> If we do not believe Churchill’s claim and are doubtful of his popularity, we would seek to test an alternative hypothesis. How should we write down our research hypotheses?</p>
+<p>If we let <span class="math inline">p</span> be the fraction of the population voting for Churchill, then we have the null hypothesis, <span class="math display">
+H_0 : p = 0.5 \,,
+</span> and the alternative hypothesis (we believe Churchill is less popular than he claims), <span class="math display">
+H_a : p &lt; 0.5 \,.
+</span> Support for the alternative hypothesis is obtained by showing a lack of support for its converse hypothesis (the null hypothesis).</p>
+</div>
+<div id="exm-htest-alpha" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.4</strong></span> Suppose that <span class="math inline">m = 15</span> voters are selected from Dundee and <span class="math inline">X,</span> the number favouring Churchill, is recorded. Based on observing <span class="math inline">X,</span> we construct a rejection region <span class="math inline">R = \{x : x \leq k \}.</span> If <span class="math inline">k</span> is small compared to <span class="math inline">m,</span> then the rejection region would provide strong evidence to reject <span class="math inline">H_0.</span> How should one choose the rejection region?</p>
+<p>Assume now that <span class="math inline">m = 15</span> voters are polled and that we select <span class="math inline">k = 2</span> to have a rejection region <span class="math inline">R = \{ x \leq 2 \}.</span> For this choice of <span class="math inline">k,</span> the rejection region <span class="math inline">R</span> provides strong support to reject <span class="math inline">H_0.</span> Assuming the null hypothesis is true, we expect approximately half of the <span class="math inline">15</span> voters (ca. 7) to vote for Churchill. Observing <span class="math inline">x = 0,</span> <span class="math inline">x = 1</span> or <span class="math inline">x = 2</span> (the values that would place us in the rejection region) would provide strong evidence <em>against</em> <span class="math inline">H_0.</span></p>
+<p>We can calculate the probability of a type I error. From the definition of type I error, <span class="math display">
+\begin{aligned}
+\alpha &amp;= P(\text{type I error})\\
+  &amp;= P(\text{rejecting } H_0 \text{ when } H_0 \text{ is true})\\
+  &amp;= P(X \in R \text{ when } H_0 \text{ is true})\\
+  &amp;= P(X \leq 2 \text{ when } p = 0.5) \,.
+\end{aligned}
+</span> Since <span class="math inline">X \sim \mathsf{Binom}(15, 0.50),</span> we calculate that <span class="math inline">\alpha = 0.00369.</span> Thus, for this particular choice of rejection region <span class="math inline">R,</span> the risk of concluding that Churchill will lose if, in fact, he is the winner is tiny.</p>
+<p>For this rejection region, how good is the test at protecting us from type II errors, i.e., concluding that Churchill is the winner if, in fact, he will lose? Suppose that Churchill receives <span class="math inline">25%</span> of the votes (<span class="math inline">p=0.25</span>). The probability of type II error <span class="math inline">\beta</span> is, <span class="math display">
+  \begin{aligned}
+  \beta &amp;= P(\text{type II error})\\
+  &amp;= P(\text{fail to reject } H_0 \text{ when } H_0 \text{ false})\\
+  &amp;= P(X \not\in R \text{ when } H_0 \text{ false})\\
+  &amp;= P(X &gt; 2 \text{ when } p = 0.3)\,.
+\end{aligned}
+</span> For <span class="math inline">X \sim \mathsf{Binom}(15, 0.25),</span> we calculate <span class="math inline">\beta = 0.764.</span> If we use <span class="math inline">R = \{ x \leq 2\},</span> then our test will lead us to conclude that Churchill is the winner with a probability of <span class="math inline">0.764</span> even if <span class="math inline">p</span> is as low as <span class="math inline">0.25</span>!</p>
+<p>If we repeat these calculations for <span class="math inline">R^* = \{x \leq 5\},</span> we find <span class="math inline">\alpha = 0.151</span> versus <span class="math inline">\beta = 0.148,</span> even if <span class="math inline">p</span> is as low as <span class="math inline">0.25,</span> which is a much better balance between type I and type II errors.</p>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What if the sample size is close to the population size?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In <a href="#exm-htest-alpha" class="quarto-xref">Example&nbsp;<span>2.4</span></a>, <span class="math inline">X</span> is a binomial random variable because it can be modelled as <span class="math inline">m</span> independent Bernoulli trails each with probability <span class="math inline">p</span> of success (i.e., votes for Churchill) as long as the sample size <span class="math inline">m</span> is much smaller than the population of Dundee. If we had the means to canvas nearly the whole population, what goes wrong conceptually?</p>
+</div>
+</div>
+<div id="fig-churchill-ballot" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Ballot card listing Churchill.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-churchill-ballot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="assets/images/churchill_ballot.jpg" class="img-fluid figure-img" alt="Ballot card listing Churchill.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-churchill-ballot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.4: Ballot listing Churchill from the collection of the McManus, Dundee. When you take a break from studying, go and see if you can find it! For more information on visiting the McManus visit <a href="https://www.mcmanus.co.uk/">https://www.mcmanus.co.uk/</a>.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Elements of a statistical test
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A statistical test is based on a null hypothesis (<span class="math inline">H_0</span>) and an alternative hypothesis (<span class="math inline">H_a</span>).</p>
+<p>An appropriate test statistic <span class="math inline">T</span> is computed. Then either:</p>
+<ul>
+<li><span class="math inline">T</span> is compared to a rejection region (based on significance level <span class="math inline">\alpha</span>)</li>
+</ul>
+<p>OR</p>
+<ul>
+<li><span class="math inline">P</span>-value (based on <span class="math inline">T</span>) is compare to the significance level <span class="math inline">\alpha.</span></li>
+</ul>
+</div>
+</div>
+
+
+<!-- -->
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Wasserman:2013as" class="csl-entry" role="listitem">
+Wasserman, Larry. 2004. <em>All of <span>S</span>tatistics</em>. New York: Springer-Verlag.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>More about the <em>Iris setosa</em> here [<a href="https://www.wikiwand.com/en/Iris_setosa">https://www.wikiwand.com/en/Iris_setosa</a>].<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Sir Winston Churchill was Member of Parliament for Dundee from 1908–1922 [<a href="https://www.wikiwand.com/en/Winston_Churchill">https://www.wikiwand.com/en/Winston_Churchill</a>].<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/dundeemath\.github\.io\/MA22004");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./01-sampling-distributions.html" class="pagination-link" aria-label="Sampling distributions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sampling distributions</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./03-infer-single-sample.html" class="pagination-link" aria-label="Single sample inferences">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Single sample inferences</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>{{&lt; include preamble.md &gt;}}</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu"># Basics of statistical inference {#sec-statistical-inference}</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>We discuss point estimation, confidence intervals, and hypothesis testing in Sections @sec-point-estimation, @sec-confidence-intervals, and @sec-hypothesis-testing, respectively. These three tools will form the basis for making inferences about a population.</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Point estimation {#sec-point-estimation}</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>Statistical inference seeks to draw conclusions about the characteristics of a population from data. For example, suppose we are botanists interested in the taxonomic classification of iris flowers. Let $\mu$ denote the true average petal length (in cm) of the *Iris setosa*^[More about the *Iris setosa* here [[https://www.wikiwand.com/en/Iris_setosa](https://www.wikiwand.com/en/Iris_setosa)].] (AKA the bristle-pointed iris). The parameter $\mu$ is a characteristic of the whole population of the *setosa* species. Before we collect data, the petal lengths of $m$ independent *setosa* flowers are denoted by rvs $X_1, X_2, \dots, X_m.$ Any function of the $X_i$'s, such as the sample mean,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  \overline{X} = \frac{1}{m} \sum_{i=1}^m X_i\,, </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>$$ {#eq-sample-mean}</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>or the sample variance,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  S^2 = \frac{1}{m-1} \sum_{i=1}^m (X_i - \overline{X})^2 \,, </span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>$$ {#eq-sample-var}</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>is also a rv. </span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>Suppose we actually find and measure the petal length of $50$ independent *setosa* flowers resulting in observations $x_1, x_2, \dots, x_{50}$; the distribution (counts) of $50$ such petal length measurements are displayed in @fig-setosa-petal-lengths. The sample mean $\overline{x}$ for petal length can then be used to draw a conclusion about the (true) value of the population mean $\mu.$ Based on the data in  @fig-setosa-petal-lengths and using @eq-sample-mean, the value of the sample mean is $\overline{x} = 1.462.$ The value $\overline{x}$ provides a "best guess" or point estimate for the true value of $\mu$ based on the $m=50$ samples. </span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-setosa-petal-lengths</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "The distribution (counts) of $m = 50$ *setosa* petal length measurments."</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span>  <span class="fu">select</span>(iris, Petal.Length, Species) <span class="sc">|&gt;</span> </span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a> <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">"setosa"</span>)</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span> </span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>) <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fl">1.462</span>, <span class="at">linetype =</span> <span class="st">"mean"</span>))  <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fl">1.114672</span>, <span class="at">linetype =</span> <span class="st">"mean - 2sd"</span>)) <span class="sc">+</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a> <span class="fu">scale_linetype_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="at">name =</span> <span class="st">"Sample stats"</span>) <span class="sc">+</span> </span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a> <span class="fu">xlab</span>(<span class="st">"Petal Length [cm]"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Count"</span>) <span class="sc">+</span> theme_ur</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip}</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Loading datasets </span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>The <span class="in">`datasets`</span> package has a variety of datasets that you can play with. Once installed, data sets can be accessed in <span class="in">`r`</span> by loading <span class="in">`library(datasets)`</span> and then calling, e.g., <span class="in">`data(iris)`</span> to see the <span class="in">`iris`</span> data set. For a full list of available data sets, call <span class="in">`library(help = "datasets")`</span> from the console.</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>:::{#nte-iris .callout-note collapse="true"}</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Iris Data</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>The botanist Edgar Anderson's **Iris Data** contains 50 obs. of four features (sepal length <span class="co">[</span><span class="ot">cm</span><span class="co">]</span>, sepal width <span class="co">[</span><span class="ot">cm</span><span class="co">]</span>, petal length <span class="co">[</span><span class="ot">cm</span><span class="co">]</span>, and petal width <span class="co">[</span><span class="ot">cm</span><span class="co">]</span>) for each of three plant species (*setosa*, *virginica*, *versicolor*) for 150 obs. total. </span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a><span class="co">#| error: false</span></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>::: {#def-point-estimate}</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Point estimate</span></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>A point estimate of a parameter $\theta$ (recall: a parameter is a fixed, unknown quantity) is a single number that we consider a reasonable value for $\theta.$ Consider $$\text{iid}\; X_1, X_2, \dots, X_m \sim F(\theta)\,.$$ A point estimator $\widehat{\theta}_m$ of $\theta$ is obtained by selecting a suitable statistic $g,$</span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>  \widehat{\theta}_m = g(X_1, \dots, X_m) \,.</span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>A point estimate $\widehat{\theta}_m$ can then be computed from the estimator using sample data.</span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a>:::{.callout-warning}</span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overloaded notation</span></span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a>The symbol $\widehat{\theta}_m$ (or simply $\widehat{\theta}$ when the sample size $m$ is clear from context) is typically used to denote both the estimator and the point estimate resulting from a given sample.</span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip}</span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## Best practice for reporting </span></span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a>Writing, e.g., $\widehat{\theta} = 42$ does not indicate how the point estimate was obtained. Therefore, it is essential to report both the estimator and the resulting point estimate. </span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>:::   </span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a>@def-point-estimate does not say how to select an appropriate statistic. For the *setosa* example, the sample mean $\overline{X}$ is suggested as a good estimator of the population mean $\mu.$ That is, $\widehat{\mu} = \overline{X}$ or: </span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; "the point estimator of $\mu$ is the sample mean $\overline{X}$". </span></span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a>Here, while $\mu$ and $\sigma^2$ are fixed quantities representing population characteristics, $\overline{X}$ and $S^2$ are rvs with sampling distributions. If the population is *normally distributed* or if the *sample is large* then the sampling distribution for $\overline{X}$ has a known form:</span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>  \overline{X} \sim \mathsf{N}(\mu, \sigma^{2} / m) \,,</span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a>that is, $\overline{X}$ is normal with mean $\mu_{\overline{X}} = \mu$ and variance $\sigma_{\overline{X}}^2 = \sigma^{2} / m$ where $m$ is the sample size and $\mu$ and $\sigma$ are the (typically unknown) population parameters.</span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a>:::{#nte-tree .callout-note collapse="true"}</span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cherry Tree Data </span></span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a>The **Cherry Tree Data** contains 31 obs. of three features (diameter, height, and volume).</span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a><span class="co">#| error: false</span></span>
+<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a>trees <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span>
+<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a>::: </span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a>::: {#exm-estimators}</span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a>Let us consider the heights (measured in inches) of $31$ black cherry trees (sorted, for your enjoyment) in @tbl-cherry-data.</span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-cherry-data</span></span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Observations of $m = 31$ felled black cherry trees."</span></span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a>dattab <span class="ot">&lt;-</span> trees <span class="sc">|&gt;</span></span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Height) <span class="sc">|&gt;</span></span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">heights =</span> <span class="fu">list</span>(Height))</span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(dattab, <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Height [in]"</span>), <span class="at">booktabs =</span> T) <span class="sc">|&gt;</span></span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a> <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hold_position"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">width =</span> <span class="st">"150mm"</span>)</span>
+<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>   </span>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-qq-plot-cherry</span></span>
+<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Normal quantile-quantile plot for the `Height` variable (feature) in the Cherry Tree Data."</span></span>
+<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a>trees <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> Height)) <span class="sc">+</span> <span class="fu">stat_qq</span>() <span class="sc">+</span> <span class="fu">stat_qq_line</span>()</span>
+<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a>The quantile-quantile plot in @fig-qq-plot-cherry, which compares the quantiles of this data to the quantiles of a normal distribution, is fairly straight. Therefore, we assume that the distribution of black cherry tree heights is (at least approximately) normal with a mean value $\mu$; i.e., that the population of heights is distributed $\mathsf{N}(\mu, \sigma^2),$ where $\mu$ is a parameter to be estimated and $\sigma^2$ is unknown. The observations $X_1, \dots, X_{31}$ are then assumed to be a random sample from this normal distribution, </span>
+<span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a>\text{iid} \quad X_1, \dots, X_{31} \sim \mathsf{N}(\mu, \sigma^2) \,.</span>
+<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-140"><a href="#cb8-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-141"><a href="#cb8-141" aria-hidden="true" tabindex="-1"></a>Consider the following three different estimators and the resulting point estimates for $\mu$ based on the $31$ samples in @tbl-cherry-data.</span>
+<span id="cb8-142"><a href="#cb8-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-143"><a href="#cb8-143" aria-hidden="true" tabindex="-1"></a>a. Estimator (sample mean) $\overline{X}$ as in @eq-sample-mean and estimate $\overline{x} = \sum x_i / n = 2356 / 31 = 76.$</span>
+<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a>b. Estimator (average of extreme heights) $\widetilde{X} = <span class="co">[</span><span class="ot">\min(X_i) + \max(X_i)</span><span class="co">]</span>/2$ and estimate $\widetilde{x} = (63 + 87)/2 = 75.$ </span>
+<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a>c. Estimator ($10\%$ trimmed mean -- i.e., in this instance exclude the smallest and largest three values) $\overline{X}_{\text{tr}(10)}$ and estimate $\overline{x}_{\text{tr}(10)} = (2356 - 63 - 64 - 65 - 87 - 86 - 85) / 25 = 76.24.$ </span>
+<span id="cb8-148"><a href="#cb8-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-149"><a href="#cb8-149" aria-hidden="true" tabindex="-1"></a>Each estimator above uses a different notion of "centre" for the sample data, i.e., represents a different statistic. An interesting question is: which estimator will tend to produce estimates closest to the true parameter value? Will the estimators work universally well for all distributions? </span>
+<span id="cb8-150"><a href="#cb8-150" aria-hidden="true" tabindex="-1"></a>::: </span>
+<span id="cb8-151"><a href="#cb8-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-152"><a href="#cb8-152" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip}</span>
+<span id="cb8-153"><a href="#cb8-153" aria-hidden="true" tabindex="-1"></a><span class="fu">## How do we tell whether a population is normal? </span></span>
+<span id="cb8-154"><a href="#cb8-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-155"><a href="#cb8-155" aria-hidden="true" tabindex="-1"></a>Constructing a normal quantile-quantile plot (or QQ plot) is one way of assessing whether a normality assumption is reasonable. A QQ plot compares the quantiles of the sample data $x_i$ against the theoretical standard normal quantiles, see @fig-qq-plot-cherry. If the sample data is consistent with a sample from a normal distribution, the points will lie in a straight line (more or less). The QQ plot in @fig-qq-plot-cherry compares quantiles of cherry tree heights from @tbl-cherry-data to normal quantiles. It is produced using the following code. </span>
+<span id="cb8-156"><a href="#cb8-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-159"><a href="#cb8-159" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-160"><a href="#cb8-160" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb8-161"><a href="#cb8-161" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb8-162"><a href="#cb8-162" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb8-163"><a href="#cb8-163" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb8-164"><a href="#cb8-164" aria-hidden="true" tabindex="-1"></a>trees <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> Height)) <span class="sc">+</span> <span class="fu">stat_qq</span>() <span class="sc">+</span> <span class="fu">stat_qq_line</span>()</span>
+<span id="cb8-165"><a href="#cb8-165" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb8-166"><a href="#cb8-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-167"><a href="#cb8-167" aria-hidden="true" tabindex="-1"></a>The data <span class="in">`trees`</span> is piped to the command <span class="in">`ggplot`</span>. For a QQ plot the key aesthetic element is <span class="in">`sample`</span>; in this particular instance we set this to <span class="in">`Height`</span>. The geometry <span class="in">`stat_qq()`</span> adds the data quantiles plotted versus the normal quantiles. The geometry <span class="in">`stat_qq_line()`</span> simply adds the fit line. </span>
+<span id="cb8-168"><a href="#cb8-168" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-169"><a href="#cb8-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-170"><a href="#cb8-170" aria-hidden="true" tabindex="-1"></a>::: {#exm-infer-point-estimation}</span>
+<span id="cb8-171"><a href="#cb8-171" aria-hidden="true" tabindex="-1"></a>Although probably overkill for this problem, the <span class="in">`infer`</span> package can be used for point estimation using the <span class="in">`specify`</span> and <span class="in">`calculate`</span> commands as follows:</span>
+<span id="cb8-172"><a href="#cb8-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-175"><a href="#cb8-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-176"><a href="#cb8-176" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: TRUE</span></span>
+<span id="cb8-177"><a href="#cb8-177" aria-hidden="true" tabindex="-1"></a>trees <span class="sc">|&gt;</span></span>
+<span id="cb8-178"><a href="#cb8-178" aria-hidden="true" tabindex="-1"></a> <span class="fu">specify</span>(<span class="at">response =</span> Height) <span class="sc">|&gt;</span></span>
+<span id="cb8-179"><a href="#cb8-179" aria-hidden="true" tabindex="-1"></a> <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb8-180"><a href="#cb8-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-181"><a href="#cb8-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-182"><a href="#cb8-182" aria-hidden="true" tabindex="-1"></a>The <span class="in">`response`</span> option specifies the variable of interest, and the <span class="in">`stat`</span> option can be changed to several quantities of interest.</span>
+<span id="cb8-183"><a href="#cb8-183" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-184"><a href="#cb8-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-185"><a href="#cb8-185" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb8-186"><a href="#cb8-186" aria-hidden="true" tabindex="-1"></a>In addition to reporting a point estimate and its estimator, some indication of its precision should be given. One measure of the precision of an estimate is its standard error.  </span>
+<span id="cb8-187"><a href="#cb8-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-188"><a href="#cb8-188" aria-hidden="true" tabindex="-1"></a>::: {#def-standard-error}</span>
+<span id="cb8-189"><a href="#cb8-189" aria-hidden="true" tabindex="-1"></a><span class="fu">## Standard error </span></span>
+<span id="cb8-190"><a href="#cb8-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-191"><a href="#cb8-191" aria-hidden="true" tabindex="-1"></a>The standard error of an estimator $\widehat{\theta}$ is the standard deviation </span>
+<span id="cb8-192"><a href="#cb8-192" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-193"><a href="#cb8-193" aria-hidden="true" tabindex="-1"></a>\sigma_{\widehat{\theta}} = \sqrt{\Var(\widehat{\theta})}\,.</span>
+<span id="cb8-194"><a href="#cb8-194" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-195"><a href="#cb8-195" aria-hidden="true" tabindex="-1"></a>Often, the standard error depends on unknown parameters and must also be estimated. The estimated standard error is denoted by $\widehat{\sigma}_{\widehat{\theta}}$ or simply $s_{\widehat{\theta}}.$</span>
+<span id="cb8-196"><a href="#cb8-196" aria-hidden="true" tabindex="-1"></a>:::  </span>
+<span id="cb8-197"><a href="#cb8-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-198"><a href="#cb8-198" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip}</span>
+<span id="cb8-199"><a href="#cb8-199" aria-hidden="true" tabindex="-1"></a><span class="fu">## Alternative notation</span></span>
+<span id="cb8-200"><a href="#cb8-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-201"><a href="#cb8-201" aria-hidden="true" tabindex="-1"></a>The standard error is sometimes denoted $\se = \se(\widehat{\theta})$ and the estimated standard error by $\widehat{\se}.$</span>
+<span id="cb8-202"><a href="#cb8-202" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-203"><a href="#cb8-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-204"><a href="#cb8-204" aria-hidden="true" tabindex="-1"></a><span class="fu">## Confidence intervals {#sec-confidence-intervals}</span></span>
+<span id="cb8-205"><a href="#cb8-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-206"><a href="#cb8-206" aria-hidden="true" tabindex="-1"></a>An alternative to reporting a point estimate for a parameter is to report an interval estimate suggesting an entire range of plausible values for the parameter of interest. A confidence interval is an estimate that makes a probability statement about the interval's degree of reliability. The first step in computing a confidence interval is to select the confidence level $\alpha.$ A popular choice is a $95\%$ confidence interval which corresponds to level $\alpha = 0.05.$  </span>
+<span id="cb8-207"><a href="#cb8-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-208"><a href="#cb8-208" aria-hidden="true" tabindex="-1"></a>::: {#def-confidence-interval-gen}</span>
+<span id="cb8-209"><a href="#cb8-209" aria-hidden="true" tabindex="-1"></a><span class="fu">## Confidence interval</span></span>
+<span id="cb8-210"><a href="#cb8-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-211"><a href="#cb8-211" aria-hidden="true" tabindex="-1"></a>A $100(1-\alpha)\%$ confidence interval for a parameter $\theta$ is a *random* interval $$C_m = (L_m , U_m)\,,$$ where $L_m = \ell(X_1, \dots, X_m)$ and $U_m = u(X_1, \dots, X_m)$ are functions of the data, such that </span>
+<span id="cb8-212"><a href="#cb8-212" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-213"><a href="#cb8-213" aria-hidden="true" tabindex="-1"></a>P_{\theta}(L_m &lt; \theta &lt; U_m ) = 1 - \alpha\,, </span>
+<span id="cb8-214"><a href="#cb8-214" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-215"><a href="#cb8-215" aria-hidden="true" tabindex="-1"></a>for all $\theta \in \Theta.$ </span>
+<span id="cb8-216"><a href="#cb8-216" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-217"><a href="#cb8-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-218"><a href="#cb8-218" aria-hidden="true" tabindex="-1"></a>My favourite interpretation of a confidence interval is due to <span class="co">[</span><span class="ot">@Wasserman:2013as, p 92</span><span class="co">]</span>:  </span>
+<span id="cb8-219"><a href="#cb8-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-220"><a href="#cb8-220" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; *On day 1, you collect data and construct a 95 percent confidence interval for a parameter $\theta_1.$ On day 2, you collect new data and construct a 95 percent confidence interval for an unrelated parameter $\theta_2.$ On day 3, you collect new data and construct a 95 percent confidence interval for an unrelated parameter $\theta_3.$ You continue this way constructing confidence intervals for a sequence of unrelated parameters $\theta_1,$ $\theta_2,$ $\dots$ Then 95 percent of your intervals will trap the true parameter value. There is no need to introduce the idea of repeating the same experiment over and over.*</span></span>
+<span id="cb8-221"><a href="#cb8-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-222"><a href="#cb8-222" aria-hidden="true" tabindex="-1"></a>This interpretation clarifies that a confidence interval is not a probability statement about the parameter $\theta.$ In @def-confidence-interval-gen, note that $\theta$ is fixed ($\theta$ is not a rv) and the interval $C_m$ is random. After data has been collected and a point estimator has been calculated, the resulting CIs either contain the true parameter value or do not, as illustrated in @fig-fifty-cis. </span>
+<span id="cb8-223"><a href="#cb8-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-226"><a href="#cb8-226" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-227"><a href="#cb8-227" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-fifty-cis</span></span>
+<span id="cb8-228"><a href="#cb8-228" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 3</span></span>
+<span id="cb8-229"><a href="#cb8-229" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-asp: 2</span></span>
+<span id="cb8-230"><a href="#cb8-230" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Fifty $95\\%$ CIs for a population mean $\\mu.$ After a sample is taken, the computed interval estimate either contains $\\mu$ or does not (asterisks identify intervals that do not include $\\mu$). When drawing such a large number of $95\\%$ CIs, we would anticipate that approximately $5\\%$ (ca. 2 or 3) would fail to cover the true parameter $\\mu.$"</span></span>
+<span id="cb8-231"><a href="#cb8-231" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb8-232"><a href="#cb8-232" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb8-233"><a href="#cb8-233" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb8-234"><a href="#cb8-234" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/fifty-cis.csv"</span>)</span>
+<span id="cb8-235"><a href="#cb8-235" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>star <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>star, <span class="at">level =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"*"</span>))</span>
+<span id="cb8-236"><a href="#cb8-236" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> idx, <span class="at">y =</span> xbar, <span class="at">color =</span> star, <span class="at">shape =</span> star)) <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">size =</span> lsz, <span class="at">alpha =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> l, <span class="at">ymax =</span> u)) <span class="sc">+</span> <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">19</span>,<span class="dv">8</span>)) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(), <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(), <span class="at">legend.position =</span> <span class="st">"none"</span>, <span class="at">axis.ticks.x=</span><span class="fu">element_blank</span>(), <span class="at">axis.text.x=</span><span class="fu">element_blank</span>(), <span class="at">axis.text.y=</span><span class="fu">element_blank</span>(), <span class="at">axis.ticks.y=</span><span class="fu">element_blank</span>()) <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">label=</span><span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">mu$"</span>), <span class="at">hjust =</span> <span class="sc">-</span>.<span class="dv">6</span>, <span class="at">vjust =</span> <span class="fl">1.2</span>, <span class="at">size =</span> tsz)</span>
+<span id="cb8-237"><a href="#cb8-237" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>   </span>
+<span id="cb8-238"><a href="#cb8-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-239"><a href="#cb8-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-240"><a href="#cb8-240" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hypothesis testing {#sec-hypothesis-testing}</span></span>
+<span id="cb8-241"><a href="#cb8-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-242"><a href="#cb8-242" aria-hidden="true" tabindex="-1"></a>@sec-point-estimation and @sec-confidence-intervals reviewed how to estimate a parameter by a single number (point estimate) or range of plausible values (confidence interval), respectively. Next, we discuss methods for determining which of two contradictory claims, or hypotheses, about a parameter is correct. </span>
+<span id="cb8-243"><a href="#cb8-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-244"><a href="#cb8-244" aria-hidden="true" tabindex="-1"></a>::: {#def-null-alt-hypothesis}</span>
+<span id="cb8-245"><a href="#cb8-245" aria-hidden="true" tabindex="-1"></a><span class="fu">## Null and alternative</span></span>
+<span id="cb8-246"><a href="#cb8-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-247"><a href="#cb8-247" aria-hidden="true" tabindex="-1"></a>The null hypothesis, denoted by $H_0,$ is a claim we initially assume to be true by default. The alternative hypothesis, denoted by $H_a,$ is an assertion contradictory to $H_0.$ </span>
+<span id="cb8-248"><a href="#cb8-248" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-249"><a href="#cb8-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-250"><a href="#cb8-250" aria-hidden="true" tabindex="-1"></a>Typically, we shall consider a hypothesis test concerning a parameter $\theta \in \Theta,$ i.e., taking values in a parameter space $\Theta.$ The statistical hypotheses are contradictory in that $H_0$ and $H_a$ divide $\Theta$ into two disjoint sets. For example, for a statistical inference regarding the *equality* of a parameter $\theta$ with a fixed quantity $\theta_0,$ the null and alternative hypotheses will usually take one of the following forms in @tbl-htest-null-alt-forms.</span>
+<span id="cb8-251"><a href="#cb8-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-252"><a href="#cb8-252" aria-hidden="true" tabindex="-1"></a>::: {.striped .hover #tbl-htest-null-alt-forms}</span>
+<span id="cb8-253"><a href="#cb8-253" aria-hidden="true" tabindex="-1"></a>| Null hypothesis | Alternative hypothesis | Test form |</span>
+<span id="cb8-254"><a href="#cb8-254" aria-hidden="true" tabindex="-1"></a>| ---             | ---                    | ---       |</span>
+<span id="cb8-255"><a href="#cb8-255" aria-hidden="true" tabindex="-1"></a>|$H_0 : \theta = \theta_0$ | $H_a : \theta \neq \theta_0$ | two-sided test |</span>
+<span id="cb8-256"><a href="#cb8-256" aria-hidden="true" tabindex="-1"></a>| $H_0 : \theta \leq \theta_0$ | $H_a : \theta &gt; \theta_0$ | one-sided test |</span>
+<span id="cb8-257"><a href="#cb8-257" aria-hidden="true" tabindex="-1"></a>| $H_0 : \theta \geq \theta_0$ | $H_a : \theta &lt; \theta_0$ | one-sided test |</span>
+<span id="cb8-258"><a href="#cb8-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-259"><a href="#cb8-259" aria-hidden="true" tabindex="-1"></a>: Typical null hypothesis and corresponding alternative hypothesis. </span>
+<span id="cb8-260"><a href="#cb8-260" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-261"><a href="#cb8-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-262"><a href="#cb8-262" aria-hidden="true" tabindex="-1"></a>These hypothesis pairs are associated with either a one-sided or two-sided test; what this means will become apparent in the sequel. The value $\theta_0,$ called the null value, separates the alternative from the null. </span>
+<span id="cb8-263"><a href="#cb8-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-264"><a href="#cb8-264" aria-hidden="true" tabindex="-1"></a>:::{#def-hypothesis-test}</span>
+<span id="cb8-265"><a href="#cb8-265" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hypothesis test</span></span>
+<span id="cb8-266"><a href="#cb8-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-267"><a href="#cb8-267" aria-hidden="true" tabindex="-1"></a>A hypothesis test asks if the available data provides sufficient evidence to reject $H_0.$ If the observations disagree with $H_0,$ we reject the null hypothesis. If the sample evidence does not strongly contradict $H_0,$ then we continue to believe $H_0.$ The two possible conclusions of a hypothesis test are: *reject $H_0$* or *fail to reject $H_0$*.  </span>
+<span id="cb8-268"><a href="#cb8-268" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-269"><a href="#cb8-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-270"><a href="#cb8-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-271"><a href="#cb8-271" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb8-272"><a href="#cb8-272" aria-hidden="true" tabindex="-1"></a><span class="fu">## "Fail to reject" versus "accept"</span></span>
+<span id="cb8-273"><a href="#cb8-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-274"><a href="#cb8-274" aria-hidden="true" tabindex="-1"></a>We comment that *fail to reject $H_0$* is sometimes phrased as *retain $H_0$* or (perhaps less accurately) *accept $H_0$*. </span>
+<span id="cb8-275"><a href="#cb8-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-276"><a href="#cb8-276" aria-hidden="true" tabindex="-1"></a>Why not just *accept* the null and move on with our lives? </span>
+<span id="cb8-277"><a href="#cb8-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-278"><a href="#cb8-278" aria-hidden="true" tabindex="-1"></a>Well, if I search the Highlands for the Scottish wildcat (endangered) and fail to find any, does that prove they do not exist?</span>
+<span id="cb8-279"><a href="#cb8-279" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-280"><a href="#cb8-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-281"><a href="#cb8-281" aria-hidden="true" tabindex="-1"></a>A procedure for carrying out a hypothesis test is based on specifying two additional items: a test statistic and a corresponding rejection region. A test statistic $T$ is a function of the sample data (like an estimator). The decision to reject or fail to reject $H_0$ will involve computing the test statistic. The rejection region $R$ is the collection of values of the test statistic for which $H_0$ is to be rejected in favour of the alternative, e.g.,</span>
+<span id="cb8-282"><a href="#cb8-282" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-283"><a href="#cb8-283" aria-hidden="true" tabindex="-1"></a>R = \left<span class="sc">\{</span> x : T(x) &gt; c \right<span class="sc">\}</span>\,,</span>
+<span id="cb8-284"><a href="#cb8-284" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-285"><a href="#cb8-285" aria-hidden="true" tabindex="-1"></a>where $c$ is referred to as a critical value. If a given sample falls in the rejection region, we reject $H_0.$ If $X \in R$ (e.g., the calculated test statistic exceeds some critical value), we reject $H_0.$ The alternative is that $X \not\in R$ and we fail to reject the null in this case. </span>
+<span id="cb8-286"><a href="#cb8-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-287"><a href="#cb8-287" aria-hidden="true" tabindex="-1"></a>Two types of errors can be made when carrying out a hypothesis test. The basis for choosing a rejection region involves considering these errors. </span>
+<span id="cb8-288"><a href="#cb8-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-289"><a href="#cb8-289" aria-hidden="true" tabindex="-1"></a>::: {#def-error-types}</span>
+<span id="cb8-290"><a href="#cb8-290" aria-hidden="true" tabindex="-1"></a><span class="fu">## Error types</span></span>
+<span id="cb8-291"><a href="#cb8-291" aria-hidden="true" tabindex="-1"></a>A type I error occurs if $H_0$ is rejected when $H_0$ is actually true. A type II error is made if we fail to reject $H_0$ when $H_0$ is actually false.</span>
+<span id="cb8-292"><a href="#cb8-292" aria-hidden="true" tabindex="-1"></a>:::   </span>
+<span id="cb8-293"><a href="#cb8-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-294"><a href="#cb8-294" aria-hidden="true" tabindex="-1"></a>If a test's maximal type I error is fixed at an acceptably small value, then the type II error decreases as the sample size increases. In particular, a conclusion is reached in a hypothesis test by selecting a significance level $\alpha$ for the test linked to the maximal type I error rate. Typically, $\alpha = 0.10,$ $0.05,$ $0.01,$ or $0.001$ is selected for the significance level.</span>
+<span id="cb8-295"><a href="#cb8-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-296"><a href="#cb8-296" aria-hidden="true" tabindex="-1"></a>:::{#def-P-value}</span>
+<span id="cb8-297"><a href="#cb8-297" aria-hidden="true" tabindex="-1"></a><span class="fu">## $P$-value</span></span>
+<span id="cb8-298"><a href="#cb8-298" aria-hidden="true" tabindex="-1"></a>A $P$-value is the probability, calculated assuming $H_0$ is true, of obtaining a value of the test statistic at least as contradictory to $H_0$ as the value calculated from the sample data. </span>
+<span id="cb8-299"><a href="#cb8-299" aria-hidden="true" tabindex="-1"></a>:::    </span>
+<span id="cb8-300"><a href="#cb8-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-301"><a href="#cb8-301" aria-hidden="true" tabindex="-1"></a>Smaller $P$-values indicate stronger evidence against $H_0$ in favor of $H_a.$ If $P \leq \alpha$ then we reject $H_0$ at significance level $\alpha.$ If $P \geq \alpha$ we fail to reject $H_0$ at significance level $\alpha.$   </span>
+<span id="cb8-302"><a href="#cb8-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-303"><a href="#cb8-303" aria-hidden="true" tabindex="-1"></a>:::{.callout-warning}</span>
+<span id="cb8-304"><a href="#cb8-304" aria-hidden="true" tabindex="-1"></a><span class="fu">## What a $P$-value isn't...</span></span>
+<span id="cb8-305"><a href="#cb8-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-306"><a href="#cb8-306" aria-hidden="true" tabindex="-1"></a>The $P$-value is a probability calculated assuming that $H_0$ is true. However, the $P$-value is **not** the probability that:</span>
+<span id="cb8-307"><a href="#cb8-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-308"><a href="#cb8-308" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$H_0$ is TRUE, </span>
+<span id="cb8-309"><a href="#cb8-309" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>$H_0$ is FALSE, or </span>
+<span id="cb8-310"><a href="#cb8-310" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>a wrong conclusion is reached.</span>
+<span id="cb8-311"><a href="#cb8-311" aria-hidden="true" tabindex="-1"></a>:::   </span>
+<span id="cb8-312"><a href="#cb8-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-313"><a href="#cb8-313" aria-hidden="true" tabindex="-1"></a>:::{#prp-signifiance-type1}</span>
+<span id="cb8-314"><a href="#cb8-314" aria-hidden="true" tabindex="-1"></a>The hypothesis test procedure that </span>
+<span id="cb8-315"><a href="#cb8-315" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-316"><a href="#cb8-316" aria-hidden="true" tabindex="-1"></a>\begin{cases} </span>
+<span id="cb8-317"><a href="#cb8-317" aria-hidden="true" tabindex="-1"></a>\text{rejects}\; H_0 &amp; \text{if}\; P \leq \alpha,<span class="sc">\\</span></span>
+<span id="cb8-318"><a href="#cb8-318" aria-hidden="true" tabindex="-1"></a>\text{fails to reject}\; H_0 &amp; \text{otherwise},</span>
+<span id="cb8-319"><a href="#cb8-319" aria-hidden="true" tabindex="-1"></a>\end{cases}</span>
+<span id="cb8-320"><a href="#cb8-320" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-321"><a href="#cb8-321" aria-hidden="true" tabindex="-1"></a>has $P(\text{type I error}) = \alpha.$ </span>
+<span id="cb8-322"><a href="#cb8-322" aria-hidden="true" tabindex="-1"></a>:::   </span>
+<span id="cb8-323"><a href="#cb8-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-324"><a href="#cb8-324" aria-hidden="true" tabindex="-1"></a>:::{#exm-htest-setup}</span>
+<span id="cb8-325"><a href="#cb8-325" aria-hidden="true" tabindex="-1"></a>Churchill claims that he will receive half the votes for the House of Commons seat for the constituency of Dundee.^<span class="co">[</span><span class="ot">Sir Winston Churchill was Member of Parliament for Dundee from 1908--1922 [[https://www.wikiwand.com/en/Winston_Churchill](https://www.wikiwand.com/en/Winston_Churchill)</span><span class="co">]</span>.] If we do not believe Churchill's claim and are doubtful of his popularity, we would seek to test an alternative hypothesis. How should we write down our research hypotheses?</span>
+<span id="cb8-326"><a href="#cb8-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-327"><a href="#cb8-327" aria-hidden="true" tabindex="-1"></a>If we let $p$ be the fraction of the population voting for Churchill, then we have the null hypothesis,</span>
+<span id="cb8-328"><a href="#cb8-328" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-329"><a href="#cb8-329" aria-hidden="true" tabindex="-1"></a> H_0 : p = 0.5 \,,</span>
+<span id="cb8-330"><a href="#cb8-330" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-331"><a href="#cb8-331" aria-hidden="true" tabindex="-1"></a>and the alternative hypothesis (we believe Churchill is less popular than he claims),</span>
+<span id="cb8-332"><a href="#cb8-332" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-333"><a href="#cb8-333" aria-hidden="true" tabindex="-1"></a> H_a : p &lt; 0.5 \,.</span>
+<span id="cb8-334"><a href="#cb8-334" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-335"><a href="#cb8-335" aria-hidden="true" tabindex="-1"></a>Support for the alternative hypothesis is obtained by showing a lack of support for its converse hypothesis (the null hypothesis).</span>
+<span id="cb8-336"><a href="#cb8-336" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-337"><a href="#cb8-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-338"><a href="#cb8-338" aria-hidden="true" tabindex="-1"></a>::: {#exm-htest-alpha}</span>
+<span id="cb8-339"><a href="#cb8-339" aria-hidden="true" tabindex="-1"></a>Suppose that $m = 15$ voters are selected from Dundee and $X,$ the number favouring Churchill, is recorded. Based on observing $X,$ we construct a rejection region $R = <span class="sc">\{</span>x : x \leq k <span class="sc">\}</span>.$ If $k$ is small compared to $m,$ then the rejection region would provide strong evidence to reject $H_0.$ How should one choose the rejection region?</span>
+<span id="cb8-340"><a href="#cb8-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-341"><a href="#cb8-341" aria-hidden="true" tabindex="-1"></a>Assume now that $m = 15$ voters are polled and that we select $k = 2$ to have a rejection region $R = <span class="sc">\{</span> x \leq 2 <span class="sc">\}</span>.$ For this choice of $k,$ the rejection region $R$ provides strong support to reject $H_0.$ Assuming the null hypothesis is true, we expect approximately half of the $15$ voters (ca. 7) to vote for Churchill. Observing $x = 0,$ $x = 1$ or $x = 2$ (the values that would place us in the rejection region) would provide strong evidence *against* $H_0.$ </span>
+<span id="cb8-342"><a href="#cb8-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-343"><a href="#cb8-343" aria-hidden="true" tabindex="-1"></a>We can calculate the probability of a type I error. From the definition of type I error,</span>
+<span id="cb8-344"><a href="#cb8-344" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-345"><a href="#cb8-345" aria-hidden="true" tabindex="-1"></a> \begin{aligned}</span>
+<span id="cb8-346"><a href="#cb8-346" aria-hidden="true" tabindex="-1"></a> \alpha &amp;= P(\text{type I error})<span class="sc">\\</span></span>
+<span id="cb8-347"><a href="#cb8-347" aria-hidden="true" tabindex="-1"></a>  &amp;= P(\text{rejecting } H_0 \text{ when } H_0 \text{ is true})<span class="sc">\\</span></span>
+<span id="cb8-348"><a href="#cb8-348" aria-hidden="true" tabindex="-1"></a>  &amp;= P(X \in R \text{ when } H_0 \text{ is true})<span class="sc">\\</span></span>
+<span id="cb8-349"><a href="#cb8-349" aria-hidden="true" tabindex="-1"></a>  &amp;= P(X \leq 2 \text{ when } p = 0.5) \,.</span>
+<span id="cb8-350"><a href="#cb8-350" aria-hidden="true" tabindex="-1"></a> \end{aligned}</span>
+<span id="cb8-351"><a href="#cb8-351" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-352"><a href="#cb8-352" aria-hidden="true" tabindex="-1"></a>Since $X \sim \mathsf{Binom}(15, 0.50),$ we calculate that $\alpha = <span class="in">`r signif(pbinom(2, 15, 0.5), digits = 3)`</span>.$ Thus, for this particular choice of rejection region $R,$ the risk of concluding that Churchill will lose if, in fact, he is the winner is tiny.</span>
+<span id="cb8-353"><a href="#cb8-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-354"><a href="#cb8-354" aria-hidden="true" tabindex="-1"></a>For this rejection region, how good is the test at protecting us from type II errors, i.e., concluding that Churchill is the winner if, in fact, he will lose? Suppose that Churchill receives $25%$ of the votes ($p=0.25$). The probability of type II error $\beta$ is,</span>
+<span id="cb8-355"><a href="#cb8-355" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-356"><a href="#cb8-356" aria-hidden="true" tabindex="-1"></a>  \begin{aligned}</span>
+<span id="cb8-357"><a href="#cb8-357" aria-hidden="true" tabindex="-1"></a>  \beta &amp;= P(\text{type II error})<span class="sc">\\</span></span>
+<span id="cb8-358"><a href="#cb8-358" aria-hidden="true" tabindex="-1"></a>  &amp;= P(\text{fail to reject } H_0 \text{ when } H_0 \text{ false})<span class="sc">\\</span></span>
+<span id="cb8-359"><a href="#cb8-359" aria-hidden="true" tabindex="-1"></a>  &amp;= P(X \not\in R \text{ when } H_0 \text{ false})<span class="sc">\\</span></span>
+<span id="cb8-360"><a href="#cb8-360" aria-hidden="true" tabindex="-1"></a>  &amp;= P(X &gt; 2 \text{ when } p = 0.3)\,.</span>
+<span id="cb8-361"><a href="#cb8-361" aria-hidden="true" tabindex="-1"></a> \end{aligned}</span>
+<span id="cb8-362"><a href="#cb8-362" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-363"><a href="#cb8-363" aria-hidden="true" tabindex="-1"></a>For $X \sim \mathsf{Binom}(15, 0.25),$ we calculate $\beta = <span class="in">`r signif(pbinom(2, 15, 0.25, lower.tail = FALSE), digits = 3)`</span>.$ If we use $R = <span class="sc">\{</span> x \leq 2<span class="sc">\}</span>,$ then our test will lead us to conclude that Churchill is the winner with a probability of $0.764$ even if $p$ is as low as $0.25$!</span>
+<span id="cb8-364"><a href="#cb8-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-365"><a href="#cb8-365" aria-hidden="true" tabindex="-1"></a>If we repeat these calculations for $R^* = <span class="sc">\{</span>x \leq 5<span class="sc">\}</span>,$ we find $\alpha = <span class="in">`r signif(pbinom(5, 15, 0.5), digits = 3)`</span>$ versus $\beta = <span class="in">`r signif(pbinom(5, 15, 0.25, lower.tail = FALSE), digits = 3)`</span>,$ even if $p$ is as low as $0.25,$ which is a much better balance between type I and type II errors.</span>
+<span id="cb8-366"><a href="#cb8-366" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-367"><a href="#cb8-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-368"><a href="#cb8-368" aria-hidden="true" tabindex="-1"></a>:::{.callout-warning}</span>
+<span id="cb8-369"><a href="#cb8-369" aria-hidden="true" tabindex="-1"></a><span class="fu">## What if the sample size is close to the population size?</span></span>
+<span id="cb8-370"><a href="#cb8-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-371"><a href="#cb8-371" aria-hidden="true" tabindex="-1"></a>In @exm-htest-alpha, $X$ is a binomial random variable because it can be modelled as $m$ independent Bernoulli trails each with probability $p$ of success (i.e., votes for Churchill) as long as the sample size $m$ is much smaller than the population of Dundee. If we had the means to canvas nearly the whole population, what goes wrong conceptually?</span>
+<span id="cb8-372"><a href="#cb8-372" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-373"><a href="#cb8-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-374"><a href="#cb8-374" aria-hidden="true" tabindex="-1"></a>::: {#fig-churchill-ballot}</span>
+<span id="cb8-375"><a href="#cb8-375" aria-hidden="true" tabindex="-1"></a><span class="al">![](assets/images/churchill_ballot.jpg)</span>{fig-alt="Ballot card listing Churchill."}</span>
+<span id="cb8-376"><a href="#cb8-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-377"><a href="#cb8-377" aria-hidden="true" tabindex="-1"></a>Ballot listing Churchill from the collection of the McManus, Dundee. When you take a break from studying, go and see if you can find it! For more information on visiting the McManus visit <span class="co">[</span><span class="ot">https://www.mcmanus.co.uk/</span><span class="co">](https://www.mcmanus.co.uk/)</span>.</span>
+<span id="cb8-378"><a href="#cb8-378" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-379"><a href="#cb8-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-380"><a href="#cb8-380" aria-hidden="true" tabindex="-1"></a>:::{.callout-important}</span>
+<span id="cb8-381"><a href="#cb8-381" aria-hidden="true" tabindex="-1"></a><span class="fu">## Elements of a statistical test  </span></span>
+<span id="cb8-382"><a href="#cb8-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-383"><a href="#cb8-383" aria-hidden="true" tabindex="-1"></a>A statistical test is based on a null hypothesis ($H_0$) and an alternative hypothesis ($H_a$).</span>
+<span id="cb8-384"><a href="#cb8-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-385"><a href="#cb8-385" aria-hidden="true" tabindex="-1"></a>An appropriate test statistic $T$ is computed. Then either:</span>
+<span id="cb8-386"><a href="#cb8-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-387"><a href="#cb8-387" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$T$ is compared to a rejection region (based on significance level $\alpha$) </span>
+<span id="cb8-388"><a href="#cb8-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-389"><a href="#cb8-389" aria-hidden="true" tabindex="-1"></a>OR</span>
+<span id="cb8-390"><a href="#cb8-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-391"><a href="#cb8-391" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$P$-value (based on $T$) is compare to the significance level $\alpha.$ </span>
+<span id="cb8-392"><a href="#cb8-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-393"><a href="#cb8-393" aria-hidden="true" tabindex="-1"></a>:::   </span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Copyright 2024, Eric Hall (University of Dundee)</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dundeemath/MA22004/edit/master/02-basics-stat-infer.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

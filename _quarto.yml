@@ -1,0 +1,100 @@
+project:
+  type: "book"
+  output-dir: docs
+ 
+book: 
+  title: |
+    MA22004 — Statistics II</br>
+  author: "Dr Eric Hall"
+  # css: "assets/style.css"
+  description: |
+     Module documents and lecture notes for MA22004 - Statistics II, 
+     a second year module about inferential statistics at 
+     the University of Dundee.
+  site-url: https://dundeemath.github.io/MA22004
+  repo-url: https://github.com/dundeemath/MA22004/
+  repo-branch: master
+  cover-image: cover.png
+  cover-image-alt: "Cover for lecture note packet."
+  downloads: pdf
+  repo-actions: [issue]
+  # sharing: [twitter]
+  date: last-modified
+  date-format: iso
+  page-footer: "Copyright 2024, Eric Hall (University of Dundee)" 
+  page-navigation: true
+  search: true
+  # collapse-level: 1
+  chapters: 
+    - part: "Module Introduction"
+      chapters: 
+        - "index.qmd"
+        - "about-me.qmd"
+        - "labs.qmd"
+        - "writing.qmd"
+    - part: "Lecture Notes"
+      chapters:
+        - "00-prelim.qmd"
+        - "01-sampling-distributions.qmd"
+        - "02-basics-stat-infer.qmd"
+        - "03-infer-single-sample.qmd"
+        - "04-infer-two-samples.qmd"
+        - "05-anova.qmd"
+        - "06-linear-models.qmd"
+        - "07-categorical-data.qmd"
+        - "08-quality-control.qmd"
+        - "99-references.qmd"
+  appendices: 
+    - "10-investigations.qmd"
+  # margin-header: "Texts"
+  sidebar:
+    alignment: left
+    logo: 'assets/images/uod_shield_rgb.png'
+    logo-alt: 'University of Dundee shield'
+    footer: |
+      Last modified: {{< meta date >}}
+
+bibliography:
+  - ma22004.bib
+
+prefer-html: true
+
+format: 
+  html: 
+    theme: 
+      light: flatly
+      dark: darkly
+      # - assets/style.css
+    code-tools: true
+    code-background: true
+    code-fold: show
+    code-copy: true
+    code-overflow: wrap
+    toc: true
+    html-math-method: katex
+    include-in-header:
+      text: |
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            var sidebar = document.getElementById('quarto-sidebar');
+            var logo = sidebar.getElementsByTagName('img')[0];
+            
+            sidebar.appendChild(logo);
+          });
+        </script>
+  pdf: 
+    documentclass: scrreprt
+    papersize: a4
+    include-in-header: preamble.tex
+    classoption: oneside
+    keep-tex: true
+    pdf-engine: xelatex
+    citation_method: natbib
+    link-citations: true
+    link-bibliography: true
+    cover-image: assets/images/cover_small.jpg
+
+    
+execute: 
+  freeze: auto
+    

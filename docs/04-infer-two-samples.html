@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.554">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Module documents and lecture notes for MA22004 - Statistics II, a second year module about inferential statistics at the University of Dundee.">
+
+<title>MA22004 — Statistics II - 4&nbsp; Two samples inferences</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./05-anova.html" rel="next">
+<link href="./03-infer-single-sample.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-prelim.html">Lecture Notes</a></li><li class="breadcrumb-item"><a href="./04-infer-two-samples.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Two samples inferences</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">MA22004 — Statistics II</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/dundeemath/MA22004/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./MA22004-—-Statistics-II.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Module Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./about-me.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About Your Instructor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab Guide</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./writing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Writing Lab Reports</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Lecture Notes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-prelim.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-sampling-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sampling distributions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-basics-stat-infer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Basics of statistical inference</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-infer-single-sample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Single sample inferences</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-infer-two-samples.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Two samples inferences</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Analysis of variance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-linear-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-categorical-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Categorical data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-quality-control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Quality control</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-investigations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Curated Content</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-compare-means" id="toc-sec-compare-means" class="nav-link active" data-scroll-target="#sec-compare-means"><span class="header-section-number">4.1</span> Comparing means</a>
+  <ul class="collapse">
+  <li><a href="#sec-compare-means-normpops-vars-known" id="toc-sec-compare-means-normpops-vars-known" class="nav-link" data-scroll-target="#sec-compare-means-normpops-vars-known"><span class="header-section-number">4.1.1</span> Comparing means of normal populations when variances are known</a></li>
+  <li><a href="#sec-compare-means-large-samples" id="toc-sec-compare-means-large-samples" class="nav-link" data-scroll-target="#sec-compare-means-large-samples"><span class="header-section-number">4.1.2</span> Comparing means when the sample sizes are large</a></li>
+  <li><a href="#sec-compare-means-normpops-vars-unknown" id="toc-sec-compare-means-normpops-vars-unknown" class="nav-link" data-scroll-target="#sec-compare-means-normpops-vars-unknown"><span class="header-section-number">4.1.3</span> Comparing means of normal populations when variances are unknown and the sample size is small</a></li>
+  </ul></li>
+  <li><a href="#sec-compare-paired-samples" id="toc-sec-compare-paired-samples" class="nav-link" data-scroll-target="#sec-compare-paired-samples"><span class="header-section-number">4.2</span> Comparing paired samples</a></li>
+  <li><a href="#sec-compare-proportions" id="toc-sec-compare-proportions" class="nav-link" data-scroll-target="#sec-compare-proportions"><span class="header-section-number">4.3</span> Comparing proportions</a></li>
+  <li><a href="#sec-compare-variances" id="toc-sec-compare-variances" class="nav-link" data-scroll-target="#sec-compare-variances"><span class="header-section-number">4.4</span> Comparing variances</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/dundeemath/MA22004/edit/master/04-infer-two-samples.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-prelim.html">Lecture Notes</a></li><li class="breadcrumb-item"><a href="./04-infer-two-samples.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Two samples inferences</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-inference-two-samples" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Two samples inferences</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>We consider inferences—estimators, confidence intervals, and hypothesis testing—for comparing means, proportions, and variances based on two independent samples from different populations, respectively, in <a href="#sec-compare-means" class="quarto-xref"><span>Section 4.1</span></a>, <a href="#sec-compare-proportions" class="quarto-xref"><span>Section 4.3</span></a>, <a href="#sec-compare-variances" class="quarto-xref"><span>Section 4.4</span></a>. We also consider inferences when the samples are not independent, so-called paired samples, in <a href="#sec-compare-paired-samples" class="quarto-xref"><span>Section 4.2</span></a>.</p>
+<section id="sec-compare-means" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="sec-compare-means"><span class="header-section-number">4.1</span> Comparing means</h2>
+<p>Let us assume that we have two normal populations with iid samples <span class="math display">
+X_1, \dots, X_m \sim \mathsf{N}(\mu_X, \sigma_X^2)
+</span> and <span class="math display">
+Y_1, \dots, Y_n \sim \mathsf{N}(\mu_Y, \sigma_Y^2)
+</span> and, moreover, that the <span class="math inline">X</span> and <span class="math inline">Y</span> samples are independent of one another. When comparing the means of two populations, the quantity of interest is the difference: <span class="math inline">\mu_X - \mu_Y.</span></p>
+<div id="prp-qoi-diff-pop-means" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4.1</strong></span> If we consider the sample means <span class="math inline">\overline{X}</span> and <span class="math inline">\overline{Y},</span> then the mean of the variable <span class="math inline">\overline{X} - \overline{Y}</span> is, <span class="math display">
+\mu_{\overline{X} - \overline{Y}}
+= \mathop{\mathrm{\mathbf{E}}}\left[ \overline{X} - \overline{Y} \right] = \mu_X - \mu_Y\,,
+</span> and the variance is, <span class="math display">
+\sigma_{\overline{X} - \overline{Y}}^2
+= \mathop{\mathrm{Var}}\left[ \overline{X} - \overline{Y} \right]
+= \frac{\sigma_X^2}{m} + \frac{\sigma_Y^2}{n} \,.
+</span></p>
+</div>
+<p><a href="#prp-qoi-diff-pop-means" class="quarto-xref">Proposition&nbsp;<span>4.1</span></a> follows directly from the definition of the sample mean in <a href="02-basics-stat-infer.html#eq-sample-mean" class="quarto-xref">Equation&nbsp;<span>2.1</span></a> and properties of expectation and variance. If our parameter of interest is <span class="math display">
+\theta = \mu_1 - \mu_2\,,
+</span> then its estimator, <span class="math display">
+\widehat{\theta} = \overline{X} - \overline{Y}\,,
+</span> is normally distributed with mean and variance given by <a href="#prp-qoi-diff-pop-means" class="quarto-xref">Proposition&nbsp;<span>4.1</span></a>. If the sample sizes <span class="math inline">m</span> and <span class="math inline">n</span> are large, then the estimator is approximately normally distributed by the Central Limit Theorem regardless of the population. We now discuss CIs and hypothesis tests for comparing population means <span class="math inline">\theta = \mu_X - \mu_Y.</span> We consider three cases when comparing means:</p>
+<ol type="1">
+<li><a href="#sec-compare-means-normpops-vars-known">normal populations when the variances <span class="math inline">\sigma_X^2</span> and <span class="math inline">\sigma_Y^2</span> are known</a>,</li>
+<li><a href="#sec-compare-means-large-samples">any populations with unknown variances <span class="math inline">\sigma_X^2</span> and <span class="math inline">\sigma_Y^2,</span> when the sample sizes <span class="math inline">m</span> and <span class="math inline">n</span> are large</a>,</li>
+<li><a href="#sec-compare-means-normpops-vars-unknown">normal populations when the variances <span class="math inline">\sigma_X^2</span> and <span class="math inline">\sigma_Y^2</span> are unknown, when the sample sizes <span class="math inline">m</span> and <span class="math inline">n</span> are small</a>,</li>
+</ol>
+<p>noting that the development primarily reflects that of <a href="03-infer-single-sample.html#sec-estimating-means" class="quarto-xref"><span>Section 3.1</span></a>.</p>
+<section id="sec-compare-means-normpops-vars-known" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="sec-compare-means-normpops-vars-known"><span class="header-section-number">4.1.1</span> Comparing means of normal populations when variances are known</h3>
+<p>When <span class="math inline">\sigma_X^2</span> and <span class="math inline">\sigma_Y^2</span> are known, standardizing <span class="math inline">\overline{X} - \overline{Y}</span> yields the standard normal variable: <span id="eq-compare-means-standard-trans"><span class="math display">
+Z = \frac{\overline{X} - \overline{Y} - (\mu_X - \mu_Y)}{\sqrt{\frac{\sigma_X^2}{m} + \frac{\sigma_Y^2}{n}}}\quad \sim \mathsf{N}(0,1)\,.
+\tag{4.1}</span></span><br>
+Inferences proceed by treating the parameter of interest <span class="math inline">\theta</span> as in the single sample case using the test statistic <a href="#eq-compare-means-standard-trans" class="quarto-xref">Equation&nbsp;<span>4.1</span></a>.</p>
+<div id="prp-ci-compare-means-normpops-vars-known" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4.2</strong></span> A <span class="math inline">100(1-\alpha)\%</span> CI for the parameter <span class="math inline">\theta = \mu_X - \mu_Y</span> based on samples of size <span class="math inline">m</span> from a normal population <span class="math inline">\mathsf{N}(\mu_X, \sigma_X^2)</span> and of size <span class="math inline">n</span> from <span class="math inline">\mathsf{N}(\mu_Y, \sigma_Y^2)</span> with known variances, is given by <span class="math display">
+(\overline{x} - \overline{y}) \pm z_{\alpha/2}
+\cdot \sqrt{\frac{\sigma_X^2}{m} + \frac{\sigma_Y^2}{n}} \,.
+</span></p>
+</div>
+<div id="prp-htest-compare-means-normpops-vars-known" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4.3</strong></span> Assume that we sample iid <span class="math inline">X_1, \dots, X_m \sim \mathsf{N}(\mu_X, \sigma_X^2)</span> and iid <span class="math inline">Y_1, \dots, Y_n \sim \mathsf{N}(\mu_Y, \sigma_Y^2)</span> and that the <span class="math inline">X</span> and <span class="math inline">Y</span> samples are independent.</p>
+<p>Consider <span class="math inline">H_0 : \mu_X - \mu_Y = \theta_0.</span> The test statistic is <span id="eq-htest-compare-means-normpops-vars-known-statistic"><span class="math display">
+Z = \frac{\overline{X} - \overline{Y} - \theta_0}{\sqrt{\frac{\sigma_{X}^2}{m} + \frac{\sigma_{Y}^2}{n}}}\,.
+\tag{4.2}</span></span></p>
+<p>For a hypothesis test at level <span class="math inline">\alpha,</span> we use the following procedure:</p>
+<p>If <span class="math inline">H_a : \mu_X - \mu_Y &gt; \theta_0,</span> then <span class="math inline">P = 1 - \Phi(z),</span> i.e., upper-tail <span class="math inline">R = \{z &gt; z_{\alpha}\}.</span></p>
+<p>If <span class="math inline">H_a : \mu_X - \mu_Y &lt; \theta_0,</span> then <span class="math inline">P = \Phi(z),</span> i.e., lower-tail <span class="math inline">R = \{z &lt; - z_{\alpha}\}.</span></p>
+<p>If <span class="math inline">H_a : \mu_X - \mu_Y \neq \theta_0,</span> then <span class="math inline">P = 2(1-\Phi(|z|)),</span> i.e., two-tailed <span class="math inline">R = \{|z| &gt; z_{\alpha/2}\}.</span></p>
+</div>
+</section>
+<section id="sec-compare-means-large-samples" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="sec-compare-means-large-samples"><span class="header-section-number">4.1.2</span> Comparing means when the sample sizes are large</h3>
+<p>When the samples are large, the assumptions about the normality of the populations and knowledge of the variances <span class="math inline">\sigma_X^2</span> and <span class="math inline">\sigma_Y^2</span> can be relaxed. For sufficiently large <span class="math inline">m</span> and <span class="math inline">n,</span> the difference of the sample means, <span class="math inline">\overline{X} - \overline{Y},</span> has approximately a normal distribution for any underlying population distributions by the Central Limit Theorem. Moreover, if <span class="math inline">m</span> and <span class="math inline">n</span> are large enough, replacing the population variances with the sample variances <span class="math inline">S_X^2</span> and <span class="math inline">S_Y^2</span> will not increase the variability of the estimator or the test statistic too much.</p>
+<div id="prp-ci-compare-means-large-samples" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4.4</strong></span> For <span class="math inline">m</span> and <span class="math inline">n</span> sufficiently large, an approximate <span class="math inline">100(1-\alpha)\%</span> CI for <span class="math inline">\mu_X - \mu_Y</span> for two samples from populations with any underlying distribution is given by <span class="math display">
+(\overline{x} - \overline{y}) \pm z_{\alpha/2}
+\cdot \sqrt{\frac{s_{X}^2}{m} + \frac{s_{Y}^2}{n}}
+</span></p>
+</div>
+<div id="prp-htest-compare-means-large-samples" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4.5</strong></span> Under the same assumptions and procedures as in <a href="#prp-htest-compare-means-normpops-vars-known" class="quarto-xref">Proposition&nbsp;<span>4.3</span></a>, a large-sample, i.e., <span class="math inline">m &gt; 40</span> and <span class="math inline">n &gt; 40,</span> test statistic, <span class="math display">
+Z = \frac{\overline{X} - \overline{Y} - \theta_0}{\sqrt{\frac{S_{X}^2}{m} + \frac{S_{Y}^2}{n}}}\,,
+</span> can be used in place of <a href="#eq-htest-compare-means-normpops-vars-known-statistic" class="quarto-xref">Equation&nbsp;<span>4.2</span></a> for hypothesis testing.</p>
+</div>
+</section>
+<section id="sec-compare-means-normpops-vars-unknown" class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="sec-compare-means-normpops-vars-unknown"><span class="header-section-number">4.1.3</span> Comparing means of normal populations when variances are unknown and the sample size is small</h3>
+<p>If <span class="math inline">\sigma_X</span> and <span class="math inline">\sigma_Y</span> are unknown and either sample is small (e.g., <span class="math inline">m &lt; 30</span> or <span class="math inline">n &lt;30</span>), but both populations are normally distributed, then we can use Student’s <span class="math inline">\mathsf{t}</span> distribution to make inferences. We provide the following theorem without proof.</p>
+<div id="thm-dist-t-compare-means-normpops" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 4.1</strong></span> When both population distributions are normal, the standardised variable <span class="math display">
+T = \frac{\overline{X}-\overline{Y} - (\mu_X - \mu_Y)}{\sqrt{\frac{S_X^2}{m} + \frac{S_Y^2}{n}}}
+\quad \sim \mathsf{t}(\nu)\,,
+</span> where the df <span class="math inline">\nu</span> is estimated from the data. Namely, <span class="math inline">\nu</span> is given by (round <span class="math inline">\nu</span> down to the nearest integer): <span id="eq-dist-t-compare-means-normpops-nu"><span class="math display">
+\nu = \frac{ \left( \frac{s_X^2}{m} + \frac{s_Y^2}{n} \right)^2}{\frac{(s_X^2 / m)^2}{m-1} + \frac{(s_Y^2/n)^2}{n-1}}
+= \frac{ \left( s_{\overline{X}}^2 + s_{\overline{Y}}^2 \right)^2}{\frac{s_{\overline{X}}^4}{m-1} + \frac{s_{\overline{Y}}^4}{n-1}}\,,
+\tag{4.3}</span></span> where <span class="math inline">s_X^2</span> and <span class="math inline">s_Y^2</span> are point estimators of the sample variances; alternatively, we see that the formula <a href="#eq-dist-t-compare-means-normpops-nu" class="quarto-xref">Equation&nbsp;<span>4.3</span></a> can also be written in terms of the standard error of the sample means: <span class="math display">
+s_{\overline{X}} = \frac{s_X}{\sqrt{m}}
+\quad \text{and} \quad \qquad
+s_{\overline{Y}} = \frac{s_Y}{\sqrt{n}} \,.
+</span></p>
+</div>
+<p>The formula <a href="#eq-dist-t-compare-means-normpops-nu" class="quarto-xref">Equation&nbsp;<span>4.3</span></a> for the data-driven choice of <span class="math inline">\nu</span> calls for the computation of the standard error of the sample means.</p>
+<div id="prp-ci-compare-means-normpops-vars-unknown" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4.6</strong></span> A <span class="math inline">100(1-\alpha)\%</span> CI for <span class="math inline">\mu_X - \mu_Y</span> for two samples of size <span class="math inline">m</span> and <span class="math inline">n</span> from normal populations where the variances are unknown is given by <span class="math display">
+(\overline{x} - \overline{y}) \pm t_{\alpha/2, \nu} \sqrt{ \frac{s_X^2}{m} + \frac{s_Y^2}{n}}\,,
+</span> where we recall that <span class="math inline">t_{\alpha/2, \nu}</span> is the <span class="math inline">\alpha/2</span> critical value of <span class="math inline">\mathsf{t}(\nu)</span> with <span class="math inline">\nu</span> given by <a href="#eq-dist-t-compare-means-normpops-nu" class="quarto-xref">Equation&nbsp;<span>4.3</span></a>.</p>
+</div>
+<div id="prp-htest-compare-means-normpops-vars-unknown" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4.7</strong></span> Assume that we sample iid <span class="math inline">X_1, \dots, X_m</span> and iid <span class="math inline">Y_1, \dots, Y_n</span> from normal populations with unknown variances and means <span class="math inline">\mu_X</span> and <span class="math inline">\mu_Y,</span> respectively, and that the <span class="math inline">X</span> and <span class="math inline">Y</span> samples are independent.</p>
+<p>Consider <span class="math inline">H_0 : \mu_X - \mu_Y = \theta_0.</span> The test statistic is <span id="eq-htest-compare-means-normpops-vars-unknown-statistic"><span class="math display">
+T = \frac{\overline{X} - \overline{Y} - \theta_0}{\sqrt{\frac{S_{X}^2}{m} + \frac{S_{Y}^2}{n}}}\,.
+\tag{4.4}</span></span></p>
+<p>For a hypothesis test at level <span class="math inline">\alpha,</span> we use the following procedure:</p>
+<p>If <span class="math inline">H_a : \mu_X - \mu_Y &gt; \theta_0,</span> then <span class="math inline">P</span>-value is the area under <span class="math inline">\mathsf{t}(\nu)</span> to the right of <span class="math inline">t,</span> i.e., upper-tail <span class="math inline">R = \{t &gt; t_{\alpha,\nu}\}.</span></p>
+<p>If <span class="math inline">H_a : \mu_X - \mu_Y &lt; \theta_0,</span> then <span class="math inline">P</span>-value is the area under <span class="math inline">\mathsf{t}(\nu)</span> to the left of <span class="math inline">t,</span> i.e., lower-tail <span class="math inline">R = \{t &lt; - t_{\alpha,\nu}\}.</span></p>
+<p>If <span class="math inline">H_a : \mu_X - \mu_Y \neq \theta_0,</span> then <span class="math inline">P</span>-value is twice the area under <span class="math inline">\mathsf{t}(\nu)</span> to the right of <span class="math inline">|t|,</span> i.e., two-tailed <span class="math inline">R = \{|t| &gt; t_{\alpha/2, \nu}\}.</span></p>
+<p>Here <span class="math inline">\nu</span> is given by <a href="#eq-dist-t-compare-means-normpops-nu" class="quarto-xref">Equation&nbsp;<span>4.3</span></a>.</p>
+</div>
+<p>If the variances of the normal populations are unknown but are the same, <span class="math inline">\sigma_X^2 = \sigma_Y^2,</span> then deriving CIs and test statistics for comparing the means can be simplified by considering a combined or pooled estimator for the single parameter <span class="math inline">\sigma^2.</span> If we have two samples from populations with variance <span class="math inline">\sigma^2,</span> each sample provides an estimate for <span class="math inline">\sigma^2.</span> That is, <span class="math inline">S_X^2,</span> based on the <span class="math inline">m</span> observations of the first sample, is one estimator for <span class="math inline">\sigma^2</span> and another is given by <span class="math inline">S_Y^2,</span> based on <span class="math inline">n</span> observations of the second sample. The correct way to combine these two estimators into a single estimator for the sample variance is to consider the pooled estimator of <span class="math inline">\sigma^2,</span> <span id="eq-pooled-sample-var"><span class="math display">
+S_{\mathsf{p}}^2 = \frac{m-1}{m+n-2} S_X^2 + \frac{n-1}{m+n-2} S_Y^2 \,.
+\tag{4.5}</span></span> The pooled estimator is a weighted average that adjusts for differences between the sample sizes <span class="math inline">m</span> and <span class="math inline">n.</span></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Why a weighted average?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">m \neq n,</span> then the estimator with <em>more</em> samples will contain <em>more</em> information about the parameter <span class="math inline">\sigma^2.</span> Thus, the simple average <span class="math inline">(S_X^2 + S_Y^2)/2</span> wouldn’t be fair, would it?</p>
+</div>
+</div>
+<div id="prp-ci-compare-means-normpops-pooled" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4.8</strong></span> A <span class="math inline">100(1-\alpha)\%</span> CI for <span class="math inline">\mu_X - \mu_Y</span> for two samples of size <span class="math inline">m</span> and <span class="math inline">n</span> from normal populations where the variance <span class="math inline">\sigma^2</span> is unknown is given by <span class="math display">
+(\overline{x} - \overline{y}) \pm t_{\alpha/2, m  + n - 2} \cdot \sqrt{ s_{\mathsf{p}}^2 \left( \frac{1}{m} + \frac{1}{n} \right)} \,,
+</span> where we recall that <span class="math inline">t_{\alpha/2, m+n-2}</span> is the <span class="math inline">\alpha/2</span> critical value of the <span class="math inline">\mathsf{t}(\nu)</span> with <span class="math inline">\nu = m + n - 2</span> df.</p>
+</div>
+<p>Similarly, one can consider a pooled <span class="math inline">\mathsf{t}</span> test, i.e., a hypothesis test based on the pooled estimator for the variance as opposed to the two-sample <span class="math inline">\mathsf{t}</span> test in <a href="#prp-htest-compare-means-normpops-vars-unknown" class="quarto-xref">Proposition&nbsp;<span>4.7</span></a>. In the case of a pooled <span class="math inline">\mathsf{t}</span> test, the test statistic <span class="math display">
+T = \frac{\overline{X} - \overline{Y} - \theta_0}{\sqrt{S_{\mathsf{p}}^2 \left(\frac{1}{m} + \frac{1}{n}\right)}}\,,
+</span> with the pooled estimator of the variance, replaces <a href="#eq-htest-compare-means-normpops-vars-unknown-statistic" class="quarto-xref">Equation&nbsp;<span>4.4</span></a> in <a href="#prp-htest-compare-means-normpops-vars-unknown" class="quarto-xref">Proposition&nbsp;<span>4.7</span></a> and the same procedures are followed for determining the <span class="math inline">P</span>-value with <span class="math inline">\nu = m+n-2</span> in place of <a href="#eq-dist-t-compare-means-normpops-nu" class="quarto-xref">Equation&nbsp;<span>4.3</span></a>. If you have reasons to believe that <span class="math inline">\sigma_X^2 = \sigma_Y^2,</span> these pooled <span class="math inline">\mathsf{t}</span> procedures are appealing because <span class="math inline">\nu</span> is very easy to compute.</p>
+<div class="warningblock">
+<p>Pooled <span class="math inline">t</span> procedures are not robust if the assumption of equalised variance is violated. Theoretically, you could first carry out a statistical test <span class="math inline">H_0 : \sigma_X^2 = \sigma_Y^2</span> on the equality of variances and then use a pooled <span class="math inline">\mathsf{t}</span> procedure if the null hypothesis is not rejected. However, there is no free lunch: the typical <span class="math inline">\mathsf{F}</span> test for equal variances (see <a href="#sec-compare-variances" class="quarto-xref"><span>Section 4.4</span></a>) is sensitive to normality assumptions. The two sample <span class="math inline">\mathsf{t}</span> procedures, with the data-driven choice of <span class="math inline">\nu</span> in <a href="#eq-dist-t-compare-means-normpops-nu" class="quarto-xref">Equation&nbsp;<span>4.3</span></a>, are therefore recommended unless, of course, you have a very compelling reason to believe <span class="math inline">\sigma_X^2 = \sigma_Y^2.</span></p>
+</div>
+</section>
+</section>
+<section id="sec-compare-paired-samples" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="sec-compare-paired-samples"><span class="header-section-number">4.2</span> Comparing paired samples</h2>
+<p>The preceding analysis for comparing population means was based on the assumption that a random sample <span class="math inline">X_1, \dots, X_n</span> is drawn from a distribution with mean <span class="math inline">\mu_X</span> and that a completely independent random sample <span class="math inline">Y_1, \dots, Y_n</span> is drawn from a distribution with mean <span class="math inline">\mu_Y.</span> Some situations, e.g., comparing observations before and after a treatment or exposure, necessitate the consideration of paired values.</p>
+<p>Consider a random sample of iid pairs, <span class="math display">
+(X_1, Y_1), \dots, (X_n, Y_n)\,,
+</span> with <span class="math inline">\mathop{\mathrm{\mathbf{E}}}[X_i] = \mu_X</span> and <span class="math inline">\mathop{\mathrm{\mathbf{E}}}[Y_i] = \mu_Y.</span> If we are interested in making inferences about the difference <span class="math inline">\mu_X - \mu_Y,</span> then the paired differences <span class="math display">
+D_i = X_i - Y_i \,,\quad  i=1, \dots, n\,,
+</span> constitute a sample with mean <span class="math inline">\mu_D = \mu_X - \mu_Y</span> that can be treated using single-sample CIs and tests, e.g., see <a href="03-infer-single-sample.html#sec-mean-normal-var-unknown" class="quarto-xref"><span>Section 3.1.3</span></a>.</p>
+</section>
+<section id="sec-compare-proportions" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="sec-compare-proportions"><span class="header-section-number">4.3</span> Comparing proportions</h2>
+<p>Consider a population containing a proportion <span class="math inline">p_X</span> of individuals satisfying a given property. For a sample of size <span class="math inline">m</span> from this population, we denote the sample proportion by <span class="math inline">\widehat{p}_X.</span> Likewise, we consider a population containing a proportion <span class="math inline">p_Y</span> of individuals satisfying the same given property. For a sample of size <span class="math inline">n</span> from this population, we denote the sample proportion by <span class="math inline">\widehat{p}_Y.</span> We assume the samples from the <span class="math inline">X</span> and <span class="math inline">Y</span> populations are independent. The natural estimator for the difference in population proportions <span class="math inline">p_X - p_Y</span> is the difference in the sample proportions <span class="math inline">\widehat{p}_X - \widehat{p}_Y.</span></p>
+<p>Provided the samples are much smaller than the population sizes (i.e., the populations are about <span class="math inline">20</span> times larger than the samples), <span class="math display">
+\mu_{(\widehat{p}_X - \widehat{p}_Y)} = \mathop{\mathrm{\mathbf{E}}}[\widehat{p}_X - \widehat{p}_Y] = p_X - p_Y\,,
+</span> and <span class="math display">
+\sigma_{(\widehat{p}_X - \widehat{p}_Y)}^2 = \mathop{\mathrm{Var}}[\widehat{p}_X - \widehat{p}_Y]
+= \frac{p_X(1-p_X)}{m} + \frac{p_Y(1-p_Y)}{n}\,,
+</span> because the count of individuals satisfying the given property in each population will be independent draws from <span class="math inline">\mathsf{Binom}(m, p_X)</span> and <span class="math inline">\mathsf{Binom}(n, p_Y),</span> respectively. Further, if <span class="math inline">m</span> and <span class="math inline">n</span> are large (e.g., <span class="math inline">m \geq 30</span> and <span class="math inline">n \geq 30</span>), then <span class="math inline">\widehat{p}_X</span> and <span class="math inline">\widehat{p}_Y</span> are (approximately) normally distributed. Standardizing <span class="math inline">\widehat{p}_X - \widehat{p}_Y,</span> <span class="math display">
+Z = \frac{\widehat{p}_X - \widehat{p}_Y - (p_X - p_Y)}{\sqrt{\frac{p_X(1-p_X)}{m} + \frac{p_Y(1-p_Y)}{n}}}
+\quad \sim \mathsf{N}(0,1)\,.
+</span> A CI for <span class="math inline">\widehat{p}_X - \widehat{p}_Y</span> then follows from the large-sample CI considered in <a href="03-infer-single-sample.html#sec-mean-large-sample" class="quarto-xref"><span>Section 3.1.2</span></a>.</p>
+<div id="prp-ci-compare-proportions" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4.9</strong></span> An approximate <span class="math inline">100(1-\alpha)\%</span> CI for <span class="math inline">p_X - p_Y</span> is given by <span id="eq-ci-compare-proportions"><span class="math display">
+\widehat{p}_X - \widehat{p}_Y \pm z_{\alpha/2}\sqrt{\frac{\widehat{p}_X (1 - \widehat{p}_X)}{m} + \frac{\widehat{p}_Y (1 - \widehat{p}_Y)}{n}}\,,
+\tag{4.6}</span></span> and, as a rule of thumb, can be reliably used if <span class="math inline">m \widehat{p}_X,</span> <span class="math inline">m (1 - \widehat{p}_X),</span> <span class="math inline">n \widehat{p}_Y,</span> and <span class="math inline">n (1-\widehat{p}_Y)</span> are greater than or equal to <span class="math inline">10.</span></p>
+</div>
+<p><a href="#prp-ci-compare-proportions" class="quarto-xref">Proposition&nbsp;<span>4.9</span></a> does not pool the estimators for the population proportions. However, if we are considering a hypothesis test concerning the equality of the population proportions with the null hypothesis <span class="math display">
+H_0 : p_X - p_Y = 0 \,,
+</span> then we assume <span class="math inline">p_X = p_Y</span> as our default position. Therefore, as a matter of consistency, we should replace the standard error in <a href="#eq-ci-compare-proportions" class="quarto-xref">Equation&nbsp;<span>4.6</span></a> with a pooled estimator for the standard error of the population proportion, <span class="math display">
+\widehat{p} = \frac{m}{m + n} \widehat{p}_X + \frac{n}{m + n} \widehat{p}_Y \,.
+</span></p>
+<div id="prp-htest-compare-proportions" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4.10</strong></span> Assume that <span class="math inline">m \widehat{p}_X,</span> <span class="math inline">m (1-\widehat{p}_X),</span> <span class="math inline">n\widehat{p}_Y,</span> <span class="math inline">n(1-\widehat{p}_Y)</span> are all greater than <span class="math inline">10.</span></p>
+<p>Consider <span class="math inline">H_0 : p_X - p_Y = 0.</span> The test statistic is <span class="math display">
+Z = \frac{\widehat{p}_X - \widehat{p}_Y}{\sqrt{\widehat{p} (1 - \widehat{p}) \left( \frac{1}{m} + \frac{1}{n} \right)}} \,.
+</span></p>
+<p>For a hypothesis test at level <span class="math inline">\alpha,</span> we use the following procedure:</p>
+<p>If <span class="math inline">H_a : p_X - p_Y &gt; 0,</span> then <span class="math inline">P = 1 - \Phi(z),</span> i.e., upper-tail <span class="math inline">R = \{z &gt; z_{\alpha}\}.</span></p>
+<p>If <span class="math inline">H_a : p_X - p_Y &lt; 0,</span> then <span class="math inline">P = \Phi(z),</span> i.e., lower-tail <span class="math inline">R = \{z &lt; - z_{\alpha}\}.</span></p>
+<p>If <span class="math inline">H_a : p_X - p_Y \neq 0,</span> then <span class="math inline">P = 2(1-\Phi(|z|)),</span> i.e., two-tailed <span class="math inline">R = \{|z| &gt; z_{\alpha/2}\}.</span></p>
+</div>
+</section>
+<section id="sec-compare-variances" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="sec-compare-variances"><span class="header-section-number">4.4</span> Comparing variances</h2>
+<p>For a random sample <span class="math display">
+X_1, \dots, X_m \sim \mathsf{N}(\mu_X, \sigma_X^2)
+</span> and an independent random sample <span class="math display">
+Y_1, \dots, Y_n \sim \mathsf{N}(\mu_Y, \sigma_Y^2)\,,
+</span> the rv <span id="eq-F-test-statistic"><span class="math display">
+F = \frac{S_X^2 / \sigma_X^2}{S_Y^2 / \sigma_Y^2} \quad \sim \mathsf{F}(m-1, n-1)\,,
+\tag{4.7}</span></span> that is, <span class="math inline">F</span> has an <span class="math inline">\mathsf{F}</span> distribution with df <span class="math inline">\nu_1 = m-1</span> and <span class="math inline">\nu_2 = n-1.</span> The statistic <span class="math inline">F</span> in <a href="#eq-F-test-statistic" class="quarto-xref">Equation&nbsp;<span>4.7</span></a> comprises the <em>ratio</em> of variances <span class="math inline">\sigma_X^2 / \sigma_Y^2</span> and not the difference; therefore, the plausibility of <span class="math inline">\sigma_X^2 = \sigma_Y^2</span> will be based on how much the ratio differs from <span class="math inline">1.</span></p>
+<div id="prp-htest-compare-variances" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4.11</strong></span> For the null hypothesis <span class="math inline">H_0 : \sigma_X^2 = \sigma_Y^2,</span> the test statistic to consider is: <span class="math display">
+f = \frac{s_X^2}{s_Y^2}
+</span> and the <span class="math inline">P</span>-values are determined by the <span class="math inline">\mathsf{F}(m-1, n-1)</span> distribution where <span class="math inline">m</span> and <span class="math inline">n</span> are the respective sample sizes.</p>
+</div>
+<p>A <span class="math inline">100(1-\alpha)\%</span> CI for the ratio <span class="math inline">\sigma_X^2 / \sigma_Y^2</span> is based on forming the probability, <span class="math display">
+P(F_{1-\alpha/2, \nu_1, \nu_2} &lt; F &lt; F_{\alpha/2, \nu_1, \nu_2}) = 1 - \alpha\,,
+</span> where <span class="math inline">F_{\alpha/2, \nu_1, \nu_2}</span> is the <span class="math inline">\alpha/2</span> critical value from the <span class="math inline">\mathsf{F}(\nu_1 = m-1, \nu_2 = n-1)</span> distribution. Substituting <a href="#eq-F-test-statistic" class="quarto-xref">Equation&nbsp;<span>4.7</span></a> with point estimates for <span class="math inline">F</span> and manipulating the inequalities it is possible to isolate the ratio <span class="math inline">\sigma_X^2 / \sigma_Y^2,</span> <span class="math display">
+P \left( \frac{1}{F_{\alpha/2, \nu_1, \nu_2}} \frac{s_X^2}{s_Y^2} &lt; \frac{\sigma_X^2}{\sigma_Y^2} &lt; \frac{1}{F_{1-\alpha/2, \nu_1, \nu_2}} \frac{s_X^2}{s_Y^2} \right)
+= 1 - \alpha \,.
+</span></p>
+<div id="prp-ci-compre-variances" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4.12</strong></span> A <span class="math inline">100(1-\alpha)\%</span> CI for the ratio of population variances <span class="math inline">\sigma_X^2 / \sigma_Y^2</span> is given by <span class="math display">
+\left(F_{\alpha/2, m-1, n-1}^{-1} s_X^2 / s_Y^2 \,,  F_{1-\alpha/2, m-1, n-1}^{-1} s_X^2 / s_Y^2 \right)\,.
+</span></p>
+</div>
+<div id="prp-htest-compre-variances" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4.13</strong></span> Assume the population distributions are normal and the random samples are independent of one another.</p>
+<p>Consider <span class="math inline">H_0 : \sigma_X^2 = \sigma_Y^2.</span> The test statistic is <span class="math display">
+F = S_X^2 / S_Y^2 \,.
+</span></p>
+<p>For a hypothesis test at level <span class="math inline">\alpha,</span> we use the following procedure:</p>
+<p>If <span class="math inline">H_a : \sigma_X^2 &gt; \sigma_Y^2,</span> then <span class="math inline">P</span>-value is <span class="math inline">A_R = {}</span> area under the <span class="math inline">\mathsf{F}(m-1, n-1)</span> curve to the right of <span class="math inline">f.</span></p>
+<p>If <span class="math inline">H_a : \sigma_X^2 &lt; \sigma_Y^2,</span> then <span class="math inline">P</span>-value is <span class="math inline">A_L = {}</span> area under the <span class="math inline">\mathsf{F}(m-1, n-1)</span> curve to the left of <span class="math inline">f.</span></p>
+<p>If <span class="math inline">H_a : \sigma_X^2 \neq \sigma_Y^2,</span> then <span class="math inline">P</span>-value is <span class="math inline">2 \cdot \min(A_R, A_L).</span></p>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/dundeemath\.github\.io\/MA22004");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./03-infer-single-sample.html" class="pagination-link" aria-label="Single sample inferences">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Single sample inferences</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./05-anova.html" class="pagination-link" aria-label="Analysis of variance">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Analysis of variance</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Copyright 2024, Eric Hall (University of Dundee)</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dundeemath/MA22004/edit/master/04-infer-two-samples.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

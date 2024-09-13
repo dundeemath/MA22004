@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.554">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Module documents and lecture notes for MA22004 - Statistics II, a second year module about inferential statistics at the University of Dundee.">
+
+<title>MA22004 — Statistics II - 3&nbsp; Single sample inferences</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./04-infer-two-samples.html" rel="next">
+<link href="./02-basics-stat-infer.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-prelim.html">Lecture Notes</a></li><li class="breadcrumb-item"><a href="./03-infer-single-sample.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Single sample inferences</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">MA22004 — Statistics II</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/dundeemath/MA22004/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./MA22004-—-Statistics-II
+.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Module Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./about-me.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About Your Instructor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab Guide</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./writing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Writing Lab Reports</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Lecture Notes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-prelim.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-sampling-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sampling distributions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-basics-stat-infer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Basics of statistical inference</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-infer-single-sample.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Single sample inferences</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-infer-two-samples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Two samples inferences</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Analysis of variance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-linear-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-categorical-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Categorical data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-quality-control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Quality control</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-investigations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Curated Content</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
+<p>Texts</p>
+</div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-estimating-means" id="toc-sec-estimating-means" class="nav-link active" data-scroll-target="#sec-estimating-means"><span class="header-section-number">3.1</span> Estimating means</a>
+  <ul class="collapse">
+  <li><a href="#sec-mean-normal-var-known" id="toc-sec-mean-normal-var-known" class="nav-link" data-scroll-target="#sec-mean-normal-var-known"><span class="header-section-number">3.1.1</span> Mean of a normal population with known variance</a></li>
+  <li><a href="#sec-mean-large-sample" id="toc-sec-mean-large-sample" class="nav-link" data-scroll-target="#sec-mean-large-sample"><span class="header-section-number">3.1.2</span> Mean of a population with unknown variance (large-sample)</a></li>
+  <li><a href="#sec-mean-normal-var-unknown" id="toc-sec-mean-normal-var-unknown" class="nav-link" data-scroll-target="#sec-mean-normal-var-unknown"><span class="header-section-number">3.1.3</span> Mean of a normal population with unknown variance</a></li>
+  </ul></li>
+  <li><a href="#sec-estimating-proportions" id="toc-sec-estimating-proportions" class="nav-link" data-scroll-target="#sec-estimating-proportions"><span class="header-section-number">3.2</span> Estimating proportions</a></li>
+  <li><a href="#sec-estimating-variances" id="toc-sec-estimating-variances" class="nav-link" data-scroll-target="#sec-estimating-variances"><span class="header-section-number">3.3</span> Estimating variances</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/dundeemath/MA22004/edit/master/03-infer-single-sample.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-prelim.html">Lecture Notes</a></li><li class="breadcrumb-item"><a href="./03-infer-single-sample.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Single sample inferences</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-inference-single-sample" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Single sample inferences</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>In a few situations, we can derive the sampling distribution for the statistic of interest and use this as the basis for constructing confidence intervals and hypothesis tests. Presently we estimate population means <span class="math inline">\mu</span> in <a href="#sec-estimating-means" class="quarto-xref"><span>Section 3.1</span></a>, population proportions <span class="math inline">p</span> in <a href="#sec-estimating-proportions" class="quarto-xref"><span>Section 3.2</span></a>, and population variances <span class="math inline">\sigma^2</span> in <a href="#sec-estimating-variances" class="quarto-xref"><span>Section 3.3</span></a> in some special cases.</p>
+<section id="sec-estimating-means" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-estimating-means"><span class="header-section-number">3.1</span> Estimating means</h2>
+<p>If the parameter of interest is the population mean <span class="math inline">\theta = \mu</span>, then what can be said about the distribution of the sample mean estimator <span class="math inline">\widehat{\theta} = \overline{X}</span> in <a href="02-basics-stat-infer.html#eq-sample-mean" class="quarto-xref">Equation&nbsp;<span>2.1</span></a>? We will consider three cases,</p>
+<ol type="1">
+<li><a href="#sec-mean-normal-var-known">normal population with known <span class="math inline">\sigma^2</span></a>,</li>
+<li><a href="#sec-mean-large-sample">any population with unknown <span class="math inline">\sigma^2</span>, when the sample size <span class="math inline">m</span> is large</a>, and</li>
+<li><a href="#sec-mean-normal-var-unknown">normal population with unknown <span class="math inline">\sigma^2</span>, when the sample size <span class="math inline">m</span> is small</a>.</li>
+</ol>
+<p>In each, the form of the confidence interval and hypothesis test statistic for <span class="math inline">\mu</span> can be derived using the approximate normality of the sample mean.</p>
+<p>In general, the confidence intervals for the mean based on normality theory will have the form: <span id="eq-ci-gen-form"><span class="math display">
+\text{point estimate}\; \mu \pm (\text{critical value}) \cdot (\text{precision of point estimate})\,,
+\tag{3.1}</span></span> where the reference distribution will be the standard normal (for 1. and 2.) and the Student’s <span class="math inline">\mathsf{t}</span> distribution (for 3.). The critical value corresponds to the value under the reference distribution that yields the two-sided (symmetric) tail areas summing to <span class="math inline">1-\alpha.</span></p>
+<section id="sec-mean-normal-var-known" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="sec-mean-normal-var-known"><span class="header-section-number">3.1.1</span> Mean of a normal population with known variance</h3>
+<p>When sampling from a normal population with a known mean and variance, the estimator for the sample mean is also normal with mean <span class="math inline">\mu</span> and variance <span class="math inline">\sigma^2/m</span> where <span class="math inline">m</span> is the sample size. Standardising, <span id="eq-standardized-sample-mean"><span class="math display">
+\frac{\overline{X} - \mu}{ \sigma / \sqrt{m}} \quad \sim \mathsf{N}(0, 1)
+\tag{3.2}</span></span> we see that <span class="math display">
+P\left(-z_{\alpha/2} &lt;  \frac{\overline{X} - \mu}{ \sigma / \sqrt{m}} &lt; z_{\alpha/2}\right) = 1 - \alpha\,.
+</span> Based on knowing the estimator’s sampling distribution, we state the following CI.</p>
+<div id="def-ci-norm-known-var" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.1 (Confidence interval for mean of normal population)</strong></span> A <span class="math inline">100(1-\alpha)\%</span> confidence interval for the mean <span class="math inline">\mu</span> of a normal population when the value of <span class="math inline">\sigma^2</span> is known is given by <span id="eq-ci-norm-known-var"><span class="math display">
+\left(\overline{x} - z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{m}}\,,
+        \overline{x} + z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{m}} \right)\,,
+\tag{3.3}</span></span> or <span class="math inline">\overline{x} \pm z_{\alpha/2} \cdot \sigma / \sqrt{m}</span>, where <span class="math inline">m</span> is the sample size.</p>
+</div>
+<p>The CI for the mean <a href="#eq-ci-norm-known-var" class="quarto-xref">Equation&nbsp;<span>3.3</span></a> can be expressed (cf. <a href="#eq-ci-gen-form" class="quarto-xref">Equation&nbsp;<span>3.1</span></a>) as <span class="math display">
+\text{point estimate}\; \mu \pm
+(z \;\text{critical value}) \cdot (\text{standard error of mean})\,.
+</span> The <span class="math inline">z</span> critical value is related to the tail areas under the standard normal curve; we need to find the <span class="math inline">z</span>-score having a cumulative probability equal to <span class="math inline">1-\alpha</span> according to Definition @ref(def:confidence-interval-gen).</p>
+<div id="exm-ci-norm-known-var" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.1</strong></span> Consider <span class="math inline">400</span> samples from a normal population with a known standard deviation <span class="math inline">\sigma = 17000</span> with mean <span class="math inline">\overline{x} = 20992</span> as depicted in <a href="#fig-ci-norm-known-var-code" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>. How do we construct a <span class="math inline">95\%</span> confidence interval for <span class="math inline">\mu</span>?</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ci-norm-known-var-code" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ci-norm-known-var-code-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-infer-single-sample_files/figure-html/fig-ci-norm-known-var-code-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ci-norm-known-var-code-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: <span class="math inline">400</span> samples from a normal population with known variance <span class="math inline">\sigma = 17000</span> together with the corresponding (normal) sampling distribution for the observed mean.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>For <span class="math inline">\alpha = 0.05</span>, the critical value <span class="math inline">z_{0.025} = 1.96</span>; this value can be found by looking in a table of critical <span class="math inline">z</span> values or using the <code>r</code> code <code>qnorm(1-.05/2)</code>. From <a href="#def-ci-norm-known-var" class="quarto-xref">Definition&nbsp;<span>3.1</span></a>, <span class="math display">
+\begin{aligned}
+\left(\overline{x} - z_{\alpha/2} \frac{\sigma}{\sqrt{m}}\,, \overline{x} + z_{\alpha/2} \frac{\sigma}{\sqrt{m}} \right)
+&amp;= \left(20992 - 1.96 \frac{17000}{\sqrt{400}}\,, 20992 + 1.96 \frac{17000}{\sqrt{400}} \right) \\
+&amp;= \left(19326 \,, 22658\right)\,.
+\end{aligned}
+</span></p>
+<p>The data above was generated with a true population parameter <span class="math inline">\mu = 21500</span>, and the CI contains the parameter value (incidentally).</p>
+</div>
+<p>As noted in <a href="#eq-ci-gen-form" class="quarto-xref">Equation&nbsp;<span>3.1</span></a> and <a href="#eq-ci-norm-known-var" class="quarto-xref">Equation&nbsp;<span>3.3</span></a>, the width of a CI is related to the estimator’s precision. The confidence level (or reliability) is inversely related to this precision. When the population is normal and the variance is known, determining the sample size necessary to achieve a desired confidence level and precision is an appealing strategy. A general formula for the sample size <span class="math inline">m^*</span> necessary to achieve an interval width <span class="math inline">w</span> is obtained at confidence level <span class="math inline">\alpha</span> by equating <span class="math display">w = 2z_{\alpha/2} \cdot \sigma /\sqrt{m^*}</span> and then solving for <span class="math inline">m^*.</span></p>
+<div id="prp-ci-select-n-fixed-w-alpha" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3.1</strong></span> The sample size <span class="math inline">m</span> required to achieve a CI for <span class="math inline">\mu</span> with width <span class="math inline">w</span> at level <span class="math inline">\alpha</span> is given by, <span class="math display">
+m^* = \left( 2 z_{\alpha/2} \cdot \frac{\sigma}{w} \right)^2 \,.
+</span></p>
+</div>
+<p>From <a href="#prp-ci-select-n-fixed-w-alpha" class="quarto-xref">Proposition&nbsp;<span>3.1</span></a>, we see that the smaller the desired <span class="math inline">w</span>, the larger <span class="math inline">m^*</span> must be (and subsequently, the more effort that must be allocated to data collection).</p>
+<div id="exm-ci-norm-known-var-find-n" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.2</strong></span> In <a href="#exm-ci-norm-known-var" class="quarto-xref">Example&nbsp;<span>3.1</span></a> we identified a <span class="math inline">95\%</span> confidence interval for a normal population with known variance. The range (width) of that interval was <span class="math inline">22658 - 19326 = 3332.</span> How much would <span class="math inline">m</span> need to increase to halve the interval width?</p>
+<p>Using <a href="#prp-ci-select-n-fixed-w-alpha" class="quarto-xref">Proposition&nbsp;<span>3.1</span></a>, <span class="math display">
+m = \left( 2 \cdot 1.96 \cdot \frac{17000}{1666} \right)^2 = (40)^2 = 1600\,.
+</span> Thus, we find that for the same level <span class="math inline">\alpha = 0.05</span>, we would need to quadruple our original sample size to halve the interval.</p>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+You heard it here first…
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As <a href="#exm-ci-norm-known-var-find-n" class="quarto-xref">Example&nbsp;<span>3.2</span></a> shows, it is expensive to reduce uncertainty!</p>
+</div>
+</div>
+<p>Suppose now that we would like to consider a hypothesis test for the population mean, such as <span class="math inline">H_0 : \mu = \mu_0.</span> Starting from <a href="#eq-standardized-sample-mean" class="quarto-xref">Equation&nbsp;<span>3.2</span></a> and assuming that the null hypothesis is true, we find <span class="math display">
+Z = \frac{\overline{X} - \mu_0}{\sigma / \sqrt{m}}\,.
+</span> The statistic <span class="math inline">Z</span> measures the distance (measured in units of <span class="math inline">\mathop{\mathrm{sd}}[\overline{X}]</span>) between <span class="math inline">\overline{X}</span> and its expected value under the null hypothesis. We will use the statistic <span class="math inline">Z</span> to determine if there is substantial evidence against <span class="math inline">H_0</span>, i.e.&nbsp;if the distance is too far in a direction consistent with <span class="math inline">H_a.</span></p>
+<div id="prp-htest-norm-known-var" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3.2</strong></span> Assume that we sample <span class="math inline">X_1, \dots, X_m</span> from a normal population with mean <span class="math inline">\mu</span> and known variance <span class="math inline">\sigma^2.</span></p>
+<p>Consider <span class="math inline">H_0 : \mu = \mu_0.</span> The test statistic is <span id="eq-htest-norm-known-var-T"><span class="math display">
+Z = \frac{\overline{X} - \mu_0}{\sigma / \sqrt{m}}\,.
+\tag{3.4}</span></span></p>
+<p>For a hypothesis test at level <span class="math inline">\alpha</span>, we use the following procedure:</p>
+<p>If <span class="math inline">H_a : \mu &gt; \mu_0</span>, then <span class="math inline">P = 1 - \Phi(z)</span>, i.e., upper-tail <span class="math inline">R = \{z &gt; z_{\alpha}\}.</span></p>
+<p>If <span class="math inline">H_a : \mu &lt; \mu_0</span>, then <span class="math inline">P = \Phi(z)</span>, i.e., lower-tail <span class="math inline">R = \{z &lt; - z_{\alpha}\}.</span></p>
+<p>If <span class="math inline">H_a : \mu \neq \mu_0</span>, then <span class="math inline">P = 2(1-\Phi(|z|))</span>, i.e., two-tailed <span class="math inline">R = \{|z| &gt; z_{\alpha/2}\}.</span></p>
+</div>
+<p>We recall that <span class="math inline">\Phi(z)</span> is the area in the lower tail of the standard normal density, i.e., to the <em>left</em> of the calculated value of <span class="math inline">z.</span> Thus <span class="math inline">1 - \Phi(z)</span> is the area in the upper-tail, and <span class="math inline">2(1 - \Phi(|z|))</span> is twice the area captured in the upper-tail by <span class="math inline">|z|</span>, i.e.&nbsp;the sum of the area in the tails corresponding to <span class="math inline">\pm z.</span> If <span class="math inline">P &lt; \alpha</span>, then we reject <span class="math inline">H_0</span> at level <span class="math inline">\alpha</span> as the data provides sufficient evidence at the <span class="math inline">\alpha</span> level against the null hypothesis.</p>
+<div id="exm-htest-norm-known-var-two-tail" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.3</strong></span> Let’s return to the data in <a href="#exm-ci-norm-known-var" class="quarto-xref">Example&nbsp;<span>3.1</span></a>, where we sample from a normal population with a known standard deviation <span class="math inline">\sigma = 17000.</span> Suppose that someone claims the true mean is <span class="math inline">\mu_0 = 20000.</span> Does our sample mean <span class="math inline">\overline{x} = 20992</span> based on <span class="math inline">m = 400</span> samples provide evidence to contradict this claim at the <span class="math inline">\alpha = 0.05</span> level?</p>
+<p>The first thing to record is our parameter of interest: <span class="math inline">\mu</span>, the true population mean. The null hypothesis, which we assume to be true, is a statement about the value of <span class="math inline">\mu</span>, <span class="math display">
+H_0 : \mu = 20000\,,
+</span> and the alternative hypothesis is <span class="math display">
+H_a : \mu \neq 20000\,,
+</span> since we are concerned with a deviation in either direction from <span class="math inline">\mu_0 = 20000.</span></p>
+<p>Since the population is normal with known variance, we compute the test statistic: <span class="math display">
+z = \frac{\overline{x} - \mu_0}{\sigma / \sqrt{m}} = \frac{20992 - 20000}{17000 / \sqrt{400}} = 1.167\,.
+</span> That is, the observed sample mean <span class="math inline">\overline{x}</span> is slightly more than <span class="math inline">1</span> standard deviation than what we expect under <span class="math inline">H_0.</span> Consulting <a href="#prp-htest-norm-known-var" class="quarto-xref">Proposition&nbsp;<span>3.2</span></a>, we see that a two-tailed test is indicated for this particular <span class="math inline">H_a</span> (i.e., containing “<span class="math inline">\neq</span>”). The <span class="math inline">P</span>-value is the area, <span class="math display">
+P = 2(1 - \Phi(1.167)) = 2 (0.1216052) = 0.2432.
+</span> Thus, since <span class="math inline">P = 0.2432 &gt; 0.05 = \alpha</span>, we fail to reject <span class="math inline">H_0</span> at the level <span class="math inline">0.05.</span> The data does not support the claim that the true population mean differs from the value <span class="math inline">20000</span> at the <span class="math inline">0.05</span> level.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Recall
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note <span class="math inline">\Phi(z) = P(Z \leq z)</span> is found by calling <code>pnorm(z)</code> in <code>r</code> or by looking up the value in a <span class="math inline">Z</span> table.</p>
+</div>
+</div>
+</section>
+<section id="sec-mean-large-sample" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="sec-mean-large-sample"><span class="header-section-number">3.1.2</span> Mean of a population with unknown variance (large-sample)</h3>
+<p>Consider samples <span class="math inline">X_1, \dots, X_m</span> from a population with mean <span class="math inline">\mu</span> and variance <span class="math inline">\sigma^2.</span> Provided that <span class="math inline">m</span> is large enough, the Central Limit Theorem implies that the estimator for the sample mean <span class="math inline">\overline{X}</span> in <a href="02-basics-stat-infer.html#eq-sample-mean" class="quarto-xref">Equation&nbsp;<span>2.1</span></a> has <em>approximately</em> a normal distribution. Then <span class="math display">
+P \left( - z_{\alpha/2} &lt; \frac{\overline{X} - \mu}{\sigma/\sqrt{m}} &lt; z_{\alpha/2} \right) \approx 1 - \alpha\,,
+</span> since the transformed variable has approximately a standard normal distribution. Thus, computing a point estimate based on a large <span class="math inline">m</span> of samples yields a CI for the population parameter <span class="math inline">\mu</span> at an <em>approximate</em> confidence level <span class="math inline">\alpha.</span> However, it is often the case that the variance is unknown. When <span class="math inline">m</span> is large, replacing the population variance <span class="math inline">\sigma^2</span> by the sample variance <span class="math inline">S^2</span> in <a href="02-basics-stat-infer.html#eq-sample-var" class="quarto-xref">Equation&nbsp;<span>2.2</span></a> will not typically introduce too much additional variability.</p>
+<div id="prp-ci-large-sample" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3.3</strong></span> For a large sample size <span class="math inline">m</span>, an approximate <span class="math inline">100(1-\alpha)\%</span> confidence interval for the mean <span class="math inline">\mu</span> of any population when the variance is unknown is given by <span id="eq-ci-large-sample"><span class="math display">
+\left(\overline{x} - z_{\alpha/2} \cdot \frac{s}{\sqrt{m}} \,,
+        \overline{x} + z_{\alpha/2} \cdot \frac{s}{\sqrt{m}} \right)\,,  
+\tag{3.5}</span></span> or <span class="math inline">\overline{x} \pm z_{\alpha/2} \cdot s / \sqrt{m}.</span></p>
+</div>
+<p>The CI for the mean <a href="#eq-ci-large-sample" class="quarto-xref">Equation&nbsp;<span>3.5</span></a> applies regardless of the shape of the population distribution so long as the number of samples is large. A rule of thumb is that <span class="math inline">m &gt; 40</span> is sufficient. In words, the CI <a href="#eq-ci-large-sample" class="quarto-xref">Equation&nbsp;<span>3.5</span></a> can be expressed (cf. <a href="#eq-ci-gen-form" class="quarto-xref">Equation&nbsp;<span>3.1</span></a>) as <span class="math display">
+\text{point estimate}\; \mu \pm
+(z \;\text{critical value}) \cdot (\text{estimated standard error of mean})\,.
+</span> Typically, a large-sample CI for a general parameter <span class="math inline">\theta</span> holds that is similar to <a href="#eq-ci-large-sample" class="quarto-xref">Equation&nbsp;<span>3.5</span></a> for any estimator <span class="math inline">\widehat{\theta}</span> that satisfies: (1) approximately normal in distribution, (2) approximately unbiased, and (3) an expression for the standard error is available.</p>
+<p>To conduct a large-sample hypothesis test regarding the population mean <span class="math inline">\mu</span>, we consider the test statistic <span class="math display">
+Z = \frac{\overline{X} - \mu_0}{S / \sqrt{m}}
+</span> under the null hypothesis, i.e., we replace the population standard deviation <span class="math inline">\sigma</span> with the sample standard deviation <span class="math inline">S.</span> When the number of samples <span class="math inline">m</span> is large (say <span class="math inline">m &gt; 40</span>), then <span class="math inline">Z</span> will be approximately normal. Substituting this test statistic <span class="math inline">Z</span> for <a href="#eq-htest-norm-known-var-T" class="quarto-xref">Equation&nbsp;<span>3.4</span></a>, we follow <a href="#prp-htest-norm-known-var" class="quarto-xref">Proposition&nbsp;<span>3.2</span></a> to determine how to calculate the <span class="math inline">P</span>-value.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Rule of thumb
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For estimating means, we consider a sample size of <span class="math inline">m &gt; 40</span> to be large.</p>
+<p>However, ‘large’ depends on the context: for example, the level of support for the evidence that you are seeking. For <span class="math inline">m &gt; 20</span>, the interval estimate <span class="math display">\text{point estimate } \pm 2\mathop{\mathrm{sd}}</span> has <span class="math inline">95\%</span> coverage and is surprisingly robust, i.e.&nbsp;applies to a wide variety of population distributions including the normal. However, this rule of thumb won’t apply if you want to consider some different level, say <span class="math inline">80\%</span> <span class="citation" data-cites="vanBelle:2008rt">(<a href="99-references.html#ref-vanBelle:2008rt" role="doc-biblioref">Belle 2008, sec. 1</a>)</span>.</p>
+</div>
+</div>
+<div id="exm-mean-large-sample-infer" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.4</strong></span> Let’s consider the <strong>Iris Data</strong> from <a href="02-basics-stat-infer.html#nte-iris" class="quarto-xref">Note&nbsp;<span>2.1</span></a> and use the <code>infer</code> package to make inferences. In particular, consider whether there is evidence at the <span class="math inline">0.05</span> level to support the statement that the true mean petal length of Iris flowers exceeds <span class="math inline">3.5</span> cm.</p>
+<p>Recall that the <strong>Iris Data</strong> contains <span class="math inline">m= 150</span> measurements of petal length across three species of Iris flowers and that the true variance is unknown. We are interested in testing the null hypothesis, <span class="math display">H_0 : \mu \leq 3.5\,,</span> against the alternative, <span class="math display">H_a : \mu &gt; 3.5\,,</span> i.e., a one-sided test.</p>
+<p>We first compute the observed statistic (sample mean) <span class="math inline">\widehat{\mu}.</span> We use the <code>infer</code> package to construct a null distribution <em>computationally</em> for the response variable (petal length). We specify that the hypothesis test is for the parameter based on a point estimate and that we are testing for equality with the value <span class="math inline">\mu_0 = 3.5.</span> The null distribution is generated by computing 1000 bootstrap replications of the sample mean, i.e., the sample mean is generated 1000 times by drawing 150 values at random with replacement from the original corpus of <span class="math inline">m=150</span> samples. (Note that we obtain the null distribution computationally, so we do not need to standardise to <span class="math inline">Z.</span>)</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mu_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(iris<span class="sc">$</span>Petal.Length) </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>null_dist <span class="ot">&lt;-</span> iris <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">specify</span>(<span class="at">response =</span> Petal.Length) <span class="sc">|&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">hypothesise</span>(<span class="at">null =</span> <span class="st">"point"</span>, <span class="at">mu =</span> <span class="fl">3.5</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a> <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a> <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>null_dist <span class="sc">|&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a> <span class="fu">visualise</span>() <span class="sc">+</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a> <span class="fu">shade_p_value</span>(<span class="at">obs_stat =</span> mu_hat, <span class="at">direction =</span> <span class="st">"greater"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="03-infer-single-sample_files/figure-html/unnamed-chunk-2-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The bootstrapped null distribution is plotted using the <code>visualise</code> command, and the regions of the null distribution that are as extreme (or more extreme) than the observed statistic <span class="math inline">\widehat{\mu}</span> can be highlighted using the <code>shade_p_value</code> command.</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>p_val <span class="ot">&lt;-</span> null_dist <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">get_p_value</span>(<span class="at">obs_stat =</span> mu_hat, <span class="at">direction =</span> <span class="st">"greater"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>p_val</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  p_value
+    &lt;dbl&gt;
+1   0.038</code></pre>
+</div>
+</div>
+<p>The test yields a <span class="math inline">P</span>-value of <span class="math inline">P = 0.038.</span> This values is quite small; if <span class="math inline">\mu \leq 3.5</span>, then the probability of obtaining the sample mean value <span class="math inline">\widehat{\mu} = 3.758</span> is only 0.038! Thus, the data provide sufficient evidence at the 0.05 level against the hypothesis that the true mean petal length is at most 3.5 cm.</p>
+</div>
+</section>
+<section id="sec-mean-normal-var-unknown" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="sec-mean-normal-var-unknown"><span class="header-section-number">3.1.3</span> Mean of a normal population with unknown variance</h3>
+<p>In <a href="#sec-mean-normal-var-known" class="quarto-xref"><span>Section 3.1.1</span></a>, we considered samples <span class="math inline">X_1, \dots, X_m</span> from a normal population with a known <span class="math inline">\mu</span> and <span class="math inline">\sigma^2.</span> In contrast, here, we consider samples from a normal population and assume the population parameters <span class="math inline">\mu</span> and <span class="math inline">\sigma^2</span> are unknown. If the number of samples is large, the discussion in <a href="#sec-mean-large-sample" class="quarto-xref"><span>Section 3.1.2</span></a> indicates that the rv <span class="math display">Z = (\overline{X} - \mu) \sqrt{m} / S </span> has approximately a standard normal distribution. However, if <span class="math inline">m</span> is not sufficiently large then the transformed variable will be more spread out than a standard normal distribution.</p>
+<div id="thm-sample-mean-t-dist" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3.1</strong></span> For the sample mean <span class="math inline">\overline{X}</span> based on <span class="math inline">m</span> samples from a normal distribution with mean <span class="math inline">\mu</span>, the rv <span id="eq-t-statistic-mean"><span class="math display">
+T = \frac{\overline{X} - \mu}{S/\sqrt{m}}  \quad \sim \mathsf{t}(m-1)\,,
+\tag{3.6}</span></span> that is, <span class="math inline">T</span> has Student’s <span class="math inline">\mathsf{t}</span> distribution with <span class="math inline">\nu = m-1</span> df.</p>
+</div>
+<p>This leads us to consider a CI for the population parameter <span class="math inline">\mu</span> based on critical values of the <span class="math inline">\mathsf{t}</span> distribution.</p>
+<div id="prp-ci-norm-unknown-var" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3.4</strong></span> A <span class="math inline">100(1-\alpha)\%</span> confidence interval for the mean <span class="math inline">\mu</span> of a normal population, when <span class="math inline">\sigma^2</span> is unknown, is given by <span id="eq-ci-norm-unknown-var"><span class="math display">
+\left(\overline{x} - t_{\alpha/2, m-1} \cdot \frac{s}{\sqrt{m}}\,,
+        \overline{x} + t_{\alpha/2, m-1} \cdot \frac{s}{\sqrt{m}} \right)\,,
+\tag{3.7}</span></span> or <span class="math inline">\overline{x} \pm t_{\alpha/2, m-1} \cdot s/ \sqrt{m}.</span> Here <span class="math inline">\overline{x}</span> and <span class="math inline">s</span> are the sample mean and sample standard deviation, respectively.</p>
+</div>
+<div id="exm-ci-norm-unknown-var" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.5</strong></span> Let us return to the height of <span class="math inline">31</span> felled black cherry trees from the <strong>Cherry Tree Data</strong> in <a href="02-basics-stat-infer.html#nte-tree" class="quarto-xref">Note&nbsp;<span>2.2</span></a>. Give a <span class="math inline">99\%</span> CI for the population mean <span class="math inline">\mu.</span></p>
+<p>For <span class="math inline">m = 31</span>, the critical value of the reference distribution is <span class="math display">t_{0.005, 30} \approx 2.7499\,,</span> which can looked up in a table of critical values for <span class="math inline">\mathsf{t}(\nu = 30)</span> or found using the <code>r</code> command <code>qt(1-0.01/2, df = 31-1)</code>. The sample mean <span class="math inline">\overline{x} = 76</span> (computed in <a href="02-basics-stat-infer.html#exm-estimators" class="quarto-xref">Example&nbsp;<span>2.1</span></a>) is combined with the sample standard deviation, <span class="math display">
+\begin{aligned}
+s &amp;= \sqrt{\frac{1}{m-1} \sum_{i=1}^m (x_i - \overline{x})^2}\\
+   &amp;= \sqrt{\frac{1}{30} \left((63-76)^2 + \cdots + (87 - 76)^2\right)}\\
+   &amp;= 6.372\,,
+\end{aligned}
+</span> to form the interval estimate <span class="math display">
+\begin{aligned}
+&amp; \left(\overline{x} - t_{\alpha/2, m-1}  \cdot \frac{s}{\sqrt{m}}\,,
+        \overline{x} + t_{\alpha/2, m-1} \cdot \frac{s}{\sqrt{m}} \right) \\
+        &amp;\qquad = \left(76 - 2.750 \cdot \frac{6.372}{\sqrt{31}} \,, 76 + 2.750 \cdot \frac{6.372}{\sqrt{31}} \right)\\
+        &amp;\qquad = \left(72.85\,, 79.15\right)\,.
+\end{aligned}
+</span> For comparison, the critical value <span class="math inline">t_{.01/2, \nu}</span> for <span class="math inline">\nu = 14, \dots, 40</span> can be recalled with the following command.</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="dv">1</span><span class="fl">-0.01</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> <span class="fu">seq</span>(<span class="dv">14</span>,<span class="dv">40</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 2.976843 2.946713 2.920782 2.898231 2.878440 2.860935 2.845340 2.831360 2.818756
+[10] 2.807336 2.796940 2.787436 2.778715 2.770683 2.763262 2.756386 2.749996 2.744042
+[19] 2.738481 2.733277 2.728394 2.723806 2.719485 2.715409 2.711558 2.707913 2.704459</code></pre>
+</div>
+</div>
+<p>Note that these critical values can deviate significantly from the corresponding <span class="math inline">z_{0.01/2} = 2.575829.</span> In particular, if we had erroneously used the large sample estimate <a href="#eq-ci-large-sample" class="quarto-xref">Equation&nbsp;<span>3.5</span></a>, then we would have obtained a <span class="math inline">99\%</span> CI <span class="math inline">(73.05\,, 78.95)</span> which might give us a false sense of security as it is narrower.</p>
+</div>
+<p>In contrast to <a href="#prp-ci-select-n-fixed-w-alpha" class="quarto-xref">Proposition&nbsp;<span>3.1</span></a>, it is difficult to select the sample size <span class="math inline">m</span> to control the width of the <span class="math inline">\mathsf{t}</span>-based CI as the width involves the unknown (before the sample is acquired) <span class="math inline">s</span> and because <span class="math inline">m</span> also enters through <span class="math inline">t_{\alpha/2, m-1}.</span> A one-sample <span class="math inline">\mathsf{t}</span> test based on <a href="#eq-t-statistic-mean" class="quarto-xref">Equation&nbsp;<span>3.6</span></a> can be used to test a hypothesis about the population mean when the population is normal and <span class="math inline">\sigma^2</span> is unknown.</p>
+<div id="prp-htest-mean-normal-var-unknown" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3.5</strong></span> Assume that we sample <span class="math inline">X_1, \dots, X_m</span> from a normal population with mean <span class="math inline">\mu</span> and unknown variance <span class="math inline">\sigma^2.</span></p>
+<p>Consider <span class="math inline">H_0 : \mu = \mu_0.</span> The test statistic is <span class="math display">
+T = \frac{\overline{X} - \mu_0}{S / \sqrt{m}} \,.
+</span></p>
+<p>For a hypothesis test at level <span class="math inline">\alpha</span>, we use the following procedure:</p>
+<p>If <span class="math inline">H_a : \mu &gt; \mu_0</span>, then <span class="math inline">P</span>-value is the area under <span class="math inline">\mathsf{t}(m-1)</span> to the right of <span class="math inline">t.</span></p>
+<p>If <span class="math inline">H_a : \mu &lt; \mu_0</span>, then <span class="math inline">P</span>-value is the area under <span class="math inline">\mathsf{t}(m-1)</span> to the left of <span class="math inline">t.</span></p>
+<p>If <span class="math inline">H_a : \mu \neq \mu_0</span>, then <span class="math inline">P</span>-value is twice the area under <span class="math inline">\mathsf{t}(m-1)</span> to the right of <span class="math inline">|t|.</span></p>
+</div>
+<div id="exm-htest-ttest" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.6</strong></span> Let’s consider the <strong>Cherry Tree Data</strong> in <a href="02-basics-stat-infer.html#nte-tree" class="quarto-xref">Note&nbsp;<span>2.2</span></a>. The average timber volume is given in <a href="#tbl-cherry-data-vol" class="quarto-xref">Table&nbsp;<span>3.1</span></a>. The distribution for this data is approximately normal. We might ask if the data provide compelling evidence, say at level 0.05, for concluding that the true average timber volume exceeds 21.3 cubic feet.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="cell" data-layout-align="center">
+<div id="tbl-cherry-data-vol" class="cell quarto-float anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cherry-data-vol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.1: Observations of <span class="math inline">m = 31</span> felled black cherry trees.
+</figcaption>
+<div aria-describedby="tbl-cherry-data-vol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div>
+<table class="table do-not-create-environment cell table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Volume [cu ft]</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; width: 150mm;">10.2, 10.3, 10.3, 15.6, 16.4, 18.2, 18.8, 19.1, 19.7, 19.9, 21.0, 21.3, 21.4, 22.2, 22.6, 24.2, 24.9, 25.7, 27.4, 31.7, 33.8, 34.5, 36.3, 38.3, 42.6, 51.0, 51.5, 55.4, 55.7, 58.3, 77.0</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Let’s carry out a significance test for the true average volume of timber <span class="math inline">\mu</span> at level <span class="math inline">\alpha = 0.05.</span> We assume the null hypothesis <span class="math display">
+H_0 : \mu = 21.3\,.
+</span> An appropriate alternative hypothesis is <span class="math display">
+H_a : \mu &gt; 21.3\,,
+</span> that is, we will adopt the stance that the true average exceeds <span class="math inline">\mu_0 = 21.3</span> only if the null is rejected.</p>
+<p>From our <span class="math inline">m = 31</span> samples, we find that <span class="math inline">\overline{x} = 30.17</span> and that <span class="math inline">s = 16.44.</span> The computed value of the one-sample <span class="math inline">\mathsf{t}</span>-statistic is given by <span class="math display">
+\begin{aligned}
+t &amp;= \frac{\overline{x} - \mu_0}{s / \sqrt{m}}\\
+&amp;= \frac{30.17 - 21.3}{16.44 / \sqrt{31}}\\
+&amp; = 3\,.
+\end{aligned}
+</span> The test is based on <span class="math inline">\nu = 31-1</span> df, and <span class="math inline">P = 0.002663.</span> This is the upper-tail area, i.e., the area to the right of <span class="math inline">t</span> in <a href="#fig-exm-htest-ttest-plot" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>. Since <span class="math inline">P \ll \alpha</span>, we reject the null hypothesis that the population mean is <span class="math inline">21.3.</span> The data provide sufficient evidence that the population mean differs from <span class="math inline">21.3.</span></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-exm-htest-ttest-plot" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-exm-htest-ttest-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-infer-single-sample_files/figure-html/fig-exm-htest-ttest-plot-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-exm-htest-ttest-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: For this test, the reference distribution is <span class="math inline">\mathsf{t}(\nu = 30)</span> (<strong>not</strong> a Normal distribution) and the <span class="math inline">P</span>-value is the upper-tail area, i.e., to the right of the computed statistic <span class="math inline">t.</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Shapiro-Wilk normality test
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We can assess the normality of the sample by examining the normal quantile-quantile plot as in <a href="02-basics-stat-infer.html#exm-estimators" class="quarto-xref">Example&nbsp;<span>2.1</span></a>. For the data in <a href="#exm-htest-ttest" class="quarto-xref">Example&nbsp;<span>3.6</span></a> recall that this is done using the following <code>r</code> code.</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>trees <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> Volume)) <span class="sc">+</span> <span class="fu">stat_qq</span>() <span class="sc">+</span> <span class="fu">stat_qq_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-qq-plot-cherry-vol" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-qq-plot-cherry-vol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-infer-single-sample_files/figure-html/fig-qq-plot-cherry-vol-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-qq-plot-cherry-vol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: Normal quantile-quantile plot for the <code>Volume</code> variable (feature) in the Cherry Tree Data.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The data deviates quite a bit in the centre and in the tails of the distribution, indicating that there might be a moderate departure from normality.</p>
+<p>It is also possible to test the null hypothesis that the data is consistent with a normal distribution versus the alternative that the data is not normal. This is called a Shapiro-Wilk normality test.</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(trees<span class="sc">$</span>Height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  trees$Height
+W = 0.96545, p-value = 0.4034</code></pre>
+</div>
+</div>
+<p>At level <span class="math inline">0.05</span>, the Shapiro-Wilk test yields a <span class="math inline">P</span>-value <span class="math inline">P = 0.4034 &gt; 0.05</span>, and therefore we fail to reject the null hypothesis. We cannot exclude that the data is drawn from a normal population. This “prove” the data is drawn from a normal distribution, but it does tell us that for this particular example, an inference based on a normal distribution instead of a <span class="math inline">\mathsf{t}</span> distribution will probably be reasonable. It is always good to view the QQ plot as well — sometimes if the number of samples is very large then the Shapiro-Wilk test will reject the null for trivial deviations from normality.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-estimating-proportions" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-estimating-proportions"><span class="header-section-number">3.2</span> Estimating proportions</h2>
+<p>Consider a population of size <span class="math inline">M</span> in which each member either satisfies a given property or does not (i.e.&nbsp;a binary classification). The proportion <span class="math inline">p \in (0,1)</span> of the population satisfying the given property is a parameter characterising the population we might be interested in estimating. A sample of classified observations, <span class="math inline">X_1, \dots, X_m \sim \mathsf{Bernoulli}(p)\,,</span> from the population contains a proportion, <span id="eq-proportion-estimator"><span class="math display">
+\widehat{p} = \frac{1}{m} \sum_{i=1}^m X_i\,,
+\tag{3.8}</span></span> satisfying the given property. The estimator <span class="math inline">\widehat{p}</span> varies with the sample, and for large <span class="math inline">m</span>, its sampling distribution has the following properties: <span id="eq-proportion-mean"><span class="math display">
+\mu_{\widehat{p}} = \mathop{\mathrm{\mathbf{E}}}[X_i] = p
+\tag{3.9}</span></span> and <span id="eq-proportion-var"><span class="math display">
+\sigma_{\widehat{p}}^2 = \frac{\mathop{\mathrm{Var}}[X_i]}{m} = \frac{p(1-p)}{m}\,,
+\tag{3.10}</span></span> provided that <span class="math inline">m</span> is small relative to <span class="math inline">M.</span> Moreover, by invoking the Central Limit Theorem, we have the distribution of <span class="math inline">\widehat{p}</span> is approximately normal for sufficiently large <span class="math inline">m</span> as <a href="#eq-proportion-estimator" class="quarto-xref">Equation&nbsp;<span>3.8</span></a> is a sample mean. Indeed, this normal approximation works well for moderately large <span class="math inline">m</span> as long as <span class="math inline">p</span> is not too close to zero or one; a rule of thumb is that <span class="math inline">mp &gt; 5</span> and <span class="math inline">m(1-p) &gt; 5.</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Rule of thumb
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For estimating proportions, a rule of thumb is <span class="math inline">m \leq 0.05 M.</span></p>
+<p>Note that if <span class="math inline">m</span> is large relative to <span class="math inline">M</span> (<span class="math inline">m &gt; 0.05 M</span>) then the variance <a href="#eq-proportion-var" class="quarto-xref">Equation&nbsp;<span>3.10</span></a> must be adjusted by a factor (related to the hypergeometric distribution): <span class="math display">
+\sigma_{\widehat{p}}^2 = \frac{p(1-p)}{m} \frac{M-m}{M-1}\,,
+</span> where for fixed <span class="math inline">m</span> the factor converges to <span class="math inline">1</span> as <span class="math inline">M\to \infty.</span></p>
+</div>
+</div>
+<div id="prp-ci-proportion" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3.6</strong></span> For large samples <span class="math inline">n</span>, a <span class="math inline">100(1-\alpha)\%</span> confidence interval for the parameter <span class="math inline">p</span> is given by <span id="eq-proportion-mean-ci"><span class="math display">
+\widehat{p} \pm z_{\alpha/2} \sqrt{\frac{\widehat{p} (1-\widehat{p})}{m}}\,.
+\tag{3.11}</span></span></p>
+</div>
+<p>This follows from <a href="#prp-ci-large-sample" class="quarto-xref">Proposition&nbsp;<span>3.3</span></a> by observing that <a href="#eq-proportion-estimator" class="quarto-xref">Equation&nbsp;<span>3.8</span></a> is a sample mean and replacing the standard error <span class="math inline">\sigma_{\widehat{p}}</span> from <a href="#eq-proportion-var" class="quarto-xref">Equation&nbsp;<span>3.10</span></a> by the estimated standard error, <span class="math display">
+\widehat{\mathsf{se}}(\widehat{p}) = \sqrt{\frac{\widehat{p} (1-\widehat{p})}{m}}\,;
+</span> recall the <span class="math inline">s</span> in <a href="#eq-ci-large-sample" class="quarto-xref">Equation&nbsp;<span>3.5</span></a>) is the sample variance for the <em>population</em> and <span class="math inline">s / \sqrt{m} = \mathsf{se}</span> is the standard error of the point estimator.</p>
+<div id="prp-htest-proportion" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3.7</strong></span> Let <span class="math inline">X</span> be the count of members with a given property based on a sample of size <span class="math inline">m</span> from a population where a proportion <span class="math inline">p</span> shares the property. Then <span class="math inline">\widehat{p} = X / m</span> is an estimator of <span class="math inline">p.</span> Assume <span class="math inline">m p_0 \geq 10</span> and <span class="math inline">m (1-p_0) \geq 10.</span></p>
+<p>Consider <span class="math inline">H_0 : p = p_0.</span> The test statistic is <span class="math display">
+Z = \frac{\widehat{p} - p_0}{\sqrt{p_0 (1-p_0) / m}} \,.
+</span></p>
+<p>For a hypothesis test at level <span class="math inline">\alpha</span>, we use the following procedure:</p>
+<p>If <span class="math inline">H_a : p &gt; p_0</span>, then <span class="math inline">P</span>-value is the area under <span class="math inline">\mathsf{N}(0,1)</span> to the right of <span class="math inline">z.</span></p>
+<p>If <span class="math inline">H_a : p &lt; p_0</span>, then <span class="math inline">P</span>-value is the area under <span class="math inline">\mathsf{N}(0,1)</span> to the left of <span class="math inline">z.</span></p>
+<p>If <span class="math inline">H_a : p \neq p_0</span>, then <span class="math inline">P</span>-value is twice the area under <span class="math inline">\mathsf{N}(0,1)</span> to the right of <span class="math inline">|z|.</span></p>
+</div>
+<div id="exm-est-prop-hypothesis-test" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.7</strong></span> Let us revisit <a href="02-basics-stat-infer.html#exm-htest-setup" class="quarto-xref">Example&nbsp;<span>2.3</span></a>, where we considered Churchill’s claim that he would receive half the votes for the House of Commons seat for the constituency of Dundee. We are sceptical that he is as popular as he says. Suppose 116 out of 263 Dundonians polled claimed they intended to vote for Churchill. Can it be concluded at a significance level of <span class="math inline">0.10</span> that more than half of all eligible Dundonains will vote for Churchill?</p>
+<p>The parameter of interest is <span class="math inline">p</span>, the proportion of votes for Churchill. The null hypothesis is <span class="math display">H_0 : p = 0.5\,,</span> and the alternative hypothesis is, <span class="math display">H_a : p &lt; 0.5\,.</span> The test is oneside (i.e.&nbsp;<span class="math inline">H_a : p &lt; 0.5</span>) since we are interested in testing support for “more than half”. Since <span class="math inline">263(0.5) = 131.5 &gt; 10</span>, we satisfy the assumptions stated in <a href="#prp-htest-proportion" class="quarto-xref">Proposition&nbsp;<span>3.7</span></a>.</p>
+<p>Based on the sample, <span class="math inline">\widehat{p} = 116 / 263 = 0.4411.</span> The test statistic value is <span class="math display">
+\begin{aligned}
+z &amp;= \frac{\widehat{p} - p_0}{\sqrt{p_0 (1-p_0) / m}} \\
+&amp;= \frac{0.4411 - 0.5}{\sqrt{0.5 (1-0.5) / 263}}\\
+&amp;= -1.91  \,.
+\end{aligned}
+</span> The <span class="math inline">P</span>-value for this lower-tailed <span class="math inline">z</span> test is <span class="math inline">P = \Phi(-1.91) = 0.028.</span> Since <span class="math inline">P &lt; 0.10 = \alpha</span>, we reject the null hypothesis at the <span class="math inline">0.1</span> level. The evidence for concluding that the true proportion is different from <span class="math inline">p_0 = 0.5</span> at the <span class="math inline">0.10</span> level is compelling.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+</div>
+</section>
+<section id="sec-estimating-variances" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-estimating-variances"><span class="header-section-number">3.3</span> Estimating variances</h2>
+<p>Next, we consider estimates of the population variance (and standard deviation) when the population is assumed to have a normal distribution. In this case, the sample variance <span class="math inline">S^2</span> in <a href="02-basics-stat-infer.html#eq-sample-var" class="quarto-xref">Equation&nbsp;<span>2.2</span></a> provides the basis for inferences. Consider iid samples <span class="math inline">X_1, \dots, X_m \sim \mathsf{N}(\mu, \sigma^2).</span> We provide the following theorem without proof.</p>
+<div id="thm-samp-var-chisq" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3.2</strong></span> For the sample variance <span class="math inline">S^2</span> based on <span class="math inline">m</span> samples from a normal distribution with variance <span class="math inline">\sigma^2</span>, the rv <span class="math display">
+V = \frac{(m-1)S^2}{\sigma^2} = \frac{\sum_i(X_i - \overline{X})^2}{\sigma^2} \qquad \sim \chi^2_{m-1}\,,
+</span> that is, <span class="math inline">V</span> has a <span class="math inline">\chi^2</span> distribution with <span class="math inline">\nu = m-1</span> df.</p>
+</div>
+<p>Based on <a href="#thm-samp-var-chisq" class="quarto-xref">Theorem&nbsp;<span>3.2</span></a>, <span class="math display">
+P\left(\chi^2_{1-\alpha/2, m-1} &lt; \frac{(m-1)S^2}{\sigma^2} &lt; \chi^2_{\alpha/2, m-1} \right) = 1 - \alpha \,,
+</span> i.e., the area captured between the right and left tail critical <span class="math inline">\chi^2</span> values is <span class="math inline">1-\alpha.</span> The expression above can be further manipulated to obtain an interval for the unknown parameter <span class="math inline">\sigma^2</span>: <span class="math display">
+P\left(\frac{(m-1) s^2}{\chi^2_{\alpha/2, m-1}} &lt; \sigma^2 &lt; \frac{(m-1) s^2}{\chi^2_{1-\alpha/2, m-1}} \right) = 1 - \alpha \,,
+</span> where we substitute the computed value of the point estimate <span class="math inline">s^2</span> for the estimator into the limits to give a CI for <span class="math inline">\sigma^2.</span> If we take square roots in the inequality above, we obtain a CI for the population standard deviation <span class="math inline">\sigma.</span></p>
+<div id="prp-ci-variance" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3.8</strong></span> A <span class="math inline">100(1-\alpha)\%</span> confidence interval for the variance of a normal population is <span id="eq-ci-variance"><span class="math display">
+\left( (m-1)s^2 / \chi^2_{\alpha/2, m-1} \,,  (m-1)s^2 / \chi^2_{1-\alpha/2, m-1} \right) \,.
+\tag{3.12}</span></span> A <span class="math inline">100(1-\alpha)\%</span> confidence interval for the standard deviation <span class="math inline">\sigma</span> of a normal population is given by taking the square roots of the lower and upper limits in <a href="#eq-ci-variance" class="quarto-xref">Equation&nbsp;<span>3.12</span></a>.</p>
+</div>
+<div id="exm-eg-ci-variance" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.8</strong></span> For the <strong>Cherry Tree Data</strong> in <a href="#tbl-cherry-data-vol" class="quarto-xref">Table&nbsp;<span>3.1</span></a> concerning the timber volume of <span class="math inline">31</span> felled black cherry trees, give a <span class="math inline">95%</span> CI for the variance.</p>
+<p>We are interested in estimating the true variance <span class="math inline">\sigma^2</span> of the timber volume based on <span class="math inline">m=31</span> samples. Recall that the mean of our data is <span class="math inline">\overline{x} = 30.17</span> cu ft and that the sample variance is <span class="math inline">s^2 = 270.2</span> using the estimator <a href="02-basics-stat-infer.html#eq-sample-var" class="quarto-xref">Equation&nbsp;<span>2.2</span></a>. The critical values for the <span class="math inline">\chi^2_{.975, 30} = 16.7908</span> and <span class="math inline">\chi^2{.025, 30} = 46.9792</span> can be found by checking a table of critical values of the <span class="math inline">\chi^2(\nu=30)</span> distribution or by using the <code>r</code> code <code>qchisq(1-0.05/2, df=30, lower.tail = FALSE)</code> and <code>qchisq(0.05/2, df=df, lower.tail = FALSE)</code>, respectively, see <a href="#fig-exm-htest-chisq-plot" class="quarto-xref">Figure&nbsp;<span>3.4</span></a> below.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-exm-htest-chisq-plot" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-exm-htest-chisq-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="03-infer-single-sample_files/figure-html/fig-exm-htest-chisq-plot-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-exm-htest-chisq-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.4: As the <span class="math inline">\chi^2</span> distribution is not symmetric, the upper and lower critical values will not be the same (the shaded areas are equal).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Pulling everything together, a <span class="math inline">95\%</span> CI for the population variance is given by <span class="math display">
+\begin{aligned}
+&amp; \left( (m-1)s^2 / \chi^2_{\alpha/2, m-1} \,,  (m-1)s^2 / \chi^2_{1-\alpha/2, m-1} \right) \\
+&amp;\qquad = \left( (30) 270.2 / 46.9792 \,, (30) 270.2 / 16.7908  \right) \\
+&amp;\qquad = \left(172.5\,, 482.8\right)\,.
+\end{aligned}
+</span> Note the position of the critical values—don’t swap them around.</p>
+</div>
+<div id="exm-eg-ci-variance-infer" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.9</strong></span> Let’s Revisit <a href="#exm-eg-ci-variance" class="quarto-xref">Example&nbsp;<span>3.8</span></a>) and use the <code>infer</code> package to construct a <span class="math inline">95\%</span> confidence interval for the true standard deviation of the timber volume of black cherry trees based on the available measurements in the <strong>Cherry Tree Data</strong>, <a href="#tbl-cherry-data-vol" class="quarto-xref">Table&nbsp;<span>3.1</span></a>).</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(trees<span class="sc">$</span>Volume)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>null_dist <span class="ot">&lt;-</span> trees <span class="sc">|&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a> <span class="fu">specify</span>(<span class="at">response =</span> Volume) <span class="sc">|&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a> <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"sd"</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>ci <span class="ot">&lt;-</span> null_dist <span class="sc">|&gt;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a> <span class="fu">get_confidence_interval</span>(<span class="at">point_estimate =</span> s, <span class="at">level =</span> <span class="fl">0.95</span>, <span class="at">type =</span> <span class="st">"se"</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>null_dist <span class="sc">|&gt;</span> </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a> <span class="fu">visualise</span>() <span class="sc">+</span> <span class="fu">shade_ci</span>(ci)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="03-infer-single-sample_files/figure-html/unnamed-chunk-10-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We plot the <span class="math inline">95\%</span> confidence interval for the standard deviation based on the computational null distribution obtained using 1000 bootstrap replications; note the interval estimate is in good agreement with the values obtained in <a href="#exm-eg-ci-variance" class="quarto-xref">Example&nbsp;<span>3.8</span></a>.</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ci<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  lower_ci upper_ci
+1 141.2539  440.608</code></pre>
+</div>
+</div>
+<p>Due to the computational nature, the bootstrapped interval estimate is not precisely the same as the theoretical interval estimate and rerunning the code will yield a slightly different interval.</p>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-vanBelle:2008rt" class="csl-entry" role="listitem">
+Belle, Gerald van. 2008. <em>Statistical <span>R</span>ules of <span>T</span>humb</em>. Second. Wiley Series in Probability and Statistics. Hoboken, NJ: John Wiley &amp; Sons, Inc.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>How much wood is that? About a sixth of a cord. A full cord of chopped firewood in the US is <span class="math inline">124</span> cu ft; about enough to keep you warm through a New England winter (according to my mother-in-law).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Churchill took ca. <span class="math inline">44\%</span> of the vote in the 1908 by-election to become MP for Dundee [<a href="https://www.wikiwand.com/en/1908_Dundee_by-election">https://www.wikiwand.com/en/1908_Dundee_by-election</a>].<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/dundeemath\.github\.io\/MA22004");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./02-basics-stat-infer.html" class="pagination-link" aria-label="Basics of statistical inference">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Basics of statistical inference</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./04-infer-two-samples.html" class="pagination-link" aria-label="Two samples inferences">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Two samples inferences</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Copyright 2024, Eric Hall (University of Dundee)</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dundeemath/MA22004/edit/master/03-infer-single-sample.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

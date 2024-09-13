@@ -1,0 +1,2046 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.554">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Module documents and lecture notes for MA22004 - Statistics II, a second year module about inferential statistics at the University of Dundee.">
+
+<title>MA22004 — Statistics II - Preliminaries</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./01-sampling-distributions.html" rel="next">
+<link href="./writing.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-prelim.html">Lecture Notes</a></li><li class="breadcrumb-item"><a href="./00-prelim.html">Preliminaries</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">MA22004 — Statistics II<br></a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/dundeemath/MA22004/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./MA22004-—-Statistics-II--br-
+.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Module Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./about-me.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About Your Instructor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab Guide</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./writing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Writing Lab Reports</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Lecture Notes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-prelim.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-sampling-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sampling distributions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-basics-stat-infer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Basics of statistical inference</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-infer-single-sample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Single sample inferences</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-infer-two-samples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Two samples inferences</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Analysis of variance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-linear-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-categorical-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Categorical data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-quality-control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Quality control</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-investigations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Curated Content</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#abbreviations" id="toc-abbreviations" class="nav-link active" data-scroll-target="#abbreviations">Abbreviations</a></li>
+  <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation">Notation</a></li>
+  <li><a href="#sample-space-events-probabilities" id="toc-sample-space-events-probabilities" class="nav-link" data-scroll-target="#sample-space-events-probabilities">Sample space, events, probabilities</a></li>
+  <li><a href="#random-variables" id="toc-random-variables" class="nav-link" data-scroll-target="#random-variables">Random variables</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/dundeemath/MA22004/edit/master/00-prelim.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-prelim.html">Lecture Notes</a></li><li class="breadcrumb-item"><a href="./00-prelim.html">Preliminaries</a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Preliminaries</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This section contains a list of abbreviations, comment on notation, and a (very quick) review of probability.</p>
+<section id="abbreviations" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="abbreviations">Abbreviations</h2>
+<p>In <a href="#tbl-abbrev" class="quarto-xref">Table&nbsp;<span>1</span></a> we list abbreviations used throughout these lecture notes. These abbreviations are pretty standdard and you might encounter them outside the module in other references.</p>
+<div class="cell" data-layout-align="center">
+<div id="tbl-abbrev" class="cell quarto-float anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-abbrev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Commonly used abbreviations.
+</figcaption>
+<div aria-describedby="tbl-abbrev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div>
+<table class="table do-not-create-environment cell table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Abbreviation</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Expanded</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">pdf</td>
+<td style="text-align: left;">probability density function</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cdf</td>
+<td style="text-align: left;">cumulative distribution function</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">rv</td>
+<td style="text-align: left;">random variable</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">iid</td>
+<td style="text-align: left;">independent and identically distributed</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">obs</td>
+<td style="text-align: left;">observations</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CI</td>
+<td style="text-align: left;">confidence interval</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">df</td>
+<td style="text-align: left;">degrees of freedom</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="notation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="notation">Notation</h2>
+<p>Uppercase roman letters, e.g., <span class="math inline">X,</span> will typically denote random variables (rvs); lower case letters, e.g., <span class="math inline">x,</span> will represent a particular value (observation) of a rv. Rvs have probability distributions. Distributions are typically characterised by <em>parameters</em> that describe population characteristics. In the present module, we will adopt the (frequentists) view that parameters are fixed real numbers that are often unknown and must be estimated from data. Statistical inference is a tool that will help us to do this.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Variables and parameters
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Statistical models comprise both rvs and parameters. Be careful not to confuse them!</p>
+</div>
+</div>
+<p>For a random variable <span class="math inline">X</span> that has a distribution <span class="math inline">F</span> depending on a set of parameters <span class="math inline">\Theta,</span> we will write <span class="math inline">X \sim F(\Theta)</span>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Specifying a probability distribution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We write <span class="math inline">X \sim F(\Theta)</span> to indicate <span class="math inline">X</span> has distribution function <span class="math inline">F(\Theta)</span>. This is <strong>not</strong> read as “<span class="math inline">X</span> is approximately <span class="math inline">F(\Theta)</span>”!</p>
+</div>
+</div>
+</section>
+<section id="sample-space-events-probabilities" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="sample-space-events-probabilities">Sample space, events, probabilities</h2>
+<p>A sample space <span class="math inline">\Omega</span> is a set of possible outcomes of an experiment. Points <span class="math inline">\omega \in \Omega</span> are sample outcomes or realizations. Subsets <span class="math inline">A \subset \Omega</span> are called events.</p>
+<div id="exm-sample-space" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1 (Sample space)</strong></span> Consider an experiment where we measure the petal widths from a randomly sampled cyclamen flowers. Before we observe the petal width, there is uncertainty that we can model using a sample space of events. The sample space is <span class="math inline">\Omega = (0, \infty),</span> since measurements of length should be positive (practically, the lengths will have a finite size, too). Each <span class="math inline">\omega \in \Omega</span> is a measurement of petal width for a cyclamen flower. Consider an event <span class="math inline">A = (5, 12]</span>; this is the event that the petal width is larger than <span class="math inline">5</span> but less than or equal to <span class="math inline">12</span>. Remember, we use probability to model uncertainty <em>before</em> we observe the petal width — after we take a measurement, the petal width is no longer uncertain (we have collected a statistic).</p>
+</div>
+<p>As sample spaces and events are described using sets, we recall the following notations, definitions, and laws about set theory. Let <span class="math inline">A,</span> <span class="math inline">B,</span> and <span class="math inline">A_1, A_2, \dots</span> be events in a sample space <span class="math inline">\Omega</span>.</p>
+<ul>
+<li><p>complement: <span class="math inline">A^c = \{ \omega \in \Omega: \omega \notin A\}</span>.</p></li>
+<li><p>null event: <span class="math inline">\emptyset = \Omega^c</span>.</p></li>
+<li><p>intersection: <span class="math inline">A \cap B = \{\omega \in \Omega : \omega \in A \text{ and } \omega \in B\}</span>. In particular, for <span class="math inline">A_1, A_2, \dots,</span> then <span class="math display">\bigcap_{i=1}^\infty A_i = \{\omega \in \Omega : \omega \in A_i \text{ for all } i \}\,.</span></p></li>
+<li><p>difference: <span class="math inline">A \setminus B = \{\omega \in \Omega : \omega \in A, \omega \notin B\}</span>.</p></li>
+<li><p>size: <span class="math inline">|A|</span> denotes the number of elements in <span class="math inline">A</span>.</p></li>
+<li><p>disjoint: <span class="math inline">A_i \cap A_j = \emptyset,</span> for <span class="math inline">i\neq j</span>.</p></li>
+<li><p>partition: disjoint <span class="math inline">A_1, A_2, \dots</span> such that <span class="math inline">\bigcup_{i=1}^\infty A_i = \Omega</span>.</p></li>
+<li><p>indicator: <span class="math inline">I_A(\omega) = I(\omega \in A) = \{1 \text{ if } \omega \in A; 0 \text{ if } \omega \notin A\}</span>.</p></li>
+<li><p>monotone increasing: <span class="math inline">A_1 \subset A_2 \subset \dots</span> and define limit <span class="math display">\lim_{n \to \infty}A_n = \bigcup_{i=1}^\infty A_i\,.</span></p></li>
+<li><p>monotone decreasing: <span class="math inline">A_1 \supset A_2 \supset \dots</span> and define limit <span class="math display">\lim_{n \to \infty} A_n = \bigcap_{i=1}^\infty A_i\,.</span></p></li>
+<li><p>distributive laws: <span class="math display">A\cap (B\cup C) = (A\cap B) \cup (A \cap C)\,,</span> <span class="math display">A\cup(B\cap C) = (A \cup B) \cap (A\cup C)\,.</span></p></li>
+<li><p>De Morgan’s laws: <span class="math display">(A \cap B)^c = A^c \cup B^c\,,</span> <span class="math display">(A\cup B)^c = A^c \cap B^c\,.</span></p></li>
+</ul>
+<p>We assign probabilities to events in our sample space.</p>
+<div id="def-prob" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Probability distribution)</strong></span> A probability distribution is a function <span class="math inline">P : \Omega \to \mathbf{R}</span> satisfying three axioms:</p>
+<ol type="1">
+<li><span class="math inline">P(A) \geq 0</span> for every <span class="math inline">A \subset \Omega</span> (positivity),</li>
+<li><span class="math inline">P(\Omega) = 1</span> (totality),</li>
+<li>if <span class="math inline">A_1, A_2, \dots</span> are disjoint subsets of <span class="math inline">\Omega,</span> then <span class="math display">P(\cup_{i=1}^\infty A_i) = \sum_{i=1}^\infty P(A_i)\,.</span></li>
+</ol>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Perspectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We can interpret <span class="math inline">P(A)</span> as representing:</p>
+<ul>
+<li><strong>frequency</strong>, i.e., the long-run proportion of times <span class="math inline">A</span> is true (the <em>frequentist perspective</em>),</li>
+<li><strong>degrees of belief</strong>, i.e, as a measure of the observer’s strength of belief that <span class="math inline">A</span> is true (the <em>Bayesian perspective</em>).</li>
+</ul>
+</div>
+</div>
+<div id="thm-pie" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (PIE)</strong></span> The principal of inclusion-exclusion, <span class="math display">P(A\cup B) = P(A) + P(B) - P(A\cap B)\,.</span></p>
+</div>
+<p><a href="#thm-pie" class="quarto-xref">Theorem&nbsp;<span>1</span></a> follows from the definition of a probability distributions and facts about set theory.</p>
+<div id="def-prob-finite" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Probability of an event)</strong></span> For events <span class="math inline">A</span> from finite sample spaces <span class="math inline">\Omega,</span> we assign probabilities according to: <span class="math display">P(A) = \frac{|A|}{|\Omega|} \,.</span></p>
+</div>
+<p>For finite sample spaces, we assign probabilities according to their long-run frequency of occurring. For an event <span class="math inline">A,</span> this is the ratio of the size of <span class="math inline">A</span> (number of ways <span class="math inline">A</span> can happen) to the size of <span class="math inline">\Omega</span> (number of total outcomes).</p>
+<div id="def-indep" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (Independent events)</strong></span> Events <span class="math inline">A</span> and <span class="math inline">B</span> are independent, i.e., <span class="math inline">A \perp \!\!\! \perp B,</span> iff <span class="math inline">P(A\cap B) = P(A)P(B)</span>.</p>
+</div>
+<p>That is, events <span class="math inline">A</span> and <span class="math inline">B</span> are independent if and only if the probability of <span class="math inline">A</span> and <span class="math inline">B</span> occurring is equal to the the probability <span class="math inline">A</span> occurring times the probability of <span class="math inline">B</span> occurring.</p>
+<div id="def-cond-prob" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4 (Conditional probability)</strong></span> If <span class="math inline">P(B) &gt; 0,</span> then <span class="math display">P(A \mid B) = \frac{P(A \cap B)}{P(B)}\,.</span></p>
+</div>
+<p>Note that:</p>
+<ul>
+<li><span class="math inline">P(\cdot \mid B)</span> satisfies the axioms of probability, for fixed <span class="math inline">B,</span></li>
+<li>in general, <span class="math inline">P(A \mid \cdot)</span> is not a probability for fixed <span class="math inline">A,</span> and,</li>
+<li>in general, <span class="math inline">P(A\mid B) \neq P(B \mid A)</span>.</li>
+</ul>
+<div id="thm-bayes" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (Bayes Theorem)</strong></span> Let events <span class="math inline">A_1, \dots, A_k</span> partition <span class="math inline">\Omega,</span> with <span class="math inline">P(A_i) &gt; 0</span>.</p>
+<p>If <span class="math inline">P(B) &gt; 0,</span> then <span class="math display">P(A_i \mid B) = \frac{P(B\mid A_i) P(A_i)}{\sum_j P(B \mid A_j) P(A_j)}\,.</span></p>
+</div>
+<p>Generally, it is not feasible to assign probabilities to <em>all</em> subsets of <span class="math inline">\Omega</span> (e.g., if is infinite). In that case, we restrict to our attention to a <span class="math inline">\sigma</span>-algebra <span class="math inline">\mathcal{A}</span> (also called, <span class="math inline">\sigma</span>-field), which is a collection of sets satisfying:</p>
+<ol type="1">
+<li><span class="math inline">\emptyset \in \mathcal{A},</span></li>
+<li>if <span class="math inline">A_1, A_2, \dots, \in \mathcal{A}</span> then <span class="math inline">\cup_{i = 1}^\infty A_i \in \mathcal{A},</span> 3.<span class="math inline">A\in \mathcal{A} \implies A^c \in \mathcal{A}</span>.</li>
+</ol>
+<p>Sets in <span class="math inline">\mathcal{A}</span> are said to be <em>measurable</em> and <span class="math inline">(\Omega, \mathcal{A})</span> is a measure space. If <span class="math inline">P</span> is a probability defined on <span class="math inline">\mathcal{A},</span> then <span class="math inline">(\Omega, \mathcal{A}, P)</span> is called a <em>probability space</em>.</p>
+<p>E.g., when <span class="math inline">\Omega \equiv \mathbf{R},</span> we take <span class="math inline">\mathcal{A}</span> to be the smallest <span class="math inline">\sigma</span>-field containing all open subsets of <span class="math inline">\mathbf{R},</span> which is called the Borel <span class="math inline">\sigma</span>-field. If you find these details interesting, take: MA42008 Mathematical Statistics!</p>
+</section>
+<section id="random-variables" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="random-variables">Random variables</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How do we link sample spaces and events to data?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We use random variables to link sample spaces and events to data.</p>
+</div>
+</div>
+<div id="def-rv" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 5 (Random variables)</strong></span> A random variable (rv) is a mapping <span class="math inline">X : \Omega \to \mathbf{R}</span> that maps <span class="math inline">\omega \in \Omega \mapsto X(\omega)</span>.</p>
+</div>
+<div id="exm-rv-1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2</strong></span> Consider a coin flipping experiment where you flip a fair coin eight times. Let <span class="math inline">X</span> be the number of heads in the sequence. If three heads occur, e.g., <span class="math inline">\omega = HTTTTTHH,</span> then <span class="math inline">X(\omega) = 3</span>.</p>
+</div>
+<div id="exm-rv-2" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3</strong></span> Consider an experiment where you draw a point a random from the unit disk. Then <span class="math inline">\Omega = \{(x,y) : x^2 + y^2 \leq 1\}</span> and a typical outcome will be the pair <span class="math inline">\omega = (x,y)</span>. Some random variables to consider are <span class="math inline">X(\omega) = x,</span> <span class="math inline">Y(\omega) = y,</span> <span class="math inline">Z(\omega) = x+y,</span> and <span class="math inline">W(\omega) = \sqrt{x^2 + y^2}</span>.</p>
+</div>
+<div id="def-prob-rv" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6 (Assigning probabilities to rvs)</strong></span> Given <span class="math inline">X</span> and <span class="math inline">A \subset \mathbf{R},</span> we define <span class="math display">X^{-1}(A) = \{\omega \in \Omega : X(\omega) \in A\}</span> and let <span class="math display">P(X \in A) = P(X^{-1}(A)) = P(\{\omega \in \Omega : X(\omega) \in A\})\,,</span> e.g., <span class="math inline">P(X=x) = P(X^{-1}(x)) = P(\{\omega \in \Omega : X(\omega) = x\})</span>.</p>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Observations vs rvs
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">X</span> denotes a rv and <span class="math inline">x</span> denotes a particular value of <span class="math inline">X</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+We measure probabilities of events
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A rv <span class="math inline">X</span> by itself is not an event. You would never write <span class="math inline">P(X),</span> would you!?</p>
+</div>
+</div>
+<div id="exm-rv-3" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4</strong></span> Consider a coin flipping experiment where you flip a fair coin twice. Let <span class="math inline">X</span> be the number of heads. Then <span class="math display">P(X=0) = P(\{TT\}) = \frac{1}{4}\,,</span> <span class="math display">P(X=1) = P(\{HT\} \cup \{TH\}) = P(\{HT\}) + P(\{TH\}) = \frac{1}{2}\,,</span> <span class="math display">P(X=2) = P(\{HH\}) = \frac{1}{4}\,.</span></p>
+</div>
+<div id="def-cdf" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 7 (Cdf)</strong></span> The cumulative distribution function (cdf), <span class="math inline">F_X:\mathbf{R} \to [0,1],</span> is defined by <span class="math inline">F_X(x) = P(X \leq x)</span>.</p>
+</div>
+<p><a href="#fig-eg-cdf-coin-flip-plot" class="quarto-xref">Figure&nbsp;<span>1</span></a> displays the cdf for the coin flip experiment considered in <a href="#exm-rv-3" class="quarto-xref">Example&nbsp;<span>4</span></a>. The cdf <span class="math inline">F_X(x)</span> jumps at <span class="math inline">x = 0,</span> <span class="math inline">x=1,</span> and <span class="math inline">x=2</span>. The height of the jumps are given by <span class="math inline">P(X=x)</span>. We observe as well that <span class="math inline">F_X(x) = 0</span> for <span class="math inline">x&lt;0,</span> as no probability has been accumulated; recall that probabilities are always non-negative, so a function that accumulates probability will always be non-negative. Further, <span class="math inline">F_X(x) = 1</span> for <span class="math inline">x \geq 2,</span> as all the probability has been accumulated; remember that the total probability that can be assigned over the whole sample space must sum to one.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-eg-cdf-coin-flip-plot" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-eg-cdf-coin-flip-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="00-prelim_files/figure-html/fig-eg-cdf-coin-flip-plot-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-eg-cdf-coin-flip-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The cdf for the two coin flip example.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Note that a cdf completely determines the distribution of a random variable. This statement is captured in <a href="#thm-cdf-determines-dist" class="quarto-xref">Theorem&nbsp;<span>3</span></a>.</p>
+<div id="thm-cdf-determines-dist" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3</strong></span> Let <span class="math inline">X</span> have cdf <span class="math inline">F</span> and <span class="math inline">Y</span> have cdf <span class="math inline">G</span>. If <span class="math inline">F(x) = G(x)</span> for all <span class="math inline">x,</span> then <span class="math inline">P(X \in A)= P(Y \in A) \forall A \in \mathbf{R}</span>.</p>
+</div>
+<p>Since cdfs determine or characterize a probability distribution, it is useful to know the key properties of cdfs, which are listed below in <a href="#thm-cdf-properties" class="quarto-xref">Theorem&nbsp;<span>4</span></a>.</p>
+<div id="thm-cdf-properties" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 4 (Properties of cdfs)</strong></span> <span class="math inline">F : \mathbf{R} \to [0,1]</span> is a cdf for some <span class="math inline">P</span> iff,</p>
+<ol type="1">
+<li><span class="math inline">F</span> is nondecreasing (i.e., <span class="math inline">x_1 &lt; x_2 \implies F(x_1) \leq F(x_2)</span>),</li>
+<li><span class="math inline">F</span> is normalized to <span class="math inline">[0,1]</span> (i.e., <span class="math inline">\lim_{x \to -\infty} F(x) = 0</span> and <span class="math inline">\lim_{x \to \infty} F(x) = 1</span>),</li>
+<li><span class="math inline">F</span> is right-continuous (i.e., <span class="math inline">F(x) = F(x^*) \forall x</span> where <span class="math inline">F(x^*) = \lim_{y &gt; x; y \to x} F(y)</span>).</li>
+</ol>
+</div>
+<p>For a rv <span class="math inline">X</span> we say <span class="math inline">X</span> is <em>discrete</em> if it assumes at most a <em>countable</em> number of (discrete) values. For a discrete sample space, the collection of all probabilities of <span class="math inline">X(\omega)</span> gives us a probability distribution.</p>
+<div id="def-pmf" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 8 (Pmf)</strong></span> A pdf for a discrete rv <span class="math inline">X</span> is <span class="math inline">f_X(x) = P(X = x)</span>. Since this density function places a “point mass” at each <span class="math inline">x,</span> it is sometimes referred to as a probability mass function (pmf).</p>
+</div>
+<p><a href="#fig-eg-pmf-histogram" class="quarto-xref">Figure&nbsp;<span>2</span></a> displays the pmf for the coin flip experiment considered in <a href="#exm-rv-3" class="quarto-xref">Example&nbsp;<span>4</span></a>. The pmf is a histogram with point masses at <span class="math inline">x = 0,</span> <span class="math inline">x=1,</span> and <span class="math inline">x=2</span>. The mass placed at these points is given by <span class="math inline">P(X = x)</span>. Since the pmf is a pdf for a discrete random variable, recall from the axioms of probability that the pmf therefore satisfies <span class="math inline">f(x) \geq 0,</span> <span class="math inline">\forall x \in \mathbf{R},</span> and <span class="math inline">\sum_i f(x_i) = 1</span>. This fact can be observed in <a href="#fig-eg-pmf-histogram" class="quarto-xref">Figure&nbsp;<span>2</span></a>: <span class="math inline">f_X(0) + f_X(1) + f_X(2) = 0.25 + 0.5 + 0.25 = 1</span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-eg-pmf-histogram" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-eg-pmf-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="00-prelim_files/figure-html/fig-eg-pmf-histogram-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-eg-pmf-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: The histogram (pmf) for the two coin flip example.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>A rv <span class="math inline">X</span> is <em>continuous</em> if there exists a continuous function <span class="math inline">f_X</span> such that,</p>
+<ol type="1">
+<li><span class="math inline">f_X(x) \geq 0 \forall x,</span></li>
+<li><span class="math inline">\int_{-\infty}^\infty f_X(x) dx = 1</span> and</li>
+<li><span class="math inline">P(a &lt; X &lt; b) = \int_a^b f_X(x) dx,</span> for <span class="math inline">a\leq b</span>.</li>
+</ol>
+<div id="def-pdf" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 9 (Pdf)</strong></span> A <span class="math inline">f_X</span> satisfying the three properties above is a pdf for the continous rv <span class="math inline">X</span>.</p>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Events of probability zero
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">X</span> is continuous, then <span class="math inline">P(X = x) = 0</span> for every <span class="math inline">x</span>. That is, <span class="math display">
+P(a \leq X \leq b) = P(a &lt; X \leq b) = P(a \leq X &lt; b) = P(a &lt; X &lt; b),.
+</span></p>
+</div>
+</div>
+<p>The cdf is related to the pdf by the derivative (difference). If <span class="math inline">X</span> is continuous: <span class="math display"> F_X(x) = P(X \leq x) = \int_{-\infty}^x f_X(t) dt</span> and <span class="math inline">f_X(x) = F_X^\prime(x)</span> at all <span class="math inline">x</span> at which <span class="math inline">F_X</span> is differentiable. (Likewise, if <span class="math inline">X</span> is discrete, then we replace the integral with a sum <span class="math inline">F_X(x) = P(X \leq x) = \sum_{x_i \leq x} f_X(x_i)</span>.)</p>
+<div id="def-quantile" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 10 (Quantile function)</strong></span> Let <span class="math inline">X</span> be a rv with cdf <span class="math inline">F</span>. The inverse cdf, or quantile function, is defined by <span class="math display">F^{-1}(q) = \inf \{x : F(x) &gt; q\}</span> for <span class="math inline">q \in [0,1]</span>. If <span class="math inline">F</span> is monotonic increasing and continuous then <span class="math inline">F^{-1}(q)</span> is the unique real number <span class="math inline">x</span> such that <span class="math inline">F(x) = q</span>.</p>
+</div>
+<p>Some quantiles get used more than others (and therefore get names). Important quantiles include, <span class="math inline">F^{-1}(\frac{1}{4})</span> is the first quantile, <span class="math inline">F^{-1}(\frac{1}{2})</span> is the median, and <span class="math inline">F^{-1}(\frac{3}{4})</span> is the third quantile.</p>
+<div id="def-equal-dist" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 11 (Equality in distribution)</strong></span> We say <span class="math inline">X</span> and <span class="math inline">Y</span> are equal in distribution, <span class="math inline">X \equiv Y,</span> if <span class="math inline">F_X(x) = F_Y(x)</span> for all <span class="math inline">x</span>.</p>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Equality in distribution versus equality of rvs
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that equality in distribution does not mean that the random variables are the same. Rather, probability statements are the same.</p>
+<p>Consider the following example. Suppose <span class="math display">P(X = 1) = P(X = -1) = \frac{1}{2}\,.</span> Let <span class="math inline">Y = -X</span>. Then <span class="math display">P(Y = 1) = P(Y = -1) = \frac{1}{2}\,.</span> Thus, <span class="math display">X \equiv Y \,,</span> but <span class="math inline">X</span> and <span class="math inline">Y</span> are not equal! In fact, <span class="math inline">P(X = Y) = 0</span>.</p>
+</div>
+</div>
+<p>We sometimes consider more than one random variable, taken to together. This leads to the concept of a joint and marginal densities.</p>
+<div id="def-joint-pdf" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 12 (Joint pdf)</strong></span> A joint pdf for <span class="math inline">(X,Y)</span> satisfies</p>
+<ol type="1">
+<li><span class="math inline">f(x,y) \geq 0</span> <span class="math inline">\forall x,y,</span></li>
+<li><span class="math inline">\iint_{-\infty}^\infty f(x,y) dx dy = 1,</span></li>
+<li>for <span class="math inline">A \in \mathbf{R}\times \mathbf{R},</span> <span class="math inline">P((X,Y) \in A) = \iint_A f(x,y) dx dy</span>.</li>
+</ol>
+</div>
+<div id="def-joint-cdf" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 13 (Joint cdf)</strong></span> A joint cdf is given by <span class="math inline">F(x,y) = P(X\leq x, Y\leq y)</span>.</p>
+</div>
+<div id="def-marginals" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 14 (marginal pdf)</strong></span> For <span class="math inline">X,Y</span> with joint pdf <span class="math inline">f(x,y),</span> we define the marginals for <span class="math inline">X</span> and <span class="math inline">Y</span> as <span class="math inline">f_X(x) \int f(x,y) dy</span> and <span class="math inline">f_Y(y) = \int f(x,y) dx,</span> respectively.</p>
+</div>
+<p>We also have a notion of independence for two rvs.</p>
+<div id="def-indep-rv" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 15 (Independence of rvs)</strong></span> Rvs <span class="math inline">X</span> and <span class="math inline">Y</span> are independent if <span class="math inline">P(X \in A, Y \in B) = P(X \in A) P(Y \in B)</span>.</p>
+</div>
+<div id="thm-pdf-indep-rv" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 5</strong></span> Let <span class="math inline">X,Y</span> have joint <span class="math inline">f_{XY}</span>. Then <span class="math inline">X</span> and <span class="math inline">Y</span> are independent iff <span class="math inline">f_{XY} = f_X \cdot f_Y</span> for all <span class="math inline">x,y</span>.</p>
+</div>
+<p>If <span class="math inline">X_1, \dots X_n</span> are independent and each as the same marginal distribution with cdf <span class="math inline">F,</span> we say <span class="math inline">X_1, \dots, X_n</span> are iid and write <span class="math inline">X_1, \dots, X_n \sim F</span> iid. We also write <span class="math inline">X_1, \dots, X_n \sim f</span> if <span class="math inline">F</span> has corresponding density <span class="math inline">f,</span> when no confusion arises. We will often consider collections of iid random variables.</p>
+<div id="def-sample" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 16 (Random sample)</strong></span> <span class="math inline">X_1, \dots, X_n \sim F</span> iid is a random sample of size <span class="math inline">n</span> from a distribution <span class="math inline">F</span>.</p>
+</div>
+<p>We also consider the expected value of a rv.</p>
+<div id="def-expected-value" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 17 (Expectation)</strong></span> For a discrete rv <span class="math inline">X</span> with possible outcomes <span class="math inline">x_1, x_2, \dots</span> and corresponding probabilities <span class="math inline">p_1, p_2, \dots,</span> the expectation is defined by <span class="math display">\mathbf{E}[X] = \sum_{i=1}^\infty x_i p_i\,.</span></p>
+<p>For a continuous rv <span class="math inline">X</span> with pdf <span class="math inline">f,</span> the expectation is defined by <span class="math display">\mathbf{E}[X] = \int_{-\infty}^{\infty} x f(x) dx\,.</span></p>
+</div>
+<p>For both discrete and continuous rvs, we refer to various statistics relating to expected values as moments of the distribution.</p>
+<div id="def-raw-moments" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 18 (<span class="math inline">n</span>-th raw moment)</strong></span> For a rv <span class="math inline">X,</span> the <span class="math inline">n</span>-th raw moment is given by <span class="math inline">\mathbf{E}[X^n]</span>.</p>
+</div>
+<div id="def-central-moments" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 19 (<span class="math inline">n</span>-th central moment)</strong></span> For a rv <span class="math inline">X</span> with <span class="math inline">\mu = \mathbf{E}[X],</span> the <span class="math inline">n</span>-th central moment is defined as <span class="math inline">\mathbf{E}[(X-\mu)^n]</span>.</p>
+</div>
+<p>The <em>mean</em> of a distribution is the first raw moment. The <em>variance</em> of a distribution is the second central moment. Quantities related to higher order central moments are also of interest; <a href="#tbl-moments" class="quarto-xref">Table&nbsp;<span>2</span></a> lists some of these with associated “names” that you might encounter. Variance is a measure of dispersion about the mean. Skewness is a measure of the lopsidedness of a distribution. If a distribution is symmetric (and its third central moment is defined) then it will have skewness equal to zero. A distribution that is skewed to the left (i.e., the tail of the distribution is longer on the left) will have negative skewness and a distribution that is skewed to the right (i.e., the tail of the distribution is longer on the right) will have positive skewness. Kurtosis is a measure of how “fat” or “heavy” the tails of a distribution are; distributions with heavy tails will have high kurtosis values. Since variance and kurtosis are related to the even-powered central moments, they will always be non-negative.</p>
+<div id="tbl-moments" class="quarto-layout-panel anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-moments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: First few moments for a rv <span class="math inline">X</span> with mean <span class="math inline">\mu = \mathbf{E}[X]</span>.
+</figcaption>
+<div aria-describedby="tbl-moments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-moments" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-raw-moments" class="striped quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-raw-moments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Quantities related to raw moments
+</figcaption>
+<div aria-describedby="tbl-raw-moments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Expression</th>
+<th style="text-align: center;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\mathbf{E}[X]</span></td>
+<td style="text-align: center;">mean</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\mathbf{E}[X^2]</span></td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\mathbf{E}[X^3]</span></td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\mathbf{E}[X^4]</span></td>
+<td style="text-align: center;">—</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-moments" style="flex-basis: 50.0%;justify-content: center;">
+<div id="tbl-central-moments" class="striped quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-central-moments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Quantities related to central moments
+</figcaption>
+<div aria-describedby="tbl-central-moments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Expression</th>
+<th style="text-align: center;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\mathbf{E}[(X - \mu)]</span></td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\mathbf{E}[(X - \mu)^2]</span></td>
+<td style="text-align: center;">variance</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\mathbf{E}[(X - \mu)^3 / \sigma^3]</span></td>
+<td style="text-align: center;">(Fisher’s) skewness</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\mathbf{E}[(X - \mu)^4 / \sigma^4]</span></td>
+<td style="text-align: center;">kurtosis</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Its all Greek … when it comes to kurtosis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The root of kurtosis comes from the Greek word for “bulging” or “convex”. You may see a heavy-tailed or high kurtosis distributions described as <em>leptokurtic</em> (“narrow” + “bulging”) and a light-tailed or low kurtosis distributions described as <em>platykurtic</em> (“broad” or “flat” + “bulging”). The “high” and “low” qualifications are made in relation to the tails of the normal distribution; a distribution having the same kurtosis as the normal distribution can be described as <em>mesokurtic</em> (“middle” + “bulging”).</p>
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/dundeemath\.github\.io\/MA22004");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./writing.html" class="pagination-link" aria-label="Writing Lab Reports">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Writing Lab Reports</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./01-sampling-distributions.html" class="pagination-link" aria-label="Sampling distributions">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sampling distributions</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> </span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">  markdown: </span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    wrap: 72</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>{{&lt; include preamble.md &gt;}}</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu"># Preliminaries {.unnumbered}</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>This section contains a list of abbreviations, comment on notation, and</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>a (very quick) review of probability.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Abbreviations {.unnumbered}</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>In @tbl-abbrev we list abbreviations used throughout these lecture</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>notes. These abbreviations are pretty standdard and you might encounter</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>them outside the module in other references.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-abbrev</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: Commonly used abbreviations.</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="fu">read_csv</span>(<span class="st">"data/notation-abbrev.csv"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a> <span class="fu">kbl</span>(<span class="at">longtable =</span> T, <span class="at">booktabs =</span> T) <span class="sc">|&gt;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a> <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"repeat_header"</span>))</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Notation {.unnumbered}</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>Uppercase roman letters, e.g., $X,$ will typically denote random</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>variables (rvs); lower case letters, e.g., $x,$ will represent a</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>particular value (observation) of a rv. Rvs have probability</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>distributions. Distributions are typically characterised by *parameters*</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>that describe population characteristics. In the present module, we will</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>adopt the (frequentists) view that parameters are fixed real numbers</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>that are often unknown and must be estimated from data. Statistical</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>inference is a tool that will help us to do this.</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>:::{.callout-warning}</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Variables and parameters</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Statistical models comprise both rvs and parameters. Be careful not to</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>confuse them!</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>For a random variable $X$ that has a distribution $F$ depending on a set</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>of parameters $\Theta,$ we will write $X \sim F(\Theta)$.</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>:::{.callout-warning}</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Specifying a probability distribution</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>We write $X \sim F(\Theta)$ to indicate $X$ has distribution function</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>$F(\Theta)$. This is **not** read as "$X$ is approximately $F(\Theta)$"!</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sample space, events, probabilities {.unnumbered}</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>A sample space $\Omega$ is a set of possible outcomes of an</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>experiment. Points $\omega \in \Omega$ are sample outcomes or</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>realizations. Subsets $A \subset \Omega$ are called events.</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>::: {#exm-sample-space}</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sample space</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>Consider an experiment where we measure the petal widths from a randomly</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>sampled cyclamen flowers. Before we observe the petal width, there is</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>uncertainty that we can model using a sample space of events. The sample</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>space is $\Omega = (0, \infty),$ since measurements of length should be</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>positive (practically, the lengths will have a finite size, too). Each</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>$\omega \in \Omega$ is a measurement of petal width for a cyclamen</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>flower. Consider an event $A = (5, 12]$; this is the event that the</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>petal width is larger than $5$ but less than or equal to $12$. Remember,</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>we use probability to model uncertainty *before* we observe the petal</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>width --- after we take a measurement, the petal width is no longer</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>uncertain (we have collected a statistic).</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>As sample spaces and events are described using sets, we recall the</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>following notations, definitions, and laws about set theory. Let $A,$</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>$B,$ and $A_1, A_2, \dots$ be events in a sample space $\Omega$.</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>complement: $A^c = <span class="sc">\{</span> \omega \in \Omega: \omega \notin A<span class="sc">\}</span>$.</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>null event: $\emptyset = \Omega^c$.</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>intersection:</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>    $A \cap B = <span class="sc">\{</span>\omega \in \Omega : \omega \in A \text{ and } \omega \in B<span class="sc">\}</span>$.</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>    In particular, for $A_1, A_2, \dots,$ then</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>    $$\bigcap_{i=1}^\infty A_i = <span class="sc">\{</span>\omega \in \Omega : \omega \in A_i \text{ for all } i <span class="sc">\}</span>\,.$$</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>difference:</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>    $A \setminus B = <span class="sc">\{</span>\omega \in \Omega : \omega \in A, \omega \notin B<span class="sc">\}</span>$.</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>size: $|A|$ denotes the number of elements in $A$.</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>disjoint: $A_i \cap A_j = \emptyset,$ for $i\neq j$.</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>partition: disjoint $A_1, A_2, \dots$ such that</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>    $\bigcup_{i=1}^\infty A_i = \Omega$.</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>indicator:</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>    $I_A(\omega) = I(\omega \in A) = <span class="sc">\{</span>1 \text{ if } \omega \in A; 0 \text{ if } \omega \notin A<span class="sc">\}</span>$.</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>monotone increasing: $A_1 \subset A_2 \subset \dots$ and define</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>    limit $$\lim_{n \to \infty}A_n = \bigcup_{i=1}^\infty A_i\,.$$</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>monotone decreasing: $A_1 \supset A_2 \supset \dots$ and define</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>    limit $$\lim_{n \to \infty} A_n = \bigcap_{i=1}^\infty A_i\,.$$</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>distributive laws:</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>    $$A\cap (B\cup C) = (A\cap B) \cup (A \cap C)\,,$$</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>    $$A\cup(B\cap C) = (A \cup B) \cap (A\cup C)\,.$$</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>De Morgan's laws: $$(A \cap B)^c = A^c \cup B^c\,,$$</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>    $$(A\cup B)^c = A^c \cap B^c\,.$$</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>We assign probabilities to events in our sample space.</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>::: {#def-prob}</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="fu">## Probability distribution</span></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>A probability distribution is a function $P : \Omega \to \mathbf{R}$</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>satisfying three axioms:</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>$P(A) \geq 0$ for every $A \subset \Omega$ (positivity),</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>$P(\Omega) = 1$ (totality),</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>if $A_1, A_2, \dots$ are disjoint subsets of $\Omega,$ then</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>    $$P(\cup_{i=1}^\infty A_i) = \sum_{i=1}^\infty P(A_i)\,.$$</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip}</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="fu">## Perspectives</span></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>We can interpret $P(A)$ as representing:</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**frequency**, i.e., the long-run proportion of times $A$ is true</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>    (the *frequentist perspective*),</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**degrees of belief**, i.e, as a measure of the observer's strength</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>    of belief that $A$ is true (the *Bayesian perspective*).</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>::: {#thm-pie}</span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="fu">## PIE</span></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a>The principal of inclusion-exclusion,</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>$$P(A\cup B) = P(A) + P(B) - P(A\cap B)\,.$$</span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>@thm-pie follows from the definition of a probability distributions and</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>facts about set theory.</span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>::: {#def-prob-finite}</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="fu">## Probability of an event</span></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>For events $A$ from finite sample spaces $\Omega,$ we assign</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>probabilities according to: $$P(A) = \frac{|A|}{|\Omega|} \,.$$</span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>For finite sample spaces, we assign probabilities according to their</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>long-run frequency of occurring. For an event $A,$ this is the ratio of</span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>the size of $A$ (number of ways $A$ can happen) to the size of $\Omega$</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>(number of total outcomes).</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>::: {#def-indep}</span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="fu">## Independent events</span></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>Events $A$ and $B$ are independent, i.e., $A \perp <span class="sc">\!\!\!</span> \perp B,$ iff</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>$P(A\cap B) = P(A)P(B)$.</span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>That is, events $A$ and $B$ are independent if and only if the</span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a>probability of $A$ and $B$ occurring is equal to the the probability $A$</span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>occurring times the probability of $B$ occurring.</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>::: {#def-cond-prob}</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conditional probability</span></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>If $P(B) &gt; 0,$ then $$P(A \mid B) = \frac{P(A \cap B)}{P(B)}\,.$$</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a>Note that:</span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>$P(\cdot \mid B)$ satisfies the axioms of probability, for fixed</span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>    $B,$</span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>in general, $P(A \mid \cdot)$ is not a probability for fixed $A,$</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>    and,</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>in general, $P(A\mid B) \neq P(B \mid A)$.</span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>::: {#thm-bayes}</span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bayes Theorem</span></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>Let events $A_1, \dots, A_k$ partition $\Omega,$ with $P(A_i) &gt; 0$.</span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>If $P(B) &gt; 0,$ then</span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>$$P(A_i \mid B) = \frac{P(B\mid A_i) P(A_i)}{\sum_j P(B \mid A_j) P(A_j)}\,.$$</span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>Generally, it is not feasible to assign probabilities to *all* subsets</span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>of $\Omega$ (e.g., if \Omega is infinite). In that case, we restrict to</span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>our attention to a $\sigma$-algebra $\mathcal{A}$ (also called,</span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>$\sigma$-field), which is a collection of sets satisfying:</span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>$\emptyset \in \mathcal{A},$</span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>if $A_1, A_2, \dots, \in \mathcal{A}$ then</span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a>    $\cup_{i = 1}^\infty A_i \in \mathcal{A},$</span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a>    3.$A\in \mathcal{A} \implies A^c \in \mathcal{A}$.</span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a>Sets in $\mathcal{A}$ are said to be *measurable* and</span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>$(\Omega, \mathcal{A})$ is a measure space. If $P$ is a probability</span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>defined on $\mathcal{A},$ then $(\Omega, \mathcal{A}, P)$ is called a</span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>*probability space*.</span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>E.g., when $\Omega \equiv \mathbf{R},$ we take $\mathcal{A}$ to be the</span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>smallest $\sigma$-field containing all open subsets of $\mathbf{R},$</span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a>which is called the Borel $\sigma$-field. If you find these details</span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a>interesting, take: MA42008 Mathematical Statistics!</span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="fu">## Random variables {.unnumbered}</span></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip}</span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a><span class="fu">## How do we link sample spaces and events to data?</span></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>We use random variables to link sample spaces and events to data.</span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>::: {#def-rv}</span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a><span class="fu">## Random variables</span></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a>A random variable (rv) is a mapping $X : \Omega \to \mathbf{R}$ that</span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a>maps $\omega \in \Omega \mapsto X(\omega)$.</span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a>::: {#exm-rv-1}</span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a>Consider a coin flipping experiment where you flip a fair coin eight</span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a>times. Let $X$ be the number of heads in the sequence. If three heads</span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a>occur, e.g., $\omega = HTTTTTHH,$ then $X(\omega) = 3$.</span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a>::: {#exm-rv-2}</span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a>Consider an experiment where you draw a point a random from the unit</span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a>disk. Then $\Omega = <span class="sc">\{</span>(x,y) : x^2 + y^2 \leq 1<span class="sc">\}</span>$ and a typical outcome</span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a>will be the pair $\omega = (x,y)$. Some random variables to consider are</span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a>$X(\omega) = x,$ $Y(\omega) = y,$ $Z(\omega) = x+y,$ and</span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a>$W(\omega) = \sqrt{x^2 + y^2}$.</span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>::: {#def-prob-rv}</span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a><span class="fu">## Assigning probabilities to rvs</span></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a>Given $X$ and $A \subset \mathbf{R},$ we define</span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a>$$X^{-1}(A) = <span class="sc">\{</span>\omega \in \Omega : X(\omega) \in A<span class="sc">\}</span>$$ and let</span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>$$P(X \in A) = P(X^{-1}(A)) = P(<span class="sc">\{</span>\omega \in \Omega : X(\omega) \in A<span class="sc">\}</span>)\,,$$</span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>e.g.,</span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>$P(X=x) = P(X^{-1}(x)) = P(<span class="sc">\{</span>\omega \in \Omega : X(\omega) = x<span class="sc">\}</span>)$.</span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>:::{.callout-warning}</span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a><span class="fu">## Observations vs rvs</span></span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a>$X$ denotes a rv and $x$ denotes a particular value of $X$.</span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a>:::{.callout-important}</span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a><span class="fu">## We measure probabilities of events</span></span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a>A rv $X$ by itself is not an event. You would never write $P(X),$ would you!?</span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a>::: {#exm-rv-3}</span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a>Consider a coin flipping experiment where you flip a fair coin twice.</span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a>Let $X$ be the number of heads. Then</span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a>$$P(X=0) = P(<span class="sc">\{</span>TT<span class="sc">\}</span>) = \frac{1}{4}\,,$$</span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a>$$P(X=1) = P(<span class="sc">\{</span>HT<span class="sc">\}</span> \cup <span class="sc">\{</span>TH<span class="sc">\}</span>) = P(<span class="sc">\{</span>HT<span class="sc">\}</span>) + P(<span class="sc">\{</span>TH<span class="sc">\}</span>) = \frac{1}{2}\,,$$</span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a>$$P(X=2) = P(<span class="sc">\{</span>HH<span class="sc">\}</span>) = \frac{1}{4}\,.$$</span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a>::: {#def-cdf}</span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cdf</span></span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a>The cumulative distribution function (cdf), $F_X:\mathbf{R} \to <span class="co">[</span><span class="ot">0,1</span><span class="co">]</span>,$</span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a>is defined by $F_X(x) = P(X \leq x)$.</span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a>@fig-eg-cdf-coin-flip-plot displays the cdf for the coin flip experiment</span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>considered in @exm-rv-3. The cdf $F_X(x)$ jumps at $x = 0,$ $x=1,$ and</span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a>$x=2$. The height of the jumps are given by $P(X=x)$. We observe as well</span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a>that $F_X(x) = 0$ for $x&lt;0,$ as no probability has been accumulated;</span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a>recall that probabilities are always non-negative, so a function that</span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a>accumulates probability will always be non-negative. Further,</span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a>$F_X(x) = 1$ for $x \geq 2,$ as all the probability has been</span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a>accumulated; remember that the total probability that can be assigned</span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a>over the whole sample space must sum to one.</span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-eg-cdf-coin-flip-plot</span></span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "The cdf for the two coin flip example."</span></span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.25</span>, <span class="fl">0.75</span>, <span class="fl">0.75</span>, <span class="dv">1</span>)</span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"o"</span>, <span class="st">"c"</span>, <span class="st">"o"</span>, <span class="st">"c"</span>, <span class="st">"o"</span>, <span class="st">"c"</span>)</span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x, y, b)</span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>b <span class="ot">&lt;-</span> <span class="fu">factor</span>(dat<span class="sc">$</span>b)</span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>dat <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y, <span class="at">shape =</span> b)) <span class="sc">+</span></span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> lsz <span class="sc">+</span> lsz<span class="sc">*</span><span class="dv">2</span>, <span class="at">color =</span> <span class="st">"#E41A1C"</span>) <span class="sc">+</span></span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">yend =</span> <span class="dv">0</span>), <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span><span class="sc">*</span>lsz, <span class="st">"cm"</span>)), <span class="at">linewidth =</span> lsz, <span class="at">color =</span> <span class="st">"#E41A1C"</span>) <span class="sc">+</span></span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="fl">0.25</span>, <span class="at">xend =</span> <span class="dv">1</span>, <span class="at">yend =</span> <span class="fl">0.25</span>), <span class="at">linewidth =</span> lsz, <span class="at">color =</span> <span class="st">"#E41A1C"</span>) <span class="sc">+</span></span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="fl">0.75</span>, <span class="at">xend =</span> <span class="dv">2</span>, <span class="at">yend =</span> <span class="fl">0.75</span>), <span class="at">linewidth =</span> lsz, <span class="at">color =</span> <span class="st">"#E41A1C"</span>) <span class="sc">+</span></span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">2</span>, <span class="at">y =</span> <span class="dv">1</span>, <span class="at">xend =</span> <span class="dv">3</span>, <span class="at">yend =</span> <span class="dv">1</span>), <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span><span class="sc">*</span>lsz, <span class="st">"cm"</span>)), <span class="at">linewidth =</span> lsz, <span class="at">color =</span> <span class="st">"#E41A1C"</span>) <span class="sc">+</span></span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a> <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">19</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line.x =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a> <span class="fu">guides</span>(<span class="at">shape =</span> <span class="st">"none"</span>) <span class="sc">+</span> </span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a> <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">TeX</span>(<span class="st">"$x$"</span>), <span class="at">y =</span> <span class="fu">TeX</span>(<span class="st">"$F_X(x)$"</span>)) <span class="sc">+</span> theme_ur</span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a>Note that a cdf completely determines the distribution of a random</span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a>variable. This statement is captured in @thm-cdf-determines-dist.</span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>::: {#thm-cdf-determines-dist}</span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a>Let $X$ have cdf $F$ and $Y$ have cdf $G$. If $F(x) = G(x)$ for all $x,$</span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a>then $P(X \in A)= P(Y \in A) \forall A \in \mathbf{R}$.</span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a>Since cdfs determine or characterize a probability distribution, it is</span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a>useful to know the key properties of cdfs, which are listed below in</span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a>@thm-cdf-properties.</span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a>::: {#thm-cdf-properties}</span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a><span class="fu">## Properties of cdfs</span></span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a>$F : \mathbf{R} \to <span class="co">[</span><span class="ot">0,1</span><span class="co">]</span>$ is a cdf for some $P$ iff,</span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>$F$ is nondecreasing (i.e.,</span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a>    $x_1 &lt; x_2 \implies F(x_1) \leq F(x_2)$),</span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>$F$ is normalized to $<span class="co">[</span><span class="ot">0,1</span><span class="co">]</span>$ (i.e., $\lim_{x \to -\infty} F(x) = 0$</span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a>    and $\lim_{x \to \infty} F(x) = 1$),</span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>$F$ is right-continuous (i.e., $F(x) = F(x^*) \forall x$ where</span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a>    $F(x^*) = \lim_{y &gt; x; y \to x} F(y)$).</span>
+<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a>For a rv $X$ we say $X$ is *discrete* if it assumes at most a</span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a>*countable* number of (discrete) values. For a discrete sample space,</span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>the collection of all probabilities of $X(\omega)$ gives us a</span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a>probability distribution.</span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>::: {#def-pmf}</span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pmf</span></span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>A pdf for a discrete rv $X$ is $f_X(x) = P(X = x)$. Since this density</span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a>function places a "point mass" at each $x,$ it is sometimes referred to</span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a>as a probability mass function (pmf).</span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a>@fig-eg-pmf-histogram displays the pmf for the coin flip experiment</span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a>considered in @exm-rv-3. The pmf is a histogram with point masses at</span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a>$x = 0,$ $x=1,$ and $x=2$. The mass placed at these points is given by</span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a>$P(X = x)$. Since the pmf is a pdf for a discrete random variable,</span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a>recall from the axioms of probability that the pmf therefore satisfies</span>
+<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a>$f(x) \geq 0,$ $\forall x \in \mathbf{R},$ and $\sum_i f(x_i) = 1$. This</span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a>fact can be observed in @fig-eg-pmf-histogram:</span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a>$f_X(0) + f_X(1) + f_X(2) = 0.25 + 0.5 + 0.25 = 1$.</span>
+<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-eg-pmf-histogram</span></span>
+<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "The histogram (pmf) for the two coin flip example."</span></span>
+<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.50</span>, <span class="fl">0.25</span>)</span>
+<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"a"</span>, <span class="st">"a"</span>)</span>
+<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x, y, b)</span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>b <span class="ot">&lt;-</span> <span class="fu">factor</span>(dat<span class="sc">$</span>b)</span>
+<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a>dat <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y, <span class="at">color =</span> b, <span class="at">fill =</span> b)) <span class="sc">+</span></span>
+<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">linewidth =</span>lsz) <span class="sc">+</span></span>
+<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a> <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>, <span class="at">color =</span> <span class="st">"none"</span>) <span class="sc">+</span> </span>
+<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a> <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">TeX</span>(<span class="st">"$x_i$"</span>), <span class="at">y =</span> <span class="fu">TeX</span>(<span class="st">"$f_X(x_i) = P(X(</span><span class="sc">\\</span><span class="st">omega) = x_i)$"</span>)) <span class="sc">+</span> theme_ur</span>
+<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>A rv $X$ is *continuous* if there exists a continuous function $f_X$</span>
+<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a>such that,</span>
+<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>$f_X(x) \geq 0 \forall x,$</span>
+<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>$\int_{-\infty}^\infty f_X(x) dx = 1$ and</span>
+<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>$P(a &lt; X &lt; b) = \int_a^b f_X(x) dx,$ for $a\leq b$.</span>
+<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a>::: {#def-pdf}</span>
+<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pdf</span></span>
+<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a>A $f_X$ satisfying the three properties above is a pdf for the continous</span>
+<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a>rv $X$.</span>
+<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a>:::{.callout-important}</span>
+<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a><span class="fu">## Events of probability zero</span></span>
+<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a>If $X$ is continuous, then $P(X = x) = 0$ for every $x$. That is, </span>
+<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a>$$ </span>
+<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a>P(a \leq X \leq b) = P(a &lt; X \leq b) = P(a \leq X &lt; b) = P(a &lt; X &lt; b),.</span>
+<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a>The cdf is related to the pdf by the derivative (difference). If $X$ is</span>
+<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a>continuous: $$ F_X(x) = P(X \leq x) = \int_{-\infty}^x f_X(t) dt$$ and</span>
+<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a>$f_X(x) = F_X^\prime(x)$ at all $x$ at which $F_X$ is differentiable.</span>
+<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a>(Likewise, if $X$ is discrete, then we replace the integral with a sum</span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a>$F_X(x) = P(X \leq x) = \sum_{x_i \leq x} f_X(x_i)$.)</span>
+<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a>::: {#def-quantile}</span>
+<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quantile function</span></span>
+<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a>Let $X$ be a rv with cdf $F$. The inverse cdf, or quantile function, is</span>
+<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a>defined by $$F^{-1}(q) = \inf <span class="sc">\{</span>x : F(x) &gt; q<span class="sc">\}</span>$$ for $q \in <span class="co">[</span><span class="ot">0,1</span><span class="co">]</span>$. If</span>
+<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a>$F$ is monotonic increasing and continuous then $F^{-1}(q)$ is the</span>
+<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a>unique real number $x$ such that $F(x) = q$.</span>
+<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a>Some quantiles get used more than others (and therefore get names).</span>
+<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a>Important quantiles include, $F^{-1}(\frac{1}{4})$ is the first</span>
+<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a>quantile, $F^{-1}(\frac{1}{2})$ is the median, and $F^{-1}(\frac{3}{4})$</span>
+<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a>is the third quantile.</span>
+<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a>::: {#def-equal-dist}</span>
+<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a><span class="fu">## Equality in distribution</span></span>
+<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a>We say $X$ and $Y$ are equal in distribution, $X \equiv Y,$ if</span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a>$F_X(x) = F_Y(x)$ for all $x$.</span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a>:::{.callout-important}</span>
+<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a><span class="fu">## Equality in distribution versus equality of rvs</span></span>
+<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a>Note that equality in distribution does not mean that the random</span>
+<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a>variables are the same. Rather, probability statements are the same.</span>
+<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a>Consider the following example. Suppose </span>
+<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a>$$P(X = 1) = P(X = -1) = \frac{1}{2}\,.$$ </span>
+<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a>Let $Y = -X$. Then</span>
+<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a>$$P(Y = 1) = P(Y = -1) = \frac{1}{2}\,.$$</span>
+<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a>Thus, $$X \equiv Y \,,$$ </span>
+<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a>but $X$ and $Y$ are not equal! In fact, $P(X = Y) = 0$.</span>
+<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a>We sometimes consider more than one random variable, taken to together.</span>
+<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a>This leads to the concept of a joint and marginal densities.</span>
+<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a>::: {#def-joint-pdf}</span>
+<span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joint pdf</span></span>
+<span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-463"><a href="#cb1-463" aria-hidden="true" tabindex="-1"></a>A joint pdf for $(X,Y)$ satisfies</span>
+<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>$f(x,y) \geq 0$ $\forall x,y,$</span>
+<span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>$\iint_{-\infty}^\infty f(x,y) dx dy = 1,$</span>
+<span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>for $A \in \mathbf{R}\times \mathbf{R},$</span>
+<span id="cb1-468"><a href="#cb1-468" aria-hidden="true" tabindex="-1"></a>    $P((X,Y) \in A) = \iint_A f(x,y) dx dy$.</span>
+<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a>::: {#def-joint-cdf}</span>
+<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a><span class="fu">## Joint cdf</span></span>
+<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a>A joint cdf is given by $F(x,y) = P(X\leq x, Y\leq y)$.</span>
+<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a>::: {#def-marginals}</span>
+<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a><span class="fu">## marginal pdf</span></span>
+<span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a>For $X,Y$ with joint pdf $f(x,y),$ we define the marginals for $X$ and</span>
+<span id="cb1-481"><a href="#cb1-481" aria-hidden="true" tabindex="-1"></a>$Y$ as $f_X(x) \int f(x,y) dy$ and $f_Y(y) = \int f(x,y) dx,$</span>
+<span id="cb1-482"><a href="#cb1-482" aria-hidden="true" tabindex="-1"></a>respectively.</span>
+<span id="cb1-483"><a href="#cb1-483" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-484"><a href="#cb1-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-485"><a href="#cb1-485" aria-hidden="true" tabindex="-1"></a>We also have a notion of independence for two rvs.</span>
+<span id="cb1-486"><a href="#cb1-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-487"><a href="#cb1-487" aria-hidden="true" tabindex="-1"></a>::: {#def-indep-rv}</span>
+<span id="cb1-488"><a href="#cb1-488" aria-hidden="true" tabindex="-1"></a><span class="fu">## Independence of rvs</span></span>
+<span id="cb1-489"><a href="#cb1-489" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-490"><a href="#cb1-490" aria-hidden="true" tabindex="-1"></a>Rvs $X$ and $Y$ are independent if</span>
+<span id="cb1-491"><a href="#cb1-491" aria-hidden="true" tabindex="-1"></a>$P(X \in A, Y \in B) = P(X \in A) P(Y \in B)$.</span>
+<span id="cb1-492"><a href="#cb1-492" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-493"><a href="#cb1-493" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-494"><a href="#cb1-494" aria-hidden="true" tabindex="-1"></a>::: {#thm-pdf-indep-rv}</span>
+<span id="cb1-495"><a href="#cb1-495" aria-hidden="true" tabindex="-1"></a>Let $X,Y$ have joint $f_{XY}$. Then $X$ and $Y$ are independent iff</span>
+<span id="cb1-496"><a href="#cb1-496" aria-hidden="true" tabindex="-1"></a>$f_{XY} = f_X \cdot f_Y$ for all $x,y$.</span>
+<span id="cb1-497"><a href="#cb1-497" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-498"><a href="#cb1-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-499"><a href="#cb1-499" aria-hidden="true" tabindex="-1"></a>If $X_1, \dots X_n$ are independent and each as the same marginal</span>
+<span id="cb1-500"><a href="#cb1-500" aria-hidden="true" tabindex="-1"></a>distribution with cdf $F,$ we say $X_1, \dots, X_n$ are iid and write</span>
+<span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a>$X_1, \dots, X_n \sim F$ iid. We also write $X_1, \dots, X_n \sim f$ if</span>
+<span id="cb1-502"><a href="#cb1-502" aria-hidden="true" tabindex="-1"></a>$F$ has corresponding density $f,$ when no confusion arises. We will</span>
+<span id="cb1-503"><a href="#cb1-503" aria-hidden="true" tabindex="-1"></a>often consider collections of iid random variables.</span>
+<span id="cb1-504"><a href="#cb1-504" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-505"><a href="#cb1-505" aria-hidden="true" tabindex="-1"></a>::: {#def-sample}</span>
+<span id="cb1-506"><a href="#cb1-506" aria-hidden="true" tabindex="-1"></a><span class="fu">## Random sample</span></span>
+<span id="cb1-507"><a href="#cb1-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-508"><a href="#cb1-508" aria-hidden="true" tabindex="-1"></a>$X_1, \dots, X_n \sim F$ iid is a random sample of size $n$ from a</span>
+<span id="cb1-509"><a href="#cb1-509" aria-hidden="true" tabindex="-1"></a>distribution $F$.</span>
+<span id="cb1-510"><a href="#cb1-510" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-511"><a href="#cb1-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-512"><a href="#cb1-512" aria-hidden="true" tabindex="-1"></a>We also consider the expected value of a rv.</span>
+<span id="cb1-513"><a href="#cb1-513" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-514"><a href="#cb1-514" aria-hidden="true" tabindex="-1"></a>::: {#def-expected-value}</span>
+<span id="cb1-515"><a href="#cb1-515" aria-hidden="true" tabindex="-1"></a><span class="fu">## Expectation</span></span>
+<span id="cb1-516"><a href="#cb1-516" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-517"><a href="#cb1-517" aria-hidden="true" tabindex="-1"></a>For a discrete rv $X$ with possible outcomes $x_1, x_2, \dots$ and</span>
+<span id="cb1-518"><a href="#cb1-518" aria-hidden="true" tabindex="-1"></a>corresponding probabilities $p_1, p_2, \dots,$ the expectation is</span>
+<span id="cb1-519"><a href="#cb1-519" aria-hidden="true" tabindex="-1"></a>defined by $$\mathbf{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span> = \sum_{i=1}^\infty x_i p_i\,.$$</span>
+<span id="cb1-520"><a href="#cb1-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-521"><a href="#cb1-521" aria-hidden="true" tabindex="-1"></a>For a continuous rv $X$ with pdf $f,$ the expectation is defined by</span>
+<span id="cb1-522"><a href="#cb1-522" aria-hidden="true" tabindex="-1"></a>$$\mathbf{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span> = \int_{-\infty}^{\infty} x f(x) dx\,.$$</span>
+<span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a>For both discrete and continuous rvs, we refer to various statistics</span>
+<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a>relating to expected values as moments of the distribution.</span>
+<span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a>::: {#def-raw-moments}</span>
+<span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a><span class="fu">## $n$-th raw moment</span></span>
+<span id="cb1-530"><a href="#cb1-530" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-531"><a href="#cb1-531" aria-hidden="true" tabindex="-1"></a>For a rv $X,$ the $n$-th raw moment is given by $\mathbf{E}<span class="co">[</span><span class="ot">X^n</span><span class="co">]</span>$.</span>
+<span id="cb1-532"><a href="#cb1-532" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-533"><a href="#cb1-533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-534"><a href="#cb1-534" aria-hidden="true" tabindex="-1"></a>::: {#def-central-moments}</span>
+<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a><span class="fu">## $n$-th central moment</span></span>
+<span id="cb1-536"><a href="#cb1-536" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-537"><a href="#cb1-537" aria-hidden="true" tabindex="-1"></a>For a rv $X$ with $\mu = \mathbf{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span>,$ the $n$-th central moment is</span>
+<span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a>defined as $\mathbf{E}<span class="co">[</span><span class="ot">(X-\mu)^n</span><span class="co">]</span>$.</span>
+<span id="cb1-539"><a href="#cb1-539" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-540"><a href="#cb1-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-541"><a href="#cb1-541" aria-hidden="true" tabindex="-1"></a>The *mean* of a distribution is the first raw moment. The *variance* of</span>
+<span id="cb1-542"><a href="#cb1-542" aria-hidden="true" tabindex="-1"></a>a distribution is the second central moment. Quantities related to</span>
+<span id="cb1-543"><a href="#cb1-543" aria-hidden="true" tabindex="-1"></a>higher order central moments are also of interest; @tbl-moments lists</span>
+<span id="cb1-544"><a href="#cb1-544" aria-hidden="true" tabindex="-1"></a>some of these with associated "names" that you might encounter. Variance</span>
+<span id="cb1-545"><a href="#cb1-545" aria-hidden="true" tabindex="-1"></a>is a measure of dispersion about the mean. Skewness is a measure of the</span>
+<span id="cb1-546"><a href="#cb1-546" aria-hidden="true" tabindex="-1"></a>lopsidedness of a distribution. If a distribution is symmetric (and its</span>
+<span id="cb1-547"><a href="#cb1-547" aria-hidden="true" tabindex="-1"></a>third central moment is defined) then it will have skewness equal to</span>
+<span id="cb1-548"><a href="#cb1-548" aria-hidden="true" tabindex="-1"></a>zero. A distribution that is skewed to the left (i.e., the tail of the</span>
+<span id="cb1-549"><a href="#cb1-549" aria-hidden="true" tabindex="-1"></a>distribution is longer on the left) will have negative skewness and a</span>
+<span id="cb1-550"><a href="#cb1-550" aria-hidden="true" tabindex="-1"></a>distribution that is skewed to the right (i.e., the tail of the</span>
+<span id="cb1-551"><a href="#cb1-551" aria-hidden="true" tabindex="-1"></a>distribution is longer on the right) will have positive skewness.</span>
+<span id="cb1-552"><a href="#cb1-552" aria-hidden="true" tabindex="-1"></a>Kurtosis is a measure of how "fat" or "heavy" the tails of a</span>
+<span id="cb1-553"><a href="#cb1-553" aria-hidden="true" tabindex="-1"></a>distribution are; distributions with heavy tails will have high kurtosis</span>
+<span id="cb1-554"><a href="#cb1-554" aria-hidden="true" tabindex="-1"></a>values. Since variance and kurtosis are related to the even-powered</span>
+<span id="cb1-555"><a href="#cb1-555" aria-hidden="true" tabindex="-1"></a>central moments, they will always be non-negative.</span>
+<span id="cb1-556"><a href="#cb1-556" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-557"><a href="#cb1-557" aria-hidden="true" tabindex="-1"></a>::: {#tbl-moments layout-ncol="2"}</span>
+<span id="cb1-558"><a href="#cb1-558" aria-hidden="true" tabindex="-1"></a>|    Expression     | Name |</span>
+<span id="cb1-559"><a href="#cb1-559" aria-hidden="true" tabindex="-1"></a>|:-----------------:|:----:|</span>
+<span id="cb1-560"><a href="#cb1-560" aria-hidden="true" tabindex="-1"></a>|  $\mathbf{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span>$  | mean |</span>
+<span id="cb1-561"><a href="#cb1-561" aria-hidden="true" tabindex="-1"></a>| $\mathbf{E}<span class="co">[</span><span class="ot">X^2</span><span class="co">]</span>$ |  —   |</span>
+<span id="cb1-562"><a href="#cb1-562" aria-hidden="true" tabindex="-1"></a>| $\mathbf{E}<span class="co">[</span><span class="ot">X^3</span><span class="co">]</span>$ |  —   |</span>
+<span id="cb1-563"><a href="#cb1-563" aria-hidden="true" tabindex="-1"></a>| $\mathbf{E}<span class="co">[</span><span class="ot">X^4</span><span class="co">]</span>$ |  —   |</span>
+<span id="cb1-564"><a href="#cb1-564" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-565"><a href="#cb1-565" aria-hidden="true" tabindex="-1"></a>: Quantities related to raw moments {#tbl-raw-moments .striped}</span>
+<span id="cb1-566"><a href="#cb1-566" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-567"><a href="#cb1-567" aria-hidden="true" tabindex="-1"></a>|              Expression              |        Name         |</span>
+<span id="cb1-568"><a href="#cb1-568" aria-hidden="true" tabindex="-1"></a>|:------------------------------------:|:-------------------:|</span>
+<span id="cb1-569"><a href="#cb1-569" aria-hidden="true" tabindex="-1"></a>|       $\mathbf{E}<span class="co">[</span><span class="ot">(X - \mu)</span><span class="co">]</span>$        |          —          |</span>
+<span id="cb1-570"><a href="#cb1-570" aria-hidden="true" tabindex="-1"></a>|      $\mathbf{E}<span class="co">[</span><span class="ot">(X - \mu)^2</span><span class="co">]</span>$       |      variance       |</span>
+<span id="cb1-571"><a href="#cb1-571" aria-hidden="true" tabindex="-1"></a>| $\mathbf{E}<span class="co">[</span><span class="ot">(X - \mu)^3 / \sigma^3</span><span class="co">]</span>$ | (Fisher's) skewness |</span>
+<span id="cb1-572"><a href="#cb1-572" aria-hidden="true" tabindex="-1"></a>| $\mathbf{E}<span class="co">[</span><span class="ot">(X - \mu)^4 / \sigma^4</span><span class="co">]</span>$ |      kurtosis       |</span>
+<span id="cb1-573"><a href="#cb1-573" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-574"><a href="#cb1-574" aria-hidden="true" tabindex="-1"></a>: Quantities related to central moments {#tbl-central-moments .striped}</span>
+<span id="cb1-575"><a href="#cb1-575" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-576"><a href="#cb1-576" aria-hidden="true" tabindex="-1"></a>First few moments for a rv $X$ with mean $\mu = \mathbf{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span>$.</span>
+<span id="cb1-577"><a href="#cb1-577" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-578"><a href="#cb1-578" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-579"><a href="#cb1-579" aria-hidden="true" tabindex="-1"></a>:::{.callout-note}</span>
+<span id="cb1-580"><a href="#cb1-580" aria-hidden="true" tabindex="-1"></a><span class="fu">## Its all Greek ... when it comes to kurtosis</span></span>
+<span id="cb1-581"><a href="#cb1-581" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-582"><a href="#cb1-582" aria-hidden="true" tabindex="-1"></a>The root of kurtosis comes from the Greek word for "bulging" or</span>
+<span id="cb1-583"><a href="#cb1-583" aria-hidden="true" tabindex="-1"></a>"convex". You may see a heavy-tailed or high kurtosis distributions</span>
+<span id="cb1-584"><a href="#cb1-584" aria-hidden="true" tabindex="-1"></a>described as *leptokurtic* ("narrow" + "bulging") and a light-tailed or</span>
+<span id="cb1-585"><a href="#cb1-585" aria-hidden="true" tabindex="-1"></a>low kurtosis distributions described as *platykurtic* ("broad" or</span>
+<span id="cb1-586"><a href="#cb1-586" aria-hidden="true" tabindex="-1"></a>"flat" + "bulging"). The "high" and "low" qualifications are made in</span>
+<span id="cb1-587"><a href="#cb1-587" aria-hidden="true" tabindex="-1"></a>relation to the tails of the normal distribution; a distribution having</span>
+<span id="cb1-588"><a href="#cb1-588" aria-hidden="true" tabindex="-1"></a>the same kurtosis as the normal distribution can be described as</span>
+<span id="cb1-589"><a href="#cb1-589" aria-hidden="true" tabindex="-1"></a>*mesokurtic* ("middle" + "bulging").</span>
+<span id="cb1-590"><a href="#cb1-590" aria-hidden="true" tabindex="-1"></a>:::</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Copyright 2024, Eric Hall (University of Dundee)</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dundeemath/MA22004/edit/master/00-prelim.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

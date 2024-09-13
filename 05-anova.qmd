@@ -1,0 +1,197 @@
+{{< include preamble.md >}}
+
+```{r}
+#| include: false
+df <- read_csv("data/anova-salaries.csv")
+mse <- (5*(2.588)^2 + 3*(2.582)^2 + 4*(1.871)^2 + 4*(1.924)^2)/16
+mstr <- (6*(14.5-11.9)^2 + 4*(10.0 - 11.9)^2 + 5*(13.0-11.9)^2 + 5*( 9.2 - 11.9)^2) / 3
+```
+
+# Analysis of variance {#sec-anova}
+
+Analysis of variance, shortened as ANOVA or AOV, is a collection of statistical models and estimation procedures for analysing the variation among different groups. In particular, a single-factor ANOVA provides a hypothesis test regarding the equality of two or more population means, thereby generalising the one-sample and two-sample $\mathsf{t}$ tests considered in @sec-mean-normal-var-unknown and @sec-compare-means-normpops-vars-unknown.
+
+## Single factor ANOVA test {#sec-anova-single-factor-test}
+
+Suppose that we have $k$ normally distributed populations with different means $\mu_1, \dots, \mu_k$ and equal variances $\sigma^2.$ We denote the rv for the $j$th measurement taken from the $i$th population by $X_{ij}$ and the corresponding sample observation by $x_{ij}.$ For samples of size $m_1, \dots, m_k,$ we denote the sample means
+$$
+ \overline{X}_i = \frac{1}{m_i} \sum_{j=1}^{m_i} X_{ij}\,, 
+$$
+and sample variances 
+$$
+ S_i^2 = \frac{1}{m_i - 1} \sum_{j=1}^{m_i} (X_{ij} - \overline{X}_{i})^2\,,
+$$
+for each $i = 1, \dots, k$; likewise, we denote the associated point estimates for the sample means $\overline{x}_1, \dots, \overline{x}_k$ and the sample variances $s_1^2, \dots, s_k^2.$ The average over all observations $m = \sum m_i,$ called the grand mean, is denoted by 
+$$
+ \overline{X} = \frac{1}{m} \sum_{i=1}^k \sum_{j=1}^{m_i} X_{ij}\,.
+$$ 
+The sample variances $s_i^2,$ and hence the sample standard deviations, will generally vary even when the $k$ populations share the same variance; a rule of thumb is that the equality of variances is reasonable if the largest $s_i$ is not much more than two times the smallest. 
+
+:::{.callout-tip}
+## Alternative lingo 
+In the context of ANOVA, these $k$ populations are often referred to as *treatment* distributions. 
+:::
+
+We wish to test the equality of the population means, given by the null hypothesis,
+$$
+ H_0 : \mu_1 = \mu_2 = \cdots = \mu_k\,,
+$$
+versus the alternative hypothesis,
+$$
+ H_a : \text{at least two}\; \mu_i \; \text{differ}\,.
+$$
+Note that if $k=3$ then $H_0$ is true only if all three means are the same, i.e., $\mu_1 = \mu_1 = \mu_3,$ but there are a number of ways which the alternative might hold: $\mu_1 \neq \mu_2 = \mu_3$ or $\mu_1 = \mu_2 \neq \mu_3$ or $\mu_1 = \mu_3 \neq \mu_2$ or $\mu_1 \neq \mu_2 \neq \mu_3.$ 
+
+The test procedure is based on comparing a measure of the difference in variation among the sample means, i.e., the variation between $x_i$'s, to a measure of variation within each sample.  
+
+:::{#def-mstr-mse}
+The mean square for treatments is 
+$$
+ \mathsf{MSTr} = \frac{1}{k-1} \sum_{i=1}^k m_i (\overline{X}_i - \overline{X})^2\,,
+$$
+and the mean square error is 
+$$
+ \mathsf{MSE} = \frac{1}{m-k} \sum_{i=1}^k (m_i - 1) S_i^2 \,.
+$$
+The $\mathsf{MSTr}$ and $\mathsf{MSE}$ are statistics that measure the variation among sample means and the variation within samples. We will also use $\mathsf{MSTr}$ and $\mathsf{MSE}$ to denote the calculated values of these statistics. 
+:::
+
+:::{#prp-htest-anova}
+The test statistic 
+$$
+F = \frac{\mathsf{MSTr}}{\mathsf{MSE}} 
+$$
+is the appropriate test statistic for the single-factor ANOVA problem involving $k$ populations (or treatments) with a random sample of size $m_1, \dots, m_k$ from each. When $H_0$ is true, 
+$$
+F \sim \mathsf{F}(\nu_1 = k-1, \nu_2 = m - k)\,.
+$$
+In the present context, a large test statistic value is more contradictory to $H_0$ than a smaller value. Therefore the test is upper-tailed, i.e., consider the area $F_\alpha$ to the right of the critical value $F_{\alpha, \nu_1, \nu_2}.$ We reject $H_0$ if the value of the test statistic $F > F_\alpha.$
+:::  
+
+:::{#nte-salary .callout-note collapse="true"}
+## Average Salary Data 
+
+The **Average Salary Data** comprises average salaries reported by $20$ local councils across the four nations of the United Kingdom (England, N Ireland, Scotland and Wales). The sample means and sample standard deviations are summarised in @tbl-anova-samples-stats. 
+
+```{r}
+#| label: tbl-anova-samples-stats
+#| tbl-cap: "**Average Salary Data** reported from $20$ local councils."
+#| echo: false
+#| warning: false
+#| message: false
+df$nation <- factor(df$nation)
+dattab <- df |>
+ group_by(nation) |>
+ summarise(observations = list(mean_salary), n = n(), means = signif(mean(mean_salary), digits = 4), ssds = signif(sd(mean_salary), digits = 4))
+kbl(dattab, col.names = c('Nation', "Average salaries ('000 £)", 'Sample size', 'Sample mean', 'Sample sd'), align = c("l", "l", "c", "c", "c"), booktabs = T, escape = F) |> kable_styling(latex_options = c("striped", "hold_position"))
+```
+:::
+
+:::{#exm-anova}
+Consider the **Average Salary Data** reported in @nte-salary. Is the expected average salary in each nation the same at the $5\%$ level?
+
+We begin by exploring the data through the generation and interpretation of some box plots. The box plots in @fig-anova-samples-boxplots indicate that there may be a difference in median average salary by nation. 
+
+```{r}
+#| label: fig-anova-samples-boxplots
+#| fig-cap: "Box plots of the average mean salary data in Table @tbl-anova-samples-stats indicate five summary statistics: the median, two hinges (first and third quartiles) and two whiskers (extending from the hinge to the most extreme data point within $1.5 \\cdot \\mathsf{IQR}$)."
+#| echo: false
+#| warning: false
+#| message: false
+df$nation <- factor(df$nation)
+ggplot(df, aes(x = mean_salary, y = reorder(nation, desc(nation)))) + geom_boxplot() + xlab("Average salary") + theme(axis.title.y = element_blank())
+```      
+
+For $\alpha = 0.05,$ we compute the upper-tail area $F_{0.05}$ i.e. to the right of the critical value $F_{0.05, 3, 16}$ by consulting a statistical table or by using `r` to find $F_{0.05} = `r qf(.05, df1 = 4-1, df2 = 20-4, lower.tail = FALSE)`.$
+
+```{r}
+#| echo: true
+#| warning: false
+#| message: false
+# alt: qf(.05, df1 = 3, df2 = 16, lower.tail = FALSE)
+qf(1-.05, df1 = 4-1, df2 = 20-4) 
+```  
+ 
+The grand mean is 
+$$
+ \overline{x} = \frac{17 + 12 + 18 + \cdots + 8 + 7 + 9}{20} = `r mean(df$mean_salary)`\,,
+$$
+and hence the variation among sample means is given by,
+$$
+\begin{aligned}
+ \mathsf{MSTr} &= \frac{1}{4-1} \left(m_1(\overline{x}_1 - \overline{x})^2 + \cdots + m_4 (\overline{x}_4 - \overline{x})^2\right) \\
+ &= \left(6 (14.5-11.9)^2 + 4(10.0 - 11.9)^2 + 5(13.0-11.9)^2 + 5 ( 9.2 - 11.9)^2\right) / 3 \\
+ &= `r mstr` \,.
+\end{aligned}
+$$
+The mean square error is
+$$
+ \begin{aligned}
+ \mathsf{MSE} & = \frac{1}{20-4} \left((m_1 - 1)s_1^2 + \cdots (m_4-1)s_4^2\right)\\ 
+  &= \frac{5(2.588)^2 + 3(2.582)^2 + 4(1.871)^2 + 4(1.924)^2}{16} \\
+  &= `r mse`
+ \end{aligned}
+$$
+yielding the test statistic value
+$$
+ F = \frac{\mathsf{MSTr}}{\mathsf{MSE}} = \frac{`r mstr`}{`r mse`} 
+ = `r mstr / mse` \,.
+$$
+Since $F > F_\alpha$ we reject $H_0.$ The data do not support the hypothesis that the mean salaries in each nation are identical at the $5\%$ level. 
+:::
+
+## Confidence intervals {#sec-anova-ci}
+
+In @sec-compare-means, we gave a CI for comparing population means involving the difference $\mu_X - \mu_Y.$ In some settings, we would like to give CIs for more complicated functions of population means $\mu_i.$ Let
+$$
+ \theta = \sum_{i=1}^k c_i \mu_i\,,
+$$
+for constants $c_i.$ As we assume the $X_ij$ are normally distributed with $\E[X_{ij}] = \mu_i$ and $\Var[X_{ij}] = \sigma^2,$ the estimator
+$$
+ \widehat{\theta} = \sum_{i=1}^k c_i \overline{X}_{i}\,,
+$$
+is normally distributed with
+$$
+ \Var[\widehat{\theta}] = \sum_{i=1}^k c_i^2 \Var[\overline{X}_i] = \sigma^2 \sum_{i=1}^{k} \frac{c_i^2}{m_i}\,.
+$$
+We estimate $\sigma^2$ by the $\mathsf{MSE}$ and standardise the estimator to arrive at a $\mathsf{t}$ variable
+$$
+ \frac{\widehat{\theta} - \theta}{\widehat{\sigma}_{\widehat{\theta}}}\,,
+$$
+where $\widehat{\sigma}_{\widehat{\theta}}$ is the estimated standard error of the estimator. 
+
+:::{#prp-ci-anova}
+A $100(1-\alpha)\%$ CI for $\sum c_i \mu_i$ is given by 
+$$
+ \sum_{i=1}^k c_i \overline{x}_i \pm t_{\alpha/2, m-k} \sqrt{\mathsf{MSE} \sum_{i=1}^k \frac{c_i^2}{m_i}}\,.
+:::
+
+:::{#exm-anova-ci}
+Determine a $90\%$ CI for the difference in mean average salary for councils in Scotland and England, based on the data available in @tbl-anova-samples-stats
+
+For $\alpha = 0.10,$ the critical value $t_{0.05, 16} = `r qt(1-0.1/2, df = 20 - 4)`$ is found by looking in a table of $\mathsf{t}$ critical values or by using `r`:
+
+```{r}
+#| echo: true
+#| warning: false
+#| message: false
+# alt: qt(0.1/2, 16, lower.tail = FALSE)
+qt(1-0.1/2, df = 20 - 4) 
+```
+
+Then for the function $\overline{x}_2 - \overline{x_1},$ 
+$$
+\begin{aligned}
+(\overline{x}_{Eng} - \overline{x}_{Sco}) \pm& t_{0.05, 16} \sqrt{\mathsf{MSE}} \sqrt{\frac{1}{m_{Eng}} + \frac{1}{m_{Sco}}} \\
+& = (14.5 - 13.0) \pm `r qt(1-0.1/2, df = 20 - 4)` \sqrt{`r mse`} \sqrt{\frac{1}{6} + \frac{1}{5}} \\
+& = 1.5 \pm `r qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5)`\,.
+\end{aligned}
+$$
+Thus, a $90\%$ confidence interval for $\mu_{Eng} - \mu_{Sco}$ is $(`r signif(1.5 - qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5), digits = 4)`\,, `r signif(1.5 + qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5), digits = 4)`).$
+:::
+
+:::{.callout-warning}
+## Consider the following
+
+How does the result in @exm-anova-ci compare to the $\mathsf{t}$ method in @sec-compare-means-normpops-vars-unknown?
+:::
