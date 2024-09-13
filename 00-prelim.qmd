@@ -1,10 +1,4 @@
----
-editor: 
-  markdown: 
-    wrap: 72
----
-
-{{< include preamble.md >}}
+{{< include preamble.qmd >}}
 
 # Preliminaries {.unnumbered}
 

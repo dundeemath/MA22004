@@ -1,9 +1,4 @@
-{{< include preamble.md >}}
-
-```{r}
-#| include: false
-df_cat <- read_csv("data/cell-counts.csv")
-```
+{{< include preamble.qmd >}}
 
 # Categorical data {#sec-categorical-data}
 
@@ -105,8 +100,7 @@ $$
 The null hypothesis that we will be interested in adopting is
 $$
 H_0 : p_{ij} = p_{i} \cdot p_{j} \; \forall (i,j)\,,
- (\#eq:null-two-factor)
-$$
+$$ {#eq-null-two-factor}
 that is, an individual's category in factor 1 is independent of the category in factor 2. 
 
 Following the same program as for the single category goodness-of-fit test, we note that assuming the null hypothesis @eq-null-two-factor is true, then the expected count in cell $i,j$ is

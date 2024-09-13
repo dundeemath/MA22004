@@ -1,11 +1,11 @@
-{{< include preamble.md >}}
+{{< include preamble.qmd >}}
 
 # Curated Content {-}
 
 Below we provide links to supplementary online material. Hopefully, some of the items will inspire you to view the module material in a broader context and lead to further investigations. 
 
 
-## Investigation 0 {-}
+## Investigation 1 {-}
 
 What is Statistics? 
 
@@ -23,7 +23,7 @@ What is Statistics?
 :  [https://www.youtube.com/watch?v=TNzDMOg_zsw](https://www.youtube.com/watch?v=TNzDMOg_zsw) <br />\newline What's Kaggle? 
 
 
-## Investigation 1 {-}
+## Investigation 2 {-}
 
 Defence against the dark arts.
 
@@ -40,7 +40,7 @@ Defence against the dark arts.
 :  [https://www.youtube.com/watch?v=mJ63-bQc9Xg](https://www.youtube.com/watch?v=mJ63-bQc9Xg) <br />\newline  Sanne Blauw (Journalist) discusses how the presentation of statistics can mislead. 
 
 
-## Investigation 2 {-}
+## Investigation 3 {-}
 
 Data analysis and visualisation.
 
@@ -63,7 +63,7 @@ Data analysis and visualisation.
 :  [https://community.storytellingwithdata.com/challenges](https://community.storytellingwithdata.com/challenges) <br />\newline Monthly challenge. 
 
 
-## Investigation 3 {-}
+## Investigation 4 {-}
 
 Statistical paradoxes. 
 
@@ -77,7 +77,7 @@ Statistical paradoxes.
 :  [https://www.youtube.com/watch?v=4eVluL-idkM](https://www.youtube.com/watch?v=4eVluL-idkM) <br />\newline  Prof Kelly Shue (Chicago Booth) discusses the gambler's fallacy. 
 
 
-## Investigation 4 {-}
+## Investigation 5 {-}
 
 The law and interpreting statistics.
 
@@ -93,7 +93,7 @@ The law and interpreting statistics.
 :  [https://www.wikiwand.com/en/Prosecutor%27s_fallacy](https://www.wikiwand.com/en/Prosecutor%27s_fallacy) <br />\newline  A fallacy of statistical reasoning, typically used by a prosecutor to exaggerate the likelihood of guilt:  because $P(\text{hypothesis} \mid \text{evidence}) \neq P(\text{evidence} \mid \text{hypothesis})$!
 
 
-## Investigation 5 {-}
+## Investigation 6 {-}
 
 Data-driven decision making in epidemiology. 
 
@@ -112,7 +112,7 @@ Data-driven decision making in epidemiology.
 :  [https://www.youtube.com/watch?v=2nDh8MQuS-Y](https://www.youtube.com/watch?v=2nDh8MQuS-Y) <br />\newline  Prof Hans Rosling (Karolinska Institute and Gapminder Foundation) and Bill Gates seek to shed light on the true statistics of childhood vaccinations. 
 
 
-## Investigation 6 {-}
+## Investigation 7 {-}
 
 Spurious correlations! 
 
@@ -126,7 +126,7 @@ Spurious correlations!
 :  [https://www.youtube.com/watch?v=lbODqslc4Tg](https://www.youtube.com/watch?v=lbODqslc4Tg) <br />\newline  Correlation vs. causality from the Clip from the 2010 documentary "Freakonomics:  The Movie".
 
 
-## Investigation 7 {-}
+## Investigation 8 {-}
 
 Data and Society:  can data-driven and predictive modelling lead to a better world? What are the ethics of mass data collection?
 
@@ -144,7 +144,7 @@ Data and Society:  can data-driven and predictive modelling lead to a better wor
 :  [https://www.ted.com/talks/mallory_freeman_your_company_s_data_could_help_end_world_hunger](https://www.ted.com/talks/mallory_freeman_your_company_s_data_could_help_end_world_hunger) <br />\newline Mallory Freeman (Data Scientist) discusses how to do the most good with data. 
 
 
-## Investigation 8 {-}
+## Investigation 9 {-}
 
 Machine learning / big data.
 

@@ -4,7 +4,7 @@
 
 There are seven interactive lab tutorials with accompanying exercises. Each lab tutorial specifies how marks are allocated across the exercises (a maximum of 20 marks available for each lab report). 
 
-:::{.importantblock data-latex=""}
+:::{.callout-important}
 Marks are awarded for both **content** and **presentation**. 
 :::
 
@@ -14,13 +14,13 @@ Please work through the interactive tutorial for each lab. Your lab report shoul
 
 ## Presentation {-#w-present}
 
-Please use Quarto to create your lab report. Further instructions on using Quarto for creating *reproducible* lab reports that combine data analysis and text can be found in Lab 1. This set of lecture notes was authored using Quarto; you can see the source code that was used to create various output types in the GitHub repository [https://github.com/dundeemath/MA22004](https://github.com/dundeemath/MA22004). 
+Please use Quarto to create your lab report. Further instructions on using Quarto for creating *reproducible* lab reports that combine data analysis and text can be found in Lab 1. This set of lecture notes was authored using Quarto; you can see the source code in the GitHub repository [https://github.com/dundeemath/MA22004](https://github.com/dundeemath/MA22004). 
 
 ### Plots {-#w-plots}
 Plots should be neat and legible, with appropriate aesthetic elements. Please use `ggplot` for creating plots and visualisations. Each plot should be annotated with titles, axis labels, and legends as appropriate.  Plot aesthetics should be distinguished, e.g. using colours or line styles that are identified using a legend. Important data points and coordinates should be annotated using labels.
 
 ### Mathematical formulas {-#w-math}
-Mathematical formulas should follow the same style rules as the lecture notes. Formulas can be included in Quarto documents using $\LaTeX{}$ syntax. There should be appropriate spacing around operators and equals signs, e.g. $a + b = c$. For punctuation, formulas are treated as part of the text, so they often need to end with a full stop or comma. Important formulas can appear "displayed" on their own line (with line spacing above and below them), e.g.,
+Mathematical formulas should follow the same style rules as the lecture notes. Formulas can be included in Quarto documents using [$\LaTeX$]{.content-visible when-format="html"} [\LaTeX]{.content-visible when-format="pdf"} syntax. There should be appropriate spacing around operators and equals signs, e.g. $a + b = c$. For punctuation, formulas are treated as part of the text, so they often need to end with a full stop or comma. Important formulas can appear "displayed" on their own line (with line spacing above and below them), e.g.,
 $$A=πr^2\,.$$
 
 ### Structure {-#w-structure}

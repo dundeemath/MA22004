@@ -2,7 +2,13 @@
 
 Hi, folks! 
 
+:::{.content-hidden when-format="pdf"}
 ![](assets/images/Eric_Hall_small.jpg){fig-alt="A picture of Eric Hall in a blue plaid shirt." fig-pos='H' style="float:right;padding-left:30px;width:40%"}
+:::
+
+:::{.content-hidden when-format="html"}
+![](assets/images/Eric_Hall_small.jpg){fig-alt="A picture of Eric Hall in a blue plaid shirt." fig-pos='H' width=2in}
+:::
 
 I'm Eric---your instructor for MA22004 this semester. I am a new Baxter Fellow in Applied Mathematics at Dundee, and my research focuses on uncertainty quantification and predictive modelling.  
 

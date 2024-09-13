@@ -1,4 +1,4 @@
-{{< include preamble.md >}}
+{{< include preamble.qmd >}}
 
 ```{r setup-qc, include = FALSE}
 beer <- read_csv("data/beer.csv")
@@ -67,7 +67,7 @@ ipa_stat <- ipa |>
            sd = signif(sd(pH), digits = 4), range = max(pH) - min(pH)) 
 ipa_stat |> 
  kbl(align = "rcccc", booktabs = T, escape = F) |>
- kable_styling(latex_options = c("striped", "hold_position"))
+ kable_styling(latex_options = c("striped"))
 ```  
 
 We first observe that the pH measurements are (at least approximately) normal, as seen in the quantile-quantile plot in @fig-qc-beer-pH-norm.   
@@ -107,7 +107,7 @@ and
 $$
  \mathsf{LCL} = \widehat{\mu} - 3 \frac{\overline{s}}{a_m \sqrt{m}} \,.
 $$
-The computations in `r` follow, along with the resulting control chart in @fig-qc-beer-control-chart.   
+The computations in `R` follow, along with the resulting control chart in @fig-qc-beer-control-chart.   
 
 ```{r}
 #| label: fig-qc-beer-control-chart
@@ -125,7 +125,7 @@ ggplot(ipa_stat, aes(x = Day)) + geom_point(aes(y = mean)) +
  geom_hline(aes(yintercept = muhat, color = "Mean"), linewidth = lsz) + 
  geom_hline(aes(yintercept = lcl, color = "LCL"), linewidth = lsz*1.5) + 
  geom_hline(aes(yintercept = ucl, color = "UCL"), linewidth = lsz*1.5) + ylab("pH") + 
-   theme(legend.justification = c(1,1), legend.position = c(1,1),
+   theme(legend.justification = c(1,1), legend.position = c(0.9,0.9),
          legend.title = element_blank(), 
          legend.box.margin = margin(c(4, 4, 4, 4), unit = "pt"))
 ```   

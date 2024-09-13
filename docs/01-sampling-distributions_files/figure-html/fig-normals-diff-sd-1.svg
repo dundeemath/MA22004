@@ -76,13 +76,13 @@
 <text transform='translate(16.84,131.88) rotate(-90)' style='font-size: 12.00px; font-family: "Symbol";' textLength='3.00px' lengthAdjust='spacingAndGlyphs'> </text>
 <text transform='translate(16.84,128.88) rotate(-90)' style='font-size: 12.00px; font-family: "Symbol";' textLength='7.24px' lengthAdjust='spacingAndGlyphs'>σ</text>
 <text transform='translate(16.84,121.64) rotate(-90)' style='font-size: 15.00px; font-family: "Symbol";' textLength='5.00px' lengthAdjust='spacingAndGlyphs'>)</text>
-<rect x='457.47' y='5.98' width='40.55' height='61.08' style='stroke-width: 1.16; stroke: none; fill: #FFFFFF;' />
-<text x='463.45' y='19.08' style='font-size: 12.00px; font-family: "Symbol";' textLength='7.24px' lengthAdjust='spacingAndGlyphs'>σ</text>
-<rect x='463.45' y='26.52' width='17.28' height='17.28' style='stroke-width: 1.16; stroke: none; fill: #EBEBEB;' />
-<line x1='465.18' y1='35.16' x2='479.00' y2='35.16' style='stroke-width: 2.13; stroke: #F8766D; stroke-linecap: butt;' />
-<rect x='463.45' y='43.80' width='17.28' height='17.28' style='stroke-width: 1.16; stroke: none; fill: #EBEBEB;' />
-<line x1='465.18' y1='52.44' x2='479.00' y2='52.44' style='stroke-width: 2.13; stroke: #00BFC4; stroke-dasharray: 5.69,5.69; stroke-linecap: butt;' />
-<text x='486.71' y='38.60' style='font-size: 9.60px; font-family: "Arial";' textLength='5.34px' lengthAdjust='spacingAndGlyphs'>3</text>
-<text x='486.71' y='55.88' style='font-size: 9.60px; font-family: "Arial";' textLength='5.34px' lengthAdjust='spacingAndGlyphs'>1</text>
+<rect x='412.09' y='32.39' width='40.55' height='61.08' style='stroke-width: 1.16; stroke: none; fill: #FFFFFF;' />
+<text x='418.06' y='45.49' style='font-size: 12.00px; font-family: "Symbol";' textLength='7.24px' lengthAdjust='spacingAndGlyphs'>σ</text>
+<rect x='418.06' y='52.93' width='17.28' height='17.28' style='stroke-width: 1.16; stroke: none; fill: #EBEBEB;' />
+<line x1='419.79' y1='61.57' x2='433.62' y2='61.57' style='stroke-width: 2.13; stroke: #F8766D; stroke-linecap: butt;' />
+<rect x='418.06' y='70.21' width='17.28' height='17.28' style='stroke-width: 1.16; stroke: none; fill: #EBEBEB;' />
+<line x1='419.79' y1='78.85' x2='433.62' y2='78.85' style='stroke-width: 2.13; stroke: #00BFC4; stroke-dasharray: 5.69,5.69; stroke-linecap: butt;' />
+<text x='441.32' y='65.01' style='font-size: 9.60px; font-family: "Arial";' textLength='5.34px' lengthAdjust='spacingAndGlyphs'>3</text>
+<text x='441.32' y='82.29' style='font-size: 9.60px; font-family: "Arial";' textLength='5.34px' lengthAdjust='spacingAndGlyphs'>1</text>
 </g>
 </svg>

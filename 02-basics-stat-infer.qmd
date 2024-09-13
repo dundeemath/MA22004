@@ -1,4 +1,4 @@
-{{< include preamble.md >}}
+{{< include preamble.qmd >}}
 
 # Basics of statistical inference {#sec-statistical-inference}
 
@@ -36,7 +36,7 @@ ggplot(data = df, aes(x = Petal.Length, fill = Species)) +
 :::{.callout-tip}
 ## Loading datasets 
 
-The `datasets` package has a variety of datasets that you can play with. Once installed, data sets can be accessed in `r` by loading `library(datasets)` and then calling, e.g., `data(iris)` to see the `iris` data set. For a full list of available data sets, call `library(help = "datasets")` from the console.
+The `datasets` package has a variety of datasets that you can play with. Once installed, data sets can be accessed in `R` by loading `library(datasets)` and then calling, e.g., `data(iris)` to see the `iris` data set. For a full list of available data sets, call `library(help = "datasets")` from the console.
 :::
 
 :::{#nte-iris .callout-note collapse="true"}
@@ -110,7 +110,7 @@ dattab <- trees |>
   arrange(Height) |>
   summarise(heights = list(Height))
 kbl(dattab, col.names = c("Height [in]"), booktabs = T) |>
- kable_styling(latex_options = c("striped", "hold_position")) |>
+ kable_styling(latex_options = c("striped")) |>
   column_spec(1, width = "150mm")
 ```   
 

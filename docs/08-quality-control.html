@@ -105,6 +105,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var sidebar = document.getElementById('quarto-sidebar');
+    var logo = sidebar.getElementsByTagName('img')[0];
+    
+    sidebar.appendChild(logo);
+  });
+</script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
@@ -176,12 +184,16 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./assets/images/uod_shield_rgb.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">MA22004 — Statistics II</a> 
+      <a href="./">MA22004 — Statistics II<br></a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/dundeemath/MA22004/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./MA22004-—-Statistics-II.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./MA22004-—-Statistics-II--br-
+.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -328,14 +340,14 @@ window.Quarto = {
   <ul>
   <li><a href="#sec-control-charts" id="toc-sec-control-charts" class="nav-link active" data-scroll-target="#sec-control-charts"><span class="header-section-number">8.1</span> Control charts</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/dundeemath/MA22004/edit/master/08-quality-control.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-prelim.html">Lecture Notes</a></li><li class="breadcrumb-item"><a href="./08-quality-control.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Quality control</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-quality-control" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Quality control</span></span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-quality-control" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Quality control</span></span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -429,7 +441,7 @@ $ Beer     &lt;chr&gt; "Premium Lager", "Premium Lager", "Premium Lager", "Premi
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">sd =</span> <span class="fu">signif</span>(<span class="fu">sd</span>(pH), <span class="at">digits =</span> <span class="dv">4</span>), <span class="at">range =</span> <span class="fu">max</span>(pH) <span class="sc">-</span> <span class="fu">min</span>(pH)) </span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>ipa_stat <span class="sc">|&gt;</span> </span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a> <span class="fu">kbl</span>(<span class="at">align =</span> <span class="st">"rcccc"</span>, <span class="at">booktabs =</span> T, <span class="at">escape =</span> F) <span class="sc">|&gt;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a> <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hold_position"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a> <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div id="tbl-qc-beer-data" class="cell quarto-float anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -605,7 +617,7 @@ a_m = \frac{\sqrt{2} \Gamma(m/2)}{\sqrt{m-1}\Gamma\left((n-1)/2\right)}\,.
 \mathsf{UCL} = \widehat{\mu} + 3 \frac{\overline{s}}{a_m \sqrt{m}}
 </span> and <span class="math display">
 \mathsf{LCL} = \widehat{\mu} - 3 \frac{\overline{s}}{a_m \sqrt{m}} \,.
-</span> The computations in <code>r</code> follow, along with the resulting control chart in <a href="#fig-qc-beer-control-chart" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>.</p>
+</span> The computations in <code>R</code> follow, along with the resulting control chart in <a href="#fig-qc-beer-control-chart" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <details open="" class="code-fold">
 <summary>Code</summary>
@@ -619,7 +631,7 @@ a_m = \frac{\sqrt{2} \Gamma(m/2)}{\sqrt{m-1}\Gamma\left((n-1)/2\right)}\,.
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> muhat, <span class="at">color =</span> <span class="st">"Mean"</span>), <span class="at">linewidth =</span> lsz) <span class="sc">+</span> </span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> lcl, <span class="at">color =</span> <span class="st">"LCL"</span>), <span class="at">linewidth =</span> lsz<span class="sc">*</span><span class="fl">1.5</span>) <span class="sc">+</span> </span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> ucl, <span class="at">color =</span> <span class="st">"UCL"</span>), <span class="at">linewidth =</span> lsz<span class="sc">*</span><span class="fl">1.5</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"pH"</span>) <span class="sc">+</span> </span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme</span>(<span class="at">legend.justification =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme</span>(<span class="at">legend.justification =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.9</span>,<span class="fl">0.9</span>),</span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">legend.title =</span> <span class="fu">element_blank</span>(), </span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">legend.box.margin =</span> <span class="fu">margin</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>), <span class="at">unit =</span> <span class="st">"pt"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -639,6 +651,8 @@ Figure&nbsp;8.2: The <span class="math inline">3\sigma</span> control chart illu
 <p>From <a href="#fig-qc-beer-control-chart" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>, we observe for each day the process is in-control as the observed mean pH values fall within the control limits <span class="math inline">(\mathsf{LCL}, \mathsf{UCL})</span>. If this were not the case, our initial assumption that the process is in control would be violated. The violation of the assumption would require that we seek to identify an assignable cause for the variation. If a cause could be identified, we would need to recompute our control limits with the observations that were out of control removed.</p>
 </div>
 
+
+<!-- -->
 
 </section>
 
@@ -866,6 +880,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/dundeemath\.github\.io\/MA22004");
@@ -1207,7 +1272,143 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>{{&lt; include preamble.qmd &gt;}}</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup-qc, include = FALSE}</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="in">beer &lt;- read_csv("data/beer.csv")</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># Quality control {#sec-quality-control}</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>Quality control is an area of applied statistics that makes interventions to maintain or improve the outcome of industrial processes. Random variations in output processes might negatively impact the quality of a product. We want to identify the sources of random output-process variations that might have *assignable causes*. Control charts are a tool that helps us to recognise when industrial processes are no longer controlled so that one might then seek to identify assignable causes. </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## Control charts {#sec-control-charts} </span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>The essential elements of control charting involve specifying a control region and then analysing time-series data. We will specify a baseline value along with an upper and lower control limit and assume that a process is under control unless a test statistic suggests otherwise. To construct a control chart, one collects data about a process at fixed points of time and calculates the running value of a quality statistic. Suppose the quality statistic exceeds the upper or lower control limits. In that case, the process is deemed out of control, and the product quality is assumed to be negatively impacted.</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>:::{.callout-important}</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Default position</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>The default position adopted for quality control will be reminiscent of hypothesis testing: "assume that a process is under control unless a test statistic suggests otherwise."</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>The process of creating a control chart is best illustrated through an extended example, like @exm-qc-three-sigma provided below. </span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>:::{#exm-qc-three-sigma}</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>Here we consider the typical $3 \sigma$ control charting for a process mean $\overline{X}$ based on estimated parameters. That is, we assume the generating process $X$ is normally distributed with unknown parameters $\mu$ and $\sigma^2$. We seek to estimate the mean $\overline{X}$. Our control region is specified to be three standard deviations; the process is in control if it remains within three standard deviations of a baseline value.</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>:::{#nte-beer .callout-note collapse="true"}</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Beer Production Data </span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>The **Beer Production Data** contains measurements of the features OG, ABV, pH, and IBU for $50$ batches of each of three types of product (Premium Lager, IPA, and Light Lager).</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>beer <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>Let's consider the Beer Production Data in @nte-beer. We are interested in the IPA's pH value, which influences saccharification. We assume that three batches of IPA are produced per day, and we prepare the data as follows.</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>ipa <span class="ot">&lt;-</span> beer <span class="sc">|&gt;</span> </span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a> <span class="fu">select</span>(Batch_Id, pH, Beer) <span class="sc">|&gt;</span> </span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a> <span class="fu">filter</span>(Beer <span class="sc">==</span> <span class="st">"IPA"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a> <span class="fu">rename</span>(<span class="at">Day =</span> Batch_Id)</span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="dv">3</span>    <span class="co"># three batches per day</span></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">16</span>   <span class="co"># number of days</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>ipa<span class="sc">$</span>Day[<span class="dv">1</span><span class="sc">:</span>(m<span class="sc">*</span>k)] <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>k, <span class="at">each =</span> m)</span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>ipa <span class="ot">&lt;-</span> ipa[<span class="dv">1</span><span class="sc">:</span>(m<span class="sc">*</span>k),]</span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>   </span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>The prepared data, <span class="in">`ipa`</span>, is summarized in the @tbl-qc-beer-data. </span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-qc-beer-data</span></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Observations and summary statistics for the **Beer Production Data**."</span></span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>ipa_stat <span class="ot">&lt;-</span> ipa <span class="sc">|&gt;</span> </span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a> <span class="fu">group_by</span>(Day) <span class="sc">|&gt;</span> </span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a> <span class="fu">summarise</span>(<span class="at">obs =</span> <span class="fu">list</span>(pH), <span class="at">mean =</span> <span class="fu">signif</span>(<span class="fu">mean</span>(pH), <span class="at">digits =</span> <span class="dv">4</span>), </span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>           <span class="at">sd =</span> <span class="fu">signif</span>(<span class="fu">sd</span>(pH), <span class="at">digits =</span> <span class="dv">4</span>), <span class="at">range =</span> <span class="fu">max</span>(pH) <span class="sc">-</span> <span class="fu">min</span>(pH)) </span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>ipa_stat <span class="sc">|&gt;</span> </span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a> <span class="fu">kbl</span>(<span class="at">align =</span> <span class="st">"rcccc"</span>, <span class="at">booktabs =</span> T, <span class="at">escape =</span> F) <span class="sc">|&gt;</span></span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a> <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>))</span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>We first observe that the pH measurements are (at least approximately) normal, as seen in the quantile-quantile plot in @fig-qc-beer-pH-norm.   </span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-qc-beer-pH-norm</span></span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Normal quantile-quantile plot of observed pH measurements of the IPA batches."</span></span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>ipa <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> pH)) <span class="sc">+</span> <span class="fu">stat_qq</span>() <span class="sc">+</span> <span class="fu">stat_qq_line</span>()</span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>We consider the data for pH readings from three batches of IPA taken over sixteen days ($k = 16$) presented in @tbl-qc-beer-data. The Table includes the sample mean per day, $\overline{x}$, the sample standard deviation, $s$, and the range of values per day, $\max{x_i} - \min{x_i}$ (each based on $m=3$ batches).   </span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>We estimate the mean  </span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a> \widehat{\mu} = \frac{1}{k} \sum_{i=1}^k \overline{x}_i \,,</span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a>by averaging the means found for the $k$ days and, similarly, estimating the mean of the sample standard deviation,</span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a> \overline{s} = \frac{1}{k} \sum_{i=1}^k s_i\,,</span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a>by averaging the sample standard deviations for the $k$ days. It can be shown that </span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a> \widehat{\sigma} = \frac{\overline{S}}{a_m} </span>
+<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a>is an unbiased estimator of $\sigma$ where</span>
+<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a>a_m = \frac{\sqrt{2} \Gamma(m/2)}{\sqrt{m-1}\Gamma\left((n-1)/2\right)}\,.</span>
+<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a>Thus, we compute the $3\sigma$ upper and lower control limits, respectively,</span>
+<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a> \mathsf{UCL} = \widehat{\mu} + 3 \frac{\overline{s}}{a_m \sqrt{m}}</span>
+<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a>and </span>
+<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a> \mathsf{LCL} = \widehat{\mu} - 3 \frac{\overline{s}}{a_m \sqrt{m}} \,.</span>
+<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a>The computations in <span class="in">`R`</span> follow, along with the resulting control chart in @fig-qc-beer-control-chart.   </span>
+<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-qc-beer-control-chart</span></span>
+<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "The $3\\sigma$ control chart illustrates that with respect to pH the brewing process is in-control over the selected timeframe as the observations fall within the $(\\mathsf{LCL}, \\mathsf{UCL})$ control interval."</span></span>
+<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="cf">function</span>(m){ <span class="fu">sqrt</span>(<span class="dv">2</span>) <span class="sc">*</span> <span class="fu">gamma</span>(m<span class="sc">/</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="fu">sqrt</span>(m<span class="dv">-1</span>) <span class="sc">*</span> <span class="fu">gamma</span>((m<span class="dv">-1</span>)<span class="sc">/</span><span class="dv">2</span>)) }</span>
+<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a>muhat <span class="ot">=</span> <span class="fu">sum</span>(ipa_stat<span class="sc">$</span>mean) <span class="sc">/</span> k</span>
+<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a>sbar <span class="ot">=</span> <span class="fu">sum</span>(ipa_stat<span class="sc">$</span>sd) <span class="sc">/</span> k</span>
+<span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a>lcl <span class="ot">=</span> muhat <span class="sc">-</span> <span class="dv">3</span><span class="sc">*</span>sbar <span class="sc">/</span> (<span class="fu">a</span>(m) <span class="sc">*</span> <span class="fu">sqrt</span>(m))</span>
+<span id="cb7-132"><a href="#cb7-132" aria-hidden="true" tabindex="-1"></a>ucl <span class="ot">=</span> muhat <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>sbar <span class="sc">/</span> (<span class="fu">a</span>(m) <span class="sc">*</span> <span class="fu">sqrt</span>(m))</span>
+<span id="cb7-133"><a href="#cb7-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ipa_stat, <span class="fu">aes</span>(<span class="at">x =</span> Day)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> mean)) <span class="sc">+</span> </span>
+<span id="cb7-135"><a href="#cb7-135" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> muhat, <span class="at">color =</span> <span class="st">"Mean"</span>), <span class="at">linewidth =</span> lsz) <span class="sc">+</span> </span>
+<span id="cb7-136"><a href="#cb7-136" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> lcl, <span class="at">color =</span> <span class="st">"LCL"</span>), <span class="at">linewidth =</span> lsz<span class="sc">*</span><span class="fl">1.5</span>) <span class="sc">+</span> </span>
+<span id="cb7-137"><a href="#cb7-137" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> ucl, <span class="at">color =</span> <span class="st">"UCL"</span>), <span class="at">linewidth =</span> lsz<span class="sc">*</span><span class="fl">1.5</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"pH"</span>) <span class="sc">+</span> </span>
+<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme</span>(<span class="at">legend.justification =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.9</span>,<span class="fl">0.9</span>),</span>
+<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a>         <span class="at">legend.title =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb7-140"><a href="#cb7-140" aria-hidden="true" tabindex="-1"></a>         <span class="at">legend.box.margin =</span> <span class="fu">margin</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>), <span class="at">unit =</span> <span class="st">"pt"</span>))</span>
+<span id="cb7-141"><a href="#cb7-141" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>   </span>
+<span id="cb7-142"><a href="#cb7-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-143"><a href="#cb7-143" aria-hidden="true" tabindex="-1"></a>From @fig-qc-beer-control-chart, we observe for each day the process is in-control as the observed mean pH values fall within the control limits $(\mathsf{LCL}, \mathsf{UCL})$. If this were not the case, our initial assumption that the process is in control would be violated. The violation of the assumption would require that we seek to identify an assignable cause for the variation. If a cause could be identified, we would need to recompute our control limits with the observations that were out of control removed.</span>
+<span id="cb7-144"><a href="#cb7-144" aria-hidden="true" tabindex="-1"></a>:::</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1216,7 +1417,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
 <p>Copyright 2024, Eric Hall (University of Dundee)</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dundeemath/MA22004/edit/master/08-quality-control.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

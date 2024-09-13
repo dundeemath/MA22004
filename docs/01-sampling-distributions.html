@@ -328,9 +328,7 @@ window.Quarto = {
   </li>
     </ul>
     </div>
-<div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p>Last modified: <strong>?meta:date</strong></p>
-</div></div></nav>
+</nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -494,7 +492,7 @@ Variances add
     &amp;= 0.4338\,,
 \end{aligned}
 </span> where we look up the value of <span class="math inline">\Phi(z) = P(Z\leq z)</span> in a table of standard normal curve areas.</p>
-<p>The probability corresponds to the shaded area under the normal density <span class="math inline">\varphi(x) = \Phi'(x)</span> corresponding to <span class="math inline">x \geq 5.5</span> (see <a href="#fig-example-norm-geq" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>). To calculate this area, we can also use the <code>r</code> code: <code>pnorm(5.5, mean = 5, sd = 3, lower.tail = FALSE)</code>.</p>
+<p>The probability corresponds to the shaded area under the normal density <span class="math inline">\varphi(x) = \Phi'(x)</span> corresponding to <span class="math inline">x \geq 5.5</span> (see <a href="#fig-example-norm-geq" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>). To calculate this area, we can also use the <code>R</code> code: <code>pnorm(5.5, mean = 5, sd = 3, lower.tail = FALSE)</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-example-norm-geq" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
@@ -521,7 +519,7 @@ Figure&nbsp;1.3: The normal density <span class="math inline">\mathsf{N}(5,9)</s
    &amp;= 0.1638\,.
   \end{aligned}
 </span> where we look up the value of <span class="math inline">\Phi(z) = P(Z\leq z)</span> in a table of standard normal curve areas.</p>
-<p>The probability corresponds to the shaded area under the normal density <span class="math inline">\varphi(x) = \Phi'(x)</span> corresponding to <span class="math inline">4 \leq x \leq 5.25</span> (see <a href="#fig-example-norm-interval" class="quarto-xref">Figure&nbsp;<span>1.4</span></a>). To calculate this area, we can use the <code>r</code> code: <code>pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3)</code>.</p>
+<p>The probability corresponds to the shaded area under the normal density <span class="math inline">\varphi(x) = \Phi'(x)</span> corresponding to <span class="math inline">4 \leq x \leq 5.25</span> (see <a href="#fig-example-norm-interval" class="quarto-xref">Figure&nbsp;<span>1.4</span></a>). To calculate this area, we can use the <code>R</code> code: <code>pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3)</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-example-norm-interval" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
@@ -1326,7 +1324,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>{{&lt; include preamble.md &gt;}}</span>
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>{{&lt; include preamble.qmd &gt;}}</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu"># Sampling distributions {#sec-sampling-distributions}</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1389,9 +1387,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a> \quad -\infty &lt; x &lt; \infty \,.</span>
 <span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>We write $X \sim \mathsf{N}(\mu, \sigma^2)$. </span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>::: </span>
 <span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>For $X\sim \mathsf{N}(\mu,\sigma^2),$ it can be shown that $\mathbf{E}(X) = \mu$ and $\Var(X) = \sigma^2,$ that is, $\mu$ is the *mean* and $\sigma^2$ is the *variance* of $X$. The pdf forms a bell-shaped curve that is symmetric about $\mu,$ as illustrated in @fig-normals-diff-mean. The value $\sigma$ (*standard deviation*) is the distance from $\mu$ to the inflection points of the curve. As $\sigma$ increases, the dispersion in the density increases, as illustrated in @fig-normals-diff-sd. Thus, the distribution's position (location) and spread depend on $\mu$ and $\sigma$.  </span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>For $X\sim \mathsf{N}(\mu,\sigma^2),$ it can be shown that $\E(X) = \mu$ and $\Var(X) = \sigma^2,$ that is, $\mu$ is the *mean* and $\sigma^2$ is the *variance* of $X$. The pdf forms a bell-shaped curve that is symmetric about $\mu,$ as illustrated in @fig-normals-diff-mean. The value $\sigma$ (*standard deviation*) is the distance from $\mu$ to the inflection points of the curve. As $\sigma$ increases, the dispersion in the density increases, as illustrated in @fig-normals-diff-sd. Thus, the distribution's position (location) and spread depend on $\mu$ and $\sigma$.  </span>
 <span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-normals-diff-mean</span></span>
@@ -1472,7 +1470,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>where we look up the value of $\Phi(z) = P(Z\leq z)$ in a table of standard normal curve areas.</span>
 <span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>The probability corresponds to the shaded area under the normal density $\varphi(x) = \Phi'(x)$ corresponding to $x \geq 5.5$ (see @fig-example-norm-geq). To calculate this area, we can also use the <span class="in">`r`</span> code: <span class="in">`pnorm(5.5, mean = 5, sd = 3, lower.tail = FALSE)`</span>.  </span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>The probability corresponds to the shaded area under the normal density $\varphi(x) = \Phi'(x)$ corresponding to $x \geq 5.5$ (see @fig-example-norm-geq). To calculate this area, we can also use the <span class="in">`R`</span> code: <span class="in">`pnorm(5.5, mean = 5, sd = 3, lower.tail = FALSE)`</span>.  </span>
 <span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-example-norm-geq</span></span>
@@ -1506,7 +1504,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>where we look up the value of $\Phi(z) = P(Z\leq z)$ in a table of standard normal curve areas. </span>
 <span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>The probability corresponds to the shaded area under the normal density $\varphi(x) = \Phi'(x)$ corresponding to $4 \leq x \leq 5.25$ (see @fig-example-norm-interval). To calculate this area, we can use the <span class="in">`r`</span> code: <span class="in">`pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3)`</span>. </span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>The probability corresponds to the shaded area under the normal density $\varphi(x) = \Phi'(x)$ corresponding to $4 \leq x \leq 5.25$ (see @fig-example-norm-interval). To calculate this area, we can use the <span class="in">`R`</span> code: <span class="in">`pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3)`</span>. </span>
 <span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-example-norm-interval</span></span>
@@ -1581,7 +1579,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>The density for $\mathsf{t}(\nu)$ is more spread out than the standard normal density (i.e., it has "fatter tails" than the normal).</span>
 <span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>As $\nu \to \infty,$ the spread of the corresponding $\mathsf{t}(\nu)$ density converges to the standard normal density (i.e., the spread of the $\mathsf{t}(\nu)$ density decreases relative to the standard normal).  </span>
 <span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a>If $X \sim \mathsf{t}(\nu),$ then $\mathbf{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span> = 0$ for $\nu &gt; 1$ (otherwise the mean is undefined).  </span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a>If $X \sim \mathsf{t}(\nu),$ then $\E<span class="co">[</span><span class="ot">X</span><span class="co">]</span> = 0$ for $\nu &gt; 1$ (otherwise the mean is undefined).  </span>
 <span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
@@ -1635,7 +1633,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a>Unlike the normal and $t$ distributions, the $\chi^2$ distribution is not symmetric! This means that critical values, e.g., $$\chi^2_{.99, \nu} \quad \text{and}\quad \chi^2_{0.01,\nu}\,,$$ are **not** equal. Hence, it will be necessary to look up both values for CIs based on $\chi^2$ critical values.  </span>
 <span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a>If $X \sim \chi^2(\nu),$ then $\mathbf{E}<span class="co">[</span><span class="ot">X</span><span class="co">]</span> = \nu$ and $\Var<span class="co">[</span><span class="ot">X</span><span class="co">]</span> = 2\nu$.  </span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a>If $X \sim \chi^2(\nu),$ then $\E<span class="co">[</span><span class="ot">X</span><span class="co">]</span> = \nu$ and $\Var<span class="co">[</span><span class="ot">X</span><span class="co">]</span> = 2\nu$.  </span>
 <span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a><span class="fu">## $\mathsf{F}$ distribution {#sec-F-distribution}</span></span>
 <span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a></span>

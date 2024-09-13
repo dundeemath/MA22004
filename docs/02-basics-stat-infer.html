@@ -125,8 +125,6 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     var sidebar = document.getElementById('quarto-sidebar');
@@ -135,6 +133,8 @@ div.csl-indent {
     sidebar.appendChild(logo);
   });
 </script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -350,9 +350,7 @@ window.Quarto = {
   </li>
     </ul>
     </div>
-<div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p>Text</p>
-</div></div></nav>
+</nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -364,7 +362,7 @@ window.Quarto = {
   <li><a href="#sec-confidence-intervals" id="toc-sec-confidence-intervals" class="nav-link" data-scroll-target="#sec-confidence-intervals"><span class="header-section-number">2.2</span> Confidence intervals</a></li>
   <li><a href="#sec-hypothesis-testing" id="toc-sec-hypothesis-testing" class="nav-link" data-scroll-target="#sec-hypothesis-testing"><span class="header-section-number">2.3</span> Hypothesis testing</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/dundeemath/MA22004/edit/master/02-basics-stat-infer.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -421,7 +419,7 @@ Loading datasets
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The <code>datasets</code> package has a variety of datasets that you can play with. Once installed, data sets can be accessed in <code>r</code> by loading <code>library(datasets)</code> and then calling, e.g., <code>data(iris)</code> to see the <code>iris</code> data set. For a full list of available data sets, call <code>library(help = "datasets")</code> from the console.</p>
+<p>The <code>datasets</code> package has a variety of datasets that you can play with. Once installed, data sets can be accessed in <code>R</code> by loading <code>library(datasets)</code> and then calling, e.g., <code>data(iris)</code> to see the <code>iris</code> data set. For a full list of available data sets, call <code>library(help = "datasets")</code> from the console.</p>
 </div>
 </div>
 <div id="nte-iris" class="callout callout-style-default callout-note callout-titled">
@@ -1477,7 +1475,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>{{&lt; include preamble.md &gt;}}</span>
+<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>{{&lt; include preamble.qmd &gt;}}</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu"># Basics of statistical inference {#sec-statistical-inference}</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1515,7 +1513,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip}</span>
 <span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Loading datasets </span></span>
 <span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>The <span class="in">`datasets`</span> package has a variety of datasets that you can play with. Once installed, data sets can be accessed in <span class="in">`r`</span> by loading <span class="in">`library(datasets)`</span> and then calling, e.g., <span class="in">`data(iris)`</span> to see the <span class="in">`iris`</span> data set. For a full list of available data sets, call <span class="in">`library(help = "datasets")`</span> from the console.</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>The <span class="in">`datasets`</span> package has a variety of datasets that you can play with. Once installed, data sets can be accessed in <span class="in">`R`</span> by loading <span class="in">`library(datasets)`</span> and then calling, e.g., <span class="in">`data(iris)`</span> to see the <span class="in">`iris`</span> data set. For a full list of available data sets, call <span class="in">`library(help = "datasets")`</span> from the console.</span>
 <span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>:::{#nte-iris .callout-note collapse="true"}</span>
@@ -1589,7 +1587,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Height) <span class="sc">|&gt;</span></span>
 <span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">heights =</span> <span class="fu">list</span>(Height))</span>
 <span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(dattab, <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Height [in]"</span>), <span class="at">booktabs =</span> T) <span class="sc">|&gt;</span></span>
-<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a> <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hold_position"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a> <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">width =</span> <span class="st">"150mm"</span>)</span>
 <span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>   </span>
 <span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a></span>
@@ -1864,7 +1862,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
 <p>Copyright 2024, Eric Hall (University of Dundee)</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dundeemath/MA22004/edit/master/02-basics-stat-infer.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

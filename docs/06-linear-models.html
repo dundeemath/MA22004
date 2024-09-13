@@ -105,6 +105,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var sidebar = document.getElementById('quarto-sidebar');
+    var logo = sidebar.getElementsByTagName('img')[0];
+    
+    sidebar.appendChild(logo);
+  });
+</script>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -174,12 +182,16 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./assets/images/uod_shield_rgb.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">MA22004 — Statistics II</a> 
+      <a href="./">MA22004 — Statistics II<br></a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/dundeemath/MA22004/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./MA22004-—-Statistics-II.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./MA22004-—-Statistics-II--br-
+.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -330,14 +342,14 @@ window.Quarto = {
   <li><a href="#sec-correlation" id="toc-sec-correlation" class="nav-link" data-scroll-target="#sec-correlation"><span class="header-section-number">6.4</span> Correlation</a></li>
   <li><a href="#prediction-using-linear-models" id="toc-prediction-using-linear-models" class="nav-link" data-scroll-target="#prediction-using-linear-models"><span class="header-section-number">6.5</span> Prediction using linear models</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/dundeemath/MA22004/edit/master/06-linear-models.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-prelim.html">Lecture Notes</a></li><li class="breadcrumb-item"><a href="./06-linear-models.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear regression</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-linear-models" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear regression</span></span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-linear-models" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear regression</span></span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -355,7 +367,7 @@ window.Quarto = {
 
 
 <p>Regression analysis allows us to study the relationship among two or more rvs. Typically, we are interested in the relationship between a response or dependent rv <span class="math inline">Y</span> and a covariate <span class="math inline">X.</span> The relationship between <span class="math inline">X</span> and <span class="math inline">Y</span> will be explained through a regression function, <span class="math display">
-r(x) = \mathop{\mathrm{\mathbf{E}}}[Y \mid X = x] = \int y f(y\mid x) dy \,.
+r(x) = \mathbf{E}[Y \mid X = x] = \int y f(y\mid x) dy \,.
 </span> In particular, we shall assume that <span class="math inline">r</span> is linear, <span id="eq-linear-regression-function"><span class="math display">
 r(x) = \beta_0 + \beta_1 x\,,
 \tag{6.1}</span></span> and estimate the intercept <span class="math inline">\beta_0</span> and slope <span class="math inline">\beta_1</span> of this linear model from sample data <span class="math display">
@@ -382,16 +394,16 @@ Alternative lingo
 Y_i = \beta_0 + \beta_1 X_i + \epsilon_i \,,
 \tag{6.2}</span></span> where the intercept <span class="math inline">\beta_0</span> and slope <span class="math inline">\beta_1</span> are unknown parameters and the random deviation or random error <span class="math inline">\epsilon_i</span> is a rv assumed to satisfy:</p>
 <ol type="1">
-<li><span class="math inline">\mathop{\mathrm{\mathbf{E}}}[\epsilon_i \mid X_i = x_i] = 0,</span></li>
+<li><span class="math inline">\mathbf{E}[\epsilon_i \mid X_i = x_i] = 0,</span></li>
 <li><span class="math inline">\mathop{\mathrm{Var}}[\epsilon_i \mid X_i = x_i] = \sigma^2</span> does not depend on <span class="math inline">x_i,</span></li>
 <li><span class="math inline">\epsilon_i</span> and <span class="math inline">\epsilon_j</span> are independent for <span class="math inline">i, j = 1, \dots, m.</span></li>
 </ol>
 </div>
 <p>From the assumptions on <span class="math inline">\epsilon_i,</span> the linear model <a href="#eq-linear-model" class="quarto-xref">Equation&nbsp;<span>6.2</span></a> implies <span class="math display">
-\mathop{\mathrm{\mathbf{E}}}[Y_i \mid X_i = x_i] = \beta_0 + \beta_1 x_i \,.
+\mathbf{E}[Y_i \mid X_i = x_i] = \beta_0 + \beta_1 x_i \,.
 </span> Thus, if <span class="math inline">\widehat{\beta}_0</span> and <span class="math inline">\widehat{\beta}_1</span> are estimators of <span class="math inline">\beta_0</span> and <span class="math inline">\beta_1,</span> then the fitted line is <span class="math display">
 \widehat{r}(x) = \widehat{\beta}_0 + \widehat{\beta}_1 x
-</span> and the predicted or fitted value <span class="math inline">\widehat{Y}_i = \widehat{r}(X_i)</span> is an estimator for <span class="math inline">\mathop{\mathrm{\mathbf{E}}}[Y_i \mid X_i = x_i].</span> The residuals are defined to be <span id="eq-ls-residuals"><span class="math display">
+</span> and the predicted or fitted value <span class="math inline">\widehat{Y}_i = \widehat{r}(X_i)</span> is an estimator for <span class="math inline">\mathbf{E}[Y_i \mid X_i = x_i].</span> The residuals are defined to be <span id="eq-ls-residuals"><span class="math display">
 \widehat{\epsilon}_i = Y_i - \widehat{Y}_i = Y_i - \left( \widehat{\beta}_0 + \widehat{\beta}_1 X_i \right) \,.
 \tag{6.3}</span></span> The residual sums of squares, <span id="eq-rss"><span class="math display">
 \mathsf{RSS} = \sum_{i=1}^m \widehat{\epsilon}_i^2\,,
@@ -419,7 +431,7 @@ Alternative lingo
 </div>
 <div id="exm-linear-model-fit-residuals" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6.1</strong></span> In <a href="#fig-linear-model-fit" class="quarto-xref">Figure&nbsp;<span>6.1</span></a> and <a href="#fig-linear-model-residuals" class="quarto-xref">Figure&nbsp;<span>6.2</span></a>, we consider the <strong>Cherry Tree Data</strong> (see <a href="02-basics-stat-infer.html#tbl-cherry-data" class="quarto-xref">Table&nbsp;<span>2.1</span></a>) and discussion). We fit a least squares regression of timber volume (response variable) to the tree’s diameter (independent variable). As you would expect, the timber yield increases with diameter.</p>
-<p>The <code>r</code> code below can be used to calculate the least squares regression and residuals.</p>
+<p>The <code>R</code> code below can be used to calculate the least squares regression and residuals.</p>
 <div class="cell" data-layout-align="center">
 <details open="" class="code-fold">
 <summary>Code</summary>
@@ -521,7 +533,7 @@ S^2 = \frac{\mathsf{RSS}}{m-2}
 <p>Provided iid <span class="math inline">\epsilon_i \mid X_i \sim \mathsf{N}(0, \sigma^2),</span> the least-squares estimators possess the following properties.</p>
 <ol type="1">
 <li>Both <span class="math inline">\widehat{\beta}_0</span> and <span class="math inline">\widehat{\beta}_1</span> are normally distributed.</li>
-<li>Both <span class="math inline">\widehat{\beta}_0</span> and <span class="math inline">\widehat{\beta}_1</span> are unbiased, i.e., <span class="math inline">\mathop{\mathrm{\mathbf{E}}}[\widehat{\beta}_i] = \beta_i</span> for <span class="math inline">i = 0,1.</span></li>
+<li>Both <span class="math inline">\widehat{\beta}_0</span> and <span class="math inline">\widehat{\beta}_1</span> are unbiased, i.e., <span class="math inline">\mathbf{E}[\widehat{\beta}_i] = \beta_i</span> for <span class="math inline">i = 0,1.</span></li>
 <li><span class="math inline">\mathop{\mathrm{Var}}[\widehat{\beta}_0] = c_{00} \sigma^2</span> where <span class="math inline">c_{00} = \sum_{i=1}^m x_i^2 / (m S_{xx}).</span></li>
 <li><span class="math inline">\mathop{\mathrm{Var}}[\widehat{\beta}_1] = c_{11} \sigma^2</span> where <span class="math inline">c_{11} = 1/S_{xx}.</span></li>
 <li><span class="math inline">\mathop{\mathrm{Cov}}[\widehat{\beta}_0, \widehat{\beta}_1] = c_{01} \sigma^2</span> where <span class="math inline">c_{01} = - \overline{x} / S_{xx}.</span></li>
@@ -545,7 +557,7 @@ T = \frac{\widehat{\beta}_i - \beta_{i0}}{S\sqrt{c_{ii}}} \,.
 </section>
 <section id="sec-correlation" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="sec-correlation"><span class="header-section-number">6.4</span> Correlation</h2>
-<p>Let <span class="math inline">(X_1, Y_1), \dots, (X_m, Y_m)</span> denote a random sample from a bivariate normal distribution with <span class="math inline">\mathop{\mathrm{\mathbf{E}}}[X_i] = \mu_X,</span> <span class="math inline">\mathop{\mathrm{\mathbf{E}}}[Y_i] = \mu_Y,</span> <span class="math inline">\mathop{\mathrm{Var}}[X_i] = \sigma_X^2,</span> <span class="math inline">\mathop{\mathrm{Var}}[Y_i] = \sigma_Y^2,</span> and correlation coefficient <span class="math inline">\rho.</span> The sample correlation coefficient is given by, <span id="eq-sample-correlation-statistic"><span class="math display">
+<p>Let <span class="math inline">(X_1, Y_1), \dots, (X_m, Y_m)</span> denote a random sample from a bivariate normal distribution with <span class="math inline">\mathbf{E}[X_i] = \mu_X,</span> <span class="math inline">\mathbf{E}[Y_i] = \mu_Y,</span> <span class="math inline">\mathop{\mathrm{Var}}[X_i] = \sigma_X^2,</span> <span class="math inline">\mathop{\mathrm{Var}}[Y_i] = \sigma_Y^2,</span> and correlation coefficient <span class="math inline">\rho.</span> The sample correlation coefficient is given by, <span id="eq-sample-correlation-statistic"><span class="math display">
 r = \frac{\sum_{i=1}^m (X_i - \overline{X})(Y_i - \overline{Y})}{\sqrt{\sum_{i=1}^m (X_i - \overline{X})^2 \sum_{i=1}^m (Y_i - \overline{Y})^2}}\,,
 \tag{6.9}</span></span> which can be rewritten in terms of <span class="math inline">S_{xx},</span> <span class="math inline">S_{xy},</span> and <span class="math inline">S_{yy}</span>: <span class="math display">
 r = \frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}} = \widehat{\beta}_1 \sqrt{\frac{S_{xx}}{S_{yy}}}\,,
@@ -583,19 +595,21 @@ Prediction versus confidence intervals
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The prediction interval is different from the confidence interval for expected <span class="math inline">Y.</span> Note that the length of the <em>confidence interval</em> for <span class="math inline">\mathop{\mathrm{\mathbf{E}}}[Y]</span> when <span class="math inline">x=x^*</span> is given by <span class="math display">
+<p>The prediction interval is different from the confidence interval for expected <span class="math inline">Y.</span> Note that the length of the <em>confidence interval</em> for <span class="math inline">\mathbf{E}[Y]</span> when <span class="math inline">x=x^*</span> is given by <span class="math display">
 2 \cdot t_{\alpha/2} S  \sqrt{\frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}}
 </span> whereas the length for the <em>prediction interval</em> of <span class="math inline">Y</span> is <span class="math display">
 2 \cdot t_{\alpha/2} S  \sqrt{1 + \frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}} \,.
-</span> Thus the prediction intervals for an actual value of <span class="math inline">Y</span> are longer than the confidence intervals for <span class="math inline">\mathop{\mathrm{\mathbf{E}}}[Y]</span> if both are determined for the same value <span class="math inline">x^*.</span></p>
+</span> Thus the prediction intervals for an actual value of <span class="math inline">Y</span> are longer than the confidence intervals for <span class="math inline">\mathbf{E}[Y]</span> if both are determined for the same value <span class="math inline">x^*.</span></p>
 </div>
 </div>
 <p>The linear model <span class="math display">
-\mathop{\mathrm{\mathbf{E}}}[ Y \mid X = x ] = \beta_0 + \beta_1 x \,,
+\mathbf{E}[ Y \mid X = x ] = \beta_0 + \beta_1 x \,,
 </span> assumes that the conditional expectation of <span class="math inline">Y</span> for a fixed value of <span class="math inline">X</span> is a linear function of the <span class="math inline">x</span> value. If we assume that <span class="math inline">(X,Y)</span> has a bivariate normal distribution, then <span class="math display">
 \beta_1 = \frac{\sigma_Y}{\sigma_X} \rho \,,
 </span> and thus, for the simple hypothesis tests we have considered (<a href="02-basics-stat-infer.html#tbl-htest-null-alt-forms" class="quarto-xref">Table&nbsp;<span>2.2</span></a>), statistical tests for <span class="math inline">\beta_1</span> and <span class="math inline">\rho</span> are equivalent.</p>
 
+
+<!-- -->
 
 </section>
 
@@ -823,6 +837,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/dundeemath\.github\.io\/MA22004");
@@ -1164,7 +1229,323 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Categorical data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>{{&lt; include preamble.qmd &gt;}}</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> trees<span class="sc">$</span>Volume</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> trees<span class="sc">$</span>Girth</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>e <span class="ot">&lt;-</span> <span class="fu">resid</span>(fit)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>yhat <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>ybar <span class="ot">&lt;-</span> <span class="fu">mean</span>(y)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>sse <span class="ot">&lt;-</span> (y <span class="sc">-</span> yhat)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>sst <span class="ot">&lt;-</span> (y <span class="sc">-</span> ybar)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">e =</span> e, <span class="at">yhat =</span> yhat)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># Linear regression {#sec-linear-models}</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>Regression analysis allows us to study the relationship among two or more rvs. Typically, we are interested in the relationship between a response or dependent rv $Y$ and a covariate $X.$ The relationship between $X$ and $Y$ will be explained through a regression function, </span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a> r(x) = \E<span class="co">[</span><span class="ot">Y \mid X = x</span><span class="co">]</span> = \int y f(y\mid x) dy \,.</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>In particular, we shall assume that $r$ is linear,</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a> r(x) = \beta_0 + \beta_1 x\,,</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>$$ {#eq-linear-regression-function}</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>and estimate the intercept $\beta_0$ and slope $\beta_1$ of this linear model from sample data </span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a> (Y_1, X_1), \dots, (Y_m, X_m) \sim F_{Y,X}\,.</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip}</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Alternative lingo</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>The covariates $X$ are also called predictor variables, explanatory variables, independent variables, and/or features depending on who you are talking to.</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Simple linear regression models {#sec-simple-linear-regression}</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>The simplest regression is when $X_i$ is one-dimensional and $r(x)$ is linear as in @eq-linear-regression-function. A linear regression posits the expected value of $Y_i$ is a linear function of the data $X_i,$ but that $Y$ deviates from its expected value by a random amount for fixed $x_i.$ </span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>:::{#def-linear-model}</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>The simple linear regression model relates a random response $Y_i$ to a set of independent variables $X_i,$</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a> Y_i = \beta_0 + \beta_1 X_i + \epsilon_i \,,</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>$$ {#eq-linear-model}</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>where the intercept $\beta_0$ and slope $\beta_1$ are unknown parameters and the random deviation or random error $\epsilon_i$ is a rv assumed to satisfy:</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$\E<span class="co">[</span><span class="ot">\epsilon_i \mid X_i = x_i</span><span class="co">]</span> = 0,$</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>$\Var<span class="co">[</span><span class="ot">\epsilon_i \mid X_i = x_i</span><span class="co">]</span> = \sigma^2$ does not depend on $x_i,$</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>$\epsilon_i$ and $\epsilon_j$ are independent for $i, j = 1, \dots, m.$   </span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>From the assumptions on $\epsilon_i,$ the linear model @eq-linear-model implies</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a> \E<span class="co">[</span><span class="ot">Y_i \mid X_i = x_i</span><span class="co">]</span> = \beta_0 + \beta_1 x_i \,.</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>Thus, if $\widehat{\beta}_0$ and $\widehat{\beta}_1$ are estimators of $\beta_0$ and $\beta_1,$ then the fitted line is</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a> \widehat{r}(x) = \widehat{\beta}_0 + \widehat{\beta}_1 x</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>and the predicted or fitted value $\widehat{Y}_i = \widehat{r}(X_i)$ is an estimator for $\E<span class="co">[</span><span class="ot">Y_i \mid X_i = x_i</span><span class="co">]</span>.$ The residuals are defined to be</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a> \widehat{\epsilon}_i = Y_i - \widehat{Y}_i = Y_i - \left( \widehat{\beta}_0 + \widehat{\beta}_1 X_i \right) \,.</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>$$ {#eq-ls-residuals}</span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>The residual sums of squares,</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a> \mathsf{RSS} = \sum_{i=1}^m \widehat{\epsilon}_i^2\,,</span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>$$ {#eq-rss}</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>measures how well the regression line $\widehat{r}$ fits the data $(Y_1, X_1), \dots, (Y_m, X_m).$ The least squares estimates of $\widehat{\beta}_0$ and $\widehat{\beta}_1$ are the values that minimize the $\mathsf{RSS}$ in @eq-rss.</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>:::{#thm-least-squares-estimates}</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>The least squares estimates for $\widehat{\beta}_1$ and $\widehat{\beta}_0$ are given by, respectively,</span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a> \widehat{\beta}_1 = \frac{\sum_{i=1}^m (X_i - \overline{X})(Y_i - \overline{Y})}{\sum_{i=1}^m (X_i - \overline{X})^2} = \frac{S_{xy}}{S_{xx}} \,,</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>$$ {#eq-ls-slope}</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>and</span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a> \widehat{\beta}_0 = \overline{Y} - \widehat{\beta}_1 \overline{X}\,.</span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>$$ {#eq-ls-intercept}</span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>@eq-rss is a function of $\widehat{\beta}_0$ and $\widehat{\beta}_1$ from the definition of the residuals @eq-ls-residuals. Then @eq-ls-slope and @eq-ls-intercept follow by equating the partial derivatives of @eq-rss to zero. The $\widehat{\beta}_0$ and $\widehat{\beta}_1$ are the unique solution to this linear system.</span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip}</span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a><span class="fu">## Alternative lingo</span></span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>The $\mathsf{RSS}$ is sometimes referred to as the error sum of squares and abbreviated $\mathsf{SSE}$ (no, the order is not a typo).</span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>:::{#exm-linear-model-fit-residuals}</span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>In @fig-linear-model-fit and @fig-linear-model-residuals, we consider the **Cherry Tree Data** (see @tbl-cherry-data) and discussion). We fit a least squares regression of timber volume (response variable) to the tree's diameter (independent variable). As you would expect, the timber yield increases with diameter.</span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>The <span class="in">`R`</span> code below can be used to calculate the least squares regression and residuals. </span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(trees)</span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> trees<span class="sc">$</span>Volume</span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> trees<span class="sc">$</span>Girth <span class="co"># NB: this is the diameter; data mislabeled!</span></span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>e <span class="ot">&lt;-</span> <span class="fu">resid</span>(fit)</span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>yhat <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit)</span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>The <span class="in">`fit`</span> data frame contains the estimates for $\widehat{\beta}_0$ and $\widehat{\beta}_1$:</span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a>fit<span class="sc">$</span>coefficients</span>
+<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a>Both @fig-linear-model-fit and @fig-linear-model-residuals are scatter plots of the observed values $y.$ In @fig-linear-model-fit, the regression line $\widehat{y}$ is plotted along with the residuals $\widehat{\epsilon}.$ In @fig-linear-model-residuals, the sample mean $\overline{y}$ is plotted together with the deviations $y - \overline{y}.$</span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-linear-model-fit</span></span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Linear regression (or least squares fit) of Volume to Diameter from the **Cherry Tree Data**. The vertical bars between the observed data point and the regression line indicate the error in the fit (the least squares residual). The residuals are squared and summed to yield the $\\mathsf{RSS}$ (alt: $\\mathsf{SSE}$)."</span></span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span> </span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>yhat, <span class="at">color =</span> <span class="st">"regression"</span>), <span class="at">linewidth =</span>  lsz) <span class="sc">+</span> </span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">xend=</span>x, <span class="at">y=</span>y, <span class="at">yend=</span>yhat, <span class="at">color=</span><span class="st">"residuals"</span>), <span class="at">linetype =</span> <span class="dv">11</span>) <span class="sc">+</span> </span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span>  </span>
+<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a>        <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">10.5</span>, <span class="at">y =</span> <span class="dv">75</span>, <span class="at">linewidth =</span>  tsz,</span>
+<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a>                 <span class="at">label=</span><span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">widehat{</span><span class="sc">\\</span><span class="st">beta}_0 = -36.943</span><span class="sc">\\</span><span class="st">,,</span><span class="sc">\\</span><span class="st">; </span><span class="sc">\\</span><span class="st">widehat{</span><span class="sc">\\</span><span class="st">beta}_1 = 5.066$"</span>)) <span class="sc">+</span> </span>
+<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a>        <span class="fu">xlab</span>(<span class="st">"Diameter [in]"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Volume [cu ft]"</span>) <span class="sc">+</span> </span>
+<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a>        theme_lr <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>()) </span>
+<span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>   </span>
+<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-linear-model-residuals</span></span>
+<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "The deviations about the sample mean $\\overline{y}.$ The sum of the squared deviations or $\\mathsf{SST}$ (total sum of squares) is a measure of the total variation in the observations."</span></span>
+<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> ybar, <span class="at">color =</span> <span class="st">"mean"</span>), <span class="at">linewidth =</span>  lsz) <span class="sc">+</span> </span>
+<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">xend =</span> x, <span class="at">y =</span> ybar, <span class="at">yend =</span> y, <span class="at">color =</span> <span class="st">"deviations"</span>), <span class="at">linetype =</span> <span class="dv">10</span>) <span class="sc">+</span> </span>
+<span id="cb4-152"><a href="#cb4-152" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span>  </span>
+<span id="cb4-153"><a href="#cb4-153" aria-hidden="true" tabindex="-1"></a>        <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">8</span>, <span class="at">y =</span> ybar, <span class="at">linewidth =</span>  tsz, <span class="at">vjust =</span> .<span class="dv">75</span>, <span class="at">label=</span><span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">bar{y}$"</span>)) <span class="sc">+</span> </span>
+<span id="cb4-154"><a href="#cb4-154" aria-hidden="true" tabindex="-1"></a>        <span class="fu">xlab</span>(<span class="st">"Diameter [in]"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Volume [cu ft]"</span>) <span class="sc">+</span> </span>
+<span id="cb4-155"><a href="#cb4-155" aria-hidden="true" tabindex="-1"></a>        theme_lr <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb4-156"><a href="#cb4-156" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>   </span>
+<span id="cb4-157"><a href="#cb4-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-158"><a href="#cb4-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-159"><a href="#cb4-159" aria-hidden="true" tabindex="-1"></a><span class="fu">## Estimating $\sigma^2$ for linear regressions {#sec-ls-estimate-var}</span></span>
+<span id="cb4-160"><a href="#cb4-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-161"><a href="#cb4-161" aria-hidden="true" tabindex="-1"></a>The parameter $\sigma^2$ (the variance of the random deviation) determines the variability in the regression model.   </span>
+<span id="cb4-162"><a href="#cb4-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-163"><a href="#cb4-163" aria-hidden="true" tabindex="-1"></a>:::{#thm-least-squares-var-estimate}</span>
+<span id="cb4-164"><a href="#cb4-164" aria-hidden="true" tabindex="-1"></a>An unbiased estimate of $\sigma^2$ is given by</span>
+<span id="cb4-165"><a href="#cb4-165" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-166"><a href="#cb4-166" aria-hidden="true" tabindex="-1"></a> \widehat{\sigma}^2 = s^2 = \frac{\mathsf{RSS}}{m-2} = \frac{1}{m-2} \sum_{i=1}^m (y_i - \widehat{y}_i)^2\,.</span>
+<span id="cb4-167"><a href="#cb4-167" aria-hidden="true" tabindex="-1"></a>$$ {#eq-least-squares-var-estimate}</span>
+<span id="cb4-168"><a href="#cb4-168" aria-hidden="true" tabindex="-1"></a>:::   </span>
+<span id="cb4-169"><a href="#cb4-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-170"><a href="#cb4-170" aria-hidden="true" tabindex="-1"></a>In @fig-linear-model-sigma-large-v-small, we present a least squares regression of timber volume on both tree diameter and height (for the **Cherry Tree Data**). As expected, the regressions indicate the volume increases with both covariates. Estimates for the variance of the random deviation @eq-least-squares-var-estimate in both regression models, $\sigma_{D}^2$ and $\sigma_{H}^2,$ respectively, are computed to be $s^2_{D} = 18.08$ and $s^2_{H} = 179.48.$ Thus, we see that small variances lead to observations of $(x_i, y_i)$ that sit tightly around the regression line, in contrast to large variances that lead to a large cloud of points. </span>
+<span id="cb4-171"><a href="#cb4-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-174"><a href="#cb4-174" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-175"><a href="#cb4-175" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-linear-model-sigma-large-v-small</span></span>
+<span id="cb4-176"><a href="#cb4-176" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "For the **Cherry Tree Data**, we estimate the variance to be $s^2_{D} = 18.08$ (for Diameter) and $s^2_{H} = 179.48$ (for Height); small variances lead to observations of $(x_i, y_i)$ that sit tightly around the regression line, in contrast to large variances that lead to a large cloud of points."</span></span>
+<span id="cb4-177"><a href="#cb4-177" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb4-178"><a href="#cb4-178" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb4-179"><a href="#cb4-179" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb4-180"><a href="#cb4-180" aria-hidden="true" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(trees<span class="sc">$</span>Volume <span class="sc">~</span> trees<span class="sc">$</span>Height)</span>
+<span id="cb4-181"><a href="#cb4-181" aria-hidden="true" tabindex="-1"></a>e2 <span class="ot">&lt;-</span> <span class="fu">resid</span>(fit2)</span>
+<span id="cb4-182"><a href="#cb4-182" aria-hidden="true" tabindex="-1"></a>rss1 <span class="ot">&lt;-</span> <span class="fu">sum</span>(e<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">31-2</span>)</span>
+<span id="cb4-183"><a href="#cb4-183" aria-hidden="true" tabindex="-1"></a>rss2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(e2<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">31-2</span>)</span>
+<span id="cb4-184"><a href="#cb4-184" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> trees <span class="sc">|&gt;</span> <span class="fu">pivot_longer</span>(<span class="sc">-</span>Volume) <span class="sc">|&gt;</span> <span class="fu">rename</span>(<span class="at">Measurement =</span> name, <span class="at">Value =</span> value)</span>
+<span id="cb4-185"><a href="#cb4-185" aria-hidden="true" tabindex="-1"></a>df2<span class="sc">$</span>Measurement <span class="ot">&lt;-</span> <span class="fu">factor</span>(df2<span class="sc">$</span>Measurement, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Girth"</span>, <span class="st">"Height"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Diameter [in]"</span>, <span class="st">"Height [in]"</span>))</span>
+<span id="cb4-186"><a href="#cb4-186" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df2 , <span class="fu">aes</span>(<span class="at">x =</span> Value, <span class="at">y =</span> Volume)) <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> <span class="fu">facet_grid</span>(. <span class="sc">~</span> Measurement, <span class="at">scales =</span> <span class="st">'free'</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Volume [cu ft]"</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb4-187"><a href="#cb4-187" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>   </span>
+<span id="cb4-188"><a href="#cb4-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-189"><a href="#cb4-189" aria-hidden="true" tabindex="-1"></a>:::{.callout-warning}</span>
+<span id="cb4-190"><a href="#cb4-190" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why do we lose two degrees of freedom?</span></span>
+<span id="cb4-191"><a href="#cb4-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-192"><a href="#cb4-192" aria-hidden="true" tabindex="-1"></a>In @thm-least-squares-var-estimate, the number in the denominator is the df associated with the $\mathsf{RSS}$ and $s^2.$ To calculate $\mathsf{RSS},$ you must estimate two parameters $\beta_0$ and $\beta_1,$ which results in the loss of two df. Hence the $m-2.$   </span>
+<span id="cb4-193"><a href="#cb4-193" aria-hidden="true" tabindex="-1"></a>:::   </span>
+<span id="cb4-194"><a href="#cb4-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-195"><a href="#cb4-195" aria-hidden="true" tabindex="-1"></a>We note to make inferences, the statistic </span>
+<span id="cb4-196"><a href="#cb4-196" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-197"><a href="#cb4-197" aria-hidden="true" tabindex="-1"></a> S^2 = \frac{\mathsf{RSS}}{m-2}</span>
+<span id="cb4-198"><a href="#cb4-198" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-199"><a href="#cb4-199" aria-hidden="true" tabindex="-1"></a>is an unbiased estimator or $\sigma^2$ and the random variable </span>
+<span id="cb4-200"><a href="#cb4-200" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-201"><a href="#cb4-201" aria-hidden="true" tabindex="-1"></a> \frac{(m-2) S^2}{\sigma^2} \sim \chi^2(m-2)\,.</span>
+<span id="cb4-202"><a href="#cb4-202" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-203"><a href="#cb4-203" aria-hidden="true" tabindex="-1"></a>Moreover, the statistic $S^2$ is independent of both $\widehat{\beta}_0$ and $\widehat{\beta}_1.$ </span>
+<span id="cb4-204"><a href="#cb4-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-205"><a href="#cb4-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-206"><a href="#cb4-206" aria-hidden="true" tabindex="-1"></a><span class="fu">## Inferences for least-squares parameters {#sec-inference-ls}</span></span>
+<span id="cb4-207"><a href="#cb4-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-208"><a href="#cb4-208" aria-hidden="true" tabindex="-1"></a>If $\epsilon_i$ in @eq-linear-model is assumed to be normally distributed, then we can derive the sampling distributions of the estimators $\widehat{\beta}_0$ and $\widehat{\beta}_1.$ Hence, we can use these sampling distributions to make inferences about the parameters $\beta_0$ and $\beta_1.$ </span>
+<span id="cb4-209"><a href="#cb4-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-210"><a href="#cb4-210" aria-hidden="true" tabindex="-1"></a>Provided iid $\epsilon_i \mid X_i \sim \mathsf{N}(0, \sigma^2),$ the least-squares estimators possess the following properties.   </span>
+<span id="cb4-211"><a href="#cb4-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-212"><a href="#cb4-212" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Both $\widehat{\beta}_0$ and $\widehat{\beta}_1$ are normally distributed. </span>
+<span id="cb4-213"><a href="#cb4-213" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Both $\widehat{\beta}_0$ and $\widehat{\beta}_1$ are unbiased, i.e., $\E<span class="co">[</span><span class="ot">\widehat{\beta}_i</span><span class="co">]</span> = \beta_i$ for $i = 0,1.$ </span>
+<span id="cb4-214"><a href="#cb4-214" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>$\Var<span class="co">[</span><span class="ot">\widehat{\beta}_0</span><span class="co">]</span> = c_{00} \sigma^2$ where $c_{00} = \sum_{i=1}^m x_i^2 / (m S_{xx}).$</span>
+<span id="cb4-215"><a href="#cb4-215" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>$\Var<span class="co">[</span><span class="ot">\widehat{\beta}_1</span><span class="co">]</span> = c_{11} \sigma^2$ where $c_{11} = 1/S_{xx}.$ </span>
+<span id="cb4-216"><a href="#cb4-216" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>$\Cov<span class="co">[</span><span class="ot">\widehat{\beta}_0, \widehat{\beta}_1</span><span class="co">]</span> = c_{01} \sigma^2$ where $c_{01} = - \overline{x} / S_{xx}.$   </span>
+<span id="cb4-217"><a href="#cb4-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-218"><a href="#cb4-218" aria-hidden="true" tabindex="-1"></a>These properties can be determined by working directly from @eq-ls-slope and @eq-ls-intercept.   </span>
+<span id="cb4-219"><a href="#cb4-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-220"><a href="#cb4-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-221"><a href="#cb4-221" aria-hidden="true" tabindex="-1"></a>:::{#prp-htest-ls-betas}</span>
+<span id="cb4-222"><a href="#cb4-222" aria-hidden="true" tabindex="-1"></a>Consider $H_0 : \beta_i = \beta_{i0}.$ The test statistic is</span>
+<span id="cb4-223"><a href="#cb4-223" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-224"><a href="#cb4-224" aria-hidden="true" tabindex="-1"></a> T = \frac{\widehat{\beta}_i - \beta_{i0}}{S\sqrt{c_{ii}}} \,.</span>
+<span id="cb4-225"><a href="#cb4-225" aria-hidden="true" tabindex="-1"></a>$$ {#eq-htest-ls-betas-statistic}</span>
+<span id="cb4-226"><a href="#cb4-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-227"><a href="#cb4-227" aria-hidden="true" tabindex="-1"></a>For a hypothesis test at level $\alpha,$ we use the following procedure:</span>
+<span id="cb4-228"><a href="#cb4-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-229"><a href="#cb4-229" aria-hidden="true" tabindex="-1"></a>If $H_a : \beta_i &gt; \beta_{i0},$ then $P$-value is the area under $\mathsf{t}(m-2)$ to the right of $t.$</span>
+<span id="cb4-230"><a href="#cb4-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-231"><a href="#cb4-231" aria-hidden="true" tabindex="-1"></a>If $H_a : \beta_i &lt; \beta_{i0},$ tthen $P$-value is the area under $\mathsf{t}(m-2)$ to the left of $t.$</span>
+<span id="cb4-232"><a href="#cb4-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-233"><a href="#cb4-233" aria-hidden="true" tabindex="-1"></a>If $H_a : \beta_i \neq \beta_{i0},$ then $P$-value is twice the area under $\mathsf{t}(m-2)$ to the right of $|t|.$</span>
+<span id="cb4-234"><a href="#cb4-234" aria-hidden="true" tabindex="-1"></a>::: </span>
+<span id="cb4-235"><a href="#cb4-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-236"><a href="#cb4-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-237"><a href="#cb4-237" aria-hidden="true" tabindex="-1"></a>A confidence interval for $\beta_i,$ based on the statistic @eq-htest-ls-betas-statistic, can be given following the procedures in @sec-inference-single-sample.</span>
+<span id="cb4-238"><a href="#cb4-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-239"><a href="#cb4-239" aria-hidden="true" tabindex="-1"></a>:::{#prp-ci-ls-betas}</span>
+<span id="cb4-240"><a href="#cb4-240" aria-hidden="true" tabindex="-1"></a>A $100(1-\alpha)\%$ CI for $\beta_i$ is given by </span>
+<span id="cb4-241"><a href="#cb4-241" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-242"><a href="#cb4-242" aria-hidden="true" tabindex="-1"></a> \widehat{\beta}_i \pm t_{\alpha/2, m-2} S \sqrt{c_{ii}} \,.</span>
+<span id="cb4-243"><a href="#cb4-243" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-244"><a href="#cb4-244" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-245"><a href="#cb4-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-246"><a href="#cb4-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-247"><a href="#cb4-247" aria-hidden="true" tabindex="-1"></a><span class="fu">## Correlation {#sec-correlation}</span></span>
+<span id="cb4-248"><a href="#cb4-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-249"><a href="#cb4-249" aria-hidden="true" tabindex="-1"></a>Let $(X_1, Y_1), \dots, (X_m, Y_m)$ denote a random sample from a bivariate normal distribution with $\E<span class="co">[</span><span class="ot">X_i</span><span class="co">]</span> = \mu_X,$ $\E<span class="co">[</span><span class="ot">Y_i</span><span class="co">]</span> = \mu_Y,$ $\Var<span class="co">[</span><span class="ot">X_i</span><span class="co">]</span> = \sigma_X^2,$ $\Var<span class="co">[</span><span class="ot">Y_i</span><span class="co">]</span> = \sigma_Y^2,$ and correlation coefficient $\rho.$ The sample correlation coefficient is given by,</span>
+<span id="cb4-250"><a href="#cb4-250" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-251"><a href="#cb4-251" aria-hidden="true" tabindex="-1"></a> r = \frac{\sum_{i=1}^m (X_i - \overline{X})(Y_i - \overline{Y})}{\sqrt{\sum_{i=1}^m (X_i - \overline{X})^2 \sum_{i=1}^m (Y_i - \overline{Y})^2}}\,,</span>
+<span id="cb4-252"><a href="#cb4-252" aria-hidden="true" tabindex="-1"></a>$$ {#eq-sample-correlation-statistic}</span>
+<span id="cb4-253"><a href="#cb4-253" aria-hidden="true" tabindex="-1"></a>which can be rewritten in terms of $S_{xx},$ $S_{xy},$ and $S_{yy}$:</span>
+<span id="cb4-254"><a href="#cb4-254" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-255"><a href="#cb4-255" aria-hidden="true" tabindex="-1"></a> r = \frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}} = \widehat{\beta}_1 \sqrt{\frac{S_{xx}}{S_{yy}}}\,,</span>
+<span id="cb4-256"><a href="#cb4-256" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-257"><a href="#cb4-257" aria-hidden="true" tabindex="-1"></a>using @eq-ls-slope and we see that $r$ and $\widehat{\beta}_1$ have the same sign. A $|r|$ close to $1$ means that the regression line is a good fit to the data, and, similarly, an $|r|$ close to $0$ means a poor fit to the data. Note that the correlation coefficient (and the least squares regression) are only suitable for describing *linear* relationships; a nonlinear relationship can also yield $r$ near zero (see @fig-linear-model-correlation).</span>
+<span id="cb4-258"><a href="#cb4-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-261"><a href="#cb4-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-262"><a href="#cb4-262" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-linear-model-correlation</span></span>
+<span id="cb4-263"><a href="#cb4-263" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Correlations range from $-1$ to $1$ with $|r|=1$ indicating a strong linear relationship and $r$ near zero indicating the absence of a linear relationship."</span></span>
+<span id="cb4-264"><a href="#cb4-264" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb4-265"><a href="#cb4-265" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb4-266"><a href="#cb4-266" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb4-267"><a href="#cb4-267" aria-hidden="true" tabindex="-1"></a>df6 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/linear-model-correlation.csv"</span>)</span>
+<span id="cb4-268"><a href="#cb4-268" aria-hidden="true" tabindex="-1"></a>pa <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df6, <span class="fu">aes</span>(<span class="at">x =</span> xx, <span class="at">y =</span> yy)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"pts"</span>)) <span class="sc">+</span> </span>
+<span id="cb4-269"><a href="#cb4-269" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ggtitle</span>(<span class="fu">TeX</span>(<span class="st">'(c) $r </span><span class="sc">\\</span><span class="st">approx 0,$ no relationship apparent'</span>)) <span class="sc">+</span> </span>
+<span id="cb4-270"><a href="#cb4-270" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(), <span class="at">axis.ticks.y=</span><span class="fu">element_blank</span>(), </span>
+<span id="cb4-271"><a href="#cb4-271" aria-hidden="true" tabindex="-1"></a>              <span class="at">axis.text.y=</span><span class="fu">element_blank</span>(), <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb4-272"><a href="#cb4-272" aria-hidden="true" tabindex="-1"></a>              <span class="at">axis.ticks.x=</span><span class="fu">element_blank</span>(), <span class="at">axis.text.x=</span><span class="fu">element_blank</span>(), </span>
+<span id="cb4-273"><a href="#cb4-273" aria-hidden="true" tabindex="-1"></a>              <span class="at">legend.position =</span> <span class="st">"none"</span>, <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>))</span>
+<span id="cb4-274"><a href="#cb4-274" aria-hidden="true" tabindex="-1"></a>pb <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df6, <span class="fu">aes</span>(<span class="at">x =</span> xx, <span class="at">y =</span> <span class="sc">-</span>xx<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> a)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"pts"</span>)) <span class="sc">+</span> </span>
+<span id="cb4-275"><a href="#cb4-275" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ggtitle</span>(<span class="fu">TeX</span>(<span class="st">'(d) $r </span><span class="sc">\\</span><span class="st">approx 0,$ nonlinear relationship'</span>)) <span class="sc">+</span> </span>
+<span id="cb4-276"><a href="#cb4-276" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(), <span class="at">axis.ticks.y=</span><span class="fu">element_blank</span>(), </span>
+<span id="cb4-277"><a href="#cb4-277" aria-hidden="true" tabindex="-1"></a>              <span class="at">axis.text.y=</span><span class="fu">element_blank</span>(), <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb4-278"><a href="#cb4-278" aria-hidden="true" tabindex="-1"></a>              <span class="at">axis.ticks.x=</span><span class="fu">element_blank</span>(), <span class="at">axis.text.x=</span><span class="fu">element_blank</span>(), </span>
+<span id="cb4-279"><a href="#cb4-279" aria-hidden="true" tabindex="-1"></a>              <span class="at">legend.position =</span> <span class="st">"none"</span>, <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>))</span>
+<span id="cb4-280"><a href="#cb4-280" aria-hidden="true" tabindex="-1"></a>pc <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df6, <span class="fu">aes</span>(<span class="at">x =</span> xx, <span class="at">y =</span> xx <span class="sc">+</span> <span class="dv">2</span> <span class="sc">+</span> a)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"pts"</span>)) <span class="sc">+</span> </span>
+<span id="cb4-281"><a href="#cb4-281" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ggtitle</span>(<span class="fu">TeX</span>(<span class="st">'(a) $r </span><span class="sc">\\</span><span class="st">approx +1,$ linear relationship'</span>)) <span class="sc">+</span> </span>
+<span id="cb4-282"><a href="#cb4-282" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(), <span class="at">axis.ticks.y=</span><span class="fu">element_blank</span>(), </span>
+<span id="cb4-283"><a href="#cb4-283" aria-hidden="true" tabindex="-1"></a>              <span class="at">axis.text.y=</span><span class="fu">element_blank</span>(), <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb4-284"><a href="#cb4-284" aria-hidden="true" tabindex="-1"></a>              <span class="at">axis.ticks.x=</span><span class="fu">element_blank</span>(), <span class="at">axis.text.x=</span><span class="fu">element_blank</span>(), </span>
+<span id="cb4-285"><a href="#cb4-285" aria-hidden="true" tabindex="-1"></a>              <span class="at">legend.position =</span> <span class="st">"none"</span>, <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>))</span>
+<span id="cb4-286"><a href="#cb4-286" aria-hidden="true" tabindex="-1"></a>pd <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df6, <span class="fu">aes</span>(<span class="at">x =</span> xx, <span class="at">y =</span> <span class="dv">8</span> <span class="sc">-</span> xx <span class="sc">+</span> b)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"pts"</span>)) <span class="sc">+</span> </span>
+<span id="cb4-287"><a href="#cb4-287" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ggtitle</span>(<span class="fu">TeX</span>(<span class="st">'(b) $r </span><span class="sc">\\</span><span class="st">approx -1,$ linear relationship'</span>)) <span class="sc">+</span> </span>
+<span id="cb4-288"><a href="#cb4-288" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(), <span class="at">axis.ticks.y=</span><span class="fu">element_blank</span>(), </span>
+<span id="cb4-289"><a href="#cb4-289" aria-hidden="true" tabindex="-1"></a>              <span class="at">axis.text.y=</span><span class="fu">element_blank</span>(), <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb4-290"><a href="#cb4-290" aria-hidden="true" tabindex="-1"></a>              <span class="at">axis.ticks.x=</span><span class="fu">element_blank</span>(), <span class="at">axis.text.x=</span><span class="fu">element_blank</span>(), </span>
+<span id="cb4-291"><a href="#cb4-291" aria-hidden="true" tabindex="-1"></a>              <span class="at">legend.position =</span> <span class="st">"none"</span>, <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>))</span>
+<span id="cb4-292"><a href="#cb4-292" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(pc, pd, pa, pb, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb4-293"><a href="#cb4-293" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb4-294"><a href="#cb4-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-295"><a href="#cb4-295" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prediction using linear models </span></span>
+<span id="cb4-296"><a href="#cb4-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-297"><a href="#cb4-297" aria-hidden="true" tabindex="-1"></a>Once a model is fit, it can be used to predict a value of $y$ for a given $x.$ However, the model only gives the most likely value of $y$; a corresponding prediction interval is usually more appropriate. </span>
+<span id="cb4-298"><a href="#cb4-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-299"><a href="#cb4-299" aria-hidden="true" tabindex="-1"></a>:::{#prp-prediction-interval}</span>
+<span id="cb4-300"><a href="#cb4-300" aria-hidden="true" tabindex="-1"></a>A $100(1-\alpha)\%$ prediction interval for an actual value of $Y$ when $x = x^*$ is given by </span>
+<span id="cb4-301"><a href="#cb4-301" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-302"><a href="#cb4-302" aria-hidden="true" tabindex="-1"></a> (\widehat{\beta}_0 + \widehat{\beta}_1 x^*) \pm t_{\alpha/2, m-2} S \sqrt{1 + \frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}} \,.</span>
+<span id="cb4-303"><a href="#cb4-303" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-304"><a href="#cb4-304" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-305"><a href="#cb4-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-306"><a href="#cb4-306" aria-hidden="true" tabindex="-1"></a>:::{.callout-warning}</span>
+<span id="cb4-307"><a href="#cb4-307" aria-hidden="true" tabindex="-1"></a><span class="fu">## Prediction versus confidence intervals</span></span>
+<span id="cb4-308"><a href="#cb4-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-309"><a href="#cb4-309" aria-hidden="true" tabindex="-1"></a>The prediction interval is different from the confidence interval for expected $Y.$ Note that the length of the *confidence interval* for $\E[Y]$ when $x=x^*$ is given by </span>
+<span id="cb4-310"><a href="#cb4-310" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-311"><a href="#cb4-311" aria-hidden="true" tabindex="-1"></a> 2 \cdot t_{\alpha/2} S  \sqrt{\frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}}</span>
+<span id="cb4-312"><a href="#cb4-312" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-313"><a href="#cb4-313" aria-hidden="true" tabindex="-1"></a>whereas the length for the *prediction interval* of $Y$ is </span>
+<span id="cb4-314"><a href="#cb4-314" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-315"><a href="#cb4-315" aria-hidden="true" tabindex="-1"></a> 2 \cdot t_{\alpha/2} S  \sqrt{1 + \frac{1}{n} + \frac{(x^* - \overline{x})^2}{S_{xx}}} \,.</span>
+<span id="cb4-316"><a href="#cb4-316" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-317"><a href="#cb4-317" aria-hidden="true" tabindex="-1"></a>Thus the prediction intervals for an actual value of $Y$ are longer than the confidence intervals for $\E<span class="co">[</span><span class="ot">Y</span><span class="co">]</span>$ if both are determined for the same value $x^*.$   </span>
+<span id="cb4-318"><a href="#cb4-318" aria-hidden="true" tabindex="-1"></a>:::   </span>
+<span id="cb4-319"><a href="#cb4-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-320"><a href="#cb4-320" aria-hidden="true" tabindex="-1"></a>The linear model </span>
+<span id="cb4-321"><a href="#cb4-321" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-322"><a href="#cb4-322" aria-hidden="true" tabindex="-1"></a> \E<span class="co">[</span><span class="ot"> Y \mid X = x </span><span class="co">]</span> = \beta_0 + \beta_1 x \,, </span>
+<span id="cb4-323"><a href="#cb4-323" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-324"><a href="#cb4-324" aria-hidden="true" tabindex="-1"></a>assumes that the conditional expectation of $Y$ for a fixed value of $X$ is a linear function of the $x$ value. If we assume that $(X,Y)$ has a bivariate normal distribution, then </span>
+<span id="cb4-325"><a href="#cb4-325" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-326"><a href="#cb4-326" aria-hidden="true" tabindex="-1"></a> \beta_1 = \frac{\sigma_Y}{\sigma_X} \rho \,,</span>
+<span id="cb4-327"><a href="#cb4-327" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb4-328"><a href="#cb4-328" aria-hidden="true" tabindex="-1"></a>and thus, for the simple hypothesis tests we have considered (@tbl-htest-null-alt-forms), statistical tests for $\beta_1$ and $\rho$ are equivalent.</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1173,7 +1554,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
 <p>Copyright 2024, Eric Hall (University of Dundee)</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dundeemath/MA22004/edit/master/06-linear-models.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

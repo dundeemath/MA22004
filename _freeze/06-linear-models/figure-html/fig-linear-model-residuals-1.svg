@@ -130,12 +130,12 @@
 <text x='457.05' y='280.05' text-anchor='middle' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Arial";' textLength='10.67px' lengthAdjust='spacingAndGlyphs'>20</text>
 <text x='267.15' y='293.77' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='68.02px' lengthAdjust='spacingAndGlyphs'>Diameter [in]</text>
 <text transform='translate(14.59,136.88) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='73.36px' lengthAdjust='spacingAndGlyphs'>Volume [cu ft]</text>
-<rect x='419.62' y='221.27' width='78.41' height='46.52' style='stroke-width: 1.16; stroke: none; fill: #FFFFFF;' />
-<rect x='425.59' y='227.25' width='17.28' height='17.28' style='stroke-width: 1.16; stroke: none; fill: #EBEBEB;' />
-<line x1='427.32' y1='235.89' x2='441.15' y2='235.89' style='stroke-width: 1.07; stroke: #F8766D; stroke-dasharray: 1.42,4.27,5.69,4.27; stroke-linecap: butt;' />
-<rect x='425.59' y='244.53' width='17.28' height='17.28' style='stroke-width: 1.16; stroke: none; fill: #EBEBEB;' />
-<line x1='427.32' y1='253.17' x2='441.15' y2='253.17' style='stroke-width: 2.13; stroke: #00BFC4; stroke-linecap: butt;' />
-<text x='448.85' y='239.33' style='font-size: 9.60px; font-family: "Arial";' textLength='43.19px' lengthAdjust='spacingAndGlyphs'>deviations</text>
-<text x='448.85' y='256.61' style='font-size: 9.60px; font-family: "Arial";' textLength='24.00px' lengthAdjust='spacingAndGlyphs'>mean</text>
+<rect x='381.28' y='221.27' width='78.41' height='46.52' style='stroke-width: 1.16; stroke: none; fill: #FFFFFF;' />
+<rect x='387.26' y='227.25' width='17.28' height='17.28' style='stroke-width: 1.16; stroke: none; fill: #EBEBEB;' />
+<line x1='388.99' y1='235.89' x2='402.81' y2='235.89' style='stroke-width: 1.07; stroke: #F8766D; stroke-dasharray: 1.42,4.27,5.69,4.27; stroke-linecap: butt;' />
+<rect x='387.26' y='244.53' width='17.28' height='17.28' style='stroke-width: 1.16; stroke: none; fill: #EBEBEB;' />
+<line x1='388.99' y1='253.17' x2='402.81' y2='253.17' style='stroke-width: 2.13; stroke: #00BFC4; stroke-linecap: butt;' />
+<text x='410.52' y='239.33' style='font-size: 9.60px; font-family: "Arial";' textLength='43.19px' lengthAdjust='spacingAndGlyphs'>deviations</text>
+<text x='410.52' y='256.61' style='font-size: 9.60px; font-family: "Arial";' textLength='24.00px' lengthAdjust='spacingAndGlyphs'>mean</text>
 </g>
 </svg>

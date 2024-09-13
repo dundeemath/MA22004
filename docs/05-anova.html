@@ -105,6 +105,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var sidebar = document.getElementById('quarto-sidebar');
+    var logo = sidebar.getElementsByTagName('img')[0];
+    
+    sidebar.appendChild(logo);
+  });
+</script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
@@ -176,12 +184,16 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./assets/images/uod_shield_rgb.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">MA22004 — Statistics II</a> 
+      <a href="./">MA22004 — Statistics II<br></a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/dundeemath/MA22004/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./MA22004-—-Statistics-II.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./MA22004-—-Statistics-II--br-
+.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -329,14 +341,14 @@ window.Quarto = {
   <li><a href="#sec-anova-single-factor-test" id="toc-sec-anova-single-factor-test" class="nav-link active" data-scroll-target="#sec-anova-single-factor-test"><span class="header-section-number">5.1</span> Single factor ANOVA test</a></li>
   <li><a href="#sec-anova-ci" id="toc-sec-anova-ci" class="nav-link" data-scroll-target="#sec-anova-ci"><span class="header-section-number">5.2</span> Confidence intervals</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/dundeemath/MA22004/edit/master/05-anova.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-prelim.html">Lecture Notes</a></li><li class="breadcrumb-item"><a href="./05-anova.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Analysis of variance</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-anova" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Analysis of variance</span></span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-anova" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Analysis of variance</span></span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -487,7 +499,7 @@ Figure&nbsp;5.1: Box plots of the average mean salary data in Table <a href="#tb
 </div>
 </div>
 </div>
-<p>For <span class="math inline">\alpha = 0.05,</span> we compute the upper-tail area <span class="math inline">F_{0.05}</span> i.e.&nbsp;to the right of the critical value <span class="math inline">F_{0.05, 3, 16}</span> by consulting a statistical table or by using <code>r</code> to find <span class="math inline">F_{0.05} = 3.2388715.</span></p>
+<p>For <span class="math inline">\alpha = 0.05,</span> we compute the upper-tail area <span class="math inline">F_{0.05}</span> i.e.&nbsp;to the right of the critical value <span class="math inline">F_{0.05, 3, 16}</span> by consulting a statistical table or by using <code>R</code> to find <span class="math inline">F_{0.05} = 3.2388715.</span></p>
 <div class="cell" data-layout-align="center">
 <details open="" class="code-fold">
 <summary>Code</summary>
@@ -522,7 +534,7 @@ F = \frac{\mathsf{MSTr}}{\mathsf{MSE}} = \frac{32.5}{5.14366}
 <h2 data-number="5.2" class="anchored" data-anchor-id="sec-anova-ci"><span class="header-section-number">5.2</span> Confidence intervals</h2>
 <p>In <a href="04-infer-two-samples.html#sec-compare-means" class="quarto-xref"><span>Section 4.1</span></a>, we gave a CI for comparing population means involving the difference <span class="math inline">\mu_X - \mu_Y.</span> In some settings, we would like to give CIs for more complicated functions of population means <span class="math inline">\mu_i.</span> Let <span class="math display">
 \theta = \sum_{i=1}^k c_i \mu_i\,,
-</span> for constants <span class="math inline">c_i.</span> As we assume the <span class="math inline">X_ij</span> are normally distributed with <span class="math inline">\mathop{\mathrm{\mathbf{E}}}[X_{ij}] = \mu_i</span> and <span class="math inline">\mathop{\mathrm{Var}}[X_{ij}] = \sigma^2,</span> the estimator <span class="math display">
+</span> for constants <span class="math inline">c_i.</span> As we assume the <span class="math inline">X_ij</span> are normally distributed with <span class="math inline">\mathbf{E}[X_{ij}] = \mu_i</span> and <span class="math inline">\mathop{\mathrm{Var}}[X_{ij}] = \sigma^2,</span> the estimator <span class="math display">
 \widehat{\theta} = \sum_{i=1}^k c_i \overline{X}_{i}\,,
 </span> is normally distributed with <span class="math display">
 \mathop{\mathrm{Var}}[\widehat{\theta}] = \sum_{i=1}^k c_i^2 \mathop{\mathrm{Var}}[\overline{X}_i] = \sigma^2 \sum_{i=1}^{k} \frac{c_i^2}{m_i}\,.
@@ -530,11 +542,13 @@ F = \frac{\mathsf{MSTr}}{\mathsf{MSE}} = \frac{32.5}{5.14366}
 \frac{\widehat{\theta} - \theta}{\widehat{\sigma}_{\widehat{\theta}}}\,,
 </span> where <span class="math inline">\widehat{\sigma}_{\widehat{\theta}}</span> is the estimated standard error of the estimator.</p>
 <div id="prp-ci-anova" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 5.2</strong></span> A <span class="math inline">100(1-\alpha)\%</span> CI for <span class="math inline">\sum c_i \mu_i</span> is given by $$ _{i=1}^k c_i <em>i t</em>{/2, m-k} ,.</p>
+<p><span class="theorem-title"><strong>Proposition 5.2</strong></span> A <span class="math inline">100(1-\alpha)\%</span> CI for <span class="math inline">\sum c_i \mu_i</span> is given by <span class="math display">
+\sum_{i=1}^k c_i \overline{x}_i \pm t_{\alpha/2, m-k} \sqrt{\mathsf{MSE} \sum_{i=1}^k \frac{c_i^2}{m_i}}\,.
+</span></p>
 </div>
 <div id="exm-anova-ci" class="theorem example">
 <p><span class="theorem-title"><strong>Example 5.2</strong></span> Determine a <span class="math inline">90\%</span> CI for the difference in mean average salary for councils in Scotland and England, based on the data available in <a href="#tbl-anova-samples-stats" class="quarto-xref">Table&nbsp;<span>5.1</span></a></p>
-<p>For <span class="math inline">\alpha = 0.10,</span> the critical value <span class="math inline">t_{0.05, 16} = 1.7458837</span> is found by looking in a table of <span class="math inline">\mathsf{t}</span> critical values or by using <code>r</code>:</p>
+<p>For <span class="math inline">\alpha = 0.10,</span> the critical value <span class="math inline">t_{0.05, 16} = 1.7458837</span> is found by looking in a table of <span class="math inline">\mathsf{t}</span> critical values or by using <code>R</code>:</p>
 <div class="cell" data-layout-align="center">
 <details open="" class="code-fold">
 <summary>Code</summary>
@@ -567,6 +581,8 @@ Consider the following
 </div>
 </div>
 
+
+<!-- -->
 
 </section>
 
@@ -794,6 +810,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/dundeemath\.github\.io\/MA22004");
@@ -1135,7 +1202,207 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear regression</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>{{&lt; include preamble.qmd &gt;}}</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/anova-salaries.csv"</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>mse <span class="ot">&lt;-</span> (<span class="dv">5</span><span class="sc">*</span>(<span class="fl">2.588</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>(<span class="fl">2.582</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span>(<span class="fl">1.871</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span>(<span class="fl">1.924</span>)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="dv">16</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>mstr <span class="ot">&lt;-</span> (<span class="dv">6</span><span class="sc">*</span>(<span class="fl">14.5-11.9</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span>(<span class="fl">10.0</span> <span class="sc">-</span> <span class="fl">11.9</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">5</span><span class="sc">*</span>(<span class="fl">13.0-11.9</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">5</span><span class="sc">*</span>( <span class="fl">9.2</span> <span class="sc">-</span> <span class="fl">11.9</span>)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> <span class="dv">3</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu"># Analysis of variance {#sec-anova}</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>Analysis of variance, shortened as ANOVA or AOV, is a collection of statistical models and estimation procedures for analysing the variation among different groups. In particular, a single-factor ANOVA provides a hypothesis test regarding the equality of two or more population means, thereby generalising the one-sample and two-sample $\mathsf{t}$ tests considered in @sec-mean-normal-var-unknown and @sec-compare-means-normpops-vars-unknown.</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Single factor ANOVA test {#sec-anova-single-factor-test}</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>Suppose that we have $k$ normally distributed populations with different means $\mu_1, \dots, \mu_k$ and equal variances $\sigma^2.$ We denote the rv for the $j$th measurement taken from the $i$th population by $X_{ij}$ and the corresponding sample observation by $x_{ij}.$ For samples of size $m_1, \dots, m_k,$ we denote the sample means</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a> \overline{X}_i = \frac{1}{m_i} \sum_{j=1}^{m_i} X_{ij}\,, </span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>and sample variances </span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a> S_i^2 = \frac{1}{m_i - 1} \sum_{j=1}^{m_i} (X_{ij} - \overline{X}_{i})^2\,,</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>for each $i = 1, \dots, k$; likewise, we denote the associated point estimates for the sample means $\overline{x}_1, \dots, \overline{x}_k$ and the sample variances $s_1^2, \dots, s_k^2.$ The average over all observations $m = \sum m_i,$ called the grand mean, is denoted by </span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a> \overline{X} = \frac{1}{m} \sum_{i=1}^k \sum_{j=1}^{m_i} X_{ij}\,.</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>$$ </span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>The sample variances $s_i^2,$ and hence the sample standard deviations, will generally vary even when the $k$ populations share the same variance; a rule of thumb is that the equality of variances is reasonable if the largest $s_i$ is not much more than two times the smallest. </span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip}</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Alternative lingo </span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>In the context of ANOVA, these $k$ populations are often referred to as *treatment* distributions. </span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>We wish to test the equality of the population means, given by the null hypothesis,</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a> H_0 : \mu_1 = \mu_2 = \cdots = \mu_k\,,</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>versus the alternative hypothesis,</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a> H_a : \text{at least two}\; \mu_i \; \text{differ}\,.</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>Note that if $k=3$ then $H_0$ is true only if all three means are the same, i.e., $\mu_1 = \mu_1 = \mu_3,$ but there are a number of ways which the alternative might hold: $\mu_1 \neq \mu_2 = \mu_3$ or $\mu_1 = \mu_2 \neq \mu_3$ or $\mu_1 = \mu_3 \neq \mu_2$ or $\mu_1 \neq \mu_2 \neq \mu_3.$ </span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>The test procedure is based on comparing a measure of the difference in variation among the sample means, i.e., the variation between $x_i$'s, to a measure of variation within each sample.  </span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>:::{#def-mstr-mse}</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>The mean square for treatments is </span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a> \mathsf{MSTr} = \frac{1}{k-1} \sum_{i=1}^k m_i (\overline{X}_i - \overline{X})^2\,,</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>and the mean square error is </span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a> \mathsf{MSE} = \frac{1}{m-k} \sum_{i=1}^k (m_i - 1) S_i^2 \,.</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>The $\mathsf{MSTr}$ and $\mathsf{MSE}$ are statistics that measure the variation among sample means and the variation within samples. We will also use $\mathsf{MSTr}$ and $\mathsf{MSE}$ to denote the calculated values of these statistics. </span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>:::{#prp-htest-anova}</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>The test statistic </span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>F = \frac{\mathsf{MSTr}}{\mathsf{MSE}} </span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>is the appropriate test statistic for the single-factor ANOVA problem involving $k$ populations (or treatments) with a random sample of size $m_1, \dots, m_k$ from each. When $H_0$ is true, </span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>F \sim \mathsf{F}(\nu_1 = k-1, \nu_2 = m - k)\,.</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>In the present context, a large test statistic value is more contradictory to $H_0$ than a smaller value. Therefore the test is upper-tailed, i.e., consider the area $F_\alpha$ to the right of the critical value $F_{\alpha, \nu_1, \nu_2}.$ We reject $H_0$ if the value of the test statistic $F &gt; F_\alpha.$</span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>:::  </span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>:::{#nte-salary .callout-note collapse="true"}</span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a><span class="fu">## Average Salary Data </span></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>The **Average Salary Data** comprises average salaries reported by $20$ local councils across the four nations of the United Kingdom (England, N Ireland, Scotland and Wales). The sample means and sample standard deviations are summarised in @tbl-anova-samples-stats. </span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-anova-samples-stats</span></span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "**Average Salary Data** reported from $20$ local councils."</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>nation <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>nation)</span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>dattab <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a> <span class="fu">group_by</span>(nation) <span class="sc">|&gt;</span></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a> <span class="fu">summarise</span>(<span class="at">observations =</span> <span class="fu">list</span>(mean_salary), <span class="at">n =</span> <span class="fu">n</span>(), <span class="at">means =</span> <span class="fu">signif</span>(<span class="fu">mean</span>(mean_salary), <span class="at">digits =</span> <span class="dv">4</span>), <span class="at">ssds =</span> <span class="fu">signif</span>(<span class="fu">sd</span>(mean_salary), <span class="at">digits =</span> <span class="dv">4</span>))</span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(dattab, <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">'Nation'</span>, <span class="st">"Average salaries ('000 £)"</span>, <span class="st">'Sample size'</span>, <span class="st">'Sample mean'</span>, <span class="st">'Sample sd'</span>), <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="st">"l"</span>, <span class="st">"c"</span>, <span class="st">"c"</span>, <span class="st">"c"</span>), <span class="at">booktabs =</span> T, <span class="at">escape =</span> F) <span class="sc">|&gt;</span> <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>))</span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>:::{#exm-anova}</span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>Consider the **Average Salary Data** reported in @nte-salary. Is the expected average salary in each nation the same at the $5\%$ level?</span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>We begin by exploring the data through the generation and interpretation of some box plots. The box plots in @fig-anova-samples-boxplots indicate that there may be a difference in median average salary by nation. </span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-anova-samples-boxplots</span></span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Box plots of the average mean salary data in Table @tbl-anova-samples-stats indicate five summary statistics: the median, two hinges (first and third quartiles) and two whiskers (extending from the hinge to the most extreme data point within $1.5 \\cdot \\mathsf{IQR}$)."</span></span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>nation <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>nation)</span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> mean_salary, <span class="at">y =</span> <span class="fu">reorder</span>(nation, <span class="fu">desc</span>(nation)))) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Average salary"</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>      </span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>For $\alpha = 0.05,$ we compute the upper-tail area $F_{0.05}$ i.e. to the right of the critical value $F_{0.05, 3, 16}$ by consulting a statistical table or by using <span class="in">`R`</span> to find $F_{0.05} = <span class="in">`r qf(.05, df1 = 4-1, df2 = 20-4, lower.tail = FALSE)`</span>.$</span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a><span class="co"># alt: qf(.05, df1 = 3, df2 = 16, lower.tail = FALSE)</span></span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(<span class="dv">1</span><span class="fl">-.05</span>, <span class="at">df1 =</span> <span class="dv">4-1</span>, <span class="at">df2 =</span> <span class="dv">20-4</span>) </span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>  </span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a>The grand mean is </span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a> \overline{x} = \frac{17 + 12 + 18 + \cdots + 8 + 7 + 9}{20} = <span class="in">`r mean(df$mean_salary)`</span>\,,</span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a>and hence the variation among sample means is given by,</span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a> \mathsf{MSTr} &amp;= \frac{1}{4-1} \left(m_1(\overline{x}_1 - \overline{x})^2 + \cdots + m_4 (\overline{x}_4 - \overline{x})^2\right) <span class="sc">\\</span></span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a> &amp;= \left(6 (14.5-11.9)^2 + 4(10.0 - 11.9)^2 + 5(13.0-11.9)^2 + 5 ( 9.2 - 11.9)^2\right) / 3 <span class="sc">\\</span></span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a> &amp;= <span class="in">`r mstr`</span> \,.</span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a>The mean square error is</span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a> \begin{aligned}</span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a> \mathsf{MSE} &amp; = \frac{1}{20-4} \left((m_1 - 1)s_1^2 + \cdots (m_4-1)s_4^2\right)<span class="sc">\\</span> </span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a>  &amp;= \frac{5(2.588)^2 + 3(2.582)^2 + 4(1.871)^2 + 4(1.924)^2}{16} <span class="sc">\\</span></span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a>  &amp;= <span class="in">`r mse`</span></span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a> \end{aligned}</span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a>yielding the test statistic value</span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a> F = \frac{\mathsf{MSTr}}{\mathsf{MSE}} = \frac{<span class="in">`r mstr`</span>}{<span class="in">`r mse`</span>} </span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a> = <span class="in">`r mstr / mse`</span> \,.</span>
+<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a>Since $F &gt; F_\alpha$ we reject $H_0.$ The data do not support the hypothesis that the mean salaries in each nation are identical at the $5\%$ level. </span>
+<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a><span class="fu">## Confidence intervals {#sec-anova-ci}</span></span>
+<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a>In @sec-compare-means, we gave a CI for comparing population means involving the difference $\mu_X - \mu_Y.$ In some settings, we would like to give CIs for more complicated functions of population means $\mu_i.$ Let</span>
+<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a> \theta = \sum_{i=1}^k c_i \mu_i\,,</span>
+<span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a>for constants $c_i.$ As we assume the $X_ij$ are normally distributed with $\E<span class="co">[</span><span class="ot">X_{ij}</span><span class="co">]</span> = \mu_i$ and $\Var<span class="co">[</span><span class="ot">X_{ij}</span><span class="co">]</span> = \sigma^2,$ the estimator</span>
+<span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a> \widehat{\theta} = \sum_{i=1}^k c_i \overline{X}_{i}\,,</span>
+<span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a>is normally distributed with</span>
+<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a> \Var<span class="co">[</span><span class="ot">\widehat{\theta}</span><span class="co">]</span> = \sum_{i=1}^k c_i^2 \Var<span class="co">[</span><span class="ot">\overline{X}_i</span><span class="co">]</span> = \sigma^2 \sum_{i=1}^{k} \frac{c_i^2}{m_i}\,.</span>
+<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a>We estimate $\sigma^2$ by the $\mathsf{MSE}$ and standardise the estimator to arrive at a $\mathsf{t}$ variable</span>
+<span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a> \frac{\widehat{\theta} - \theta}{\widehat{\sigma}_{\widehat{\theta}}}\,,</span>
+<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-169"><a href="#cb5-169" aria-hidden="true" tabindex="-1"></a>where $\widehat{\sigma}_{\widehat{\theta}}$ is the estimated standard error of the estimator. </span>
+<span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-171"><a href="#cb5-171" aria-hidden="true" tabindex="-1"></a>:::{#prp-ci-anova}</span>
+<span id="cb5-172"><a href="#cb5-172" aria-hidden="true" tabindex="-1"></a>A $100(1-\alpha)\%$ CI for $\sum c_i \mu_i$ is given by </span>
+<span id="cb5-173"><a href="#cb5-173" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-174"><a href="#cb5-174" aria-hidden="true" tabindex="-1"></a> \sum_{i=1}^k c_i \overline{x}_i \pm t_{\alpha/2, m-k} \sqrt{\mathsf{MSE} \sum_{i=1}^k \frac{c_i^2}{m_i}}\,.</span>
+<span id="cb5-175"><a href="#cb5-175" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-176"><a href="#cb5-176" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-177"><a href="#cb5-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-178"><a href="#cb5-178" aria-hidden="true" tabindex="-1"></a>:::{#exm-anova-ci}</span>
+<span id="cb5-179"><a href="#cb5-179" aria-hidden="true" tabindex="-1"></a>Determine a $90\%$ CI for the difference in mean average salary for councils in Scotland and England, based on the data available in @tbl-anova-samples-stats</span>
+<span id="cb5-180"><a href="#cb5-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-181"><a href="#cb5-181" aria-hidden="true" tabindex="-1"></a>For $\alpha = 0.10,$ the critical value $t_{0.05, 16} = <span class="in">`r qt(1-0.1/2, df = 20 - 4)`</span>$ is found by looking in a table of $\mathsf{t}$ critical values or by using <span class="in">`R`</span>:</span>
+<span id="cb5-182"><a href="#cb5-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-185"><a href="#cb5-185" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-186"><a href="#cb5-186" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb5-187"><a href="#cb5-187" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb5-188"><a href="#cb5-188" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb5-189"><a href="#cb5-189" aria-hidden="true" tabindex="-1"></a><span class="co"># alt: qt(0.1/2, 16, lower.tail = FALSE)</span></span>
+<span id="cb5-190"><a href="#cb5-190" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="dv">1</span><span class="fl">-0.1</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> <span class="dv">20</span> <span class="sc">-</span> <span class="dv">4</span>) </span>
+<span id="cb5-191"><a href="#cb5-191" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-192"><a href="#cb5-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-193"><a href="#cb5-193" aria-hidden="true" tabindex="-1"></a>Then for the function $\overline{x}_2 - \overline{x_1},$ </span>
+<span id="cb5-194"><a href="#cb5-194" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-195"><a href="#cb5-195" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb5-196"><a href="#cb5-196" aria-hidden="true" tabindex="-1"></a>(\overline{x}_{Eng} - \overline{x}_{Sco}) \pm&amp; t_{0.05, 16} \sqrt{\mathsf{MSE}} \sqrt{\frac{1}{m_{Eng}} + \frac{1}{m_{Sco}}} <span class="sc">\\</span></span>
+<span id="cb5-197"><a href="#cb5-197" aria-hidden="true" tabindex="-1"></a>&amp; = (14.5 - 13.0) \pm <span class="in">`r qt(1-0.1/2, df = 20 - 4)`</span> \sqrt{<span class="in">`r mse`</span>} \sqrt{\frac{1}{6} + \frac{1}{5}} <span class="sc">\\</span></span>
+<span id="cb5-198"><a href="#cb5-198" aria-hidden="true" tabindex="-1"></a>&amp; = 1.5 \pm <span class="in">`r qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5)`</span>\,.</span>
+<span id="cb5-199"><a href="#cb5-199" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb5-200"><a href="#cb5-200" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-201"><a href="#cb5-201" aria-hidden="true" tabindex="-1"></a>Thus, a $90\%$ confidence interval for $\mu_{Eng} - \mu_{Sco}$ is $(<span class="in">`r signif(1.5 - qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5), digits = 4)`</span>\,, <span class="in">`r signif(1.5 + qt(1-0.1/2, df = 20 - 4) * sqrt(mse) * sqrt(1/6 + 1/5), digits = 4)`</span>).$</span>
+<span id="cb5-202"><a href="#cb5-202" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-203"><a href="#cb5-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-204"><a href="#cb5-204" aria-hidden="true" tabindex="-1"></a>:::{.callout-warning}</span>
+<span id="cb5-205"><a href="#cb5-205" aria-hidden="true" tabindex="-1"></a><span class="fu">## Consider the following</span></span>
+<span id="cb5-206"><a href="#cb5-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-207"><a href="#cb5-207" aria-hidden="true" tabindex="-1"></a>How does the result in @exm-anova-ci compare to the $\mathsf{t}$ method in @sec-compare-means-normpops-vars-unknown?</span>
+<span id="cb5-208"><a href="#cb5-208" aria-hidden="true" tabindex="-1"></a>:::</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1144,7 +1411,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
 <p>Copyright 2024, Eric Hall (University of Dundee)</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dundeemath/MA22004/edit/master/05-anova.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

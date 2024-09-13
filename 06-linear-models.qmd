@@ -1,4 +1,4 @@
-{{< include preamble.md >}}
+{{< include preamble.qmd >}}
 
 ```{r}
 #| include: false
@@ -91,7 +91,7 @@ The $\mathsf{RSS}$ is sometimes referred to as the error sum of squares and abbr
 :::{#exm-linear-model-fit-residuals}
 In @fig-linear-model-fit and @fig-linear-model-residuals, we consider the **Cherry Tree Data** (see @tbl-cherry-data) and discussion). We fit a least squares regression of timber volume (response variable) to the tree's diameter (independent variable). As you would expect, the timber yield increases with diameter.
 
-The `r` code below can be used to calculate the least squares regression and residuals. 
+The `R` code below can be used to calculate the least squares regression and residuals. 
 ```{r}
 #| echo: true
 #| warning: false

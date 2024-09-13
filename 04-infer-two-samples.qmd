@@ -1,4 +1,4 @@
-{{< include preamble.md >}}
+{{< include preamble.qmd >}}
 
 # Two samples inferences {#sec-inference-two-samples}
 
@@ -178,7 +178,9 @@ $$
 $$
 with the pooled estimator of the variance, replaces @eq-htest-compare-means-normpops-vars-unknown-statistic in @prp-htest-compare-means-normpops-vars-unknown and the same procedures are followed for determining the $P$-value with $\nu = m+n-2$ in place of @eq-dist-t-compare-means-normpops-nu. If you have reasons to believe that $\sigma_X^2 = \sigma_Y^2,$ these pooled $\mathsf{t}$ procedures are appealing because $\nu$ is very easy to compute. 
 
-:::{.warningblock data-latex=""}
+:::{.callout-warning}
+## Robustness 
+
 Pooled $t$ procedures are not robust if the assumption of equalised variance is violated. Theoretically, you could first carry out a statistical test $H_0 : \sigma_X^2 = \sigma_Y^2$ on the equality of variances and then use a pooled $\mathsf{t}$ procedure if the null hypothesis is not rejected. However, there is no free lunch: the typical $\mathsf{F}$ test for equal variances (see @sec-compare-variances) is sensitive to normality assumptions. The two sample $\mathsf{t}$ procedures, with the data-driven choice of $\nu$ in @eq-dist-t-compare-means-normpops-nu, are therefore recommended unless, of course, you have a very compelling reason to believe $\sigma_X^2 = \sigma_Y^2.$ 
 :::   
 

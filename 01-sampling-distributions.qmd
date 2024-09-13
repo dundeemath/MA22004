@@ -1,4 +1,4 @@
-{{< include preamble.md >}}
+{{< include preamble.qmd >}}
 
 # Sampling distributions {#sec-sampling-distributions}
 
@@ -61,9 +61,9 @@ $$
  \quad -\infty < x < \infty \,.
 $$
 We write $X \sim \mathsf{N}(\mu, \sigma^2)$. 
-:::
+::: 
 
-For $X\sim \mathsf{N}(\mu,\sigma^2),$ it can be shown that $\mathbf{E}(X) = \mu$ and $\Var(X) = \sigma^2,$ that is, $\mu$ is the *mean* and $\sigma^2$ is the *variance* of $X$. The pdf forms a bell-shaped curve that is symmetric about $\mu,$ as illustrated in @fig-normals-diff-mean. The value $\sigma$ (*standard deviation*) is the distance from $\mu$ to the inflection points of the curve. As $\sigma$ increases, the dispersion in the density increases, as illustrated in @fig-normals-diff-sd. Thus, the distribution's position (location) and spread depend on $\mu$ and $\sigma$.  
+For $X\sim \mathsf{N}(\mu,\sigma^2),$ it can be shown that $\E(X) = \mu$ and $\Var(X) = \sigma^2,$ that is, $\mu$ is the *mean* and $\sigma^2$ is the *variance* of $X$. The pdf forms a bell-shaped curve that is symmetric about $\mu,$ as illustrated in @fig-normals-diff-mean. The value $\sigma$ (*standard deviation*) is the distance from $\mu$ to the inflection points of the curve. As $\sigma$ increases, the dispersion in the density increases, as illustrated in @fig-normals-diff-sd. Thus, the distribution's position (location) and spread depend on $\mu$ and $\sigma$.  
 
 ```{r}
 #| label: fig-normals-diff-mean
@@ -144,7 +144,7 @@ $$
 $$
 where we look up the value of $\Phi(z) = P(Z\leq z)$ in a table of standard normal curve areas.
 
-The probability corresponds to the shaded area under the normal density $\varphi(x) = \Phi'(x)$ corresponding to $x \geq 5.5$ (see @fig-example-norm-geq). To calculate this area, we can also use the `r` code: `pnorm(5.5, mean = 5, sd = 3, lower.tail = FALSE)`.  
+The probability corresponds to the shaded area under the normal density $\varphi(x) = \Phi'(x)$ corresponding to $x \geq 5.5$ (see @fig-example-norm-geq). To calculate this area, we can also use the `R` code: `pnorm(5.5, mean = 5, sd = 3, lower.tail = FALSE)`.  
 
 ```{r}
 #| label: fig-example-norm-geq
@@ -178,7 +178,7 @@ $$
 $$
 where we look up the value of $\Phi(z) = P(Z\leq z)$ in a table of standard normal curve areas. 
 
-The probability corresponds to the shaded area under the normal density $\varphi(x) = \Phi'(x)$ corresponding to $4 \leq x \leq 5.25$ (see @fig-example-norm-interval). To calculate this area, we can use the `r` code: `pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3)`. 
+The probability corresponds to the shaded area under the normal density $\varphi(x) = \Phi'(x)$ corresponding to $4 \leq x \leq 5.25$ (see @fig-example-norm-interval). To calculate this area, we can use the `R` code: `pnorm(5.25, mean = 5, sd = 3) - pnorm(4, mean = 5, sd = 3)`. 
 
 ```{r}
 #| label: fig-example-norm-interval
@@ -253,7 +253,7 @@ ggplot(t.dist, aes(x = t, y = density, color = df)) +
 2. The density for $\mathsf{t}(\nu)$ is more spread out than the standard normal density (i.e., it has "fatter tails" than the normal).
 3. As $\nu \to \infty,$ the spread of the corresponding $\mathsf{t}(\nu)$ density converges to the standard normal density (i.e., the spread of the $\mathsf{t}(\nu)$ density decreases relative to the standard normal).  
 
-If $X \sim \mathsf{t}(\nu),$ then $\mathbf{E}[X] = 0$ for $\nu > 1$ (otherwise the mean is undefined).  
+If $X \sim \mathsf{t}(\nu),$ then $\E[X] = 0$ for $\nu > 1$ (otherwise the mean is undefined).  
 :::
 
 ::: {.callout-note}
@@ -307,7 +307,7 @@ ggplot(chisq.dist, aes(x = chisq, y = density, color = df)) +
 Unlike the normal and $t$ distributions, the $\chi^2$ distribution is not symmetric! This means that critical values, e.g., $$\chi^2_{.99, \nu} \quad \text{and}\quad \chi^2_{0.01,\nu}\,,$$ are **not** equal. Hence, it will be necessary to look up both values for CIs based on $\chi^2$ critical values.  
 :::
 
-If $X \sim \chi^2(\nu),$ then $\mathbf{E}[X] = \nu$ and $\Var[X] = 2\nu$.  
+If $X \sim \chi^2(\nu),$ then $\E[X] = \nu$ and $\Var[X] = 2\nu$.  
 
 ## $\mathsf{F}$ distribution {#sec-F-distribution}
 

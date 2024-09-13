@@ -125,6 +125,14 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var sidebar = document.getElementById('quarto-sidebar');
+    var logo = sidebar.getElementsByTagName('img')[0];
+    
+    sidebar.appendChild(logo);
+  });
+</script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
@@ -196,12 +204,15 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./assets/images/uod_shield_rgb.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">MA22004 — Statistics II</a> 
+      <a href="./">MA22004 — Statistics II<br></a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/dundeemath/MA22004/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./MA22004-—-Statistics-II
+    <a href="./MA22004-—-Statistics-II--br-
 .pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -342,9 +353,7 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
-<p>Texts</p>
-</div></div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
@@ -358,14 +367,14 @@ window.Quarto = {
   <li><a href="#sec-estimating-proportions" id="toc-sec-estimating-proportions" class="nav-link" data-scroll-target="#sec-estimating-proportions"><span class="header-section-number">3.2</span> Estimating proportions</a></li>
   <li><a href="#sec-estimating-variances" id="toc-sec-estimating-variances" class="nav-link" data-scroll-target="#sec-estimating-variances"><span class="header-section-number">3.3</span> Estimating variances</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/dundeemath/MA22004/edit/master/03-infer-single-sample.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-prelim.html">Lecture Notes</a></li><li class="breadcrumb-item"><a href="./03-infer-single-sample.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Single sample inferences</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-inference-single-sample" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Single sample inferences</span></span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span id="sec-inference-single-sample" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Single sample inferences</span></span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -428,7 +437,7 @@ Figure&nbsp;3.1: <span class="math inline">400</span> samples from a normal popu
 </div>
 </div>
 </div>
-<p>For <span class="math inline">\alpha = 0.05</span>, the critical value <span class="math inline">z_{0.025} = 1.96</span>; this value can be found by looking in a table of critical <span class="math inline">z</span> values or using the <code>r</code> code <code>qnorm(1-.05/2)</code>. From <a href="#def-ci-norm-known-var" class="quarto-xref">Definition&nbsp;<span>3.1</span></a>, <span class="math display">
+<p>For <span class="math inline">\alpha = 0.05</span>, the critical value <span class="math inline">z_{0.025} = 1.96</span>; this value can be found by looking in a table of critical <span class="math inline">z</span> values or using the <code>R</code> code <code>qnorm(1-.05/2)</code>. From <a href="#def-ci-norm-known-var" class="quarto-xref">Definition&nbsp;<span>3.1</span></a>, <span class="math display">
 \begin{aligned}
 \left(\overline{x} - z_{\alpha/2} \frac{\sigma}{\sqrt{m}}\,, \overline{x} + z_{\alpha/2} \frac{\sigma}{\sqrt{m}} \right)
 &amp;= \left(20992 - 1.96 \frac{17000}{\sqrt{400}}\,, 20992 + 1.96 \frac{17000}{\sqrt{400}} \right) \\
@@ -500,7 +509,7 @@ Recall
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Note <span class="math inline">\Phi(z) = P(Z \leq z)</span> is found by calling <code>pnorm(z)</code> in <code>r</code> or by looking up the value in a <span class="math inline">Z</span> table.</p>
+<p>Note <span class="math inline">\Phi(z) = P(Z \leq z)</span> is found by calling <code>pnorm(z)</code> in <code>R</code> or by looking up the value in a <span class="math inline">Z</span> table.</p>
 </div>
 </div>
 </section>
@@ -575,10 +584,10 @@ Rule of thumb
 <pre><code># A tibble: 1 × 1
   p_value
     &lt;dbl&gt;
-1   0.038</code></pre>
+1   0.033</code></pre>
 </div>
 </div>
-<p>The test yields a <span class="math inline">P</span>-value of <span class="math inline">P = 0.038.</span> This values is quite small; if <span class="math inline">\mu \leq 3.5</span>, then the probability of obtaining the sample mean value <span class="math inline">\widehat{\mu} = 3.758</span> is only 0.038! Thus, the data provide sufficient evidence at the 0.05 level against the hypothesis that the true mean petal length is at most 3.5 cm.</p>
+<p>The test yields a <span class="math inline">P</span>-value of <span class="math inline">P = 0.033.</span> This values is quite small; if <span class="math inline">\mu \leq 3.5</span>, then the probability of obtaining the sample mean value <span class="math inline">\widehat{\mu} = 3.758</span> is only 0.033! Thus, the data provide sufficient evidence at the 0.05 level against the hypothesis that the true mean petal length is at most 3.5 cm.</p>
 </div>
 </section>
 <section id="sec-mean-normal-var-unknown" class="level3" data-number="3.1.3">
@@ -598,7 +607,7 @@ T = \frac{\overline{X} - \mu}{S/\sqrt{m}}  \quad \sim \mathsf{t}(m-1)\,,
 </div>
 <div id="exm-ci-norm-unknown-var" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.5</strong></span> Let us return to the height of <span class="math inline">31</span> felled black cherry trees from the <strong>Cherry Tree Data</strong> in <a href="02-basics-stat-infer.html#nte-tree" class="quarto-xref">Note&nbsp;<span>2.2</span></a>. Give a <span class="math inline">99\%</span> CI for the population mean <span class="math inline">\mu.</span></p>
-<p>For <span class="math inline">m = 31</span>, the critical value of the reference distribution is <span class="math display">t_{0.005, 30} \approx 2.7499\,,</span> which can looked up in a table of critical values for <span class="math inline">\mathsf{t}(\nu = 30)</span> or found using the <code>r</code> command <code>qt(1-0.01/2, df = 31-1)</code>. The sample mean <span class="math inline">\overline{x} = 76</span> (computed in <a href="02-basics-stat-infer.html#exm-estimators" class="quarto-xref">Example&nbsp;<span>2.1</span></a>) is combined with the sample standard deviation, <span class="math display">
+<p>For <span class="math inline">m = 31</span>, the critical value of the reference distribution is <span class="math display">t_{0.005, 30} \approx 2.7499\,,</span> which can looked up in a table of critical values for <span class="math inline">\mathsf{t}(\nu = 30)</span> or found using the <code>R</code> command <code>qt(1-0.01/2, df = 31-1)</code>. The sample mean <span class="math inline">\overline{x} = 76</span> (computed in <a href="02-basics-stat-infer.html#exm-estimators" class="quarto-xref">Example&nbsp;<span>2.1</span></a>) is combined with the sample standard deviation, <span class="math display">
 \begin{aligned}
 s &amp;= \sqrt{\frac{1}{m-1} \sum_{i=1}^m (x_i - \overline{x})^2}\\
    &amp;= \sqrt{\frac{1}{30} \left((63-76)^2 + \cdots + (87 - 76)^2\right)}\\
@@ -704,7 +713,7 @@ Shapiro-Wilk normality test
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We can assess the normality of the sample by examining the normal quantile-quantile plot as in <a href="02-basics-stat-infer.html#exm-estimators" class="quarto-xref">Example&nbsp;<span>2.1</span></a>. For the data in <a href="#exm-htest-ttest" class="quarto-xref">Example&nbsp;<span>3.6</span></a> recall that this is done using the following <code>r</code> code.</p>
+<p>We can assess the normality of the sample by examining the normal quantile-quantile plot as in <a href="02-basics-stat-infer.html#exm-estimators" class="quarto-xref">Example&nbsp;<span>2.1</span></a>. For the data in <a href="#exm-htest-ttest" class="quarto-xref">Example&nbsp;<span>3.6</span></a> recall that this is done using the following <code>R</code> code.</p>
 <div class="cell" data-layout-align="center">
 <details open="" class="code-fold">
 <summary>Code</summary>
@@ -748,7 +757,7 @@ W = 0.96545, p-value = 0.4034</code></pre>
 <p>Consider a population of size <span class="math inline">M</span> in which each member either satisfies a given property or does not (i.e.&nbsp;a binary classification). The proportion <span class="math inline">p \in (0,1)</span> of the population satisfying the given property is a parameter characterising the population we might be interested in estimating. A sample of classified observations, <span class="math inline">X_1, \dots, X_m \sim \mathsf{Bernoulli}(p)\,,</span> from the population contains a proportion, <span id="eq-proportion-estimator"><span class="math display">
 \widehat{p} = \frac{1}{m} \sum_{i=1}^m X_i\,,
 \tag{3.8}</span></span> satisfying the given property. The estimator <span class="math inline">\widehat{p}</span> varies with the sample, and for large <span class="math inline">m</span>, its sampling distribution has the following properties: <span id="eq-proportion-mean"><span class="math display">
-\mu_{\widehat{p}} = \mathop{\mathrm{\mathbf{E}}}[X_i] = p
+\mu_{\widehat{p}} = \mathbf{E}[X_i] = p
 \tag{3.9}</span></span> and <span id="eq-proportion-var"><span class="math display">
 \sigma_{\widehat{p}}^2 = \frac{\mathop{\mathrm{Var}}[X_i]}{m} = \frac{p(1-p)}{m}\,,
 \tag{3.10}</span></span> provided that <span class="math inline">m</span> is small relative to <span class="math inline">M.</span> Moreover, by invoking the Central Limit Theorem, we have the distribution of <span class="math inline">\widehat{p}</span> is approximately normal for sufficiently large <span class="math inline">m</span> as <a href="#eq-proportion-estimator" class="quarto-xref">Equation&nbsp;<span>3.8</span></a> is a sample mean. Indeed, this normal approximation works well for moderately large <span class="math inline">m</span> as long as <span class="math inline">p</span> is not too close to zero or one; a rule of thumb is that <span class="math inline">mp &gt; 5</span> and <span class="math inline">m(1-p) &gt; 5.</span></p>
@@ -818,7 +827,7 @@ P\left(\frac{(m-1) s^2}{\chi^2_{\alpha/2, m-1}} &lt; \sigma^2 &lt; \frac{(m-1) s
 </div>
 <div id="exm-eg-ci-variance" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.8</strong></span> For the <strong>Cherry Tree Data</strong> in <a href="#tbl-cherry-data-vol" class="quarto-xref">Table&nbsp;<span>3.1</span></a> concerning the timber volume of <span class="math inline">31</span> felled black cherry trees, give a <span class="math inline">95%</span> CI for the variance.</p>
-<p>We are interested in estimating the true variance <span class="math inline">\sigma^2</span> of the timber volume based on <span class="math inline">m=31</span> samples. Recall that the mean of our data is <span class="math inline">\overline{x} = 30.17</span> cu ft and that the sample variance is <span class="math inline">s^2 = 270.2</span> using the estimator <a href="02-basics-stat-infer.html#eq-sample-var" class="quarto-xref">Equation&nbsp;<span>2.2</span></a>. The critical values for the <span class="math inline">\chi^2_{.975, 30} = 16.7908</span> and <span class="math inline">\chi^2{.025, 30} = 46.9792</span> can be found by checking a table of critical values of the <span class="math inline">\chi^2(\nu=30)</span> distribution or by using the <code>r</code> code <code>qchisq(1-0.05/2, df=30, lower.tail = FALSE)</code> and <code>qchisq(0.05/2, df=df, lower.tail = FALSE)</code>, respectively, see <a href="#fig-exm-htest-chisq-plot" class="quarto-xref">Figure&nbsp;<span>3.4</span></a> below.</p>
+<p>We are interested in estimating the true variance <span class="math inline">\sigma^2</span> of the timber volume based on <span class="math inline">m=31</span> samples. Recall that the mean of our data is <span class="math inline">\overline{x} = 30.17</span> cu ft and that the sample variance is <span class="math inline">s^2 = 270.2</span> using the estimator <a href="02-basics-stat-infer.html#eq-sample-var" class="quarto-xref">Equation&nbsp;<span>2.2</span></a>. The critical values for the <span class="math inline">\chi^2_{.975, 30} = 16.7908</span> and <span class="math inline">\chi^2{.025, 30} = 46.9792</span> can be found by checking a table of critical values of the <span class="math inline">\chi^2(\nu=30)</span> distribution or by using the <code>R</code> code <code>qchisq(1-0.05/2, df=30, lower.tail = FALSE)</code> and <code>qchisq(0.05/2, df=df, lower.tail = FALSE)</code>, respectively, see <a href="#fig-exm-htest-chisq-plot" class="quarto-xref">Figure&nbsp;<span>3.4</span></a> below.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-exm-htest-chisq-plot" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
@@ -875,12 +884,14 @@ Figure&nbsp;3.4: As the <span class="math inline">\chi^2</span> distribution is 
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  lower_ci upper_ci
-1 141.2539  440.608</code></pre>
+1 140.3358 442.2336</code></pre>
 </div>
 </div>
 <p>Due to the computational nature, the bootstrapped interval estimate is not precisely the same as the theoretical interval estimate and rerunning the code will yield a slightly different interval.</p>
 </div>
 
+
+<!-- -->
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-vanBelle:2008rt" class="csl-entry" role="listitem">
@@ -1120,6 +1131,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/dundeemath\.github\.io\/MA22004");
@@ -1461,7 +1523,578 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Two samples inferences</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb12" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>{{&lt; include preamble.qmd &gt;}}</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu"># Single sample inferences {#sec-inference-single-sample}</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>In a few situations, we can derive the sampling distribution for the statistic of interest and use this as the basis for constructing confidence intervals and hypothesis tests. Presently we estimate population means $\mu$ in @sec-estimating-means, population proportions $p$ in @sec-estimating-proportions, and population variances $\sigma^2$ in @sec-estimating-variances in some special cases.  </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Estimating means {#sec-estimating-means}</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>If the parameter of interest is the population mean $\theta = \mu$, then what can be said about the distribution of the sample mean estimator $\widehat{\theta} = \overline{X}$ in @eq-sample-mean? We will consider three cases,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span><span class="co">[</span><span class="ot">normal population with known $\sigma^2$</span><span class="co">](#sec-mean-normal-var-known)</span>,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span><span class="co">[</span><span class="ot">any population with unknown $\sigma^2$, when the sample size $m$ is large</span><span class="co">](#sec-mean-large-sample)</span>, and</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span><span class="co">[</span><span class="ot">normal population with unknown $\sigma^2$, when the sample size $m$ is small</span><span class="co">](#sec-mean-normal-var-unknown)</span>.  </span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>In each, the form of the confidence interval and hypothesis test statistic for $\mu$ can be derived using the approximate normality of the sample mean.</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>In general, the confidence intervals for the mean based on normality theory will have the form:</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a> \text{point estimate}\; \mu \pm (\text{critical value}) \cdot (\text{precision of point estimate})\,, </span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>$$ {#eq-ci-gen-form}</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>where the reference distribution will be the standard normal (for 1. and 2.) and the Student's $\mathsf{t}$ distribution (for 3.). The critical value corresponds to the value under the reference distribution that yields the two-sided (symmetric) tail areas summing to $1-\alpha.$  </span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="fu">### Mean of a normal population with known variance {#sec-mean-normal-var-known}</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>When sampling from a normal population with a known mean and variance, the estimator for the sample mean is also normal with mean $\mu$ and variance $\sigma^2/m$ where $m$ is the sample size. Standardising, </span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a> \frac{\overline{X} - \mu}{ \sigma / \sqrt{m}} \quad \sim \mathsf{N}(0, 1)</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>$$ {#eq-standardized-sample-mean}</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>we see that </span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>P\left(-z_{\alpha/2} &lt;  \frac{\overline{X} - \mu}{ \sigma / \sqrt{m}} &lt; z_{\alpha/2}\right) = 1 - \alpha\,.</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>$$ </span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>Based on knowing the estimator's sampling distribution, we state the following CI. </span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>:::{#def-ci-norm-known-var}</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## Confidence interval for mean of normal population</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>A $100(1-\alpha)\%$ confidence interval for the mean $\mu$ of a normal population when the value of $\sigma^2$ is known is given by </span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a> \left(\overline{x} - z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{m}}\,, </span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>        \overline{x} + z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{m}} \right)\,, </span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>$$ {#eq-ci-norm-known-var}</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>or $\overline{x} \pm z_{\alpha/2} \cdot \sigma / \sqrt{m}$, where $m$ is the sample size.</span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>::: </span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>The CI for the mean @eq-ci-norm-known-var can be expressed (cf. @eq-ci-gen-form) as </span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a> \text{point estimate}\; \mu \pm </span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a> (z \;\text{critical value}) \cdot (\text{standard error of mean})\,.</span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>The $z$ critical value is related to the tail areas under the standard normal curve; we need to find the $z$-score having a cumulative probability equal to $1-\alpha$ according to Definition \@ref(def:confidence-interval-gen). </span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>:::{#exm-ci-norm-known-var}</span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>Consider $400$ samples from a normal population with a known standard deviation $\sigma = 17000$ with mean $\overline{x} = 20992$ as depicted in @fig-ci-norm-known-var-code. How do we construct a $95\%$ confidence interval for $\mu$?</span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-ci-norm-known-var-code</span></span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "$400$ samples from a normal population with known variance $\\sigma = 17000$ together with the corresponding (normal) sampling distribution for the observed mean."</span></span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a>xdat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/exm-ci-norm-known-var.csv"</span>)</span>
+<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(xdat, <span class="fu">aes</span>(<span class="at">x =</span> obs)) <span class="sc">+</span> </span>
+<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..)) <span class="sc">+</span> </span>
+<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a> <span class="fu">stat_function</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"Sample mean"</span>), <span class="at">fun =</span> dnorm, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> <span class="fu">mean</span>(xdat<span class="sc">$</span>obs), <span class="at">sd =</span> <span class="fu">sd</span>(xdat<span class="sc">$</span>obs)), <span class="at">linewidth =</span> lsz) <span class="sc">+</span> </span>
+<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a> <span class="fu">ylab</span>(<span class="st">"Density"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Observations"</span>) <span class="sc">+</span> </span>
+<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a> theme_ur <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a>For $\alpha = 0.05$, the critical value $z_{0.025} = 1.96$; this value can be found by looking in a table of critical $z$ values or using the <span class="in">`R`</span> code <span class="in">`qnorm(1-.05/2)`</span>. From @def-ci-norm-known-var,</span>
+<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a>\left(\overline{x} - z_{\alpha/2} \frac{\sigma}{\sqrt{m}}\,, \overline{x} + z_{\alpha/2} \frac{\sigma}{\sqrt{m}} \right) </span>
+<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a>&amp;= \left(20992 - 1.96 \frac{17000}{\sqrt{400}}\,, 20992 + 1.96 \frac{17000}{\sqrt{400}} \right) <span class="sc">\\</span></span>
+<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a>&amp;= \left(19326 \,, 22658\right)\,.</span>
+<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a>The data above was generated with a true population parameter $\mu = 21500$, and the CI contains the parameter value (incidentally). </span>
+<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a>As noted in @eq-ci-gen-form and @eq-ci-norm-known-var, the width of a CI is related to the estimator's precision. The confidence level (or reliability) is inversely related to this precision. When the population is normal and the variance is known, determining the sample size necessary to achieve a desired confidence level and precision is an appealing strategy. A general formula for the sample size $m^*$ necessary to achieve an interval width $w$ is obtained at confidence level  $\alpha$ by equating $$w = 2z_{\alpha/2} \cdot \sigma /\sqrt{m^*}$$ and then solving for $m^*.$ </span>
+<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a>:::{#prp-ci-select-n-fixed-w-alpha}</span>
+<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a>The sample size $m$ required to achieve a CI for $\mu$ with width $w$ at level $\alpha$ is given by,</span>
+<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a>m^* = \left( 2 z_{\alpha/2} \cdot \frac{\sigma}{w} \right)^2 \,.</span>
+<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a>:::  </span>
+<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a>From @prp-ci-select-n-fixed-w-alpha, we see that the smaller the desired $w$, the larger $m^*$ must be (and subsequently, the more effort that must be allocated to data collection).</span>
+<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a>:::{#exm-ci-norm-known-var-find-n}</span>
+<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a>In @exm-ci-norm-known-var we identified a $95\%$ confidence interval for a normal population with known variance. The range (width) of that interval was $22658 - 19326 = 3332.$ How much would $m$ need to increase to halve the interval width?</span>
+<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a>Using @prp-ci-select-n-fixed-w-alpha, </span>
+<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a>m = \left( 2 \cdot 1.96 \cdot \frac{17000}{1666} \right)^2 = (40)^2 = 1600\,.</span>
+<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a>Thus, we find that for the same level $\alpha = 0.05$, we would need to quadruple our original sample size to halve the interval. </span>
+<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a>:::  </span>
+<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a>:::{.callout-warning}</span>
+<span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a><span class="fu">## You heard it here first...</span></span>
+<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a>As @exm-ci-norm-known-var-find-n shows, it is expensive to reduce uncertainty! </span>
+<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a>Suppose now that we would like to consider a hypothesis test for the population mean, such as $H_0 : \mu = \mu_0.$ Starting from @eq-standardized-sample-mean and assuming that the null hypothesis is true, we find </span>
+<span id="cb12-112"><a href="#cb12-112" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a>Z = \frac{\overline{X} - \mu_0}{\sigma / \sqrt{m}}\,.</span>
+<span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a>The statistic $Z$ measures the distance (measured in units of $\sd<span class="co">[</span><span class="ot">\overline{X}</span><span class="co">]</span>$) between $\overline{X}$ and its expected value under the null hypothesis. We will use the statistic $Z$ to determine if there is substantial evidence against $H_0$, i.e. if the distance is too far in a direction consistent with $H_a.$ </span>
+<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a>:::{#prp-htest-norm-known-var}</span>
+<span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a>Assume that we sample $X_1, \dots, X_m$ from a normal population with mean $\mu$ and known variance $\sigma^2.$ </span>
+<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a>Consider $H_0 : \mu = \mu_0.$ The test statistic is</span>
+<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a> Z = \frac{\overline{X} - \mu_0}{\sigma / \sqrt{m}}\,.</span>
+<span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a>$$ {#eq-htest-norm-known-var-T}</span>
+<span id="cb12-124"><a href="#cb12-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a>For a hypothesis test at level $\alpha$, we use the following procedure:</span>
+<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a>If $H_a : \mu &gt; \mu_0$, then $P = 1 - \Phi(z)$, i.e., upper-tail $R = <span class="sc">\{</span>z &gt; z_{\alpha}<span class="sc">\}</span>.$</span>
+<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a>If $H_a : \mu &lt; \mu_0$, then $P = \Phi(z)$, i.e., lower-tail $R = <span class="sc">\{</span>z &lt; - z_{\alpha}<span class="sc">\}</span>.$ </span>
+<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a>If $H_a : \mu \neq \mu_0$, then $P = 2(1-\Phi(|z|))$, i.e., two-tailed $R = <span class="sc">\{</span>|z| &gt; z_{\alpha/2}<span class="sc">\}</span>.$</span>
+<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-133"><a href="#cb12-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a>We recall that $\Phi(z)$ is the area in the lower tail of the standard normal density, i.e., to the *left* of the calculated value of $z.$ Thus $1 - \Phi(z)$ is the area in the upper-tail, and $2(1 - \Phi(|z|))$ is twice the area captured in the upper-tail by $|z|$, i.e. the sum of the area in the tails corresponding to $\pm z.$ If $P &lt; \alpha$, then we reject $H_0$ at level $\alpha$ as the data provides sufficient evidence at the $\alpha$ level against the null hypothesis.</span>
+<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a>::: {#exm-htest-norm-known-var-two-tail}</span>
+<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a>Let's return to the data in @exm-ci-norm-known-var, where we sample from a normal population with a known standard deviation $\sigma = 17000.$ Suppose that someone claims the true mean is $\mu_0 = 20000.$ Does our sample mean $\overline{x} = 20992$ based on $m = 400$ samples provide evidence to contradict this claim at the $\alpha = 0.05$ level?</span>
+<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a>The first thing to record is our parameter of interest: $\mu$, the true population mean. The null hypothesis, which we assume to be true, is a statement about the value of $\mu$,</span>
+<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a> H_0 : \mu = 20000\,,</span>
+<span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a>and the alternative hypothesis is</span>
+<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a> H_a : \mu \neq 20000\,,</span>
+<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a>since we are concerned with a deviation in either direction from $\mu_0 = 20000.$ </span>
+<span id="cb12-148"><a href="#cb12-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a>Since the population is normal with known variance, we compute the test statistic:</span>
+<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a> z = \frac{\overline{x} - \mu_0}{\sigma / \sqrt{m}} = \frac{20992 - 20000}{17000 / \sqrt{400}} = 1.167\,.</span>
+<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a>That is, the observed sample mean $\overline{x}$ is slightly more than $1$ standard deviation than what we expect under $H_0.$ Consulting @prp-htest-norm-known-var, we see that a two-tailed test is indicated for this particular $H_a$ (i.e., containing "$\neq$"). The $P$-value is the area,</span>
+<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a>P = 2(1 - \Phi(1.167)) = 2 (0.1216052) = 0.2432.</span>
+<span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a>Thus, since $P = 0.2432 &gt; 0.05 = \alpha$, we fail to reject $H_0$ at the level $0.05.$ The data does not support the claim that the true population mean differs from the value $20000$ at the $0.05$ level.</span>
+<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip}</span>
+<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a><span class="fu">## Recall</span></span>
+<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a>Note $\Phi(z) = P(Z \leq z)$ is found by calling <span class="in">`pnorm(z)`</span> in <span class="in">`R`</span> or by looking up the value in a $Z$ table.</span>
+<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a><span class="fu">### Mean of a population with unknown variance (large-sample) {#sec-mean-large-sample}</span></span>
+<span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a>Consider samples $X_1, \dots, X_m$ from a population with mean $\mu$ and variance $\sigma^2.$ Provided that $m$ is large enough, the Central Limit Theorem implies that the estimator for the sample mean $\overline{X}$ in @eq-sample-mean has *approximately* a normal distribution. Then </span>
+<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a>P \left( - z_{\alpha/2} &lt; \frac{\overline{X} - \mu}{\sigma/\sqrt{m}} &lt; z_{\alpha/2} \right) \approx 1 - \alpha\,,</span>
+<span id="cb12-171"><a href="#cb12-171" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-172"><a href="#cb12-172" aria-hidden="true" tabindex="-1"></a>since the transformed variable has approximately a standard normal distribution. Thus, computing a point estimate based on a large $m$ of samples yields a CI for the population parameter $\mu$ at an *approximate* confidence level $\alpha.$ However, it is often the case that the variance is unknown. When $m$ is large, replacing the population variance $\sigma^2$ by the sample variance $S^2$ in @eq-sample-var will not typically introduce too much additional variability.</span>
+<span id="cb12-173"><a href="#cb12-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-174"><a href="#cb12-174" aria-hidden="true" tabindex="-1"></a>:::{#prp-ci-large-sample}</span>
+<span id="cb12-175"><a href="#cb12-175" aria-hidden="true" tabindex="-1"></a>For a large sample size $m$, an approximate $100(1-\alpha)\%$ confidence interval for the mean $\mu$ of any population when the variance is unknown is given by </span>
+<span id="cb12-176"><a href="#cb12-176" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-177"><a href="#cb12-177" aria-hidden="true" tabindex="-1"></a> \left(\overline{x} - z_{\alpha/2} \cdot \frac{s}{\sqrt{m}} \,, </span>
+<span id="cb12-178"><a href="#cb12-178" aria-hidden="true" tabindex="-1"></a>        \overline{x} + z_{\alpha/2} \cdot \frac{s}{\sqrt{m}} \right)\,,  </span>
+<span id="cb12-179"><a href="#cb12-179" aria-hidden="true" tabindex="-1"></a>$$ {#eq-ci-large-sample}</span>
+<span id="cb12-180"><a href="#cb12-180" aria-hidden="true" tabindex="-1"></a>or $\overline{x} \pm z_{\alpha/2} \cdot s / \sqrt{m}.$ </span>
+<span id="cb12-181"><a href="#cb12-181" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-182"><a href="#cb12-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-183"><a href="#cb12-183" aria-hidden="true" tabindex="-1"></a>The CI for the mean @eq-ci-large-sample applies regardless of the shape of the population distribution so long as the number of samples is large. A rule of thumb is that $m &gt; 40$ is sufficient. In words, the CI @eq-ci-large-sample can be expressed (cf. @eq-ci-gen-form) as</span>
+<span id="cb12-184"><a href="#cb12-184" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-185"><a href="#cb12-185" aria-hidden="true" tabindex="-1"></a> \text{point estimate}\; \mu \pm </span>
+<span id="cb12-186"><a href="#cb12-186" aria-hidden="true" tabindex="-1"></a> (z \;\text{critical value}) \cdot (\text{estimated standard error of mean})\,.</span>
+<span id="cb12-187"><a href="#cb12-187" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-188"><a href="#cb12-188" aria-hidden="true" tabindex="-1"></a>Typically, a large-sample CI for a general parameter $\theta$ holds that is similar to @eq-ci-large-sample for any estimator $\widehat{\theta}$ that satisfies: (1) approximately normal in distribution, (2) approximately unbiased, and (3) an expression for the standard error is available.</span>
+<span id="cb12-189"><a href="#cb12-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-190"><a href="#cb12-190" aria-hidden="true" tabindex="-1"></a>To conduct a large-sample hypothesis test regarding the population mean $\mu$, we consider the test statistic</span>
+<span id="cb12-191"><a href="#cb12-191" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-192"><a href="#cb12-192" aria-hidden="true" tabindex="-1"></a> Z = \frac{\overline{X} - \mu_0}{S / \sqrt{m}}</span>
+<span id="cb12-193"><a href="#cb12-193" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-194"><a href="#cb12-194" aria-hidden="true" tabindex="-1"></a>under the null hypothesis, i.e., we replace the population standard deviation $\sigma$ with the sample standard deviation $S.$ When the number of samples $m$ is large (say $m &gt; 40$), then $Z$ will be approximately normal. Substituting this test statistic $Z$ for @eq-htest-norm-known-var-T, we follow @prp-htest-norm-known-var to determine how to calculate the $P$-value.  </span>
+<span id="cb12-195"><a href="#cb12-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-196"><a href="#cb12-196" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip}</span>
+<span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rule of thumb</span></span>
+<span id="cb12-198"><a href="#cb12-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-199"><a href="#cb12-199" aria-hidden="true" tabindex="-1"></a>For estimating means, we consider a sample size of $m &gt; 40$ to be large.</span>
+<span id="cb12-200"><a href="#cb12-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-201"><a href="#cb12-201" aria-hidden="true" tabindex="-1"></a>However, 'large' depends on the context: for example, the level of support for the evidence that you are seeking. For $m &gt; 20$, the interval estimate $$\text{point estimate } \pm 2\sd$$ has $95\%$ coverage and is surprisingly robust, i.e. applies to a wide variety of population distributions including the normal. However, this rule of thumb won't apply if you want to consider some different level, say $80\%$ <span class="co">[</span><span class="ot">@vanBelle:2008rt, §1</span><span class="co">]</span>.</span>
+<span id="cb12-202"><a href="#cb12-202" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-203"><a href="#cb12-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-204"><a href="#cb12-204" aria-hidden="true" tabindex="-1"></a>:::{#exm-mean-large-sample-infer}</span>
+<span id="cb12-205"><a href="#cb12-205" aria-hidden="true" tabindex="-1"></a>Let's consider the **Iris Data** from @nte-iris and use the <span class="in">`infer`</span> package to make inferences. In particular, consider whether there is evidence at the $0.05$ level to support the statement that the true mean petal length of Iris flowers exceeds $3.5$ cm. </span>
+<span id="cb12-206"><a href="#cb12-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-207"><a href="#cb12-207" aria-hidden="true" tabindex="-1"></a>Recall that the **Iris Data** contains $m= 150$ measurements of petal length across three species of Iris flowers and that the true variance is unknown. </span>
+<span id="cb12-208"><a href="#cb12-208" aria-hidden="true" tabindex="-1"></a>We are interested in testing the null hypothesis, $$H_0 : \mu \leq 3.5\,,$$ against the alternative, $$H_a : \mu &gt; 3.5\,,$$ i.e., a one-sided test.</span>
+<span id="cb12-209"><a href="#cb12-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-210"><a href="#cb12-210" aria-hidden="true" tabindex="-1"></a>We first compute the observed statistic (sample mean) $\widehat{\mu}.$ We use the <span class="in">`infer`</span> package to construct a null distribution *computationally* for the response variable (petal length). We specify that the hypothesis test is for the parameter based on a point estimate and that we are testing for equality with the value $\mu_0 = 3.5.$ The null distribution is generated by computing 1000 bootstrap replications of the sample mean, i.e., the sample mean is generated 1000 times by drawing 150 values at random with replacement from the original corpus of $m=150$ samples. (Note that we obtain the null distribution computationally, so we do not need to standardise to $Z.$)</span>
+<span id="cb12-211"><a href="#cb12-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-214"><a href="#cb12-214" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-215"><a href="#cb12-215" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb12-216"><a href="#cb12-216" aria-hidden="true" tabindex="-1"></a>mu_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(iris<span class="sc">$</span>Petal.Length) </span>
+<span id="cb12-217"><a href="#cb12-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-218"><a href="#cb12-218" aria-hidden="true" tabindex="-1"></a>null_dist <span class="ot">&lt;-</span> iris <span class="sc">|&gt;</span></span>
+<span id="cb12-219"><a href="#cb12-219" aria-hidden="true" tabindex="-1"></a> <span class="fu">specify</span>(<span class="at">response =</span> Petal.Length) <span class="sc">|&gt;</span></span>
+<span id="cb12-220"><a href="#cb12-220" aria-hidden="true" tabindex="-1"></a> <span class="fu">hypothesise</span>(<span class="at">null =</span> <span class="st">"point"</span>, <span class="at">mu =</span> <span class="fl">3.5</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-221"><a href="#cb12-221" aria-hidden="true" tabindex="-1"></a> <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-222"><a href="#cb12-222" aria-hidden="true" tabindex="-1"></a> <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb12-223"><a href="#cb12-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-224"><a href="#cb12-224" aria-hidden="true" tabindex="-1"></a>null_dist <span class="sc">|&gt;</span></span>
+<span id="cb12-225"><a href="#cb12-225" aria-hidden="true" tabindex="-1"></a> <span class="fu">visualise</span>() <span class="sc">+</span></span>
+<span id="cb12-226"><a href="#cb12-226" aria-hidden="true" tabindex="-1"></a> <span class="fu">shade_p_value</span>(<span class="at">obs_stat =</span> mu_hat, <span class="at">direction =</span> <span class="st">"greater"</span>)</span>
+<span id="cb12-227"><a href="#cb12-227" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-228"><a href="#cb12-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-229"><a href="#cb12-229" aria-hidden="true" tabindex="-1"></a>The bootstrapped null distribution is plotted using the <span class="in">`visualise`</span> command, and the regions of the null distribution that are as extreme (or more extreme) than the observed statistic $\widehat{\mu}$ can be highlighted using the <span class="in">`shade_p_value`</span> command. </span>
+<span id="cb12-230"><a href="#cb12-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-233"><a href="#cb12-233" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-234"><a href="#cb12-234" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb12-235"><a href="#cb12-235" aria-hidden="true" tabindex="-1"></a>p_val <span class="ot">&lt;-</span> null_dist <span class="sc">|&gt;</span></span>
+<span id="cb12-236"><a href="#cb12-236" aria-hidden="true" tabindex="-1"></a> <span class="fu">get_p_value</span>(<span class="at">obs_stat =</span> mu_hat, <span class="at">direction =</span> <span class="st">"greater"</span>)</span>
+<span id="cb12-237"><a href="#cb12-237" aria-hidden="true" tabindex="-1"></a>p_val</span>
+<span id="cb12-238"><a href="#cb12-238" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-239"><a href="#cb12-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-240"><a href="#cb12-240" aria-hidden="true" tabindex="-1"></a>The test yields a $P$-value of $P = <span class="in">`r p_val`</span>.$ This values is quite small; if $\mu \leq 3.5$, then the probability of obtaining the sample mean value  $\widehat{\mu} = <span class="in">`r mu_hat`</span>$ is only <span class="in">`r p_val`</span>! Thus, the data provide sufficient evidence at the 0.05 level against the hypothesis that the true mean petal length is at most 3.5 cm.</span>
+<span id="cb12-241"><a href="#cb12-241" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-242"><a href="#cb12-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-243"><a href="#cb12-243" aria-hidden="true" tabindex="-1"></a><span class="fu">### Mean of a normal population with unknown variance {#sec-mean-normal-var-unknown}</span></span>
+<span id="cb12-244"><a href="#cb12-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-245"><a href="#cb12-245" aria-hidden="true" tabindex="-1"></a>In @sec-mean-normal-var-known, we considered samples $X_1, \dots, X_m$ from a normal population with a known $\mu$ and $\sigma^2.$ In contrast, here, we consider samples from a normal population and assume the population parameters $\mu$ and $\sigma^2$ are unknown. If the number of samples is large, the discussion in @sec-mean-large-sample indicates that the rv $$Z = (\overline{X} - \mu) \sqrt{m} / S $$ has approximately a standard normal distribution. However, if $m$ is not sufficiently large then the transformed variable will be more spread out than a standard normal distribution. </span>
+<span id="cb12-246"><a href="#cb12-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-247"><a href="#cb12-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-248"><a href="#cb12-248" aria-hidden="true" tabindex="-1"></a>::: {#thm-sample-mean-t-dist}</span>
+<span id="cb12-249"><a href="#cb12-249" aria-hidden="true" tabindex="-1"></a>For the sample mean $\overline{X}$ based on $m$ samples from a normal distribution with mean $\mu$, the rv</span>
+<span id="cb12-250"><a href="#cb12-250" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-251"><a href="#cb12-251" aria-hidden="true" tabindex="-1"></a> T = \frac{\overline{X} - \mu}{S/\sqrt{m}}  \quad \sim \mathsf{t}(m-1)\,,</span>
+<span id="cb12-252"><a href="#cb12-252" aria-hidden="true" tabindex="-1"></a>$$ {#eq-t-statistic-mean}</span>
+<span id="cb12-253"><a href="#cb12-253" aria-hidden="true" tabindex="-1"></a>that is, $T$ has Student's $\mathsf{t}$ distribution with $\nu = m-1$ df. </span>
+<span id="cb12-254"><a href="#cb12-254" aria-hidden="true" tabindex="-1"></a>:::   </span>
+<span id="cb12-255"><a href="#cb12-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-256"><a href="#cb12-256" aria-hidden="true" tabindex="-1"></a>This leads us to consider a CI for the population parameter $\mu$ based on critical values of the $\mathsf{t}$ distribution. </span>
+<span id="cb12-257"><a href="#cb12-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-258"><a href="#cb12-258" aria-hidden="true" tabindex="-1"></a>:::{#prp-ci-norm-unknown-var}</span>
+<span id="cb12-259"><a href="#cb12-259" aria-hidden="true" tabindex="-1"></a>A $100(1-\alpha)\%$ confidence interval for the mean $\mu$ of a normal population, when $\sigma^2$ is unknown, is given by </span>
+<span id="cb12-260"><a href="#cb12-260" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-261"><a href="#cb12-261" aria-hidden="true" tabindex="-1"></a> \left(\overline{x} - t_{\alpha/2, m-1} \cdot \frac{s}{\sqrt{m}}\,, </span>
+<span id="cb12-262"><a href="#cb12-262" aria-hidden="true" tabindex="-1"></a>        \overline{x} + t_{\alpha/2, m-1} \cdot \frac{s}{\sqrt{m}} \right)\,, </span>
+<span id="cb12-263"><a href="#cb12-263" aria-hidden="true" tabindex="-1"></a>$$ {#eq-ci-norm-unknown-var}</span>
+<span id="cb12-264"><a href="#cb12-264" aria-hidden="true" tabindex="-1"></a>or $\overline{x} \pm t_{\alpha/2, m-1} \cdot s/ \sqrt{m}.$ Here $\overline{x}$ and $s$ are the sample mean and sample standard deviation, respectively.</span>
+<span id="cb12-265"><a href="#cb12-265" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-266"><a href="#cb12-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-267"><a href="#cb12-267" aria-hidden="true" tabindex="-1"></a>:::{#exm-ci-norm-unknown-var}</span>
+<span id="cb12-268"><a href="#cb12-268" aria-hidden="true" tabindex="-1"></a>Let us return to the height of $31$ felled black cherry trees from the **Cherry Tree Data** in @nte-tree. Give a $99\%$ CI for the population mean $\mu.$</span>
+<span id="cb12-269"><a href="#cb12-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-270"><a href="#cb12-270" aria-hidden="true" tabindex="-1"></a>For $m = 31$, the critical value of the reference distribution is $$t_{0.005, 30} \approx 2.7499\,,$$ which can looked up in a table of critical values for $\mathsf{t}(\nu = 30)$ or found using the <span class="in">`R`</span> command <span class="in">`qt(1-0.01/2, df = 31-1)`</span>. The sample mean $\overline{x} = 76$ (computed in @exm-estimators) is combined with the sample standard deviation, </span>
+<span id="cb12-271"><a href="#cb12-271" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-272"><a href="#cb12-272" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb12-273"><a href="#cb12-273" aria-hidden="true" tabindex="-1"></a> s &amp;= \sqrt{\frac{1}{m-1} \sum_{i=1}^m (x_i - \overline{x})^2}<span class="sc">\\</span> </span>
+<span id="cb12-274"><a href="#cb12-274" aria-hidden="true" tabindex="-1"></a>   &amp;= \sqrt{\frac{1}{30} \left((63-76)^2 + \cdots + (87 - 76)^2\right)}<span class="sc">\\</span></span>
+<span id="cb12-275"><a href="#cb12-275" aria-hidden="true" tabindex="-1"></a>   &amp;= 6.372\,,</span>
+<span id="cb12-276"><a href="#cb12-276" aria-hidden="true" tabindex="-1"></a> \end{aligned}</span>
+<span id="cb12-277"><a href="#cb12-277" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-278"><a href="#cb12-278" aria-hidden="true" tabindex="-1"></a>to form the interval estimate</span>
+<span id="cb12-279"><a href="#cb12-279" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-280"><a href="#cb12-280" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb12-281"><a href="#cb12-281" aria-hidden="true" tabindex="-1"></a>&amp; \left(\overline{x} - t_{\alpha/2, m-1}  \cdot \frac{s}{\sqrt{m}}\,, </span>
+<span id="cb12-282"><a href="#cb12-282" aria-hidden="true" tabindex="-1"></a>        \overline{x} + t_{\alpha/2, m-1} \cdot \frac{s}{\sqrt{m}} \right) <span class="sc">\\</span></span>
+<span id="cb12-283"><a href="#cb12-283" aria-hidden="true" tabindex="-1"></a>        &amp;\qquad = \left(76 - 2.750 \cdot \frac{6.372}{\sqrt{31}} \,, 76 + 2.750 \cdot \frac{6.372}{\sqrt{31}} \right)<span class="sc">\\</span></span>
+<span id="cb12-284"><a href="#cb12-284" aria-hidden="true" tabindex="-1"></a>        &amp;\qquad = \left(72.85\,, 79.15\right)\,.</span>
+<span id="cb12-285"><a href="#cb12-285" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb12-286"><a href="#cb12-286" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-287"><a href="#cb12-287" aria-hidden="true" tabindex="-1"></a>For comparison, the critical value $t_{.01/2, \nu}$ for $\nu = 14, \dots, 40$ can be recalled with the following command. </span>
+<span id="cb12-290"><a href="#cb12-290" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-291"><a href="#cb12-291" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb12-292"><a href="#cb12-292" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb12-293"><a href="#cb12-293" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb12-294"><a href="#cb12-294" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="dv">1</span><span class="fl">-0.01</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> <span class="fu">seq</span>(<span class="dv">14</span>,<span class="dv">40</span>))</span>
+<span id="cb12-295"><a href="#cb12-295" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-296"><a href="#cb12-296" aria-hidden="true" tabindex="-1"></a>Note that these critical values can deviate significantly from the corresponding $z_{0.01/2} = 2.575829.$ In particular, if we had erroneously used the large sample estimate @eq-ci-large-sample, then we would have obtained a $99\%$ CI $(73.05\,, 78.95)$ which might give us a false sense of security as it is narrower.</span>
+<span id="cb12-297"><a href="#cb12-297" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-298"><a href="#cb12-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-299"><a href="#cb12-299" aria-hidden="true" tabindex="-1"></a>In contrast to @prp-ci-select-n-fixed-w-alpha, it is difficult to select the sample size $m$ to control the width of the $\mathsf{t}$-based CI as the width involves the unknown (before the sample is acquired) $s$ and because $m$ also enters through $t_{\alpha/2, m-1}.$  A one-sample $\mathsf{t}$ test based on @eq-t-statistic-mean can be used to test a hypothesis about the population mean when the population is normal and $\sigma^2$ is unknown.   </span>
+<span id="cb12-300"><a href="#cb12-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-301"><a href="#cb12-301" aria-hidden="true" tabindex="-1"></a>:::{#prp-htest-mean-normal-var-unknown}</span>
+<span id="cb12-302"><a href="#cb12-302" aria-hidden="true" tabindex="-1"></a>Assume that we sample $X_1, \dots, X_m$ from a normal population with mean $\mu$ and unknown variance $\sigma^2.$ </span>
+<span id="cb12-303"><a href="#cb12-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-304"><a href="#cb12-304" aria-hidden="true" tabindex="-1"></a>Consider $H_0 : \mu = \mu_0.$ The test statistic is</span>
+<span id="cb12-305"><a href="#cb12-305" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-306"><a href="#cb12-306" aria-hidden="true" tabindex="-1"></a> T = \frac{\overline{X} - \mu_0}{S / \sqrt{m}} \,.</span>
+<span id="cb12-307"><a href="#cb12-307" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-308"><a href="#cb12-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-309"><a href="#cb12-309" aria-hidden="true" tabindex="-1"></a>For a hypothesis test at level $\alpha$, we use the following procedure: </span>
+<span id="cb12-310"><a href="#cb12-310" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb12-311"><a href="#cb12-311" aria-hidden="true" tabindex="-1"></a>If $H_a : \mu &gt; \mu_0$, then $P$-value is the area under $\mathsf{t}(m-1)$ to the right of $t.$</span>
+<span id="cb12-312"><a href="#cb12-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-313"><a href="#cb12-313" aria-hidden="true" tabindex="-1"></a>If $H_a : \mu &lt; \mu_0$, then $P$-value is the area under $\mathsf{t}(m-1)$ to the left of $t.$</span>
+<span id="cb12-314"><a href="#cb12-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-315"><a href="#cb12-315" aria-hidden="true" tabindex="-1"></a>If $H_a : \mu \neq \mu_0$, then $P$-value is twice the area under $\mathsf{t}(m-1)$ to the right of $|t|.$</span>
+<span id="cb12-316"><a href="#cb12-316" aria-hidden="true" tabindex="-1"></a>::: </span>
+<span id="cb12-317"><a href="#cb12-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-318"><a href="#cb12-318" aria-hidden="true" tabindex="-1"></a>:::{#exm-htest-ttest}</span>
+<span id="cb12-319"><a href="#cb12-319" aria-hidden="true" tabindex="-1"></a>Let's consider the **Cherry Tree Data** in @nte-tree. The average timber volume is given in @tbl-cherry-data-vol. The distribution for this data is approximately normal. We might ask if the data provide compelling evidence, say at level 0.05, for concluding that the true average timber volume exceeds 21.3 cubic feet.^<span class="co">[</span><span class="ot">How much wood is that? About a sixth of a cord. A full cord of chopped firewood in the US is $124$ cu ft; about enough to keep you warm through a New England winter (according to my mother-in-law).</span><span class="co">]</span></span>
+<span id="cb12-320"><a href="#cb12-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-323"><a href="#cb12-323" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-324"><a href="#cb12-324" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-cherry-data-vol</span></span>
+<span id="cb12-325"><a href="#cb12-325" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Observations of $m = 31$ felled black cherry trees."</span></span>
+<span id="cb12-326"><a href="#cb12-326" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb12-327"><a href="#cb12-327" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb12-328"><a href="#cb12-328" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb12-329"><a href="#cb12-329" aria-hidden="true" tabindex="-1"></a>dattab <span class="ot">&lt;-</span> trees <span class="sc">|&gt;</span></span>
+<span id="cb12-330"><a href="#cb12-330" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Volume) <span class="sc">|&gt;</span></span>
+<span id="cb12-331"><a href="#cb12-331" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">volume =</span> <span class="fu">list</span>(Volume))</span>
+<span id="cb12-332"><a href="#cb12-332" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(dattab, <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Volume [cu ft]"</span>), <span class="at">booktabs =</span> T) <span class="sc">|&gt;</span></span>
+<span id="cb12-333"><a href="#cb12-333" aria-hidden="true" tabindex="-1"></a> <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb12-334"><a href="#cb12-334" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">width =</span> <span class="st">"150mm"</span>)</span>
+<span id="cb12-335"><a href="#cb12-335" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>    </span>
+<span id="cb12-336"><a href="#cb12-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-337"><a href="#cb12-337" aria-hidden="true" tabindex="-1"></a>Let's carry out a significance test for the true average volume of timber $\mu$ at level $\alpha = 0.05.$ We assume the null hypothesis</span>
+<span id="cb12-338"><a href="#cb12-338" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-339"><a href="#cb12-339" aria-hidden="true" tabindex="-1"></a> H_0 : \mu = 21.3\,.</span>
+<span id="cb12-340"><a href="#cb12-340" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-341"><a href="#cb12-341" aria-hidden="true" tabindex="-1"></a>An appropriate alternative hypothesis is </span>
+<span id="cb12-342"><a href="#cb12-342" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-343"><a href="#cb12-343" aria-hidden="true" tabindex="-1"></a> H_a : \mu &gt; 21.3\,,</span>
+<span id="cb12-344"><a href="#cb12-344" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-345"><a href="#cb12-345" aria-hidden="true" tabindex="-1"></a>that is, we will adopt the stance that the true average exceeds $\mu_0 = 21.3$ only if the null is rejected. </span>
+<span id="cb12-346"><a href="#cb12-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-347"><a href="#cb12-347" aria-hidden="true" tabindex="-1"></a>From our $m = 31$ samples, we find that $\overline{x} = <span class="in">`r signif(mean(trees$Volume), digits = 4)`</span>$ and that $s = <span class="in">`r signif(sd(trees$Volume), digits = 4)`</span>.$ The computed value of the one-sample $\mathsf{t}$-statistic is given by </span>
+<span id="cb12-348"><a href="#cb12-348" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-349"><a href="#cb12-349" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb12-350"><a href="#cb12-350" aria-hidden="true" tabindex="-1"></a> t &amp;= \frac{\overline{x} - \mu_0}{s / \sqrt{m}}<span class="sc">\\</span></span>
+<span id="cb12-351"><a href="#cb12-351" aria-hidden="true" tabindex="-1"></a> &amp;= \frac{<span class="in">`r signif(mean(trees$Volume), digits = 4)`</span> - 21.3}{<span class="in">`r signif(sd(trees$Volume), digits = 4)`</span> / \sqrt{31}}<span class="sc">\\</span></span>
+<span id="cb12-352"><a href="#cb12-352" aria-hidden="true" tabindex="-1"></a> &amp; = <span class="in">`r signif( (mean(trees$Volume) - 21.3) / (sd(trees$Volume) / sqrt(31)), digits = 3)`</span>\,.</span>
+<span id="cb12-353"><a href="#cb12-353" aria-hidden="true" tabindex="-1"></a> \end{aligned}</span>
+<span id="cb12-354"><a href="#cb12-354" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-355"><a href="#cb12-355" aria-hidden="true" tabindex="-1"></a>The test is based on $\nu = 31-1$ df, and $P = <span class="in">`r signif(pt((mean(trees$Volume) - 21.3) / (sd(trees$Volume) / sqrt(31)), df=30, lower.tail = FALSE), digits = 4)`</span>.$ This is the upper-tail area, i.e., the area to the right of $t$ in @fig-exm-htest-ttest-plot. Since $P \ll \alpha$, we reject the null hypothesis that the population mean is $21.3.$ The data provide sufficient evidence that the population mean differs from $21.3.$ </span>
+<span id="cb12-356"><a href="#cb12-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-359"><a href="#cb12-359" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-360"><a href="#cb12-360" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-exm-htest-ttest-plot</span></span>
+<span id="cb12-361"><a href="#cb12-361" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "For this test, the reference distribution is $\\mathsf{t}(\\nu = 30)$ (**not** a Normal distribution) and the $P$-value is the upper-tail area, i.e., to the right of the computed statistic $t.$"</span></span>
+<span id="cb12-362"><a href="#cb12-362" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb12-363"><a href="#cb12-363" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb12-364"><a href="#cb12-364" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb12-365"><a href="#cb12-365" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fl">1.8</span></span>
+<span id="cb12-366"><a href="#cb12-366" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="cn">NULL</span>, <span class="fu">aes</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">3.5</span>,<span class="fl">3.5</span>))) <span class="sc">+</span> </span>
+<span id="cb12-367"><a href="#cb12-367" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">stat =</span> <span class="st">"function"</span>, <span class="at">fun =</span> dt, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">df =</span> <span class="dv">18</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">3.5</span>, <span class="fl">3.5</span>), <span class="at">linewidth =</span> lsz) <span class="sc">+</span></span>
+<span id="cb12-368"><a href="#cb12-368" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">stat =</span> <span class="st">"function"</span>, <span class="at">fun =</span> dt, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">df =</span> <span class="dv">18</span>), <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(t, <span class="fl">3.5</span>), <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span> </span>
+<span id="cb12-369"><a href="#cb12-369" aria-hidden="true" tabindex="-1"></a> <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb12-370"><a href="#cb12-370" aria-hidden="true" tabindex="-1"></a>       <span class="at">axis.ticks.y=</span><span class="fu">element_blank</span>(), </span>
+<span id="cb12-371"><a href="#cb12-371" aria-hidden="true" tabindex="-1"></a>       <span class="at">axis.text.y=</span><span class="fu">element_blank</span>(), </span>
+<span id="cb12-372"><a href="#cb12-372" aria-hidden="true" tabindex="-1"></a>       <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb12-373"><a href="#cb12-373" aria-hidden="true" tabindex="-1"></a>       <span class="at">axis.ticks.x=</span><span class="fu">element_blank</span>(), </span>
+<span id="cb12-374"><a href="#cb12-374" aria-hidden="true" tabindex="-1"></a>       <span class="at">axis.text.x=</span><span class="fu">element_blank</span>()) <span class="sc">+</span> </span>
+<span id="cb12-375"><a href="#cb12-375" aria-hidden="true" tabindex="-1"></a> <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">3</span>, <span class="at">y =</span> .<span class="dv">1</span>, <span class="at">label=</span><span class="fu">TeX</span>(<span class="st">"$P$-value"</span>), <span class="at">linewidth =</span> tsz, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span> </span>
+<span id="cb12-376"><a href="#cb12-376" aria-hidden="true" tabindex="-1"></a> <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="fl">3.</span>, <span class="at">xend =</span> <span class="fl">2.</span>, <span class="at">y =</span> <span class="fl">0.08</span>, <span class="at">yend =</span> .<span class="dv">01</span>, <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">arrow=</span><span class="fu">arrow</span>(<span class="at">length=</span><span class="fu">unit</span>(<span class="fl">0.2</span>,<span class="st">"cm"</span>))) <span class="sc">+</span> </span>
+<span id="cb12-377"><a href="#cb12-377" aria-hidden="true" tabindex="-1"></a> <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> t, <span class="at">y =</span> <span class="sc">-</span>.<span class="dv">030</span>, <span class="at">label=</span><span class="fu">TeX</span>(<span class="st">"$t$"</span>), <span class="at">linewidth =</span> tsz) <span class="sc">+</span></span>
+<span id="cb12-378"><a href="#cb12-378" aria-hidden="true" tabindex="-1"></a> <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> t, <span class="at">xend =</span> t, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">yend =</span> <span class="fu">dt</span>(t, <span class="at">df =</span> <span class="dv">18</span>)), <span class="at">linetype =</span> <span class="dv">44</span>)</span>
+<span id="cb12-379"><a href="#cb12-379" aria-hidden="true" tabindex="-1"></a><span class="in">```</span>   </span>
+<span id="cb12-380"><a href="#cb12-380" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-381"><a href="#cb12-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-382"><a href="#cb12-382" aria-hidden="true" tabindex="-1"></a>:::{.callout-important}</span>
+<span id="cb12-383"><a href="#cb12-383" aria-hidden="true" tabindex="-1"></a><span class="fu">## Shapiro-Wilk normality test</span></span>
+<span id="cb12-384"><a href="#cb12-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-385"><a href="#cb12-385" aria-hidden="true" tabindex="-1"></a>We can assess the normality of the sample by examining the normal quantile-quantile plot as in @exm-estimators. For the data in @exm-htest-ttest recall that this is done using the following <span class="in">`R`</span> code.</span>
+<span id="cb12-386"><a href="#cb12-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-389"><a href="#cb12-389" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-390"><a href="#cb12-390" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-qq-plot-cherry-vol</span></span>
+<span id="cb12-391"><a href="#cb12-391" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Normal quantile-quantile plot for the `Volume` variable (feature) in the Cherry Tree Data."</span></span>
+<span id="cb12-392"><a href="#cb12-392" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb12-393"><a href="#cb12-393" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb12-394"><a href="#cb12-394" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb12-395"><a href="#cb12-395" aria-hidden="true" tabindex="-1"></a>trees <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> Volume)) <span class="sc">+</span> <span class="fu">stat_qq</span>() <span class="sc">+</span> <span class="fu">stat_qq_line</span>()</span>
+<span id="cb12-396"><a href="#cb12-396" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb12-397"><a href="#cb12-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-398"><a href="#cb12-398" aria-hidden="true" tabindex="-1"></a>The data deviates quite a bit in the centre and in the tails of the distribution, indicating that there might be a moderate departure from normality. </span>
+<span id="cb12-399"><a href="#cb12-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-400"><a href="#cb12-400" aria-hidden="true" tabindex="-1"></a>It is also possible to test the null hypothesis that the data is consistent with a normal distribution versus the alternative that the data is not normal. This is called a Shapiro-Wilk normality test. </span>
+<span id="cb12-403"><a href="#cb12-403" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-404"><a href="#cb12-404" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb12-405"><a href="#cb12-405" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb12-406"><a href="#cb12-406" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb12-407"><a href="#cb12-407" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(trees<span class="sc">$</span>Height)</span>
+<span id="cb12-408"><a href="#cb12-408" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-409"><a href="#cb12-409" aria-hidden="true" tabindex="-1"></a>At level $0.05$, the Shapiro-Wilk test yields a $P$-value $P = 0.4034 &gt; 0.05$, and therefore we fail to reject the null hypothesis. We cannot exclude that the data is drawn from a normal population. This "prove" the data is drawn from a normal distribution, but it does tell us that for this particular example, an inference based on a normal distribution instead of a $\mathsf{t}$ distribution will probably be reasonable. It is always good to view the QQ plot as well --- sometimes if the number of samples is very large then the Shapiro-Wilk test will reject the null for trivial deviations from normality.  </span>
+<span id="cb12-410"><a href="#cb12-410" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-411"><a href="#cb12-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-412"><a href="#cb12-412" aria-hidden="true" tabindex="-1"></a><span class="fu">## Estimating proportions {#sec-estimating-proportions}</span></span>
+<span id="cb12-413"><a href="#cb12-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-414"><a href="#cb12-414" aria-hidden="true" tabindex="-1"></a>Consider a population of size $M$ in which each member either satisfies a given property or does not (i.e. a binary classification). The proportion $p \in (0,1)$ of the population satisfying the given property is a parameter characterising the population we might be interested in estimating. A sample of classified observations, $X_1, \dots, X_m \sim \mathsf{Bernoulli}(p)\,,$ </span>
+<span id="cb12-415"><a href="#cb12-415" aria-hidden="true" tabindex="-1"></a>from the population contains a proportion,</span>
+<span id="cb12-416"><a href="#cb12-416" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-417"><a href="#cb12-417" aria-hidden="true" tabindex="-1"></a> \widehat{p} = \frac{1}{m} \sum_{i=1}^m X_i\,,</span>
+<span id="cb12-418"><a href="#cb12-418" aria-hidden="true" tabindex="-1"></a>$$ {#eq-proportion-estimator}</span>
+<span id="cb12-419"><a href="#cb12-419" aria-hidden="true" tabindex="-1"></a>satisfying the given property. The estimator $\widehat{p}$ varies with the sample, and for large $m$, its sampling distribution has the following properties:</span>
+<span id="cb12-420"><a href="#cb12-420" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-421"><a href="#cb12-421" aria-hidden="true" tabindex="-1"></a>\mu_{\widehat{p}} = \E<span class="co">[</span><span class="ot">X_i</span><span class="co">]</span> = p </span>
+<span id="cb12-422"><a href="#cb12-422" aria-hidden="true" tabindex="-1"></a>$$ {#eq-proportion-mean}</span>
+<span id="cb12-423"><a href="#cb12-423" aria-hidden="true" tabindex="-1"></a>and </span>
+<span id="cb12-424"><a href="#cb12-424" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-425"><a href="#cb12-425" aria-hidden="true" tabindex="-1"></a> \sigma_{\widehat{p}}^2 = \frac{\Var<span class="co">[</span><span class="ot">X_i</span><span class="co">]</span>}{m} = \frac{p(1-p)}{m}\,,</span>
+<span id="cb12-426"><a href="#cb12-426" aria-hidden="true" tabindex="-1"></a>$$ {#eq-proportion-var}</span>
+<span id="cb12-427"><a href="#cb12-427" aria-hidden="true" tabindex="-1"></a>provided that $m$ is small relative to $M.$ Moreover, by invoking the Central Limit Theorem, we have the distribution of $\widehat{p}$ is approximately normal for sufficiently large $m$ as @eq-proportion-estimator is a sample mean. Indeed, this normal approximation works well for moderately large $m$ as long as $p$ is not too close to zero or one; a rule of thumb is that $mp &gt; 5$ and $m(1-p) &gt; 5.$</span>
+<span id="cb12-428"><a href="#cb12-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-429"><a href="#cb12-429" aria-hidden="true" tabindex="-1"></a>:::{.callout-tip}</span>
+<span id="cb12-430"><a href="#cb12-430" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rule of thumb</span></span>
+<span id="cb12-431"><a href="#cb12-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-432"><a href="#cb12-432" aria-hidden="true" tabindex="-1"></a>For estimating proportions, a rule of thumb is $m \leq 0.05 M.$</span>
+<span id="cb12-433"><a href="#cb12-433" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-434"><a href="#cb12-434" aria-hidden="true" tabindex="-1"></a>Note that if $m$ is large relative to $M$ ($m &gt; 0.05 M$) then the variance @eq-proportion-var must be adjusted by a factor (related to the hypergeometric distribution):</span>
+<span id="cb12-435"><a href="#cb12-435" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-436"><a href="#cb12-436" aria-hidden="true" tabindex="-1"></a> \sigma_{\widehat{p}}^2 = \frac{p(1-p)}{m} \frac{M-m}{M-1}\,,</span>
+<span id="cb12-437"><a href="#cb12-437" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-438"><a href="#cb12-438" aria-hidden="true" tabindex="-1"></a>where for fixed $m$ the factor converges to $1$ as $M\to \infty.$</span>
+<span id="cb12-439"><a href="#cb12-439" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-440"><a href="#cb12-440" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-441"><a href="#cb12-441" aria-hidden="true" tabindex="-1"></a>:::{#prp-ci-proportion}</span>
+<span id="cb12-442"><a href="#cb12-442" aria-hidden="true" tabindex="-1"></a>For large samples $n$, a $100(1-\alpha)\%$ confidence interval for the parameter $p$ is given by</span>
+<span id="cb12-443"><a href="#cb12-443" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-444"><a href="#cb12-444" aria-hidden="true" tabindex="-1"></a> \widehat{p} \pm z_{\alpha/2} \sqrt{\frac{\widehat{p} (1-\widehat{p})}{m}}\,.</span>
+<span id="cb12-445"><a href="#cb12-445" aria-hidden="true" tabindex="-1"></a>$$ {#eq-proportion-mean-ci}</span>
+<span id="cb12-446"><a href="#cb12-446" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-447"><a href="#cb12-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-448"><a href="#cb12-448" aria-hidden="true" tabindex="-1"></a>This follows from @prp-ci-large-sample by observing that @eq-proportion-estimator is a sample mean and replacing the standard error $\sigma_{\widehat{p}}$ from @eq-proportion-var by the estimated standard error,</span>
+<span id="cb12-449"><a href="#cb12-449" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-450"><a href="#cb12-450" aria-hidden="true" tabindex="-1"></a> \widehat{\se}(\widehat{p}) = \sqrt{\frac{\widehat{p} (1-\widehat{p})}{m}}\,;</span>
+<span id="cb12-451"><a href="#cb12-451" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-452"><a href="#cb12-452" aria-hidden="true" tabindex="-1"></a>recall the $s$ in @eq-ci-large-sample) is the sample variance for the *population* and $s / \sqrt{m} = \se$ is the standard error of the point estimator.   </span>
+<span id="cb12-453"><a href="#cb12-453" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-454"><a href="#cb12-454" aria-hidden="true" tabindex="-1"></a>:::{#prp-htest-proportion}</span>
+<span id="cb12-455"><a href="#cb12-455" aria-hidden="true" tabindex="-1"></a>Let $X$ be the count of members with a given property based on a sample of size $m$ from a population where a proportion $p$ shares the property.</span>
+<span id="cb12-456"><a href="#cb12-456" aria-hidden="true" tabindex="-1"></a>Then $\widehat{p} = X / m$ is an estimator of $p.$ Assume $m p_0 \geq 10$ and $m (1-p_0) \geq 10.$ </span>
+<span id="cb12-457"><a href="#cb12-457" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb12-458"><a href="#cb12-458" aria-hidden="true" tabindex="-1"></a>Consider $H_0 : p = p_0.$ The test statistic is</span>
+<span id="cb12-459"><a href="#cb12-459" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-460"><a href="#cb12-460" aria-hidden="true" tabindex="-1"></a> Z = \frac{\widehat{p} - p_0}{\sqrt{p_0 (1-p_0) / m}} \,.</span>
+<span id="cb12-461"><a href="#cb12-461" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-462"><a href="#cb12-462" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-463"><a href="#cb12-463" aria-hidden="true" tabindex="-1"></a>For a hypothesis test at level $\alpha$, we use the following procedure: </span>
+<span id="cb12-464"><a href="#cb12-464" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb12-465"><a href="#cb12-465" aria-hidden="true" tabindex="-1"></a>If $H_a : p &gt; p_0$, then $P$-value is the area under $\mathsf{N}(0,1)$ to the right of $z.$</span>
+<span id="cb12-466"><a href="#cb12-466" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-467"><a href="#cb12-467" aria-hidden="true" tabindex="-1"></a>If $H_a : p &lt; p_0$, then $P$-value is the area under $\mathsf{N}(0,1)$ to the left of $z.$</span>
+<span id="cb12-468"><a href="#cb12-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-469"><a href="#cb12-469" aria-hidden="true" tabindex="-1"></a>If $H_a : p \neq p_0$, then $P$-value is twice the area under $\mathsf{N}(0,1)$ to the right of $|z|.$   </span>
+<span id="cb12-470"><a href="#cb12-470" aria-hidden="true" tabindex="-1"></a>:::    </span>
+<span id="cb12-471"><a href="#cb12-471" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-472"><a href="#cb12-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-473"><a href="#cb12-473" aria-hidden="true" tabindex="-1"></a>:::{#exm-est-prop-hypothesis-test}</span>
+<span id="cb12-474"><a href="#cb12-474" aria-hidden="true" tabindex="-1"></a>Let us revisit @exm-htest-setup, where we considered Churchill's claim that he would receive half the votes for the House of Commons seat for the constituency of Dundee. We are sceptical that he is as popular as he says. Suppose 116 out of 263 Dundonians polled claimed they intended to vote for Churchill. Can it be concluded at a significance level of $0.10$ that more than half of all eligible Dundonains will vote for Churchill?</span>
+<span id="cb12-475"><a href="#cb12-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-476"><a href="#cb12-476" aria-hidden="true" tabindex="-1"></a>The parameter of interest is $p$, the proportion of votes for Churchill. The null hypothesis is $$H_0 : p = 0.5\,,$$ and the alternative hypothesis is, $$H_a : p &lt; 0.5\,.$$ The test is oneside (i.e. $H_a : p &lt; 0.5$) since we are interested in testing support for "more than half". Since $263(0.5) = 131.5 &gt; 10$, we satisfy the assumptions stated in @prp-htest-proportion.</span>
+<span id="cb12-477"><a href="#cb12-477" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-478"><a href="#cb12-478" aria-hidden="true" tabindex="-1"></a>Based on the sample, $\widehat{p} = 116 / 263 = 0.4411.$ The test statistic value is </span>
+<span id="cb12-479"><a href="#cb12-479" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-480"><a href="#cb12-480" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb12-481"><a href="#cb12-481" aria-hidden="true" tabindex="-1"></a> z &amp;= \frac{\widehat{p} - p_0}{\sqrt{p_0 (1-p_0) / m}} <span class="sc">\\</span></span>
+<span id="cb12-482"><a href="#cb12-482" aria-hidden="true" tabindex="-1"></a> &amp;= \frac{0.4411 - 0.5}{\sqrt{0.5 (1-0.5) / 263}}<span class="sc">\\</span></span>
+<span id="cb12-483"><a href="#cb12-483" aria-hidden="true" tabindex="-1"></a> &amp;= <span class="in">`r signif((0.4411-0.5)/sqrt(0.5*0.5/263), digits=3)`</span>  \,.</span>
+<span id="cb12-484"><a href="#cb12-484" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb12-485"><a href="#cb12-485" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-486"><a href="#cb12-486" aria-hidden="true" tabindex="-1"></a>The $P$-value for this lower-tailed $z$ test is  $P = \Phi(<span class="in">`r signif((0.4411-0.5)/sqrt(0.5*0.5/263), digits=3)`</span>) = <span class="in">`r signif(pnorm(signif((0.4411-0.5)/sqrt(0.5*0.5/263), digits=3)), digits=2)`</span>.$ Since $P &lt; 0.10 = \alpha$, we reject the null hypothesis at the $0.1$ level. The evidence for concluding that the true proportion is different from $p_0 = 0.5$ at the $0.10$ level is compelling.^<span class="co">[</span><span class="ot">Churchill took ca. $44\%$ of the vote in the 1908 by-election to become MP for Dundee [[https://www.wikiwand.com/en/1908_Dundee_by-election](https://www.wikiwand.com/en/1908_Dundee_by-election)</span><span class="co">]</span>.]</span>
+<span id="cb12-487"><a href="#cb12-487" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-488"><a href="#cb12-488" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-489"><a href="#cb12-489" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-490"><a href="#cb12-490" aria-hidden="true" tabindex="-1"></a><span class="fu">## Estimating variances {#sec-estimating-variances}</span></span>
+<span id="cb12-491"><a href="#cb12-491" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-492"><a href="#cb12-492" aria-hidden="true" tabindex="-1"></a>Next, we consider estimates of the population variance (and standard deviation) when the population is assumed to have a normal distribution. In this case, the sample variance $S^2$ in @eq-sample-var provides the basis for inferences. Consider iid samples $X_1, \dots, X_m \sim \mathsf{N}(\mu, \sigma^2).$ We provide the following theorem without proof.</span>
+<span id="cb12-493"><a href="#cb12-493" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-494"><a href="#cb12-494" aria-hidden="true" tabindex="-1"></a>:::{#thm-samp-var-chisq}</span>
+<span id="cb12-495"><a href="#cb12-495" aria-hidden="true" tabindex="-1"></a>For the sample variance $S^2$ based on $m$ samples from a normal distribution with variance $\sigma^2$, the rv</span>
+<span id="cb12-496"><a href="#cb12-496" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-497"><a href="#cb12-497" aria-hidden="true" tabindex="-1"></a>V = \frac{(m-1)S^2}{\sigma^2} = \frac{\sum_i(X_i - \overline{X})^2}{\sigma^2} \qquad \sim \chi^2_{m-1}\,,</span>
+<span id="cb12-498"><a href="#cb12-498" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-499"><a href="#cb12-499" aria-hidden="true" tabindex="-1"></a>that is, $V$ has a $\chi^2$ distribution with $\nu = m-1$ df. </span>
+<span id="cb12-500"><a href="#cb12-500" aria-hidden="true" tabindex="-1"></a>::: </span>
+<span id="cb12-501"><a href="#cb12-501" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-502"><a href="#cb12-502" aria-hidden="true" tabindex="-1"></a>Based on @thm-samp-var-chisq, </span>
+<span id="cb12-503"><a href="#cb12-503" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-504"><a href="#cb12-504" aria-hidden="true" tabindex="-1"></a>P\left(\chi^2_{1-\alpha/2, m-1} &lt; \frac{(m-1)S^2}{\sigma^2} &lt; \chi^2_{\alpha/2, m-1} \right) = 1 - \alpha \,,</span>
+<span id="cb12-505"><a href="#cb12-505" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-506"><a href="#cb12-506" aria-hidden="true" tabindex="-1"></a>i.e., the area captured between the right and left tail critical $\chi^2$ values is $1-\alpha.$ The expression above can be further manipulated to obtain an interval for the unknown parameter $\sigma^2$:</span>
+<span id="cb12-507"><a href="#cb12-507" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-508"><a href="#cb12-508" aria-hidden="true" tabindex="-1"></a>P\left(\frac{(m-1) s^2}{\chi^2_{\alpha/2, m-1}} &lt; \sigma^2 &lt; \frac{(m-1) s^2}{\chi^2_{1-\alpha/2, m-1}} \right) = 1 - \alpha \,,</span>
+<span id="cb12-509"><a href="#cb12-509" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-510"><a href="#cb12-510" aria-hidden="true" tabindex="-1"></a>where we substitute the computed value of the point estimate $s^2$ for the estimator into the limits to give a CI for $\sigma^2.$ If we take square roots in the inequality above, we obtain a CI for the population standard deviation $\sigma.$ </span>
+<span id="cb12-511"><a href="#cb12-511" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-512"><a href="#cb12-512" aria-hidden="true" tabindex="-1"></a>:::{#prp-ci-variance}</span>
+<span id="cb12-513"><a href="#cb12-513" aria-hidden="true" tabindex="-1"></a>A $100(1-\alpha)\%$ confidence interval for the variance of a normal population is</span>
+<span id="cb12-514"><a href="#cb12-514" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-515"><a href="#cb12-515" aria-hidden="true" tabindex="-1"></a> \left( (m-1)s^2 / \chi^2_{\alpha/2, m-1} \,,  (m-1)s^2 / \chi^2_{1-\alpha/2, m-1} \right) \,.</span>
+<span id="cb12-516"><a href="#cb12-516" aria-hidden="true" tabindex="-1"></a>$$ {#eq-ci-variance}</span>
+<span id="cb12-517"><a href="#cb12-517" aria-hidden="true" tabindex="-1"></a>A $100(1-\alpha)\%$ confidence interval for the standard deviation $\sigma$ of a normal population is given by taking the square roots of the lower and upper limits in @eq-ci-variance.</span>
+<span id="cb12-518"><a href="#cb12-518" aria-hidden="true" tabindex="-1"></a>:::  </span>
+<span id="cb12-519"><a href="#cb12-519" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-520"><a href="#cb12-520" aria-hidden="true" tabindex="-1"></a>:::{#exm-eg-ci-variance}</span>
+<span id="cb12-521"><a href="#cb12-521" aria-hidden="true" tabindex="-1"></a>For the **Cherry Tree Data** in @tbl-cherry-data-vol concerning the timber volume of $31$ felled black cherry trees, give a $95%$ CI for the variance.</span>
+<span id="cb12-522"><a href="#cb12-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-523"><a href="#cb12-523" aria-hidden="true" tabindex="-1"></a>We are interested in estimating the true variance $\sigma^2$ of the timber volume based on $m=31$ samples. Recall that the mean of our data is $\overline{x} = 30.17$ cu ft and that the sample variance is $s^2 = 270.2$ using the estimator @eq-sample-var. The critical values for the $\chi^2_{.975, 30} = 16.7908$ and $\chi^2{.025, 30} = 46.9792$ can be found by checking a table of critical values of the $\chi^2(\nu=30)$ distribution or by using the <span class="in">`R`</span> code <span class="in">`qchisq(1-0.05/2, df=30, lower.tail = FALSE)`</span> and <span class="in">`qchisq(0.05/2, df=df, lower.tail = FALSE)`</span>, respectively, see @fig-exm-htest-chisq-plot below.</span>
+<span id="cb12-524"><a href="#cb12-524" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-527"><a href="#cb12-527" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-528"><a href="#cb12-528" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-exm-htest-chisq-plot</span></span>
+<span id="cb12-529"><a href="#cb12-529" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "As the $\\chi^2$ distribution is not symmetric, the upper and lower critical values will not be the same (the shaded areas are equal)."</span></span>
+<span id="cb12-530"><a href="#cb12-530" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb12-531"><a href="#cb12-531" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb12-532"><a href="#cb12-532" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb12-533"><a href="#cb12-533" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb12-534"><a href="#cb12-534" aria-hidden="true" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb12-535"><a href="#cb12-535" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df=</span>df, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb12-536"><a href="#cb12-536" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df=</span>df, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb12-537"><a href="#cb12-537" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="cn">NULL</span>, <span class="fu">aes</span>(<span class="fu">c</span>(<span class="dv">0</span>,L))) <span class="sc">+</span> </span>
+<span id="cb12-538"><a href="#cb12-538" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">stat =</span> <span class="st">"function"</span>, <span class="at">fun =</span> dchisq, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">df =</span> df), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, L), <span class="at">linewidth =</span> lsz) <span class="sc">+</span></span>
+<span id="cb12-539"><a href="#cb12-539" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">stat =</span> <span class="st">"function"</span>, <span class="at">fun =</span> dchisq, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">df =</span> df), <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, x1), <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span> </span>
+<span id="cb12-540"><a href="#cb12-540" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_area</span>(<span class="at">stat =</span> <span class="st">"function"</span>, <span class="at">fun =</span> dchisq, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">df =</span> df), <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(x2, L), <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span> </span>
+<span id="cb12-541"><a href="#cb12-541" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(), <span class="at">axis.ticks.y=</span><span class="fu">element_blank</span>(), <span class="at">axis.text.y=</span><span class="fu">element_blank</span>(), <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(), <span class="at">axis.ticks.x=</span><span class="fu">element_blank</span>(), <span class="at">axis.text.x=</span><span class="fu">element_blank</span>()) <span class="sc">+</span> </span>
+<span id="cb12-542"><a href="#cb12-542" aria-hidden="true" tabindex="-1"></a>        <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">10</span>, <span class="at">y =</span> .<span class="dv">02</span>, <span class="at">label=</span><span class="fu">TeX</span>(<span class="st">"Each shaded area $=</span><span class="sc">\\</span><span class="st">alpha$"</span>), <span class="at">size =</span> tsz, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span> </span>
+<span id="cb12-543"><a href="#cb12-543" aria-hidden="true" tabindex="-1"></a>        <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">10</span>, <span class="at">xend =</span> x1<span class="dv">-1</span>, <span class="at">y =</span> <span class="fl">0.015</span>, <span class="at">yend =</span> .<span class="dv">002</span>, <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">arrow=</span><span class="fu">arrow</span>(<span class="at">length=</span><span class="fu">unit</span>(<span class="fl">0.2</span>,<span class="st">"cm"</span>))) <span class="sc">+</span> </span>
+<span id="cb12-544"><a href="#cb12-544" aria-hidden="true" tabindex="-1"></a>        <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">10</span>, <span class="at">xend =</span> x2<span class="sc">+</span><span class="dv">1</span>, <span class="at">y =</span> <span class="fl">0.015</span>, <span class="at">yend =</span> .<span class="dv">002</span>, <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">arrow=</span><span class="fu">arrow</span>(<span class="at">length=</span><span class="fu">unit</span>(<span class="fl">0.2</span>,<span class="st">"cm"</span>))) <span class="sc">+</span> </span>
+<span id="cb12-545"><a href="#cb12-545" aria-hidden="true" tabindex="-1"></a>        <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> x1, <span class="at">y =</span> <span class="sc">-</span><span class="fl">0.005</span>, <span class="at">label=</span><span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">chi^2_{1-</span><span class="sc">\\</span><span class="st">alpha, </span><span class="sc">\\</span><span class="st">nu}$"</span>), <span class="at">linewidth =</span> tsz) <span class="sc">+</span> </span>
+<span id="cb12-546"><a href="#cb12-546" aria-hidden="true" tabindex="-1"></a>        <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> x2, <span class="at">y =</span> <span class="sc">-</span><span class="fl">0.005</span>, <span class="at">label=</span><span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">chi^2_{</span><span class="sc">\\</span><span class="st">alpha, </span><span class="sc">\\</span><span class="st">nu}$"</span>), <span class="at">linewidth =</span> tsz) <span class="sc">+</span> </span>
+<span id="cb12-547"><a href="#cb12-547" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">xend =</span> x1, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">yend =</span> <span class="fu">dchisq</span>(x1, <span class="at">df =</span> df)), <span class="at">linetype =</span> <span class="dv">44</span>) <span class="sc">+</span> </span>
+<span id="cb12-548"><a href="#cb12-548" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> x2, <span class="at">xend =</span> x2, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">yend =</span> <span class="fu">dchisq</span>(x2, <span class="at">df =</span> df)), <span class="at">linetype =</span> <span class="dv">44</span>)</span>
+<span id="cb12-549"><a href="#cb12-549" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-550"><a href="#cb12-550" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-551"><a href="#cb12-551" aria-hidden="true" tabindex="-1"></a>Pulling everything together, a $95\%$ CI for the population variance is given by </span>
+<span id="cb12-552"><a href="#cb12-552" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-553"><a href="#cb12-553" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb12-554"><a href="#cb12-554" aria-hidden="true" tabindex="-1"></a> &amp; \left( (m-1)s^2 / \chi^2_{\alpha/2, m-1} \,,  (m-1)s^2 / \chi^2_{1-\alpha/2, m-1} \right) <span class="sc">\\</span></span>
+<span id="cb12-555"><a href="#cb12-555" aria-hidden="true" tabindex="-1"></a> &amp;\qquad = \left( (30) 270.2 / 46.9792 \,, (30) 270.2 / 16.7908  \right) <span class="sc">\\</span></span>
+<span id="cb12-556"><a href="#cb12-556" aria-hidden="true" tabindex="-1"></a> &amp;\qquad = \left(172.5\,, 482.8\right)\,.</span>
+<span id="cb12-557"><a href="#cb12-557" aria-hidden="true" tabindex="-1"></a> \end{aligned}</span>
+<span id="cb12-558"><a href="#cb12-558" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb12-559"><a href="#cb12-559" aria-hidden="true" tabindex="-1"></a>Note the position of the critical values---don't swap them around.</span>
+<span id="cb12-560"><a href="#cb12-560" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb12-561"><a href="#cb12-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-562"><a href="#cb12-562" aria-hidden="true" tabindex="-1"></a>:::{#exm-eg-ci-variance-infer}</span>
+<span id="cb12-563"><a href="#cb12-563" aria-hidden="true" tabindex="-1"></a>Let's Revisit @exm-eg-ci-variance) and use the <span class="in">`infer`</span> package to construct a $95\%$ confidence interval for the true standard deviation of the timber volume of black cherry trees based on the available measurements in the **Cherry Tree Data**, @tbl-cherry-data-vol).</span>
+<span id="cb12-564"><a href="#cb12-564" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-567"><a href="#cb12-567" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-568"><a href="#cb12-568" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb12-569"><a href="#cb12-569" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(trees<span class="sc">$</span>Volume)</span>
+<span id="cb12-570"><a href="#cb12-570" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-571"><a href="#cb12-571" aria-hidden="true" tabindex="-1"></a>null_dist <span class="ot">&lt;-</span> trees <span class="sc">|&gt;</span></span>
+<span id="cb12-572"><a href="#cb12-572" aria-hidden="true" tabindex="-1"></a> <span class="fu">specify</span>(<span class="at">response =</span> Volume) <span class="sc">|&gt;</span></span>
+<span id="cb12-573"><a href="#cb12-573" aria-hidden="true" tabindex="-1"></a> <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-574"><a href="#cb12-574" aria-hidden="true" tabindex="-1"></a> <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"sd"</span>)</span>
+<span id="cb12-575"><a href="#cb12-575" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-576"><a href="#cb12-576" aria-hidden="true" tabindex="-1"></a>ci <span class="ot">&lt;-</span> null_dist <span class="sc">|&gt;</span></span>
+<span id="cb12-577"><a href="#cb12-577" aria-hidden="true" tabindex="-1"></a> <span class="fu">get_confidence_interval</span>(<span class="at">point_estimate =</span> s, <span class="at">level =</span> <span class="fl">0.95</span>, <span class="at">type =</span> <span class="st">"se"</span>)</span>
+<span id="cb12-578"><a href="#cb12-578" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-579"><a href="#cb12-579" aria-hidden="true" tabindex="-1"></a>null_dist <span class="sc">|&gt;</span> </span>
+<span id="cb12-580"><a href="#cb12-580" aria-hidden="true" tabindex="-1"></a> <span class="fu">visualise</span>() <span class="sc">+</span> <span class="fu">shade_ci</span>(ci)</span>
+<span id="cb12-581"><a href="#cb12-581" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-582"><a href="#cb12-582" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-583"><a href="#cb12-583" aria-hidden="true" tabindex="-1"></a>We plot the $95\%$ confidence interval for the standard deviation based on the computational null distribution obtained using 1000 bootstrap replications; note the interval estimate is in good agreement with the values obtained in @exm-eg-ci-variance. </span>
+<span id="cb12-586"><a href="#cb12-586" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-587"><a href="#cb12-587" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb12-588"><a href="#cb12-588" aria-hidden="true" tabindex="-1"></a>ci<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb12-589"><a href="#cb12-589" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-590"><a href="#cb12-590" aria-hidden="true" tabindex="-1"></a>Due to the computational nature, the bootstrapped interval estimate is not precisely the same as the theoretical interval estimate and rerunning the code will yield a slightly different interval.</span>
+<span id="cb12-591"><a href="#cb12-591" aria-hidden="true" tabindex="-1"></a>:::</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1470,7 +2103,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
 <p>Copyright 2024, Eric Hall (University of Dundee)</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dundeemath/MA22004/edit/master/03-infer-single-sample.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
