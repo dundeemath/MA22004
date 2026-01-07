@@ -1,6 +1,6 @@
 {{< include preamble.qmd >}}
 
-# Two samples inferences {#sec-inference-two-samples}
+# Two-sample inferences {#sec-inference-two-samples}
 
 We consider inferences---estimators, confidence intervals, and hypothesis testing---for comparing means, proportions, and variances based on two independent samples from different populations, respectively, in @sec-compare-means, @sec-compare-proportions, @sec-compare-variances. We also consider inferences when the samples are not independent, so-called paired samples, in @sec-compare-paired-samples. 
 
@@ -181,7 +181,7 @@ with the pooled estimator of the variance, replaces @eq-htest-compare-means-norm
 :::{.callout-warning}
 ## Robustness 
 
-Pooled $t$ procedures are not robust if the assumption of equalised variance is violated. Theoretically, you could first carry out a statistical test $H_0 : \sigma_X^2 = \sigma_Y^2$ on the equality of variances and then use a pooled $\mathsf{t}$ procedure if the null hypothesis is not rejected. However, there is no free lunch: the typical $\mathsf{F}$ test for equal variances (see @sec-compare-variances) is sensitive to normality assumptions. The two sample $\mathsf{t}$ procedures, with the data-driven choice of $\nu$ in @eq-dist-t-compare-means-normpops-nu, are therefore recommended unless, of course, you have a very compelling reason to believe $\sigma_X^2 = \sigma_Y^2.$ 
+Pooled $t$ procedures are not robust if the assumption of equal variance is violated. Theoretically, you could first carry out a statistical test $H_0 : \sigma_X^2 = \sigma_Y^2$ on the equality of variances and then use a pooled $\mathsf{t}$ procedure if the null hypothesis is not rejected. However, there is no free lunch: the typical $\mathsf{F}$ test for equal variances (see @sec-compare-variances) is sensitive to normality assumptions. The two sample $\mathsf{t}$ procedures, with the data-driven choice of $\nu$ in @eq-dist-t-compare-means-normpops-nu, are therefore recommended unless, of course, you have a very compelling reason to believe $\sigma_X^2 = \sigma_Y^2.$ 
 :::   
 
 

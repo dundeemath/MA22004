@@ -542,7 +542,7 @@ Note the position of the critical values---don't swap them around.
 :::
 
 :::{#exm-eg-ci-variance-infer}
-Let's Revisit @exm-eg-ci-variance) and use the `infer` package to construct a $95\%$ confidence interval for the true standard deviation of the timber volume of black cherry trees based on the available measurements in the **Cherry Tree Data**, @tbl-cherry-data-vol).
+Let's Revisit @exm-eg-ci-variance and use the `infer` package to construct a $95\%$ confidence interval for the true standard deviation of the timber volume of black cherry trees based on the available measurements in the **Cherry Tree Data**, @tbl-cherry-data-vol.
 
 ```{r}
 #| echo: true

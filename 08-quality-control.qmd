@@ -97,7 +97,7 @@ $$
 $$
 is an unbiased estimator of $\sigma$ where
 $$
-a_m = \frac{\sqrt{2} \Gamma(m/2)}{\sqrt{m-1}\Gamma\left((n-1)/2\right)}\,.
+a_m = \frac{\sqrt{2} \Gamma(m/2)}{\sqrt{m-1}\Gamma\left((m-1)/2\right)}\,.
 $$
 Thus, we compute the $3\sigma$ upper and lower control limits, respectively,
 $$

@@ -28,7 +28,8 @@ book:
     - part: "Module Introduction"
       chapters: 
         - "index.qmd"
-        - "about-me.qmd"
+        - "syllabus.qmd"
+        # - "about-me.qmd"
         - "labs.qmd"
         - "writing.qmd"
     - part: "Lecture Notes"

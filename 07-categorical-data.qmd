@@ -6,7 +6,7 @@
 
 Suppose we have a population divided into $k > 2$ distinct categories. We consider an experiment where we select $m$ individuals (or objects) from the population and categorise each. We denote the population proportion in the $i$th category by $p_i.$ If the sample size $m$ is much smaller than the population size $M$ (so that the $m$ trials are independent), this experiment will be approximately *multinomial* with success probability $p_i$ for each category, $i=1, \dots, k.$ 
 
-Before the experiment is performed, we denote the number (or count) of the trials resulting in category $i$ by the rv $N_i.$ The expected number of trails that result in category $i$ is given by 
+Before the experiment is performed, we denote the number (or count) of the trials resulting in category $i$ by the rv $N_i.$ The expected number of trials that result in category $i$ is given by 
 $$
 \E[N_i] = m p_i\,, \quad i=1, \dots, k\,.
 $$ {#eq-mean-count-multinomial}
@@ -119,7 +119,7 @@ Thus, the expected cell count is given by
 $$
 \widehat{e}_{ij} = m \widehat{p}_i \widehat{p}_j = \frac{n_i n_j}{m}\,,
 $$
-and we assess the goodness of fit between the observed cell count $n_ij$ and the expected cell count $\widehat{e}_ij.$
+and we assess the goodness of fit between the observed cell count $n_{ij}$ and the expected cell count $\widehat{e}_{ij}.$
 
 
 :::{#prp-independence-test}

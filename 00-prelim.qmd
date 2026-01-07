@@ -8,7 +8,7 @@ a (very quick) review of probability.
 ## Abbreviations {.unnumbered}
 
 In @tbl-abbrev we list abbreviations used throughout these lecture
-notes. These abbreviations are pretty standdard and you might encounter
+notes. These abbreviations are pretty standard and you might encounter
 them outside the module in other references.
 
 ```{r}
@@ -132,18 +132,18 @@ We can interpret $P(A)$ as representing:
 
 -   **frequency**, i.e., the long-run proportion of times $A$ is true
     (the *frequentist perspective*),
--   **degrees of belief**, i.e, as a measure of the observer's strength
+-   **degrees of belief**, i.e., as a measure of the observer's strength
     of belief that $A$ is true (the *Bayesian perspective*).
 :::
 
 ::: {#thm-pie}
 ## PIE
 
-The principal of inclusion-exclusion,
+The principle of inclusion-exclusion,
 $$P(A\cup B) = P(A) + P(B) - P(A\cap B)\,.$$
 :::
 
-@thm-pie follows from the definition of a probability distributions and
+@thm-pie follows from the definition of a probability distribution and
 facts about set theory.
 
 ::: {#def-prob-finite}
@@ -166,7 +166,7 @@ $P(A\cap B) = P(A)P(B)$.
 :::
 
 That is, events $A$ and $B$ are independent if and only if the
-probability of $A$ and $B$ occurring is equal to the the probability $A$
+probability of $A$ and $B$ occurring is equal to the probability $A$
 occurring times the probability of $B$ occurring.
 
 ::: {#def-cond-prob}

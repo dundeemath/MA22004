@@ -15,16 +15,16 @@ We refer to the probability distribution for a statistic as a sampling distribut
 ::: {#def-sampling-dist}
 ## Sampling distribution
 
-Suppose rvs $X_1, \dots, X_n$ are a random sample from $F(\theta),$ a distribution depending a parameter $\theta$ whose value is uknown. Let the rv $$T = g(X_1, \dots, X_n, \theta)$$ be a function of $X_1, \dots, X_n$ and (possibly) $\theta$. The distribution of $T$ (given $\theta$) is the sampling distribution of $T$. 
+Suppose rvs $X_1, \dots, X_n$ are a random sample from $F(\theta),$ a distribution depending on a parameter $\theta$ whose value is unknown. Let the rv $$T = g(X_1, \dots, X_n, \theta)$$ be a function of $X_1, \dots, X_n$ and (possibly) $\theta$. The distribution of $T$ (given $\theta$) is the sampling distribution of $T$. 
 :::
 
 The sampling distribution of $T$ is derived from the distribution of the random sample. Often we will be interested in a statistic $T$ that is an estimator for a parameter $\theta$ (that is, $T$ will not depend on $\theta$). 
 
-In what follows, we review several special families of distributions that are widely used in probability and statistics. These special families of distributions will be indexed by one or parameters. 
+In what follows, we review several special families of distributions that are widely used in probability and statistics. These special families of distributions will be indexed by one or more parameters. 
 
 ## Uniform distribution {#sec-uniform-distribution}
 
-The uniform distribution places equal on uniform weight on the items being sampled.
+The uniform distribution places equal weight on the items being sampled.
 
 ::: {#def-uniform-dist}
 ## Uniform distribution

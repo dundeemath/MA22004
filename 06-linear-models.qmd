@@ -184,7 +184,7 @@ We note to make inferences, the statistic
 $$
  S^2 = \frac{\mathsf{RSS}}{m-2}
 $$
-is an unbiased estimator or $\sigma^2$ and the random variable 
+is an unbiased estimator of $\sigma^2$ and the random variable 
 $$
  \frac{(m-2) S^2}{\sigma^2} \sim \chi^2(m-2)\,.
 $$
@@ -312,4 +312,3 @@ $$
  \beta_1 = \frac{\sigma_Y}{\sigma_X} \rho \,,
 $$
 and thus, for the simple hypothesis tests we have considered (@tbl-htest-null-alt-forms), statistical tests for $\beta_1$ and $\rho$ are equivalent.
-

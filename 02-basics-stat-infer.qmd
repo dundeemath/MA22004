@@ -20,7 +20,7 @@ Suppose we actually find and measure the petal length of $50$ independent *setos
 
 ```{r}
 #| label: fig-setosa-petal-lengths
-#| fig-cap: "The distribution (counts) of $m = 50$ *setosa* petal length measurments."
+#| fig-cap: "The distribution (counts) of $m = 50$ *setosa* petal length measurements."
 #| echo: false
 #| warning: false
 #| message: false
@@ -352,7 +352,7 @@ If we repeat these calculations for $R^* = \{x \leq 5\},$ we find $\alpha = `r s
 :::{.callout-warning}
 ## What if the sample size is close to the population size?
 
-In @exm-htest-alpha, $X$ is a binomial random variable because it can be modelled as $m$ independent Bernoulli trails each with probability $p$ of success (i.e., votes for Churchill) as long as the sample size $m$ is much smaller than the population of Dundee. If we had the means to canvas nearly the whole population, what goes wrong conceptually?
+In @exm-htest-alpha, $X$ is a binomial random variable because it can be modelled as $m$ independent Bernoulli trials each with probability $p$ of success (i.e., votes for Churchill) as long as the sample size $m$ is much smaller than the population of Dundee. If we had the means to canvas nearly the whole population, what goes wrong conceptually?
 :::
 
 ::: {#fig-churchill-ballot}
@@ -372,6 +372,6 @@ An appropriate test statistic $T$ is computed. Then either:
 
 OR
 
-- $P$-value (based on $T$) is compare to the significance level $\alpha.$ 
+- $P$-value (based on $T$) is compared to the significance level $\alpha.$ 
 
 :::   
