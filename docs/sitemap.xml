@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://dundeemath.github.io/MA22004/syllabus.html</loc>
-    <lastmod>2026-01-07T14:41:39.602Z</lastmod>
+    <lastmod>2026-01-07T14:42:46.519Z</lastmod>
   </url>
   <url>
     <loc>https://dundeemath.github.io/MA22004/labs.html</loc>
@@ -21,35 +21,39 @@
     <lastmod>2026-01-07T14:28:33.063Z</lastmod>
   </url>
   <url>
-    <loc>https://dundeemath.github.io/MA22004/01-sampling-distributions.html</loc>
+    <loc>https://dundeemath.github.io/MA22004/01-eda.html</loc>
+    <lastmod>2026-01-07T17:20:01.955Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dundeemath.github.io/MA22004/02-sampling-distributions.html</loc>
     <lastmod>2026-01-07T14:28:40.128Z</lastmod>
   </url>
   <url>
-    <loc>https://dundeemath.github.io/MA22004/02-basics-stat-infer.html</loc>
+    <loc>https://dundeemath.github.io/MA22004/03-basics-stat-infer.html</loc>
     <lastmod>2026-01-07T14:28:46.755Z</lastmod>
   </url>
   <url>
-    <loc>https://dundeemath.github.io/MA22004/03-infer-single-sample.html</loc>
+    <loc>https://dundeemath.github.io/MA22004/04-infer-single-sample.html</loc>
     <lastmod>2026-01-07T14:28:50.911Z</lastmod>
   </url>
   <url>
-    <loc>https://dundeemath.github.io/MA22004/04-infer-two-samples.html</loc>
+    <loc>https://dundeemath.github.io/MA22004/05-infer-two-samples.html</loc>
     <lastmod>2026-01-07T14:29:01.118Z</lastmod>
   </url>
   <url>
-    <loc>https://dundeemath.github.io/MA22004/05-anova.html</loc>
+    <loc>https://dundeemath.github.io/MA22004/06-anova.html</loc>
     <lastmod>2026-01-07T14:29:09.829Z</lastmod>
   </url>
   <url>
-    <loc>https://dundeemath.github.io/MA22004/06-linear-models.html</loc>
+    <loc>https://dundeemath.github.io/MA22004/07-linear-models.html</loc>
     <lastmod>2026-01-07T14:29:13.015Z</lastmod>
   </url>
   <url>
-    <loc>https://dundeemath.github.io/MA22004/07-categorical-data.html</loc>
+    <loc>https://dundeemath.github.io/MA22004/08-categorical-data.html</loc>
     <lastmod>2026-01-07T14:29:17.783Z</lastmod>
   </url>
   <url>
-    <loc>https://dundeemath.github.io/MA22004/08-quality-control.html</loc>
+    <loc>https://dundeemath.github.io/MA22004/09-quality-control.html</loc>
     <lastmod>2026-01-07T14:29:21.189Z</lastmod>
   </url>
   <url>
@@ -59,5 +63,9 @@
   <url>
     <loc>https://dundeemath.github.io/MA22004/10-investigations.html</loc>
     <lastmod>2024-09-13T13:32:16.899Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dundeemath.github.io/MA22004/MA22004-—-Statistics-II.pdf</loc>
+    <lastmod>2026-01-07T17:26:18.686Z</lastmod>
   </url>
 </urlset>
