@@ -522,10 +522,8 @@ window.Quarto = {
   <li><a href="#principal-component-analysis" id="toc-principal-component-analysis" class="nav-link" data-scroll-target="#principal-component-analysis"><span class="header-section-number">1.6</span> Principal Component Analysis</a>
   <ul class="collapse">
   <li><a href="#understanding-the-pca-summary" id="toc-understanding-the-pca-summary" class="nav-link" data-scroll-target="#understanding-the-pca-summary"><span class="header-section-number">1.6.1</span> Understanding the PCA summary</a></li>
-  </ul></li>
-  <li><a href="#pca-scores-plot" id="toc-pca-scores-plot" class="nav-link" data-scroll-target="#pca-scores-plot"><span class="header-section-number">1.7</span> PCA scores plot</a>
-  <ul class="collapse">
-  <li><a href="#interpreting-the-principal-components" id="toc-interpreting-the-principal-components" class="nav-link" data-scroll-target="#interpreting-the-principal-components"><span class="header-section-number">1.7.1</span> Interpreting the principal components</a></li>
+  <li><a href="#pca-scores-plot" id="toc-pca-scores-plot" class="nav-link" data-scroll-target="#pca-scores-plot"><span class="header-section-number">1.6.2</span> PCA scores plot</a></li>
+  <li><a href="#interpreting-the-principal-components" id="toc-interpreting-the-principal-components" class="nav-link" data-scroll-target="#interpreting-the-principal-components"><span class="header-section-number">1.6.3</span> Interpreting the principal components</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/dundeemath/MA22004/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -974,9 +972,8 @@ Figure&nbsp;1.2: <strong>Scree plot</strong>: proportion of variance explained b
 </div>
 </div>
 </section>
-</section>
-<section id="pca-scores-plot" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="pca-scores-plot"><span class="header-section-number">1.7</span> PCA scores plot</h2>
+<section id="pca-scores-plot" class="level3" data-number="1.6.2">
+<h3 data-number="1.6.2" class="anchored" data-anchor-id="pca-scores-plot"><span class="header-section-number">1.6.2</span> PCA scores plot</h3>
 <p>A useful EDA plot is the projection of the observations onto the first two principal components. Here we colour by <code>colour</code> to check whether colour is associated with the main modes of variation in the measurements.</p>
 <div class="cell" data-layout-align="center">
 <details open="" class="code-fold">
@@ -998,8 +995,9 @@ Figure&nbsp;1.2: <strong>Scree plot</strong>: proportion of variance explained b
 </div>
 </div>
 <p>The scatter plot above displays cyclamen PCA scores (PC1 vs PC2). Each point is a flower; points are shaped by flower colour.</p>
-<section id="interpreting-the-principal-components" class="level3" data-number="1.7.1">
-<h3 data-number="1.7.1" class="anchored" data-anchor-id="interpreting-the-principal-components"><span class="header-section-number">1.7.1</span> Interpreting the principal components</h3>
+</section>
+<section id="interpreting-the-principal-components" class="level3" data-number="1.6.3">
+<h3 data-number="1.6.3" class="anchored" data-anchor-id="interpreting-the-principal-components"><span class="header-section-number">1.6.3</span> Interpreting the principal components</h3>
 <p>To interpret the components, we examine the <strong>loadings</strong> (the coefficients defining each principal component as a linear combination of the original variables). In <code>prcomp</code>, these are stored in <code>pca_fit$rotation</code>.</p>
 <div class="cell" data-layout-align="center">
 <details open="" class="code-fold">
@@ -1810,7 +1808,7 @@ Figure&nbsp;1.2: <strong>Scree plot</strong>: proportion of variance explained b
 <span id="cb28-295"><a href="#cb28-295" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>()</span>
 <span id="cb28-296"><a href="#cb28-296" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb28-297"><a href="#cb28-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-298"><a href="#cb28-298" aria-hidden="true" tabindex="-1"></a><span class="fu">## PCA scores plot</span></span>
+<span id="cb28-298"><a href="#cb28-298" aria-hidden="true" tabindex="-1"></a><span class="fu">### PCA scores plot</span></span>
 <span id="cb28-299"><a href="#cb28-299" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-300"><a href="#cb28-300" aria-hidden="true" tabindex="-1"></a>A useful EDA plot is the projection of the observations onto the first two principal components. Here we colour by <span class="in">`colour`</span> to check whether colour is associated with the main modes of variation in the measurements.</span>
 <span id="cb28-301"><a href="#cb28-301" aria-hidden="true" tabindex="-1"></a></span>

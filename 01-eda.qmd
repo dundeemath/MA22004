@@ -295,7 +295,7 @@ pve_tbl |>
     geom_col()
 ```
 
-## PCA scores plot
+### PCA scores plot
 
 A useful EDA plot is the projection of the observations onto the first two principal components. Here we colour by `colour` to check whether colour is associated with the main modes of variation in the measurements.
 
