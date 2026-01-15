@@ -113,10 +113,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    var sidebar = document.getElementById('quarto-sidebar');
-    var logo = sidebar.getElementsByTagName('img')[0];
-    
-    sidebar.appendChild(logo);
+    function moveLogoToBottom() {
+      var sidebar = document.getElementById('quarto-sidebar');
+      if (!sidebar) {
+        return;
+      }
+      var logoLink = sidebar.querySelector('.sidebar-logo-link');
+      if (!logoLink) {
+        return;
+      }
+      sidebar.appendChild(logoLink);
+    }
+
+    moveLogoToBottom();
   });
 </script>
 
