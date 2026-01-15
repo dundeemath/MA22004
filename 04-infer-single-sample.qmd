@@ -393,7 +393,9 @@ shapiro.test(trees$Height)
 At level $0.05$, the Shapiro-Wilk test yields a $P$-value $P = 0.4034 > 0.05$, and therefore we fail to reject the null hypothesis. We cannot exclude that the data is drawn from a normal population. This "prove" the data is drawn from a normal distribution, but it does tell us that for this particular example, an inference based on a normal distribution instead of a $\mathsf{t}$ distribution will probably be reasonable. It is always good to view the QQ plot as well --- sometimes if the number of samples is very large then the Shapiro-Wilk test will reject the null for trivial deviations from normality.  
 :::
 
-## Estimating proportions {#sec-estimating-proportions}
+## Estimating proportions and rates {#sec-estimating-proportions-rates}
+
+### Estimating proportions {#sec-estimating-proportions}
 
 Consider a population of size $M$ in which each member either satisfies a given property or does not (i.e. a binary classification). The proportion $p \in (0,1)$ of the population satisfying the given property is a parameter characterising the population we might be interested in estimating. A sample of classified observations, $X_1, \dots, X_m \sim \mathsf{Bernoulli}(p)\,,$ 
 from the population contains a proportion,
@@ -411,6 +413,7 @@ $$ {#eq-proportion-var}
 provided that $m$ is small relative to $M.$ Moreover, by invoking the Central Limit Theorem, we have the distribution of $\widehat{p}$ is approximately normal for sufficiently large $m$ as @eq-proportion-estimator is a sample mean. Indeed, this normal approximation works well for moderately large $m$ as long as $p$ is not too close to zero or one; a rule of thumb is that $mp > 5$ and $m(1-p) > 5.$
 
 :::{.callout-tip}
+
 ## Rule of thumb
 
 For estimating proportions, a rule of thumb is $m \leq 0.05 M.$
@@ -469,6 +472,152 @@ $$
 $$
 The $P$-value for this lower-tailed $z$ test is  $P = \Phi(`r signif((0.4411-0.5)/sqrt(0.5*0.5/263), digits=3)`) = `r signif(pnorm(signif((0.4411-0.5)/sqrt(0.5*0.5/263), digits=3)), digits=2)`.$ Since $P < 0.10 = \alpha$, we reject the null hypothesis at the $0.1$ level. The evidence for concluding that the true proportion is different from $p_0 = 0.5$ at the $0.10$ level is compelling.^[Churchill took ca. $44\%$ of the vote in the 1908 by-election to become MP for Dundee [[https://www.wikiwand.com/en/1908_Dundee_by-election](https://www.wikiwand.com/en/1908_Dundee_by-election)].]
 :::
+
+### Estimating rates {#sec-estimating-rates}
+
+In many applications, the quantity of interest is not a proportion, but a rate: the average number of events per unit of exposure (often time). For example,
+
+- the rate of accidents per month at a road junction,
+- the rate of customer complaints per day, or
+- the rate of cases per week in a hospital ward.
+
+A standard model for event counts is the Poisson distribution. Suppose that we observe events over an exposure period of length $t$ (e.g. $t$ days), and let $X$ be the total number of observed events. We model
+$$
+X \sim \mathsf{Poisson}(\lambda t),
+$$
+where $\lambda > 0$ is the event rate per unit exposure.  
+
+A natural estimator for the rate is
+$$
+\widehat{\lambda} = \frac{X}{t}\,.
+$$ {#eq-rate-estimator}
+
+Since $\E[X] = \lambda t$ and $\Var[X] = \lambda t$ for a Poisson random variable, we obtain
+$$
+\E[\widehat{\lambda}] = \lambda
+\qquad \text{and} \qquad
+\Var[\widehat{\lambda}] = \frac{\lambda}{t}\,.
+$$ {#eq-rate-mean-var}
+
+For sufficiently large expected counts (so that the Poisson distribution is not too skewed), the sampling distribution of $\widehat{\lambda}$ is approximately normal,
+$$
+\widehat{\lambda} \approx \mathsf{N}\!\left(\lambda,\; \frac{\lambda}{t}\right).
+$$
+
+:::{.callout-tip}
+## Rule of thumb
+
+A common rule of thumb for normal approximations with Poisson counts is that the expected count is “large enough”, e.g.
+$$
+\lambda t \gtrsim 10.
+$$
+In practice, we often check this using the observed count $X$, i.e. we look for $X \geq 10$.
+:::
+
+To form an interval estimate, we replace the unknown $\lambda$ in the variance by the point estimate $\widehat{\lambda}$, giving the estimated standard error
+$$
+\widehat{\se}(\widehat{\lambda})
+= \sqrt{\frac{\widehat{\lambda}}{t}}\,.
+$$
+
+:::{#prp-ci-rate}
+For a large observed count, an approximate $100(1-\alpha)\%$ confidence interval for the Poisson rate $\lambda$ is
+$$
+\widehat{\lambda} \pm z_{\alpha/2}\sqrt{\frac{\widehat{\lambda}}{t}}\,.
+$$ {#eq-ci-rate}
+:::
+
+:::{.callout-note}
+## Exact intervals for small counts
+
+When the observed count $X$ is small, the normal approximation used in @eq-ci-rate can be unreliable. In that case, an exact confidence interval for the Poisson rate $\lambda$ can be constructed using $\chi^2$ critical values (via the exact sampling distribution of the Poisson count).
+:::
+
+
+We can also test hypotheses about a rate. Under the null hypothesis $H_0:\lambda=\lambda_0$, the expected count is $\lambda_0 t$ and the standard deviation of $X$ is $\sqrt{\lambda_0 t}$. Thus a natural large-sample test statistic is
+$$
+Z = \frac{X - \lambda_0 t}{\sqrt{\lambda_0 t}} \approx \mathsf{N}(0,1)\,.
+$$ {#eq-htest-rate-z}
+
+:::{#prp-htest-rate}
+Assume $X \sim \mathsf{Poisson}(\lambda t)$ and that $\lambda_0 t \ge 10.$  
+
+Consider $H_0 : \lambda = \lambda_0.$ The test statistic is
+$$
+ Z = \frac{X - \lambda_0 t}{\sqrt{\lambda_0 t}} \,.
+$$
+
+For a hypothesis test at level $\alpha$, we use the following procedure: 
+        
+If $H_a : \lambda > \lambda_0$, then $P$-value is the area under $\mathsf{N}(0,1)$ to the right of $z.$
+
+If $H_a : \lambda < \lambda_0$, then $P$-value is the area under $\mathsf{N}(0,1)$ to the left of $z.$
+
+If $H_a : \lambda \neq \lambda_0$, then $P$-value is twice the area under $\mathsf{N}(0,1)$ to the right of $|z|.$   
+::: 
+
+:::{#exm-estimating-rate}
+Suppose a hospital ward records $X=27$ asthma admissions over $t=18$ weeks. Estimate the weekly admission rate $\lambda$ and construct a $95\%$ confidence interval. Then test (at level $0.05$) whether the data provide evidence that the rate exceeds $\lambda_0=1$ admission per week.
+
+First, the point estimate is
+$$
+\widehat{\lambda} = \frac{X}{t} = \frac{27}{18} = 1.5 \quad \text{admissions per week.}
+$$
+
+Using @prp-ci-rate with $\alpha=0.05$ and $z_{0.025}=1.96$, the estimated standard error is
+$$
+\widehat{\se}(\widehat{\lambda}) = \sqrt{\frac{\widehat{\lambda}}{t}}
+= \sqrt{\frac{1.5}{18}}
+= 0.289,
+$$
+so the $95\%$ CI is
+$$
+1.5 \pm 1.96(0.289)
+= (0.93,\; 2.07).
+$$
+We interpret this as: a plausible range for the true weekly admission rate is between about $0.93$ and $2.07$ admissions per week.
+
+Now test $H_0:\lambda=1$ against $H_a:\lambda>1.$ Under $H_0$, the expected count over $t=18$ weeks is $\lambda_0 t = 18,$ and the $z$ statistic from @eq-htest-rate-z is
+$$
+z = \frac{27-18}{\sqrt{18}} = 2.12.
+$$
+The $P$-value is the upper-tail area $P = 1-\Phi(2.12) \approx 0.017.$ Since $P<0.05$, we reject $H_0$ at the $0.05$ level. The data provide evidence that the admission rate exceeds $1$ admission per week.
+:::
+
+The calculations above can be reproduced using the following `R` code.
+
+```{r}
+#| echo: true
+#| warning: false
+#| message: false
+x <- 27
+t <- 18
+
+lambda_hat <- x / t
+se_hat <- sqrt(lambda_hat / t)
+
+alpha <- 0.05
+zcrit <- qnorm(1 - alpha/2)
+
+ci <- lambda_hat + c(-1, 1) * zcrit * se_hat
+lambda_hat
+ci
+```
+
+
+For the one-sided test of $H_0:\lambda=1$ versus $H_a:\lambda>1$:
+```{r}
+#| echo: true
+#| warning: false
+#| message: false
+lambda0 <- 1
+z <- (x - lambda0 * t) / sqrt(lambda0 * t)
+p_val <- 1 - pnorm(z)
+
+z
+p_val
+```
+
 
 
 ## Estimating variances {#sec-estimating-variances}

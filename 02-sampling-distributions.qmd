@@ -20,14 +20,284 @@ Suppose rvs $X_1, \dots, X_n$ are a random sample from $F(\theta),$ a distributi
 
 The sampling distribution of $T$ is derived from the distribution of the random sample. Often we will be interested in a statistic $T$ that is an estimator for a parameter $\theta$ (that is, $T$ will not depend on $\theta$). 
 
-In what follows, we review several special families of distributions that are widely used in probability and statistics. These special families of distributions will be indexed by one or more parameters. 
+In what follows, we review several special families of distributions that are widely used in probability and statistics. These special families of distributions will be indexed by one or more parameters and include discrete distributions (Bernoulli, Binomial, Poisson, and discrete Uniform) as well as continuous distributions (continuous Uniform, Normal, Student's $\mathsf{t}$, $\chi^2$, and $\mathsf{F}$).
 
-## Uniform distribution {#sec-uniform-distribution}
 
-The uniform distribution places equal weight on the items being sampled.
+## Bernoulli distribution {#sec-bernoulli-distribution}
+
+The Bernoulli distribution describes a single trial with two possible outcomes, often coded as $1$ (success) and $0$ (failure). It is the basic building block behind proportions and binomial counts.
+
+::: {#def-bernoulli-dist}
+## Bernoulli distribution
+
+A discrete rv $X$ has a Bernoulli distribution with parameter $p \in (0,1)$ if
+$$
+P(X=x; p) =
+\begin{cases}
+ p, & x=1,\\
+ 1-p, & x=0,\\
+ 0, & \text{otherwise}.
+\end{cases}
+$$
+Equivalently,
+$$
+P(X=x; p) = p^x(1-p)^{1-x}, \quad x\in\{0,1\}.
+$$ {#eq-bernoulli-pmf}
+We write $X \sim \mathsf{Bernoulli}(p)$.
+:::
+
+:::{.callout-warning}
+## Parameter
+
+The parameter $p$ is the probability of success, i.e. $p = P(X=1)$.
+:::
+
+If $X \sim \mathsf{Bernoulli}(p)$, then it can be shown that
+$$
+\E[X] = p
+\qquad \text{and} \qquad
+\Var(X) = p(1-p).
+$$ {#eq-bernoulli-mean-var}
+
+The pmf for two Bernoulli rvs with different values of $p$ is shown in @fig-bernoulli-pmf.
+
+```{r}
+#| label: fig-bernoulli-pmf
+#| fig-cap: "The pmf of a Bernoulli rv for two values of the success probability $p$."
+#| echo: false
+#| warning: false
+#| message: false
+bernoulli_df <- expand.grid(x = c(0,1), p = c(0.2, 0.7)) |>
+  mutate(prob = ifelse(x == 1, p, 1 - p),
+         p_strip = paste0("p==", p))
+
+ggplot(bernoulli_df, aes(x = x, y = prob)) +
+  geom_col(alpha = 0.6) +
+  facet_wrap(~ p_strip, nrow = 1, labeller = label_parsed) +
+  labs(x = TeX("$x$"), y = TeX("$P(X=x)$")) +
+  scale_x_continuous(breaks = c(0,1)) +
+  theme_ur
+```
+
+::: {#exm-bernoulli}
+Suppose that a component passes a quality check with probability $p = 0.95$. Let $X=1$ if the component passes and $X=0$ otherwise. Then $X \sim \mathsf{Bernoulli}(0.95)$, and the probability that the component fails is
+$$
+P(X=0) = 1 - p = 0.05.
+$$
+:::
+
+:::{.callout-important}
+## Indicator variables
+
+A Bernoulli rv is often used as an **indicator**: it takes value $1$ when a property holds, and $0$ when it does not. This is exactly the setup used for estimating proportions in @sec-estimating-proportions.
+:::
+
+
+## Binomial distribution {#sec-binomial-distribution}
+
+The binomial distribution describes the number of successes in $k$ independent Bernoulli trials, each having the same success probability $p$.
+
+::: {#def-binomial-dist}
+## Binomial distribution
+
+Let $X$ denote the number of successes in $k$ independent trials, where each trial is a $\mathsf{Bernoulli}(p)$ rv. Then $X$ has a binomial distribution with parameters $k \in \mathbf{N}_{>}$ and $p \in (0,1)$ if
+$$
+P(X=x; k,p) = \binom{k}{x} p^x (1-p)^{k-x}, \quad x = 0,1,\dots,k.
+$$ {#eq-binomial-pmf}
+We write $X \sim \mathsf{Binomial}(k,p)$.
+:::
+
+:::{.callout-warning}
+## Parameters
+
+The binomial distribution has **two parameters**: the number of trials $k$ and the success probability $p$.
+:::
+
+If $X \sim \mathsf{Binomial}(k,p)$, then
+$$
+\E[X] = kp
+\qquad \text{and} \qquad
+\Var(X) = kp(1-p).
+$$ {#eq-binomial-mean-var}
+
+The pmf for $\mathsf{Binomial}(10,p)$ for several values of $p$ is shown in @fig-binomial-pmf.
+
+```{r}
+#| label: fig-binomial-pmf
+#| fig-cap: "The pmf of $X \\sim \\mathsf{Binomial}(10,p)$ for several values of $p$."
+#| echo: false
+#| warning: false
+#| message: false
+k <- 10
+p_vals <- c(0.2, 0.5, 0.8)
+
+binom_df <- expand.grid(x = 0:k, p = p_vals) |>
+  mutate(prob = dbinom(x, size = k, prob = p),
+         p_strip = factor(paste0("p==", p),
+                          levels = paste0("p==", p_vals)))
+
+ggplot(binom_df, aes(x = x, y = prob)) +
+  geom_col(alpha = 0.6) +
+  facet_wrap(~ p_strip, nrow = 1, labeller = label_parsed) +
+  labs(x = TeX("$x$"), y = TeX("$P(X=x)$")) +
+  scale_x_continuous(breaks = 0:k) +
+  theme_ur
+```
+
+::: {#exm-binomial}
+A student answers $k=10$ multiple-choice questions by guessing. Each question has probability $p=0.25$ of being correct. If $X$ is the number of correct answers, then
+$$
+X \sim \mathsf{Binomial}(10, 0.25).
+$$
+The probability of getting exactly $3$ correct answers is
+$$
+P(X=3) = \binom{10}{3}(0.25)^3(0.75)^7.
+$$
+This can be computed in `R` as `dbinom(3, size = 10, prob = 0.25)`.
+:::
+
+:::{.callout-tip}
+## Binomial counts are sums of Bernoulli trials
+
+If $X_1,\dots,X_k \sim \mathsf{Bernoulli}(p)$ are independent, then
+$$
+X = \sum_{i=1}^k X_i \sim \mathsf{Binomial}(k,p).
+$$
+This is why binomial distributions appear naturally when counting the number of times an event occurs in repeated trials.
+:::
+
+
+## Poisson distribution {#sec-poisson-distribution}
+
+The Poisson distribution is widely used to model the number of events in a fixed unit of exposure (often time or space), such as the number of arrivals at a desk per hour or the number of faults detected per kilometre.
+
+::: {#def-poisson-dist}
+## Poisson distribution
+
+A discrete rv $X$ has a Poisson distribution with parameter $\lambda > 0$ if
+$$
+P(X=x; \lambda) = \frac{e^{-\lambda}\lambda^x}{x!}, \quad x = 0,1,2,\dots
+$$ {#eq-poisson-pmf}
+We write $X \sim \mathsf{Poisson}(\lambda)$.
+:::
+
+:::{.callout-warning}
+## Parameter
+
+The parameter $\lambda$ is the mean number of events in the unit of exposure (e.g. “per hour”).
+:::
+
+If $X \sim \mathsf{Poisson}(\lambda)$, then
+$$
+\E[X] = \lambda
+\qquad \text{and} \qquad
+\Var(X) = \lambda.
+$$ {#eq-poisson-mean-var}
+
+That is, the Poisson distribution has the distinctive property that the **mean equals the variance**. The pmf for several values of $\lambda$ is shown in @fig-poisson-pmf.
+
+```{r}
+#| label: fig-poisson-pmf
+#| fig-cap: "The pmf of a Poisson rv for several values of the rate parameter $\\lambda$."
+#| echo: false
+#| warning: false
+#| message: false
+lambda_vals <- c(1, 4, 10)
+
+poisson_df <- expand.grid(x = 0:25, lambda = lambda_vals) |>
+  mutate(prob = dpois(x, lambda = lambda),
+         lam_strip = factor(paste0("lambda==", lambda),
+                            levels = paste0("lambda==", lambda_vals)))
+
+ggplot(poisson_df, aes(x = x, y = prob)) +
+  geom_col(alpha = 0.6) +
+  facet_wrap(~ lam_strip, nrow = 1, labeller = label_parsed) +
+  labs(x = TeX("$x$"), y = TeX("$P(X=x)$")) +
+  scale_x_continuous(breaks = seq(0, 25, by = 5)) +
+  theme_ur
+```
+
+::: {#exm-poisson}
+Suppose the number of emails you receive in an hour is modelled as $X \sim \mathsf{Poisson}(\lambda)$ with $\lambda = 2.5.$ The probability of receiving no emails in the next hour is
+$$
+P(X=0) = e^{-2.5}\frac{2.5^0}{0!} = e^{-2.5}.
+$$
+In `R`, this is `dpois(0, lambda = 2.5)`.
+:::
+
+:::{.callout-note}
+## When does Poisson modelling make sense?
+
+Poisson models are commonly used when (i) events occur one at a time, (ii) they occur “at random” throughout the exposure period, and (iii) the average event rate is roughly constant over the period being observed.
+:::
+
+## Uniform Distribution {#sec-uniform-distribution}
+
+The uniform distribution places equal weight on the items being sampled. The items can be discrete or be a continuum. 
+
+### Discrete uniform distribution {#sec-discrete-uniform-distribution}
+
+The discrete uniform places equal probability on a *finite* set of possible values.
+
+::: {#def-discrete-uniform}
+## Discrete uniform distribution
+
+A discrete rv $X$ has a discrete uniform distribution on the integers $\{a,a+1,\dots,b\}$ with $a<b$, if
+$$
+P(X=x; a,b) =
+\begin{cases}
+\frac{1}{b-a+1}, & x \in \{a,a+1,\dots,b\},\\[4pt]
+0, & \text{otherwise}.
+\end{cases}
+$$ {#eq-discrete-uniform-pmf}
+We write $X \sim \mathsf{Unif}\{a,\dots,b\}$.
+:::
+
+:::{.callout-warning}
+## Parameters
+
+The parameters $a$ and $b$ determine the finite support $\{a,a+1,\dots,b\}$.
+:::
+
+If $X \sim \mathsf{Unif}\{a,\dots,b\}$, then
+$$
+\E[X] = \frac{a+b}{2}
+\qquad \text{and} \qquad
+\Var(X) = \frac{(b-a+1)^2 - 1}{12}.
+$$ {#eq-discrete-uniform-mean-var}
+
+A familiar example is the outcome of a fair six-sided die: $X \sim \mathsf{Unif}\{1,\dots,6\}$. The pmf is shown in @fig-discrete-unif-pmf.
+
+```{r}
+#| label: fig-discrete-unif-pmf
+#| fig-cap: "The pmf of a discrete uniform rv on $\\{1,2,3,4,5,6\\}$ (a fair die)."
+#| echo: false
+#| warning: false
+#| message: false
+disc_unif_df <- data.frame(x = 1:6) |>
+  mutate(prob = 1/6)
+
+ggplot(disc_unif_df, aes(x = x, y = prob)) +
+  geom_col(alpha = 0.6) +
+  labs(x = TeX("$x$"), y = TeX("$P(X=x)$")) +
+  scale_x_continuous(breaks = 1:6) +
+  theme_ur
+```
+
+::: {#exm-discrete-uniform}
+Let $X$ be the outcome of a fair die roll. Then $X \sim \mathsf{Unif}\{1,\dots,6\}.$ The probability of rolling a value at least $5$ is
+$$
+P(X \geq 5) = P(X=5) + P(X=6) = \frac{2}{6} = \frac{1}{3}.
+$$
+:::
+
+
+### Continuous uniform distribution {#sec-continuous-uniform-distribution}
+
+Compared with the discrete version, the continuous uniform distribution places equal weight across an interval.
 
 ::: {#def-uniform-dist}
-## Uniform distribution
+## (Continuous) Uniform distribution
 
 A continuous rv $X$ has a uniform distribution on $[a,b]$ with $a<b,$ if $X$ has pdf
 $$
@@ -311,7 +581,7 @@ If $X \sim \chi^2(\nu),$ then $\E[X] = \nu$ and $\Var[X] = 2\nu$.
 
 ## $\mathsf{F}$ distribution {#sec-F-distribution}
 
-The $\mathsf{F}$ distribution ("F" for Fisher) arises as a test statistic when comparing population variances and in the analysis of variance (see \@sec-anova). 
+The $\mathsf{F}$ distribution ("F" for Fisher) arises as a test statistic when comparing population variances and in the analysis of variance (see @sec-anova). 
 
 ::: {#def-F-dist}
 ## $\mathsf{F}$ distribution

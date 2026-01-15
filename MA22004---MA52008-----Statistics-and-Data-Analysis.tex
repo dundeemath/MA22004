@@ -319,16 +319,16 @@ top=3cm]{geometry}%
 \floatname{codelisting}{Listing}
 \newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
 \usepackage{amsthm}
-\theoremstyle{plain}
-\newtheorem{theorem}{Theorem}[chapter]
 \theoremstyle{definition}
 \newtheorem{exercise}{Exercise}[chapter]
 \theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
 \newtheorem{definition}{Definition}[chapter]
 \theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\theoremstyle{plain}
 \newtheorem{proposition}{Proposition}[chapter]
-\theoremstyle{definition}
-\newtheorem{example}{Example}[chapter]
 \theoremstyle{remark}
 \AtBeginDocument{\renewcommand*{\proofname}{Proof}}
 \newtheorem*{remark}{Remark}
@@ -772,7 +772,7 @@ There are seven interactive lab tutorials with accompanying exercises.
 Each lab tutorial specifies how marks are allocated across the exercises
 (a maximum of 20 marks available for each lab report).
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-important-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 Marks are awarded for both \textbf{content} and \textbf{presentation}.
 
@@ -907,7 +907,7 @@ present module, we will adopt the (frequentists) view that parameters
 are fixed real numbers that are often unknown and must be estimated from
 data. Statistical inference is a tool that will help us to do this.
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Variables and parameters}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Variables and parameters}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 Statistical models comprise both rvs and parameters. Be careful not to
 confuse them!
@@ -917,7 +917,7 @@ confuse them!
 For a random variable \(X\) that has a distribution \(F\) depending on a
 set of parameters \(\Theta,\) we will write \(X \sim F(\Theta)\).
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Specifying a probability distribution}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Specifying a probability distribution}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 We write \(X \sim F(\Theta)\) to indicate \(X\) has distribution
 function \(F(\Theta)\). This is \textbf{not} read as ``\(X\) is
@@ -1015,7 +1015,7 @@ satisfying three axioms:
 
 \end{definition}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Perspectives}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Perspectives}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 We can interpret \(P(A)\) as representing:
 
@@ -1130,7 +1130,7 @@ these details interesting, take: MA42008 Mathematical Statistics!
 
 \markright{Random variables}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{How do we link sample spaces and events to data?}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{How do we link sample spaces and events to data?}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 We use random variables to link sample spaces and events to data.
 
@@ -1173,13 +1173,13 @@ e.g.,
 
 \end{definition}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Observations vs rvs}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Observations vs rvs}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 \(X\) denotes a rv and \(x\) denotes a particular value of \(X\).
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-important-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{We measure probabilities of events}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{We measure probabilities of events}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 A rv \(X\) by itself is not an event. You would never write \(P(X),\)
 would you!?
@@ -1321,7 +1321,7 @@ continous rv \(X\).
 
 \end{definition}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-important-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Events of probability zero}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Events of probability zero}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 If \(X\) is continuous, then \(P(X = x) = 0\) for every \(x\). That is,
 \[ 
@@ -1360,7 +1360,7 @@ We say \(X\) and \(Y\) are equal in distribution, \(X \equiv Y,\) if
 
 \end{definition}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-important-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Equality in distribution versus equality of rvs}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Equality in distribution versus equality of rvs}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 Note that equality in distribution does not mean that the random
 variables are the same. Rather, probability statements are the same.
@@ -1539,7 +1539,7 @@ Expression & Name\\
 
 \end{table}%
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-note-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Its all Greek \ldots{} when it comes to kurtosis}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Its all Greek \ldots{} when it comes to kurtosis}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 The root of kurtosis comes from the Greek word for ``bulging'' or
 ``convex''. You may see a heavy-tailed or high kurtosis distributions
@@ -1560,7 +1560,7 @@ set before performing formal inference or fitting a statistical model.
 The goal is to identify the important features of the data (and any
 problems) early.
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{In practice, EDA answers questions like:}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{In practice, EDA answers questions like:}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 \begin{itemize}
 \tightlist
@@ -1580,7 +1580,7 @@ problems) early.
 
 \section{A first look in R}\label{a-first-look-in-r}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-note-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Cyclamen Data}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Cyclamen Data}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 The \textbf{Cyclamen Data} contain 150 obs. of six features (sequence
 {[}{]}, petal length {[}mm{]}, petal width {[}mm{]}, aperture diameter
@@ -1632,7 +1632,7 @@ The summary above includes the sample mean of the continuous variables
 (e.g., \texttt{petal.width}) and the counts in each category for factors
 (e.g., \texttt{group}).
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Missingness}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Missingness}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 In R, most functions will silently return \texttt{NA} if you have
 missing values. When computing summaries, decide in advance how you want
@@ -1708,7 +1708,7 @@ highlight spread and potential outliers.
 
 \pandocbounded{\includegraphics[keepaspectratio]{01-eda_files/figure-pdf/cyclamen-boxplot-1.pdf}}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-note-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Outliers are not necessarily errors}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Outliers are not necessarily errors}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 A point that looks like an outlier is not automatically a data
 \emph{error}. It may be a legitimate observation (for example, an
@@ -1789,7 +1789,7 @@ correlations together. If Pearson is small but Spearman/Kendall are
 large (in magnitude), that often suggests a relationship that is
 monotone but not well-approximated by a straight line.
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{A good EDA habit}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{A good EDA habit}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1900,7 +1900,7 @@ variation.
 For cyclamen, we will apply PCA to the three numerical flower
 measurements: petal width, petal length, and aperture diameter.
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Rescaling}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Rescaling}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 PCA is sensitive to the scale of the variables. When variables are
 measured on different scales (or have very different spreads), it is
@@ -2061,7 +2061,7 @@ of the original variables). In \texttt{prcomp}, these are stored in
 A loading with larger magnitude means that the corresponding variable
 contributes more strongly to that principal component.
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{PCA is not a hypothesis test}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{PCA is not a hypothesis test}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 PCA is an exploratory tool to help you describe patterns and identify
 dominant directions of variation. A common outcome is dimension
@@ -2109,13 +2109,298 @@ depend on \(\theta\)).
 
 In what follows, we review several special families of distributions
 that are widely used in probability and statistics. These special
-families of distributions will be indexed by one or more parameters.
+families of distributions will be indexed by one or more parameters and
+include discrete distributions (Bernoulli, Binomial, Poisson, and
+discrete Uniform) as well as continuous distributions (continuous
+Uniform, Normal, Student's \(\mathsf{t}\), \(\chi^2\), and
+\(\mathsf{F}\)).
 
-\section{Uniform distribution}\label{sec-uniform-distribution}
+\section{Bernoulli distribution}\label{sec-bernoulli-distribution}
+
+The Bernoulli distribution describes a single trial with two possible
+outcomes, often coded as \(1\) (success) and \(0\) (failure). It is the
+basic building block behind proportions and binomial counts.
+
+\begin{definition}[Bernoulli
+distribution]\protect\hypertarget{def-bernoulli-dist}{}\label{def-bernoulli-dist}
+
+A discrete rv \(X\) has a Bernoulli distribution with parameter
+\(p \in (0,1)\) if \[
+P(X=x; p) =
+\begin{cases}
+ p, & x=1,\\
+ 1-p, & x=0,\\
+ 0, & \text{otherwise}.
+\end{cases}
+\] Equivalently,
+\begin{equation}\phantomsection\label{eq-bernoulli-pmf}{
+P(X=x; p) = p^x(1-p)^{1-x}, \quad x\in\{0,1\}.
+}\end{equation} We write \(X \sim \mathsf{Bernoulli}(p)\).
+
+\end{definition}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Parameter}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
+
+The parameter \(p\) is the probability of success, i.e.~\(p = P(X=1)\).
+
+\end{tcolorbox}
+
+If \(X \sim \mathsf{Bernoulli}(p)\), then it can be shown that
+\begin{equation}\phantomsection\label{eq-bernoulli-mean-var}{
+\mathbf{E}[X] = p
+\qquad \text{and} \qquad
+\mathop{\mathrm{Var}}(X) = p(1-p).
+}\end{equation}
+
+The pmf for two Bernoulli rvs with different values of \(p\) is shown in
+Figure~\ref{fig-bernoulli-pmf}.
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{02-sampling-distributions_files/figure-pdf/fig-bernoulli-pmf-1.pdf}}
+
+}
+
+\caption{\label{fig-bernoulli-pmf}The pmf of a Bernoulli rv for two
+values of the success probability \(p\).}
+
+\end{figure}%
+
+\begin{example}[]\protect\hypertarget{exm-bernoulli}{}\label{exm-bernoulli}
+
+Suppose that a component passes a quality check with probability
+\(p = 0.95\). Let \(X=1\) if the component passes and \(X=0\) otherwise.
+Then \(X \sim \mathsf{Bernoulli}(0.95)\), and the probability that the
+component fails is \[
+P(X=0) = 1 - p = 0.05.
+\]
+
+\end{example}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Indicator variables}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
+
+A Bernoulli rv is often used as an \textbf{indicator}: it takes value
+\(1\) when a property holds, and \(0\) when it does not. This is exactly
+the setup used for estimating proportions in
+Section~\ref{sec-estimating-proportions}.
+
+\end{tcolorbox}
+
+\section{Binomial distribution}\label{sec-binomial-distribution}
+
+The binomial distribution describes the number of successes in \(k\)
+independent Bernoulli trials, each having the same success probability
+\(p\).
+
+\begin{definition}[Binomial
+distribution]\protect\hypertarget{def-binomial-dist}{}\label{def-binomial-dist}
+
+Let \(X\) denote the number of successes in \(k\) independent trials,
+where each trial is a \(\mathsf{Bernoulli}(p)\) rv. Then \(X\) has a
+binomial distribution with parameters \(k \in \mathbf{N}_{>}\) and
+\(p \in (0,1)\) if
+\begin{equation}\phantomsection\label{eq-binomial-pmf}{
+P(X=x; k,p) = \binom{k}{x} p^x (1-p)^{k-x}, \quad x = 0,1,\dots,k.
+}\end{equation} We write \(X \sim \mathsf{Binomial}(k,p)\).
+
+\end{definition}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Parameters}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
+
+The binomial distribution has \textbf{two parameters}: the number of
+trials \(k\) and the success probability \(p\).
+
+\end{tcolorbox}
+
+If \(X \sim \mathsf{Binomial}(k,p)\), then
+\begin{equation}\phantomsection\label{eq-binomial-mean-var}{
+\mathbf{E}[X] = kp
+\qquad \text{and} \qquad
+\mathop{\mathrm{Var}}(X) = kp(1-p).
+}\end{equation}
+
+The pmf for \(\mathsf{Binomial}(10,p)\) for several values of \(p\) is
+shown in Figure~\ref{fig-binomial-pmf}.
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{02-sampling-distributions_files/figure-pdf/fig-binomial-pmf-1.pdf}}
+
+}
+
+\caption{\label{fig-binomial-pmf}The pmf of
+\(X \sim \mathsf{Binomial}(10,p)\) for several values of \(p\).}
+
+\end{figure}%
+
+\begin{example}[]\protect\hypertarget{exm-binomial}{}\label{exm-binomial}
+
+A student answers \(k=10\) multiple-choice questions by guessing. Each
+question has probability \(p=0.25\) of being correct. If \(X\) is the
+number of correct answers, then \[
+X \sim \mathsf{Binomial}(10, 0.25).
+\] The probability of getting exactly \(3\) correct answers is \[
+P(X=3) = \binom{10}{3}(0.25)^3(0.75)^7.
+\] This can be computed in \texttt{R} as
+\texttt{dbinom(3,\ size\ =\ 10,\ prob\ =\ 0.25)}.
+
+\end{example}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Binomial counts are sums of Bernoulli trials}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
+
+If \(X_1,\dots,X_k \sim \mathsf{Bernoulli}(p)\) are independent, then \[
+X = \sum_{i=1}^k X_i \sim \mathsf{Binomial}(k,p).
+\] This is why binomial distributions appear naturally when counting the
+number of times an event occurs in repeated trials.
+
+\end{tcolorbox}
+
+\section{Poisson distribution}\label{sec-poisson-distribution}
+
+The Poisson distribution is widely used to model the number of events in
+a fixed unit of exposure (often time or space), such as the number of
+arrivals at a desk per hour or the number of faults detected per
+kilometre.
+
+\begin{definition}[Poisson
+distribution]\protect\hypertarget{def-poisson-dist}{}\label{def-poisson-dist}
+
+A discrete rv \(X\) has a Poisson distribution with parameter
+\(\lambda > 0\) if
+\begin{equation}\phantomsection\label{eq-poisson-pmf}{
+P(X=x; \lambda) = \frac{e^{-\lambda}\lambda^x}{x!}, \quad x = 0,1,2,\dots
+}\end{equation} We write \(X \sim \mathsf{Poisson}(\lambda)\).
+
+\end{definition}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Parameter}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
+
+The parameter \(\lambda\) is the mean number of events in the unit of
+exposure (e.g.~``per hour'').
+
+\end{tcolorbox}
+
+If \(X \sim \mathsf{Poisson}(\lambda)\), then
+\begin{equation}\phantomsection\label{eq-poisson-mean-var}{
+\mathbf{E}[X] = \lambda
+\qquad \text{and} \qquad
+\mathop{\mathrm{Var}}(X) = \lambda.
+}\end{equation}
+
+That is, the Poisson distribution has the distinctive property that the
+\textbf{mean equals the variance}. The pmf for several values of
+\(\lambda\) is shown in Figure~\ref{fig-poisson-pmf}.
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{02-sampling-distributions_files/figure-pdf/fig-poisson-pmf-1.pdf}}
+
+}
+
+\caption{\label{fig-poisson-pmf}The pmf of a Poisson rv for several
+values of the rate parameter \(\lambda\).}
+
+\end{figure}%
+
+\begin{example}[]\protect\hypertarget{exm-poisson}{}\label{exm-poisson}
+
+Suppose the number of emails you receive in an hour is modelled as
+\(X \sim \mathsf{Poisson}(\lambda)\) with \(\lambda = 2.5.\) The
+probability of receiving no emails in the next hour is \[
+P(X=0) = e^{-2.5}\frac{2.5^0}{0!} = e^{-2.5}.
+\] In \texttt{R}, this is \texttt{dpois(0,\ lambda\ =\ 2.5)}.
+
+\end{example}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{When does Poisson modelling make sense?}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
+
+Poisson models are commonly used when (i) events occur one at a time,
+(ii) they occur ``at random'' throughout the exposure period, and (iii)
+the average event rate is roughly constant over the period being
+observed.
+
+\end{tcolorbox}
+
+\section{Uniform Distribution}\label{sec-uniform-distribution}
 
 The uniform distribution places equal weight on the items being sampled.
+The items can be discrete or be a continuum.
 
-\begin{definition}[Uniform
+\subsection{Discrete uniform
+distribution}\label{sec-discrete-uniform-distribution}
+
+The discrete uniform places equal probability on a \emph{finite} set of
+possible values.
+
+\begin{definition}[Discrete uniform
+distribution]\protect\hypertarget{def-discrete-uniform}{}\label{def-discrete-uniform}
+
+A discrete rv \(X\) has a discrete uniform distribution on the integers
+\(\{a,a+1,\dots,b\}\) with \(a<b\), if
+\begin{equation}\phantomsection\label{eq-discrete-uniform-pmf}{
+P(X=x; a,b) =
+\begin{cases}
+\frac{1}{b-a+1}, & x \in \{a,a+1,\dots,b\},\\[4pt]
+0, & \text{otherwise}.
+\end{cases}
+}\end{equation} We write \(X \sim \mathsf{Unif}\{a,\dots,b\}\).
+
+\end{definition}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Parameters}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
+
+The parameters \(a\) and \(b\) determine the finite support
+\(\{a,a+1,\dots,b\}\).
+
+\end{tcolorbox}
+
+If \(X \sim \mathsf{Unif}\{a,\dots,b\}\), then
+\begin{equation}\phantomsection\label{eq-discrete-uniform-mean-var}{
+\mathbf{E}[X] = \frac{a+b}{2}
+\qquad \text{and} \qquad
+\mathop{\mathrm{Var}}(X) = \frac{(b-a+1)^2 - 1}{12}.
+}\end{equation}
+
+A familiar example is the outcome of a fair six-sided die:
+\(X \sim \mathsf{Unif}\{1,\dots,6\}\). The pmf is shown in
+Figure~\ref{fig-discrete-unif-pmf}.
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{02-sampling-distributions_files/figure-pdf/fig-discrete-unif-pmf-1.pdf}}
+
+}
+
+\caption{\label{fig-discrete-unif-pmf}The pmf of a discrete uniform rv
+on \(\{1,2,3,4,5,6\}\) (a fair die).}
+
+\end{figure}%
+
+\begin{example}[]\protect\hypertarget{exm-discrete-uniform}{}\label{exm-discrete-uniform}
+
+Let \(X\) be the outcome of a fair die roll. Then
+\(X \sim \mathsf{Unif}\{1,\dots,6\}.\) The probability of rolling a
+value at least \(5\) is \[
+P(X \geq 5) = P(X=5) + P(X=6) = \frac{2}{6} = \frac{1}{3}.
+\]
+
+\end{example}
+
+\subsection{Continuous uniform
+distribution}\label{sec-continuous-uniform-distribution}
+
+Compared with the discrete version, the continuous uniform distribution
+places equal weight across an interval.
+
+\begin{definition}[(Continuous) Uniform
 distribution]\protect\hypertarget{def-uniform-dist}{}\label{def-uniform-dist}
 
 A continuous rv \(X\) has a uniform distribution on \([a,b]\) with
@@ -2126,7 +2411,7 @@ A continuous rv \(X\) has a uniform distribution on \([a,b]\) with
 
 \end{definition}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Parameters}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Parameters}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 Note that \(a\) and \(b\) are parameters in
 Definition~\ref{def-uniform-dist}.
@@ -2215,7 +2500,7 @@ the cdf of the standard normal by \[\Phi(z) = P(Z \leq z)\] and write
 
 \end{definition}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-important-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Useful facts about normal variates}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Useful facts about normal variates}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2234,7 +2519,7 @@ the cdf of the standard normal by \[\Phi(z) = P(Z \leq z)\] and write
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Variances add}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Variances add}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 In particular, for differences of independent rvs
 \(X_1 \sim \mathsf{N}(\mu_1, \sigma_1^2)\) and
@@ -2330,7 +2615,7 @@ corresponds to the probability \(P(4 \leq X \leq 5.25)\).}
 
 \end{example}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-important-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Empirical rule (\(68-95-99.7\) rule)}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Empirical rule (\(68-95-99.7\) rule)}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 For samples from a normal distribution, the percentage of values that
 lie within one, two, and three standard deviations of the mean are
@@ -2391,7 +2676,7 @@ for several values of \(\nu\) (df).}
 
 \end{figure}%
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-important-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Properties of \(\mathsf{t}\) distributions}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Properties of \(\mathsf{t}\) distributions}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2415,7 +2700,7 @@ If \(X \sim \mathsf{t}(\nu),\) then \(\mathbf{E}[X] = 0\) for
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-note-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Cauchy distribution}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Cauchy distribution}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 A \(\mathsf{t}\) distributions with \(\nu = 1\) has pdf
 \[f(x) = \frac{1}{\pi (1 + x^2)}\,,\] and we call this the Cauchy
@@ -2463,7 +2748,7 @@ for several values of \(\nu\) (df).}
 
 \end{figure}%
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Skew}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Skew}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 Unlike the normal and \(t\) distributions, the \(\chi^2\) distribution
 is not symmetric! This means that critical values, e.g.,
@@ -2481,7 +2766,7 @@ distribution}{\textbackslash mathsf\{F\} distribution}}\label{sec-F-distribution
 
 The \(\mathsf{F}\) distribution (``F'' for Fisher) arises as a test
 statistic when comparing population variances and in the analysis of
-variance (see @sec-anova).
+variance (see Chapter~\ref{sec-anova}).
 
 \begin{definition}[\(\mathsf{F}\)
 distribution]\protect\hypertarget{def-F-dist}{}\label{def-F-dist}
@@ -2516,7 +2801,7 @@ in Figure~\ref{fig-example-F-dist}.
 
 \end{figure}%
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Where do the terms numerator and denominator df come from?}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Where do the terms numerator and denominator df come from?}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 The \(\mathsf{F}\) distribution is related to ratios of \(\chi^2\) rvs,
 as captured in Theorem~\ref{thm-F-dist-chisq}.
@@ -2588,7 +2873,7 @@ guess'' or point estimate for the true value of \(\mu\) based on the
 
 \end{figure}%
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Loading datasets}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Loading datasets}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 The \texttt{datasets} package has a variety of datasets that you can
 play with. Once installed, data sets can be accessed in \texttt{R} by
@@ -2599,7 +2884,7 @@ the console.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-note-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note \ref*{nte-iris}: Iris Data}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note \ref*{nte-iris}: Iris Data}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 \quartocalloutnte{nte-iris} 
 
@@ -2641,7 +2926,7 @@ estimator using sample data.
 
 \end{definition}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Overloaded notation}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Overloaded notation}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 The symbol \(\widehat{\theta}_m\) (or simply \(\widehat{\theta}\) when
 the sample size \(m\) is clear from context) is typically used to denote
@@ -2649,7 +2934,7 @@ both the estimator and the point estimate resulting from a given sample.
 
 \end{tcolorbox}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Best practice for reporting}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Best practice for reporting}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 Writing, e.g., \(\widehat{\theta} = 42\) does not indicate how the point
 estimate was obtained. Therefore, it is essential to report both the
@@ -2678,7 +2963,7 @@ or if the \emph{sample is large} then the sampling distribution for
 size and \(\mu\) and \(\sigma\) are the (typically unknown) population
 parameters.
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-note-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note \ref*{nte-tree}: Cherry Tree Data}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note \ref*{nte-tree}: Cherry Tree Data}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 \quartocalloutnte{nte-tree} 
 
@@ -2780,7 +3065,7 @@ all distributions?
 
 \end{example}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{How do we tell whether a population is normal?}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{How do we tell whether a population is normal?}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 Constructing a normal quantile-quantile plot (or QQ plot) is one way of
 assessing whether a normality assumption is reasonable. A QQ plot
@@ -2852,7 +3137,7 @@ be estimated. The estimated standard error is denoted by
 
 \end{definition}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Alternative notation}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Alternative notation}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 The standard error is sometimes denoted
 \(\mathsf{se}= \mathsf{se}(\widehat{\theta})\) and the estimated
@@ -3003,7 +3288,7 @@ possible conclusions of a hypothesis test are: \emph{reject \(H_0\)} or
 
 \end{definition}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-important-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{``Fail to reject'' versus ``accept''}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{``Fail to reject'' versus ``accept''}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 We comment that \emph{fail to reject \(H_0\)} is sometimes phrased as
 \emph{retain \(H_0\)} or (perhaps less accurately) \emph{accept
@@ -3062,7 +3347,7 @@ of \(H_a.\) If \(P \leq \alpha\) then we reject \(H_0\) at significance
 level \(\alpha.\) If \(P \geq \alpha\) we fail to reject \(H_0\) at
 significance level \(\alpha.\)
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{What a \(P\)-value isn't\ldots{}}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{What a \(P\)-value isn't\ldots{}}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 The \(P\)-value is a probability calculated assuming that \(H_0\) is
 true. However, the \(P\)-value is \textbf{not} the probability that:
@@ -3165,7 +3450,7 @@ errors.
 
 \end{example}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{What if the sample size is close to the population size?}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{What if the sample size is close to the population size?}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 In Example~\ref{exm-htest-alpha}, \(X\) is a binomial random variable
 because it can be modelled as \(m\) independent Bernoulli trials each
@@ -3191,7 +3476,7 @@ McManus visit \url{https://www.mcmanus.co.uk/}.}
 
 \end{figure}%
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-important-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Elements of a statistical test}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Elements of a statistical test}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 A statistical test is based on a null hypothesis (\(H_0\)) and an
 alternative hypothesis (\(H_a\)).
@@ -3373,7 +3658,7 @@ need to quadruple our original sample size to halve the interval.
 
 \end{example}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{You heard it here first\ldots{}}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{You heard it here first\ldots{}}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 As Example~\ref{exm-ci-norm-known-var-find-n} shows, it is expensive to
 reduce uncertainty!
@@ -3457,7 +3742,7 @@ population mean differs from the value \(20000\) at the \(0.05\) level.
 
 \end{example}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Recall}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Recall}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 Note \(\Phi(z) = P(Z \leq z)\) is found by calling \texttt{pnorm(z)} in
 \texttt{R} or by looking up the value in a \(Z\) table.
@@ -3518,7 +3803,7 @@ Equation~\ref{eq-htest-norm-known-var-T}, we follow
 Proposition~\ref{prp-htest-norm-known-var} to determine how to calculate
 the \(P\)-value.
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Rule of thumb}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Rule of thumb}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 For estimating means, we consider a sample size of \(m > 40\) to be
 large.
@@ -3594,12 +3879,12 @@ command.
 # A tibble: 1 x 1
   p_value
     <dbl>
-1   0.033
+1   0.037
 \end{verbatim}
 
-The test yields a \(P\)-value of \(P = 0.033.\) This values is quite
+The test yields a \(P\)-value of \(P = 0.037.\) This values is quite
 small; if \(\mu \leq 3.5\), then the probability of obtaining the sample
-mean value \(\widehat{\mu} = 3.758\) is only 0.033! Thus, the data
+mean value \(\widehat{\mu} = 3.758\) is only 0.037! Thus, the data
 provide sufficient evidence at the 0.05 level against the hypothesis
 that the true mean petal length is at most 3.5 cm.
 
@@ -3799,7 +4084,7 @@ right of the computed statistic \(t.\)}
 
 \end{example}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-important-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Shapiro-Wilk normality test}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Shapiro-Wilk normality test}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 We can assess the normality of the sample by examining the normal
 quantile-quantile plot as in Example~\ref{exm-estimators}. For the data
@@ -3860,7 +4145,10 @@ normality.
 
 \end{tcolorbox}
 
-\section{Estimating proportions}\label{sec-estimating-proportions}
+\section{Estimating proportions and
+rates}\label{sec-estimating-proportions-rates}
+
+\subsection{Estimating proportions}\label{sec-estimating-proportions}
 
 Consider a population of size \(M\) in which each member either
 satisfies a given property or does not (i.e.~a binary classification).
@@ -3887,7 +4175,7 @@ Indeed, this normal approximation works well for moderately large \(m\)
 as long as \(p\) is not too close to zero or one; a rule of thumb is
 that \(mp > 5\) and \(m(1-p) > 5.\)
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Rule of thumb}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Rule of thumb}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 For estimating proportions, a rule of thumb is \(m \leq 0.05 M.\)
 
@@ -3977,6 +4265,209 @@ level is compelling.\footnote{Churchill took ca. \(44\%\) of the vote in
   {[}\url{https://www.wikiwand.com/en/1908_Dundee_by-election}{]}.}
 
 \end{example}
+
+\subsection{Estimating rates}\label{sec-estimating-rates}
+
+In many applications, the quantity of interest is not a proportion, but
+a rate: the average number of events per unit of exposure (often time).
+For example,
+
+\begin{itemize}
+\tightlist
+\item
+  the rate of accidents per month at a road junction,
+\item
+  the rate of customer complaints per day, or
+\item
+  the rate of cases per week in a hospital ward.
+\end{itemize}
+
+A standard model for event counts is the Poisson distribution. Suppose
+that we observe events over an exposure period of length \(t\)
+(e.g.~\(t\) days), and let \(X\) be the total number of observed events.
+We model \[
+X \sim \mathsf{Poisson}(\lambda t),
+\] where \(\lambda > 0\) is the event rate per unit exposure.
+
+A natural estimator for the rate is
+\begin{equation}\phantomsection\label{eq-rate-estimator}{
+\widehat{\lambda} = \frac{X}{t}\,.
+}\end{equation}
+
+Since \(\mathbf{E}[X] = \lambda t\) and
+\(\mathop{\mathrm{Var}}[X] = \lambda t\) for a Poisson random variable,
+we obtain \begin{equation}\phantomsection\label{eq-rate-mean-var}{
+\mathbf{E}[\widehat{\lambda}] = \lambda
+\qquad \text{and} \qquad
+\mathop{\mathrm{Var}}[\widehat{\lambda}] = \frac{\lambda}{t}\,.
+}\end{equation}
+
+For sufficiently large expected counts (so that the Poisson distribution
+is not too skewed), the sampling distribution of \(\widehat{\lambda}\)
+is approximately normal, \[
+\widehat{\lambda} \approx \mathsf{N}\!\left(\lambda,\; \frac{\lambda}{t}\right).
+\]
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Rule of thumb}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
+
+A common rule of thumb for normal approximations with Poisson counts is
+that the expected count is ``large enough'', e.g. \[
+\lambda t \gtrsim 10.
+\] In practice, we often check this using the observed count \(X\),
+i.e.~we look for \(X \geq 10\).
+
+\end{tcolorbox}
+
+To form an interval estimate, we replace the unknown \(\lambda\) in the
+variance by the point estimate \(\widehat{\lambda}\), giving the
+estimated standard error \[
+\widehat{\mathsf{se}}(\widehat{\lambda})
+= \sqrt{\frac{\widehat{\lambda}}{t}}\,.
+\]
+
+\begin{proposition}[]\protect\hypertarget{prp-ci-rate}{}\label{prp-ci-rate}
+
+For a large observed count, an approximate \(100(1-\alpha)\%\)
+confidence interval for the Poisson rate \(\lambda\) is
+\begin{equation}\phantomsection\label{eq-ci-rate}{
+\widehat{\lambda} \pm z_{\alpha/2}\sqrt{\frac{\widehat{\lambda}}{t}}\,.
+}\end{equation}
+
+\end{proposition}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Exact intervals for small counts}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
+
+When the observed count \(X\) is small, the normal approximation used in
+Equation~\ref{eq-ci-rate} can be unreliable. In that case, an exact
+confidence interval for the Poisson rate \(\lambda\) can be constructed
+using \(\chi^2\) critical values (via the exact sampling distribution of
+the Poisson count).
+
+\end{tcolorbox}
+
+We can also test hypotheses about a rate. Under the null hypothesis
+\(H_0:\lambda=\lambda_0\), the expected count is \(\lambda_0 t\) and the
+standard deviation of \(X\) is \(\sqrt{\lambda_0 t}\). Thus a natural
+large-sample test statistic is
+\begin{equation}\phantomsection\label{eq-htest-rate-z}{
+Z = \frac{X - \lambda_0 t}{\sqrt{\lambda_0 t}} \approx \mathsf{N}(0,1)\,.
+}\end{equation}
+
+\begin{proposition}[]\protect\hypertarget{prp-htest-rate}{}\label{prp-htest-rate}
+
+Assume \(X \sim \mathsf{Poisson}(\lambda t)\) and that
+\(\lambda_0 t \ge 10.\)
+
+Consider \(H_0 : \lambda = \lambda_0.\) The test statistic is \[
+ Z = \frac{X - \lambda_0 t}{\sqrt{\lambda_0 t}} \,.
+\]
+
+For a hypothesis test at level \(\alpha\), we use the following
+procedure:
+
+If \(H_a : \lambda > \lambda_0\), then \(P\)-value is the area under
+\(\mathsf{N}(0,1)\) to the right of \(z.\)
+
+If \(H_a : \lambda < \lambda_0\), then \(P\)-value is the area under
+\(\mathsf{N}(0,1)\) to the left of \(z.\)
+
+If \(H_a : \lambda \neq \lambda_0\), then \(P\)-value is twice the area
+under \(\mathsf{N}(0,1)\) to the right of \(|z|.\)
+
+\end{proposition}
+
+\begin{example}[]\protect\hypertarget{exm-estimating-rate}{}\label{exm-estimating-rate}
+
+Suppose a hospital ward records \(X=27\) asthma admissions over \(t=18\)
+weeks. Estimate the weekly admission rate \(\lambda\) and construct a
+\(95\%\) confidence interval. Then test (at level \(0.05\)) whether the
+data provide evidence that the rate exceeds \(\lambda_0=1\) admission
+per week.
+
+First, the point estimate is \[
+\widehat{\lambda} = \frac{X}{t} = \frac{27}{18} = 1.5 \quad \text{admissions per week.}
+\]
+
+Using Proposition~\ref{prp-ci-rate} with \(\alpha=0.05\) and
+\(z_{0.025}=1.96\), the estimated standard error is \[
+\widehat{\mathsf{se}}(\widehat{\lambda}) = \sqrt{\frac{\widehat{\lambda}}{t}}
+= \sqrt{\frac{1.5}{18}}
+= 0.289,
+\] so the \(95\%\) CI is \[
+1.5 \pm 1.96(0.289)
+= (0.93,\; 2.07).
+\] We interpret this as: a plausible range for the true weekly admission
+rate is between about \(0.93\) and \(2.07\) admissions per week.
+
+Now test \(H_0:\lambda=1\) against \(H_a:\lambda>1.\) Under \(H_0\), the
+expected count over \(t=18\) weeks is \(\lambda_0 t = 18,\) and the
+\(z\) statistic from Equation~\ref{eq-htest-rate-z} is \[
+z = \frac{27-18}{\sqrt{18}} = 2.12.
+\] The \(P\)-value is the upper-tail area
+\(P = 1-\Phi(2.12) \approx 0.017.\) Since \(P<0.05\), we reject \(H_0\)
+at the \(0.05\) level. The data provide evidence that the admission rate
+exceeds \(1\) admission per week.
+
+\end{example}
+
+The calculations above can be reproduced using the following \texttt{R}
+code.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{27}
+\NormalTok{t }\OtherTok{\textless{}{-}} \DecValTok{18}
+
+\NormalTok{lambda\_hat }\OtherTok{\textless{}{-}}\NormalTok{ x }\SpecialCharTok{/}\NormalTok{ t}
+\NormalTok{se\_hat }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(lambda\_hat }\SpecialCharTok{/}\NormalTok{ t)}
+
+\NormalTok{alpha }\OtherTok{\textless{}{-}} \FloatTok{0.05}
+\NormalTok{zcrit }\OtherTok{\textless{}{-}} \FunctionTok{qnorm}\NormalTok{(}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ alpha}\SpecialCharTok{/}\DecValTok{2}\NormalTok{)}
+
+\NormalTok{ci }\OtherTok{\textless{}{-}}\NormalTok{ lambda\_hat }\SpecialCharTok{+} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ zcrit }\SpecialCharTok{*}\NormalTok{ se\_hat}
+\NormalTok{lambda\_hat}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 1.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ci}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0.9342071 2.0657929
+\end{verbatim}
+
+For the one-sided test of \(H_0:\lambda=1\) versus \(H_a:\lambda>1\):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lambda0 }\OtherTok{\textless{}{-}} \DecValTok{1}
+\NormalTok{z }\OtherTok{\textless{}{-}}\NormalTok{ (x }\SpecialCharTok{{-}}\NormalTok{ lambda0 }\SpecialCharTok{*}\NormalTok{ t) }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(lambda0 }\SpecialCharTok{*}\NormalTok{ t)}
+\NormalTok{p\_val }\OtherTok{\textless{}{-}} \DecValTok{1} \SpecialCharTok{{-}} \FunctionTok{pnorm}\NormalTok{(z)}
+
+\NormalTok{z}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2.12132
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p\_val}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0.01694743
+\end{verbatim}
 
 \section{Estimating variances}\label{sec-estimating-variances}
 
@@ -4088,7 +4579,7 @@ Table~\ref{tbl-cherry-data-vol}.
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{04-infer-single-sample_files/figure-pdf/unnamed-chunk-5-1.pdf}}
+\pandocbounded{\includegraphics[keepaspectratio]{04-infer-single-sample_files/figure-pdf/unnamed-chunk-7-1.pdf}}
 
 We plot the \(95\%\) confidence interval for the standard deviation
 based on the computational null distribution obtained using 1000
@@ -4103,7 +4594,7 @@ with the values obtained in Example~\ref{exm-eg-ci-variance}.
 
 \begin{verbatim}
   lower_ci upper_ci
-1 138.0182 446.3745
+1 136.3271 449.4304
 \end{verbatim}
 
 Due to the computational nature, the bootstrapped interval estimate is
@@ -4362,7 +4853,7 @@ consider the pooled estimator of \(\sigma^2,\)
 }\end{equation} The pooled estimator is a weighted average that adjusts
 for differences between the sample sizes \(m\) and \(n.\)
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Why a weighted average?}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Why a weighted average?}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 If \(m \neq n,\) then the estimator with \emph{more} samples will
 contain \emph{more} information about the parameter \(\sigma^2.\) Thus,
@@ -4396,7 +4887,7 @@ Equation~\ref{eq-dist-t-compare-means-normpops-nu}. If you have reasons
 to believe that \(\sigma_X^2 = \sigma_Y^2,\) these pooled \(\mathsf{t}\)
 procedures are appealing because \(\nu\) is very easy to compute.
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Robustness}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Robustness}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 Pooled \(t\) procedures are not robust if the assumption of equal
 variance is violated. Theoretically, you could first carry out a
@@ -4612,7 +5103,7 @@ the same variance; a rule of thumb is that the equality of variances is
 reasonable if the largest \(s_i\) is not much more than two times the
 smallest.
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Alternative lingo}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Alternative lingo}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 In the context of ANOVA, these \(k\) populations are often referred to
 as \emph{treatment} distributions.
@@ -4663,7 +5154,7 @@ value of the test statistic \(F > F_\alpha.\)
 
 \end{proposition}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-note-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note \ref*{nte-salary}: Average Salary Data}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note \ref*{nte-salary}: Average Salary Data}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 \quartocalloutnte{nte-salary} 
 
@@ -4823,7 +5314,7 @@ Then for the function \(\overline{x}_2 - \overline{x}_1,\) \[
 
 \end{example}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Consider the following}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Consider the following}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 How does the result in Example~\ref{exm-anova-ci} compare to the
 \(\mathsf{t}\) method in
@@ -4847,7 +5338,7 @@ between \(X\) and \(Y\) will be explained through a regression function,
  (Y_1, X_1), \dots, (Y_m, X_m) \sim F_{Y,X}\,.
 \]
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Alternative lingo}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Alternative lingo}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 The covariates \(X\) are also called predictor variables, explanatory
 variables, independent variables, and/or features depending on who you
@@ -4928,7 +5419,7 @@ Equation~\ref{eq-ls-intercept} follow by equating the partial
 derivatives of Equation~\ref{eq-rss} to zero. The \(\widehat{\beta}_0\)
 and \(\widehat{\beta}_1\) are the unique solution to this linear system.
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Alternative lingo}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Alternative lingo}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 The \(\mathsf{RSS}\) is sometimes referred to as the error sum of
 squares and abbreviated \(\mathsf{SSE}\) (no, the order is not a typo).
@@ -5058,7 +5549,7 @@ lead to a large cloud of points.}
 
 \end{figure}%
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Why do we lose two degrees of freedom?}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Why do we lose two degrees of freedom?}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 In Theorem~\ref{thm-least-squares-var-estimate}, the number in the
 denominator is the df associated with the \(\mathsf{RSS}\) and \(s^2.\)
@@ -5195,7 +5686,7 @@ when \(x = x^*\) is given by \[
 
 \end{proposition}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Prediction versus confidence intervals}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Prediction versus confidence intervals}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 The prediction interval is different from the confidence interval for
 expected \(Y.\) Note that the length of the \emph{confidence interval}
@@ -5257,7 +5748,7 @@ H_0 : p_1 = p_{10}\,, p_2 = p_{20}\,, \cdots\,, p_k = p_{k0}\,,
 not true, i.e., that at least one \(p_i\) is different from the value
 \(p_{i0}\) claimed under the null \(H_0.\)
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Notation}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Notation}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 Here for \(i=1, \dots, k\) we use the notation \(p_{i0}\) to denote the
 value of \(p_i\) claimed under the null hypothesis.
@@ -5294,7 +5785,7 @@ The test procedure assesses the discrepancy between the value of the
 observed and expected cell counts. This discrepancy, or goodness of fit,
 is measured by the squared deviations divided by the expected count.
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Why divide by expected cell counts?}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Why divide by expected cell counts?}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 The division by the expected cell counts accounts for possible
 differences in the relative magnitude of the observed/expected counts.
@@ -5328,7 +5819,7 @@ If \(m p_{i0} < 5\) for some \(i\) then it may be possible to combine
 the categories such that the new categorizations satisfy the assumptions
 of Proposition~\ref{prp-htest-multinomial}.
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-warning-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{What about partial information?}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-warning-color-frame, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{What about partial information?}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 Things are much more complicated if the category probabilities are not
 entirely specified.
@@ -5400,7 +5891,7 @@ the right of \(v.\)
 
 \end{proposition}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-tip-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Alternative lingo}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Alternative lingo}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 Contingency is just another word for dependency in the context of
 goodness-of-fit tables.
@@ -5430,7 +5921,7 @@ Suppose the quality statistic exceeds the upper or lower control limits.
 In that case, the process is deemed out of control, and the product
 quality is assumed to be negatively impacted.
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-important-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-important-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Default position}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-important-color-frame, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Default position}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 The default position adopted for quality control will be reminiscent of
 hypothesis testing: ``assume that a process is under control unless a
@@ -5451,7 +5942,7 @@ parameters \(\mu\) and \(\sigma^2\). We seek to estimate the mean
 deviations; the process is in control if it remains within three
 standard deviations of a baseline value.
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, breakable, left=2mm, titlerule=0mm, coltitle=black, colframe=quarto-callout-note-color-frame, leftrule=.75mm, toprule=.15mm, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note \ref*{nte-beer}: Beer Production Data}, opacityback=0, bottomrule=.15mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm]
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, colback=white, coltitle=black, opacitybacktitle=0.6, rightrule=.15mm, bottomtitle=1mm, arc=.35mm, breakable, colframe=quarto-callout-note-color-frame, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note \ref*{nte-beer}: Beer Production Data}, titlerule=0mm, toprule=.15mm, left=2mm, bottomrule=.15mm, toptitle=1mm, leftrule=.75mm, opacityback=0]
 
 \quartocalloutnte{nte-beer} 
 
