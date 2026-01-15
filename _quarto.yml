@@ -3,11 +3,11 @@ project:
   output-dir: docs
  
 book: 
-  title: "MA22004 — Statistics II"
+  title: "MA22004/MA52008 — Statistics and Data Analysis"
   author: "Dr Eric Hall"
   # css: "assets/style.css"
   description: |
-     Module documents and lecture notes for MA22004 - Statistics II, 
+     Module documents and lecture notes for MA22004/MA52008 - Statistics and Data Analysis, 
      a second year module about inferential statistics at 
      the University of Dundee.
   site-url: https://dundeemath.github.io/MA22004
@@ -20,7 +20,7 @@ book:
   # sharing: [twitter]
   date: last-modified
   date-format: iso
-  page-footer: "Copyright 2024, Eric Hall (University of Dundee)" 
+  page-footer: "Copyright 2026, Eric Hall (University of Dundee)" 
   page-navigation: true
   search: true
   # collapse-level: 1

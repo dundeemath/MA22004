@@ -2,7 +2,7 @@
 
 # Welcome {-}
 
-Welcome to MA22004 Statistics II at the University of Dundee. 
+Welcome to MA22004/MA52008 Statistics and Data Analysis at the University of Dundee. 
 
 This module covers the basics of statistical inference including point estimation, interval estimation, hypothesis testing, linear regression, and simple goodness-of-fit tests. The appendix contains a list of curated content for you to investigate.
 

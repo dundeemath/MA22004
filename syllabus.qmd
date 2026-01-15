@@ -1,6 +1,6 @@
 {{< include preamble.qmd >}}
 
-# MA22004 Syllabus (AY2025-2026) {-}
+# MA22004/MA52008 Syllabus (AY2025-2026) {-}
 
 ## Module Information {-}
 - Duration: 11 weeks (10 lecutre weeks)
@@ -104,8 +104,8 @@ By the end of the module, students will be able to:
 
 ## Software and Resources
 - R and RStudio (including RMarkdown/Quarto)  
-- Lecture notes: [MA22004 Lecture Notes](https://dundeemath.github.io/MA22004/)  
-- Lab materials: [MA22004 Labs](https://dundeemath.github.io/MA22004labs/)  
+- Lecture notes: [Statistics and Data Analysis Lecture Notes](https://dundeemath.github.io/MA22004/)  
+- Lab materials: [Statistics and Data Analysis Labs](https://dundeemath.github.io/MA22004labs/)  
 - Recommended Texts: see MyDundee Library resources. 
  
 
@@ -114,7 +114,7 @@ By the end of the module, students will be able to:
 
 This appendix provides a structured mapping of which CS1 topics are addressed in which weeks of the module.
 
-| CS1 Section | Topics Covered in MA22004 | Week(s) |
+| CS1 Section | Topics Covered  | Week(s) |
 |-------------|---------------------------|---------|
 | 1.1.1 | Aims of data analysis | 1 |
 | 1.1.2 | Stages of data analysis and suitable tools | 1 |

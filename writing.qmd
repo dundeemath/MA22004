@@ -30,4 +30,4 @@ Structure should be logical and clear. Organise your writing with suitable headi
 Writing should follow the usual rules of good written English, including writing complete sentences and paragraphs that get to the point quickly. Your tone and language should be similar to lecture notes or scientific journal articles. Formal writing does not require unnecessary words, long words or monotonous use of passive voice. I will reward concise and clear communication, so please do not write, “Upon carefully analysing the aforementioned equations, the following mathematical solution was found,” when “The solution is” conveys the same thing. 
 
 ### Formatting {-#w-format}
-Formatting should rely on the *MA22004 Lab Report* template. This is available in the  `MA22004labs` package, and further instructions can be found in Lab 1. 
+Formatting should rely on the *MA22004/MA52008 Lab Report* template. This is available in the  `MA22004labs` package, and further instructions can be found in Lab 1. 
