@@ -1,6 +1,8 @@
 {{< include preamble.qmd >}}
 
-# MA22004/MA52008 Syllabus (AY2025-2026) {-}
+# Syllabus {-}
+
+MA22004/MA52008 Syllabus (AY2025-2026)
 
 ## Module Information {-}
 - Duration: 11 weeks (10 lecutre weeks)

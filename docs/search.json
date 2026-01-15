@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "MA22004/MA52008 — Statistics and Data Analysis",
+    "title": "MA22004 / MA52008 — Statistics and Data Analysis",
     "section": "",
     "text": "Welcome\nWelcome to MA22004/MA52008 Statistics and Data Analysis at the University of Dundee.\nThis module covers the basics of statistical inference including point estimation, interval estimation, hypothesis testing, linear regression, and simple goodness-of-fit tests. The appendix contains a list of curated content for you to investigate.\nThese notes are available at dundeemath.github.io/MA22004/ and also as a PDF (visit the page and click on the PDF icon to download).",
     "crumbs": [
@@ -13,7 +13,7 @@
   {
     "objectID": "index.html#licence",
     "href": "index.html#licence",
-    "title": "MA22004/MA52008 — Statistics and Data Analysis",
+    "title": "MA22004 / MA52008 — Statistics and Data Analysis",
     "section": "Licence",
     "text": "Licence\n\nThis work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.",
     "crumbs": [
@@ -24,100 +24,100 @@
   {
     "objectID": "syllabus.html",
     "href": "syllabus.html",
-    "title": "MA22004/MA52008 Syllabus (AY2025-2026)",
+    "title": "Syllabus",
     "section": "",
-    "text": "Module Information",
+    "text": "Module Information\nMA22004/MA52008 Syllabus (AY2025-2026)",
     "crumbs": [
       "Module Introduction",
-      "MA22004/MA52008 Syllabus (AY2025-2026)"
+      "Syllabus"
     ]
   },
   {
     "objectID": "syllabus.html#module-information",
     "href": "syllabus.html#module-information",
-    "title": "MA22004/MA52008 Syllabus (AY2025-2026)",
+    "title": "Syllabus",
     "section": "",
     "text": "Duration: 11 weeks (10 lecutre weeks)\nContact Hours: 2 lecture hours + 2 tutorial hours per week + 5 hours self-paced labs\nSoftware: R (including RMarkdown/Quarto for reproducibile report writing)",
     "crumbs": [
       "Module Introduction",
-      "MA22004/MA52008 Syllabus (AY2025-2026)"
+      "Syllabus"
     ]
   },
   {
     "objectID": "syllabus.html#aims",
     "href": "syllabus.html#aims",
-    "title": "MA22004/MA52008 Syllabus (AY2025-2026)",
+    "title": "Syllabus",
     "section": "Aims",
     "text": "Aims\nThis module aims to provide students with the skills and knowledge required to analyse data and make statistical inferences using sample data. Students will develop a solid foundation in:\n\nExploratory data analysis\n\nSampling distributions\n\nHypothesis testing\n\nAnalysis of variance\n\nRegression modeling\n\nThroughout the module, students will use R for data visualization, statistical modeling, hypothesis testing, and creating reproducible reports.",
     "crumbs": [
       "Module Introduction",
-      "MA22004/MA52008 Syllabus (AY2025-2026)"
+      "Syllabus"
     ]
   },
   {
     "objectID": "syllabus.html#indicative-content",
     "href": "syllabus.html#indicative-content",
-    "title": "MA22004/MA52008 Syllabus (AY2025-2026)",
+    "title": "Syllabus",
     "section": "Indicative Content",
     "text": "Indicative Content\n\nData Analysis and Exploration\n\nExploratory data analysis (EDA) and visualization using R\n\nData characteristics, summary statistics, and descriptive measures\n\nCorrelation measures: Pearson, Spearman, Kendall\n\nPrincipal Component Analysis (PCA) for dimensionality reduction\n\nReproducible research: RMarkdown/Quarto\n\n\n\nSampling Distributions and Estimation\n\nSample statistics and their distributions\n\nProperties of sampling distributions (mean, variance, shape)\n\nApplications of the Central Limit Theorem (CLT)\n\nRandom sampling methods and bias considerations\n\n\n\nInferences\n\nPoint estimators and their properties\n\nConfidence intervals for:\n\nMeans and variances (Normal and t)\n\nProportions and rates (Binomial and Poisson)\n\nVariances (Chi-square and F)\n\n\nOne and two-sample inference (including paired data and bootstrapping)\n\nHypothesis testing framework:\n\nNull/alternative hypotheses, significance levels\n\nType I & II errors, sensitivity, specificity, likelihood ratio, power of a test\n\n\nGoodness-of-fit tests: One-way and two-way chi-square tests\n\nOne-way analysis of variance (ANOVA)\n\n\n\nLinear Regression Models\n\nResponse and explanatory variables\n\nSimple and multiple linear regression models\n\nLeast squares estimation and interpretation of coefficients\n\nAssessing model adequacy: Residual analysis and diagnostic tests\n\nUse of R to fit a regression model and interpret output\n\n\n\nComputational Tools and Reproducibility\n\nUse of R for:\n\nBootstrapping and permutation tests\n\nt-tests, ANOVA, goodness-of-fit tests\n\nLinear regression analysis\n\n\nReproducible reporting using RMarkdown/Quarto",
     "crumbs": [
       "Module Introduction",
-      "MA22004/MA52008 Syllabus (AY2025-2026)"
+      "Syllabus"
     ]
   },
   {
     "objectID": "syllabus.html#intended-learning-outcomes",
     "href": "syllabus.html#intended-learning-outcomes",
-    "title": "MA22004/MA52008 Syllabus (AY2025-2026)",
+    "title": "Syllabus",
     "section": "Intended Learning Outcomes",
     "text": "Intended Learning Outcomes\nBy the end of the module, students will be able to:\n\nExplain how properties of populations relate to sample data and describe appropriate sampling techniques.\n\nUse R to perform exploratory data analysis, generate summary statistics, and visualize data effectively.\n\nInterpret correlation coefficients and apply Principal Component Analysis (PCA) for high-dimensional data analysis.\n\nConstruct and interpret confidence intervals for means, variances, proportions, and rates in one and two-sample situations.\n\nPerform hypothesis tests, including goodness-of-fit tests, ANOVA, and regression model assessment.\n\nDevelop and assess simple and multiple linear regression models, including diagnostic testing.\n\nEvaluate the reliability of statistical models and interpret the power of a test in an inference setting.\n\nEngage in mathematical and statistical dialogue.\n\nUse R to conduct analyses, test statistical models, and create reproducible research reports.",
     "crumbs": [
       "Module Introduction",
-      "MA22004/MA52008 Syllabus (AY2025-2026)"
+      "Syllabus"
     ]
   },
   {
     "objectID": "syllabus.html#lecture-plan",
     "href": "syllabus.html#lecture-plan",
-    "title": "MA22004/MA52008 Syllabus (AY2025-2026)",
+    "title": "Syllabus",
     "section": "Lecture Plan",
     "text": "Lecture Plan\n\n\n\n\n\n\n\n\nWeek\nTopic\nDemo\n\n\n\n\n1\nOrientation, EDA, Correlation, PCA, Reproducibility\nIcebreaker, R PCA\n\n\n2\nProbability Distributions, Sampling Distributions, CLT\nCandy sampling\n\n\n3\nEstimation, CI, Hypothesis Testing, Errors & Power\nWhy 0.05?\n\n\n4\nOne-Sample Inference (CI & Tests for Means, Proportions, Variances)\nHow much water?\n\n\n5\nTwo-Sample Inference (Unpaired Cases)\nUN & Africa\n\n\n6\nTwo-Sample Inference (Paired vs. Unpaired, Variance Testing)\nTennis ball challenge\n\n\n7\nOne-Way ANOVA, Goodness-of-Fit Tests\nR aov\n\n\n8\nSimple & Multiple Regression, LINE Assumptions\nR lm\n\n\n9\nRegression Inference, Model Diagnostics, Chi-square\nR lm, Chi-square\n\n\n10\nQuality Control, Bias Correction, Final Review\nR 3-sigma control charts",
     "crumbs": [
       "Module Introduction",
-      "MA22004/MA52008 Syllabus (AY2025-2026)"
+      "Syllabus"
     ]
   },
   {
     "objectID": "syllabus.html#assessment-coursework",
     "href": "syllabus.html#assessment-coursework",
-    "title": "MA22004/MA52008 Syllabus (AY2025-2026)",
+    "title": "Syllabus",
     "section": "Assessment & Coursework",
     "text": "Assessment & Coursework",
     "crumbs": [
       "Module Introduction",
-      "MA22004/MA52008 Syllabus (AY2025-2026)"
+      "Syllabus"
     ]
   },
   {
     "objectID": "syllabus.html#software-and-resources",
     "href": "syllabus.html#software-and-resources",
-    "title": "MA22004/MA52008 Syllabus (AY2025-2026)",
+    "title": "Syllabus",
     "section": "Software and Resources",
     "text": "Software and Resources\n\nR and RStudio (including RMarkdown/Quarto)\n\nLecture notes: Statistics and Data Analysis Lecture Notes\n\nLab materials: Statistics and Data Analysis Labs\n\nRecommended Texts: see MyDundee Library resources.",
     "crumbs": [
       "Module Introduction",
-      "MA22004/MA52008 Syllabus (AY2025-2026)"
+      "Syllabus"
     ]
   },
   {
     "objectID": "syllabus.html#appendix-mapping-to-cs1-actuarial-statistics-syllabus",
     "href": "syllabus.html#appendix-mapping-to-cs1-actuarial-statistics-syllabus",
-    "title": "MA22004/MA52008 Syllabus (AY2025-2026)",
+    "title": "Syllabus",
     "section": "Appendix: Mapping to CS1 Actuarial Statistics Syllabus",
     "text": "Appendix: Mapping to CS1 Actuarial Statistics Syllabus\nThis appendix provides a structured mapping of which CS1 topics are addressed in which weeks of the module.\n\n\n\n\n\n\n\n\nCS1 Section\nTopics Covered\nWeek(s)\n\n\n\n\n1.1.1\nAims of data analysis\n1\n\n\n1.1.2\nStages of data analysis and suitable tools\n1\n\n\n1.1.3\nSources of data and their characteristics\n1\n\n\n1.1.4\nReproducible research methods\n1, 10\n\n\n1.2.1\nSummary statistics and exploratory visualizations\n1\n\n\n1.2.2\nCorrelation measures, including Pearson’s, Spearman’s, and Kendall’s coefficients\n1\n\n\n1.2.3\nPrincipal Component Analysis (PCA) for dimensionality reduction\n1\n\n\n2.6.1\nSample statistics and their distributions\n2\n\n\n2.6.2\nProperties of sampling distributions (mean, variance, shape)\n2\n\n\n2.6.3\nApplications of the Central Limit Theorem\n2\n\n\n2.6.4\nRandom sampling methods and bias considerations\n2\n\n\n3.2.1\nPoint estimators and their properties\n3\n\n\n3.2.2\nConfidence intervals for means and variances (Normal and t), proportions and rates (Binomial and Poisson), variances (Chi-square and F)\n3, 4, 5, 6\n\n\n3.2.3\nConfidence intervals based on one and two-sample situations, including paired data and bootstrapping\n3, 4, 5, 6\n\n\n3.3.1\nHypothesis testing framework, including null/alternative hypotheses, significance levels, errors, and power of a test\n3\n\n\n3.3.2\nHypothesis tests for one and two-sample situations\n4, 5, 6\n\n\n3.3.3\nGoodness-of-fit tests, including one-way and two-way chi-square tests\n7, 9\n\n\n4.1.1\nSimple and multiple linear regression models\n8\n\n\n4.1.2\nAssessing model adequacy, including residual analysis and diagnostic tests\n9\n\n\n4.1.3\nUse of R to fit a linear regression model and interpret output\n8, 9",
     "crumbs": [
       "Module Introduction",
-      "MA22004/MA52008 Syllabus (AY2025-2026)"
+      "Syllabus"
     ]
   },
   {
